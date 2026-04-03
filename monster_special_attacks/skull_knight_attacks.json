@@ -1,0 +1,31 @@
+[
+  {
+    "type": "monster_attack",
+    "attack_type": "spell",
+    "id": "space_slash",
+    "cooldown": 10,
+    "spell_data": { "id": "space_slash_spell" },
+    "monster_message": "Рыцарь Скелета разрывает пространство своим мечом!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "mounted_charge",
+    "cooldown": 8,
+    "move_cost": 100,
+    "damage_max_instance": [{ "damage_type": "bash", "amount": 20 }],
+    "range": 3,
+    "hit_dmg_u": "Рыцарь Скелета сносит вас конным наскоком!",
+    "hit_dmg_npc": "Рыцарь Скелета сносит %s конным наскоком!",
+    "miss_msg_u": "Рыцарь Скелета пытается ударить вас, но вы уворачиваетесь!",
+    "miss_msg_npc": "Рыцарь Скелета пытается ударить %s, но они уворачиваются!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "spell",
+    "id": "behelit_consumption_aura",
+    "cooldown": 15,
+    "spell_data": { "id": "behelit_consumption_aura_spell" },
+    "monster_message": "Рыцарь Скелета излучает ауру, ослабляя врагов!"
+  }
+]

@@ -1,0 +1,40 @@
+[
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "leap",
+    "cooldown": 5,
+    "move_cost": 100,
+    "damage_max_instance": [
+      { "damage_type": "bash", "amount": 15 },
+      { "damage_type": "cut", "amount": 10 }
+    ],
+    "hit_dmg_u": "%1$s прыгает на вас, нанося удар по вашей %2$s!",
+    "hit_dmg_npc": "%1$s прыгает на <npcname>, нанося удар!",
+    "miss_msg_u": "%s пытается прыгнуть на вас, но вы уклоняетесь!",
+    "miss_msg_npc": "%s пытается прыгнуть на <npcname>, но они уклоняются!",
+    "no_dmg_msg_u": "%s прыгает на вас, но ваша броня защищает вас.",
+    "no_dmg_msg_npc": "%s прыгает на <npcname>, но их броня защищает их."
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "smash",
+    "cooldown": 10,
+    "move_cost": 200,
+    "damage_max_instance": [
+      { "damage_type": "bash", "amount": 50 }
+    ],
+    "effects": [
+      { "id": "downed", "chance": 50, "duration": [ 1, 2 ] }
+    ],
+    "hit_dmg_u": "%1$s разрушительно ударяет по вашей %2$s, сбивая вас с ног!",
+    "hit_dmg_npc": "%1$s разрушительно ударяет по <npcname>, сбивая их с ног!",
+    "miss_msg_u": "%s пытается ударить вас, но вы уклоняетесь от разрушительного удара!",
+    "miss_msg_npc": "%s пытается ударить <npcname>, но они уклоняются от разрушительного удара!",
+    "no_dmg_msg_u": "%s ударяет по вашей %2$s, но ваша броня выдерживает удар.",
+    "no_dmg_msg_npc": "%s ударяет по <npcname>, но их броня выдерживает удар.",
+    "dodgeable": true,
+    "blockable": true
+  }
+]
