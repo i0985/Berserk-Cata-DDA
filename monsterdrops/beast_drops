@@ -1,0 +1,27 @@
+[
+  {
+    "id": "beast_drops",
+    "type": "item_group",
+    "subtype": "collection",
+    "items": [
+      { "item": "apostle_shard", "prob": 30 },
+      { "item": "tainted_flesh", "prob": 70 }
+    ]
+  },
+  {
+    "id": "tainted_flesh",
+    "type": "COMESTIBLE",
+    "comestible_type": "FOOD",
+    "name": { "str": "Загрязнённая плоть" },
+    "description": "Отвратительный кусок тёмной плоти, слабо пульсирующий. Похоже, опасно для употребления.",
+    "weight": "200 g",
+    "volume": "250 ml",
+    "price": "50 cents",
+    "price_postapoc": "10 cents",
+    "material": ["flesh"],
+    "symbol": "%",
+    "color": "black",
+    "calories": 100,
+    "fun": -10
+  }
+]
