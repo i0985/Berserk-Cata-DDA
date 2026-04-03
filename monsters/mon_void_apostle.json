@@ -1,0 +1,59 @@
+{
+  "type": "MONSTER",
+  "id": "mon_void_apostle",
+  "name": { "str": "Апостол Войд", "str_pl": "Апостолы Войд" },
+  "description": "Таинственный апостол с открытым мозгом, излучающий мрачную силу. Его психические атаки и манипуляции реальностью внушают ужас.",
+  "default_faction": "nether",
+  "bodytype": "humanoid",
+  "species": ["ABERRATION", "NETHER"],
+  "volume": "70000 ml",
+  "weight": "85000 g",
+  "hp": 600,
+  "regenerates": 20,
+  "speed": 150,
+  "material": ["flesh", "bone"],
+  "symbol": "V",
+  "color": "magenta_white",
+  "aggression": 100,
+  "morale": 100,
+  "aggro_character": true,
+  "melee_skill": 8,
+  "melee_dice": 2,
+  "melee_dice_sides": 8,
+  "melee_damage": [{ "damage_type": "cut", "amount": 20 }],
+  "dodge": 8,
+  "vision_day": 40,
+  "vision_night": 40,
+  "harvest": "human",
+  "flags": [
+    "SEES",
+    "HEARS",
+    "WARM",
+    "DESTROYS",
+    "NOGIB"
+  ],
+  "special_attacks": [
+    {
+      "type": "monster_attack",
+      "attack_type": "spell",
+      "id": "psychic_assault",
+      "cooldown": 12,
+      "spell_data": { "id": "void_psychic_assault_spell", "hit_self": true },
+      "monster_message": "Апостол Войд атакует ваш разум!"
+    },
+    {
+      "type": "monster_attack",
+      "attack_type": "melee",
+      "id": "reality_shift",
+      "cooldown": 10,
+      "move_cost": 150,
+      "damage_max_instance": [{ "damage_type": "pure", "amount": 15 }],
+      "range": 2,
+      "hit_dmg_u": "Апостол Войд искажает реальность, раня вас!",
+      "hit_dmg_npc": "Апостол Войд искажает реальность, раня %s!",
+      "miss_msg_u": "Апостол Войд пытается исказить реальность, но вы сопротивляетесь!",
+      "miss_msg_npc": "Апостол Войд пытается исказить реальность, но %s сопротивляется!"
+    }
+  ],
+  "death_drops": "void_apostle_drops"
+}
