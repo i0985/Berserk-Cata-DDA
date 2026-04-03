@@ -1,0 +1,38 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_SPAWN_NETHER",
+    "effect": [
+      {
+        "u_spawn_monster": "mon_void_apostle",
+        "real_count": 3,
+        "min_radius": 5,
+        "max_radius": 15,
+        "outdoor_only": true
+      },
+      {
+        "u_message": "Тьма Нечто окружает вас, и монстры появляются из теней!",
+        "type": "warning",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_SKULL_KNIGHT_ENCOUNTER",
+    "effect": [
+      {
+        "u_spawn_monster": "mon_skull_knight",
+        "real_count": 1,
+        "min_radius": 5,
+        "max_radius": 10,
+        "outdoor_only": true
+      },
+      {
+        "u_message": "Из тени появляется Рыцарь Скелета, его доспехи гремят, а аура пугает!",
+        "type": "warning",
+        "popup": true
+      }
+    ]
+  }
+]
