@@ -1,0 +1,23 @@
+[
+  {
+    "type": "mod_tileset",
+    "compatibility": ["UltimateCataclysm"],
+    "tiles-new": [
+    {
+      "file": "tileset/demons_darkness.png",
+      "sprite_width": 32,
+      "sprite_height": 48,
+      "sprite_offset_x": 0,
+      "sprite_offset_y": -16,
+      "tiles": [
+        { "id": "mon_beast_of_darkness_1", "fg": 0 },
+        { "id": "mon_beast_of_darkness_2", "fg": 1 },
+        { "id": "mon_beast_of_darkness_3", "fg": 2 },
+        { "id": "mon_beast_of_darkness_4", "fg": 3 },
+        { "id": "mon_beast_of_darkness_5", "fg": 4 },
+        { "id": "mon_beast_of_darkness_6", "fg": 5 }
+      ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,173 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BLEED",
+    "recurrence": "1 turn",
+    "condition": {
+      "or": [
+        { "u_has_item": "berserk_helmet" },
+        { "u_has_item": "berserk_chestplate" },
+        { "u_has_item": "berserk_gloves" },
+        { "u_has_item": "berserk_armguards" },
+        { "u_has_item": "berserk_legguards" },
+        { "u_has_item": "berserk_boots" }
+      ]
+    },
+    "effect": [
+      { "u_add_effect": "bleed", "intensity": 1, "duration": "2 turns" }
+    ],
+    "false_effect": [
+      { "u_lose_effect": "bleed" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ZODD_PURSUER",
+    "effect": [
+      {
+        "u_spawn_monster": "mon_nosferatu_zodd",
+        "real_count": 1,
+        "min_radius": 5,
+        "max_radius": 10,
+        "outdoor_only": true
+      },
+      { "u_message": "Тяжёлые шаги приближаются...", "type": "warning", "popup": true }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ARMOR_ACTIVE",
+    "recurrence": "1 turn",
+    "condition": { "u_has_item": "berserk_chestplate" },
+    "effect": [
+      { "u_add_effect": "berserk_armor_active", "intensity": 1, "duration": "2 turns" }
+    ],
+    "false_effect": [
+      { "u_lose_effect": "berserk_armor_active" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BEAST_OF_DARKNESS",
+    "recurrence": "600 turns",
+    "condition": { "u_has_effect": "berserk_armor_active" },
+    "effect": [
+      {
+        "if": { "x_in_y_chance": { "x": 1, "y": 6 } },
+        "then": {
+          "u_spawn_monster": "mon_beast_of_darkness_1",
+          "real_count": 1,
+          "min_radius": 5,
+          "max_radius": 10
+        }
+      },
+      {
+        "if": { "x_in_y_chance": { "x": 1, "y": 5 } },
+        "then": {
+          "u_spawn_monster": "mon_beast_of_darkness_2",
+          "real_count": 1,
+          "min_radius": 5,
+          "max_radius": 10
+        }
+      },
+      {
+        "if": { "x_in_y_chance": { "x": 1, "y": 4 } },
+        "then": {
+          "u_spawn_monster": "mon_beast_of_darkness_3",
+          "real_count": 1,
+          "min_radius": 5,
+          "max_radius": 10
+        }
+      },
+      {
+        "if": { "x_in_y_chance": { "x": 1, "y": 3 } },
+        "then": {
+          "u_spawn_monster": "mon_beast_of_darkness_4",
+          "real_count": 1,
+          "min_radius": 5,
+          "max_radius": 10
+        }
+      },
+      {
+        "if": { "x_in_y_chance": { "x": 1, "y": 2 } },
+        "then": {
+          "u_spawn_monster": "mon_beast_of_darkness_5",
+          "real_count": 1,
+          "min_radius": 5,
+          "max_radius": 10
+        }
+      },
+      {
+        "if": { "x_in_y_chance": { "x": 1, "y": 1 } },
+        "then": {
+          "u_spawn_monster": "mon_beast_of_darkness_6",
+          "real_count": 1,
+          "min_radius": 5,
+          "max_radius": 10
+        }
+      },
+      {
+        "u_message": "Тьма внутри брони оживает и бросается на вас!",
+        "type": "warning"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_GRIFFITH_REBORN",
+    "recurrence": "1 d",
+    "condition": { "u_has_effect": "berserk_armor_active" },
+    "effect": [
+      {
+        "if": { "x_in_y_chance": { "x": 1, "y": 100 } },
+        "then": {
+          "u_spawn_monster": "mon_griffith_reborn",
+          "real_count": 1,
+          "min_radius": 5,
+          "max_radius": 10,
+          "outdoor_only": true
+        }
+      },
+      {
+        "u_message": "Гриффит Возрождённый появляется в сиянии тёмной силы!",
+        "type": "warning",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRIFFITH_CONFRONTATION",
+    "effect": [
+      {
+        "u_spawn_monster": "mon_griffith_reborn",
+        "real_count": 1,
+        "min_radius": 5,
+        "max_radius": 10,
+        "outdoor_only": true
+      },
+      {
+        "u_message": "Перед вами предстаёт Гриффит Возрождённый — его крылья сияют, а взгляд полон холодной решимости. Вторая встреча началась!",
+        "type": "warning",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_TAINTED_FLESH_POISON",
+    "eoc_type": "EVENT",
+    "required_event": "character_consumes_item",
+    "condition": { "compare_string": [ "tainted_flesh", { "context_val": "item" } ] },
+    "effect": [
+      {
+        "u_add_effect": "poison",
+        "duration": "60 turns"
+      },
+      {
+        "u_message": "Яд от плоти Демона Тьмы отравляет вас!",
+        "type": "bad"
+      }
+    ]
+  }
+]

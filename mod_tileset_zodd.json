@@ -1,0 +1,19 @@
+[
+  {
+    "type": "mod_tileset",
+    "compatibility": ["UltimateCataclysm"],
+    "tiles-new": [
+      {
+        "file": "nosferatu_zodd_sword.png",
+        "sprite_width": 32,
+        "sprite_height": 32,
+        "sprite_offset_x": 4,
+        "sprite_offset_y": -7,
+        "tiles": [
+          { "id": "nosferatu_zodd_sword", "fg": 1 },
+          { "id": "overlay_wielded_nosferatu_zodd_sword", "fg": [0, 2], "rotates": true }
+        ]
+      }
+    ]
+  }
+]
