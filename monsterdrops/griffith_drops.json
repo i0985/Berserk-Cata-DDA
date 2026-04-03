@@ -1,0 +1,24 @@
+[
+  {
+    "id": "griffith_drops",
+    "type": "item_group",
+    "subtype": "collection",
+    "items": [
+      { "item": "apostle_shard", "prob": 50 },
+      { "item": "bone_human", "prob": 80 }
+    ]
+  },
+  {
+    "id": "apostle_shard",
+    "type": "GENERIC",
+    "name": { "str": "Осколок Апостола" },
+    "description": "Зубчатый фрагмент, пульсирующий тёмной энергией, оторванный от потустороннего существа.",
+    "weight": "50 g",
+    "volume": "250 ml",
+    "price": "1000 cents",
+    "price_postapoc": "500 cents",
+    "material": ["flesh", "bone"],
+    "symbol": "*",
+    "color": "white"
+  }
+]
