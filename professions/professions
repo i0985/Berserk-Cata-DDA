@@ -1,0 +1,58 @@
+[
+  {
+    "type": "profession",
+    "id": "berserk",
+    "name": "Берсерк",
+    "description": "Ты — громила, выкованная в мясорубке мира, где зомби — лишь повод размять кулаки и огромный меч. Неграмотный, зато с руками, что рубят мертвецов как дрова, ты нацепил проклятую броню, которая пьёт твою кровь быстрее, чем ты успеваешь проливать чужую. Как ты сюда попал? Неясно, но в этом аду сила — твой пропуск в следующий день.",
+    "points": 8,
+    "traits": [
+      "ILLITERATE",
+      "MYOPIC",
+      "TOUGH",
+      "ADRENALINE"
+    ],
+    "skills": [
+      { "level": 0, "name": "speech" },
+      { "level": 0, "name": "firstaid" },
+      { "level": 6, "name": "melee" },
+      { "level": 6, "name": "cutting" },
+      { "level": 5, "name": "bashing" }
+    ],
+    "items": {
+      "both": {
+        "entries": [
+          { "item": "berserk_helmet" },
+          { "item": "berserk_chestplate" },
+          { "item": "berserk_gloves" },
+          { "item": "berserk_armguards" },
+          { "item": "berserk_legguards" },
+          { "item": "berserk_boots" },
+          { "item": "true_guts_sword" }
+        ]
+      }
+    }
+  },
+  {
+    "type": "profession",
+    "id": "berserk_fan",
+    "name": "Фанат Берсерка",
+    "description": "Ты перечитал все тома 'Берсерка', пока зомби ломились в дверь твоей квартиры, и решил: 'Если Гатс смог, то и я смогу!' Сила? Ну, не совсем, зато у тебя есть самодельная копия его меча и стильный худи с банданой — идеально, чтобы притвориться крутым. В этом апокалипсисе ты фанат с МЕЧТОЙ, а не с шансами, когда нибудь и ты станешь свободным.",
+    "points": 4,
+    "skills": [
+      { "level": 2, "name": "cutting" }
+    ],
+    "items": {
+      "both": {
+        "entries": [
+          { "item": "forged_guts_sword" },
+          { "item": "hoodie" },
+          { "item": "bandana" },
+          { "item": "boots" },
+          { "item": "jeans" },
+          { "item": "briefs" },
+          { "item": "socks" }
+        ]
+      }
+    }
+  }
+]
