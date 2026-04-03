@@ -1,0 +1,20 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_VOID_APOSTLE_CONFRONTATION",
+    "effect": [
+      {
+        "u_spawn_monster": "mon_void_apostle",
+        "real_count": 1,
+        "min_radius": 5,
+        "max_radius": 10,
+        "outdoor_only": true
+      },
+      {
+        "u_message": "Из искажённого воздуха возникает Апостол Войд, его мозг пульсирует энергией!",
+        "type": "warning",
+        "popup": true
+      }
+    ]
+  }
+]
