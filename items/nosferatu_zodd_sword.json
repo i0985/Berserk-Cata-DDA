@@ -1,0 +1,22 @@
+[
+  {
+    "type": "GENERIC",
+    "id": "nosferatu_zodd_sword",
+    "symbol": "|",
+    "color": "dark_gray",
+    "name": { "str": "Меч Носферату Зодда", "str_pl": "Мечи Носферату Зодда" },
+    "description": "Колоссальный меч, которым владеет грозный Носферату Зодд. Кован в жестоком стиле, напоминающем кушанское ремесло, этот меч с легкостью разрезает плоть и кости. Только самые могущественные могут владеть им эффективно.",
+    "material": [ "steel" ],
+    "volume": "12 L",
+    "weight": "16000 g",
+    "longest_side": "180 cm",
+    "to_hit": -1,
+    "price": "5000 USD",
+    "price_postapoc": "2000 USD",
+    "flags": [ "STURDY", "SLOW_WIELD", "SHEATH_SWORD" ],
+    "techniques": [ "WBLOCK_2", "WIDE" ],
+    "melee_damage": { "bash": 20, "cut": 60 },
+    "qualities": [ [ "CUT", 1 ] ],
+    "min_strength": 16
+  }
+]

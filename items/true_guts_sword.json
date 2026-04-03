@@ -1,0 +1,20 @@
+{
+  "type": "GENERIC",
+  "id": "true_guts_sword",
+  "symbol": "|",
+  "color": "dark_gray",
+  "name": { "str": "Истинный меч Гатса", "str_pl": "Истинные мечи Гатса" },
+  "description": "Для Гатса этот мощный, массивный меч ощущается как легкий утяжеленный клинок весом около 5 кг. Он создан для разрубания врагов на части, воплощая в себе силу и решимость, сравнимую с легендарными мечами.",
+  "material": ["hc_steel"],
+  "volume": "3185 ml", 
+  "weight": "4600 g", 
+  "longest_side": "180 cm",
+  "to_hit": -2,
+  "price": "12000 USD",
+  "price_postapoc": "6000 USD",
+  "flags": ["STURDY", "SLOW_WIELD", "SHEATH_SWORD", "REACH_ATTACK"],
+  "techniques": ["WBLOCK_2", "WIDE", "BRUTAL"],
+  "melee_damage": { "bash": 40, "cut": 100 },
+  "qualities": [ ["CUT", 2], ["BUTCHER", 3] ],
+  "min_strength": 18
+}

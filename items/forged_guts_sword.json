@@ -1,0 +1,20 @@
+{
+  "type": "GENERIC",
+  "id": "forged_guts_sword",
+  "symbol": "|",
+  "color": "dark_gray",
+  "name": { "str": "Выкованный меч Гатса", "str_pl": "Выкованные мечи Гатса" },
+  "description": "Этот массивный клинок — твоя старательная попытка воссоздать легендарный меч Гатса, о котором ходят слухи среди выживших. Выкованный из закалённой стали, он почти как тот, что разрубал драконов и апостолов в историях... если бы они были правдой. Тяжёлый, грубый и острый, он бьёт далеко и сильно — идеально для зомби или чего похуже.",
+  "material": ["hc_steel"],
+  "volume": "3185 ml",
+  "weight": "27000 g",
+  "longest_side": "180 cm",
+  "to_hit": -2,
+  "price": "12000 USD",
+  "price_postapoc": "6000 USD",
+  "flags": ["STURDY", "SLOW_WIELD", "SHEATH_SWORD", "REACH_ATTACK"],
+  "techniques": ["WBLOCK_2", "WIDE", "BRUTAL"],
+  "melee_damage": { "bash": 40, "cut": 100 },
+  "qualities": [ ["CUT", 2], ["BUTCHER", 3] ],
+  "min_strength": 18
+}
