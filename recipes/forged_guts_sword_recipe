@@ -1,0 +1,34 @@
+[
+  {
+    "result": "forged_guts_sword",
+    "type": "recipe",
+    "activity_level": "EXTRA_EXERCISE",
+    "category": "CC_WEAPON",
+    "subcategory": "CSC_WEAPON_CUTTING",
+    "skill_used": "fabrication",
+    "difficulty": 10,
+    "time": "40 h",
+    "autolearn": true,
+    "proficiencies": [
+      { "proficiency": "prof_metalworking", "time_multiplier": 1.0 },
+      { "proficiency": "prof_blacksmithing", "time_multiplier": 0.8 },
+      { "proficiency": "prof_bladesmith", "time_multiplier": 0.6 }
+    ],
+    "using": [
+      [ "anvil", 1 ],
+      [ "forge", 1 ],
+      [ "tongs", 1 ]
+    ],
+    "tools": [
+      [ [ "anvil", -1 ] ],
+      [ [ "forge", 300 ], [ "oxy_torch", 150 ] ],
+      [ [ "tongs", -1 ] ]
+    ],
+    "components": [
+      [ [ "steel_lump", 25 ] ],
+      [ [ "hc_steel_chunk", 2 ] ],
+      [ [ "pipe", 1 ] ],
+      [ [ "leather", 10 ] ]
+    ]
+  }
+]
