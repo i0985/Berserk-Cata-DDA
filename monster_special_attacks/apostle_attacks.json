@@ -1,0 +1,43 @@
+[
+  {
+    "type": "monster_attack",
+    "attack_type": "spell",
+    "id": "aura_of_despair",
+    "cooldown": 10,
+    "spell_data": { "id": "aura_of_despair_spell" },
+    "monster_message": "Гриффит излучает ауру ужаса, заставляя вас дрожать!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "frenzied_slash",
+    "cooldown": 8,
+    "move_cost": 150,
+    "damage_max_instance": [
+      { "damage_type": "cut", "amount": 25 },
+      { "damage_type": "bash", "amount": 15 }
+    ],
+    "range": 2,
+    "hit_dmg_u": "Зверь Тьмы в ярости разрывает вас когтями и клыками по вашей %2$s!",
+    "hit_dmg_npc": "Зверь Тьмы в ярости разрывает %s когтями и клыками!",
+    "miss_msg_u": "Зверь Тьмы бросается на вас, но вы уклоняетесь!",
+    "miss_msg_npc": "Зверь Тьмы бросается на %s, но они уклоняются!",
+    "no_dmg_msg_u": "Зверь Тьмы разрывает вашу %2$s, но броня выдерживает!",
+    "no_dmg_msg_npc": "Зверь Тьмы разрывает %s, но их броня выдерживает!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "swift_strike",
+    "cooldown": 5,
+    "move_cost": 50,
+    "damage_max_instance": [
+      { "damage_type": "cut", "amount": 30 }
+    ],
+    "range": 5,
+    "hit_dmg_u": "Гриффит молниеносно атакует вас крылом!",
+    "hit_dmg_npc": "Гриффит молниеносно атакует %s крылом!",
+    "miss_msg_u": "Гриффит пытается ударить вас крылом, но вы уклоняетесь!",
+    "miss_msg_npc": "Гриффит пытается ударить %s крылом, но они уклоняются!"
+  }
+]
