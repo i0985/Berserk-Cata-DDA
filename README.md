@@ -14,3 +14,8 @@ ATTENTION, THE TILESET IS MADE ONLY FOR UltiCA
 Test your resilience in a world where strength is your only ally. It was tested on the version dated February 17, 2025. Install and fight!
 ![Скриншот 24-02-2025 224534](https://github.com/user-attachments/assets/7b7c21f2-0840-4420-ac16-df466db48ba9)
 ![Скриншот 27-02-2025 205644](https://github.com/user-attachments/assets/6dde20b9-687e-4a7a-b6eb-dacfe1a03e53)
+
+Disclaimer
+This mod is a fan project based on the manga/anime "Berserk" by Kentaro Miura.
+It is not affiliated with, endorsed, or sponsored by the official copyright holders of Berserk.
+All assets related to Berserk are used for non-commercial, fan-made purposes only.
