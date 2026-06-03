@@ -1,5 +1,7 @@
 {
-  "type": "ARMOR",
+  "type": "ITEM",
+  "subtypes": [ "ARMOR" ],
+  "category": "armor",
   "id": "berserk_helmet",
   "name": { "str": "Шлем Берсерка" },
   "description": "Тяжёлый шлем, пробуждающий ярость ценой крови.",
@@ -7,13 +9,13 @@
   "volume": "1500 ml",
   "price": "3000 USD",
   "price_postapoc": "1500 USD",
-  "material": ["steel", "leather"],
+  "material": [ "steel", "leather" ],
   "symbol": "[",
   "color": "dark_gray",
   "warmth": 10,
   "armor": [
     {
-      "covers": ["head"],
+      "covers": [ "head" ],
       "coverage": 90,
       "encumbrance": 10,
       "material": [
@@ -22,16 +24,6 @@
       ]
     }
   ],
-  "flags": ["STURDY", "WATCH"],
-  "relic_data": {
-    "passive_effects": [
-      {
-        "has": "WORN",
-        "condition": "ALWAYS",
-        "values": [
-          { "value": "STRENGTH", "add": 2 }
-        ]
-      }
-    ]
-  }
+  "flags": [ "STURDY", "WATCH", "OUTER" ],
+  "passive_effects": [ { "id": "ench_berserk_armor_strength" } ]
 }

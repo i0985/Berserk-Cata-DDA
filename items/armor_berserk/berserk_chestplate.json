@@ -1,5 +1,7 @@
 {
-  "type": "ARMOR",
+  "type": "ITEM",
+  "subtypes": [ "ARMOR" ],
+  "category": "armor",
   "id": "berserk_chestplate",
   "name": { "str": "Нагрудник Берсерка" },
   "description": "Массивный нагрудник, усиливающий мощь через боль.",
@@ -7,13 +9,13 @@
   "volume": "10 L",
   "price": "5000 USD",
   "price_postapoc": "2500 USD",
-  "material": ["steel", "leather"],
+  "material": [ "steel", "leather" ],
   "symbol": "[",
   "color": "dark_gray",
   "warmth": 20,
   "armor": [
     {
-      "covers": ["torso"],
+      "covers": [ "torso" ],
       "coverage": 95,
       "encumbrance": 20,
       "material": [
@@ -22,16 +24,6 @@
       ]
     }
   ],
-  "flags": ["STURDY"],
-  "relic_data": {
-    "passive_effects": [
-      {
-        "has": "WORN",
-        "condition": "ALWAYS",
-        "values": [
-          { "value": "STRENGTH", "add": 2 }
-        ]
-      }
-    ]
-  }
+  "flags": [ "STURDY", "OUTER" ],
+  "passive_effects": [ { "id": "ench_berserk_armor_strength" } ]
 }

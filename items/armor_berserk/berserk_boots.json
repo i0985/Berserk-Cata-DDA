@@ -1,5 +1,7 @@
 {
-  "type": "ARMOR",
+  "type": "ITEM",
+  "subtypes": [ "ARMOR" ],
+  "category": "armor",
   "id": "berserk_boots",
   "name": { "str": "Ботинки Берсерка" },
   "description": "Ботинки, топчущие врагов ценой истощения.",
@@ -7,13 +9,13 @@
   "volume": "2 L",
   "price": "2500 USD",
   "price_postapoc": "1200 USD",
-  "material": ["steel", "leather"],
+  "material": [ "steel", "leather" ],
   "symbol": "[",
   "color": "dark_gray",
   "warmth": 15,
   "armor": [
     {
-      "covers": ["foot_l", "foot_r"],
+      "covers": [ "foot_l", "foot_r" ],
       "coverage": 85,
       "encumbrance": 10,
       "material": [
@@ -22,16 +24,6 @@
       ]
     }
   ],
-  "flags": ["STURDY"],
-  "relic_data": {
-    "passive_effects": [
-      {
-        "has": "WORN",
-        "condition": "ALWAYS",
-        "values": [
-          { "value": "STRENGTH", "add": 2 }
-        ]
-      }
-    ]
-  }
+  "flags": [ "STURDY", "OUTER" ],
+  "passive_effects": [ { "id": "ench_berserk_armor_strength" } ]
 }

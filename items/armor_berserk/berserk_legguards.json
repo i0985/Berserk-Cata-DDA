@@ -1,5 +1,7 @@
 {
-  "type": "ARMOR",
+  "type": "ITEM",
+  "subtypes": [ "ARMOR" ],
+  "category": "armor",
   "id": "berserk_legguards",
   "name": { "str": "Поножи Берсерка" },
   "description": "Поножи, дающие стойкость за счёт крови.",
@@ -7,13 +9,13 @@
   "volume": "3 L",
   "price": "3000 USD",
   "price_postapoc": "1500 USD",
-  "material": ["steel", "leather"],
+  "material": [ "steel", "leather" ],
   "symbol": "[",
   "color": "dark_gray",
   "warmth": 20,
   "armor": [
     {
-      "covers": ["leg_l", "leg_r"],
+      "covers": [ "leg_l", "leg_r" ],
       "coverage": 90,
       "encumbrance": 15,
       "material": [
@@ -22,16 +24,6 @@
       ]
     }
   ],
-  "flags": ["STURDY"],
-  "relic_data": {
-    "passive_effects": [
-      {
-        "has": "WORN",
-        "condition": "ALWAYS",
-        "values": [
-          { "value": "STRENGTH", "add": 2 }
-        ]
-      }
-    ]
-  }
+  "flags": [ "STURDY", "OUTER" ],
+  "passive_effects": [ { "id": "ench_berserk_armor_strength" } ]
 }

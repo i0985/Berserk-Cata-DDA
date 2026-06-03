@@ -1,5 +1,7 @@
 {
-  "type": "ARMOR",
+  "type": "ITEM",
+  "subtypes": [ "ARMOR" ],
+  "category": "armor",
   "id": "berserk_gloves",
   "name": { "str": "Перчатки Берсерка" },
   "description": "Перчатки, сжимающие кулаки в неистовой силе.",
@@ -7,13 +9,13 @@
   "volume": "1 L",
   "price": "2000 USD",
   "price_postapoc": "1000 USD",
-  "material": ["steel", "leather"],
+  "material": [ "steel", "leather" ],
   "symbol": "[",
   "color": "dark_gray",
   "warmth": 10,
   "armor": [
     {
-      "covers": ["hand_l", "hand_r"],
+      "covers": [ "hand_l", "hand_r" ],
       "coverage": 85,
       "encumbrance": 8,
       "material": [
@@ -22,16 +24,6 @@
       ]
     }
   ],
-  "flags": ["STURDY"],
-  "relic_data": {
-    "passive_effects": [
-      {
-        "has": "WORN",
-        "condition": "ALWAYS",
-        "values": [
-          { "value": "STRENGTH", "add": 2 }
-        ]
-      }
-    ]
-  }
+  "flags": [ "STURDY", "OUTER" ],
+  "passive_effects": [ { "id": "ench_berserk_armor_strength" } ]
 }
