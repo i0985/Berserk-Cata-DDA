@@ -1,34 +1,42 @@
-# Berserk — ChibiUltica optional tileset
+# Berserk — Extended optional tileset
 
-The main **Berserk** mod ships tile definitions for **UltimateCataclysm (UltiCA)** only. This folder is an **optional patch** for players who use the **ChibiUltica** tileset.
+The main **Berserk** mod ships tile definitions for **UltimateCataclysm (UltiCA)** only. This optional mod adds the same tile IDs for other popular tilesets (same approach as 锈蚀黎明 / Rusty Dawn).
 
-## What it does
+## Supported tilesets
 
-- Copies i0985's original Ultica PNG sprites (baseline art, not yet resized for chibi style).
-- Registers the same tile IDs with `compatibility: ["Chibi_Ultica"]` so equipment and monsters show up instead of being invisible.
+| Internal ID | Common name |
+|-------------|-------------|
+| `Chibi_Ultica` | ChibiUltica |
+| `MshockXottoplus` | MshockXotto+ |
+| `MshockXottoplus12` | MSX++ 12 |
+| `MSXotto+` | MSXotto+ |
+| `MXplus12_for_cosmetics` | MSX++ cosmetics |
+| `MSX++DEAD_PEOPLE` | MSX++ Dead People |
+| `UNDEAD_PEOPLE` | Undead People |
+| `UNDEAD_PEOPLE_BASE` | Undead People (base) |
+| `UNDEAD_PEOPLE_LEGACY` | Undead People (legacy) |
 
-Per author permission: this patch does **not** modify the main mod's UltiCA files.
+Equipment and swords use custom **Ber_Suit** 32×32 art (no per-tileset offset). Monster sprites are still i0985 Ultica baseline copies.
 
 ## Install
 
-1. Install the main mod: copy or symlink `Berserk-Cata-DDA` into your game's `mods/` folder.
-2. Copy **this entire folder** (`optional/chibi_tileset`) into `mods/` as its own mod, for example:
-
-   `mods/Berserk-chibi_tileset/`
-
-   (The folder name can differ; `modinfo.json` must stay inside it.)
-
-3. In the launcher, enable **both** mods:
-   - **Berserk** (main mod)
-   - **Berserk: ChibiUltica tiles (optional)** ← required when using Chibi_Ultica tileset
-4. Select the **Chibi_Ultica** tileset in game options.
-5. For an **existing save**, use Main Menu → Manage Worlds → Modify Mods → add the optional tileset mod, then reload.
+1. Install the main **Berserk** mod.
+2. Copy this folder to `mods/Berserk-chibi_tileset/` (folder name may differ).
+3. Enable **both** mods in the launcher.
+4. Select **Chibi_Ultica**, **MshockXottoplus**, or **Undead People** (or a compatible variant above) in game options.
 
 ## 简体中文
 
-主 mod 的贴图只注册给 **UltiCA**。用 **Chibi_Ultica** 时，必须**额外启用**本可选 mod，否则装备和怪物会没有贴图（不是 PNG 没复制，而是游戏不会加载 UltiCA 专用定义）。
+主 mod 只注册 **UltiCA**。使用 **ChibiUltica / MshockXotto+ / Undead People** 等图块集时，须额外启用本可选 mod，否则装备和怪物会没有贴图。
 
-## Notes
+贴图支持表与锈蚀黎明 `mod_tileset_RD.json` 的 `compatibility` 写法一致：同一张 PNG + 多个图块集 ID。
 
-- Sprites are still Ultica-sized offsets for now; they may look slightly misaligned on chibi bodies until custom chibi art is drawn.
-- A future **MshockXotto+** optional patch may be added separately.
+## Rebuild Ber_Suit PNGs
+
+After editing `Picture/Ber_Suit/*_Eq.png` or `*_Drop.png`, run (from repo):
+
+`python optional/chibi_tileset/_build_ber_suit_eq_sheets.py`
+
+After editing `_tileset_compatibility.json`, run:
+
+`python _apply_tileset_compatibility.py`
