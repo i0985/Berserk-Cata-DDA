@@ -9,7 +9,7 @@
   "volume": "10 L",
   "price": "5000 USD",
   "price_postapoc": "2500 USD",
-  "material": [ "steel", "leather" ],
+  "material": [ "steel", "leather", "cotton" ],
   "symbol": "[",
   "color": "dark_gray",
   "warmth": 20,
@@ -20,10 +20,11 @@
       "encumbrance": 20,
       "material": [
         { "type": "steel", "covered_by_mat": 100, "thickness": 6 },
-        { "type": "leather", "covered_by_mat": 20, "thickness": 1 }
+        { "type": "leather", "covered_by_mat": 100, "thickness": 1.5 },
+        { "type": "cotton", "covered_by_mat": 100, "thickness": 2 }
       ]
     }
   ],
-  "flags": [ "STURDY", "OUTER" ],
+  "flags": [ "STURDY", "OUTER", "PADDED" ],
   "passive_effects": [ { "id": "ench_berserk_armor_strength" } ]
 }

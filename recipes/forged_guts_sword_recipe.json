@@ -15,18 +15,13 @@
       { "proficiency": "prof_bladesmith", "time_multiplier": 0.6 }
     ],
     "using": [
-      [ "anvil", 1 ],
-      [ "forge", 1 ],
-      [ "tongs", 1 ]
+      [ "blacksmithing_standard", 15 ],
+      [ "steel_standard", 25 ],
+      [ "hc_steel_standard", 1 ]
     ],
-    "tools": [
-      [ [ "anvil", -1 ] ],
-      [ [ "forge", 300 ], [ "oxy_torch", 150 ] ],
-      [ [ "tongs", -1 ] ]
-    ],
+    "qualities": [ { "id": "GRIND", "level": 2 } ],
+    "tools": [ [ [ "hotcut_any", 1, "LIST" ] ] ],
     "components": [
-      [ [ "steel_lump", 25 ] ],
-      [ [ "hc_steel_chunk", 2 ] ],
       [ [ "pipe", 1 ] ],
       [ [ "leather", 10 ] ]
     ]
