@@ -1,0 +1,25 @@
+[
+  {
+    "type": "mod_tileset",
+    "compatibility": [
+      "Chibi_Ultica"
+    ],
+    "tiles-new": [
+      {
+        "file": "true_guts_sword.png",
+        "sprite_width": 32,
+        "sprite_height": 32,
+        "tiles": [
+          {
+            "id": "true_guts_sword",
+            "fg": 1
+          },
+          {
+            "id": "overlay_wielded_true_guts_sword",
+            "fg": 0
+          }
+        ]
+      }
+    ]
+  }
+]
