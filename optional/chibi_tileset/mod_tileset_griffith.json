@@ -1,0 +1,31 @@
+[
+  {
+    "type": "mod_tileset",
+    "compatibility": [
+      "Chibi_Ultica",
+      "MshockXottoplus",
+      "MshockXottoplus12",
+      "MSXotto+",
+      "MXplus12_for_cosmetics",
+      "MSX++DEAD_PEOPLE",
+      "UNDEAD_PEOPLE",
+      "UNDEAD_PEOPLE_BASE",
+      "UNDEAD_PEOPLE_LEGACY"
+    ],
+    "tiles-new": [
+      {
+        "file": "tileset/griffith_reborn.png",
+        "sprite_width": 64,
+        "sprite_height": 64,
+        "sprite_offset_x": -20,
+        "sprite_offset_y": -32,
+        "tiles": [
+          {
+            "id": "mon_griffith_reborn",
+            "fg": 0
+          }
+        ]
+      }
+    ]
+  }
+]

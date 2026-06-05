@@ -1,0 +1,31 @@
+[
+  {
+    "type": "mod_tileset",
+    "compatibility": [
+      "Chibi_Ultica",
+      "MshockXottoplus",
+      "MshockXottoplus12",
+      "MSXotto+",
+      "MXplus12_for_cosmetics",
+      "MSX++DEAD_PEOPLE",
+      "UNDEAD_PEOPLE",
+      "UNDEAD_PEOPLE_BASE",
+      "UNDEAD_PEOPLE_LEGACY"
+    ],
+    "tiles-new": [
+      {
+        "file": "tileset/skull_knight.png",
+        "sprite_width": 64,
+        "sprite_height": 96,
+        "sprite_offset_x": -6,
+        "sprite_offset_y": -65,
+        "tiles": [
+          {
+            "id": "mon_skull_knight",
+            "fg": 0
+          }
+        ]
+      }
+    ]
+  }
+]

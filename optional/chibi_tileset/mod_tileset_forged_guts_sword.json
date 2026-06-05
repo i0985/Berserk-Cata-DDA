@@ -1,0 +1,33 @@
+[
+  {
+    "type": "mod_tileset",
+    "compatibility": [
+      "Chibi_Ultica",
+      "MshockXottoplus",
+      "MshockXottoplus12",
+      "MSXotto+",
+      "MXplus12_for_cosmetics",
+      "MSX++DEAD_PEOPLE",
+      "UNDEAD_PEOPLE",
+      "UNDEAD_PEOPLE_BASE",
+      "UNDEAD_PEOPLE_LEGACY"
+    ],
+    "tiles-new": [
+      {
+        "file": "forged_guts_sword.png",
+        "sprite_width": 32,
+        "sprite_height": 32,
+        "tiles": [
+          {
+            "id": "forged_guts_sword",
+            "fg": 1
+          },
+          {
+            "id": "overlay_wielded_forged_guts_sword",
+            "fg": 0
+          }
+        ]
+      }
+    ]
+  }
+]
