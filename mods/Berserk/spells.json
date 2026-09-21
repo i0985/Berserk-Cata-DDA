@@ -2,8 +2,8 @@
   {
     "type": "SPELL",
     "id": "space_slash_spell",
-    "name": "Разрыв пространства",
-    "description": "Магический удар, наносящий урон в радиусе 3 клеток.",
+    "name": "Rend Space",
+    "description": "A magical strike that deals damage within a 3-tile radius.",
     "effect": "attack",
     "min_damage": 20,
     "max_damage": 20,
@@ -19,8 +19,8 @@
   {
     "type": "SPELL",
     "id": "aura_of_despair_spell",
-    "name": "Аура отчаяния",
-    "description": "Холодная аура, оглушающая всех ближайших врагов в радиусе 5 клеток.",
+    "name": "Aura of Despair",
+    "description": "A chilling aura that stuns all nearby enemies within a 5-tile radius.",
     "effect": "attack",
     "effect_str": "stunned",
     "shape": "blast",
@@ -34,8 +34,8 @@
   {
     "type": "SPELL",
     "id": "behelit_consumption_aura_spell",
-    "name": "Аура потребления Бехелитов",
-    "description": "Ослабляет врагов в радиусе 5 клеток, вызывая временное оглушение.",
+    "name": "Aura of Behelit Consumption",
+    "description": "Weakens enemies within a 5-tile radius, briefly stunning them.",
     "effect": "attack",
     "effect_str": "stunned",
     "shape": "blast",
@@ -49,8 +49,8 @@
   {
     "type": "SPELL",
     "id": "void_psychic_assault_spell",
-    "name": "Психическая атака",
-    "description": "Ментальный удар, вызывающий боль и дезориентацию в радиусе 4 клеток.",
+    "name": "Psychic Attack",
+    "description": "A mental assault that causes pain and disorientation within a 4-tile radius.",
     "effect": "attack",
     "min_damage": 15,
     "max_damage": 25,

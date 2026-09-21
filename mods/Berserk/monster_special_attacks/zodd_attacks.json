@@ -9,12 +9,12 @@
       { "damage_type": "bash", "amount": 15 },
       { "damage_type": "cut", "amount": 10 }
     ],
-    "hit_dmg_u": "%1$s прыгает на вас, нанося удар по вашей %2$s!",
-    "hit_dmg_npc": "%1$s прыгает на <npcname>, нанося удар!",
-    "miss_msg_u": "%s пытается прыгнуть на вас, но вы уклоняетесь!",
-    "miss_msg_npc": "%s пытается прыгнуть на <npcname>, но они уклоняются!",
-    "no_dmg_msg_u": "%s прыгает на вас, но ваша броня защищает вас.",
-    "no_dmg_msg_npc": "%s прыгает на <npcname>, но их броня защищает их."
+    "hit_dmg_u": "%1$s leaps at you and strikes your %2$s!",
+    "hit_dmg_npc": "%1$s leaps at <npcname> and strikes!",
+    "miss_msg_u": "%s tries to leap at you, but you dodge!",
+    "miss_msg_npc": "%s tries to leap at <npcname>, but they dodge!",
+    "no_dmg_msg_u": "%s leaps at you, but your armor protects you.",
+    "no_dmg_msg_npc": "%s leaps at <npcname>, but their armor protects them."
   },
   {
     "type": "monster_attack",
@@ -28,12 +28,12 @@
     "effects": [
       { "id": "downed", "chance": 50, "duration": [ 1, 2 ] }
     ],
-    "hit_dmg_u": "%1$s разрушительно ударяет по вашей %2$s, сбивая вас с ног!",
-    "hit_dmg_npc": "%1$s разрушительно ударяет по <npcname>, сбивая их с ног!",
-    "miss_msg_u": "%s пытается ударить вас, но вы уклоняетесь от разрушительного удара!",
-    "miss_msg_npc": "%s пытается ударить <npcname>, но они уклоняются от разрушительного удара!",
-    "no_dmg_msg_u": "%s ударяет по вашей %2$s, но ваша броня выдерживает удар.",
-    "no_dmg_msg_npc": "%s ударяет по <npcname>, но их броня выдерживает удар.",
+    "hit_dmg_u": "%1$s smashes your %2$s with devastating force, knocking you down!",
+    "hit_dmg_npc": "%1$s smashes into <npcname> with devastating force, knocking them down!",
+    "miss_msg_u": "%s tries to smash you, but you evade the devastating blow!",
+    "miss_msg_npc": "%s tries to smash <npcname>, but they evade the devastating blow!",
+    "no_dmg_msg_u": "%s smashes your %2$s, but your armor withstands the impact.",
+    "no_dmg_msg_npc": "%s smashes <npcname>, but their armor withstands the impact.",
     "dodgeable": true,
     "blockable": true
   }

@@ -5,7 +5,7 @@
     "id": "space_slash",
     "cooldown": 10,
     "spell_data": { "id": "space_slash_spell" },
-    "monster_message": "Рыцарь Скелета разрывает пространство своим мечом!"
+    "monster_message": "The Skull Knight rends space with his sword!"
   },
   {
     "type": "monster_attack",
@@ -15,10 +15,10 @@
     "move_cost": 100,
     "damage_max_instance": [{ "damage_type": "bash", "amount": 20 }],
     "range": 3,
-    "hit_dmg_u": "Рыцарь Скелета сносит вас конным наскоком!",
-    "hit_dmg_npc": "Рыцарь Скелета сносит %s конным наскоком!",
-    "miss_msg_u": "Рыцарь Скелета пытается ударить вас, но вы уворачиваетесь!",
-    "miss_msg_npc": "Рыцарь Скелета пытается ударить %s, но они уворачиваются!"
+    "hit_dmg_u": "The Skull Knight runs you down with a mounted charge!",
+    "hit_dmg_npc": "The Skull Knight runs %s down with a mounted charge!",
+    "miss_msg_u": "The Skull Knight tries to strike you, but you dodge!",
+    "miss_msg_npc": "The Skull Knight tries to strike %s, but they dodge!"
   },
   {
     "type": "monster_attack",
@@ -26,6 +26,6 @@
     "id": "behelit_consumption_aura",
     "cooldown": 15,
     "spell_data": { "id": "behelit_consumption_aura_spell" },
-    "monster_message": "Рыцарь Скелета излучает ауру, ослабляя врагов!"
+    "monster_message": "The Skull Knight radiates an aura that weakens his enemies!"
   }
 ]

@@ -5,7 +5,7 @@
     "id": "aura_of_despair",
     "cooldown": 10,
     "spell_data": { "id": "aura_of_despair_spell" },
-    "monster_message": "Гриффит излучает ауру ужаса, заставляя вас дрожать!"
+    "monster_message": "Griffith radiates an aura of terror that makes you tremble!"
   },
   {
     "type": "monster_attack",
@@ -18,12 +18,12 @@
       { "damage_type": "bash", "amount": 15 }
     ],
     "range": 2,
-    "hit_dmg_u": "Зверь Тьмы в ярости разрывает вас когтями и клыками по вашей %2$s!",
-    "hit_dmg_npc": "Зверь Тьмы в ярости разрывает %s когтями и клыками!",
-    "miss_msg_u": "Зверь Тьмы бросается на вас, но вы уклоняетесь!",
-    "miss_msg_npc": "Зверь Тьмы бросается на %s, но они уклоняются!",
-    "no_dmg_msg_u": "Зверь Тьмы разрывает вашу %2$s, но броня выдерживает!",
-    "no_dmg_msg_npc": "Зверь Тьмы разрывает %s, но их броня выдерживает!"
+    "hit_dmg_u": "The Beast of Darkness savagely tears into your %2$s with claws and fangs!",
+    "hit_dmg_npc": "The Beast of Darkness savagely tears into %s with claws and fangs!",
+    "miss_msg_u": "The Beast of Darkness lunges at you, but you dodge!",
+    "miss_msg_npc": "The Beast of Darkness lunges at %s, but they dodge!",
+    "no_dmg_msg_u": "The Beast of Darkness tears at your %2$s, but your armor holds!",
+    "no_dmg_msg_npc": "The Beast of Darkness tears at %s, but their armor holds!"
   },
   {
     "type": "monster_attack",
@@ -35,9 +35,9 @@
       { "damage_type": "cut", "amount": 30 }
     ],
     "range": 5,
-    "hit_dmg_u": "Гриффит молниеносно атакует вас крылом!",
-    "hit_dmg_npc": "Гриффит молниеносно атакует %s крылом!",
-    "miss_msg_u": "Гриффит пытается ударить вас крылом, но вы уклоняетесь!",
-    "miss_msg_npc": "Гриффит пытается ударить %s крылом, но они уклоняются!"
+    "hit_dmg_u": "Griffith strikes you with a lightning-fast wing attack!",
+    "hit_dmg_npc": "Griffith strikes %s with a lightning-fast wing attack!",
+    "miss_msg_u": "Griffith tries to strike you with his wing, but you dodge!",
+    "miss_msg_npc": "Griffith tries to strike %s with his wing, but they dodge!"
   }
 ]

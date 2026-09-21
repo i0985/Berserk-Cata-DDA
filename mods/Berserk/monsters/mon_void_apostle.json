@@ -1,8 +1,8 @@
 {
   "type": "MONSTER",
   "id": "mon_void_apostle",
-  "name": { "str": "Апостол Войд", "str_pl": "Апостолы Войд" },
-  "description": "Таинственный апостол с открытым мозгом, излучающий мрачную силу. Его психические атаки и манипуляции реальностью внушают ужас.",
+  "name": { "str": "Apostle Void", "str_pl": "Apostles Void" },
+  "description": "A mysterious apostle with an exposed brain who radiates a sinister power. His psychic attacks and manipulation of reality inspire terror.",
   "default_faction": "nether",
   "bodytype": "humanoid",
   "species": ["ABERRATION", "NETHER"],
@@ -39,7 +39,7 @@
       "id": "psychic_assault",
       "cooldown": 12,
       "spell_data": { "id": "void_psychic_assault_spell", "hit_self": true },
-      "monster_message": "Апостол Войд атакует ваш разум!"
+      "monster_message": "Apostle Void assaults your mind!"
     },
     {
       "type": "monster_attack",
@@ -49,10 +49,10 @@
       "move_cost": 150,
       "damage_max_instance": [{ "damage_type": "pure", "amount": 15 }],
       "range": 2,
-      "hit_dmg_u": "Апостол Войд искажает реальность, раня вас!",
-      "hit_dmg_npc": "Апостол Войд искажает реальность, раня %s!",
-      "miss_msg_u": "Апостол Войд пытается исказить реальность, но вы сопротивляетесь!",
-      "miss_msg_npc": "Апостол Войд пытается исказить реальность, но %s сопротивляется!"
+      "hit_dmg_u": "Apostle Void warps reality and wounds you!",
+      "hit_dmg_npc": "Apostle Void warps reality and wounds %s!",
+      "miss_msg_u": "Apostle Void tries to warp reality, but you resist!",
+      "miss_msg_npc": "Apostle Void tries to warp reality, but %s resists!"
     }
   ],
   "death_drops": "void_apostle_drops"
