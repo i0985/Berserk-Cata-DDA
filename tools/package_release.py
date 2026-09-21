@@ -55,7 +55,7 @@ def main() -> int:
     archives = [
         ("Berserk.zip", ("Berserk",)),
         ("Berserk_chibi_tileset.zip", ("Berserk_chibi_tileset",)),
-        ("Berserk-CDDA-0.I.zip", PACKAGES),
+        ("Berserk-CDDA-0.I-1.zip", PACKAGES),
     ]
     for filename, package_names in archives:
         path = output / filename
