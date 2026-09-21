@@ -1,21 +1,51 @@
-# Berserk-Cata-DDA
-"Berserk" is a dark mod for Cataclysm: Dark Days Ahead, inspired by the manga by Kantaro Miura. Adds to the game:
-Legendary swords of Gats, 
-Zodd's Sword is
-a cursed Berserker armor with a power bonus due to some debuff
-of two professions — a harsh Berserker warrior and his fan with a copy of the sword,
-as well as a FULL-fledged Nosferatu demon Zodd with powerful attacks. 
-![Скриншот 24-02-2025 012609](https://github.com/user-attachments/assets/325305d5-2e9f-40ac-8efd-7f83c0317c34)
+# Berserk for Cataclysm: Dark Days Ahead
 
-Includes the "Zodd's Pursuer" challenge, where you start in the woods under the threat of being chased by this apostle. Recipes for creating weapons, as well as A UNIQUE TILE SET FOR THE ENTIRE MOD that enhance the atmosphere. 
+Фанатский мод по мотивам манги Кэнтаро Миуры. Добавляет броню Берсерка, мечи Гатса и Зодда, профессии, испытания и противников: Зодда, Гриффита, Рыцаря-Черепа, Апостола Войда и демонов Тьмы.
 
-ATTENTION, THE TILESET IS MADE ONLY FOR UltiCA
+## Поддерживаемая версия
 
-Test your resilience in a world where strength is your only ally. It was tested on the version dated February 17, 2025. Install and fight!
-![Скриншот 24-02-2025 224534](https://github.com/user-attachments/assets/7b7c21f2-0840-4420-ac16-df466db48ba9)
-![Скриншот 27-02-2025 205644](https://github.com/user-attachments/assets/6dde20b9-687e-4a7a-b6eb-dacfe1a03e53)
+Данные мода обновлены и проверены для стабильного релиза CDDA 0.I-1 «Ito-1». После обновления игры проверяйте [таблицу совместимости](docs/COMPATIBILITY.md) и запускайте валидатор.
 
-Disclaimer
-This mod is a fan project based on the manga/anime "Berserk" by Kentaro Miura.
-It is not affiliated with, endorsed, or sponsored by the official copyright holders of Berserk.
-All assets related to Berserk are used for non-commercial, fan-made purposes only.
+## Установка
+
+В репозитории находятся два независимых каталога модов:
+
+- `mods/Berserk` — основной контент и графика для UltiCa (`UltimateCataclysm`);
+- `mods/Berserk_chibi_tileset` — дополнительная графика для ChibiUltica, MSXotto+ и перечисленных в ней совместимых наборов.
+
+Скопируйте нужные каталоги из `mods/` в каталог `mods` установленной игры. Не копируйте весь репозиторий как один мод.
+
+Для UltiCa включите только **Berserk**. Для ChibiUltica или MSXotto+ включите **Berserk** и **Berserk: Extended tileset** в одном мире.
+
+При обновлении сначала удалите старые каталоги `Berserk` и `Berserk_chibi_tileset`, затем скопируйте новые. Это предотвращает загрузку файлов, оставшихся от прежней структуры `optional/chibi_tileset`.
+
+## Проверка
+
+Из корня репозитория:
+
+```bash
+python tools/validate_mod_assets.py
+python tools/package_release.py
+```
+
+Готовые архивы создаются в `dist/`. Проверять в игре следует именно содержимое этих архивов.
+
+## Разработка графики
+
+Общий список совместимых тайлсетов хранится в `tools/tileset/tileset_compatibility.txt`. После его изменения выполните:
+
+```bash
+python tools/tileset/apply_tileset_compatibility.py
+```
+
+Исходные изображения Ber_Suit не входят в репозиторий. Если они доступны отдельно, листы можно пересобрать командой:
+
+```bash
+python tools/tileset/build_ber_suit_eq_sheets.py --source /path/to/Ber_Suit
+```
+
+![Предпросмотр брони](assets/preview/chibi_ber_suit_preview.png)
+
+## Правовой статус
+
+Это некоммерческий фанатский проект. Он не связан с правообладателями Berserk и не одобрен ими.

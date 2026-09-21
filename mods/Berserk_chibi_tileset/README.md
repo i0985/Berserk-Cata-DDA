@@ -21,7 +21,7 @@ Equipment and swords use custom **Ber_Suit** 32×32 art (no per-tileset offset).
 ## Install
 
 1. Install the main **Berserk** mod.
-2. Copy this folder to `mods/Berserk-chibi_tileset/` (folder name may differ).
+2. Copy this folder to `mods/Berserk_chibi_tileset/` (folder name may differ).
 3. Enable **both** mods in the launcher.
 4. Select **Chibi_Ultica**, **MshockXottoplus**, or **Undead People** (or a compatible variant above) in game options.
 
@@ -33,10 +33,11 @@ Equipment and swords use custom **Ber_Suit** 32×32 art (no per-tileset offset).
 
 ## Rebuild Ber_Suit PNGs
 
-After editing `Picture/Ber_Suit/*_Eq.png` or `*_Drop.png`, run (from repo):
+The Ber_Suit source images are maintained separately. After editing the
+`*_Eq.png` or `*_Drop.png` sources, run from the repository root:
 
-`python optional/chibi_tileset/_build_ber_suit_eq_sheets.py`
+`python tools/tileset/build_ber_suit_eq_sheets.py --source /path/to/Ber_Suit`
 
-After editing `_tileset_compatibility.json`, run:
+After editing `tools/tileset/tileset_compatibility.txt`, run:
 
-`python _apply_tileset_compatibility.py`
+`python tools/tileset/apply_tileset_compatibility.py`
