@@ -21,7 +21,7 @@ Equipment and swords use custom **Ber_Suit** 32×32 art (no per-tileset offset).
 ## Install
 
 1. Install the main **Berserk** mod.
-2. Copy this folder to `mods/Berserk_chibi_tileset/` (folder name may differ).
+2. Copy this folder to the **user** `mods/Berserk_chibi_tileset/` directory beside the game executable. CDDA 0.I-1 does not scan translations in `data/mods/`.
 3. Enable **both** mods in the launcher.
 4. Select **Chibi_Ultica**, **MshockXottoplus**, or **Undead People** (or a compatible variant above) in game options.
 

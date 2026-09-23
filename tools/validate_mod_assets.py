@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import gettext
 import json
 import struct
 import sys
@@ -17,6 +18,7 @@ MODS_DIR = ROOT / "mods"
 CONTENT_MOD_ID = "Berserk"
 GRAPHICS_MOD_ID = "Berserk_chibi_tileset"
 BASE_TILESET_IDS = ["UltimateCataclysm"]
+LOCALES = ("ru", "zh_CN")
 
 
 class ValidationError(Exception):
@@ -94,6 +96,30 @@ def validate_modinfo(package: Path, objects_by_file: dict[Path, list[dict[str, A
     if len(entries) != 1 or not isinstance(entries[0].get("id"), str):
         raise ValidationError(f"{modinfo_path.relative_to(ROOT)}: expected exactly one MOD_INFO with an id")
     return entries[0]["id"]
+
+
+def validate_translation_catalogs(package: Path) -> int:
+    """Ensure the release contains usable catalogs for both non-English locales."""
+    mod_id = package.name
+    example = (
+        ("profession_male", "Berserker")
+        if mod_id == CONTENT_MOD_ID
+        else (None, "Berserk: Extended tileset (Chibi / MSX+ / Undead)")
+    )
+    for locale in LOCALES:
+        path = package / "lang" / "mo" / locale / "LC_MESSAGES" / f"{mod_id}.mo"
+        try:
+            with path.open("rb") as catalog_file:
+                catalog = gettext.GNUTranslations(catalog_file)
+        except (OSError, ValueError) as error:
+            raise ValidationError(f"{path.relative_to(ROOT)}: missing or invalid catalog: {error}") from error
+        if catalog.info().get("language") != locale:
+            raise ValidationError(f"{path.relative_to(ROOT)}: expected language {locale!r}")
+        context, source = example
+        translation = catalog.pgettext(context, source) if context else catalog.gettext(source)
+        if translation == source:
+            raise ValidationError(f"{path.relative_to(ROOT)}: missing translation for {source!r}")
+    return len(LOCALES)
 
 
 def validate_tileset(
@@ -216,6 +242,8 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
             f"expected mod IDs {CONTENT_MOD_ID!r} and {GRAPHICS_MOD_ID!r}; found {sorted(packages_by_id)}"
         )
 
+    catalog_count = sum(validate_translation_catalogs(package) for package in packages)
+
     content_package = packages_by_id[CONTENT_MOD_ID]
     known_ids: set[str] = set()
     id_locations: dict[tuple[str, str], list[Path]] = defaultdict(list)
@@ -256,6 +284,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
 
     return {
         "packages": len(packages),
+        "translation_catalogs": catalog_count,
         "json_files": json_count,
         "tileset_definitions": tileset_count,
         "sprite_sheets": sheet_count,
@@ -280,7 +309,7 @@ def main() -> int:
     print(
         "OK: {packages} packages, {json_files} JSON files, "
         "{tileset_definitions} mod_tileset definitions, {sprite_sheets} sprite sheets, "
-        "{tile_ids} tile IDs".format(**counts)
+        "{tile_ids} tile IDs, {translation_catalogs} translation catalogs".format(**counts)
     )
     return 0
 

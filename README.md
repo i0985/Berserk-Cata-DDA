@@ -13,11 +13,26 @@
 - `mods/Berserk` — основной контент и графика для UltiCa (`UltimateCataclysm`);
 - `mods/Berserk_chibi_tileset` — дополнительная графика для ChibiUltica, MSXotto+ и перечисленных в ней совместимых наборов.
 
-Скопируйте нужные каталоги из `mods/` в каталог `mods` установленной игры. Не копируйте весь репозиторий как один мод.
+Copy the chosen folders from this repository's `mods/` into the game's **user**
+`mods/` directory. In a portable Windows build, this is `mods/` beside
+`cataclysm-tiles.exe`. Extract the ZIP **inside that directory**: the final path
+must be `<CDDA>/mods/Berserk/modinfo.json`, with the catalogs under
+`<CDDA>/mods/Berserk/lang/mo/ru/LC_MESSAGES/Berserk.mo` and
+`<CDDA>/mods/Berserk/lang/mo/zh_CN/LC_MESSAGES/Berserk.mo`.
+
+Скопируйте нужные каталоги из `mods/` репозитория в **пользовательский** каталог
+`mods/` игры. В портативной сборке Windows он находится рядом с
+`cataclysm-tiles.exe`. Архив распаковывайте **в эту папку**: должны получиться
+`<CDDA>/mods/Berserk/modinfo.json` и указанные выше файлы перевода.
+
+CDDA 0.I-1 загружает данные модов из `data/mods/`, но переводы сторонних модов
+ищет только в пользовательском `mods/`. Поэтому удалите старые копии Berserk
+из `data/mods/` и перезапустите игру после установки: переводы сканируются при
+запуске. Не копируйте весь репозиторий как один мод.
 
 Для UltiCa включите только **Berserk**. Для ChibiUltica или MSXotto+ включите **Berserk** и **Berserk: Extended tileset** в одном мире.
 
-При обновлении сначала удалите старые каталоги `Berserk` и `Berserk_chibi_tileset`, затем скопируйте новые. Это предотвращает загрузку файлов, оставшихся от прежней структуры `optional/chibi_tileset`.
+При обновлении сначала удалите старые каталоги `Berserk` и `Berserk_chibi_tileset` из обоих каталогов модов, затем скопируйте новые только в пользовательский `mods/`. Это предотвращает загрузку второй копии мода и файлов, оставшихся от прежней структуры `optional/chibi_tileset`. Для UltiCa не включайте дополнительный мод `Berserk_chibi_tileset`.
 
 ## Проверка
 
