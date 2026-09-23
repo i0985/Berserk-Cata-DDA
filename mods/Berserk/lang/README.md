@@ -17,6 +17,9 @@ The compiled catalog is named `Berserk.mo` by convention. CDDA 0.I-1 scans all
 catalog. In a portable Windows build, install the mod beside
 `cataclysm-tiles.exe` as `<CDDA>/mods/Berserk/`. Installing it in
 `<CDDA>/data/mods/Berserk/` loads the JSON but leaves the translations invisible.
+If both locations contain a mod with the same ID, CDDA uses the `data/mods/`
+copy first and ignores the newer mod in the user `mods/` directory. Remove the
+old copy before reinstalling; leave saves and configuration untouched.
 Restart the game after adding or replacing translation catalogs.
 
 ## Updating a translation
