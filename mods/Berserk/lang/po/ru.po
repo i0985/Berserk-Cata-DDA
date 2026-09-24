@@ -37,36 +37,14 @@ msgstr "Берсерк"
 #. ~ Profession description
 #: professions/professions.json
 msgctxt "prof_desc_male"
-msgid ""
-"You are a brute forged in a world-sized meat grinder, where zombies are "
-"little more than an excuse to exercise your fists and enormous sword. "
-"Illiterate but brutally capable, you cut down the dead like firewood. Now "
-"you wear cursed armor that drinks your blood faster than you can spill "
-"anyone else's. How did you get here? It hardly matters—in this hell, "
-"strength is your ticket to another day."
-msgstr ""
-"Ты — громила, выкованная в мясорубке мира, где зомби — лишь повод размять "
-"кулаки и огромный меч. Неграмотный, зато с руками, что рубят мертвецов как "
-"дрова, ты нацепил проклятую броню, которая пьёт твою кровь быстрее, чем ты "
-"успеваешь проливать чужую. Как ты сюда попал? Неясно, но в этом аду сила — "
-"твой пропуск в следующий день."
+msgid "You are a brute forged in a world-sized meat grinder, where zombies are little more than an excuse to exercise your fists and enormous sword. Illiterate but brutally capable, you cut down the dead like firewood. Now you wear cursed armor that steadily takes hold of your mind. How did you get here? It hardly matters—in this hell, strength is your ticket to another day."
+msgstr "Ты — громила, выкованная в мясорубке мира, где зомби — лишь повод размять кулаки и огромный меч. Неграмотный, зато с руками, что рубят мертвецов как дрова, ты нацепил проклятую броню, которая всё сильнее подчиняет твой разум. Как ты сюда попал? Неясно, но в этом аду сила — твой пропуск в следующий день."
 
 #. ~ Profession description
 #: professions/professions.json
 msgctxt "prof_desc_female"
-msgid ""
-"You are a brute forged in a world-sized meat grinder, where zombies are "
-"little more than an excuse to exercise your fists and enormous sword. "
-"Illiterate but brutally capable, you cut down the dead like firewood. Now "
-"you wear cursed armor that drinks your blood faster than you can spill "
-"anyone else's. How did you get here? It hardly matters—in this hell, "
-"strength is your ticket to another day."
-msgstr ""
-"Ты — громила, выкованная в мясорубке мира, где зомби — лишь повод размять "
-"кулаки и огромный меч. Неграмотный, зато с руками, что рубят мертвецов как "
-"дрова, ты нацепил проклятую броню, которая пьёт твою кровь быстрее, чем ты "
-"успеваешь проливать чужую. Как ты сюда попал? Неясно, но в этом аду сила — "
-"твой пропуск в следующий день."
+msgid "You are a brute forged in a world-sized meat grinder, where zombies are little more than an excuse to exercise your fists and enormous sword. Illiterate but brutally capable, you cut down the dead like firewood. Now you wear cursed armor that steadily takes hold of your mind. How did you get here? It hardly matters—in this hell, strength is your ticket to another day."
+msgstr "Ты — громила, выкованная в мясорубке мира, где зомби — лишь повод размять кулаки и огромный меч. Неграмотный, зато с руками, что рубят мертвецов как дрова, ты нацепил проклятую броню, которая всё сильнее подчиняет твой разум. Как ты сюда попал? Неясно, но в этом аду сила — твой пропуск в следующий день."
 
 #. ~ Profession name
 #: professions/professions.json
@@ -193,8 +171,8 @@ msgstr "Шлем Берсерка"
 
 #. ~ Item description
 #: items/armor_berserk/berserk_helmet.json
-msgid "A heavy helmet that awakens fury at the cost of blood."
-msgstr "Тяжёлый шлем, пробуждающий ярость ценой крови."
+msgid "A heavy helmet that awakens fury and weighs on the wearer's mind."
+msgstr "Тяжёлый шлем, пробуждающий ярость и давящий на разум владельца."
 
 #. ~ Item name
 #: items/armor_berserk/berserk_chestplate.json
@@ -233,8 +211,8 @@ msgstr "Поножи Берсерка"
 
 #. ~ Item description
 #: items/armor_berserk/berserk_legguards.json
-msgid "Legguards that grant endurance at the cost of blood."
-msgstr "Поножи, дающие стойкость за счёт крови."
+msgid "Legguards that grant endurance as the armor's curse takes hold."
+msgstr "Поножи, придающие выносливость по мере того, как проклятие брони берёт верх."
 
 #. ~ Item name
 #: items/armor_berserk/berserk_boots.json
@@ -858,3 +836,55 @@ msgstr "Апостол Войд пытается исказить реально
 #: monsters/mon_void_apostle.json
 msgid "Apostle Void tries to warp reality, but %s resists!"
 msgstr "Апостол Войд пытается исказить реальность, но %s сопротивляется!"
+
+#: effects/curse_effects.json
+msgid "Berserker curse: quiet"
+msgstr "Проклятие брони Берсерка: затишье"
+
+#: effects/curse_effects.json
+msgid "The armor's influence is still faint.  Remove all pieces to let it fade; resting without the armor speeds recovery."
+msgstr "Влияние брони пока слабо. Снимите все её части, чтобы оно ослабло; отдых без брони ускоряет восстановление."
+
+#: effects/curse_effects.json
+msgid "Berserker curse: whispers"
+msgstr "Проклятие брони Берсерка: шёпот"
+
+#: effects/curse_effects.json
+msgid "The armor's whispers grow louder.  Remove all pieces to recover; resting without the armor is faster."
+msgstr "Шёпот брони усиливается. Снимите все её части, чтобы восстановиться; отдых без брони поможет быстрее."
+
+#: effects/curse_effects.json
+msgid "Berserker curse: visions"
+msgstr "Проклятие брони Берсерка: видения"
+
+#: effects/curse_effects.json
+msgid "Unsettling visions distract you.  Perception -1.  Remove all pieces to recover; resting without the armor is faster."
+msgstr "Тревожные видения отвлекают вас. Восприятие −1. Снимите все части брони, чтобы восстановиться; отдых без брони поможет быстрее."
+
+#: effects/curse_effects.json
+msgid "Berserker curse: breaking point"
+msgstr "Проклятие брони Берсерка: грань срыва"
+
+#: effects/curse_effects.json
+msgid "The armor's influence overwhelms your senses.  Perception -2.  Remove all pieces to recover; resting without the armor is faster."
+msgstr "Влияние брони подавляет ваши чувства. Восприятие −2. Снимите все части брони, чтобы восстановиться; отдых без брони поможет быстрее."
+
+#: effects/curse_eocs.json
+msgid "The armor's influence finally fades."
+msgstr "Влияние брони наконец отступает."
+
+#: effects/curse_eocs.json
+msgid "The armor begins to weigh on your mind.  Remove it to recover."
+msgstr "Броня начинает давить на ваш разум. Снимите её, чтобы восстановиться."
+
+#: effects/curse_eocs.json
+msgid "The armor whispers to you.  Remove it to recover."
+msgstr "Броня шепчет вам. Снимите её, чтобы восстановиться."
+
+#: effects/curse_eocs.json
+msgid "Disturbing visions cloud your thoughts.  Remove the armor to recover."
+msgstr "Тревожные видения затуманивают мысли. Снимите броню, чтобы восстановиться."
+
+#: effects/curse_eocs.json
+msgid "The armor nearly overwhelms your mind!  Remove it to recover."
+msgstr "Броня почти подчинила ваш разум! Снимите её, чтобы восстановиться."

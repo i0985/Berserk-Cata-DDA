@@ -34,25 +34,13 @@ msgstr ""
 #. ~ Profession description
 #: professions/professions.json
 msgctxt "prof_desc_male"
-msgid ""
-"You are a brute forged in a world-sized meat grinder, where zombies are "
-"little more than an excuse to exercise your fists and enormous sword. "
-"Illiterate but brutally capable, you cut down the dead like firewood. Now "
-"you wear cursed armor that drinks your blood faster than you can spill "
-"anyone else's. How did you get here? It hardly matters—in this hell, "
-"strength is your ticket to another day."
+msgid "You are a brute forged in a world-sized meat grinder, where zombies are little more than an excuse to exercise your fists and enormous sword. Illiterate but brutally capable, you cut down the dead like firewood. Now you wear cursed armor that steadily takes hold of your mind. How did you get here? It hardly matters—in this hell, strength is your ticket to another day."
 msgstr ""
 
 #. ~ Profession description
 #: professions/professions.json
 msgctxt "prof_desc_female"
-msgid ""
-"You are a brute forged in a world-sized meat grinder, where zombies are "
-"little more than an excuse to exercise your fists and enormous sword. "
-"Illiterate but brutally capable, you cut down the dead like firewood. Now "
-"you wear cursed armor that drinks your blood faster than you can spill "
-"anyone else's. How did you get here? It hardly matters—in this hell, "
-"strength is your ticket to another day."
+msgid "You are a brute forged in a world-sized meat grinder, where zombies are little more than an excuse to exercise your fists and enormous sword. Illiterate but brutally capable, you cut down the dead like firewood. Now you wear cursed armor that steadily takes hold of your mind. How did you get here? It hardly matters—in this hell, strength is your ticket to another day."
 msgstr ""
 
 #. ~ Profession name
@@ -152,7 +140,7 @@ msgstr ""
 
 #. ~ Item description
 #: items/armor_berserk/berserk_helmet.json
-msgid "A heavy helmet that awakens fury at the cost of blood."
+msgid "A heavy helmet that awakens fury and weighs on the wearer's mind."
 msgstr ""
 
 #. ~ Item name
@@ -192,7 +180,7 @@ msgstr ""
 
 #. ~ Item description
 #: items/armor_berserk/berserk_legguards.json
-msgid "Legguards that grant endurance at the cost of blood."
+msgid "Legguards that grant endurance as the armor's curse takes hold."
 msgstr ""
 
 #. ~ Item name
@@ -735,4 +723,56 @@ msgstr ""
 #. Monster attack message
 #: monsters/mon_void_apostle.json
 msgid "Apostle Void tries to warp reality, but %s resists!"
+msgstr ""
+
+#: effects/curse_effects.json
+msgid "Berserker curse: quiet"
+msgstr ""
+
+#: effects/curse_effects.json
+msgid "The armor's influence is still faint.  Remove all pieces to let it fade; resting without the armor speeds recovery."
+msgstr ""
+
+#: effects/curse_effects.json
+msgid "Berserker curse: whispers"
+msgstr ""
+
+#: effects/curse_effects.json
+msgid "The armor's whispers grow louder.  Remove all pieces to recover; resting without the armor is faster."
+msgstr ""
+
+#: effects/curse_effects.json
+msgid "Berserker curse: visions"
+msgstr ""
+
+#: effects/curse_effects.json
+msgid "Unsettling visions distract you.  Perception -1.  Remove all pieces to recover; resting without the armor is faster."
+msgstr ""
+
+#: effects/curse_effects.json
+msgid "Berserker curse: breaking point"
+msgstr ""
+
+#: effects/curse_effects.json
+msgid "The armor's influence overwhelms your senses.  Perception -2.  Remove all pieces to recover; resting without the armor is faster."
+msgstr ""
+
+#: effects/curse_eocs.json
+msgid "The armor's influence finally fades."
+msgstr ""
+
+#: effects/curse_eocs.json
+msgid "The armor begins to weigh on your mind.  Remove it to recover."
+msgstr ""
+
+#: effects/curse_eocs.json
+msgid "The armor whispers to you.  Remove it to recover."
+msgstr ""
+
+#: effects/curse_eocs.json
+msgid "Disturbing visions cloud your thoughts.  Remove the armor to recover."
+msgstr ""
+
+#: effects/curse_eocs.json
+msgid "The armor nearly overwhelms your mind!  Remove it to recover."
 msgstr ""

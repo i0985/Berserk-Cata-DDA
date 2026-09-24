@@ -1,0 +1,211 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_CURSE_TENSION",
+    "//": "Test pacing: +10 per minute in armor; -5 awake or -10 asleep without all armor pieces. Rebalance after the game test.",
+    "global": true,
+    "recurrence": "1 minute",
+    "effect": [
+      {
+        "if": {
+          "or": [
+            {
+              "u_is_wearing": "berserk_helmet"
+            },
+            {
+              "u_is_wearing": "berserk_chestplate"
+            },
+            {
+              "u_is_wearing": "berserk_gloves"
+            },
+            {
+              "u_is_wearing": "berserk_armguards"
+            },
+            {
+              "u_is_wearing": "berserk_legguards"
+            },
+            {
+              "u_is_wearing": "berserk_boots"
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_curse_tension = min(100, max(0, u_berserk_curse_tension) + 10)"
+          ]
+        },
+        "else": {
+          "if": {
+            "u_has_effect": "sleep"
+          },
+          "then": {
+            "math": [
+              "u_berserk_curse_tension = max(0, min(100, u_berserk_curse_tension) - 10)"
+            ]
+          },
+          "else": {
+            "math": [
+              "u_berserk_curse_tension = max(0, min(100, u_berserk_curse_tension) - 5)"
+            ]
+          }
+        }
+      },
+      {
+        "switch": {
+          "math": [
+            "(u_berserk_curse_tension > 0) + (u_berserk_curse_tension >= 25) + (u_berserk_curse_tension >= 50) + (u_berserk_curse_tension >= 75)"
+          ]
+        },
+        "cases": [
+          {
+            "case": 0,
+            "effect": {
+              "if": {
+                "or": [
+                  {
+                    "u_has_effect": "berserk_curse_quiet"
+                  },
+                  {
+                    "u_has_effect": "berserk_curse_whispers"
+                  },
+                  {
+                    "u_has_effect": "berserk_curse_visions"
+                  },
+                  {
+                    "u_has_effect": "berserk_curse_brink"
+                  }
+                ]
+              },
+              "then": [
+                {
+                  "u_lose_effect": [
+                    "berserk_curse_quiet",
+                    "berserk_curse_whispers",
+                    "berserk_curse_visions",
+                    "berserk_curse_brink"
+                  ]
+                },
+                {
+                  "u_message": "The armor's influence finally fades.",
+                  "type": "good"
+                }
+              ]
+            }
+          },
+          {
+            "case": 1,
+            "effect": {
+              "if": {
+                "not": {
+                  "u_has_effect": "berserk_curse_quiet"
+                }
+              },
+              "then": [
+                {
+                  "u_lose_effect": [
+                    "berserk_curse_quiet",
+                    "berserk_curse_whispers",
+                    "berserk_curse_visions",
+                    "berserk_curse_brink"
+                  ]
+                },
+                {
+                  "u_add_effect": "berserk_curse_quiet",
+                  "duration": "PERMANENT"
+                },
+                {
+                  "u_message": "The armor begins to weigh on your mind.  Remove it to recover.",
+                  "type": "warning"
+                }
+              ]
+            }
+          },
+          {
+            "case": 2,
+            "effect": {
+              "if": {
+                "not": {
+                  "u_has_effect": "berserk_curse_whispers"
+                }
+              },
+              "then": [
+                {
+                  "u_lose_effect": [
+                    "berserk_curse_quiet",
+                    "berserk_curse_whispers",
+                    "berserk_curse_visions",
+                    "berserk_curse_brink"
+                  ]
+                },
+                {
+                  "u_add_effect": "berserk_curse_whispers",
+                  "duration": "PERMANENT"
+                },
+                {
+                  "u_message": "The armor whispers to you.  Remove it to recover.",
+                  "type": "warning"
+                }
+              ]
+            }
+          },
+          {
+            "case": 3,
+            "effect": {
+              "if": {
+                "not": {
+                  "u_has_effect": "berserk_curse_visions"
+                }
+              },
+              "then": [
+                {
+                  "u_lose_effect": [
+                    "berserk_curse_quiet",
+                    "berserk_curse_whispers",
+                    "berserk_curse_visions",
+                    "berserk_curse_brink"
+                  ]
+                },
+                {
+                  "u_add_effect": "berserk_curse_visions",
+                  "duration": "PERMANENT"
+                },
+                {
+                  "u_message": "Disturbing visions cloud your thoughts.  Remove the armor to recover.",
+                  "type": "warning"
+                }
+              ]
+            }
+          },
+          {
+            "case": 4,
+            "effect": {
+              "if": {
+                "not": {
+                  "u_has_effect": "berserk_curse_brink"
+                }
+              },
+              "then": [
+                {
+                  "u_lose_effect": [
+                    "berserk_curse_quiet",
+                    "berserk_curse_whispers",
+                    "berserk_curse_visions",
+                    "berserk_curse_brink"
+                  ]
+                },
+                {
+                  "u_add_effect": "berserk_curse_brink",
+                  "duration": "PERMANENT"
+                },
+                {
+                  "u_message": "The armor nearly overwhelms your mind!  Remove it to recover.",
+                  "type": "warning"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

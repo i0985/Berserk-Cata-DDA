@@ -1,0 +1,32 @@
+[
+  {
+    "type": "effect_type",
+    "id": "berserk_curse_quiet",
+    "name": [ "Berserker curse: quiet" ],
+    "desc": [ "The armor's influence is still faint.  Remove all pieces to let it fade; resting without the armor speeds recovery." ],
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_curse_whispers",
+    "name": [ "Berserker curse: whispers" ],
+    "desc": [ "The armor's whispers grow louder.  Remove all pieces to recover; resting without the armor is faster." ],
+    "rating": "bad"
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_curse_visions",
+    "name": [ "Berserker curse: visions" ],
+    "desc": [ "Unsettling visions distract you.  Perception -1.  Remove all pieces to recover; resting without the armor is faster." ],
+    "rating": "bad",
+    "base_mods": { "per_mod": [ -1 ] }
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_curse_brink",
+    "name": [ "Berserker curse: breaking point" ],
+    "desc": [ "The armor's influence overwhelms your senses.  Perception -2.  Remove all pieces to recover; resting without the armor is faster." ],
+    "rating": "bad",
+    "base_mods": { "per_mod": [ -2 ] }
+  }
+]

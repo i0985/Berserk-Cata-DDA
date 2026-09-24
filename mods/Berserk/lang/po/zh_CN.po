@@ -34,28 +34,14 @@ msgstr "狂战士"
 #. ~ Profession description
 #: professions/professions.json
 msgctxt "prof_desc_male"
-msgid ""
-"You are a brute forged in a world-sized meat grinder, where zombies are "
-"little more than an excuse to exercise your fists and enormous sword. "
-"Illiterate but brutally capable, you cut down the dead like firewood. Now "
-"you wear cursed armor that drinks your blood faster than you can spill "
-"anyone else's. How did you get here? It hardly matters—in this hell, "
-"strength is your ticket to another day."
-msgstr ""
-"你是在这血肉磨坊里锻打出来的狠人——丧尸不过是活动靶子，正好让你挥挥拳头、抡抡巨剑。你不识字，但双手砍起活死人来像劈柴。你穿上了那套诅咒盔甲，它吸你的血，比你还急着把别人的血洒在地上。你怎么到这来的？说不清。但在这地狱里，力气就是你活到明天的通行证。"
+msgid "You are a brute forged in a world-sized meat grinder, where zombies are little more than an excuse to exercise your fists and enormous sword. Illiterate but brutally capable, you cut down the dead like firewood. Now you wear cursed armor that steadily takes hold of your mind. How did you get here? It hardly matters—in this hell, strength is your ticket to another day."
+msgstr "你是在这血肉磨坊里锻打出来的狠人——丧尸不过是活动靶子，正好让你挥挥拳头、抡抡巨剑。你不识字，但双手砍起活死人来像劈柴。你穿上了那套诅咒盔甲，它正一点点侵蚀你的心智。你怎么到这来的？说不清。但在这地狱里，力气就是你活到明天的通行证。"
 
 #. ~ Profession description
 #: professions/professions.json
 msgctxt "prof_desc_female"
-msgid ""
-"You are a brute forged in a world-sized meat grinder, where zombies are "
-"little more than an excuse to exercise your fists and enormous sword. "
-"Illiterate but brutally capable, you cut down the dead like firewood. Now "
-"you wear cursed armor that drinks your blood faster than you can spill "
-"anyone else's. How did you get here? It hardly matters—in this hell, "
-"strength is your ticket to another day."
-msgstr ""
-"你是在这血肉磨坊里锻打出来的狠人——丧尸不过是活动靶子，正好让你挥挥拳头、抡抡巨剑。你不识字，但双手砍起活死人来像劈柴。你穿上了那套诅咒盔甲，它吸你的血，比你还急着把别人的血洒在地上。你怎么到这来的？说不清。但在这地狱里，力气就是你活到明天的通行证。"
+msgid "You are a brute forged in a world-sized meat grinder, where zombies are little more than an excuse to exercise your fists and enormous sword. Illiterate but brutally capable, you cut down the dead like firewood. Now you wear cursed armor that steadily takes hold of your mind. How did you get here? It hardly matters—in this hell, strength is your ticket to another day."
+msgstr "你是在这血肉磨坊里锻打出来的狠人——丧尸不过是活动靶子，正好让你挥挥拳头、抡抡巨剑。你不识字，但双手砍起活死人来像劈柴。你穿上了那套诅咒盔甲，它正一点点侵蚀你的心智。你怎么到这来的？说不清。但在这地狱里，力气就是你活到明天的通行证。"
 
 #. ~ Profession name
 #: professions/professions.json
@@ -157,8 +143,8 @@ msgstr "狂战士头盔"
 
 #. ~ Item description
 #: items/armor_berserk/berserk_helmet.json
-msgid "A heavy helmet that awakens fury at the cost of blood."
-msgstr "沉重的头盔，以鲜血为代价唤醒狂怒。"
+msgid "A heavy helmet that awakens fury and weighs on the wearer's mind."
+msgstr "一顶沉重的头盔，唤醒怒火，也逐渐侵蚀佩戴者的心智。"
 
 #. ~ Item name
 #: items/armor_berserk/berserk_chestplate.json
@@ -197,8 +183,8 @@ msgstr "狂战士腿甲"
 
 #. ~ Item description
 #: items/armor_berserk/berserk_legguards.json
-msgid "Legguards that grant endurance at the cost of blood."
-msgstr "以鲜血换取韧性的腿甲。"
+msgid "Legguards that grant endurance as the armor's curse takes hold."
+msgstr "赋予耐力的腿甲，盔甲的诅咒也随之逐渐侵蚀心智。"
 
 #. ~ Item name
 #: items/armor_berserk/berserk_boots.json
@@ -758,3 +744,55 @@ msgstr "虚空使徒试图扭曲现实，但你扛住了！"
 #: monsters/mon_void_apostle.json
 msgid "Apostle Void tries to warp reality, but %s resists!"
 msgstr "虚空使徒试图扭曲现实，但%s扛住了！"
+
+#: effects/curse_effects.json
+msgid "Berserker curse: quiet"
+msgstr "狂战士铠甲的诅咒：平静"
+
+#: effects/curse_effects.json
+msgid "The armor's influence is still faint.  Remove all pieces to let it fade; resting without the armor speeds recovery."
+msgstr "铠甲的影响还很微弱。脱下整套铠甲可让它逐渐消退；不穿铠甲休息能更快恢复。"
+
+#: effects/curse_effects.json
+msgid "Berserker curse: whispers"
+msgstr "狂战士铠甲的诅咒：低语"
+
+#: effects/curse_effects.json
+msgid "The armor's whispers grow louder.  Remove all pieces to recover; resting without the armor is faster."
+msgstr "铠甲的低语越来越响。脱下整套铠甲可逐渐恢复；不穿铠甲休息会更快。"
+
+#: effects/curse_effects.json
+msgid "Berserker curse: visions"
+msgstr "狂战士铠甲的诅咒：幻象"
+
+#: effects/curse_effects.json
+msgid "Unsettling visions distract you.  Perception -1.  Remove all pieces to recover; resting without the armor is faster."
+msgstr "令人不安的幻象分散你的注意力。感知 -1。脱下整套铠甲可逐渐恢复；不穿铠甲休息会更快。"
+
+#: effects/curse_effects.json
+msgid "Berserker curse: breaking point"
+msgstr "狂战士铠甲的诅咒：崩溃边缘"
+
+#: effects/curse_effects.json
+msgid "The armor's influence overwhelms your senses.  Perception -2.  Remove all pieces to recover; resting without the armor is faster."
+msgstr "铠甲的影响压倒了你的感官。感知 -2。脱下整套铠甲可逐渐恢复；不穿铠甲休息会更快。"
+
+#: effects/curse_eocs.json
+msgid "The armor's influence finally fades."
+msgstr "铠甲的影响终于消退了。"
+
+#: effects/curse_eocs.json
+msgid "The armor begins to weigh on your mind.  Remove it to recover."
+msgstr "铠甲开始压迫你的心智。脱下它才能恢复。"
+
+#: effects/curse_eocs.json
+msgid "The armor whispers to you.  Remove it to recover."
+msgstr "铠甲在对你低语。脱下它才能恢复。"
+
+#: effects/curse_eocs.json
+msgid "Disturbing visions cloud your thoughts.  Remove the armor to recover."
+msgstr "令人不安的幻象模糊了你的思绪。脱下铠甲才能恢复。"
+
+#: effects/curse_eocs.json
+msgid "The armor nearly overwhelms your mind!  Remove it to recover."
+msgstr "铠甲几乎控制了你的心智！脱下它才能恢复。"
