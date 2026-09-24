@@ -2,20 +2,8 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_BLEED",
-    "recurrence": "1 turn",
-    "condition": {
-      "or": [
-        { "u_is_wearing": "berserk_helmet" },
-        { "u_is_wearing": "berserk_chestplate" },
-        { "u_is_wearing": "berserk_gloves" },
-        { "u_is_wearing": "berserk_armguards" },
-        { "u_is_wearing": "berserk_legguards" },
-        { "u_is_wearing": "berserk_boots" }
-      ]
-    },
-    "effect": [
-      { "u_add_effect": "bleed", "intensity": 1, "duration": "2 turns" }
-    ]
+    "eoc_type": "ACTIVATION",
+    "effect": []
   },
   {
     "type": "effect_on_condition",
