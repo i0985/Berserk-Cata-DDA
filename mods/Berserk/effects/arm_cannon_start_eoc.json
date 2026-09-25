@@ -1,0 +1,8 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOST_HAND_START",
+    "condition": { "not": { "u_has_bionics": "bio_berserk_hand_stump" } },
+    "effect": [ { "u_add_bionic": "bio_berserk_hand_stump" } ]
+  }
+]
