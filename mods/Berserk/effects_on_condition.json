@@ -35,7 +35,12 @@
     "type": "effect_on_condition",
     "id": "EOC_BEAST_OF_DARKNESS",
     "recurrence": "600 turns",
-    "condition": { "u_has_effect": "berserk_armor_active" },
+    "condition": {
+      "and": [
+        { "u_has_effect": "berserk_armor_active" },
+        { "not": { "or": [ { "u_has_effect": "berserk_curse_visions" }, { "u_has_effect": "berserk_curse_brink" } ] } }
+      ]
+    },
     "effect": [
       {
         "switch": { "math": [ "rand(5)" ] },

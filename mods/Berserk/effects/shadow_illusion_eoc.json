@@ -2,43 +2,186 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SHADOW_HALLUCINATION",
+    "//": "Keep this ID for recurring EOC compatibility with existing saves; it now spawns mixed waves.",
     "global": true,
     "recurrence": "30 seconds",
     "condition": {
       "and": [
-        { "u_has_effect": "berserk_armor_active" },
-        { "u_has_effect": "berserk_curse_brink" }
+        {
+          "u_has_effect": "berserk_armor_active"
+        },
+        {
+          "or": [
+            {
+              "u_has_effect": "berserk_curse_visions"
+            },
+            {
+              "u_has_effect": "berserk_curse_brink"
+            }
+          ]
+        }
       ]
     },
     "effect": [
       {
-        "switch": { "math": [ "rand(5)" ] },
-        "cases": [
-          {
-            "case": 0,
-            "effect": { "u_spawn_monster": "mon_beast_of_darkness_1", "hallucination_count": 1, "min_radius": 7, "max_radius": 12, "lifespan": "90 seconds" }
-          },
-          {
-            "case": 1,
-            "effect": { "u_spawn_monster": "mon_beast_of_darkness_2", "hallucination_count": 1, "min_radius": 7, "max_radius": 12, "lifespan": "90 seconds" }
-          },
-          {
-            "case": 2,
-            "effect": { "u_spawn_monster": "mon_beast_of_darkness_3", "hallucination_count": 1, "min_radius": 7, "max_radius": 12, "lifespan": "90 seconds" }
-          },
-          {
-            "case": 3,
-            "effect": { "u_spawn_monster": "mon_beast_of_darkness_4", "hallucination_count": 1, "min_radius": 7, "max_radius": 12, "lifespan": "90 seconds" }
-          },
-          {
-            "case": 4,
-            "effect": { "u_spawn_monster": "mon_beast_of_darkness_5", "hallucination_count": 1, "min_radius": 7, "max_radius": 12, "lifespan": "90 seconds" }
-          },
-          {
-            "case": 5,
-            "effect": { "u_spawn_monster": "mon_beast_of_darkness_6", "hallucination_count": 1, "min_radius": 7, "max_radius": 12, "lifespan": "90 seconds" }
+        "if": {
+          "u_has_effect": "berserk_curse_brink"
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_SPAWN_ONE_SHADOW",
+          "iterations": 3
+        },
+        "else": {
+          "run_eocs": "EOC_BERSERK_SPAWN_ONE_SHADOW",
+          "iterations": 2
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_SPAWN_ONE_SHADOW",
+    "//": "Each iteration chooses a real shadow (2/3) or a hallucination (1/3) independently.",
+    "effect": [
+      {
+        "if": {
+          "x_in_y_chance": {
+            "x": 1,
+            "y": 3
           }
-        ]
+        },
+        "then": {
+          "switch": {
+            "math": [
+              "rand(5)"
+            ]
+          },
+          "cases": [
+            {
+              "case": 0,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_1",
+                "hallucination_count": 1,
+                "min_radius": 7,
+                "max_radius": 12,
+                "lifespan": "90 seconds"
+              }
+            },
+            {
+              "case": 1,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_2",
+                "hallucination_count": 1,
+                "min_radius": 7,
+                "max_radius": 12,
+                "lifespan": "90 seconds"
+              }
+            },
+            {
+              "case": 2,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_3",
+                "hallucination_count": 1,
+                "min_radius": 7,
+                "max_radius": 12,
+                "lifespan": "90 seconds"
+              }
+            },
+            {
+              "case": 3,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_4",
+                "hallucination_count": 1,
+                "min_radius": 7,
+                "max_radius": 12,
+                "lifespan": "90 seconds"
+              }
+            },
+            {
+              "case": 4,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_5",
+                "hallucination_count": 1,
+                "min_radius": 7,
+                "max_radius": 12,
+                "lifespan": "90 seconds"
+              }
+            },
+            {
+              "case": 5,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_6",
+                "hallucination_count": 1,
+                "min_radius": 7,
+                "max_radius": 12,
+                "lifespan": "90 seconds"
+              }
+            }
+          ]
+        },
+        "else": {
+          "switch": {
+            "math": [
+              "rand(5)"
+            ]
+          },
+          "cases": [
+            {
+              "case": 0,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_1",
+                "real_count": 1,
+                "min_radius": 7,
+                "max_radius": 12
+              }
+            },
+            {
+              "case": 1,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_2",
+                "real_count": 1,
+                "min_radius": 7,
+                "max_radius": 12
+              }
+            },
+            {
+              "case": 2,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_3",
+                "real_count": 1,
+                "min_radius": 7,
+                "max_radius": 12
+              }
+            },
+            {
+              "case": 3,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_4",
+                "real_count": 1,
+                "min_radius": 7,
+                "max_radius": 12
+              }
+            },
+            {
+              "case": 4,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_5",
+                "real_count": 1,
+                "min_radius": 7,
+                "max_radius": 12
+              }
+            },
+            {
+              "case": 5,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_6",
+                "real_count": 1,
+                "min_radius": 7,
+                "max_radius": 12
+              }
+            }
+          ]
+        }
       }
     ]
   }
