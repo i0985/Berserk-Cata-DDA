@@ -1,0 +1,26 @@
+[
+  {
+    "id": "berserk_arm_cannon_gun",
+    "type": "ITEM",
+    "subtypes": [ "GUN" ],
+    "looks_like": "remington_870",
+    "name": { "str": "prosthetic arm cannon" },
+    "description": "An integrated single-shot cannon fitted to the left arm.  Reload it with a powder charge and retract it when you need your sword.",
+    "material": [ "steel" ],
+    "symbol": "(",
+    "color": "dark_gray",
+    "weight": "0 g",
+    "volume": "500 ml",
+    "skill": "rifle",
+    "ammo": [ "berserk_cannon" ],
+    "range": 5,
+    "ranged_damage": { "damage_type": "bullet", "amount": 0 },
+    "dispersion": 650,
+    "durability": 7,
+    "clip_size": 1,
+    "reload": 3000,
+    "flags": [ "NEVER_JAMS", "RELOAD_EJECT", "BIONIC_WEAPON", "TRADER_AVOID", "ZERO_WEIGHT" ],
+    "pocket_data": [ { "pocket_type": "MAGAZINE", "rigid": true, "ammo_restriction": { "berserk_cannon": 1 } } ],
+    "melee_damage": { "bash": 3 }
+  }
+]

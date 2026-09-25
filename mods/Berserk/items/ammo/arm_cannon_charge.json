@@ -1,0 +1,30 @@
+[
+  {
+    "type": "ammunition_type",
+    "id": "berserk_cannon",
+    "name": "arm cannon charge",
+    "default": "berserk_arm_cannon_charge"
+  },
+  {
+    "id": "berserk_arm_cannon_charge",
+    "type": "ITEM",
+    "subtypes": [ "AMMO" ],
+    "looks_like": "flintlock_ammo",
+    "name": { "str": "arm cannon charge" },
+    "description": "A single heavy projectile and black powder charge prepared for the prosthetic arm cannon.",
+    "weight": "120 g",
+    "volume": "50 ml",
+    "material": [ "lead", "powder" ],
+    "symbol": "=",
+    "color": "dark_gray",
+    "count": 1,
+    "stack_size": 10,
+    "ammo_type": "berserk_cannon",
+    "range": 5,
+    "damage": { "damage_type": "bullet", "amount": 80 },
+    "dispersion": 90,
+    "recoil": 1600,
+    "loudness": 90,
+    "effects": [ "COOKOFF", "MUZZLE_SMOKE", "BLACKPOWDER", "RECYCLED" ]
+  }
+]

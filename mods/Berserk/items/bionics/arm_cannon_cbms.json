@@ -1,0 +1,26 @@
+[
+  {
+    "id": "bio_berserk_hand_stump",
+    "type": "ITEM",
+    "subtypes": [ "BIONIC_ITEM" ],
+    "copy-from": "bionic_general",
+    "looks_like": "bio_shotgun",
+    "name": { "str": "lost left hand interface CBM" },
+    "description": "A surgical interface left behind after the hand is lost.  It cannot restore a hand, but provides a mount for a prosthetic cannon.",
+    "weight": "250 g",
+    "volume": "250 ml",
+    "difficulty": 3
+  },
+  {
+    "id": "bio_berserk_arm_cannon",
+    "type": "ITEM",
+    "subtypes": [ "BIONIC_ITEM" ],
+    "copy-from": "bionic_general",
+    "looks_like": "bio_shotgun",
+    "name": { "str": "prosthetic arm cannon CBM" },
+    "description": "A handmade mechanical arm cannon.  Implant it only after the left-hand interface is in place.",
+    "weight": "3500 g",
+    "volume": "3000 ml",
+    "difficulty": 5
+  }
+]

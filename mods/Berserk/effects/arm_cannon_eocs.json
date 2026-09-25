@@ -1,0 +1,17 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND_STUMP",
+    "global": true,
+    "recurrence": "1 turn",
+    "condition": { "u_has_bionics": "bio_berserk_hand_stump" },
+    "effect": [
+      { "u_add_effect": "berserk_missing_left_hand", "target_part": "hand_l", "duration": "2 turns" },
+      { "u_add_effect": "berserk_left_arm_onehanded", "target_part": "arm_l", "duration": "2 turns" }
+    ],
+    "false_effect": [
+      { "u_lose_effect": "berserk_missing_left_hand", "target_part": "hand_l" },
+      { "u_lose_effect": "berserk_left_arm_onehanded", "target_part": "arm_l" }
+    ]
+  }
+]

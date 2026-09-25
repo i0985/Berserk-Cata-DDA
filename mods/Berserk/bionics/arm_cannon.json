@@ -1,0 +1,22 @@
+[
+  {
+    "type": "bionic",
+    "id": "bio_berserk_hand_stump",
+    "name": { "str": "Lost left hand" },
+    "description": "Your left hand is gone.  This permanent interface anchors a prosthetic arm cannon; it cannot grip objects or help wield a weapon with both hands.",
+    "occupied_bodyparts": [ [ "hand_l", 5 ] ],
+    "cant_remove_reason": "Removing this interface cannot restore the missing hand."
+  },
+  {
+    "type": "bionic",
+    "id": "bio_berserk_arm_cannon",
+    "name": { "str": "Prosthetic arm cannon" },
+    "description": "A mechanical cannon mounted on the left arm.  Activate it to wield and reload its single chamber, then retract it to take up your sword again.  It burns powder charges instead of bionic power.",
+    "required_bionic": "bio_berserk_hand_stump",
+    "occupied_bodyparts": [ [ "arm_l", 12 ] ],
+    "act_cost": "0 J",
+    "deact_cost": "0 J",
+    "fake_weapon": "berserk_arm_cannon_gun",
+    "flags": [ "BIONIC_TOGGLED", "BIONIC_WEAPON", "NO_UNWIELD" ]
+  }
+]
