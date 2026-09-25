@@ -125,14 +125,8 @@ msgstr[2] "Истинные мечи Гатса"
 
 #. ~ Item description
 #: items/true_guts_sword.json
-msgid ""
-"In Guts' hands, this mighty, massive sword feels like a comparatively light "
-"5-kilogram weighted blade. It was made to hew enemies apart, embodying "
-"strength and determination worthy of a legendary weapon."
-msgstr ""
-"Для Гатса этот мощный, массивный меч ощущается как легкий утяжеленный клинок"
-" весом около 5 кг. Он создан для разрубания врагов на части, воплощая в себе"
-" силу и решимость, сравнимую с легендарными мечами."
+msgid "In Guts' hands, this massive blade handles as if it were much lighter than its size suggests, even when wielded with one hand. It was made to hew enemies apart, embodying strength and determination worthy of a legendary weapon."
+msgstr "Для Гатса этот массивный клинок кажется гораздо легче, чем выглядит, и им можно сражаться даже одной рукой. Он создан разрубать врагов на части, воплощая силу и решимость, достойные легендарного оружия."
 
 #. ~ Item name
 #: items/nosferatu_zodd_sword.json
@@ -894,8 +888,8 @@ msgid "Lost left hand"
 msgstr "Утраченная левая кисть"
 
 #: bionics/arm_cannon.json
-msgid "Your left hand is gone.  This permanent interface anchors a prosthetic arm cannon; it cannot grip objects or help wield a weapon with both hands."
-msgstr "Левой кисти больше нет. Постоянное крепление позволяет установить руку-пушку, но не даёт хватать предметы и держать оружие двумя руками."
+msgid "Your left hand is gone.  This permanent interface anchors a prosthetic arm cannon; it cannot grip objects or help wield a weapon with both hands.  Once installed, you learn how to craft the arm cannon CBM and its powder charges."
+msgstr "Левой кисти больше нет. Постоянное крепление позволяет установить руку-пушку, но не даёт хватать предметы и держать оружие двумя руками. После установки вы изучите рецепты КБМ руки-пушки и пороховых зарядов к ней."
 
 #: bionics/arm_cannon.json
 msgid "Removing this interface cannot restore the missing hand."
@@ -914,8 +908,8 @@ msgid "lost left hand interface CBM"
 msgstr "КБМ крепления утраченной кисти"
 
 #: items/bionics/arm_cannon_cbms.json
-msgid "A surgical interface left behind after the hand is lost.  It cannot restore a hand, but provides a mount for a prosthetic cannon."
-msgstr "Хирургическое крепление для утраченной кисти. Оно не вернёт руку, но позволит установить пушку-протез."
+msgid "A surgical interface left behind after the hand is lost.  It cannot restore a hand, but provides a mount for a prosthetic cannon.  Installing it teaches the recipes for the cannon CBM and its powder charges."
+msgstr "Хирургическое крепление для утраченной кисти. Оно не вернёт руку, но позволит установить пушку-протез. После установки вы изучите рецепты КБМ руки-пушки и пороховых зарядов."
 
 #: items/bionics/arm_cannon_cbms.json
 msgid "prosthetic arm cannon CBM"
@@ -1003,8 +997,8 @@ msgid "The armor has drained you.  Strength -2 and speed -15.  You cannot enter 
 msgstr "Броня истощила вас. Сила −2, скорость −15. Режим берсерка недоступен до окончания восстановления и ослабления проклятия."
 
 #: effects/berserk_mode_eocs.json
-msgid "The armor takes control! Berserk mode: 150 seconds."
-msgstr "Броня захватывает контроль! Режим берсерка: 150 секунд."
+msgid "The armor takes control! Berserk mode: 150 seconds. When it ends, your stamina will empty and you will lose a great deal of blood. Prepare an escape now!"
+msgstr "Броня захватывает контроль! Режим берсерка: 150 секунд. По окончании выносливость упадёт до нуля и вы потеряете много крови. Готовьте путь к отступлению!"
 
 #: effects/berserk_mode_eocs.json
 msgid "The rage ends. You collapse into exhaustion as your blood volume falls."
@@ -1065,3 +1059,15 @@ msgstr "Режим берсерка: осталось 90 секунд."
 #: effects/berserk_mode_eocs.json
 msgid "Berserk mode: 120 seconds remaining."
 msgstr "Режим берсерка: осталось 120 секунд."
+
+#: items/armor_berserk/berserk_armor_bundle.json
+msgid "packed Berserker armor"
+msgstr "упакованные доспехи Берсерка"
+
+#: items/armor_berserk/berserk_armor_bundle.json
+msgid "All six pieces of Berserker armor fastened together for carrying.  Disassemble this bundle to recover the helmet, chestplate, gloves, armguards, legguards and boots before wearing them.  Packing and unpacking do not cleanse the armor's curse."
+msgstr "Все шесть частей доспехов Берсерка соединены для переноски. Разберите упаковку, чтобы получить шлем, нагрудник, перчатки, наручи, поножи и ботинки перед надеванием. Сборка и разборка не снимают проклятие брони."
+
+#: effects/arm_cannon_recipe_eoc.json
+msgid "The lost-hand interface gives you a plan for a prosthetic arm cannon and its powder charges."
+msgstr "Крепление утраченной кисти подсказывает вам, как изготовить КБМ руки-пушки и пороховые заряды."

@@ -1,0 +1,20 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND_STUMP_RECIPES",
+    "global": true,
+    "recurrence": "1 minute",
+    "condition": {
+      "and": [
+        { "u_has_bionics": "bio_berserk_hand_stump" },
+        { "math": [ "u_berserk_hand_recipes_learned != 1" ] }
+      ]
+    },
+    "effect": [
+      { "u_learn_recipe": "bio_berserk_arm_cannon" },
+      { "u_learn_recipe": "berserk_arm_cannon_charge" },
+      { "math": [ "u_berserk_hand_recipes_learned = 1" ] },
+      { "u_message": "The lost-hand interface gives you a plan for a prosthetic arm cannon and its powder charges.", "type": "good" }
+    ]
+  }
+]

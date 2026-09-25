@@ -106,11 +106,8 @@ msgstr[0] "真·格斯之剑"
 
 #. ~ Item description
 #: items/true_guts_sword.json
-msgid ""
-"In Guts' hands, this mighty, massive sword feels like a comparatively light "
-"5-kilogram weighted blade. It was made to hew enemies apart, embodying "
-"strength and determination worthy of a legendary weapon."
-msgstr "在格斯手中，这柄庞大沉重的剑却像一柄约五公斤重的趁手长刀。它专为把敌人劈成碎片而生，凝聚着足以与传说之刃比肩的力量与决意。"
+msgid "In Guts' hands, this massive blade handles as if it were much lighter than its size suggests, even when wielded with one hand. It was made to hew enemies apart, embodying strength and determination worthy of a legendary weapon."
+msgstr "在格斯手中，这柄巨剑挥舞起来远比外观看着轻巧，即使只用一只手也能使用。它为斩裂敌人而生，凝聚着配得上传奇武器的力量与决心。"
 
 #. ~ Item name
 #: items/nosferatu_zodd_sword.json
@@ -802,8 +799,8 @@ msgid "Lost left hand"
 msgstr "失去的左手"
 
 #: bionics/arm_cannon.json
-msgid "Your left hand is gone.  This permanent interface anchors a prosthetic arm cannon; it cannot grip objects or help wield a weapon with both hands."
-msgstr "你的左手已经失去。这套永久接口用于固定机械臂炮；它无法抓握物品，也无法协助双手持武器。"
+msgid "Your left hand is gone.  This permanent interface anchors a prosthetic arm cannon; it cannot grip objects or help wield a weapon with both hands.  Once installed, you learn how to craft the arm cannon CBM and its powder charges."
+msgstr "你的左手已经失去。这套永久接口可固定机械臂炮，但无法抓握物品或帮你双手持武器。安装后，你将学会制作臂炮 CBM 及其火药弹药。"
 
 #: bionics/arm_cannon.json
 msgid "Removing this interface cannot restore the missing hand."
@@ -822,8 +819,8 @@ msgid "lost left hand interface CBM"
 msgstr "失去左手接口CBM"
 
 #: items/bionics/arm_cannon_cbms.json
-msgid "A surgical interface left behind after the hand is lost.  It cannot restore a hand, but provides a mount for a prosthetic cannon."
-msgstr "失去手之后安装的外科接口。它不能恢复手掌，却能固定机械臂炮。"
+msgid "A surgical interface left behind after the hand is lost.  It cannot restore a hand, but provides a mount for a prosthetic cannon.  Installing it teaches the recipes for the cannon CBM and its powder charges."
+msgstr "失去手之后安装的外科接口。它不能恢复手掌，却能固定机械臂炮。安装后，你将学会制作臂炮 CBM 及其火药弹药。"
 
 #: items/bionics/arm_cannon_cbms.json
 msgid "prosthetic arm cannon CBM"
@@ -911,8 +908,8 @@ msgid "The armor has drained you.  Strength -2 and speed -15.  You cannot enter 
 msgstr "铠甲已耗尽你的力量。力量 −2，速度 −15。在恢复结束且诅咒减弱前，无法再次进入狂战士模式。"
 
 #: effects/berserk_mode_eocs.json
-msgid "The armor takes control! Berserk mode: 150 seconds."
-msgstr "铠甲夺取了控制权！狂战士模式：150 秒。"
+msgid "The armor takes control! Berserk mode: 150 seconds. When it ends, your stamina will empty and you will lose a great deal of blood. Prepare an escape now!"
+msgstr "铠甲夺取了控制权！狂战士模式：150 秒。结束时体力会耗尽，你也会失去大量血液。现在就准备退路！"
 
 #: effects/berserk_mode_eocs.json
 msgid "The rage ends. You collapse into exhaustion as your blood volume falls."
@@ -973,3 +970,15 @@ msgstr "狂战士模式：还剩 90 秒。"
 #: effects/berserk_mode_eocs.json
 msgid "Berserk mode: 120 seconds remaining."
 msgstr "狂战士模式：还剩 120 秒。"
+
+#: items/armor_berserk/berserk_armor_bundle.json
+msgid "packed Berserker armor"
+msgstr "打包的狂战士铠甲"
+
+#: items/armor_berserk/berserk_armor_bundle.json
+msgid "All six pieces of Berserker armor fastened together for carrying.  Disassemble this bundle to recover the helmet, chestplate, gloves, armguards, legguards and boots before wearing them.  Packing and unpacking do not cleanse the armor's curse."
+msgstr "六件狂战士铠甲绑在一起，便于携带。穿戴前拆开套装，取出头盔、胸甲、手套、臂甲、腿甲和靴子。打包和拆包都不会解除铠甲的诅咒。"
+
+#: effects/arm_cannon_recipe_eoc.json
+msgid "The lost-hand interface gives you a plan for a prosthetic arm cannon and its powder charges."
+msgstr "失去手的接口让你明白了如何制作机械臂炮 CBM 和它的火药弹药。"

@@ -103,10 +103,7 @@ msgstr[0] ""
 
 #. ~ Item description
 #: items/true_guts_sword.json
-msgid ""
-"In Guts' hands, this mighty, massive sword feels like a comparatively light "
-"5-kilogram weighted blade. It was made to hew enemies apart, embodying "
-"strength and determination worthy of a legendary weapon."
+msgid "In Guts' hands, this massive blade handles as if it were much lighter than its size suggests, even when wielded with one hand. It was made to hew enemies apart, embodying strength and determination worthy of a legendary weapon."
 msgstr ""
 
 #. ~ Item name
@@ -782,7 +779,7 @@ msgid "Lost left hand"
 msgstr ""
 
 #: bionics/arm_cannon.json
-msgid "Your left hand is gone.  This permanent interface anchors a prosthetic arm cannon; it cannot grip objects or help wield a weapon with both hands."
+msgid "Your left hand is gone.  This permanent interface anchors a prosthetic arm cannon; it cannot grip objects or help wield a weapon with both hands.  Once installed, you learn how to craft the arm cannon CBM and its powder charges."
 msgstr ""
 
 #: bionics/arm_cannon.json
@@ -802,7 +799,7 @@ msgid "lost left hand interface CBM"
 msgstr ""
 
 #: items/bionics/arm_cannon_cbms.json
-msgid "A surgical interface left behind after the hand is lost.  It cannot restore a hand, but provides a mount for a prosthetic cannon."
+msgid "A surgical interface left behind after the hand is lost.  It cannot restore a hand, but provides a mount for a prosthetic cannon.  Installing it teaches the recipes for the cannon CBM and its powder charges."
 msgstr ""
 
 #: items/bionics/arm_cannon_cbms.json
@@ -891,7 +888,7 @@ msgid "The armor has drained you.  Strength -2 and speed -15.  You cannot enter 
 msgstr ""
 
 #: effects/berserk_mode_eocs.json
-msgid "The armor takes control! Berserk mode: 150 seconds."
+msgid "The armor takes control! Berserk mode: 150 seconds. When it ends, your stamina will empty and you will lose a great deal of blood. Prepare an escape now!"
 msgstr ""
 
 #: effects/berserk_mode_eocs.json
@@ -952,4 +949,16 @@ msgstr ""
 
 #: effects/berserk_mode_eocs.json
 msgid "Berserk mode: 120 seconds remaining."
+msgstr ""
+
+#: items/armor_berserk/berserk_armor_bundle.json
+msgid "packed Berserker armor"
+msgstr ""
+
+#: items/armor_berserk/berserk_armor_bundle.json
+msgid "All six pieces of Berserker armor fastened together for carrying.  Disassemble this bundle to recover the helmet, chestplate, gloves, armguards, legguards and boots before wearing them.  Packing and unpacking do not cleanse the armor's curse."
+msgstr ""
+
+#: effects/arm_cannon_recipe_eoc.json
+msgid "The lost-hand interface gives you a plan for a prosthetic arm cannon and its powder charges."
 msgstr ""
