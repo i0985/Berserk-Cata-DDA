@@ -265,6 +265,25 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
         )
         raise ValidationError(f"duplicate typed object IDs: {details}")
 
+    # CDDA 0.I-1 does not finalize deferred profession definitions. A mod-local
+    # copy-from must be loaded after its base profession or the ID disappears.
+    local_professions = {
+        object_id for (object_type, object_id) in id_locations if object_type == "profession"
+    }
+    loaded_professions: set[str] = set()
+    for path, objects in objects_by_package[content_package].items():
+        for entry in objects:
+            if entry.get("type") != "profession":
+                continue
+            parent = entry.get("copy-from")
+            if parent in local_professions and parent not in loaded_professions:
+                raise ValidationError(
+                    f"{path.relative_to(ROOT)}: profession {entry.get('id')!r} "
+                    f"copies {parent!r} before the base is loaded"
+                )
+            if isinstance(entry.get("id"), str):
+                loaded_professions.add(entry["id"])
+
     expected_extra = load_expected_extra_compatibility()
     sheet_count = 0
     tile_count = 0
