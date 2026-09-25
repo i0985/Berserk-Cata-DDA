@@ -1,0 +1,13 @@
+[
+  {
+    "type": "scenario",
+    "id": "berserk_lost_hand_start",
+    "name": "(BERSERK) The Lost Hand",
+    "description": "You survived the loss of your left hand.  The interface left behind can hold an arm cannon once you forge one.  For now, you have your remaining hand, your sword and the road ahead.",
+    "points": 0,
+    "allowed_locs": [ "sloc_forest", "sloc_field" ],
+    "start_name": "On the road",
+    "professions": [ "berserk_prosthesis" ],
+    "flags": [ "LONE_START" ]
+  }
+]

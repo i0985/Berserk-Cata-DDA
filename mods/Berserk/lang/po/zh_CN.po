@@ -849,22 +849,6 @@ msgstr "臂炮火药弹"
 msgid "A single heavy projectile and black powder charge prepared for the prosthetic arm cannon."
 msgstr "为机械臂炮准备的单发重型弹丸与黑火药。"
 
-#: effects/arm_cannon_effects.json
-msgid "Missing left hand"
-msgstr "左手缺失"
-
-#: effects/arm_cannon_effects.json
-msgid "The left hand cannot grip or manipulate objects."
-msgstr "左手无法抓握或操作物品。"
-
-#: effects/arm_cannon_effects.json
-msgid "Left arm supports a prosthesis"
-msgstr "左臂装有假肢"
-
-#: effects/arm_cannon_effects.json
-msgid "Your left arm cannot support a two-handed weapon."
-msgstr "你的左臂无法协助使用双手武器。"
-
 #: professions/berserk_prosthesis.json
 msgctxt "profession_male"
 msgid "Berserker with a lost hand"
@@ -884,3 +868,28 @@ msgstr "你的左手已经失去。等你打造并安装臂炮之后，断肢上
 msgctxt "prof_desc_female"
 msgid "Your left hand is gone.  The interface on its stump can support a cannon once you forge and install one.  Until then, your remaining hand and true sword must carry you through the Cataclysm."
 msgstr "你的左手已经失去。等你打造并安装臂炮之后，断肢上的接口就能承载它。在那之前，只能靠剩下的一只手与真剑在灾变中求生。"
+
+#: scenarios/berserk_lost_hand_start.json
+msgctxt "scenario_male"
+msgid "(BERSERK) The Lost Hand"
+msgstr "【剑风传奇】失去的左手"
+
+#: scenarios/berserk_lost_hand_start.json
+msgctxt "scenario_female"
+msgid "(BERSERK) The Lost Hand"
+msgstr "【剑风传奇】失去的左手"
+
+#: scenarios/berserk_lost_hand_start.json
+msgctxt "scen_desc_male"
+msgid "You survived the loss of your left hand.  The interface left behind can hold an arm cannon once you forge one.  For now, you have your remaining hand, your sword and the road ahead."
+msgstr "你失去了左手，却活了下来。留在断肢上的接口可以安装你将来打造的臂炮。眼下，你只有另一只手、剑和前方的路。"
+
+#: scenarios/berserk_lost_hand_start.json
+msgctxt "scen_desc_female"
+msgid "You survived the loss of your left hand.  The interface left behind can hold an arm cannon once you forge one.  For now, you have your remaining hand, your sword and the road ahead."
+msgstr "你失去了左手，却活了下来。留在断肢上的接口可以安装你将来打造的臂炮。眼下，你只有另一只手、剑和前方的路。"
+
+#: scenarios/berserk_lost_hand_start.json
+msgctxt "start_name"
+msgid "On the road"
+msgstr "路上"

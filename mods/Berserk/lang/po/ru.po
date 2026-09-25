@@ -941,22 +941,6 @@ msgstr "заряд руки-пушки"
 msgid "A single heavy projectile and black powder charge prepared for the prosthetic arm cannon."
 msgstr "Тяжёлый снаряд и пороховой заряд для руки-пушки."
 
-#: effects/arm_cannon_effects.json
-msgid "Missing left hand"
-msgstr "Отсутствует левая кисть"
-
-#: effects/arm_cannon_effects.json
-msgid "The left hand cannot grip or manipulate objects."
-msgstr "Левая кисть не может хватать предметы."
-
-#: effects/arm_cannon_effects.json
-msgid "Left arm supports a prosthesis"
-msgstr "Протез на левой руке"
-
-#: effects/arm_cannon_effects.json
-msgid "Your left arm cannot support a two-handed weapon."
-msgstr "Левая рука не может удерживать двуручное оружие."
-
 #: professions/berserk_prosthesis.json
 msgctxt "profession_male"
 msgid "Berserker with a lost hand"
@@ -976,3 +960,28 @@ msgstr "Левой кисти больше нет. К креплению на е
 msgctxt "prof_desc_female"
 msgid "Your left hand is gone.  The interface on its stump can support a cannon once you forge and install one.  Until then, your remaining hand and true sword must carry you through the Cataclysm."
 msgstr "Левой кисти больше нет. К креплению на её месте можно будет установить пушку, когда вы её изготовите. Пока же вам придётся выживать с одной рукой и истинным мечом."
+
+#: scenarios/berserk_lost_hand_start.json
+msgctxt "scenario_male"
+msgid "(BERSERK) The Lost Hand"
+msgstr "(БЕРСЕРК) Утраченная кисть"
+
+#: scenarios/berserk_lost_hand_start.json
+msgctxt "scenario_female"
+msgid "(BERSERK) The Lost Hand"
+msgstr "(БЕРСЕРК) Утраченная кисть"
+
+#: scenarios/berserk_lost_hand_start.json
+msgctxt "scen_desc_male"
+msgid "You survived the loss of your left hand.  The interface left behind can hold an arm cannon once you forge one.  For now, you have your remaining hand, your sword and the road ahead."
+msgstr "Вы пережили потерю левой кисти. Крепление на её месте позволит установить руку-пушку, когда вы её изготовите. Пока у вас есть только оставшаяся рука, меч и дорога впереди."
+
+#: scenarios/berserk_lost_hand_start.json
+msgctxt "scen_desc_female"
+msgid "You survived the loss of your left hand.  The interface left behind can hold an arm cannon once you forge one.  For now, you have your remaining hand, your sword and the road ahead."
+msgstr "Вы пережили потерю левой кисти. Крепление на её месте позволит установить руку-пушку, когда вы её изготовите. Пока у вас есть только оставшаяся рука, меч и дорога впереди."
+
+#: scenarios/berserk_lost_hand_start.json
+msgctxt "start_name"
+msgid "On the road"
+msgstr "На дороге"

@@ -2,8 +2,8 @@
   {
     "type": "effect_type",
     "id": "berserk_missing_left_hand",
-    "name": [ "Missing left hand" ],
-    "desc": [ "The left hand cannot grip or manipulate objects." ],
+    "name": [ "" ],
+    "desc": [ "" ],
     "rating": "bad",
     "limb_score_mods": [ { "limb_score": "grip", "modifier": 0 }, { "limb_score": "manip", "modifier": 0 } ],
     "flags": [ "EFFECT_LIMB_SCORE_MOD_LOCAL" ]
@@ -11,8 +11,8 @@
   {
     "type": "effect_type",
     "id": "berserk_left_arm_onehanded",
-    "name": [ "Left arm supports a prosthesis" ],
-    "desc": [ "Your left arm cannot support a two-handed weapon." ],
+    "name": [ "" ],
+    "desc": [ "" ],
     "rating": "bad",
     "limb_score_mods": [ { "limb_score": "lift", "modifier": 0 } ],
     "flags": [ "EFFECT_LIMB_SCORE_MOD_LOCAL" ]
