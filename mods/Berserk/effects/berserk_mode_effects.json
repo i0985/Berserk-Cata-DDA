@@ -1,0 +1,19 @@
+[
+  {
+    "type": "effect_type",
+    "id": "berserk_mode_rush",
+    "name": [ "Berserk mode" ],
+    "desc": [ "The armor drives you past exhaustion.  Strength +2, speed +10, and enough stamina to keep moving and fighting." ],
+    "rating": "good",
+    "base_mods": { "str_mod": [ 2 ], "speed_mod": [ 10 ] },
+    "removes_effects": [ "winded", "winded_leg_l", "winded_leg_r", "winded_arm_l", "winded_arm_r" ]
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_mode_recovery",
+    "name": [ "Berserk mode recovery" ],
+    "desc": [ "The armor has drained you.  Strength -2 and speed -15.  You cannot enter Berserk mode again until this effect ends and the curse subsides." ],
+    "rating": "bad",
+    "base_mods": { "str_mod": [ -2 ], "speed_mod": [ -15 ] }
+  }
+]

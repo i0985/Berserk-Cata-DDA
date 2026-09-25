@@ -1,0 +1,605 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_MODE_CONTROLLER",
+    "global": true,
+    "recurrence": "1 turn",
+    "effect": {
+      "if": {
+        "math": [
+          "u_berserk_mode_state == 1"
+        ]
+      },
+      "then": {
+        "if": {
+          "or": [
+            {
+              "not": {
+                "u_has_effect": "berserk_mode_rush"
+              }
+            },
+            {
+              "not": {
+                "or": [
+                  {
+                    "u_is_wearing": "berserk_helmet"
+                  },
+                  {
+                    "u_is_wearing": "berserk_chestplate"
+                  },
+                  {
+                    "u_is_wearing": "berserk_gloves"
+                  },
+                  {
+                    "u_is_wearing": "berserk_armguards"
+                  },
+                  {
+                    "u_is_wearing": "berserk_legguards"
+                  },
+                  {
+                    "u_is_wearing": "berserk_boots"
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_MODE_FINISH"
+        },
+        "else": [
+          {
+            "math": [
+              "u_val('stamina') = max(3000, u_val('stamina'))"
+            ]
+          },
+          {
+            "u_lose_effect": [
+              "winded",
+              "winded_leg_l",
+              "winded_leg_r",
+              "winded_arm_l",
+              "winded_arm_r"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_MODE_COUNTDOWN"
+          }
+        ]
+      },
+      "else": {
+        "if": {
+          "math": [
+            "u_berserk_mode_state == 2"
+          ]
+        },
+        "then": {
+          "if": {
+            "and": [
+              {
+                "not": {
+                  "u_has_effect": "berserk_mode_recovery"
+                }
+              },
+              {
+                "math": [
+                  "u_berserk_curse_tension < 50"
+                ]
+              },
+              {
+                "not": {
+                  "or": [
+                    {
+                      "u_is_wearing": "berserk_helmet"
+                    },
+                    {
+                      "u_is_wearing": "berserk_chestplate"
+                    },
+                    {
+                      "u_is_wearing": "berserk_gloves"
+                    },
+                    {
+                      "u_is_wearing": "berserk_armguards"
+                    },
+                    {
+                      "u_is_wearing": "berserk_legguards"
+                    },
+                    {
+                      "u_is_wearing": "berserk_boots"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          "then": {
+            "math": [
+              "u_berserk_mode_state = 0"
+            ]
+          }
+        },
+        "else": {
+          "if": {
+            "and": [
+              {
+                "u_is_wearing": "berserk_chestplate"
+              },
+              {
+                "math": [
+                  "u_berserk_curse_tension >= 75"
+                ]
+              },
+              {
+                "not": {
+                  "u_has_effect": "berserk_mode_recovery"
+                }
+              },
+              {
+                "not": {
+                  "u_has_effect": "sleep"
+                }
+              }
+            ]
+          },
+          "then": {
+            "run_eocs": "EOC_BERSERK_MODE_START"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_MODE_START",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_mode_state = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_mode_countdown = 151"
+        ]
+      },
+      {
+        "u_add_effect": "berserk_mode_rush",
+        "duration": "150 seconds"
+      },
+      {
+        "math": [
+          "u_val('stamina') = max(3000, u_val('stamina'))"
+        ]
+      },
+      {
+        "u_message": "The armor takes control! Berserk mode: 150 seconds.",
+        "type": "warning"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_MODE_FINISH",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_mode_state = 2"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_mode_countdown = 0"
+        ]
+      },
+      {
+        "u_lose_effect": "berserk_mode_rush"
+      },
+      {
+        "math": [
+          "u_val('stamina') = 0"
+        ]
+      },
+      {
+        "u_add_effect": "winded",
+        "duration": "30 minutes"
+      },
+      {
+        "math": [
+          "u_vitamin('blood') = min(u_vitamin('blood'), max(-17500, u_vitamin('blood') - 15000))"
+        ]
+      },
+      {
+        "u_add_effect": "berserk_mode_recovery",
+        "duration": "3 days"
+      },
+      {
+        "u_message": "The rage ends. You collapse into exhaustion as your blood volume falls.",
+        "type": "bad"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_MODE_COUNTDOWN",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 1 second remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 2"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 2 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 2"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 3"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 3"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 3 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 3"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 4"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 4"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 4 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 4"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 5"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 5"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 5 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 5"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 6"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 6"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 6 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 6"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 7"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 7"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 7 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 7"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 8"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 8"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 8 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 8"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 9"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 9"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 9 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 9"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 10"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 10"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 10 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 10"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 30"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 30"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 30 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 30"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 60"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 60"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 60 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 60"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 90"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 90"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 90 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 90"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 120"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 120"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 120 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 120"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]
