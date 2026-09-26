@@ -145,6 +145,11 @@ def validate_tileset(
     if not isinstance(sheets, list) or not sheets:
         errors.append("tiles-new must be a non-empty array")
         sheets = []
+    elif len({sheet.get("file") for sheet in sheets if isinstance(sheet, dict)
+              and isinstance(sheet.get("file"), str)}) > 1:
+        # In CDDA 0.I-1, fg indexes in one mod_tileset share an atlas offset.
+        # A second PNG with fg: 0 would silently display the first PNG instead.
+        errors.append("split distinct sprite files into separate mod_tileset definitions")
 
     checked_sheets = 0
     checked_tiles = 0
