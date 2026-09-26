@@ -1,9 +1,10 @@
-# Berserk 1.5 for Cataclysm: Dark Days Ahead
+# Berserk 1.5.1 for Cataclysm: Dark Days Ahead
 
 Фанатский мод по мотивам манги Кэнтаро Миуры. Добавляет броню Берсерка, мечи Гатса и Зодда, профессии, испытания и противников: Зодда, Гриффита, Рыцаря-Черепа, Апостола Войда и демонов Тьмы.
 
-Описание обновления: [Release 1.5 (English / Русский / 中文)](docs/RELEASE_1.5.md).
-Команды сборки и публикации: [PowerShell](docs/RELEASING_1.5.md).
+Описание обновления: [Release 1.5.1 (English / Русский / 中文)](docs/RELEASE_1.5.1.md).
+Основные механики версии 1.5: [The Price of Rage](docs/RELEASE_1.5.md).
+Команды сборки и публикации: [PowerShell](docs/RELEASING_1.5.1.md).
 
 ## Поддерживаемая версия
 
