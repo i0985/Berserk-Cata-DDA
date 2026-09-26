@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build deterministic release archives for the Berserk CDDA mods."""
+"""Build release archives for the Berserk CDDA mods, preserving file mtimes."""
 
 from __future__ import annotations
 
@@ -14,7 +14,6 @@ from validate_mod_assets import ValidationError, validate_repository
 
 ROOT = Path(__file__).resolve().parents[1]
 PACKAGES = ("Berserk", "Berserk_chibi_tileset")
-ZIP_TIMESTAMP = (2026, 1, 1, 0, 0, 0)
 
 
 def files_for(package: Path):
@@ -31,7 +30,10 @@ def write_archive(output: Path, package_names: tuple[str, ...]) -> None:
             package = ROOT / "mods" / package_name
             for path in files_for(package):
                 relative = path.relative_to(package.parent).as_posix()
-                info = zipfile.ZipInfo(relative, ZIP_TIMESTAMP)
+                # CDDA 0.I-1 keys its persistent JSON cache by path and mtime,
+                # not file contents. A constant ZIP timestamp lets an updated
+                # JSON silently reuse an older cached definition after extraction.
+                info = zipfile.ZipInfo.from_file(path, relative, strict_timestamps=False)
                 info.compress_type = zipfile.ZIP_DEFLATED
                 info.external_attr = 0o100644 << 16
                 archive.writestr(info, path.read_bytes())

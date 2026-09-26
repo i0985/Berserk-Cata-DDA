@@ -38,11 +38,29 @@ CDDA 0.I-1 сначала регистрирует моды из `data/mods/`, �
 
 Если перевод всё ещё не виден, откройте `debug.log`: строки загрузки файлов
 Berserk должны указывать на `mods\\Berserk\\`, а не на `data/mods\\Berserk\\`.
-Сообщения `Stale game data detected` после распаковки поверх старой версии
-означают, что старые файлы были перезаписаны; обновляйте мод заменой папки.
-Если после этого они повторяются, закройте игру и удалите только каталог
-`<CDDA>/cache/` рядом с `cataclysm-tiles.exe`: игра пересоздаст его при запуске.
-Каталоги `save/` и `config/` не удаляйте.
+
+When updating from earlier 1.5 test archives, close the game and remove
+`<CDDA>/cache/mods/Berserk/` and, if present,
+`<CDDA>/cache/mods/Berserk_chibi_tileset/`. These are generated caches, not
+the installed mods or saves. Earlier archives assigned every file the same
+timestamp, allowing CDDA 0.I-1 to reuse obsolete JSON even after replacing
+the mod folder. New archives preserve source file modification times.
+
+При обновлении с прежних тестовых архивов 1.5 закройте игру и удалите
+`<CDDA>/cache/mods/Berserk/` и, если есть,
+`<CDDA>/cache/mods/Berserk_chibi_tileset/`. Это кэш, который игра создаст заново.
+Прежний упаковщик ставил всем файлам одну дату: CDDA 0.I-1 могла читать старый
+JSON из кэша даже после полной замены папки мода. Это вызывало повторную ошибку
+`Unread data ... tiles-new` у руки-пушки. Новые архивы сохраняют даты изменения
+исходных файлов. Предупреждение `Stale game data detected` также означает
+несовпадение с кэшем; указанная очистка его устраняет. `save/` и `config/` не удаляйте.
+
+从旧的 1.5 测试压缩包更新时，请先关闭游戏，然后删除
+`<CDDA>/cache/mods/Berserk/` 和（如果存在）
+`<CDDA>/cache/mods/Berserk_chibi_tileset/`。这些是游戏自动生成的缓存，
+不是模组或存档。旧压缩包给所有文件设置了相同的修改时间，导致 CDDA 0.I-1
+即使在替换模组文件夹后仍可能读取旧 JSON。新压缩包保留源文件的修改时间。
+请勿删除 `save/` 或 `config/`。
 
 Для UltiCa включите только **Berserk**. Для ChibiUltica или MSXotto+ включите **Berserk** и **Berserk: Extended tileset** в одном мире.
 
