@@ -235,7 +235,12 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
     for package in packages:
         package_objects: dict[Path, list[dict[str, Any]]] = {}
         for path in sorted(package.rglob("*.json")):
-            package_objects[path] = top_level_objects(path)
+            objects = top_level_objects(path)
+            if sum(entry.get("type") == "mod_tileset" for entry in objects) > 1:
+                raise ValidationError(
+                    f"{path.relative_to(ROOT)}: CDDA 0.I-1 requires one mod_tileset per file"
+                )
+            package_objects[path] = objects
             json_count += 1
         objects_by_package[package] = package_objects
 
