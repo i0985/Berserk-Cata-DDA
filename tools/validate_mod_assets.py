@@ -70,7 +70,9 @@ def tile_ids(value: Any) -> Iterable[str]:
 
 
 def underlying_object_id(tile_id: str) -> str:
-    for prefix in ("overlay_worn_", "overlay_wielded_"):
+    for prefix in (
+        "overlay_worn_", "overlay_wielded_", "overlay_mutation_active_", "overlay_mutation_"
+    ):
         if tile_id.startswith(prefix):
             return tile_id.removeprefix(prefix)
     return tile_id
