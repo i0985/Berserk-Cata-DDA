@@ -1,0 +1,34 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_RESCUE_COMMIT_IF_RETURNED",
+    "condition": {
+      "and": [
+        { "math": [ "u_berserk_eclipse_rescue_state == 1" ] },
+        { "not": { "u_at_om_location": "berserk_eclipse_dungeon_altar" } }
+      ]
+    },
+    "effect": [
+      { "math": [ "u_berserk_eclipse_rescue_state = 2" ] },
+      { "math": [ "u_berserk_eclipse_trial_active = 0" ] },
+      {
+        "if": {
+          "and": [
+            { "not": { "u_has_bionics": "bio_berserk_hand_stump" } },
+            { "not": { "u_has_bionics": "bio_berserk_arm_cannon" } }
+          ]
+        },
+        "then": { "u_add_bionic": "bio_berserk_hand_stump" }
+      },
+      { "u_learn_recipe": "bio_berserk_arm_cannon" },
+      { "u_learn_recipe": "berserk_arm_cannon_charge" },
+      { "math": [ "u_berserk_hand_recipes_learned = 1" ] },
+      { "math": [ "g_berserk_eclipse_era = 1" ] },
+      {
+        "u_message": "The Skull Knight tears you free of the Eclipse. Your left hand is gone, but you have survived. You know how to build a prosthetic arm cannon and its charge. A new era begins.",
+        "type": "warning",
+        "popup": true
+      }
+    ]
+  }
+]

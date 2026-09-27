@@ -1,0 +1,122 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_RESCUE_THRESHOLD",
+    "global": true,
+    "recurrence": "1 turn",
+    "condition": {
+      "and": [
+        { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+        { "math": [ "u_berserk_eclipse_trial_active == 1" ] },
+        { "math": [ "u_berserk_eclipse_rescue_state == 0" ] },
+        { "math": [ "has_var(u_berserk_eclipse_return_origin)" ] },
+        {
+          "or": [
+            { "math": [ "u_hp('head') <= 30" ] },
+            { "math": [ "u_hp('torso') <= 30" ] }
+          ]
+        }
+      ]
+    },
+    "effect": { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE" }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_RESCUE_PREVENT_DEATH",
+    "eoc_type": "PREVENT_DEATH",
+    "condition": {
+      "and": [
+        { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+        { "math": [ "u_berserk_eclipse_trial_active == 1" ] },
+        { "math": [ "u_berserk_eclipse_rescue_state != 2" ] },
+        { "math": [ "has_var(u_berserk_eclipse_return_origin)" ] }
+      ]
+    },
+    "effect": [
+      "u_prevent_death",
+      { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_RESCUE",
+    "condition": {
+      "and": [
+        { "math": [ "u_berserk_eclipse_trial_active == 1" ] },
+        { "math": [ "u_berserk_eclipse_rescue_state != 2" ] },
+        { "math": [ "has_var(u_berserk_eclipse_return_origin)" ] }
+      ]
+    },
+    "effect": [
+      { "math": [ "u_berserk_eclipse_rescue_state = 1" ] },
+      { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_STABILIZE" },
+      { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_RETURN" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_RESCUE_STABILIZE",
+    "effect": [
+      {
+        "if": { "math": [ "u_berserk_mode_state == 1" ] },
+        "then": [
+          { "math": [ "u_berserk_mode_state = 2" ] },
+          { "math": [ "u_berserk_mode_countdown = 0" ] },
+          { "u_lose_effect": "berserk_mode_rush" },
+          { "math": [ "u_val('stamina') = 0" ] },
+          { "u_add_effect": "winded", "duration": "30 minutes" },
+          { "u_add_effect": "berserk_mode_recovery", "duration": "3 days" }
+        ]
+      },
+      { "math": [ "u_hp('head') = min(u_hp_max('head'), max(u_hp('head'), 35))" ] },
+      { "math": [ "u_hp('torso') = min(u_hp_max('torso'), max(u_hp('torso'), 35))" ] },
+      { "math": [ "u_vitamin('blood') = max(u_vitamin('blood'), -5000)" ] },
+      { "math": [ "u_vitamin('redcells') = max(u_vitamin('redcells'), -5000)" ] },
+      { "u_lose_effect": "bleed", "target_part": "ALL" },
+      { "u_lose_effect": [ "onfire", "corroding" ], "target_part": "ALL" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_RESCUE_RETURN",
+    "effect": [
+      {
+        "u_teleport": { "u_val": "berserk_eclipse_return_origin" },
+        "force_safe": true
+      },
+      {
+        "if": {
+          "and": [
+            { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+            { "math": [ "has_var(u_berserk_eclipse_return_east)" ] }
+          ]
+        },
+        "then": {
+          "u_teleport": { "u_val": "berserk_eclipse_return_east" },
+          "force_safe": true
+        }
+      },
+      {
+        "if": {
+          "and": [
+            { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+            { "math": [ "has_var(u_berserk_eclipse_return_west)" ] }
+          ]
+        },
+        "then": {
+          "u_teleport": { "u_val": "berserk_eclipse_return_west" },
+          "force_safe": true
+        }
+      },
+      {
+        "if": { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+        "then": {
+          "u_message": "The Skull Knight's escape route is blocked. Use the Behelit to leave; the rescue will finish once you return.",
+          "type": "warning",
+          "popup": true
+        },
+        "else": { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_COMMIT_IF_RETURNED" }
+      }
+    ]
+  }
+]

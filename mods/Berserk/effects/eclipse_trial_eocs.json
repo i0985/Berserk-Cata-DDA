@@ -30,6 +30,8 @@
     },
     "effect": [
       { "u_location_variable": { "u_val": "berserk_eclipse_return_origin" } },
+      { "u_location_variable": { "u_val": "berserk_eclipse_return_east" }, "x_adjust": 6 },
+      { "u_location_variable": { "u_val": "berserk_eclipse_return_west" }, "x_adjust": -6 },
       {
         "u_location_variable": { "u_val": "berserk_eclipse_trial_destination" },
         "target_params": {
@@ -56,6 +58,10 @@
         "force_safe": true,
         "success_message": "The Behelit draws you into a silent chamber of living flesh.",
         "fail_message": "The passage does not open.  You remain where you are."
+      },
+      {
+        "if": { "u_at_om_location": "berserk_eclipse_dungeon_entry" },
+        "then": { "math": [ "u_berserk_eclipse_trial_active = 1" ] }
       }
     ]
   },
@@ -85,6 +91,26 @@
         "force_safe": true,
         "success_message": "The Eclipse recedes.  You return to the world you left.",
         "fail_message": "The return passage is blocked.  Try again from the seal."
+      },
+      {
+        "if": {
+          "not": {
+            "or": [
+              { "u_at_om_location": "berserk_eclipse_trial" },
+              { "u_at_om_location": "berserk_eclipse_trial_flesh" },
+              { "u_at_om_location": "berserk_eclipse_dungeon_entry" },
+              { "u_at_om_location": "berserk_eclipse_dungeon_gallery" },
+              { "u_at_om_location": "berserk_eclipse_dungeon_warrens" },
+              { "u_at_om_location": "berserk_eclipse_dungeon_procession" },
+              { "u_at_om_location": "berserk_eclipse_dungeon_descent" },
+              { "u_at_om_location": "berserk_eclipse_dungeon_altar" }
+            ]
+          }
+        },
+        "then": [
+          { "math": [ "u_berserk_eclipse_trial_active = 0" ] },
+          { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_COMMIT_IF_RETURNED" }
+        ]
       }
     ]
   }
