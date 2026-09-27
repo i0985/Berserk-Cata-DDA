@@ -7,7 +7,13 @@
         "if": {
           "or": [
             { "u_at_om_location": "berserk_eclipse_trial" },
-            { "u_at_om_location": "berserk_eclipse_trial_flesh" }
+            { "u_at_om_location": "berserk_eclipse_trial_flesh" },
+            { "u_at_om_location": "berserk_eclipse_dungeon_entry" },
+            { "u_at_om_location": "berserk_eclipse_dungeon_gallery" },
+            { "u_at_om_location": "berserk_eclipse_dungeon_warrens" },
+            { "u_at_om_location": "berserk_eclipse_dungeon_procession" },
+            { "u_at_om_location": "berserk_eclipse_dungeon_descent" },
+            { "u_at_om_location": "berserk_eclipse_dungeon_altar" }
           ]
         },
         "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_EXIT" },
@@ -27,8 +33,8 @@
       {
         "u_location_variable": { "u_val": "berserk_eclipse_trial_destination" },
         "target_params": {
-          "om_terrain": "berserk_eclipse_trial_flesh",
-          "om_special": "berserk_eclipse_trial_special_flesh_limited",
+          "om_terrain": "berserk_eclipse_dungeon_entry",
+          "om_special": "berserk_eclipse_dungeon_special_limited",
           "random": true,
           "search_range": 24,
           "z": -7

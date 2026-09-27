@@ -1,0 +1,141 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_dungeon_entry",
+    "name": "Eclipse (test area)",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_dungeon_gallery",
+    "name": "Eclipse (test area)",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_dungeon_warrens",
+    "name": "Eclipse (test area)",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_dungeon_procession",
+    "name": "Eclipse (test area)",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_dungeon_descent",
+    "name": "Eclipse (test area)",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_dungeon_altar",
+    "name": "Eclipse (test area)",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_eclipse_dungeon_special_limited",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          -7
+        ],
+        "overmap": "berserk_eclipse_dungeon_entry"
+      },
+      {
+        "point": [
+          1,
+          0,
+          -7
+        ],
+        "overmap": "berserk_eclipse_dungeon_gallery"
+      },
+      {
+        "point": [
+          0,
+          1,
+          -7
+        ],
+        "overmap": "berserk_eclipse_dungeon_warrens"
+      },
+      {
+        "point": [
+          1,
+          1,
+          -7
+        ],
+        "overmap": "berserk_eclipse_dungeon_procession"
+      },
+      {
+        "point": [
+          0,
+          2,
+          -7
+        ],
+        "overmap": "berserk_eclipse_dungeon_descent"
+      },
+      {
+        "point": [
+          1,
+          2,
+          -7
+        ],
+        "overmap": "berserk_eclipse_dungeon_altar"
+      }
+    ],
+    "locations": [
+      "subterranean_empty"
+    ],
+    "occurrences": [
+      0,
+      0
+    ]
+  }
+]
