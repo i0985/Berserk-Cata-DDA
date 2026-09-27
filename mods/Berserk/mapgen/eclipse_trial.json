@@ -1,0 +1,16 @@
+[
+  {
+    "type": "mapgen",
+    "om_terrain": [ "berserk_eclipse_trial" ],
+    "object": {
+      "fill_ter": "t_nether_glass_floor",
+      "set": [
+        { "point": "terrain", "id": "t_nether_glass_wall", "x": [ 0, 23 ], "y": 0 },
+        { "point": "terrain", "id": "t_nether_glass_wall", "x": [ 0, 23 ], "y": 23 },
+        { "point": "terrain", "id": "t_nether_glass_wall", "x": 0, "y": [ 0, 23 ] },
+        { "point": "terrain", "id": "t_nether_glass_wall", "x": 23, "y": [ 0, 23 ] }
+      ],
+      "place_furniture": [ { "furn": "f_berserk_eclipse_return_seal", "x": 11, "y": 12 } ]
+    }
+  }
+]

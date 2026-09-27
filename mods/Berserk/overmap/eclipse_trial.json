@@ -1,0 +1,20 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_trial",
+    "name": "Eclipse (test area)",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [ "SHOULD_NOT_SPAWN" ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_eclipse_trial_special",
+    "overmaps": [ { "point": [ 0, 0, 0 ], "overmap": "berserk_eclipse_trial" } ],
+    "locations": [ "subterranean_empty" ],
+    "occurrences": [ 0, 0 ],
+    "flags": [ "OVERMAP_UNIQUE" ]
+  }
+]

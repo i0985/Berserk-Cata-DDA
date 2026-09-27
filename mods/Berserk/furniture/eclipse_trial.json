@@ -1,0 +1,14 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_return_seal",
+    "name": "Eclipse return seal",
+    "description": "An inert mark in the black glass.  Examine it to return to the place where you activated the Behelit.",
+    "symbol": "O",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": 900,
+    "flags": [ "TRANSPARENT" ],
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_BERSERK_ECLIPSE_TRIAL_EXIT" ] }
+  }
+]

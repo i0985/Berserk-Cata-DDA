@@ -1,0 +1,78 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_TRIAL_USE",
+    "effect": [
+      {
+        "if": { "u_at_om_location": "berserk_eclipse_trial" },
+        "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_EXIT" },
+        "else": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_ENTER" }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_TRIAL_ENTER",
+    "condition": {
+      "u_query": "Enter the Eclipse test area?  Only your carried equipment will follow you.  Activate the Behelit or examine the return seal to leave.",
+      "default": false
+    },
+    "effect": [
+      { "u_location_variable": { "u_val": "berserk_eclipse_return_origin" } },
+      {
+        "u_location_variable": { "u_val": "berserk_eclipse_trial_destination" },
+        "target_params": {
+          "om_terrain": "berserk_eclipse_trial",
+          "om_special": "berserk_eclipse_trial_special",
+          "z": -7
+        },
+        "furniture": "f_berserk_eclipse_return_seal",
+        "target_max_radius": 20,
+        "x_adjust": 1,
+        "true_eocs": [ "EOC_BERSERK_ECLIPSE_TRIAL_ARRIVE" ],
+        "false_eocs": [ "EOC_BERSERK_ECLIPSE_TRIAL_NO_DESTINATION" ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_TRIAL_ARRIVE",
+    "effect": [
+      {
+        "u_teleport": { "u_val": "berserk_eclipse_trial_destination" },
+        "force_safe": true,
+        "success_message": "The Behelit draws you into a silent expanse of black glass.",
+        "fail_message": "The passage does not open.  You remain where you are."
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_TRIAL_NO_DESTINATION",
+    "effect": [ { "u_message": "The Behelit cannot find a safe passage.  Nothing happens.", "type": "bad" } ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_TRIAL_EXIT",
+    "effect": [
+      {
+        "if": { "math": [ "has_var(u_berserk_eclipse_return_origin)" ] },
+        "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_RETURN" },
+        "else": { "u_message": "No place of return is recorded for you.", "type": "bad" }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_TRIAL_RETURN",
+    "condition": { "u_query": "Return to the place where you activated the Behelit?  Leave anything on the ground behind.", "default": false },
+    "effect": [
+      {
+        "u_teleport": { "u_val": "berserk_eclipse_return_origin" },
+        "force_safe": true,
+        "success_message": "The glass fades.  You return to the world you left.",
+        "fail_message": "The return passage is blocked.  Try again from the seal."
+      }
+    ]
+  }
+]
