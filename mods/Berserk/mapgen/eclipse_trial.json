@@ -12,5 +12,28 @@
       ],
       "place_furniture": [ { "furn": "f_berserk_eclipse_return_seal", "x": 11, "y": 12 } ]
     }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [ "berserk_eclipse_trial_flesh" ],
+    "object": {
+      "fill_ter": "t_thconc_floor_flesh",
+      "set": [
+        { "point": "terrain", "id": "t_concrete_wall_flesh", "x": [ 0, 23 ], "y": 0 },
+        { "point": "terrain", "id": "t_concrete_wall_flesh", "x": [ 0, 23 ], "y": 23 },
+        { "point": "terrain", "id": "t_concrete_wall_flesh", "x": 0, "y": [ 0, 23 ] },
+        { "point": "terrain", "id": "t_concrete_wall_flesh", "x": 23, "y": [ 0, 23 ] },
+        { "point": "terrain", "id": "t_berserk_eclipse_luminous_flesh", "x": 6, "y": 6 },
+        { "point": "terrain", "id": "t_berserk_eclipse_luminous_flesh", "x": 12, "y": 6 },
+        { "point": "terrain", "id": "t_berserk_eclipse_luminous_flesh", "x": 18, "y": 6 },
+        { "point": "terrain", "id": "t_berserk_eclipse_luminous_flesh", "x": 6, "y": 12 },
+        { "point": "terrain", "id": "t_berserk_eclipse_luminous_flesh", "x": 12, "y": 12 },
+        { "point": "terrain", "id": "t_berserk_eclipse_luminous_flesh", "x": 18, "y": 12 },
+        { "point": "terrain", "id": "t_berserk_eclipse_luminous_flesh", "x": 6, "y": 18 },
+        { "point": "terrain", "id": "t_berserk_eclipse_luminous_flesh", "x": 12, "y": 18 },
+        { "point": "terrain", "id": "t_berserk_eclipse_luminous_flesh", "x": 18, "y": 18 }
+      ],
+      "place_furniture": [ { "furn": "f_berserk_eclipse_return_seal", "x": 11, "y": 12 } ]
+    }
   }
 ]

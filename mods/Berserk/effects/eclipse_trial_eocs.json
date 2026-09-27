@@ -4,7 +4,12 @@
     "id": "EOC_BERSERK_ECLIPSE_TRIAL_USE",
     "effect": [
       {
-        "if": { "u_at_om_location": "berserk_eclipse_trial" },
+        "if": {
+          "or": [
+            { "u_at_om_location": "berserk_eclipse_trial" },
+            { "u_at_om_location": "berserk_eclipse_trial_flesh" }
+          ]
+        },
         "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_EXIT" },
         "else": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_ENTER" }
       }
@@ -22,8 +27,8 @@
       {
         "u_location_variable": { "u_val": "berserk_eclipse_trial_destination" },
         "target_params": {
-          "om_terrain": "berserk_eclipse_trial",
-          "om_special": "berserk_eclipse_trial_special_limited",
+          "om_terrain": "berserk_eclipse_trial_flesh",
+          "om_special": "berserk_eclipse_trial_special_flesh_limited",
           "random": true,
           "search_range": 24,
           "z": -7
@@ -43,7 +48,7 @@
       {
         "u_teleport": { "u_val": "berserk_eclipse_trial_destination" },
         "force_safe": true,
-        "success_message": "The Behelit draws you into a silent expanse of black glass.",
+        "success_message": "The Behelit draws you into a silent chamber of living flesh.",
         "fail_message": "The passage does not open.  You remain where you are."
       }
     ]
@@ -72,7 +77,7 @@
       {
         "u_teleport": { "u_val": "berserk_eclipse_return_origin" },
         "force_safe": true,
-        "success_message": "The glass fades.  You return to the world you left.",
+        "success_message": "The Eclipse recedes.  You return to the world you left.",
         "fail_message": "The return passage is blocked.  Try again from the seal."
       }
     ]
