@@ -23,7 +23,9 @@
         "u_location_variable": { "u_val": "berserk_eclipse_trial_destination" },
         "target_params": {
           "om_terrain": "berserk_eclipse_trial",
-          "om_special": "berserk_eclipse_trial_special",
+          "om_special": "berserk_eclipse_trial_special_limited",
+          "random": true,
+          "search_range": 24,
           "z": -7
         },
         "furniture": "f_berserk_eclipse_return_seal",
