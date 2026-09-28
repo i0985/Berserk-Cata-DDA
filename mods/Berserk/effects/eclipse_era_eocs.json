@@ -26,7 +26,7 @@
     },
     "effect": [
       {
-        "set_string_var": "g_berserk_eclipse_era_omt_v3_<context_val:pos>",
+        "set_string_var": "g_berserk_eclipse_era_omt_v4_<context_val:pos>",
         "target_var": {
           "context_val": "berserk_era_omt_key"
         },
@@ -63,19 +63,7 @@
             "x_adjust": 1
           },
           {
-            "set_string_var": "berserk_eclipse_era_city_east",
-            "target_var": {
-              "context_val": "berserk_era_city_patch"
-            }
-          },
-          {
-            "set_string_var": "berserk_eclipse_era_wild_east",
-            "target_var": {
-              "context_val": "berserk_era_wild_patch"
-            }
-          },
-          {
-            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_SEED_NEIGHBOR"
+            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_SEED_EAST"
           },
           {
             "u_location_variable": {
@@ -90,19 +78,7 @@
             "x_adjust": -1
           },
           {
-            "set_string_var": "berserk_eclipse_era_city_west",
-            "target_var": {
-              "context_val": "berserk_era_city_patch"
-            }
-          },
-          {
-            "set_string_var": "berserk_eclipse_era_wild_west",
-            "target_var": {
-              "context_val": "berserk_era_wild_patch"
-            }
-          },
-          {
-            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_SEED_NEIGHBOR"
+            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_SEED_WEST"
           },
           {
             "u_location_variable": {
@@ -117,19 +93,7 @@
             "y_adjust": 1
           },
           {
-            "set_string_var": "berserk_eclipse_era_city_south",
-            "target_var": {
-              "context_val": "berserk_era_city_patch"
-            }
-          },
-          {
-            "set_string_var": "berserk_eclipse_era_wild_south",
-            "target_var": {
-              "context_val": "berserk_era_wild_patch"
-            }
-          },
-          {
-            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_SEED_NEIGHBOR"
+            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_SEED_SOUTH"
           },
           {
             "u_location_variable": {
@@ -144,19 +108,7 @@
             "y_adjust": -1
           },
           {
-            "set_string_var": "berserk_eclipse_era_city_north",
-            "target_var": {
-              "context_val": "berserk_era_city_patch"
-            }
-          },
-          {
-            "set_string_var": "berserk_eclipse_era_wild_north",
-            "target_var": {
-              "context_val": "berserk_era_wild_patch"
-            }
-          },
-          {
-            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_SEED_NEIGHBOR"
+            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_SEED_NORTH"
           }
         ]
       }
@@ -164,16 +116,14 @@
   },
   {
     "type": "effect_on_condition",
-    "id": "EOC_BERSERK_ECLIPSE_ERA_SEED_NEIGHBOR",
+    "id": "EOC_BERSERK_ECLIPSE_ERA_SEED_EAST",
     "condition": {
       "map_in_city": {
         "context_val": "berserk_era_neighbor"
       }
     },
     "effect": {
-      "mapgen_update": {
-        "context_val": "berserk_era_city_patch"
-      },
+      "mapgen_update": "berserk_eclipse_era_city_east",
       "target_var": {
         "context_val": "berserk_era_neighbor"
       }
@@ -186,9 +136,94 @@
         }
       },
       "then": {
-        "mapgen_update": {
-          "context_val": "berserk_era_wild_patch"
-        },
+        "mapgen_update": "berserk_eclipse_era_wild_east",
+        "target_var": {
+          "context_val": "berserk_era_neighbor"
+        }
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_ERA_SEED_WEST",
+    "condition": {
+      "map_in_city": {
+        "context_val": "berserk_era_neighbor"
+      }
+    },
+    "effect": {
+      "mapgen_update": "berserk_eclipse_era_city_west",
+      "target_var": {
+        "context_val": "berserk_era_neighbor"
+      }
+    },
+    "false_effect": {
+      "if": {
+        "x_in_y_chance": {
+          "x": 1,
+          "y": 15
+        }
+      },
+      "then": {
+        "mapgen_update": "berserk_eclipse_era_wild_west",
+        "target_var": {
+          "context_val": "berserk_era_neighbor"
+        }
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_ERA_SEED_SOUTH",
+    "condition": {
+      "map_in_city": {
+        "context_val": "berserk_era_neighbor"
+      }
+    },
+    "effect": {
+      "mapgen_update": "berserk_eclipse_era_city_south",
+      "target_var": {
+        "context_val": "berserk_era_neighbor"
+      }
+    },
+    "false_effect": {
+      "if": {
+        "x_in_y_chance": {
+          "x": 1,
+          "y": 15
+        }
+      },
+      "then": {
+        "mapgen_update": "berserk_eclipse_era_wild_south",
+        "target_var": {
+          "context_val": "berserk_era_neighbor"
+        }
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_ERA_SEED_NORTH",
+    "condition": {
+      "map_in_city": {
+        "context_val": "berserk_era_neighbor"
+      }
+    },
+    "effect": {
+      "mapgen_update": "berserk_eclipse_era_city_north",
+      "target_var": {
+        "context_val": "berserk_era_neighbor"
+      }
+    },
+    "false_effect": {
+      "if": {
+        "x_in_y_chance": {
+          "x": 1,
+          "y": 15
+        }
+      },
+      "then": {
+        "mapgen_update": "berserk_eclipse_era_wild_north",
         "target_var": {
           "context_val": "berserk_era_neighbor"
         }

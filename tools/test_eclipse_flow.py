@@ -12,6 +12,8 @@ import json
 from pathlib import Path
 import unittest
 
+from validate_mod_assets import ValidationError, validate_mapgen_update_effects
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MOD = ROOT / "mods" / "Berserk"
@@ -96,6 +98,21 @@ class EclipseFlowTests(unittest.TestCase):
         self.assertIn("berserk_eclipse_era == 1", str(era["condition"]))
         self.assertIn("u_val('pos_z') == 0", str(era["condition"]))
         self.assertIn('"var_val": "berserk_era_omt_key"', json.dumps(era))
+
+        # An object-valued mapgen_update silently passed the old asset checks,
+        # then prevented this EOC from loading in CDDA 0.I-1.
+        era_file = MOD / "effects" / "eclipse_era_eocs.json"
+        validate_mapgen_update_effects(era_file, objects(era_file))
+        with self.assertRaises(ValidationError):
+            validate_mapgen_update_effects(era_file, [{
+                "type": "effect_on_condition",
+                "effect": {"mapgen_update": {"context_val": "unsupported"}},
+            }])
+        updates = {obj["update_mapgen_id"] for obj in objects(MOD / "mapgen" / "eclipse_era_spawns.json")}
+        for direction in ("EAST", "WEST", "SOUTH", "NORTH"):
+            helper = self.eocs[f"EOC_BERSERK_ECLIPSE_ERA_SEED_{direction}"]
+            self.assertIn(helper["effect"]["mapgen_update"], updates)
+            self.assertIn(helper["false_effect"]["then"]["mapgen_update"], updates)
 
         groups = {entry["id"]: entry for entry in objects(MOD / "monstergroups" / "eclipse_era_groups.json")}
         for group in groups.values():

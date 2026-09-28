@@ -42,6 +42,27 @@ def top_level_objects(path: Path) -> list[dict[str, Any]]:
     return objects
 
 
+def validate_mapgen_update_effects(path: Path, objects: list[dict[str, Any]]) -> None:
+    """CDDA 0.I-1 only reads mapgen_update as a string or an array, not an object."""
+    def visit(value: Any) -> None:
+        if isinstance(value, list):
+            for element in value:
+                visit(element)
+        elif isinstance(value, dict):
+            for key, element in value.items():
+                if key == "mapgen_update" and not (
+                    isinstance(element, str) or isinstance(element, list)
+                ):
+                    raise ValidationError(
+                        f"{path.relative_to(ROOT)}: mapgen_update must be a string or array in CDDA 0.I-1"
+                    )
+                visit(element)
+
+    for entry in objects:
+        if entry.get("type") == "effect_on_condition":
+            visit(entry)
+
+
 def png_size(path: Path) -> tuple[int, int]:
     try:
         with path.open("rb") as image:
@@ -236,6 +257,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
         package_objects: dict[Path, list[dict[str, Any]]] = {}
         for path in sorted(package.rglob("*.json")):
             objects = top_level_objects(path)
+            validate_mapgen_update_effects(path, objects)
             if sum(entry.get("type") == "mod_tileset" for entry in objects) > 1:
                 raise ValidationError(
                     f"{path.relative_to(ROOT)}: CDDA 0.I-1 requires one mod_tileset per file"
