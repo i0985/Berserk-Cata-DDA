@@ -1,11 +1,20 @@
-{
-  "type": "palette",
-  "id": "berserk_eclipse_flesh_palette",
-  "terrain": {
-    "#": "t_concrete_wall_flesh",
-    ".": "t_thconc_floor_flesh",
-    "L": "t_berserk_eclipse_luminous_flesh",
-    "S": "t_thconc_floor_flesh"
+[
+  {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_luminous_flesh",
+    "copy-from": "t_thconc_floor_flesh",
+    "looks_like": "t_thconc_floor_flesh",
+    "light_emitted": 120
   },
-  "furniture": { "S": "f_berserk_eclipse_return_seal" }
-}
+  {
+    "type": "palette",
+    "id": "berserk_eclipse_flesh_palette",
+    "terrain": {
+      "#": "t_concrete_wall_flesh",
+      ".": "t_thconc_floor_flesh",
+      "L": "t_berserk_eclipse_luminous_flesh",
+      "S": "t_thconc_floor_flesh"
+    },
+    "furniture": { "S": "f_berserk_eclipse_return_seal" }
+  }
+]
