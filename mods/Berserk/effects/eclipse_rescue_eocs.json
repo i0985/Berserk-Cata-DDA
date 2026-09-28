@@ -50,6 +50,7 @@
     "effect": [
       { "math": [ "u_berserk_eclipse_rescue_state = 1" ] },
       { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_STABILIZE" },
+      { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_SCENE" },
       { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_RETURN" }
     ]
   },
@@ -75,6 +76,41 @@
       { "u_lose_effect": "bleed", "target_part": "ALL" },
       { "u_lose_effect": [ "onfire", "corroding" ], "target_part": "ALL" }
     ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_RESCUE_SCENE",
+    "effect": [
+      {
+        "u_message": "Your strength fails. As the Eclipse closes in, a blade cuts through the darkness. The Skull Knight appears between you and the abyss.",
+        "type": "warning",
+        "popup": true
+      },
+      {
+        "u_spawn_monster": "mon_skull_knight_rescuer",
+        "real_count": 1,
+        "min_radius": 1,
+        "max_radius": 3,
+        "indoor_only": true,
+        "lifespan": "5 minutes",
+        "true_eocs": [ "EOC_BERSERK_ECLIPSE_RESCUE_DIALOGUE" ],
+        "false_eocs": [ "EOC_BERSERK_ECLIPSE_RESCUE_SCENE_FALLBACK" ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_RESCUE_DIALOGUE",
+    "effect": { "open_dialogue": { "topic": "TALK_BERSERK_SKULL_KNIGHT_RESCUE" } }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_RESCUE_SCENE_FALLBACK",
+    "effect": {
+      "u_message": "The Skull Knight opens a path through the Eclipse. 'Hold on. We leave now.'",
+      "type": "warning",
+      "popup": true
+    }
   },
   {
     "type": "effect_on_condition",

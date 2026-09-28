@@ -1,0 +1,32 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_RESCUE",
+    "dynamic_line": "'The Eclipse has not claimed you yet. I will cut a way out. Stay close.' Beyond his shoulder, the darkness recoils from his blade.",
+    "responses": [
+      { "text": "What is happening?", "topic": "TALK_BERSERK_SKULL_KNIGHT_RESCUE_REPLY" },
+      { "text": "Get me out of here.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_RESCUE_REPLY",
+    "dynamic_line": "'Survive first. Answers can wait.' He raises his sword, and a path opens through the dark.",
+    "responses": [ { "text": "Follow the Skull Knight.", "topic": "TALK_DONE" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_AFTER",
+    "dynamic_line": "'You escaped, but the Eclipse has marked you. Your hand is gone. What comes next is yours to decide.'",
+    "responses": [
+      { "text": "How can I replace my hand?", "topic": "TALK_BERSERK_SKULL_KNIGHT_HAND" },
+      { "text": "I need to go.", "topic": "TALK_DONE" }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_HAND",
+    "dynamic_line": "'You know how to craft the prosthetic arm cannon and its charge. Find the parts, then build what you need.'",
+    "responses": [ { "text": "I understand.", "topic": "TALK_DONE" } ]
+  }
+]
