@@ -1,0 +1,15 @@
+{
+  "type": "MONSTER",
+  "id": "mon_berserk_eclipse_griffith",
+  "copy-from": "mon_griffith_reborn",
+  "name": { "str": "Griffith of the Eclipse" },
+  "description": "Griffith waits at the heart of the Eclipse. His familiar silhouette is surrounded by the remains of a world that should not exist.",
+  "looks_like": "mon_griffith_reborn",
+  "hp": 650,
+  "regenerates": 0,
+  "speed": 125,
+  "melee_damage": [ { "damage_type": "cut", "amount": 25 } ],
+  "dodge": 5,
+  "flags": [ "SEES", "HEARS", "WARM", "FLIES", "DESTROYS" ],
+  "death_function": { "eoc": "EOC_BERSERK_ECLIPSE_GRIFFITH_DIES" }
+}

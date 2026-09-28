@@ -1,0 +1,46 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_GRIFFITH_DIES",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_ECLIPSE_VICTORY",
+      "alpha_talker": "avatar"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_VICTORY",
+    "condition": {
+      "and": [
+        { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+        { "math": [ "u_berserk_eclipse_trial_active == 1" ] },
+        { "math": [ "u_berserk_eclipse_rescue_state == 0" ] },
+        { "math": [ "has_var(u_berserk_eclipse_return_origin)" ] }
+      ]
+    },
+    "effect": [
+      { "math": [ "u_berserk_eclipse_rescue_state = 1" ] },
+      { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_STABILIZE" },
+      {
+        "u_message": "Griffith falls. The Eclipse shudders, but does not release you. The Skull Knight cuts a path through the closing darkness.",
+        "type": "warning",
+        "popup": true
+      },
+      {
+        "u_spawn_monster": "mon_skull_knight_rescuer",
+        "real_count": 1,
+        "min_radius": 1,
+        "max_radius": 3,
+        "indoor_only": true,
+        "lifespan": "5 minutes",
+        "true_eocs": [ "EOC_BERSERK_ECLIPSE_VICTORY_DIALOGUE" ]
+      },
+      { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_RETURN" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_VICTORY_DIALOGUE",
+    "effect": { "open_dialogue": { "topic": "TALK_BERSERK_SKULL_KNIGHT_VICTORY" } }
+  }
+]

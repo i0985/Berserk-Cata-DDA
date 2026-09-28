@@ -1,9 +1,7 @@
 [
   {
     "type": "mapgen",
-    "om_terrain": [
-      "berserk_eclipse_dungeon_entry"
-    ],
+    "om_terrain": ["berserk_eclipse_dungeon_entry"],
     "object": {
       "rows": [
         "########################",
@@ -31,22 +29,15 @@
         "#......................#",
         "########################"
       ],
-      "terrain": {
-        "#": "t_concrete_wall_flesh",
-        ".": "t_thconc_floor_flesh",
-        "L": "t_berserk_eclipse_luminous_flesh",
-        "S": "t_thconc_floor_flesh"
-      },
-      "furniture": {
-        "S": "f_berserk_eclipse_return_seal"
-      }
+      "palettes": ["berserk_eclipse_flesh_palette"],
+      "place_monster": [
+        {"group": "GROUP_BERSERK_ECLIPSE_WRETCH", "x": 19, "y": 3}
+      ]
     }
   },
   {
     "type": "mapgen",
-    "om_terrain": [
-      "berserk_eclipse_dungeon_gallery"
-    ],
+    "om_terrain": ["berserk_eclipse_dungeon_gallery"],
     "object": {
       "rows": [
         "########################",
@@ -74,19 +65,24 @@
         "#......................#",
         "###########...##########"
       ],
-      "terrain": {
-        "#": "t_concrete_wall_flesh",
-        ".": "t_thconc_floor_flesh",
-        "L": "t_berserk_eclipse_luminous_flesh",
-        "S": "t_thconc_floor_flesh"
-      }
+      "palettes": ["berserk_eclipse_flesh_palette"],
+      "place_monster": [
+        {"group": "GROUP_BERSERK_ECLIPSE_WRETCH", "x": 19, "y": 3},
+        {"group": "GROUP_BERSERK_ECLIPSE_WRETCH", "x": 11, "y": 10},
+        {"group": "GROUP_BERSERK_ECLIPSE_WRETCH", "x": 12, "y": 17},
+        {"group": "GROUP_BERSERK_ECLIPSE_HALF", "x": 12, "y": 19}
+      ],
+      "place_item": [
+        {"item": "berserk_eclipse_judeau_body", "x": 18, "y": 8, "amount": 1}
+      ],
+      "place_loot": [
+        {"group": "berserk_eclipse_judeau_gear", "x": 18, "y": 8, "chance": 100}
+      ]
     }
   },
   {
     "type": "mapgen",
-    "om_terrain": [
-      "berserk_eclipse_dungeon_warrens"
-    ],
+    "om_terrain": ["berserk_eclipse_dungeon_warrens"],
     "object": {
       "rows": [
         "########################",
@@ -114,19 +110,24 @@
         "#......................#",
         "###########...##########"
       ],
-      "terrain": {
-        "#": "t_concrete_wall_flesh",
-        ".": "t_thconc_floor_flesh",
-        "L": "t_berserk_eclipse_luminous_flesh",
-        "S": "t_thconc_floor_flesh"
-      }
+      "palettes": ["berserk_eclipse_flesh_palette"],
+      "place_monster": [
+        {"group": "GROUP_BERSERK_ECLIPSE_WRETCH", "x": 18, "y": 3},
+        {"group": "GROUP_BERSERK_ECLIPSE_WRETCH", "x": 8, "y": 15},
+        {"group": "GROUP_BERSERK_ECLIPSE_HALF", "x": 18, "y": 21},
+        {"group": "GROUP_BERSERK_ECLIPSE_HALF", "x": 4, "y": 9}
+      ],
+      "place_item": [
+        {"item": "berserk_eclipse_pippin_body", "x": 6, "y": 14, "amount": 1}
+      ],
+      "place_loot": [
+        {"group": "berserk_eclipse_pippin_gear", "x": 6, "y": 14, "chance": 100}
+      ]
     }
   },
   {
     "type": "mapgen",
-    "om_terrain": [
-      "berserk_eclipse_dungeon_procession"
-    ],
+    "om_terrain": ["berserk_eclipse_dungeon_procession"],
     "object": {
       "rows": [
         "###########...##########",
@@ -154,19 +155,23 @@
         "#......................#",
         "########################"
       ],
-      "terrain": {
-        "#": "t_concrete_wall_flesh",
-        ".": "t_thconc_floor_flesh",
-        "L": "t_berserk_eclipse_luminous_flesh",
-        "S": "t_thconc_floor_flesh"
-      }
+      "palettes": ["berserk_eclipse_flesh_palette"],
+      "place_monster": [
+        {"group": "GROUP_BERSERK_ECLIPSE_HALF", "x": 11, "y": 4},
+        {"group": "GROUP_BERSERK_ECLIPSE_HALF", "x": 14, "y": 18},
+        {"group": "GROUP_BERSERK_ECLIPSE_HUNTER", "x": 19, "y": 10}
+      ],
+      "place_item": [
+        {"item": "berserk_eclipse_corkus_body", "x": 12, "y": 8, "amount": 1}
+      ],
+      "place_loot": [
+        {"group": "berserk_eclipse_corkus_gear", "x": 12, "y": 8, "chance": 100}
+      ]
     }
   },
   {
     "type": "mapgen",
-    "om_terrain": [
-      "berserk_eclipse_dungeon_descent"
-    ],
+    "om_terrain": ["berserk_eclipse_dungeon_descent"],
     "object": {
       "rows": [
         "###########...##########",
@@ -194,19 +199,24 @@
         "#......................#",
         "########################"
       ],
-      "terrain": {
-        "#": "t_concrete_wall_flesh",
-        ".": "t_thconc_floor_flesh",
-        "L": "t_berserk_eclipse_luminous_flesh",
-        "S": "t_thconc_floor_flesh"
-      }
+      "palettes": ["berserk_eclipse_flesh_palette"],
+      "place_monster": [
+        {"group": "GROUP_BERSERK_ECLIPSE_HUNTER", "x": 10, "y": 4},
+        {"group": "GROUP_BERSERK_ECLIPSE_HUNTER", "x": 12, "y": 15},
+        {"group": "GROUP_BERSERK_ECLIPSE_BUTCHER", "x": 18, "y": 21},
+        {"group": "GROUP_BERSERK_ECLIPSE_ELITE", "x": 21, "y": 4, "chance": 30}
+      ],
+      "place_item": [
+        {"item": "berserk_eclipse_gaston_body", "x": 18, "y": 19, "amount": 1}
+      ],
+      "place_loot": [
+        {"group": "berserk_eclipse_gaston_gear", "x": 18, "y": 19, "chance": 100}
+      ]
     }
   },
   {
     "type": "mapgen",
-    "om_terrain": [
-      "berserk_eclipse_dungeon_altar"
-    ],
+    "om_terrain": ["berserk_eclipse_dungeon_altar"],
     "object": {
       "rows": [
         "########################",
@@ -234,12 +244,11 @@
         "#......................#",
         "########################"
       ],
-      "terrain": {
-        "#": "t_concrete_wall_flesh",
-        ".": "t_thconc_floor_flesh",
-        "L": "t_berserk_eclipse_luminous_flesh",
-        "S": "t_thconc_floor_flesh"
-      }
+      "palettes": ["berserk_eclipse_flesh_palette"],
+      "place_monster": [
+        {"group": "GROUP_BERSERK_ECLIPSE_ELITE", "x": 17, "y": 18},
+        {"monster": "mon_berserk_eclipse_griffith", "x": 13, "y": 12, "one_or_none": true}
+      ]
     }
   }
 ]
