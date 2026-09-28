@@ -19,5 +19,5 @@ jobs:
         run: python tools/validate_mod_assets.py
       - name: Build release archives
         run: python tools/package_release.py
-      - name: Check release archive timestamps
-        run: python -m unittest discover -s tools -p 'test_package_release.py'
+      - name: Check release archive and Eclipse flow
+        run: python -m unittest discover -s tools -p 'test_*.py'

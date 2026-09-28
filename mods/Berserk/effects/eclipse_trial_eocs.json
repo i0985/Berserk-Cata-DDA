@@ -17,7 +17,11 @@
           ]
         },
         "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_EXIT" },
-        "else": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_ENTER" }
+        "else": {
+          "if": { "math": [ "u_berserk_eclipse_rescue_state == 2" ] },
+          "then": { "u_message": "The Behelit has gone quiet. The Eclipse has ended for you.", "type": "neutral", "popup": true },
+          "else": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_ENTER" }
+        }
       }
     ]
   },

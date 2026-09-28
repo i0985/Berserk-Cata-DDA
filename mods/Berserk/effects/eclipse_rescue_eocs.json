@@ -34,7 +34,14 @@
     },
     "effect": [
       "u_prevent_death",
-      { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE" }
+      {
+        "if": { "math": [ "u_berserk_eclipse_rescue_state == 0" ] },
+        "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE" },
+        "else": [
+          { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_STABILIZE" },
+          { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_RETURN" }
+        ]
+      }
     ]
   },
   {
@@ -43,7 +50,7 @@
     "condition": {
       "and": [
         { "math": [ "u_berserk_eclipse_trial_active == 1" ] },
-        { "math": [ "u_berserk_eclipse_rescue_state != 2" ] },
+        { "math": [ "u_berserk_eclipse_rescue_state == 0" ] },
         { "math": [ "has_var(u_berserk_eclipse_return_origin)" ] }
       ]
     },
