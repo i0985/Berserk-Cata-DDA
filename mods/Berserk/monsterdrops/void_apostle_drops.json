@@ -2,10 +2,19 @@
   {
     "type": "item_group",
     "id": "void_apostle_drops",
+    "subtype": "collection",
+    "items": [
+      { "group": "void_apostle_remains", "prob": 100 },
+      { "item": "berserk_behelit", "prob": 100 }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "void_apostle_remains",
     "subtype": "distribution",
     "items": [
       { "item": "bone", "prob": 60 },
-      { "item": "mutant_meat", "prob": 40 },  
+      { "item": "mutant_meat", "prob": 40 },
       { "item": "void_crystal", "prob": 10 }
     ]
   }
