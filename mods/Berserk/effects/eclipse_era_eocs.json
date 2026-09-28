@@ -1,0 +1,105 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_ERA_ENTER_OMT",
+    "eoc_type": "EVENT",
+    "required_event": "avatar_enters_omt",
+    "condition": {
+      "and": [
+        { "math": [ "berserk_eclipse_era == 1" ] },
+        { "math": [ "u_val('pos_z') == 0" ] },
+        { "math": [ "u_berserk_eclipse_trial_active != 1" ] }
+      ]
+    },
+    "effect": [
+      {
+        "set_string_var": "g_berserk_eclipse_era_omt_<context_val:pos>",
+        "target_var": { "context_val": "berserk_era_omt_key" },
+        "parse_tags": true
+      },
+      {
+        "if": { "not": { "compare_string": [ "1", { "var_val": "berserk_era_omt_key" } ] } },
+        "then": [
+          { "set_string_var": "1", "target_var": { "var_val": "berserk_era_omt_key" } },
+          { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_COUNT_NEARBY" },
+          {
+            "if": { "math": [ "berserk_era_nearby_count < 4" ] },
+            "then": [
+              { "u_location_variable": { "context_val": "berserk_era_loc" } },
+              {
+                "if": { "map_in_city": { "context_val": "berserk_era_loc" } },
+                "then": {
+                  "if": { "x_in_y_chance": { "x": 1, "y": 5 } },
+                  "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_CITY_ENCOUNTER" }
+                },
+                "else": {
+                  "if": { "x_in_y_chance": { "x": 1, "y": 15 } },
+                  "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_WILDS_ENCOUNTER" }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_ERA_COUNT_NEARBY",
+    "effect": [
+      { "math": [ "berserk_era_nearby_count = 0" ] },
+      {
+        "u_run_monster_eocs": [
+          {
+            "id": "EOC_BERSERK_ECLIPSE_ERA_COUNT_ONE",
+            "effect": { "math": [ "berserk_era_nearby_count += 1" ] }
+          }
+        ],
+        "mtype_ids": [
+          "mon_berserk_eclipse_wretch",
+          "mon_berserk_eclipse_halfbreed",
+          "mon_berserk_eclipse_hunter",
+          "mon_berserk_eclipse_butcher",
+          "mon_berserk_eclipse_elite",
+          "mon_berserk_eclipse_griffith",
+          "mon_void_apostle",
+          "mon_nosferatu_zodd",
+          "mon_griffith_reborn",
+          "mon_beast_of_darkness_1",
+          "mon_beast_of_darkness_2",
+          "mon_beast_of_darkness_3",
+          "mon_beast_of_darkness_4",
+          "mon_beast_of_darkness_5",
+          "mon_beast_of_darkness_6"
+        ],
+        "monster_range": 24
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_ERA_CITY_ENCOUNTER",
+    "effect": {
+      "u_spawn_monster": "GROUP_BERSERK_ECLIPSE_ERA_CITY",
+      "group": true,
+      "single_target": true,
+      "real_count": 1,
+      "min_radius": 8,
+      "max_radius": 14,
+      "outdoor_only": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_ERA_WILDS_ENCOUNTER",
+    "effect": {
+      "u_spawn_monster": "GROUP_BERSERK_ECLIPSE_ERA_WILDS",
+      "group": true,
+      "single_target": true,
+      "real_count": 1,
+      "min_radius": 8,
+      "max_radius": 14,
+      "outdoor_only": true
+    }
+  }
+]

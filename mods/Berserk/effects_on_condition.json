@@ -42,8 +42,11 @@
       ]
     },
     "effect": [
+      { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_COUNT_NEARBY" },
       {
-        "switch": { "math": [ "rand(5)" ] },
+        "if": { "or": [ { "math": [ "berserk_eclipse_era != 1" ] }, { "math": [ "berserk_era_nearby_count < 4" ] } ] },
+        "then": {
+          "switch": { "math": [ "rand(5)" ] },
         "cases": [
           {
             "case": 0,
@@ -70,6 +73,7 @@
             "effect": { "u_spawn_monster": "mon_beast_of_darkness_6", "real_count": 1, "min_radius": 7, "max_radius": 12 }
           }
         ]
+        }
       }
     ]
   },

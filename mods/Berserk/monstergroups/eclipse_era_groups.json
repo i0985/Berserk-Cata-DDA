@@ -1,0 +1,23 @@
+[
+  {
+    "type": "monstergroup",
+    "id": "GROUP_BERSERK_ECLIPSE_ERA_CITY",
+    "default": "mon_berserk_eclipse_wretch",
+    "monsters": [
+      { "monster": "mon_berserk_eclipse_wretch", "weight": 55, "cost_multiplier": 0 },
+      { "monster": "mon_berserk_eclipse_halfbreed", "weight": 25, "cost_multiplier": 0 },
+      { "monster": "mon_berserk_eclipse_hunter", "weight": 15, "cost_multiplier": 0 },
+      { "monster": "mon_berserk_eclipse_butcher", "weight": 5, "cost_multiplier": 0 }
+    ]
+  },
+  {
+    "type": "monstergroup",
+    "id": "GROUP_BERSERK_ECLIPSE_ERA_WILDS",
+    "default": "mon_berserk_eclipse_wretch",
+    "monsters": [
+      { "monster": "mon_berserk_eclipse_wretch", "weight": 65, "cost_multiplier": 0 },
+      { "monster": "mon_berserk_eclipse_halfbreed", "weight": 25, "cost_multiplier": 0 },
+      { "monster": "mon_berserk_eclipse_hunter", "weight": 10, "cost_multiplier": 0 }
+    ]
+  }
+]
