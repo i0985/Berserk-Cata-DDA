@@ -13,7 +13,7 @@
     },
     "effect": [
       {
-        "set_string_var": "g_berserk_eclipse_era_omt_<context_val:pos>",
+        "set_string_var": "g_berserk_eclipse_era_omt_v2_<context_val:pos>",
         "target_var": { "context_val": "berserk_era_omt_key" },
         "parse_tags": true
       },
@@ -22,22 +22,22 @@
         "then": [
           { "set_string_var": "1", "target_var": { "var_val": "berserk_era_omt_key" } },
           { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_COUNT_NEARBY" },
+          { "u_location_variable": { "context_val": "berserk_era_loc" } },
           {
-            "if": { "math": [ "berserk_era_nearby_count < 4" ] },
+            "if": { "map_in_city": { "context_val": "berserk_era_loc" } },
             "then": [
-              { "u_location_variable": { "context_val": "berserk_era_loc" } },
-              {
-                "if": { "map_in_city": { "context_val": "berserk_era_loc" } },
-                "then": {
-                  "if": { "x_in_y_chance": { "x": 1, "y": 5 } },
-                  "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_CITY_ENCOUNTER" }
-                },
-                "else": {
-                  "if": { "x_in_y_chance": { "x": 1, "y": 15 } },
-                  "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_WILDS_ENCOUNTER" }
-                }
-              }
-            ]
+              { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_COUNT_ZOMBIES" },
+              { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_CITY_ENCOUNTER" }
+            ],
+            "else": {
+              "if": {
+                "and": [
+                  { "math": [ "berserk_era_nearby_count < 4" ] },
+                  { "x_in_y_chance": { "x": 1, "y": 15 } }
+                ]
+              },
+              "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_WILDS_ENCOUNTER" }
+            }
           }
         ]
       }
@@ -78,15 +78,36 @@
   },
   {
     "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_ERA_COUNT_ZOMBIES",
+    "effect": [
+      { "math": [ "berserk_era_zombie_count = 0" ] },
+      {
+        "u_run_monster_eocs": [
+          {
+            "id": "EOC_BERSERK_ECLIPSE_ERA_COUNT_ZOMBIE",
+            "condition": { "u_has_species": "ZOMBIE" },
+            "effect": { "math": [ "berserk_era_zombie_count += 1" ] }
+          }
+        ],
+        "monster_range": 24
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_ERA_CITY_ENCOUNTER",
+    "condition": {
+      "and": [
+        { "math": [ "berserk_era_zombie_count >= 5" ] },
+        { "math": [ "berserk_era_nearby_count < min(24, floor(berserk_era_zombie_count / 5))" ] }
+      ]
+    },
     "effect": {
       "u_spawn_monster": "GROUP_BERSERK_ECLIPSE_ERA_CITY",
       "group": true,
-      "single_target": true,
-      "real_count": 1,
+      "real_count": { "math": [ "min(4, min(24, floor(berserk_era_zombie_count / 5)) - berserk_era_nearby_count)" ] },
       "min_radius": 8,
-      "max_radius": 14,
-      "outdoor_only": true
+      "max_radius": 14
     }
   },
   {
