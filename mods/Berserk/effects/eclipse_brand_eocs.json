@@ -36,7 +36,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_BRAND_NIGHT_HUNT",
     "global": true,
-    "recurrence": "10 minutes",
+    "recurrence": "1 hour",
     "condition": {
       "and": [
         { "u_has_bionics": "bio_berserk_brand_of_sacrifice" },
@@ -55,8 +55,8 @@
           "group": true,
           "single_target": true,
           "real_count": 1,
-          "min_radius": 12,
-          "max_radius": 18,
+          "min_radius": 20,
+          "max_radius": 30,
           "outdoor_only": true,
           "true_eocs": [ "EOC_BERSERK_BRAND_DEMON_ARRIVAL" ]
         }

@@ -141,10 +141,11 @@ class EclipseFlowTests(unittest.TestCase):
         self.assertIn("EOC_BERSERK_ECLIPSE_INSTALL_MARKS", references(migration))
 
         hunt = self.eocs["EOC_BERSERK_BRAND_NIGHT_HUNT"]
+        self.assertEqual(hunt["recurrence"], "1 hour")
         self.assertIn({"not": "is_day"}, hunt["condition"]["and"])
         spawn = hunt["effect"][1]["then"]
         self.assertEqual(spawn["real_count"], 1)
-        self.assertEqual((spawn["min_radius"], spawn["max_radius"]), (12, 18))
+        self.assertEqual((spawn["min_radius"], spawn["max_radius"]), (20, 30))
         self.assertTrue(spawn["outdoor_only"])
         self.assertIn("EOC_BERSERK_BRAND_DEMON_ARRIVAL", references(spawn))
         for eoc_id in ("EOC_BERSERK_BRAND_DEMON_SCAN", "EOC_BERSERK_BRAND_POWERFUL_SCAN"):
