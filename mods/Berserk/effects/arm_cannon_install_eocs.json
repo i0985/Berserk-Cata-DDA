@@ -1,0 +1,30 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ARM_CANNON_SELF_INSTALL",
+    "condition": {
+      "and": [
+        { "u_has_bionics": "bio_berserk_hand_stump" },
+        { "not": { "u_has_bionics": "bio_berserk_arm_cannon" } },
+        { "u_has_items": { "item": "bio_berserk_arm_cannon", "count": 1 } }
+      ]
+    },
+    "effect": [
+      { "u_consume_item": "bio_berserk_arm_cannon", "count": 1 },
+      { "u_add_bionic": "bio_berserk_arm_cannon" },
+      {
+        "u_message": "You attach the arm cannon to your missing left hand. Activate the new bionic to deploy it.",
+        "type": "good"
+      }
+    ],
+    "false_effect": {
+      "if": { "not": { "u_has_bionics": "bio_berserk_hand_stump" } },
+      "then": { "u_message": "The cannon has nowhere to attach. Your left hand must be missing.", "type": "warning" },
+      "else": {
+        "if": { "u_has_bionics": "bio_berserk_arm_cannon" },
+        "then": { "u_message": "You already have an arm cannon installed.", "type": "info" },
+        "else": { "u_message": "Keep the crafted arm cannon in your inventory to attach it.", "type": "info" }
+      }
+    }
+  }
+]

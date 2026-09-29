@@ -155,6 +155,21 @@ class EclipseFlowTests(unittest.TestCase):
         for eoc_id in ("EOC_BERSERK_BRAND_ORDINARY_WARNING", "EOC_BERSERK_BRAND_POWERFUL_WARNING"):
             self.assertIn("u_pain()", str(self.eocs[eoc_id]))
 
+    def test_arm_cannon_item_installs_only_on_missing_hand(self) -> None:
+        items = {obj["id"]: obj for obj in objects(MOD / "items" / "bionics" / "arm_cannon_cbms.json")}
+        action = items["bio_berserk_arm_cannon"]["use_action"]
+        self.assertEqual(action["type"], "effect_on_conditions")
+        self.assertEqual(action["effect_on_conditions"], ["EOC_BERSERK_ARM_CANNON_SELF_INSTALL"])
+        install = self.eocs[action["effect_on_conditions"][0]]
+        self.assertIn({"u_has_bionics": "bio_berserk_hand_stump"}, install["condition"]["and"])
+        self.assertIn({"not": {"u_has_bionics": "bio_berserk_arm_cannon"}}, install["condition"]["and"])
+        self.assertIn({"u_has_items": {"item": "bio_berserk_arm_cannon", "count": 1}}, install["condition"]["and"])
+        self.assertEqual(install["effect"][:2], [
+            {"u_consume_item": "bio_berserk_arm_cannon", "count": 1},
+            {"u_add_bionic": "bio_berserk_arm_cannon"},
+        ])
+        self.assertNotIn("use_action", items["bio_berserk_hand_stump"])
+
     def test_all_six_rooms_and_story_targets_are_reachable(self) -> None:
         specials = objects(MOD / "overmap" / "eclipse_dungeon.json")
         special = next(obj for obj in specials if obj.get("id") == "berserk_eclipse_dungeon_special_fixed")
@@ -202,8 +217,12 @@ class EclipseFlowTests(unittest.TestCase):
     def test_eclipse_text_is_present_in_both_compiled_catalogs(self) -> None:
         paths = [
             *sorted((MOD / "effects").glob("eclipse_*.json")),
+            MOD / "effects" / "arm_cannon_install_eocs.json",
+            MOD / "effects" / "arm_cannon_recipe_eoc.json",
             MOD / "effects" / "brand_cooldowns.json",
+            MOD / "bionics" / "arm_cannon.json",
             MOD / "bionics" / "eclipse_marks.json",
+            MOD / "items" / "bionics" / "arm_cannon_cbms.json",
             MOD / "items" / "behelit.json",
             *sorted((MOD / "items").glob("eclipse_*.json")),
             MOD / "dialogue" / "skull_knight.json",

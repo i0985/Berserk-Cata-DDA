@@ -779,7 +779,7 @@ msgid "Lost left hand"
 msgstr ""
 
 #: bionics/arm_cannon.json
-msgid "Your left hand is gone.  This permanent interface anchors a prosthetic arm cannon; it cannot grip objects or help wield a weapon with both hands.  Once installed, you learn the recipes for 'prosthetic arm cannon CBM' and 'arm cannon charge'."
+msgid "Your left hand is gone. This permanent interface anchors a prosthetic arm cannon; it cannot grip objects or help wield a weapon with both hands. You learn the recipes for 'prosthetic arm cannon CBM' and 'arm cannon charge'. Craft the cannon and activate it from your inventory to attach it yourself, without power or surgery."
 msgstr ""
 
 #: bionics/arm_cannon.json
@@ -791,7 +791,7 @@ msgid "Prosthetic arm cannon"
 msgstr ""
 
 #: bionics/arm_cannon.json
-msgid "A mechanical cannon mounted on the left arm.  Activate it to wield and reload its single chamber, then retract it to take up your sword again.  It burns powder charges instead of bionic power."
+msgid "A mechanical cannon mounted on the left arm after activating the crafted 'prosthetic arm cannon CBM' in your inventory. Activate this bionic to wield and reload its single chamber, then retract it to take up your sword again. It burns powder charges instead of bionic power."
 msgstr ""
 
 #: items/bionics/arm_cannon_cbms.json
@@ -799,7 +799,7 @@ msgid "lost left hand interface CBM"
 msgstr ""
 
 #: items/bionics/arm_cannon_cbms.json
-msgid "A surgical interface left behind after the hand is lost.  It cannot restore a hand, but provides a mount for a prosthetic cannon.  Installing it teaches the recipes for 'prosthetic arm cannon CBM' and 'arm cannon charge'."
+msgid "An interface left behind after the hand is lost. It cannot restore your grip, but provides a mount for a prosthetic cannon. Installing it teaches the recipes for 'prosthetic arm cannon CBM' and 'arm cannon charge'. Activate the crafted cannon from your inventory to attach it yourself, without power or surgery."
 msgstr ""
 
 #: items/bionics/arm_cannon_cbms.json
@@ -807,7 +807,7 @@ msgid "prosthetic arm cannon CBM"
 msgstr ""
 
 #: items/bionics/arm_cannon_cbms.json
-msgid "A handmade mechanical arm cannon.  Implant it only after the left-hand interface is in place."
+msgid "A handmade mechanical arm cannon. With the lost left-hand interface installed, activate this item from your inventory to attach it yourself. No power, surgical equipment, or other materials are required. The item is consumed when the prosthetic arm cannon bionic is installed."
 msgstr ""
 
 #: items/guns/arm_cannon.json
@@ -960,7 +960,7 @@ msgid "All six pieces of Berserker armor fastened together for carrying.  Disass
 msgstr ""
 
 #: effects/arm_cannon_recipe_eoc.json
-msgid "The lost-hand interface teaches you 'prosthetic arm cannon CBM' and 'arm cannon charge'."
+msgid "You learn 'prosthetic arm cannon CBM' and 'arm cannon charge'. Craft the cannon, then activate the item from your inventory to attach it."
 msgstr ""
 
 #: items/behelit.json
@@ -1036,7 +1036,7 @@ msgid "The Skull Knight opens a path through the Eclipse. 'Hold on. We leave now
 msgstr ""
 
 #: effects/eclipse_aftermath_eocs.json
-msgid "The Skull Knight has brought you back. Your left hand and an eye are gone. The Brand of Sacrifice burns on your body. You can now craft the prosthetic arm cannon and its charge."
+msgid "The Skull Knight has brought you back. Your left hand and an eye are gone. The Brand of Sacrifice burns on your body. You can now craft the prosthetic arm cannon and its charge. Activate the crafted cannon from your inventory to attach it yourself."
 msgstr ""
 
 #: monsters/skull_knight_rescuer.json
@@ -1076,7 +1076,7 @@ msgid "I need to go."
 msgstr ""
 
 #: dialogue/skull_knight.json
-msgid "'You know how to craft the prosthetic arm cannon and its charge. Find the parts, then build what you need.'"
+msgid "'Craft the prosthetic arm cannon and its charge. Once the cannon is made, activate it from your inventory. The mount where your left hand used to be will hold it.'"
 msgstr ""
 
 #: dialogue/skull_knight.json
@@ -1265,4 +1265,24 @@ msgstr ""
 
 #: effects/brand_cooldowns.json
 msgid "The brand has recently sensed a powerful nearby presence."
+msgstr ""
+
+#: items/bionics/arm_cannon_cbms.json
+msgid "Attach arm cannon"
+msgstr ""
+
+#: effects/arm_cannon_install_eocs.json
+msgid "You attach the arm cannon to your missing left hand. Activate the new bionic to deploy it."
+msgstr ""
+
+#: effects/arm_cannon_install_eocs.json
+msgid "The cannon has nowhere to attach. Your left hand must be missing."
+msgstr ""
+
+#: effects/arm_cannon_install_eocs.json
+msgid "You already have an arm cannon installed."
+msgstr ""
+
+#: effects/arm_cannon_install_eocs.json
+msgid "Keep the crafted arm cannon in your inventory to attach it."
 msgstr ""

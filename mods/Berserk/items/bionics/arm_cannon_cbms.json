@@ -6,7 +6,7 @@
     "copy-from": "bionic_general",
     "looks_like": "bio_shotgun",
     "name": { "str": "lost left hand interface CBM" },
-    "description": "A surgical interface left behind after the hand is lost.  It cannot restore a hand, but provides a mount for a prosthetic cannon.  Installing it teaches the recipes for 'prosthetic arm cannon CBM' and 'arm cannon charge'.",
+    "description": "An interface left behind after the hand is lost. It cannot restore your grip, but provides a mount for a prosthetic cannon. Installing it teaches the recipes for 'prosthetic arm cannon CBM' and 'arm cannon charge'. Activate the crafted cannon from your inventory to attach it yourself, without power or surgery.",
     "weight": "250 g",
     "volume": "250 ml",
     "difficulty": 3
@@ -18,9 +18,14 @@
     "copy-from": "bionic_general",
     "looks_like": "bio_shotgun",
     "name": { "str": "prosthetic arm cannon CBM" },
-    "description": "A handmade mechanical arm cannon.  Implant it only after the left-hand interface is in place.",
+    "description": "A handmade mechanical arm cannon. With the lost left-hand interface installed, activate this item from your inventory to attach it yourself. No power, surgical equipment, or other materials are required. The item is consumed when the prosthetic arm cannon bionic is installed.",
     "weight": "3500 g",
     "volume": "3000 ml",
-    "difficulty": 5
+    "difficulty": 5,
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Attach arm cannon",
+      "effect_on_conditions": [ "EOC_BERSERK_ARM_CANNON_SELF_INSTALL" ]
+    }
   }
 ]

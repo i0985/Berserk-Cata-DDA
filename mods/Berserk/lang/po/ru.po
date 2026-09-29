@@ -888,8 +888,8 @@ msgid "Lost left hand"
 msgstr "Утраченная левая кисть"
 
 #: bionics/arm_cannon.json
-msgid "Your left hand is gone.  This permanent interface anchors a prosthetic arm cannon; it cannot grip objects or help wield a weapon with both hands.  Once installed, you learn the recipes for 'prosthetic arm cannon CBM' and 'arm cannon charge'."
-msgstr "Левой кисти больше нет. Постоянное крепление позволяет установить руку-пушку, но не даёт хватать предметы и держать оружие двумя руками. После установки вы изучите рецепты «КБМ руки-пушки» и «заряд руки-пушки»."
+msgid "Your left hand is gone. This permanent interface anchors a prosthetic arm cannon; it cannot grip objects or help wield a weapon with both hands. You learn the recipes for 'prosthetic arm cannon CBM' and 'arm cannon charge'. Craft the cannon and activate it from your inventory to attach it yourself, without power or surgery."
+msgstr "Левой кисти больше нет. Это постоянное крепление держит руку-пушку, но не позволяет хватать предметы или держать оружие двумя руками. Ты изучаешь рецепты «КБМ руки-пушки» и «заряд руки-пушки». Создай пушку и активируй её как предмет в инвентаре, чтобы закрепить самостоятельно, без электричества и операции."
 
 #: bionics/arm_cannon.json
 msgid "Removing this interface cannot restore the missing hand."
@@ -900,24 +900,24 @@ msgid "Prosthetic arm cannon"
 msgstr "Рука-пушка"
 
 #: bionics/arm_cannon.json
-msgid "A mechanical cannon mounted on the left arm.  Activate it to wield and reload its single chamber, then retract it to take up your sword again.  It burns powder charges instead of bionic power."
-msgstr "Механическая пушка на левой руке. Активируйте её, чтобы стрелять и перезаряжать единственный заряд; сложите пушку, чтобы снова взять меч. Она использует пороховые заряды и не тратит энергию КБМ."
+msgid "A mechanical cannon mounted on the left arm after activating the crafted 'prosthetic arm cannon CBM' in your inventory. Activate this bionic to wield and reload its single chamber, then retract it to take up your sword again. It burns powder charges instead of bionic power."
+msgstr "Механическая пушка на левой руке. Её устанавливают, активировав созданный «КБМ руки-пушки» в инвентаре. Активируй эту бионику, чтобы развернуть и зарядить однозарядную пушку; сложи её, когда понадобится меч. Она использует пороховые заряды и не тратит энергию КБМ."
 
 #: items/bionics/arm_cannon_cbms.json
 msgid "lost left hand interface CBM"
 msgstr "КБМ крепления утраченной кисти"
 
 #: items/bionics/arm_cannon_cbms.json
-msgid "A surgical interface left behind after the hand is lost.  It cannot restore a hand, but provides a mount for a prosthetic cannon.  Installing it teaches the recipes for 'prosthetic arm cannon CBM' and 'arm cannon charge'."
-msgstr "Хирургическое крепление для утраченной кисти. Оно не вернёт руку, но позволит установить пушку-протез. После установки вы изучите рецепты «КБМ руки-пушки» и «заряд руки-пушки»."
+msgid "An interface left behind after the hand is lost. It cannot restore your grip, but provides a mount for a prosthetic cannon. Installing it teaches the recipes for 'prosthetic arm cannon CBM' and 'arm cannon charge'. Activate the crafted cannon from your inventory to attach it yourself, without power or surgery."
+msgstr "Утрата кисти оставляет крепление. Оно не возвращает хват, но позволяет закрепить руку-пушку. Установка открывает рецепты «КБМ руки-пушки» и «заряд руки-пушки». Создай пушку и активируй её в инвентаре, чтобы закрепить самостоятельно, без электричества и операции."
 
 #: items/bionics/arm_cannon_cbms.json
 msgid "prosthetic arm cannon CBM"
 msgstr "КБМ руки-пушки"
 
 #: items/bionics/arm_cannon_cbms.json
-msgid "A handmade mechanical arm cannon.  Implant it only after the left-hand interface is in place."
-msgstr "Самодельная механическая рука-пушка. Устанавливается после крепления на левой руке."
+msgid "A handmade mechanical arm cannon. With the lost left-hand interface installed, activate this item from your inventory to attach it yourself. No power, surgical equipment, or other materials are required. The item is consumed when the prosthetic arm cannon bionic is installed."
+msgstr "Самодельная механическая рука-пушка. Если крепление утраченной левой кисти установлено, активируй этот предмет в инвентаре, чтобы закрепить пушку самостоятельно. Электричество, хирургическое оборудование и другие материалы не нужны. Предмет исчезнет при установке бионики руки-пушки."
 
 #: items/guns/arm_cannon.json
 msgid "prosthetic arm cannon"
@@ -1069,8 +1069,8 @@ msgid "All six pieces of Berserker armor fastened together for carrying.  Disass
 msgstr "Все шесть частей доспехов Берсерка соединены для переноски. Разберите упаковку, чтобы получить шлем, нагрудник, перчатки, наручи, поножи и ботинки перед надеванием. Сборка и разборка не снимают проклятие брони."
 
 #: effects/arm_cannon_recipe_eoc.json
-msgid "The lost-hand interface teaches you 'prosthetic arm cannon CBM' and 'arm cannon charge'."
-msgstr "Крепление утраченной кисти открывает рецепты «КБМ руки-пушки» и «заряд руки-пушки»."
+msgid "You learn 'prosthetic arm cannon CBM' and 'arm cannon charge'. Craft the cannon, then activate the item from your inventory to attach it."
+msgstr "Ты изучаешь рецепты «КБМ руки-пушки» и «заряд руки-пушки». Создай пушку и активируй её в инвентаре, чтобы закрепить."
 
 #: items/behelit.json
 msgid "Behelit"
@@ -1145,8 +1145,8 @@ msgid "The Skull Knight opens a path through the Eclipse. 'Hold on. We leave now
 msgstr "Рыцарь-Череп прорубает путь сквозь Затмение. «Держись. Мы уходим»."
 
 #: effects/eclipse_aftermath_eocs.json
-msgid "The Skull Knight has brought you back. Your left hand and an eye are gone. The Brand of Sacrifice burns on your body. You can now craft the prosthetic arm cannon and its charge."
-msgstr "Рыцарь-Череп вывел тебя обратно. Ты лишился левой кисти и глаза. Клеймо жертвы жжёт твоё тело. Теперь тебе известны рецепты руки-пушки и заряда для неё."
+msgid "The Skull Knight has brought you back. Your left hand and an eye are gone. The Brand of Sacrifice burns on your body. You can now craft the prosthetic arm cannon and its charge. Activate the crafted cannon from your inventory to attach it yourself."
+msgstr "Рыцарь-Череп вывел тебя обратно. Ты лишился левой кисти и глаза. Клеймо жертвы жжёт твоё тело. Теперь тебе известны рецепты руки-пушки и заряда для неё. Активируй созданную пушку в инвентаре, чтобы закрепить её самостоятельно."
 
 #: monsters/skull_knight_rescuer.json
 msgid "The Skull Knight who pulled you from the Eclipse. He will speak with you, but will not turn his sword on you or your allies."
@@ -1185,8 +1185,8 @@ msgid "I need to go."
 msgstr "Мне пора идти."
 
 #: dialogue/skull_knight.json
-msgid "'You know how to craft the prosthetic arm cannon and its charge. Find the parts, then build what you need.'"
-msgstr "«Ты знаешь, как собрать руку-пушку и заряд для неё. Найди детали и создай то, что тебе нужно»."
+msgid "'Craft the prosthetic arm cannon and its charge. Once the cannon is made, activate it from your inventory. The mount where your left hand used to be will hold it.'"
+msgstr "«Создай руку-пушку и заряд для неё. Когда пушка будет готова, активируй её в инвентаре. Крепление на месте левой кисти удержит её»."
 
 #: dialogue/skull_knight.json
 msgid "I understand."
@@ -1375,3 +1375,23 @@ msgstr "Клеймо жертвы: зловещая боль стихает"
 #: effects/brand_cooldowns.json
 msgid "The brand has recently sensed a powerful nearby presence."
 msgstr "Клеймо недавно ощутило чьё-то могущественное присутствие."
+
+#: items/bionics/arm_cannon_cbms.json
+msgid "Attach arm cannon"
+msgstr "Прикрепить руку-пушку"
+
+#: effects/arm_cannon_install_eocs.json
+msgid "You attach the arm cannon to your missing left hand. Activate the new bionic to deploy it."
+msgstr "Ты закрепляешь руку-пушку на месте утраченной левой кисти. Активируй новую бионику, чтобы развернуть пушку."
+
+#: effects/arm_cannon_install_eocs.json
+msgid "The cannon has nowhere to attach. Your left hand must be missing."
+msgstr "Пушку не к чему крепить. Левая кисть должна отсутствовать."
+
+#: effects/arm_cannon_install_eocs.json
+msgid "You already have an arm cannon installed."
+msgstr "Рука-пушка уже установлена."
+
+#: effects/arm_cannon_install_eocs.json
+msgid "Keep the crafted arm cannon in your inventory to attach it."
+msgstr "Держи созданную руку-пушку в инвентаре, чтобы закрепить её."
