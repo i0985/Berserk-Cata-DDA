@@ -80,10 +80,42 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_AFTER",
     "dynamic_line": "'You escaped, but the Eclipse has marked you. Your hand is gone. What comes next is yours to decide.'",
+    "speaker_effect": {
+      "sentinel": "berserk_knight_first_conversation",
+      "effect": { "u_add_var": "berserk_knight_spoken", "value": "yes" }
+    },
     "responses": [
+      {
+        "text": "What should I do right now?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NOW"
+      },
+      {
+        "text": "What happened, and why did you save me?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
+      },
+      {
+        "text": "What is the Brand, and why are nights dangerous?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
+      },
+      {
+        "text": "How do apostles differ from the God Hand?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_APOSTLES"
+      },
+      {
+        "text": "Why did the creature I fought before the Eclipse return?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PROJECTIONS"
+      },
+      {
+        "text": "What happened to my hand and eye?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_INJURIES"
+      },
       {
         "text": "How can I replace my hand?",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_HAND"
+      },
+      {
+        "text": "Where do I go after I recover?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NEXT"
       },
       {
         "text": "I found Judeau's knife hilt. What happened to the Band?",
@@ -108,8 +140,53 @@
       {
         "text": "I need to go.",
         "topic": "TALK_DONE"
+      },
+      {
+        "text": "I have my answers. Farewell, Skull Knight.",
+        "condition": { "compare_string": [ "yes", { "u_val": "berserk_knight_spoken" } ] },
+        "effect": [
+          { "u_add_var": "berserk_knight_farewell", "value": "yes" },
+          { "npc_die": { "remove_from_creature_tracker": true } }
+        ],
+        "topic": "TALK_DONE"
       }
     ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_NOW",
+    "dynamic_line": "'Get clear of danger and tend your wounds. Rest in shelter; the Brand draws creatures after dark. The Berserker armor is no refuge while you recover. The recipes for the arm cannon and its charge are yours now.'",
+    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE",
+    "dynamic_line": "'The Behelit opened the Eclipse, a place of sacrifice. I could not undo what happened there. I cut a path out while there was still someone left to save.'",
+    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_BRAND",
+    "dynamic_line": "'The Brand marks a survivor of the sacrifice. Its pain warns you when demons draw near; a stronger presence hurts more. At night, expect them to seek you out. Find cover and leave yourself a way to flee.'",
+    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_APOSTLES",
+    "dynamic_line": "'Apostles are monstrous beings with wills and bodies of their own. The God Hand stand apart: they preside over the sacrifice. Void and Griffith are not ordinary apostles. Do not mistake surviving an encounter for defeating them.'",
+    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_PROJECTIONS",
+    "dynamic_line": "'Some things you met before were projections: an echo formed around a Behelit. Breaking the echo leaves the true being untouched. The Behelit itself was real.'",
+    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_INJURIES",
+    "dynamic_line": "'You lost your left hand and an eye in the Eclipse. The missing hand limits your grip; the lost eye narrows your perception. The Brand is another wound, and it will keep calling to the dark.'",
+    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
   },
   {
     "type": "talk_topic",
@@ -117,10 +194,16 @@
     "dynamic_line": "'Craft the prosthetic arm cannon and its charge. Once the cannon is made, activate it from your inventory. The mount where your left hand used to be will hold it.'",
     "responses": [
       {
-        "text": "I understand.",
-        "topic": "TALK_DONE"
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_NEXT",
+    "dynamic_line": "'Survive the coming nights. Gather what you need to make the arm cannon; then decide which traces of the apostles to follow. There is no safe road laid out for you.'",
+    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
   },
   {
     "type": "talk_topic",

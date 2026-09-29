@@ -23,12 +23,40 @@
         "popup": true
       },
       {
+        "u_add_var": "berserk_knight_waiting",
+        "value": "yes"
+      },
+      {
         "u_spawn_monster": "mon_skull_knight_rescuer",
         "real_count": 1,
         "min_radius": 1,
-        "max_radius": 3,
-        "lifespan": "30 minutes"
+        "max_radius": 5,
+        "true_eocs": [ "EOC_BERSERK_ECLIPSE_KNIGHT_ARRIVED" ]
       }
     ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_KNIGHT_ARRIVED",
+    "effect": { "u_add_var": "berserk_knight_waiting", "value": "placed" }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_KNIGHT_RETRY",
+    "global": true,
+    "recurrence": "1 minute",
+    "condition": {
+      "and": [
+        { "math": [ "u_berserk_eclipse_rescue_state == 2" ] },
+        { "compare_string": [ "yes", { "u_val": "berserk_knight_waiting" } ] }
+      ]
+    },
+    "effect": {
+      "u_spawn_monster": "mon_skull_knight_rescuer",
+      "real_count": 1,
+      "min_radius": 1,
+      "max_radius": 5,
+      "true_eocs": [ "EOC_BERSERK_ECLIPSE_KNIGHT_ARRIVED" ]
+    }
   }
 ]

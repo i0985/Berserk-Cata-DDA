@@ -119,6 +119,33 @@ class EclipseFlowTests(unittest.TestCase):
         prevent_death = self.eocs["EOC_BERSERK_ECLIPSE_RESCUE_PREVENT_DEATH"]
         self.assertIn("EOC_BERSERK_ECLIPSE_RESCUE_STABILIZE", references(prevent_death))
 
+    def test_knight_waits_for_deliberate_farewell(self) -> None:
+        knight = objects(MOD / "monsters" / "skull_knight_rescuer.json")[0]
+        self.assertTrue({"CONVERSATION", "IMMOBILE", "PACIFIST"} <= set(knight["flags"]))
+        self.assertEqual(knight["chat_topics"], ["TALK_BERSERK_SKULL_KNIGHT_AFTER"])
+
+        aftermath = self.eocs["EOC_BERSERK_ECLIPSE_AFTERMATH"]
+        spawn = next(effect for effect in aftermath["effect"] if "u_spawn_monster" in effect)
+        self.assertEqual(spawn["u_spawn_monster"], knight["id"])
+        self.assertNotIn("lifespan", spawn)
+        self.assertIn("EOC_BERSERK_ECLIPSE_KNIGHT_ARRIVED", references(spawn))
+        retry = self.eocs["EOC_BERSERK_ECLIPSE_KNIGHT_RETRY"]
+        self.assertEqual(retry["recurrence"], "1 minute")
+        self.assertIn("berserk_knight_waiting", str(retry["condition"]))
+        self.assertNotIn("lifespan", retry["effect"])
+
+        topics = {topic["id"]: topic for topic in objects(MOD / "dialogue" / "skull_knight.json")}
+        after = topics["TALK_BERSERK_SKULL_KNIGHT_AFTER"]
+        self.assertEqual(after["speaker_effect"]["effect"]["u_add_var"], "berserk_knight_spoken")
+        self.assertTrue(all(response["topic"] in topics or response["topic"] == "TALK_DONE"
+                            for topic in topics.values() for response in topic["responses"]))
+        answers = {response["text"]: response for response in after["responses"]}
+        self.assertEqual(answers["I need to go."]["topic"], "TALK_DONE")
+        self.assertNotIn("effect", answers["I need to go."])
+        farewell = answers["I have my answers. Farewell, Skull Knight."]
+        self.assertIn("berserk_knight_spoken", str(farewell["condition"]))
+        self.assertEqual(farewell["effect"][-1], {"npc_die": {"remove_from_creature_tracker": True}})
+
     def test_behelit_consumed_only_after_arrival_and_new_entrance_is_sealed(self) -> None:
         enter = self.eocs["EOC_BERSERK_ECLIPSE_TRIAL_ENTER"]
         arrive = self.eocs["EOC_BERSERK_ECLIPSE_TRIAL_ARRIVE"]
