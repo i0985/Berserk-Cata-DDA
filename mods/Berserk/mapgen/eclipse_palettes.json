@@ -18,12 +18,50 @@
     "light_emitted": 80
   },
   {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_ashen_flesh",
+    "copy-from": "t_berserk_eclipse_open_flesh",
+    "name": "ash-covered ground",
+    "description": "Ash clings to the living ground where the sacrificial crowd once stood. It is firm enough to cross.",
+    "looks_like": "t_dirt",
+    "color": "dark_gray"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_trampled_flesh",
+    "copy-from": "t_berserk_eclipse_open_flesh",
+    "name": "trampled flesh",
+    "description": "A network of shallow scars marks the paths taken by fleeing survivors.",
+    "looks_like": "t_thconc_floor_flesh",
+    "color": "brown"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_dim_vein",
+    "copy-from": "t_berserk_eclipse_open_flesh",
+    "name": "dim vein",
+    "description": "A faint pulse of light travels beneath the ground. It barely illuminates the way ahead.",
+    "looks_like": "t_thconc_floor_flesh",
+    "light_emitted": 15
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_ridge",
+    "copy-from": "t_concrete_wall_flesh",
+    "name": "flesh ridge",
+    "description": "Folded flesh rises into a solid ridge, hiding the field beyond it.",
+    "looks_like": "t_concrete_wall_flesh"
+  },
+  {
     "type": "palette",
     "id": "berserk_eclipse_flesh_palette",
     "terrain": {
-      "#": "t_concrete_wall_flesh",
+      "#": "t_berserk_eclipse_ridge",
       ".": "t_berserk_eclipse_open_flesh",
       "L": "t_berserk_eclipse_luminous_flesh",
+      "a": "t_berserk_eclipse_ashen_flesh",
+      "r": "t_berserk_eclipse_trampled_flesh",
+      "v": "t_berserk_eclipse_dim_vein",
       "S": "t_berserk_eclipse_open_flesh",
       "P": "t_pit",
       "C": "t_pit_corpsed",

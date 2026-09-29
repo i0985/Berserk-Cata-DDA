@@ -342,6 +342,41 @@ class EclipseFlowTests(unittest.TestCase):
         }
         self.assertTrue({"berserk_judeau_knife_hilt", "berserk_pippin_broken_clasp"} <= placed)
 
+    def test_arrival_visual_trial_screens_sight_and_keeps_two_safe_routes(self) -> None:
+        entry = next(room["object"] for room in objects(MOD / "mapgen" / "eclipse_mapgen.json")
+                     if room["om_terrain"] == ["berserk_eclipse_dungeon_entry"])
+        rows = entry["rows"]
+        palette = next(obj for obj in objects(MOD / "mapgen" / "eclipse_palettes.json")
+                       if obj["type"] == "palette")
+        self.assertEqual(rows[12][11], "S")
+        self.assertEqual(rows[12][20], "#")  # No direct line of sight to the eastern edge.
+        self.assertEqual({"a", "r", "v"}, set("".join(rows)) & {"a", "r", "v"})
+        self.assertEqual(palette["terrain"]["#"], "t_berserk_eclipse_ridge")
+        self.assertEqual(palette["terrain"]["v"], "t_berserk_eclipse_dim_vein")
+
+        def can_reach_east(via_north: bool) -> bool:
+            start = (11, 12)
+            destination = (23, 12)
+            queue = deque([start])
+            visited = {start}
+            while queue:
+                x, y = queue.popleft()
+                if (x, y) == destination:
+                    return True
+                for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+                    if not 0 <= nx < 24 or not 0 <= ny < 24 or (nx, ny) in visited:
+                        continue
+                    if rows[ny][nx] in "#PC":
+                        continue
+                    if 18 <= nx <= 20 and (ny >= 11 if via_north else ny <= 14):
+                        continue
+                    visited.add((nx, ny))
+                    queue.append((nx, ny))
+            return False
+
+        self.assertTrue(can_reach_east(via_north=True))
+        self.assertTrue(can_reach_east(via_north=False))
+
     def test_eclipse_text_is_present_in_both_compiled_catalogs(self) -> None:
         paths = [
             *sorted((MOD / "effects").glob("eclipse_*.json")),
