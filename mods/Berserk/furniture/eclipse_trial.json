@@ -3,12 +3,193 @@
     "type": "furniture",
     "id": "f_berserk_eclipse_return_seal",
     "name": "Eclipse return seal",
-    "description": "An inert mark on the floor.  Examine it to return to the place where you activated the Behelit.",
+    "description": "A mark left by an older passage. Examine it to return only if you entered before the passage began consuming Behelits.",
     "symbol": "O",
     "color": "red",
     "move_cost_mod": 0,
     "required_str": 900,
-    "flags": [ "TRANSPARENT" ],
-    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_BERSERK_ECLIPSE_TRIAL_EXIT" ] }
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_TRIAL_EXIT"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_arrival_scar",
+    "name": "sealed Eclipse passage",
+    "description": "The Behelit has dissolved into this scar of flesh. There is no passage back.",
+    "symbol": "O",
+    "color": "dark_gray",
+    "move_cost_mod": 0,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_escape_rift",
+    "name": "Skull Knight's escape rift",
+    "description": "A cut through the ceremony's darkness. After the Skull Knight intervenes, examine it if the return passage is blocked.",
+    "symbol": "O",
+    "color": "white",
+    "move_cost_mod": 0,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_TRIAL_EXIT"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_judeau_remains",
+    "name": "Judeau's remains",
+    "description": "A quiet hand rests beside three spent knife sheaths. Examine the body to remember how he covered the retreat.",
+    "symbol": "J",
+    "color": "red",
+    "move_cost_mod": 0,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_SCENE_JUDEAU"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_pippin_remains",
+    "name": "Pippin's remains",
+    "description": "His body still lies between the fallen and the oncoming horror. Examine what he defended.",
+    "symbol": "I",
+    "color": "red",
+    "move_cost_mod": 0,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_SCENE_PIPPIN"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_corkus_remains",
+    "name": "Corkus's remains",
+    "description": "A broken stance and a useless blade tell the end of his flight. Examine the scene.",
+    "symbol": "K",
+    "color": "red",
+    "move_cost_mod": 0,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_SCENE_CORKUS"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_gaston_remains",
+    "name": "Gaston's remains",
+    "description": "His battered breastplate is turned toward the final ceremony. Examine the body.",
+    "symbol": "G",
+    "color": "red",
+    "move_cost_mod": 0,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_SCENE_GASTON"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_supply_wreck",
+    "name": "broken field satchel",
+    "description": "A torn satchel holds a few medical supplies. Something hunts near this exposed patch of ground.",
+    "symbol": "X",
+    "color": "red",
+    "move_cost_mod": 0,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_SCENE_SUPPLIES"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_chase_scene",
+    "name": "trampled escape trail",
+    "description": "Tracks scatter around the pits and converge again beyond them. Examine the trail.",
+    "symbol": "H",
+    "color": "red",
+    "move_cost_mod": 0,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_SCENE_CHASE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_feast_scene",
+    "name": "remains of a feast",
+    "description": "The demons have gathered around the fallen. Examine the site, or skirt the revelers.",
+    "symbol": "F",
+    "color": "red",
+    "move_cost_mod": 0,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_SCENE_FEAST"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_final_warning",
+    "name": "ceremonial scars",
+    "description": "Deep cuts in the living ground point toward the final gathering. Examine the scars.",
+    "symbol": "W",
+    "color": "red",
+    "move_cost_mod": 0,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_SCENE_WARNING"
+      ]
+    }
   }
 ]

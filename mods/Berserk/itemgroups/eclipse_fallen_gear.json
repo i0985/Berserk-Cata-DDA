@@ -4,26 +4,67 @@
     "id": "berserk_eclipse_judeau_gear",
     "subtype": "collection",
     "items": [
-      { "item": "throwing_knife", "count": 3, "prob": 100 },
-      { "item": "jacket_leather", "damage": 2, "prob": 100 }
+      {
+        "item": "throwing_knife",
+        "count": 3,
+        "prob": 100
+      },
+      {
+        "item": "jacket_leather",
+        "damage": 2,
+        "prob": 100
+      }
     ]
   },
   {
     "type": "item_group",
     "id": "berserk_eclipse_pippin_gear",
     "subtype": "collection",
-    "items": [ { "item": "warhammer", "prob": 100 } ]
+    "items": [
+      {
+        "item": "warhammer",
+        "prob": 100
+      }
+    ]
   },
   {
     "type": "item_group",
     "id": "berserk_eclipse_corkus_gear",
     "subtype": "collection",
-    "items": [ { "item": "rapier", "prob": 100 } ]
+    "items": [
+      {
+        "item": "rapier",
+        "prob": 100
+      }
+    ]
   },
   {
     "type": "item_group",
     "id": "berserk_eclipse_gaston_gear",
     "subtype": "collection",
-    "items": [ { "item": "armor_lc_chestplate", "damage": 1, "prob": 100 } ]
+    "items": [
+      {
+        "item": "armor_lc_chestplate",
+        "damage": 1,
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_eclipse_supply_cache",
+    "subtype": "collection",
+    "items": [
+      {
+        "item": "bandages",
+        "count": 3,
+        "prob": 100
+      },
+      {
+        "item": "aspirin",
+        "count": 8,
+        "prob": 100
+      }
+    ]
   }
 ]

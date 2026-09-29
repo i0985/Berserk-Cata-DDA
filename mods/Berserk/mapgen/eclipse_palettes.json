@@ -1,20 +1,53 @@
 [
   {
     "type": "terrain",
-    "id": "t_berserk_eclipse_luminous_flesh",
-    "copy-from": "t_thconc_floor_flesh",
+    "id": "t_berserk_eclipse_open_flesh",
+    "name": "living ground",
+    "description": "A vast expanse of yielding, scarred flesh stretches beneath the Eclipse.",
     "looks_like": "t_thconc_floor_flesh",
-    "light_emitted": 120
+    "symbol": ".",
+    "color": "red",
+    "move_cost": 3,
+    "flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "FLAT" ]
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_luminous_flesh",
+    "copy-from": "t_berserk_eclipse_open_flesh",
+    "looks_like": "t_thconc_floor_flesh",
+    "light_emitted": 80
   },
   {
     "type": "palette",
     "id": "berserk_eclipse_flesh_palette",
     "terrain": {
       "#": "t_concrete_wall_flesh",
-      ".": "t_thconc_floor_flesh",
+      ".": "t_berserk_eclipse_open_flesh",
       "L": "t_berserk_eclipse_luminous_flesh",
-      "S": "t_thconc_floor_flesh"
+      "S": "t_berserk_eclipse_open_flesh",
+      "P": "t_pit",
+      "C": "t_pit_corpsed",
+      "J": "t_berserk_eclipse_open_flesh",
+      "I": "t_berserk_eclipse_open_flesh",
+      "K": "t_berserk_eclipse_open_flesh",
+      "G": "t_berserk_eclipse_open_flesh",
+      "X": "t_berserk_eclipse_open_flesh",
+      "H": "t_berserk_eclipse_open_flesh",
+      "F": "t_berserk_eclipse_open_flesh",
+      "W": "t_berserk_eclipse_open_flesh",
+      "R": "t_berserk_eclipse_open_flesh"
     },
-    "furniture": { "S": "f_berserk_eclipse_return_seal" }
+    "furniture": {
+      "S": "f_berserk_eclipse_arrival_scar",
+      "J": "f_berserk_eclipse_judeau_remains",
+      "I": "f_berserk_eclipse_pippin_remains",
+      "K": "f_berserk_eclipse_corkus_remains",
+      "G": "f_berserk_eclipse_gaston_remains",
+      "X": "f_berserk_eclipse_supply_wreck",
+      "H": "f_berserk_eclipse_chase_scene",
+      "F": "f_berserk_eclipse_feast_scene",
+      "W": "f_berserk_eclipse_final_warning",
+      "R": "f_berserk_eclipse_escape_rift"
+    }
   }
 ]

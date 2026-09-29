@@ -1,26 +1,66 @@
-# Eclipse entry and return prototype (CDDA 0.I-1)
+# Eclipse field: test build for CDDA 0.I-1
 
-This is a six-OMT layout prototype, arranged as two columns and three rows with a connected path from the entry chamber to an empty final altar. The flesh-covered floor and walls reuse base-game 0.I-1 terrain from the meat microlab. One stronger light source per area replaces the patchy nine-light pattern. It has no monsters, boss, Behelit drop source, Skull Knight NPC, or world-wide demon spawns yet. The final area has a technical rescue trigger and one-time consequences for testing.
+This branch changes the six-OMT Eclipse from connected flesh-walled rooms into
+an open sacrificial field. The positions and overmap terrain IDs are unchanged
+for saved worlds; **already generated tiles in an old save will keep their old
+map**, while a newly placed Eclipse uses this field layout. The older one-OMT
+test terrains and their return seals remain for save compatibility.
 
-## In-game check
+## Entry and completion
 
-1. Install `Berserk` from this branch under `<CDDA>/mods/Berserk` and remove any older `Berserk` copy from `<CDDA>/data/mods`.
-2. In an existing or a new world, use the debug item-spawn menu to give yourself `berserk_behelit` (`Behelit`). Its acquisition from bosses comes in a later phase.
-3. Note your coordinates and items. Activate the Behelit and choose **No** once; verify you stay put. Activate it again and choose **Yes**. You should arrive on flesh-covered ground beside a return seal. Check the outer walls and light in your tileset.
-4. Walk east, south, west, south, and east through all six connected areas to reach the empty altar. Check each passage and ensure there is no opening into raw rock. Activate the Behelit from the altar to return. Re-enter and test the return seal at the entrance.
-5. Repeat after saving and loading inside the area. Verify the return location is the same, and the Behelit is still in your inventory. Leave a harmless item on the floor and confirm it stays behind.
-6. Try entering from a character standing indoors, on another Z level, and on an old save. Inspect `debug.log` for new warnings or errors.
+- Confirming Behelit activation records the origin and searches for a safe new
+  six-OMT destination. Declining or failing placement/teleportation leaves the
+  Behelit in inventory.
+- Only after the character is confirmed in the entry OMT does the EOC mark the
+  run active, set a spent flag, and consume one Behelit. Further Behelits do not
+  start another run for this character. Check the exact inventory count in game.
+- The entry has a sealed scar, not a usable return seal. Old saves with the
+  previous seal and no spent flag can still use it to escape. The original
+  return-point logic remains available to the Skull Knight rescue and the
+  victory ending. If all return attempts fail, his rift in the final OMT lets
+  the player retry after intervention, even without a Behelit.
+- The final-area low-HP rescue, lethal-hit protection, Griffith victory EOC,
+  one-time aftermath, lost hand/eye and new world era are preserved. There is
+  no overall exploration timer and no new timed final scene yet.
 
-Only the player and carried/worn equipment travel. Nearby NPCs, pets, and vehicles remain behind. Both teleports use `force_safe`: if the destination is blocked, the player remains in place and can try again. The exit seal remains on the map if the Behelit is dropped there.
+## Field layout
 
-Already visited glass, first flesh, and rotated dungeon test rooms are part of the save and remain intact, including items dropped there. The corrected six-room dungeon uses a new overmap special ID with `"rotate": false`; its terrain IDs remain the same, and the Behelit looks specifically for the corrected special. On an existing save, leave the old dungeon with the Behelit or entry seal before entering again. The Behelit and old return seals still work in legacy rooms. This keeps saved characters from being trapped during the layout change.
+| OMT | Scene | Optional discovery |
+| --- | --- | --- |
+| Entry (northwest) | Open landing on living ground | Passage seals behind the player |
+| Traces (northeast) | Judeau, exposed supplies and hunter | Knife hilt; guarded bandages and painkillers |
+| Torn field (midwest) | Pits, ridges and Pippin | Broken clasp and a trail suggesting two routes |
+| Feast (mideast) | Demons gathered around the fallen | Corkus and a scene that can be bypassed |
+| Approach (southwest) | Pits, stronger enemies and quiet scars | Gaston; warning before Griffith |
+| Ceremony (southeast) | Griffith on an open field | Two endings; rift for retrying a blocked rescue |
 
-The dungeon is placed on demand at Z level -7, within 24 overmap tiles of the activation point. If there is no suitable unexplored space for all six rooms in that area, the attempt fails with a message and the player stays put. Returning to its entrance location and clearing the saved origin are not coupled: the stored origin is overwritten on the next entry, while a failed return keeps the origin for another attempt. Keep both legacy room definitions for old saves.
+All four bodies remain item objects with their gear; examinable markers now
+add a short individual popup. Judeau's hilt and Pippin's clasp are optional
+items. Carrying either enables extra conditional Skull Knight responses during
+rescue, victory or a later conversation. Neither gates the finale. The cache
+and the feast are also optional. The pit tiles use vanilla `t_pit`: stepping in
+is dangerous. The open ground uses the flesh floor's existing UltiCa art as a
+fallback, without an indoor roof. Glowing flesh supplies fixed light points;
+colored-light behavior and the exact atmosphere need visual testing in game.
 
-## Technical rescue check
+The eastern and western middle OMTs both provide a safe route from entry to
+finale even if the other middle OMT is excluded. A static flood-fill checks
+these routes and the four bodies, memory items and Griffith's position. It
+cannot prove monster movement, line of sight, loot drops or the visual result.
 
-Use a disposable copy of a save. The final altar has no enemies yet, so a normal visit does not trigger rescue. While standing in the **final** overmap tile, use the debug menu to lower head or torso HP to 30 or below. Within one turn, the rescue should stabilize head and torso at no less than 35 HP (or their maximum), stop bleeding, bring blood and red-cell deficits up to at least -5000, and move you back near the recorded Behelit activation point. A popup describes the Skull Knight's intervention; no friendly Skull Knight NPC or dialogue tree exists yet. The lost-left-hand CBM is installed only if neither it nor the arm cannon is present; both cannon and charge recipes are learned. `berserk_eclipse_era` is saved in the world as 1, but does not yet change world spawns. Rescue state 2 prevents duplicate consequences.
+## In-game checks when available
 
-For a lethal hit test, enter with head and torso above 30, then cause a single hit to one of them that passes directly through zero; `PREVENT_DEATH` should use the same rescue. Repeat separately for head, torso, blood loss, and an active Berserk rush near its 150-second end. A rescue during the rush applies its exhaustion and three-day recovery **once**, without charging the additional Berserk blood loss; this still needs an in-game check. Test repeated hits, save/load before and after rescue, and a character who already has the arm cannon. Confirm no second hand CBM or popup appears after returning. If the original return tile is obstructed, the rescue attempts the nearest passable tile within five squares, then retries six tiles east and six tiles west; if all three areas are blocked, it leaves you in the altar alive with the Behelit as the manual exit. Check `debug.log` for errors.
-
-The rescue is limited to the final area of a new run started after installing this update; it does not protect the rest of the dungeon. An old save currently inside the final area must exit and enter again to set the run-active flag. Griffith is not spawned and a victory ending is not wired yet; add and test that separate completion with the boss stage. Do not treat passing JSON checks as proof of successful gameplay.
+1. Use a disposable world and one Behelit. Decline entry, then try from an
+   area where no destination can be placed; item count must stay unchanged.
+   Successfully enter and verify exactly one item disappears. Save/reload
+   inside; a second Behelit must not reopen the Eclipse after completion.
+2. Inspect the landing scar, both middle paths, the four bodies and the pits.
+   Collect neither, one, then both memory items on separate test runs. Talk
+   to the Skull Knight and confirm only matching extra lines are offered.
+3. Visit the cache and feast or bypass them. Check that the cache contains
+   bandages and aspirin, with a hunter close enough to pose a real risk.
+4. In the final OMT, test rescue via low head/torso HP, a fatal blow and
+   Griffith's defeat. Check the return, one-time aftermath, old save with a
+   usable return seal, and the rescue rift if return is deliberately blocked.
+5. Check UltiCa and the optional graphics mod, three languages, save/reload,
+   and `debug.log`. No CDDA game binary was run for this change.

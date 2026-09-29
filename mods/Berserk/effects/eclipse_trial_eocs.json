@@ -18,9 +18,21 @@
         },
         "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_EXIT" },
         "else": {
-          "if": { "math": [ "u_berserk_eclipse_rescue_state == 2" ] },
-          "then": { "u_message": "The Behelit has gone quiet. The Eclipse has ended for you.", "type": "neutral", "popup": true },
-          "else": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_ENTER" }
+          "if": { "math": [ "u_berserk_eclipse_rescue_state == 1" ] },
+          "then": [
+            { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_COMMIT_IF_RETURNED" },
+            { "u_message": "The Behelit has gone quiet. The Eclipse has ended for you.", "type": "neutral", "popup": true }
+          ],
+          "else": {
+            "if": {
+              "or": [
+                { "math": [ "u_berserk_eclipse_rescue_state == 2" ] },
+                { "math": [ "u_berserk_eclipse_behelit_spent == 1" ] }
+              ]
+            },
+            "then": { "u_message": "The Behelit has gone quiet. The Eclipse has ended for you.", "type": "neutral", "popup": true },
+            "else": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_ENTER" }
+          }
         }
       }
     ]
@@ -29,7 +41,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_TRIAL_ENTER",
     "condition": {
-      "u_query": "Enter the Eclipse? Only your carried equipment will follow you. Activate the Behelit or examine the return seal to leave.",
+      "u_query": "Enter the Eclipse? Only your carried equipment will follow you. The Behelit will be consumed when the passage opens, and there is no path back until the final confrontation.",
       "default": false
     },
     "effect": [
@@ -45,7 +57,7 @@
           "search_range": 24,
           "z": -7
         },
-        "furniture": "f_berserk_eclipse_return_seal",
+        "furniture": "f_berserk_eclipse_arrival_scar",
         "target_max_radius": 20,
         "x_adjust": 1,
         "true_eocs": [ "EOC_BERSERK_ECLIPSE_TRIAL_ARRIVE" ],
@@ -60,12 +72,16 @@
       {
         "u_teleport": { "u_val": "berserk_eclipse_trial_destination" },
         "force_safe": true,
-        "success_message": "The Behelit draws you into a silent chamber of living flesh.",
+        "success_message": "The Behelit draws you onto a field of living flesh. Behind you, the passage seals shut.",
         "fail_message": "The passage does not open.  You remain where you are."
       },
       {
         "if": { "u_at_om_location": "berserk_eclipse_dungeon_entry" },
-        "then": { "math": [ "u_berserk_eclipse_trial_active = 1" ] }
+        "then": [
+          { "math": [ "u_berserk_eclipse_trial_active = 1" ] },
+          { "math": [ "u_berserk_eclipse_behelit_spent = 1" ] },
+          { "u_consume_item": "berserk_behelit", "count": 1 }
+        ]
       }
     ]
   },
@@ -79,16 +95,24 @@
     "id": "EOC_BERSERK_ECLIPSE_TRIAL_EXIT",
     "effect": [
       {
-        "if": { "math": [ "has_var(u_berserk_eclipse_return_origin)" ] },
-        "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_RETURN" },
-        "else": { "u_message": "No place of return is recorded for you.", "type": "bad" }
+        "if": { "math": [ "u_berserk_eclipse_rescue_state == 1" ] },
+        "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_RETURN" },
+        "else": {
+          "if": { "math": [ "u_berserk_eclipse_behelit_spent == 1" ] },
+          "then": { "u_message": "The passage behind you is gone. Only the final confrontation remains.", "type": "warning" },
+          "else": {
+            "if": { "math": [ "has_var(u_berserk_eclipse_return_origin)" ] },
+            "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_RETURN" },
+            "else": { "u_message": "No place of return is recorded for you.", "type": "bad" }
+          }
+        }
       }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_TRIAL_RETURN",
-    "condition": { "u_query": "Return to the place where you activated the Behelit?  Leave anything on the ground behind.", "default": false },
+    "condition": { "u_query": "Return to the place where you activated the Behelit? Leave anything on the ground behind.", "default": false },
     "effect": [
       {
         "u_teleport": { "u_val": "berserk_eclipse_return_origin" },

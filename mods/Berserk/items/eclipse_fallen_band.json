@@ -3,7 +3,9 @@
     "type": "ITEM",
     "id": "berserk_eclipse_judeau_body",
     "copy-from": "rmi2_corpse",
-    "name": { "str": "Judeau's body" },
+    "name": {
+      "str": "Judeau's body"
+    },
     "description": "Judeau lies motionless among the remains of the Band of the Hawk. His throwing knives are still close by.",
     "looks_like": "corpse_generic_male"
   },
@@ -11,7 +13,9 @@
     "type": "ITEM",
     "id": "berserk_eclipse_pippin_body",
     "copy-from": "rmi2_corpse",
-    "name": { "str": "Pippin's body" },
+    "name": {
+      "str": "Pippin's body"
+    },
     "description": "Pippin fell holding the passage. His great hammer lies within reach.",
     "looks_like": "corpse_generic_male"
   },
@@ -19,7 +23,9 @@
     "type": "ITEM",
     "id": "berserk_eclipse_corkus_body",
     "copy-from": "rmi2_corpse",
-    "name": { "str": "Corkus's body" },
+    "name": {
+      "str": "Corkus's body"
+    },
     "description": "Corkus did not escape the Eclipse. A slender blade lies beside him.",
     "looks_like": "corpse_generic_male"
   },
@@ -27,8 +33,50 @@
     "type": "ITEM",
     "id": "berserk_eclipse_gaston_body",
     "copy-from": "rmi2_corpse",
-    "name": { "str": "Gaston's body" },
+    "name": {
+      "str": "Gaston's body"
+    },
     "description": "Gaston lies beneath a worn steel breastplate, far from the others.",
     "looks_like": "corpse_generic_male"
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_judeau_knife_hilt",
+    "category": "tools",
+    "name": {
+      "str": "Judeau's knife hilt"
+    },
+    "description": "A worn knife hilt from the Band of the Hawk. Carry it when you speak to the Skull Knight about the Eclipse.",
+    "weight": "20 g",
+    "volume": "50 ml",
+    "material": [
+      "steel"
+    ],
+    "symbol": "*",
+    "color": "light_gray",
+    "looks_like": "throwing_knife"
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_pippin_broken_clasp",
+    "category": "tools",
+    "name": {
+      "str": "Pippin's broken clasp"
+    },
+    "description": "The last clasp from Pippin's battered armor. Carry it when you ask the Skull Knight about those left behind.",
+    "weight": "20 g",
+    "volume": "50 ml",
+    "material": [
+      "steel"
+    ],
+    "symbol": "*",
+    "color": "light_gray",
+    "looks_like": "warhammer"
   }
 ]

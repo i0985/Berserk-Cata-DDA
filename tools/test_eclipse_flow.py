@@ -119,6 +119,20 @@ class EclipseFlowTests(unittest.TestCase):
         prevent_death = self.eocs["EOC_BERSERK_ECLIPSE_RESCUE_PREVENT_DEATH"]
         self.assertIn("EOC_BERSERK_ECLIPSE_RESCUE_STABILIZE", references(prevent_death))
 
+    def test_behelit_consumed_only_after_arrival_and_new_entrance_is_sealed(self) -> None:
+        enter = self.eocs["EOC_BERSERK_ECLIPSE_TRIAL_ENTER"]
+        arrive = self.eocs["EOC_BERSERK_ECLIPSE_TRIAL_ARRIVE"]
+        self.assertNotIn("u_consume_item", str(enter))
+        effects = arrive["effect"]
+        self.assertIn("u_teleport", effects[0])
+        self.assertEqual(effects[1]["if"], {"u_at_om_location": "berserk_eclipse_dungeon_entry"})
+        self.assertEqual(effects[1]["then"][-1], {"u_consume_item": "berserk_behelit", "count": 1})
+        self.assertIn("u_berserk_eclipse_behelit_spent = 1", str(effects[1]["then"]))
+        self.assertIn("u_berserk_eclipse_behelit_spent == 1", str(self.eocs["EOC_BERSERK_ECLIPSE_TRIAL_EXIT"]))
+        self.assertIn("f_berserk_eclipse_arrival_scar", str(enter))
+        self.assertNotIn("f_berserk_eclipse_return_seal", str(objects(MOD / "mapgen" / "eclipse_mapgen.json")))
+        self.assertIn("f_berserk_eclipse_escape_rift", str(objects(MOD / "mapgen" / "eclipse_palettes.json")))
+
     def test_eclipse_eoc_links_and_post_event_spawns(self) -> None:
         for eoc_id, obj in self.eocs.items():
             if eoc_id.startswith(STORY_EOC_PREFIX):
@@ -209,6 +223,7 @@ class EclipseFlowTests(unittest.TestCase):
         self.assertEqual(set(positions.values()), {(x, y) for x in range(2) for y in range(3)})
 
         traversable: set[tuple[int, int]] = set()
+        safe: set[tuple[int, int]] = set()
         story_targets: set[tuple[int, int]] = set()
         bodies: set[str] = set()
         for room in objects(MOD / "mapgen" / "eclipse_mapgen.json"):
@@ -222,6 +237,8 @@ class EclipseFlowTests(unittest.TestCase):
                 for x, symbol in enumerate(row):
                     if symbol != "#":
                         traversable.add((24 * x_omt + x, 24 * y_omt + y))
+                    if symbol not in ("#", "P"):
+                        safe.add((24 * x_omt + x, 24 * y_omt + y))
             for item in mapping.get("place_item", []):
                 if item["item"].startswith("berserk_eclipse_") and item["item"].endswith("_body"):
                     bodies.add(item["item"])
@@ -245,6 +262,30 @@ class EclipseFlowTests(unittest.TestCase):
         self.assertEqual(reached, traversable)
         self.assertLessEqual(story_targets, reached)
 
+        # Both columns offer safe middle routes, even if one column is closed.
+        finale = (24 + 13, 48 + 12)
+        for blocked_column in (0, 1):
+            permitted = {
+                p for p in safe
+                if not (24 <= p[1] < 48 and p[0] // 24 == blocked_column)
+            }
+            visited = {start}
+            pending = deque([start])
+            while pending:
+                x, y = pending.popleft()
+                for nxt in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
+                    if nxt in permitted and nxt not in visited:
+                        visited.add(nxt)
+                        pending.append(nxt)
+            self.assertIn(finale, visited, f"blocked middle column {blocked_column}")
+
+        placed = {
+            item["item"]
+            for room in objects(MOD / "mapgen" / "eclipse_mapgen.json")
+            for item in room["object"].get("place_item", [])
+        }
+        self.assertTrue({"berserk_judeau_knife_hilt", "berserk_pippin_broken_clasp"} <= placed)
+
     def test_eclipse_text_is_present_in_both_compiled_catalogs(self) -> None:
         paths = [
             *sorted((MOD / "effects").glob("eclipse_*.json")),
@@ -256,6 +297,8 @@ class EclipseFlowTests(unittest.TestCase):
             MOD / "items" / "bionics" / "arm_cannon_cbms.json",
             MOD / "items" / "behelit.json",
             *sorted((MOD / "items").glob("eclipse_*.json")),
+            MOD / "furniture" / "eclipse_trial.json",
+            MOD / "mapgen" / "eclipse_palettes.json",
             MOD / "dialogue" / "skull_knight.json",
             *sorted((MOD / "monsters").glob("eclipse_*.json")),
             MOD / "monsters" / "griffith_eclipse.json",

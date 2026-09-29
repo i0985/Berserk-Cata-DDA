@@ -4,35 +4,144 @@
     "id": "TALK_BERSERK_SKULL_KNIGHT_RESCUE",
     "dynamic_line": "'The Eclipse has not claimed you yet. I will cut a way out. Stay close.' Beyond his shoulder, the darkness recoils from his blade.",
     "responses": [
-      { "text": "What is happening?", "topic": "TALK_BERSERK_SKULL_KNIGHT_RESCUE_REPLY" },
-      { "text": "Get me out of here.", "topic": "TALK_DONE" }
+      {
+        "text": "What is happening?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_RESCUE_REPLY"
+      },
+      {
+        "text": "I found Judeau's knife hilt. What happened to the Band?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_judeau_knife_hilt",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_JUDEAU"
+      },
+      {
+        "text": "Pippin held the line. Could anyone else have escaped?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_pippin_broken_clasp",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PIPPIN"
+      },
+      {
+        "text": "Get me out of here.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_RESCUE_REPLY",
     "dynamic_line": "'Survive first. Answers can wait.' He raises his sword, and a path opens through the dark.",
-    "responses": [ { "text": "Follow the Skull Knight.", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "Follow the Skull Knight.",
+        "topic": "TALK_DONE"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_VICTORY",
     "dynamic_line": "'You brought him down. Even so, this place will devour what remains of you. Come with me, now.'",
-    "responses": [ { "text": "Follow the Skull Knight out of the Eclipse.", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "I found Judeau's knife hilt. What happened to the Band?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_judeau_knife_hilt",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_JUDEAU"
+      },
+      {
+        "text": "Pippin held the line. Could anyone else have escaped?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_pippin_broken_clasp",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PIPPIN"
+      },
+      {
+        "text": "Follow the Skull Knight out of the Eclipse.",
+        "topic": "TALK_DONE"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_AFTER",
     "dynamic_line": "'You escaped, but the Eclipse has marked you. Your hand is gone. What comes next is yours to decide.'",
     "responses": [
-      { "text": "How can I replace my hand?", "topic": "TALK_BERSERK_SKULL_KNIGHT_HAND" },
-      { "text": "I need to go.", "topic": "TALK_DONE" }
+      {
+        "text": "How can I replace my hand?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_HAND"
+      },
+      {
+        "text": "I found Judeau's knife hilt. What happened to the Band?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_judeau_knife_hilt",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_JUDEAU"
+      },
+      {
+        "text": "Pippin held the line. Could anyone else have escaped?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_pippin_broken_clasp",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PIPPIN"
+      },
+      {
+        "text": "I need to go.",
+        "topic": "TALK_DONE"
+      }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_HAND",
     "dynamic_line": "'Craft the prosthetic arm cannon and its charge. Once the cannon is made, activate it from your inventory. The mount where your left hand used to be will hold it.'",
-    "responses": [ { "text": "I understand.", "topic": "TALK_DONE" } ]
+    "responses": [
+      {
+        "text": "I understand.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_JUDEAU",
+    "dynamic_line": "'He bought a few breaths for those who followed him. Do not let this place turn that choice into nothing.' The Skull Knight glances at the ruined hilt.",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_PIPPIN",
+    "dynamic_line": "'He stood where others would have fled. I cannot undo his death, but you can carry the memory of it beyond this field.'",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_DONE"
+      }
+    ]
   }
 ]
