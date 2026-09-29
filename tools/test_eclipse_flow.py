@@ -146,6 +146,35 @@ class EclipseFlowTests(unittest.TestCase):
         self.assertIn("berserk_knight_spoken", str(farewell["condition"]))
         self.assertEqual(farewell["effect"][-1], {"npc_die": {"remove_from_creature_tracker": True}})
 
+    def test_victory_releases_player_even_if_griffith_crossed_an_omt_boundary(self) -> None:
+        griffith = objects(MOD / "monsters" / "griffith_eclipse.json")[0]
+        self.assertIn("IMMOBILE", griffith["flags"])
+        victory = self.eocs[griffith["death_function"]["eoc"]]
+        self.assertIn("EOC_BERSERK_ECLIPSE_VICTORY", references(victory))
+        victory = self.eocs["EOC_BERSERK_ECLIPSE_VICTORY"]
+        self.assertNotIn("u_at_om_location", str(victory["condition"]))
+
+        special = next(obj for obj in objects(MOD / "overmap" / "eclipse_dungeon.json")
+                       if obj.get("id") == "berserk_eclipse_dungeon_special_fixed")
+        room_ids = {tile["overmap"] for tile in special["overmaps"]}
+        returned = self.eocs["EOC_BERSERK_ECLIPSE_RESCUE_RETURN"]
+        for attempt in returned["effect"][1:]:
+            self.assertEqual({part["u_at_om_location"] for part in
+                              (attempt["if"].get("or") or attempt["if"]["and"][0]["or"])}, room_ids)
+        commit = self.eocs["EOC_BERSERK_ECLIPSE_RESCUE_COMMIT_IF_RETURNED"]
+        self.assertEqual({part["u_at_om_location"] for part in
+                          commit["condition"]["and"][1]["not"]["or"]}, room_ids)
+
+        for scene in ("EOC_BERSERK_ECLIPSE_VICTORY", "EOC_BERSERK_ECLIPSE_RESCUE_SCENE"):
+            spawn = next(part for part in self.eocs[scene]["effect"] if "u_spawn_monster" in part)
+            self.assertNotIn("indoor_only", spawn)
+
+    def test_eclipse_marks_are_standalone_bionics(self) -> None:
+        marks = objects(MOD / "bionics" / "eclipse_marks.json")
+        self.assertEqual({mark["id"] for mark in marks},
+                         {"bio_berserk_brand_of_sacrifice", "bio_berserk_lost_eye"})
+        self.assertTrue(all(not mark.get("included", False) for mark in marks))
+
     def test_behelit_consumed_only_after_arrival_and_new_entrance_is_sealed(self) -> None:
         enter = self.eocs["EOC_BERSERK_ECLIPSE_TRIAL_ENTER"]
         arrive = self.eocs["EOC_BERSERK_ECLIPSE_TRIAL_ARRIVE"]

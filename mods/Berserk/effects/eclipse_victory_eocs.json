@@ -12,7 +12,6 @@
     "id": "EOC_BERSERK_ECLIPSE_VICTORY",
     "condition": {
       "and": [
-        { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
         { "math": [ "u_berserk_eclipse_trial_active == 1" ] },
         { "math": [ "u_berserk_eclipse_rescue_state == 0" ] },
         { "math": [ "has_var(u_berserk_eclipse_return_origin)" ] }
@@ -31,7 +30,6 @@
         "real_count": 1,
         "min_radius": 1,
         "max_radius": 3,
-        "indoor_only": true,
         "lifespan": "5 minutes",
         "true_eocs": [ "EOC_BERSERK_ECLIPSE_VICTORY_DIALOGUE" ]
       },

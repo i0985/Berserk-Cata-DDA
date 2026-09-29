@@ -22,6 +22,15 @@ test terrains and their return seals remain for save compatibility.
 - The final-area low-HP rescue, lethal-hit protection, Griffith victory EOC,
   one-time aftermath, lost hand/eye and new world era are preserved. There is
   no overall exploration timer and no new timed final scene yet.
+- Griffith's Eclipse manifestation is fixed at the ceremony site, so it cannot
+  chase the player across an OMT boundary before the fight. Victory no longer
+  depends on the player's exact OMT; all six dungeon OMTs are checked before
+  the return is committed. The temporary Skull Knight may appear on the open
+  field rather than requiring an indoor tile. The Brand and eye records are
+  standalone bionics, so old saves no longer seek nonexistent parent CBMs.
+- An old save already made **after** Griffith died without his victory EOC has
+  no reliable completion flag. Reload a save from before his defeat for this
+  test; do not assume the fixed death hook can replay a past kill.
 
 ## Field layout
 

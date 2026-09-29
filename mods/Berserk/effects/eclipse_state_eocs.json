@@ -5,7 +5,16 @@
     "condition": {
       "and": [
         { "math": [ "u_berserk_eclipse_rescue_state == 1" ] },
-        { "not": { "u_at_om_location": "berserk_eclipse_dungeon_altar" } }
+        { "not": {
+          "or": [
+            { "u_at_om_location": "berserk_eclipse_dungeon_entry" },
+            { "u_at_om_location": "berserk_eclipse_dungeon_gallery" },
+            { "u_at_om_location": "berserk_eclipse_dungeon_warrens" },
+            { "u_at_om_location": "berserk_eclipse_dungeon_procession" },
+            { "u_at_om_location": "berserk_eclipse_dungeon_descent" },
+            { "u_at_om_location": "berserk_eclipse_dungeon_altar" }
+          ]
+        } }
       ]
     },
     "effect": [
