@@ -1,0 +1,22 @@
+[
+  {
+    "type": "bionic",
+    "id": "bio_berserk_brand_of_sacrifice",
+    "name": { "str": "Brand of Sacrifice" },
+    "description": "The mark left by the Eclipse. After dark it draws real demons toward you. It aches when demons gather and warns of a powerful presence nearby, without revealing its identity or direction.",
+    "included": true,
+    "cant_remove_reason": "The Brand of Sacrifice is seared into your body."
+  },
+  {
+    "type": "bionic",
+    "id": "bio_berserk_lost_eye",
+    "name": { "str": "Lost eye" },
+    "description": "An eye was lost during the Eclipse. Your Perception is halved.",
+    "included": true,
+    "occupied_bodyparts": [ [ "eyes", 1 ] ],
+    "enchantments": [
+      { "condition": "ALWAYS", "values": [ { "value": "PERCEPTION", "multiply": -0.5 } ] }
+    ],
+    "cant_remove_reason": "Removing a record of the wound would not restore the lost eye."
+  }
+]

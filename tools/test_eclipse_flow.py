@@ -32,7 +32,7 @@ def references(value: object) -> set[str]:
             result.update(references(part))
     elif isinstance(value, dict):
         for key, part in value.items():
-            if key in ("run_eocs", "true_eocs", "false_eocs", "effect_on_conditions"):
+            if key in ("run_eocs", "true_eocs", "false_eocs", "effect_on_conditions", "u_run_monster_eocs"):
                 if isinstance(part, str):
                     result.add(part)
                 elif isinstance(part, list):
@@ -122,6 +122,38 @@ class EclipseFlowTests(unittest.TestCase):
                     "mon_void_apostle", "mon_griffith_reborn", "mon_nosferatu_zodd",
                 })
 
+    def test_eclipse_marks_and_night_hunt(self) -> None:
+        bionics = {obj["id"]: obj for obj in objects(MOD / "bionics" / "eclipse_marks.json")}
+        brand_id = "bio_berserk_brand_of_sacrifice"
+        eye_id = "bio_berserk_lost_eye"
+        self.assertEqual(set(bionics), {brand_id, eye_id})
+        self.assertEqual(
+            bionics[eye_id]["enchantments"][0]["values"],
+            [{"value": "PERCEPTION", "multiply": -0.5}],
+        )
+        self.assertIn("EOC_BERSERK_ECLIPSE_INSTALL_MARKS", references(self.eocs["EOC_BERSERK_ECLIPSE_AFTERMATH"]))
+        install = self.eocs["EOC_BERSERK_ECLIPSE_INSTALL_MARKS"]
+        self.assertIn(brand_id, str(install))
+        self.assertIn(eye_id, str(install))
+        migration = self.eocs["EOC_BERSERK_ECLIPSE_RESTORE_OLD_SAVE_MARKS"]
+        self.assertEqual(migration["recurrence"], "1 minute")
+        self.assertIn("u_berserk_eclipse_rescue_state == 2", str(migration["condition"]))
+        self.assertIn("EOC_BERSERK_ECLIPSE_INSTALL_MARKS", references(migration))
+
+        hunt = self.eocs["EOC_BERSERK_BRAND_NIGHT_HUNT"]
+        self.assertIn({"not": "is_day"}, hunt["condition"]["and"])
+        spawn = hunt["effect"][1]["then"]
+        self.assertEqual(spawn["real_count"], 1)
+        self.assertEqual((spawn["min_radius"], spawn["max_radius"]), (12, 18))
+        self.assertTrue(spawn["outdoor_only"])
+        self.assertIn("EOC_BERSERK_BRAND_DEMON_ARRIVAL", references(spawn))
+        for eoc_id in ("EOC_BERSERK_BRAND_DEMON_SCAN", "EOC_BERSERK_BRAND_POWERFUL_SCAN"):
+            for ref in references(self.eocs[eoc_id]):
+                self.assertIn(ref, self.eocs)
+        self.assertEqual(self.eocs["EOC_BERSERK_BRAND_POWERFUL_SCAN"]["effect"]["monster_range"], 40)
+        for eoc_id in ("EOC_BERSERK_BRAND_ORDINARY_WARNING", "EOC_BERSERK_BRAND_POWERFUL_WARNING"):
+            self.assertIn("u_pain()", str(self.eocs[eoc_id]))
+
     def test_all_six_rooms_and_story_targets_are_reachable(self) -> None:
         specials = objects(MOD / "overmap" / "eclipse_dungeon.json")
         special = next(obj for obj in specials if obj.get("id") == "berserk_eclipse_dungeon_special_fixed")
@@ -169,6 +201,8 @@ class EclipseFlowTests(unittest.TestCase):
     def test_eclipse_text_is_present_in_both_compiled_catalogs(self) -> None:
         paths = [
             *sorted((MOD / "effects").glob("eclipse_*.json")),
+            MOD / "effects" / "brand_cooldowns.json",
+            MOD / "bionics" / "eclipse_marks.json",
             MOD / "items" / "behelit.json",
             *sorted((MOD / "items").glob("eclipse_*.json")),
             MOD / "dialogue" / "skull_knight.json",
@@ -177,7 +211,8 @@ class EclipseFlowTests(unittest.TestCase):
             MOD / "overmap" / "eclipse_dungeon.json",
         ]
         fields = {"u_message", "u_query", "success_message", "fail_message",
-                  "name", "description", "dynamic_line", "text", "menu_text"}
+                  "name", "description", "desc", "cant_remove_reason",
+                  "dynamic_line", "text", "menu_text"}
         messages: set[str] = set()
 
         def collect(value: object) -> None:
@@ -187,9 +222,10 @@ class EclipseFlowTests(unittest.TestCase):
             elif isinstance(value, dict):
                 for key, part in value.items():
                     if key in fields:
-                        source = part if isinstance(part, str) else part.get("str") if isinstance(part, dict) else None
-                        if isinstance(source, str):
-                            messages.add(source)
+                        sources = [part] if isinstance(part, str) else (
+                            [part.get("str")] if isinstance(part, dict) else part if isinstance(part, list) else []
+                        )
+                        messages.update(source for source in sources if isinstance(source, str))
                     collect(part)
 
         for path in paths:

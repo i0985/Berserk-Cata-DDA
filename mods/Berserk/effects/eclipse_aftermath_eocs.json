@@ -12,12 +12,13 @@
         },
         "then": { "u_add_bionic": "bio_berserk_hand_stump" }
       },
+      { "run_eocs": "EOC_BERSERK_ECLIPSE_INSTALL_MARKS" },
       { "u_learn_recipe": "bio_berserk_arm_cannon" },
       { "u_learn_recipe": "berserk_arm_cannon_charge" },
       { "math": [ "u_berserk_hand_recipes_learned = 1" ] },
       { "math": [ "berserk_eclipse_era = 1" ] },
       {
-        "u_message": "The Skull Knight has brought you back. Your left hand is gone. You can now craft the prosthetic arm cannon and its charge.",
+        "u_message": "The Skull Knight has brought you back. Your left hand and an eye are gone. The Brand of Sacrifice burns on your body. You can now craft the prosthetic arm cannon and its charge.",
         "type": "warning",
         "popup": true
       },
