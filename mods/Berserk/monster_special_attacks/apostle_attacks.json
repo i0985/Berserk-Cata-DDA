@@ -3,7 +3,7 @@
     "type": "monster_attack",
     "attack_type": "spell",
     "id": "aura_of_despair",
-    "cooldown": 10,
+    "cooldown": 18,
     "spell_data": { "id": "aura_of_despair_spell" },
     "monster_message": "Griffith radiates an aura of terror that makes you tremble!"
   },
@@ -29,12 +29,12 @@
     "type": "monster_attack",
     "attack_type": "melee",
     "id": "swift_strike",
-    "cooldown": 5,
-    "move_cost": 50,
+    "cooldown": 10,
+    "move_cost": 100,
     "damage_max_instance": [
-      { "damage_type": "cut", "amount": 30 }
+      { "damage_type": "cut", "amount": 20 }
     ],
-    "range": 5,
+    "range": 2,
     "hit_dmg_u": "Griffith strikes you with a lightning-fast wing attack!",
     "hit_dmg_npc": "Griffith strikes %s with a lightning-fast wing attack!",
     "miss_msg_u": "Griffith tries to strike you with his wing, but you dodge!",

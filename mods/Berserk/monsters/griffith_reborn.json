@@ -8,20 +8,20 @@
   "species": ["NETHER"],
   "volume": "75000 ml",
   "weight": "80000 g",
-  "hp": 850,
-  "regenerates": 35,
-  "speed": 180,
+  "hp": 440,
+  "regenerates": 0,
+  "speed": 135,
   "material": ["flesh", "bone"],
   "symbol": "G",
   "color": "white",
   "aggression": 100,
   "morale": 100,
   "aggro_character": true,
-  "melee_skill": 12,
+  "melee_skill": 8,
   "melee_dice": 3,
   "melee_dice_sides": 8,
-  "melee_damage": [ { "damage_type": "cut", "amount": 26 } ],
-  "dodge": 10,
+  "melee_damage": [ { "damage_type": "cut", "amount": 16 } ],
+  "dodge": 5,
   "vision_day": 40,
   "vision_night": 40,
   "harvest": "human",
@@ -35,8 +35,8 @@
     "ATTACKMON"
   ],
   "special_attacks": [
-    { "id": "aura_of_despair", "cooldown": 10 },
-    { "id": "swift_strike", "cooldown": 5 }
+    { "id": "aura_of_despair", "cooldown": 18 },
+    { "id": "swift_strike", "cooldown": 10 }
   ],
   "death_drops": "griffith_drops"
 }

@@ -541,8 +541,8 @@ msgstr "绝望光环"
 
 #. Description of spell
 #: spells.json
-msgid "A chilling aura that stuns all nearby enemies within a 5-tile radius."
-msgstr "寒冷光环，震慑半径 5 格内的所有近敌。"
+msgid "A chilling aura that briefly stuns nearby enemies within a 3-tile radius."
+msgstr "寒冷光环，短暂震慑半径 3 格内的敌人。"
 
 #. Name of a spell
 #: spells.json
@@ -562,8 +562,8 @@ msgstr "心灵攻击"
 #. Description of spell
 #: spells.json
 msgid ""
-"A mental assault that causes pain and disorientation within a 4-tile radius."
-msgstr "精神冲击，在半径 4 格内造成疼痛与迷失。"
+"A mental assault that briefly causes pain and disorientation within a 3-tile radius."
+msgstr "精神冲击，在半径 3 格内短暂造成疼痛与迷失。"
 
 #. Weakpoint fragment
 #: monster_weakpoints/zodd_weakpoints.json
@@ -716,6 +716,11 @@ msgstr "格里菲斯试图以翼攻击你，但你躲开了！"
 #: monster_special_attacks/apostle_attacks.json
 msgid "Griffith tries to strike %s with his wing, but they dodge!"
 msgstr "格里菲斯试图以翼攻击%s，但被躲开了！"
+
+#. Monster attack message
+#: monsters/apostle_projections.json
+msgid "The reflection assaults your mind!"
+msgstr "幻影攻击你的心灵！"
 
 #. Monster attack message
 #: monsters/mon_void_apostle.json

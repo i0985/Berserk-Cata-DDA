@@ -629,8 +629,8 @@ msgstr "Аура отчаяния"
 
 #. Description of spell
 #: spells.json
-msgid "A chilling aura that stuns all nearby enemies within a 5-tile radius."
-msgstr "Холодная аура, оглушающая всех ближайших врагов в радиусе 5 клеток."
+msgid "A chilling aura that briefly stuns nearby enemies within a 3-tile radius."
+msgstr "Холодная аура, ненадолго оглушающая врагов в радиусе 3 клеток."
 
 #. Name of a spell
 #: spells.json
@@ -650,8 +650,8 @@ msgstr "Психическая атака"
 #. Description of spell
 #: spells.json
 msgid ""
-"A mental assault that causes pain and disorientation within a 4-tile radius."
-msgstr "Ментальный удар, вызывающий боль и дезориентацию в радиусе 4 клеток."
+"A mental assault that briefly causes pain and disorientation within a 3-tile radius."
+msgstr "Ментальный удар, ненадолго вызывающий боль и дезориентацию в радиусе 3 клеток."
 
 #. Weakpoint fragment
 #: monster_weakpoints/zodd_weakpoints.json
@@ -805,6 +805,11 @@ msgstr "Гриффит пытается ударить вас крылом, но
 #: monster_special_attacks/apostle_attacks.json
 msgid "Griffith tries to strike %s with his wing, but they dodge!"
 msgstr "Гриффит пытается ударить %s крылом, но они уклоняются!"
+
+#. Monster attack message
+#: monsters/apostle_projections.json
+msgid "The reflection assaults your mind!"
+msgstr "Отражение атакует ваш разум!"
 
 #. Monster attack message
 #: monsters/mon_void_apostle.json

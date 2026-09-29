@@ -82,3 +82,7 @@ after the oak and cave are tested.
   past eight tiles, killing it, and reloading after taking the Behelit.
 
 Static JSON and asset validation do not replace those game checks.
+
+The later static balance pass for projections and original apostles is
+documented in [BOSS_BALANCE_0I1.md](BOSS_BALANCE_0I1.md). Its combat outcomes
+also require an in-game check before release.

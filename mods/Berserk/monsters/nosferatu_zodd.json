@@ -8,20 +8,20 @@
   "species": ["NETHER"],
   "volume": "100000 ml",
   "weight": "1000000 g",
-  "hp": 1000,
-  "regenerates": 45, 
-  "speed": 100,
+  "hp": 600,
+  "regenerates": 0,
+  "speed": 110,
   "material": ["flesh", "bone"],
   "symbol": "Z",
   "color": "red",
   "aggression": 100,
   "morale": 100,
   "aggro_character": true,
-  "melee_skill": 10,
+  "melee_skill": 8,
   "melee_dice": 3,
   "melee_dice_sides": 10,
-  "melee_damage": [ { "damage_type": "cut", "amount": 30 } ],
-  "dodge": 5,
+  "melee_damage": [ { "damage_type": "cut", "amount": 20 } ],
+  "dodge": 2,
   "vision_day": 30,
   "vision_night": 30,
   "harvest": "human",
@@ -35,8 +35,8 @@
     "ATTACKMON"
   ],
   "special_attacks": [
-    { "id": "berserk_zodd_leap", "cooldown": 5 },
-    { "id": "berserk_zodd_smash", "cooldown": 10 }
+    { "id": "berserk_zodd_leap", "cooldown": 10 },
+    { "id": "berserk_zodd_smash", "cooldown": 18 }
   ],
   "death_drops": "zodd_drops"
 }
