@@ -1,0 +1,18 @@
+[
+  {
+    "type": "construction_group",
+    "id": "build_berserk_shelter_ward",
+    "name": "Build bone and stone ward"
+  },
+  {
+    "type": "construction",
+    "id": "constr_berserk_shelter_ward",
+    "group": "build_berserk_shelter_ward",
+    "category": "FURN",
+    "required_skills": [ [ "survival", 1 ] ],
+    "time": "20 m",
+    "components": [ [ [ "rock", 8 ] ], [ [ "bone", 4 ] ] ],
+    "pre_special": "check_empty",
+    "post_terrain": "f_berserk_shelter_ward"
+  }
+]

@@ -8,9 +8,29 @@
       "and": [
         { "u_at_om_location": "berserk_eclipse_expanded_ceremony" },
         { "math": [ "u_berserk_eclipse_trial_active == 1" ] },
-        { "math": [ "u_berserk_eclipse_rescue_state == 0" ] }
+        { "math": [ "u_berserk_eclipse_rescue_state == 0" ] },
+        { "math": [ "u_berserk_eclipse_final_started != 1" ] }
       ]
     },
+    "effect": {
+      "u_location_variable": { "context_val": "berserk_existing_griffith" },
+      "monster": "mon_berserk_eclipse_griffith_active",
+      "target_max_radius": 40,
+      "true_eocs": [ "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_ALREADY_PRESENT" ],
+      "false_eocs": [ "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_SPAWN" ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_ALREADY_PRESENT",
     "effect": { "math": [ "u_berserk_eclipse_final_started = 1" ] }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_SPAWN",
+    "effect": [
+      { "math": [ "u_berserk_eclipse_final_started = 1" ] },
+      { "mapgen_update": "berserk_eclipse_griffith_on_entry" }
+    ]
   }
 ]

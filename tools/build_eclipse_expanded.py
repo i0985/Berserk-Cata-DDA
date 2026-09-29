@@ -154,8 +154,8 @@ def build_scene(x, y):
             for bx in range(14, 17):
                 rows[by][bx] = "."
         assert rows[17][15] != "#"
-        monsters.append({"monster": "mon_berserk_eclipse_griffith_active", "x": 15, "y": 17,
-                         "one_or_none": True})
+        # Griffith is placed by an on-entry mapgen update.  Generating this
+        # tile early must not let him leave the ceremony before the player.
 
     obj = {"rows": ["".join(row) for row in rows],
            "palettes": ["berserk_eclipse_flesh_palette"]}

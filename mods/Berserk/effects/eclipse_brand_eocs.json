@@ -46,6 +46,16 @@
         { "not": "is_day" }
       ]
     },
+    "effect": {
+      "u_location_variable": { "context_val": "berserk_near_shelter_ward" },
+      "furniture": "f_berserk_shelter_ward",
+      "target_max_radius": 8,
+      "false_eocs": [ "EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED" ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED",
     "effect": [
       { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_COUNT_NEARBY" },
       {

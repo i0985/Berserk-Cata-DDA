@@ -249,7 +249,12 @@ class EclipseFlowTests(unittest.TestCase):
         hunt = self.eocs["EOC_BERSERK_BRAND_NIGHT_HUNT"]
         self.assertEqual(hunt["recurrence"], "1 hour")
         self.assertIn({"not": "is_day"}, hunt["condition"]["and"])
-        spawn = hunt["effect"][1]["then"]
+        ward_search = hunt["effect"]
+        self.assertEqual(ward_search["furniture"], "f_berserk_shelter_ward")
+        self.assertEqual(ward_search["target_max_radius"], 8)
+        self.assertNotIn("true_eocs", ward_search)
+        self.assertEqual(ward_search["false_eocs"], ["EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED"])
+        spawn = self.eocs["EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED"]["effect"][1]["then"]
         self.assertEqual(spawn["real_count"], 1)
         self.assertEqual((spawn["min_radius"], spawn["max_radius"]), (20, 30))
         self.assertTrue(spawn["outdoor_only"])
@@ -417,7 +422,7 @@ class EclipseFlowTests(unittest.TestCase):
                 self.assertIn(point, safe, room["om_terrain"][0])
                 enemies += 1
         self.assertEqual(set(markers), set("SIJKGWFRXH"))
-        self.assertEqual(enemies, 41)
+        self.assertEqual(enemies, 40)
         self.assertGreater(markers["R"][0] + markers["R"][1], 100)
         self.assertEqual(markers["S"], (11, 12))
         reached = {markers["S"]}
@@ -445,7 +450,39 @@ class EclipseFlowTests(unittest.TestCase):
                              for part in condition["and"][0]["or"][1]["and"][1]["or"]})
         finale = self.eocs["EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_START"]
         self.assertEqual(finale["required_event"], "avatar_enters_omt")
-        self.assertEqual(finale["effect"], {"math": ["u_berserk_eclipse_final_started = 1"]})
+        self.assertIn("u_berserk_eclipse_final_started != 1", str(finale["condition"]))
+        self.assertEqual(finale["effect"]["monster"], boss["id"])
+        self.assertEqual(finale["effect"]["false_eocs"],
+                         ["EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_SPAWN"])
+        spawn = self.eocs["EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_SPAWN"]
+        self.assertIn("berserk_eclipse_griffith_on_entry", str(spawn))
+        update = objects(MOD / "mapgen" / "eclipse_griffith_on_entry.json")[0]
+        self.assertEqual(update["object"]["place_monster"][0]["monster"], boss["id"])
+        self.assertEqual((update["object"]["place_monster"][0]["x"],
+                          update["object"]["place_monster"][0]["y"]), (15, 17))
+
+    def test_first_hunt_is_reachable_and_unique_without_pre_event_spawn(self) -> None:
+        special = next(obj for obj in objects(MOD / "overmap" / "first_hunt.json")
+                       if obj["type"] == "overmap_special")
+        self.assertEqual(special["occurrences"], [0, 0])
+        hunt = self.eocs["EOC_BERSERK_FIRST_HUNT_FIND"]
+        self.assertIn("berserk_eclipse_era == 1", str(hunt["condition"]))
+        self.assertIn("u_berserk_first_hunt_marked != 1", str(hunt["condition"]))
+        self.assertEqual(hunt["effect"]["target_params"]["om_special"], special["id"])
+        self.assertEqual(hunt["effect"]["true_eocs"], ["EOC_BERSERK_FIRST_HUNT_FOUND"])
+        self.assertIn("u_berserk_first_hunt_marked = 1",
+                      str(self.eocs["EOC_BERSERK_FIRST_HUNT_FOUND"]))
+        room = objects(MOD / "mapgen" / "first_hunt.json")[0]["object"]
+        self.assertEqual(len(room["rows"]), 24)
+        self.assertTrue(all(len(row) == 24 for row in room["rows"]))
+        boss = objects(MOD / "monsters" / "first_hunt_apostle.json")[0]
+        self.assertEqual(sum(mon["monster"] == boss["id"] for mon in
+                             room["place_monster"]), 1)
+        self.assertEqual(boss["hp"], 290)
+        self.assertIn("EOC_BERSERK_FIRST_HUNT_COMPLETE",
+                      references(self.eocs[boss["death_function"]["eoc"]]))
+        self.assertIn("u_berserk_first_hunt_done != 1",
+                      str(self.eocs["EOC_BERSERK_FIRST_HUNT_COMPLETE"]["condition"]))
 
     def test_eclipse_text_is_present_in_both_compiled_catalogs(self) -> None:
         paths = [
