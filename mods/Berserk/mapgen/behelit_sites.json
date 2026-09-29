@@ -1,0 +1,175 @@
+[
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_cursed_oak"
+    ],
+    "object": {
+      "rows": [
+        ".TT.TT.TT.TT.TT.TT.TT.TT",
+        "T.......................",
+        "T......................T",
+        "........T...T..........T",
+        "T...T..........T..T.....",
+        "T....T.................T",
+        ".......................T",
+        "T..................T....",
+        "T......................T",
+        "...T.....TdddddT.......T",
+        "T........ddddddd........",
+        "T.......Tddddddd.......T",
+        ".........dddAddd.......T",
+        "T........dddddddT.......",
+        "T........ddddddd.......T",
+        "...T.....TdddddT.......T",
+        "T.......................",
+        "T......................T",
+        "....................T..T",
+        "T.....T.................",
+        "T...........N....T.....T",
+        ".......................T",
+        "T.......................",
+        "T.TT.TT.TT.TT.TT.TT.TT.T"
+      ],
+      "palettes": [
+        "berserk_oak_site_palette"
+      ],
+      "place_monster": [
+        {
+          "monster": "mon_berserk_cursed_oak_guardian",
+          "x": 12,
+          "y": 9
+        },
+        {
+          "monster": "mon_berserk_eclipse_wretch",
+          "x": 5,
+          "y": 9
+        },
+        {
+          "monster": "mon_berserk_eclipse_wretch",
+          "x": 19,
+          "y": 15
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_echo_cave_entrance"
+    ],
+    "object": {
+      "rows": [
+        "gggggggggggggggggggggggg",
+        "gggggggggggggggggggggggg",
+        "gggggggggggggggggggggggg",
+        "ggggg##############ggggg",
+        "ggTgg#dddddddddddd#ggggg",
+        "ggggg#ddddddddd#dd#gggTg",
+        "ggggg#d#dddddddddd#ggggg",
+        "ggggg#dddddddddddd#ggggg",
+        "ggggg#dddddddddddd#ggggg",
+        "ggggg#dddddddddddd#ggggg",
+        "ggggg#dddddddddddd#ggggg",
+        "ggggg#dddddddddddd#ggggg",
+        "ggggg#ddddddVddddd#ggggg",
+        "ggggg#dddddddddd#d#ggggg",
+        "ggggg#dd#ddddddddd#ggggg",
+        "ggggg#dddddddddddd#ggggg",
+        "ggggg######ggg#####ggggg",
+        "gggggggggggggggggggggggg",
+        "gggggggggggggggggggggggg",
+        "gggTgggggggggggggggggTgg",
+        "gggggggggggggggggggggggg",
+        "gggggggggggggggggggggggg",
+        "ggggggggTggggggggTgggggg",
+        "gggggggggggggggggggggggg"
+      ],
+      "palettes": [
+        "berserk_cave_entrance_palette"
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_echo_cave_depth"
+    ],
+    "object": {
+      "rows": [
+        "########################",
+        "#......................#",
+        "#......................#",
+        "#......................#",
+        "#..........L.L.........#",
+        "#...#.......A......#...#",
+        "#......................#",
+        "#......................#",
+        "#......###.....###.....#",
+        "#......###.....###.....#",
+        "#......###.....###.....#",
+        "#....#.###.....###.....#",
+        "#...........U..........#",
+        "#.................#....#",
+        "#......................#",
+        "#......................#",
+        "#......................#",
+        "#...#..................#",
+        "#......L...........#...#",
+        "#................L.....#",
+        "#...........N..........#",
+        "#......................#",
+        "#......................#",
+        "########################"
+      ],
+      "palettes": [
+        "berserk_cave_depth_palette"
+      ],
+      "place_monster": [
+        {
+          "monster": "mon_berserk_echo_cave_guardian",
+          "x": 12,
+          "y": 8
+        },
+        {
+          "monster": "mon_berserk_eclipse_wretch",
+          "x": 5,
+          "y": 16
+        },
+        {
+          "monster": "mon_berserk_eclipse_wretch",
+          "x": 18,
+          "y": 16
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_oak_relic_taken",
+    "object": {
+      "set": [
+        {
+          "point": "furniture",
+          "id": "f_berserk_oak_relic_empty",
+          "x": 12,
+          "y": 12
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_cave_relic_taken",
+    "object": {
+      "set": [
+        {
+          "point": "furniture",
+          "id": "f_berserk_cave_relic_empty",
+          "x": 12,
+          "y": 5
+        }
+      ]
+    }
+  }
+]

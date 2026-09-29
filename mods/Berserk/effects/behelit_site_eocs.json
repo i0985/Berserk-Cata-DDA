@@ -1,0 +1,65 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_OAK_DISTRACTION",
+    "effect": [
+      { "u_make_sound": "The bone chimes clatter through the trees!", "volume": 30, "type": "alarm", "target_var": { "context_val": "pos" } },
+      { "u_message": "The bone chimes rattle. Now is your chance to draw the oak demon away.", "type": "info" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_CAVE_DISTRACTION",
+    "effect": [
+      { "u_make_sound": "Stones crash and echo through the cave!", "volume": 30, "type": "alarm", "target_var": { "context_val": "pos" } },
+      { "u_message": "The stone chime rings through the cave. Use the pillars to circle behind the keeper.", "type": "info" }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_SITE_COUNT_GUARD",
+    "effect": { "math": [ "berserk_site_guard_nearby_count += 1" ] }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_CLAIM_OAK_BEHELIT",
+    "effect": [
+      { "math": [ "berserk_site_guard_nearby_count = 0" ] },
+      {
+        "u_run_monster_eocs": [ "EOC_BERSERK_SITE_COUNT_GUARD" ],
+        "mtype_ids": [ "mon_berserk_cursed_oak_guardian" ],
+        "monster_range": 8
+      },
+      {
+        "if": { "math": [ "berserk_site_guard_nearby_count == 0" ] },
+        "then": [
+          { "mapgen_update": "berserk_oak_relic_taken" },
+          { "u_spawn_item": "berserk_behelit", "count": 1 },
+          { "u_message": "You wrench the Behelit from the roots. The oak's grasp cannot reach you here.", "type": "good" }
+        ],
+        "else": { "u_message": "The oak demon's roots tighten around the Behelit. Drive it away or lure it from the hollow.", "type": "warning" }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_CLAIM_CAVE_BEHELIT",
+    "effect": [
+      { "math": [ "berserk_site_guard_nearby_count = 0" ] },
+      {
+        "u_run_monster_eocs": [ "EOC_BERSERK_SITE_COUNT_GUARD" ],
+        "mtype_ids": [ "mon_berserk_echo_cave_guardian" ],
+        "monster_range": 8
+      },
+      {
+        "if": { "math": [ "berserk_site_guard_nearby_count == 0" ] },
+        "then": [
+          { "mapgen_update": "berserk_cave_relic_taken" },
+          { "u_spawn_item": "berserk_behelit", "count": 1 },
+          { "u_message": "You take the Behelit from the stone hollow while its keeper is gone.", "type": "good" }
+        ],
+        "else": { "u_message": "The cave demon hears your movement near the hollow. Draw it away or kill it first.", "type": "warning" }
+      }
+    ]
+  }
+]

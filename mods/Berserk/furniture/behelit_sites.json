@@ -1,0 +1,70 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_noisemaker",
+    "name": "hanging bone chimes",
+    "description": "A cord of bones hangs at the edge of the clearing. Examine it to make a distracting noise, then circle back toward the roots.",
+    "symbol": "!",
+    "color": "white",
+    "move_cost_mod": 0,
+    "flags": [ "TRANSPARENT" ],
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_BERSERK_OAK_DISTRACTION" ] }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_cave_noisemaker",
+    "name": "loose stone chime",
+    "description": "Loose stones have been strung over a hollow at the back of the cave. Examine them to make a loud echo and draw the keeper away from its relic.",
+    "symbol": "!",
+    "color": "light_gray",
+    "move_cost_mod": 0,
+    "flags": [ "TRANSPARENT" ],
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_BERSERK_CAVE_DISTRACTION" ] }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_relic",
+    "name": "Behelit among the roots",
+    "description": "A stone face is knotted into the old oak's roots. Examine it when the guardian cannot reach you.",
+    "symbol": "O",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": 900,
+    "flags": [ "TRANSPARENT" ],
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_BERSERK_CLAIM_OAK_BEHELIT" ] }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_relic_empty",
+    "name": "empty oak roots",
+    "description": "The Behelit is gone. The old roots now hold only stones and dried blood.",
+    "symbol": "O",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": 900,
+    "flags": [ "TRANSPARENT" ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_cave_relic",
+    "name": "Behelit in the stone hollow",
+    "description": "A Behelit lies in a hollow at the center of the cave. Examine it when its keeper is away.",
+    "symbol": "O",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": 900,
+    "flags": [ "TRANSPARENT" ],
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_BERSERK_CLAIM_CAVE_BEHELIT" ] }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_cave_relic_empty",
+    "name": "empty stone hollow",
+    "description": "The hollow has already yielded its Behelit.",
+    "symbol": "O",
+    "color": "dark_gray",
+    "move_cost_mod": 0,
+    "required_str": 900,
+    "flags": [ "TRANSPARENT" ]
+  }
+]

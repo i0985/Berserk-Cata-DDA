@@ -1,0 +1,51 @@
+[
+  {
+    "type": "terrain",
+    "id": "t_berserk_echo_cave_glow",
+    "copy-from": "t_rock_floor",
+    "looks_like": "t_rock_floor",
+    "light_emitted": 30
+  },
+  {
+    "type": "palette",
+    "id": "berserk_oak_site_palette",
+    "terrain": {
+      ".": "t_grass",
+      "d": "t_dirt",
+      "T": "t_tree",
+      "A": "t_dirt",
+      "N": "t_grass"
+    },
+    "furniture": {
+      "A": "f_berserk_oak_relic",
+      "N": "f_berserk_oak_noisemaker"
+    }
+  },
+  {
+    "type": "palette",
+    "id": "berserk_cave_entrance_palette",
+    "terrain": {
+      "g": "t_grass",
+      "d": "t_dirt",
+      "#": "t_rock",
+      "T": "t_tree",
+      "V": "t_stairs_down"
+    }
+  },
+  {
+    "type": "palette",
+    "id": "berserk_cave_depth_palette",
+    "terrain": {
+      ".": "t_rock_floor",
+      "#": "t_rock",
+      "L": "t_berserk_echo_cave_glow",
+      "A": "t_rock_floor",
+      "U": "t_stairs_up",
+      "N": "t_rock_floor"
+    },
+    "furniture": {
+      "A": "f_berserk_cave_relic",
+      "N": "f_berserk_cave_noisemaker"
+    }
+  }
+]

@@ -1,0 +1,26 @@
+[
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "berserk_oak_root_sweep",
+    "move_cost": 170,
+    "damage_max_instance": [ { "damage_type": "bash", "amount": 21 } ],
+    "range": 2,
+    "hit_dmg_u": "The oak demon catches you with a lashing root!",
+    "hit_dmg_npc": "The oak demon catches %s with a lashing root!",
+    "miss_msg_u": "The oak demon's root lashes past you!",
+    "miss_msg_npc": "The oak demon's root lashes past %s!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "berserk_cave_hooking_lunge",
+    "move_cost": 140,
+    "damage_max_instance": [ { "damage_type": "cut", "amount": 18 } ],
+    "range": 2,
+    "hit_dmg_u": "The cave demon lunges and tears at you!",
+    "hit_dmg_npc": "The cave demon lunges and tears at %s!",
+    "miss_msg_u": "The cave demon lunges past you!",
+    "miss_msg_npc": "The cave demon lunges past %s!"
+  }
+]

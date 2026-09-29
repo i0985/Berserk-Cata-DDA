@@ -31,16 +31,42 @@ CDDA 0.I-1 supports `death_function.corpse_type: NO_CORPSE` separately from
 `death_drops`, allowing their single Behelit drop without a physical corpse.
 No ordinary-location Behelit cache is included in step 1.
 
-## Step 2: Behelit encounter sites (planned, not yet implemented)
+## Step 2: Behelit encounter sites (unverified in game)
 
-Build several small, recognizable locations. Examples: an expedition's last
-camp among demons; a cursed great oak; a distinctive demon's lair. Give the
-player a map note or other in-world clue pointing to the specific location.
-After its encounter is cleared, a Behelit can be recovered from a fixed cache
-or named adversary. Define what "cleared" means per site and make rewards
-one-time, including across save/reload; do not rely on a global nearby-monster
-count that unrelated zombies can change. Preserve a path to a Behelit for
-players unable to defeat a high-level projection.
+Two rare `OVERMAP_UNIQUE` specials can appear while generating previously
+unexplored overmaps. `occurrences: [25, 100]` is the chance for each special to
+join an overmap's placement pool, not a guarantee of placement. The cursed oak
+occupies one forest OMT. The echo cave has a forest entrance at z=0 and a
+separate chamber at z=-1; the stair coordinates match.
+
+Both sites have distinct named overmap symbols **once discovered**. Automatic
+notes on distant, still-hidden locations are not implemented; neither is a
+map or journal clue directing the player to them. Existing overmaps already
+generated in an old save are not retroactively repopulated. Explore new
+overmaps to find the sites.
+
+The oak guardian is a slow, heavy root attacker (360 HP, speed 85); the cave
+guardian is a faster, lighter hunter (240 HP, speed 115). Their IDs occur only
+in their respective site mapgen and local guardian checks, never in random
+monster groups. Each has a dedicated temporary UltiCa-compatible sprite in
+both graphics packages. Their two melee special attacks and balance need game
+checks. The oak clearing and cave chamber also contain two weaker demons each.
+
+Each Behelit is represented by **examinable furniture at the center**, not a
+ground item. The player can claim it only while the corresponding living
+guardian is more than eight tiles away from the player: defeat it or draw it
+away and slip past it. The bone chimes at the oak's edge and stone chime deep
+in the cave make a loud noise to support a diversion, but monster AI response
+still needs in-game testing. Only the exact guardian ID is counted; unrelated
+zombies and the lesser demons do not block claiming. Taking the relic runs an
+update on the player's current OMT that replaces that particular cache with
+an inert version, then grants one Behelit. The changed furniture holds the
+one-time state at the site through save/reload; visiting a different site
+does not share a character-wide reward flag. Check that map update and item
+delivery order in game before treating one-time rewards as proven.
+
+Further sites, such as an expedition's final camp, and map clues can follow
+after the oak and cave are tested.
 
 ## Verification still needed in game
 
@@ -50,5 +76,9 @@ players unable to defeat a high-level projection.
 - Check the armor's recurring Griffith encounter and Brand warnings.
 - Measure how often projection encounters actually occur; neither group
   weights nor the 1/100 daily armor attempt guarantee a find in a single lab.
+- In a newly generated forest area, confirm both specials can appear. Enter
+  the cave and climb back up; check oak and cave sprites, lighting, combat and
+  map symbols. Try sprinting to each cache with the guardian nearby, luring it
+  past eight tiles, killing it, and reloading after taking the Behelit.
 
 Static JSON and asset validation do not replace those game checks.
