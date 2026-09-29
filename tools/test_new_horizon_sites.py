@@ -9,7 +9,9 @@ import gettext
 from pathlib import Path
 import unittest
 
-from validate_mod_assets import ValidationError, validate_furniture_required_fields
+from validate_mod_assets import (
+    ValidationError, validate_furniture_required_fields, validate_monster_attacks
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,6 +40,16 @@ def reachable(rows, start, target):
 
 
 class BehelitSiteTests(unittest.TestCase):
+    def test_site_attacks_have_required_cooldown(self):
+        path = MOD / "monster_special_attacks" / "behelit_site_attacks.json"
+        attacks = objects(path)
+        validate_monster_attacks(path, attacks)
+        self.assertEqual([attack["cooldown"] for attack in attacks], [9, 7])
+        with self.assertRaises(ValidationError):
+            validate_monster_attacks(
+                path, [{"type": "monster_attack", "id": "test_missing_cooldown"}]
+            )
+
     def test_furniture_declares_required_strength_for_0_i_1(self):
         for filename in ("behelit_sites.json", "eclipse_trial.json"):
             path = MOD / "furniture" / filename

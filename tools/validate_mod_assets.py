@@ -77,6 +77,19 @@ def validate_furniture_required_fields(path: Path, objects: list[dict[str, Any]]
                 )
 
 
+def validate_monster_attacks(path: Path, objects: list[dict[str, Any]]) -> None:
+    """The standalone monster_attack loader in 0.I-1 requires cooldown."""
+    for entry in objects:
+        if entry.get("type") != "monster_attack" or "copy-from" in entry:
+            continue
+        value = entry.get("cooldown")
+        if not isinstance(value, (int, float, dict)) or isinstance(value, bool):
+            raise ValidationError(
+                f"{path.relative_to(ROOT)}: monster_attack {entry.get('id')!r} "
+                "requires cooldown in CDDA 0.I-1"
+            )
+
+
 def png_size(path: Path) -> tuple[int, int]:
     try:
         with path.open("rb") as image:
@@ -273,6 +286,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
             objects = top_level_objects(path)
             validate_mapgen_update_effects(path, objects)
             validate_furniture_required_fields(path, objects)
+            validate_monster_attacks(path, objects)
             if sum(entry.get("type") == "mod_tileset" for entry in objects) > 1:
                 raise ValidationError(
                     f"{path.relative_to(ROOT)}: CDDA 0.I-1 requires one mod_tileset per file"
