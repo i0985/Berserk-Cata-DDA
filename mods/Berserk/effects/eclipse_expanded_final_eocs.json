@@ -1,0 +1,16 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_START",
+    "eoc_type": "EVENT",
+    "required_event": "avatar_enters_omt",
+    "condition": {
+      "and": [
+        { "u_at_om_location": "berserk_eclipse_expanded_ceremony" },
+        { "math": [ "u_berserk_eclipse_trial_active == 1" ] },
+        { "math": [ "u_berserk_eclipse_rescue_state == 0" ] }
+      ]
+    },
+    "effect": { "math": [ "u_berserk_eclipse_final_started = 1" ] }
+  }
+]

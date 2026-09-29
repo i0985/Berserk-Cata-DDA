@@ -1,4 +1,8 @@
-# Eclipse field: test build for CDDA 0.I-1
+# Legacy six-OMT Eclipse field: test build for CDDA 0.I-1
+
+New Behelit activations now target the separate 3 × 4 OMT layout documented
+in [ECLIPSE_EXPANDED_TEST.md](ECLIPSE_EXPANDED_TEST.md). This page describes
+the older field retained for saves already inside it.
 
 This branch changes the six-OMT Eclipse from connected flesh-walled rooms into
 an open sacrificial field. The positions and overmap terrain IDs are unchanged

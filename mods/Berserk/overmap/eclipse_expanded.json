@@ -1,0 +1,268 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_expanded_arrival",
+    "name": "Eclipse: arrival",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_expanded_traces",
+    "name": "Eclipse: fallen band",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_expanded_cache",
+    "name": "Eclipse: abandoned supplies",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_expanded_torn",
+    "name": "Eclipse: torn field",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_expanded_crossroads",
+    "name": "Eclipse: crossroads",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_expanded_feast",
+    "name": "Eclipse: feast",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_expanded_hunt",
+    "name": "Eclipse: hunting ground",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_expanded_ravine",
+    "name": "Eclipse: scarred ravine",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_expanded_approach",
+    "name": "Eclipse: final approach",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_expanded_laststand",
+    "name": "Eclipse: last stand",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_expanded_threshold",
+    "name": "Eclipse: ceremony threshold",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_eclipse_expanded_ceremony",
+    "name": "Eclipse: ceremony",
+    "sym": "%",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "impassable",
+    "flags": [
+      "NO_ROTATE",
+      "SHOULD_NOT_SPAWN"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_eclipse_expanded_special",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          -7
+        ],
+        "overmap": "berserk_eclipse_expanded_arrival"
+      },
+      {
+        "point": [
+          1,
+          0,
+          -7
+        ],
+        "overmap": "berserk_eclipse_expanded_traces"
+      },
+      {
+        "point": [
+          2,
+          0,
+          -7
+        ],
+        "overmap": "berserk_eclipse_expanded_cache"
+      },
+      {
+        "point": [
+          0,
+          1,
+          -7
+        ],
+        "overmap": "berserk_eclipse_expanded_torn"
+      },
+      {
+        "point": [
+          1,
+          1,
+          -7
+        ],
+        "overmap": "berserk_eclipse_expanded_crossroads"
+      },
+      {
+        "point": [
+          2,
+          1,
+          -7
+        ],
+        "overmap": "berserk_eclipse_expanded_feast"
+      },
+      {
+        "point": [
+          0,
+          2,
+          -7
+        ],
+        "overmap": "berserk_eclipse_expanded_hunt"
+      },
+      {
+        "point": [
+          1,
+          2,
+          -7
+        ],
+        "overmap": "berserk_eclipse_expanded_ravine"
+      },
+      {
+        "point": [
+          2,
+          2,
+          -7
+        ],
+        "overmap": "berserk_eclipse_expanded_approach"
+      },
+      {
+        "point": [
+          0,
+          3,
+          -7
+        ],
+        "overmap": "berserk_eclipse_expanded_laststand"
+      },
+      {
+        "point": [
+          1,
+          3,
+          -7
+        ],
+        "overmap": "berserk_eclipse_expanded_threshold"
+      },
+      {
+        "point": [
+          2,
+          3,
+          -7
+        ],
+        "overmap": "berserk_eclipse_expanded_ceremony"
+      }
+    ],
+    "locations": [
+      "subterranean_empty"
+    ],
+    "occurrences": [
+      0,
+      0
+    ],
+    "rotate": false
+  }
+]

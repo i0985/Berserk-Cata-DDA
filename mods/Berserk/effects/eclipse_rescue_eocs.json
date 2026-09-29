@@ -6,7 +6,26 @@
     "recurrence": "1 turn",
     "condition": {
       "and": [
-        { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+        { "or": [
+            { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+            { "and": [
+                { "math": [ "u_berserk_eclipse_final_started == 1" ] },
+                { "or": [
+                    { "u_at_om_location": "berserk_eclipse_expanded_arrival" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_traces" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_cache" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_torn" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_crossroads" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_feast" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_hunt" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_ravine" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_approach" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_laststand" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_threshold" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_ceremony" }
+                  ] }
+              ] }
+          ] },
         { "math": [ "u_berserk_eclipse_trial_active == 1" ] },
         { "math": [ "u_berserk_eclipse_rescue_state == 0" ] },
         { "math": [ "has_var(u_berserk_eclipse_return_origin)" ] },
@@ -26,7 +45,26 @@
     "eoc_type": "PREVENT_DEATH",
     "condition": {
       "and": [
-        { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+        { "or": [
+            { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+            { "and": [
+                { "math": [ "u_berserk_eclipse_final_started == 1" ] },
+                { "or": [
+                    { "u_at_om_location": "berserk_eclipse_expanded_arrival" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_traces" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_cache" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_torn" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_crossroads" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_feast" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_hunt" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_ravine" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_approach" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_laststand" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_threshold" },
+                    { "u_at_om_location": "berserk_eclipse_expanded_ceremony" }
+                  ] }
+              ] }
+          ] },
         { "math": [ "u_berserk_eclipse_trial_active == 1" ] },
         { "math": [ "u_berserk_eclipse_rescue_state != 2" ] },
         { "math": [ "has_var(u_berserk_eclipse_return_origin)" ] }
@@ -135,7 +173,19 @@
               { "u_at_om_location": "berserk_eclipse_dungeon_warrens" },
               { "u_at_om_location": "berserk_eclipse_dungeon_procession" },
               { "u_at_om_location": "berserk_eclipse_dungeon_descent" },
-              { "u_at_om_location": "berserk_eclipse_dungeon_altar" }
+              { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+              { "u_at_om_location": "berserk_eclipse_expanded_arrival" },
+              { "u_at_om_location": "berserk_eclipse_expanded_traces" },
+              { "u_at_om_location": "berserk_eclipse_expanded_cache" },
+              { "u_at_om_location": "berserk_eclipse_expanded_torn" },
+              { "u_at_om_location": "berserk_eclipse_expanded_crossroads" },
+              { "u_at_om_location": "berserk_eclipse_expanded_feast" },
+              { "u_at_om_location": "berserk_eclipse_expanded_hunt" },
+              { "u_at_om_location": "berserk_eclipse_expanded_ravine" },
+              { "u_at_om_location": "berserk_eclipse_expanded_approach" },
+              { "u_at_om_location": "berserk_eclipse_expanded_laststand" },
+              { "u_at_om_location": "berserk_eclipse_expanded_threshold" },
+              { "u_at_om_location": "berserk_eclipse_expanded_ceremony" }
             ] },
             { "math": [ "has_var(u_berserk_eclipse_return_east)" ] }
           ]
@@ -154,7 +204,19 @@
               { "u_at_om_location": "berserk_eclipse_dungeon_warrens" },
               { "u_at_om_location": "berserk_eclipse_dungeon_procession" },
               { "u_at_om_location": "berserk_eclipse_dungeon_descent" },
-              { "u_at_om_location": "berserk_eclipse_dungeon_altar" }
+              { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+              { "u_at_om_location": "berserk_eclipse_expanded_arrival" },
+              { "u_at_om_location": "berserk_eclipse_expanded_traces" },
+              { "u_at_om_location": "berserk_eclipse_expanded_cache" },
+              { "u_at_om_location": "berserk_eclipse_expanded_torn" },
+              { "u_at_om_location": "berserk_eclipse_expanded_crossroads" },
+              { "u_at_om_location": "berserk_eclipse_expanded_feast" },
+              { "u_at_om_location": "berserk_eclipse_expanded_hunt" },
+              { "u_at_om_location": "berserk_eclipse_expanded_ravine" },
+              { "u_at_om_location": "berserk_eclipse_expanded_approach" },
+              { "u_at_om_location": "berserk_eclipse_expanded_laststand" },
+              { "u_at_om_location": "berserk_eclipse_expanded_threshold" },
+              { "u_at_om_location": "berserk_eclipse_expanded_ceremony" }
             ] },
             { "math": [ "has_var(u_berserk_eclipse_return_west)" ] }
           ]
@@ -171,7 +233,19 @@
           { "u_at_om_location": "berserk_eclipse_dungeon_warrens" },
           { "u_at_om_location": "berserk_eclipse_dungeon_procession" },
           { "u_at_om_location": "berserk_eclipse_dungeon_descent" },
-          { "u_at_om_location": "berserk_eclipse_dungeon_altar" }
+          { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+          { "u_at_om_location": "berserk_eclipse_expanded_arrival" },
+          { "u_at_om_location": "berserk_eclipse_expanded_traces" },
+          { "u_at_om_location": "berserk_eclipse_expanded_cache" },
+          { "u_at_om_location": "berserk_eclipse_expanded_torn" },
+          { "u_at_om_location": "berserk_eclipse_expanded_crossroads" },
+          { "u_at_om_location": "berserk_eclipse_expanded_feast" },
+          { "u_at_om_location": "berserk_eclipse_expanded_hunt" },
+          { "u_at_om_location": "berserk_eclipse_expanded_ravine" },
+          { "u_at_om_location": "berserk_eclipse_expanded_approach" },
+          { "u_at_om_location": "berserk_eclipse_expanded_laststand" },
+          { "u_at_om_location": "berserk_eclipse_expanded_threshold" },
+          { "u_at_om_location": "berserk_eclipse_expanded_ceremony" }
         ] },
         "then": {
           "u_message": "The Skull Knight's escape route is blocked. Reach the rift in the final field and try the passage again.",

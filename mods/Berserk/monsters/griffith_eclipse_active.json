@@ -1,0 +1,8 @@
+{
+  "type": "MONSTER",
+  "id": "mon_berserk_eclipse_griffith_active",
+  "copy-from": "mon_berserk_eclipse_griffith",
+  "looks_like": "mon_griffith_reborn",
+  "flags": [ "SEES", "HEARS", "WARM", "FLIES", "DESTROYS" ],
+  "death_function": { "eoc": "EOC_BERSERK_ECLIPSE_GRIFFITH_DIES" }
+}

@@ -1,0 +1,758 @@
+[
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_eclipse_expanded_arrival"
+    ],
+    "object": {
+      "rows": [
+        "########################",
+        "#..a.........a......a..#",
+        "#........a......a......#",
+        "#....a......a.........a#",
+        "#a..###.a.........a....#",
+        "#..#####......a......a.#",
+        "#..#####..a......a.....#",
+        "#..#####.....a.........#",
+        "#.a.###..a.........a...#",
+        "#....a.........a......a#",
+        "#a.........a......a.....",
+        "#......a....raaaaaaaaaaa",
+        "#..a......aSvraaaaaaaaaa",
+        "#.....a....rrraaaaaaaaaa",
+        "#.a........rrr....va..aa",
+        "#.......a..rrr.a.###....",
+        "#...a......rrr..#####a..",
+        "#......a...rrr..#####...",
+        "#..a.......rrr..#####...",
+        "#........a.rrr..a###...#",
+        "#....a.....rrr........a#",
+        "#a......a..rrr....a....#",
+        "#...a......rrra......a.#",
+        "########...rrr...#######"
+      ],
+      "palettes": [
+        "berserk_eclipse_flesh_palette"
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_eclipse_expanded_traces"
+    ],
+    "object": {
+      "rows": [
+        "########################",
+        "#....a.........a......a#",
+        "#a.........a......a....#",
+        "#......a......a........#",
+        "#..a###...a.........a..#",
+        "#..#####........a.......",
+        "#.#######...a......a....",
+        "#.#######J.....a........",
+        "#.#######..a.........a..",
+        "#..#####.........a....rr",
+        "...a###......a......a.rr",
+        ".........a......a.....rr",
+        ".....a.....ava........rr",
+        "aaaaaaaaaaaaaarrrrrrrrrr",
+        "aaaaavaaaaaaaarrrrrrrrr#",
+        "aaaaaaaaaaaaaarrrrrrrrr#",
+        "......a....aaa..#####..#",
+        "..a......a.aaa..#####..#",
+        ".....a.....aaa.v.###..a#",
+        "#a.........aaa....a....#",
+        "#......a...aaaa........#",
+        "#..a......aaaa......a..#",
+        "#.....a....aaaaaa......#",
+        "###########aaaaa....####"
+      ],
+      "palettes": [
+        "berserk_eclipse_flesh_palette"
+      ],
+      "place_monster": [
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 18,
+          "y": 5
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 6,
+          "y": 19
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 16,
+          "y": 18
+        }
+      ],
+      "place_item": [
+        {
+          "item": "berserk_eclipse_judeau_body",
+          "x": 9,
+          "y": 7,
+          "amount": 1
+        },
+        {
+          "item": "berserk_judeau_knife_hilt",
+          "x": 9,
+          "y": 7,
+          "amount": 1
+        }
+      ],
+      "place_loot": [
+        {
+          "group": "berserk_eclipse_judeau_gear",
+          "x": 9,
+          "y": 7,
+          "chance": 100
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_eclipse_expanded_cache"
+    ],
+    "object": {
+      "rows": [
+        "########################",
+        "#......a.........a.....#",
+        "#..a.........a......a..#",
+        "#........a......a......#",
+        "#...###.....a.........a#",
+        ".a.#####a.........a....#",
+        "...#####......a......a.#",
+        "...#####..a......a.....#",
+        "....###......a.........#",
+        "rra......a.........a...#",
+        "rr...a.........a.X....a#",
+        "rrrrrrrrrrrrr.....a....#",
+        "rrrrrrrrrrrrvra........#",
+        "rrrrrrrrrrrrrr......a..#",
+        "#.....a....rrr..a......#",
+        "#.a........rrr...###...#",
+        "#.......a..rrr.a#####..#",
+        "#...a......rrr..#####a.#",
+        "#......a...rrr..#####..#",
+        "#..a.......rrr...###a..#",
+        "#........a.rrr..a......#",
+        "#....a.....rrr........a#",
+        "#a......a..rrr....a....#",
+        "#########..rrr....######"
+      ],
+      "palettes": [
+        "berserk_eclipse_flesh_palette"
+      ],
+      "place_monster": [
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
+          "x": 18,
+          "y": 4
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 6,
+          "y": 19
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 15,
+          "y": 18
+        }
+      ],
+      "place_loot": [
+        {
+          "group": "berserk_eclipse_supply_cache",
+          "x": 17,
+          "y": 10,
+          "chance": 100
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_eclipse_expanded_torn"
+    ],
+    "object": {
+      "rows": [
+        "########....rrrr.#######",
+        "#...a......arrrr.....a.#",
+        "#......a.....rrr.a.....#",
+        "#..a.........rrr....a..#",
+        "#....###.a...rrra......#",
+        "#...#####...arrrPPP...a.",
+        "#a..#####....rrrPPa.....",
+        "#...#####....rrr.....a..",
+        "#....###..a..rrr.a......",
+        "#.....a......rrr......rr",
+        "#.a......a...rrr...a..rr",
+        "#....a......rrrrrrrrrrrr",
+        "#a.........avrrrrrrrrrrr",
+        "#......a....rrrrrrrrrrrr",
+        "#..a......a..rrr###.a..#",
+        "#.....a......rrr####...#",
+        "#.a.........arrr#####..#",
+        "#.......a.I..rrr#####..#",
+        "#...a......a.rrr#####a.#",
+        "#......a.....rrr####...#",
+        "#..a.........rrr###.a..#",
+        "#........a...rrra......#",
+        "#....a......arrr......a#",
+        "#########....rrr..######"
+      ],
+      "palettes": [
+        "berserk_eclipse_flesh_palette"
+      ],
+      "place_monster": [
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 18,
+          "y": 4
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HALF",
+          "x": 6,
+          "y": 19
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 15,
+          "y": 18
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 5,
+          "y": 12
+        }
+      ],
+      "place_item": [
+        {
+          "item": "berserk_eclipse_pippin_body",
+          "x": 10,
+          "y": 17,
+          "amount": 1
+        },
+        {
+          "item": "berserk_pippin_broken_clasp",
+          "x": 10,
+          "y": 17,
+          "amount": 1
+        }
+      ],
+      "place_loot": [
+        {
+          "group": "berserk_eclipse_pippin_gear",
+          "x": 10,
+          "y": 17,
+          "chance": 100
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_eclipse_expanded_crossroads"
+    ],
+    "object": {
+      "rows": [
+        "###########..aaa....####",
+        "#.....a......aaa.......#",
+        "#.a......a...aaa...a...#",
+        "#....a.......aaa......a#",
+        "#a...###...a.aaa..a....#",
+        "....#####....aav.......#",
+        "...#######a..aaa....a..#",
+        "...#######...aaaa......#",
+        "..a#######..aaaa.H.a...#",
+        "rr..#####....aaa.......#",
+        "rr..a###...a.aaa.....a.#",
+        "rr.....a.....aaa.a.....#",
+        "rr.a.......avaaa....a..#",
+        "rrrrrrrrrrraaaaarrrrrrrr",
+        "#rrrrrrrrrraaaaarrrrrrrr",
+        "#rrrrrrrrrrrraaarrrrrrrr",
+        "#...a........aaa#####arr",
+        "#.........a..aaa#####.rr",
+        "#.....a...v..aaa####....",
+        "#.a......a...aaa###a....",
+        "#....a.......aaa......a.",
+        "#a.........a.aaa..a.....",
+        "#......a..aaaaaa.......#",
+        "######....aaaaa#########"
+      ],
+      "palettes": [
+        "berserk_eclipse_flesh_palette"
+      ],
+      "place_monster": [
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HALF",
+          "x": 18,
+          "y": 5
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
+          "x": 6,
+          "y": 19
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 17,
+          "y": 20
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HALF",
+          "x": 5,
+          "y": 12
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_eclipse_expanded_feast"
+    ],
+    "object": {
+      "rows": [
+        "#########....rrr..######",
+        "#.......a....rrr.......#",
+        "#...a......a.rrr.....a.#",
+        "#......a.....rrr.a.....#",
+        "#..a.###.....rrr....a..#",
+        "#...#####a...rrra......#",
+        "#...#####...arrr......a#",
+        "#a..#####....rrr..a....#",
+        "#...a###...F.rrr.....a.#",
+        "#.........a..rrr.a.....#",
+        "#.....a......rrr.......#",
+        "#rrrrrrrrrrrrrrr...a...#",
+        "#rrrrrrrrrrrvrrr......a#",
+        "rrrrrrrrrrrrrrrr..a....#",
+        "rr.....a.....rrr###....#",
+        "rr.a......a..rrr####a..#",
+        "rr....a......rrr#####..#",
+        "rra.........aKrC#####..#",
+        "........a....rrr#####..#",
+        "....a......a.rrr####.a.#",
+        ".......a.....rrr###....#",
+        "...a.........rrr....a..#",
+        "#.......rrrrrrrra......#",
+        "####....rrrrr###########"
+      ],
+      "palettes": [
+        "berserk_eclipse_flesh_palette"
+      ],
+      "place_monster": [
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 18,
+          "y": 5
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 6,
+          "y": 19
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HALF",
+          "x": 15,
+          "y": 18
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_BUTCHER",
+          "x": 5,
+          "y": 12
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 19,
+          "y": 7
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 10,
+          "y": 20
+        }
+      ],
+      "place_item": [
+        {
+          "item": "berserk_eclipse_corkus_body",
+          "x": 13,
+          "y": 17,
+          "amount": 1
+        }
+      ],
+      "place_loot": [
+        {
+          "group": "berserk_eclipse_corkus_gear",
+          "x": 13,
+          "y": 17,
+          "chance": 100
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_eclipse_expanded_hunt"
+    ],
+    "object": {
+      "rows": [
+        "#########..rrr....######",
+        "#.a........rrr.....a...#",
+        "#.......a..rrr.a.......#",
+        "#...a......rrr.......a.#",
+        "#...###a...rrr...a.....#",
+        "#..#####...rrr...PP.a..#",
+        "#..#####.a.rrr..aP.....#",
+        "#..#####...rrr........a#",
+        "#a..###.a..rrr....a....#",
+        "#...a......rrra......a.#",
+        "#.........arrr...a.....#",
+        "#.....a....rrrrrrrrrrrr#",
+        "#.a......a.rvrrrrrrrrrrr",
+        "#....a.....rrrrrrrrrrrrr",
+        "#a.........rrr....a...rr",
+        "#......a...rrra..###..rr",
+        "#..a......arrr..#####.rr",
+        "#.....a....rrr..#####...",
+        "#.a........rrr..#####...",
+        "#.......a..rrr.a.###....",
+        "#...a......rrr.......a..",
+        "#......a...rrr...a.....#",
+        "#..a.......rrr......a..#",
+        "#######....rrr..########"
+      ],
+      "palettes": [
+        "berserk_eclipse_flesh_palette"
+      ],
+      "place_monster": [
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
+          "x": 18,
+          "y": 4
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
+          "x": 6,
+          "y": 19
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HALF",
+          "x": 15,
+          "y": 18
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 5,
+          "y": 12
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_eclipse_expanded_ravine"
+    ],
+    "object": {
+      "rows": [
+        "######....aaaa.#########",
+        "#...a.....aaaaa......a.#",
+        "#.........aaaa...a.....#",
+        "#.....a....aaa.........#",
+        "#.a.###..a.aaa.....a...#",
+        "#..#####..vaaa.a......a#",
+        "#a#######..aaa....a.....",
+        "#.#######..aaaa.........",
+        "#.#######.aaaa......a...",
+        "#..#####...aaa..a.......",
+        "#.a.###....aaa.....a..rr",
+        "#.......a..aaa.a......rr",
+        "....a......ava.......arr",
+        "rrrrrrrrrrraaarrrrrrrrrr",
+        "rrrrrrrrrrraaarrrrrrrrrr",
+        "rrrrrrrrrrraaarrrrrrrrr#",
+        "rr...aPP...aaa..#####.a#",
+        ".a...PPPa..aaa..#####..#",
+        "....a......aaav..###.a.#",
+        "..........aaaa...a.....#",
+        "......a....aaa.........#",
+        "#.a......a.aaa.....a...#",
+        "#....a.....aaaaa......a#",
+        "##########.aaaa....#####"
+      ],
+      "palettes": [
+        "berserk_eclipse_flesh_palette"
+      ],
+      "place_monster": [
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HALF",
+          "x": 18,
+          "y": 5
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
+          "x": 6,
+          "y": 19
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_BUTCHER",
+          "x": 16,
+          "y": 18
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 5,
+          "y": 12
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_eclipse_expanded_approach"
+    ],
+    "object": {
+      "rows": [
+        "####....rrrrr###########",
+        "#.....a.rrrrrr..a......#",
+        "#.a........rrr.....a...#",
+        "#.......a..rrr.a.......#",
+        "#...###....rrr.......a.#",
+        "#..#####...rrr...a.....#",
+        "...#####...rrr......a..#",
+        "...#####.a.rrr..a......#",
+        "....###....rrr...G....a#",
+        ".a......a..rrr....a....#",
+        "rr..a......rrra......a.#",
+        "rrrrrrrrrrrrrr...a.....#",
+        "rrrrrrrrrrrrvr.........#",
+        "rrrrrrrrrrrrrr.....a...#",
+        ".....a.....rrr.a......a#",
+        "#a.........rrr...###...#",
+        "#......a...rrra.#####..#",
+        "#..a......arrr..#####..#",
+        "#.....a....rrr..#####..#",
+        "#.a........rrr...###...#",
+        "#.......a..rrr.a.......#",
+        "#...a......rrr.......a.#",
+        "#......a...rrrrrrr.....#",
+        "#############rrrrr....##"
+      ],
+      "palettes": [
+        "berserk_eclipse_flesh_palette"
+      ],
+      "place_monster": [
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HALF",
+          "x": 18,
+          "y": 5
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_BUTCHER",
+          "x": 6,
+          "y": 19
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
+          "x": 15,
+          "y": 18
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 5,
+          "y": 12
+        }
+      ],
+      "place_item": [
+        {
+          "item": "berserk_eclipse_gaston_body",
+          "x": 17,
+          "y": 8,
+          "amount": 1
+        }
+      ],
+      "place_loot": [
+        {
+          "group": "berserk_eclipse_gaston_gear",
+          "x": 17,
+          "y": 8,
+          "chance": 100
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_eclipse_expanded_laststand"
+    ],
+    "object": {
+      "rows": [
+        "#######....rrrrr########",
+        "#..a......arrrrr....a..#",
+        "#.....a......rrra......#",
+        "#.a.........arrr...a...#",
+        "#....###a....rrr.......#",
+        "#...#####..a.rrr.....a.#",
+        "#...#####....rrr.a.....#",
+        "#..a#####....rrr....a..#",
+        "#....###.a...rrra......#",
+        "#....a......arrr......a#",
+        "#a......a....rrr..a....#",
+        "#...a.......rrrrrrrrrrrr",
+        "#.........a.vrrrrrrrrrrr",
+        "#.....a.....rrrrrrrrrrrr",
+        "#.a......a......###a..rr",
+        "#....a.........#####..rr",
+        "#a.........a..#######...",
+        "#......a......#######...",
+        "#..a......a...#######...",
+        "#.....a........#####....",
+        "#.a.........a...###a...#",
+        "#.......a......a.......#",
+        "#...a......a.........a.#",
+        "########################"
+      ],
+      "palettes": [
+        "berserk_eclipse_flesh_palette"
+      ],
+      "place_monster": [
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 18,
+          "y": 5
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HALF",
+          "x": 6,
+          "y": 18
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_BUTCHER",
+          "x": 13,
+          "y": 18
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 5,
+          "y": 12
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_eclipse_expanded_threshold"
+    ],
+    "object": {
+      "rows": [
+        "##########...aaa...#####",
+        "#....a......aaaa......a#",
+        "#a......a....aaa..a....#",
+        "#...a........aaa.....a.#",
+        "#....###..a..aaa.a.....#",
+        "#...#####....ava.......#",
+        "#.a#######...aaa..Pa...#",
+        "#..#######...aaa..P...a.",
+        "#a.#######Wa.aaa..a.....",
+        "#...#####....aaa........",
+        "#..a.###..a..aaa....a...",
+        "......a......aaaa.v...aa",
+        "..a........avaaa...a..aa",
+        "rrrrrrrrrrraaaaaaaaaaaaa",
+        "rrrrrrrrrrraaaaaaaaaaaaa",
+        "rrrrrrrrrrrrrraaaaaaaaaa",
+        "...a.........a#######..#",
+        ".........a....#######..#",
+        ".....a......a..#####..a#",
+        ".a......a.......###....#",
+        "#...a.........a......a.#",
+        "#.........a......a.....#",
+        "#.....a......a.........#",
+        "########################"
+      ],
+      "palettes": [
+        "berserk_eclipse_flesh_palette"
+      ],
+      "place_monster": [
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
+          "x": 18,
+          "y": 5
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_ELITE",
+          "x": 6,
+          "y": 19
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HALF",
+          "x": 17,
+          "y": 20
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_eclipse_expanded_ceremony"
+    ],
+    "object": {
+      "rows": [
+        "#############rrrrr....##",
+        "#......a.....rrrrr.....#",
+        "#..a......a..rrr....a..#",
+        "#.....a......rrra......#",
+        "#.a..###....arrr...a...#",
+        "#...#####....rrr.......#",
+        "#...#####..a.rrr.....a.#",
+        "....#####....rrr.a.....#",
+        "...a.###.....rrr....a..#",
+        ".........a...rrra......#",
+        ".....a......arrr......a#",
+        "aaaaavaaaaaarrrr..a....#",
+        "aaaaaaaaaaaavrrr.....a.#",
+        "aaaaaaaaaaaarrr..a.....#",
+        "......a......a..###....#",
+        "..a......a.....#####...#",
+        "#....a...........####.a#",
+        "#a.........a.....####..#",
+        "#......a.........####..#",
+        "#..a......a....#####a..#",
+        "#.....a.....R...###....#",
+        "#.a.........a......a...#",
+        "#.......a......a.......#",
+        "########################"
+      ],
+      "palettes": [
+        "berserk_eclipse_flesh_palette"
+      ],
+      "place_monster": [
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_ELITE",
+          "x": 18,
+          "y": 5
+        },
+        {
+          "monster": "mon_berserk_eclipse_griffith_active",
+          "x": 15,
+          "y": 17,
+          "one_or_none": true
+        }
+      ]
+    }
+  }
+]

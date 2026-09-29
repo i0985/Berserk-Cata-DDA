@@ -47,15 +47,12 @@ appearance/ASCII color, not the emitted light color. This prototype tests
 ordinary light only. Colored light needs a separate exact-version engine
 prototype; do not imply a red light based on a red terrain sprite.
 
-For a larger Eclipse, evaluate a **new, versioned 3 × 4 OMT special** rather
-than stretching the current six-OMT special in place. That yields 72 × 96 map
-squares and gives room for a landing, two routes through the fallen band, a
-staged feast, a quiet approach and a ceremony. Keep the existing OMT IDs and
-old special available for saves already inside the six-OMT field; add new IDs
-for connecting sections and update every location check in the entry, rescue
-and victory EOCs. First test line of sight, monster hearing and aggro boundaries
-on one new section. Merely increasing area without sight breaks may still
-produce a single pursuing mob.
+The next test build implements a **separate, versioned 3 × 4 OMT special**.
+Its 72 × 96 map squares and encounter route are documented in
+[ECLIPSE_EXPANDED_TEST.md](ECLIPSE_EXPANDED_TEST.md). The older field remains
+available for saves already inside it. The larger area and ridges still need
+an in-game check of monster sight, hearing and pursuit; dimensions alone
+cannot guarantee separated fights.
 
 ## Player check
 

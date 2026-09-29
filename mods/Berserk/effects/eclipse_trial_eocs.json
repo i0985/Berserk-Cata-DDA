@@ -13,7 +13,19 @@
             { "u_at_om_location": "berserk_eclipse_dungeon_warrens" },
             { "u_at_om_location": "berserk_eclipse_dungeon_procession" },
             { "u_at_om_location": "berserk_eclipse_dungeon_descent" },
-            { "u_at_om_location": "berserk_eclipse_dungeon_altar" }
+            { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+            { "u_at_om_location": "berserk_eclipse_expanded_arrival" },
+            { "u_at_om_location": "berserk_eclipse_expanded_traces" },
+            { "u_at_om_location": "berserk_eclipse_expanded_cache" },
+            { "u_at_om_location": "berserk_eclipse_expanded_torn" },
+            { "u_at_om_location": "berserk_eclipse_expanded_crossroads" },
+            { "u_at_om_location": "berserk_eclipse_expanded_feast" },
+            { "u_at_om_location": "berserk_eclipse_expanded_hunt" },
+            { "u_at_om_location": "berserk_eclipse_expanded_ravine" },
+            { "u_at_om_location": "berserk_eclipse_expanded_approach" },
+            { "u_at_om_location": "berserk_eclipse_expanded_laststand" },
+            { "u_at_om_location": "berserk_eclipse_expanded_threshold" },
+            { "u_at_om_location": "berserk_eclipse_expanded_ceremony" }
           ]
         },
         "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_EXIT" },
@@ -51,8 +63,8 @@
       {
         "u_location_variable": { "u_val": "berserk_eclipse_trial_destination" },
         "target_params": {
-          "om_terrain": "berserk_eclipse_dungeon_entry",
-          "om_special": "berserk_eclipse_dungeon_special_fixed",
+          "om_terrain": "berserk_eclipse_expanded_arrival",
+          "om_special": "berserk_eclipse_expanded_special",
           "random": true,
           "search_range": 24,
           "z": -7
@@ -76,11 +88,21 @@
         "fail_message": "The passage does not open.  You remain where you are."
       },
       {
-        "if": { "u_at_om_location": "berserk_eclipse_dungeon_entry" },
+        "if": { "or": [ { "u_at_om_location": "berserk_eclipse_dungeon_entry" },
+                         { "u_at_om_location": "berserk_eclipse_expanded_arrival" } ] },
         "then": [
           { "math": [ "u_berserk_eclipse_trial_active = 1" ] },
           { "math": [ "u_berserk_eclipse_behelit_spent = 1" ] },
-          { "u_consume_item": "berserk_behelit", "count": 1 }
+          { "math": [ "u_berserk_eclipse_final_started = 0" ] },
+          { "u_consume_item": "berserk_behelit", "count": 1 },
+          {
+            "if": { "u_at_om_location": "berserk_eclipse_expanded_arrival" },
+            "then": {
+              "u_message": "An ashen trail leads east to the fallen band, then bends south toward the ceremony. Narrower tracks branch into the dark.",
+              "type": "info",
+              "popup": true
+            }
+          }
         ]
       }
     ]
@@ -131,7 +153,19 @@
               { "u_at_om_location": "berserk_eclipse_dungeon_warrens" },
               { "u_at_om_location": "berserk_eclipse_dungeon_procession" },
               { "u_at_om_location": "berserk_eclipse_dungeon_descent" },
-              { "u_at_om_location": "berserk_eclipse_dungeon_altar" }
+              { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
+              { "u_at_om_location": "berserk_eclipse_expanded_arrival" },
+              { "u_at_om_location": "berserk_eclipse_expanded_traces" },
+              { "u_at_om_location": "berserk_eclipse_expanded_cache" },
+              { "u_at_om_location": "berserk_eclipse_expanded_torn" },
+              { "u_at_om_location": "berserk_eclipse_expanded_crossroads" },
+              { "u_at_om_location": "berserk_eclipse_expanded_feast" },
+              { "u_at_om_location": "berserk_eclipse_expanded_hunt" },
+              { "u_at_om_location": "berserk_eclipse_expanded_ravine" },
+              { "u_at_om_location": "berserk_eclipse_expanded_approach" },
+              { "u_at_om_location": "berserk_eclipse_expanded_laststand" },
+              { "u_at_om_location": "berserk_eclipse_expanded_threshold" },
+              { "u_at_om_location": "berserk_eclipse_expanded_ceremony" }
             ]
           }
         },

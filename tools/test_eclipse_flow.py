@@ -157,6 +157,9 @@ class EclipseFlowTests(unittest.TestCase):
         special = next(obj for obj in objects(MOD / "overmap" / "eclipse_dungeon.json")
                        if obj.get("id") == "berserk_eclipse_dungeon_special_fixed")
         room_ids = {tile["overmap"] for tile in special["overmaps"]}
+        expanded = next(obj for obj in objects(MOD / "overmap" / "eclipse_expanded.json")
+                        if obj.get("id") == "berserk_eclipse_expanded_special")
+        room_ids.update(tile["overmap"] for tile in expanded["overmaps"])
         returned = self.eocs["EOC_BERSERK_ECLIPSE_RESCUE_RETURN"]
         for attempt in returned["effect"][1:]:
             self.assertEqual({part["u_at_om_location"] for part in
@@ -181,11 +184,13 @@ class EclipseFlowTests(unittest.TestCase):
         self.assertNotIn("u_consume_item", str(enter))
         effects = arrive["effect"]
         self.assertIn("u_teleport", effects[0])
-        self.assertEqual(effects[1]["if"], {"u_at_om_location": "berserk_eclipse_dungeon_entry"})
-        self.assertEqual(effects[1]["then"][-1], {"u_consume_item": "berserk_behelit", "count": 1})
+        self.assertEqual({part["u_at_om_location"] for part in effects[1]["if"]["or"]},
+                         {"berserk_eclipse_dungeon_entry", "berserk_eclipse_expanded_arrival"})
+        self.assertIn({"u_consume_item": "berserk_behelit", "count": 1}, effects[1]["then"])
         self.assertIn("u_berserk_eclipse_behelit_spent = 1", str(effects[1]["then"]))
         self.assertIn("u_berserk_eclipse_behelit_spent == 1", str(self.eocs["EOC_BERSERK_ECLIPSE_TRIAL_EXIT"]))
         self.assertIn("f_berserk_eclipse_arrival_scar", str(enter))
+        self.assertIn("berserk_eclipse_expanded_special", str(enter))
         self.assertNotIn("f_berserk_eclipse_return_seal", str(objects(MOD / "mapgen" / "eclipse_mapgen.json")))
         self.assertIn("f_berserk_eclipse_escape_rift", str(objects(MOD / "mapgen" / "eclipse_palettes.json")))
 
@@ -377,6 +382,71 @@ class EclipseFlowTests(unittest.TestCase):
         self.assertTrue(can_reach_east(via_north=True))
         self.assertTrue(can_reach_east(via_north=False))
 
+    def test_expanded_eclipse_has_a_walkable_story_route_and_old_special_remains(self) -> None:
+        from build_eclipse_expanded import build_scene, scene_id
+
+        specials = objects(MOD / "overmap" / "eclipse_expanded.json")
+        special = next(entry for entry in specials if entry["type"] == "overmap_special")
+        positions = {tile["overmap"]: tuple(tile["point"][:2]) for tile in special["overmaps"]}
+        self.assertEqual(len(positions), 12)
+        self.assertEqual(set(positions.values()), {(x, y) for x in range(3) for y in range(4)})
+        self.assertEqual(special["id"], "berserk_eclipse_expanded_special")
+        self.assertIn("berserk_eclipse_dungeon_special_fixed",
+                      {entry["id"] for entry in objects(MOD / "overmap" / "eclipse_dungeon.json")})
+
+        rooms = objects(MOD / "mapgen" / "eclipse_expanded.json")
+        self.assertEqual(rooms, [build_scene(x, y) for y in range(4) for x in range(3)])
+        safe: set[tuple[int, int]] = set()
+        markers = {}
+        enemies = 0
+        for room in rooms:
+            ox, oy = positions[room["om_terrain"][0]]
+            rows = room["object"]["rows"]
+            self.assertEqual(len(rows), 24)
+            self.assertTrue(all(len(row) == 24 for row in rows))
+            for y, row in enumerate(rows):
+                for x, symbol in enumerate(row):
+                    point = (ox * 24 + x, oy * 24 + y)
+                    if symbol not in "#PC":
+                        safe.add(point)
+                    if symbol in "SIJKGWFRXH":
+                        self.assertNotIn(symbol, markers)
+                        markers[symbol] = point
+            for enemy in room["object"].get("place_monster", []):
+                point = (ox * 24 + enemy["x"], oy * 24 + enemy["y"])
+                self.assertIn(point, safe, room["om_terrain"][0])
+                enemies += 1
+        self.assertEqual(set(markers), set("SIJKGWFRXH"))
+        self.assertEqual(enemies, 41)
+        self.assertGreater(markers["R"][0] + markers["R"][1], 100)
+        self.assertEqual(markers["S"], (11, 12))
+        reached = {markers["S"]}
+        pending = deque(reached)
+        while pending:
+            x, y = pending.popleft()
+            for neighbor in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)):
+                if neighbor in safe and neighbor not in reached:
+                    reached.add(neighbor)
+                    pending.append(neighbor)
+        self.assertEqual(reached, safe)
+        self.assertLessEqual(set(markers.values()), reached)
+
+        boss = objects(MOD / "monsters" / "griffith_eclipse_active.json")[0]
+        self.assertNotIn("IMMOBILE", boss["flags"])
+        self.assertEqual(boss["death_function"]["eoc"], "EOC_BERSERK_ECLIPSE_GRIFFITH_DIES")
+        self.assertIn("mon_berserk_eclipse_griffith_active",
+                      str(objects(MOD / "mod_tileset_griffith.json")))
+        for rescue_id in ("EOC_BERSERK_ECLIPSE_RESCUE_THRESHOLD",
+                          "EOC_BERSERK_ECLIPSE_RESCUE_PREVENT_DEATH"):
+            condition = self.eocs[rescue_id]["condition"]
+            self.assertIn("berserk_eclipse_expanded_ceremony", str(condition))
+            self.assertIn("u_berserk_eclipse_final_started == 1", str(condition))
+            self.assertTrue(set(positions) <= {part["u_at_om_location"]
+                             for part in condition["and"][0]["or"][1]["and"][1]["or"]})
+        finale = self.eocs["EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_START"]
+        self.assertEqual(finale["required_event"], "avatar_enters_omt")
+        self.assertEqual(finale["effect"], {"math": ["u_berserk_eclipse_final_started = 1"]})
+
     def test_eclipse_text_is_present_in_both_compiled_catalogs(self) -> None:
         paths = [
             *sorted((MOD / "effects").glob("eclipse_*.json")),
@@ -393,7 +463,9 @@ class EclipseFlowTests(unittest.TestCase):
             MOD / "dialogue" / "skull_knight.json",
             *sorted((MOD / "monsters").glob("eclipse_*.json")),
             MOD / "monsters" / "griffith_eclipse.json",
+            MOD / "monsters" / "griffith_eclipse_active.json",
             MOD / "overmap" / "eclipse_dungeon.json",
+            MOD / "overmap" / "eclipse_expanded.json",
         ]
         fields = {"u_message", "u_query", "success_message", "fail_message",
                   "name", "description", "desc", "cant_remove_reason",
