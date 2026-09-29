@@ -9,6 +9,8 @@ import gettext
 from pathlib import Path
 import unittest
 
+from validate_mod_assets import ValidationError, validate_furniture_required_fields
+
 
 ROOT = Path(__file__).resolve().parents[1]
 MOD = ROOT / "mods" / "Berserk"
@@ -36,6 +38,16 @@ def reachable(rows, start, target):
 
 
 class BehelitSiteTests(unittest.TestCase):
+    def test_furniture_declares_required_strength_for_0_i_1(self):
+        for filename in ("behelit_sites.json", "eclipse_trial.json"):
+            path = MOD / "furniture" / filename
+            validate_furniture_required_fields(path, objects(path))
+        with self.assertRaises(ValidationError):
+            validate_furniture_required_fields(
+                MOD / "furniture" / "behelit_sites.json",
+                [{"type": "furniture", "id": "test_missing_strength", "move_cost_mod": 0}],
+            )
+
     def test_new_user_facing_text_has_both_translations(self):
         messages = set()
         plurals = set()

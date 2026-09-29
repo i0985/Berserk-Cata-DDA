@@ -63,6 +63,20 @@ def validate_mapgen_update_effects(path: Path, objects: list[dict[str, Any]]) ->
             visit(entry)
 
 
+def validate_furniture_required_fields(path: Path, objects: list[dict[str, Any]]) -> None:
+    """CDDA 0.I-1 requires both movement fields on standalone furniture."""
+    for entry in objects:
+        if entry.get("type") != "furniture" or "copy-from" in entry:
+            continue
+        for field in ("move_cost_mod", "required_str"):
+            value = entry.get(field)
+            if not isinstance(value, int) or isinstance(value, bool):
+                raise ValidationError(
+                    f"{path.relative_to(ROOT)}: furniture {entry.get('id')!r} "
+                    f"requires integer {field} in CDDA 0.I-1"
+                )
+
+
 def png_size(path: Path) -> tuple[int, int]:
     try:
         with path.open("rb") as image:
@@ -258,6 +272,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
         for path in sorted(package.rglob("*.json")):
             objects = top_level_objects(path)
             validate_mapgen_update_effects(path, objects)
+            validate_furniture_required_fields(path, objects)
             if sum(entry.get("type") == "mod_tileset" for entry in objects) > 1:
                 raise ValidationError(
                     f"{path.relative_to(ROOT)}: CDDA 0.I-1 requires one mod_tileset per file"
