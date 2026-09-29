@@ -1,0 +1,44 @@
+[
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_projection_zodd",
+    "copy-from": "mon_nosferatu_zodd",
+    "name": { "str": "Projection of Zodd", "str_pl": "Projections of Zodd" },
+    "description": "A scarred silhouette shaped like Nosferatu Zodd. Its blows are real, but the creature itself is only a fragment drawn into this world around a Behelit.",
+    "looks_like": "mon_nosferatu_zodd",
+    "hp": 380,
+    "regenerates": 0,
+    "speed": 90,
+    "dodge": 3,
+    "death_drops": "berserk_projection_behelit_drops",
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s unravels, leaving a Behelit behind." }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_projection_griffith",
+    "copy-from": "mon_griffith_reborn",
+    "name": { "str": "Reflection of Griffith", "str_pl": "Reflections of Griffith" },
+    "description": "A winged reflection of Griffith, drawn into the world around a Behelit. Destroying this apparition does not kill the being whose image it bears.",
+    "looks_like": "mon_griffith_reborn",
+    "hp": 330,
+    "regenerates": 0,
+    "speed": 115,
+    "dodge": 4,
+    "death_drops": "berserk_projection_behelit_drops",
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s unravels, leaving a Behelit behind." }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_projection_void",
+    "copy-from": "mon_void_apostle",
+    "name": { "str": "Reflection of Void", "str_pl": "Reflections of Void" },
+    "description": "Void's likeness looms from a breach in reality. This dangerous reflection gathered around a Behelit, but its destruction cannot reach the original.",
+    "looks_like": "mon_void_apostle",
+    "hp": 300,
+    "regenerates": 0,
+    "speed": 105,
+    "dodge": 3,
+    "death_drops": "berserk_projection_behelit_drops",
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s unravels, leaving a Behelit behind." }
+  }
+]

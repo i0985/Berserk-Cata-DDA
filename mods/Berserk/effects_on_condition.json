@@ -87,14 +87,14 @@
         "if": { "x_in_y_chance": { "x": 1, "y": 100 } },
         "then": [
           {
-            "u_spawn_monster": "mon_griffith_reborn",
+            "u_spawn_monster": "mon_berserk_projection_griffith",
             "real_count": 1,
             "min_radius": 5,
             "max_radius": 10,
             "outdoor_only": true
           },
           {
-            "u_message": "Reborn Griffith appears in a flare of dark power!",
+            "u_message": "A reflection of Griffith appears in a flare of dark power!",
             "type": "warning",
             "popup": true
           }

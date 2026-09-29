@@ -62,6 +62,37 @@ class EclipseFlowTests(unittest.TestCase):
             pending.extend(references(self.eocs[current]) - visited)
         return visited
 
+    def test_pre_eclipse_nether_encounters_are_lootable_projections(self) -> None:
+        projections = {
+            monster["id"]: monster
+            for monster in objects(MOD / "monsters" / "apostle_projections.json")
+        }
+        expected = {
+            "mon_berserk_projection_zodd": "mon_nosferatu_zodd",
+            "mon_berserk_projection_griffith": "mon_griffith_reborn",
+            "mon_berserk_projection_void": "mon_void_apostle",
+        }
+        self.assertEqual(set(projections), set(expected))
+        group = objects(MOD / "monstergroups" / "monster_groups.json")[0]
+        members = {entry["monster"] for entry in group["monsters"]}
+        self.assertTrue(set(expected) <= members)
+        self.assertTrue(set(expected.values()).isdisjoint(members))
+        drops = objects(MOD / "monsterdrops" / "projection_drops.json")[0]
+        self.assertIn(
+            {"item": "berserk_behelit", "prob": 100}, drops["items"]
+        )
+        for projection_id, original_id in expected.items():
+            monster = projections[projection_id]
+            self.assertEqual(monster["copy-from"], original_id)
+            self.assertEqual(monster["death_drops"], drops["id"])
+            self.assertEqual(monster["death_function"]["corpse_type"], "NO_CORPSE")
+            self.assertEqual(monster["regenerates"], 0)
+            self.assertTrue((MOD / "monsters" / {
+                "mon_nosferatu_zodd": "nosferatu_zodd.json",
+                "mon_griffith_reborn": "griffith_reborn.json",
+                "mon_void_apostle": "mon_void_apostle.json",
+            }[original_id]).exists())
+
     def test_behelit_exit_and_both_endings_reach_world_era(self) -> None:
         behelit = objects(MOD / "items" / "behelit.json")[0]
         self.assertIn(
