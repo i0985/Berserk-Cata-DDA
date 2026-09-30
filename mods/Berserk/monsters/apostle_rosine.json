@@ -1,0 +1,90 @@
+[
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_apostle_rosine",
+    "copy-from": "mon_berserk_eclipse_hunter",
+    "looks_like": "mon_berserk_eclipse_hunter",
+    "name": {
+      "str_sp": "Rosine"
+    },
+    "description": "A winged apostle ruling a mist-veiled false paradise. Rosine fights quickly and folds her wings before a piercing dive. Break its straight line with trees or stone rather than trading blows. She does not regenerate and does not summon endless replacements.",
+    "hp": 420,
+    "speed": 135,
+    "melee_skill": 6,
+    "melee_dice": 2,
+    "melee_dice_sides": 6,
+    "melee_damage": [
+      {
+        "damage_type": "cut",
+        "amount": 14
+      }
+    ],
+    "dodge": 4,
+    "armor": {
+      "bash": 3,
+      "cut": 5
+    },
+    "regenerates": 0,
+    "vision_day": 25,
+    "vision_night": 20,
+    "flags": [
+      "SEES",
+      "HEARS",
+      "WARM",
+      "FLIES",
+      "ATTACKMON"
+    ],
+    "special_attacks": [
+      {
+        "id": "berserk_rosine_a_dive",
+        "cooldown": 12
+      },
+      {
+        "id": "berserk_rosine_b_prepare",
+        "cooldown": 16
+      }
+    ],
+    "death_drops": "EMPTY_GROUP",
+    "death_function": {
+      "eoc": "EOC_BERSERK_ROSINE_DIES"
+    }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_cocoon_ravager",
+    "copy-from": "mon_berserk_eclipse_wretch",
+    "looks_like": "mon_berserk_eclipse_wretch",
+    "name": {
+      "str": "cocoon-born ravager",
+      "str_pl": "cocoon-born ravagers"
+    },
+    "description": "An insect-like creature from Rosine's cocoons, carrying the outline of a false fairy. Quick wings hide a fragile body. These creatures are placed in finite groups around the valley.",
+    "hp": 85,
+    "speed": 125,
+    "melee_skill": 3,
+    "melee_dice": 1,
+    "melee_dice_sides": 6,
+    "melee_damage": [
+      {
+        "damage_type": "cut",
+        "amount": 6
+      }
+    ],
+    "dodge": 2,
+    "armor": {
+      "bash": 1,
+      "cut": 1
+    },
+    "regenerates": 0,
+    "vision_day": 10,
+    "vision_night": 8,
+    "flags": [
+      "SEES",
+      "HEARS",
+      "WARM",
+      "FLIES",
+      "ATTACKMON"
+    ],
+    "special_attacks": []
+  }
+]

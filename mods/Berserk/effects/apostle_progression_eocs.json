@@ -2,14 +2,14 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTLE_REGION_QUIET",
-    "//": "State 4 means sealed. Coordinates are surface OMT origins in abs_ms. Query requires context berserk_quiet_target. Distance uses the game rl_dist metric, roughly two OMTs.",
+    "//": "States 4 (sealed) and 5 (relic received) both quiet only the stored local region. A reward must not revoke protection.",
     "condition": {
       "or": [
         {
           "and": [
             {
               "math": [
-                "berserk_hunt_first_breach_state == 4"
+                "berserk_hunt_first_breach_state >= 4"
               ]
             },
             {
@@ -28,7 +28,7 @@
           "and": [
             {
               "math": [
-                "berserk_hunt_count_state == 4"
+                "berserk_hunt_count_state >= 4"
               ]
             },
             {
@@ -47,7 +47,7 @@
           "and": [
             {
               "math": [
-                "berserk_hunt_wyald_state == 4"
+                "berserk_hunt_wyald_state >= 4"
               ]
             },
             {
@@ -66,7 +66,7 @@
           "and": [
             {
               "math": [
-                "berserk_hunt_rosine_state == 4"
+                "berserk_hunt_rosine_state >= 4"
               ]
             },
             {
@@ -85,7 +85,7 @@
           "and": [
             {
               "math": [
-                "berserk_hunt_grunbeld_state == 4"
+                "berserk_hunt_grunbeld_state >= 4"
               ]
             },
             {
@@ -225,6 +225,15 @@
         "u_message": "The Count's breach hardens into cold stone. New incursions weaken within roughly two overmap tiles of this place. The Brand and the demons already here remain.",
         "type": "good",
         "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COUNT_REWARD_REGISTER"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_SEEK"
       }
     ]
   }

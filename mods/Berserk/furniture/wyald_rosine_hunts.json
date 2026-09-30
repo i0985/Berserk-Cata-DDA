@@ -1,0 +1,122 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_breach",
+    "name": "Wyald's exposed breach",
+    "description": "A living tear at the north of the final clearing. Defeat this site's apostle and examine it to seal only this local wound.",
+    "looks_like": "f_berserk_open_breach",
+    "symbol": "?",
+    "color": "red",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_WYALD_SEAL"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_breach_sealed",
+    "name": "Wyald's sealed breach",
+    "description": "A closed wound containing one relic. Examine it to claim the reward once. Nearby existing demons remain.",
+    "looks_like": "f_berserk_open_breach",
+    "symbol": "?",
+    "color": "dark_gray",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_WYALD_CLAIM"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_record",
+    "name": "Wyald trail record",
+    "description": "Broken campaign orders name Wyald, leader of the Black Dogs. His heavy rush needs a clear line: step behind stone when he braces his body. A scratched note points toward Rosine's mist-filled valley. This camp is an adaptation of his pursuit, not a reconstruction of a manga panel.",
+    "looks_like": "f_counter",
+    "symbol": "?",
+    "color": "white",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_WYALD_INSCRIPTION"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_breach",
+    "name": "Rosine's exposed breach",
+    "description": "A living tear at the north of the final clearing. Defeat this site's apostle and examine it to seal only this local wound.",
+    "looks_like": "f_berserk_open_breach",
+    "symbol": "?",
+    "color": "red",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROSINE_SEAL"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_breach_sealed",
+    "name": "Rosine's sealed breach",
+    "description": "A closed wound containing one relic. Examine it to claim the reward once. Nearby existing demons remain.",
+    "looks_like": "f_berserk_open_breach",
+    "symbol": "?",
+    "color": "dark_gray",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROSINE_CLAIM"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_record",
+    "name": "Rosine trail record",
+    "description": "Torn travelers' notes describe Rosine's false paradise: winged creatures, cocoons and victims who never came home. A dive needs a clear line; trunks and stone can break it. Other notes connect the trail to the Count's residence. Closing one valley will not undo the Brand.",
+    "looks_like": "f_counter",
+    "symbol": "?",
+    "color": "white",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROSINE_INSCRIPTION"
+      ]
+    }
+  }
+]

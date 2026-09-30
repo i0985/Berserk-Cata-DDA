@@ -51,6 +51,8 @@ class HuntGraph(RewardGraph):
         return eval(expr, {'__builtins__': {}}, names)
 
     def condition(self, value):
+        if 'u_has_item' in value:
+            return value['u_has_item'] in self.inventory
         if 'math' in value:
             return bool(self.evaluate(value['math'][0]))
         if 'not' in value:
@@ -67,6 +69,12 @@ class HuntGraph(RewardGraph):
 
     def effect(self, value):
         if isinstance(value, dict):
+            if 'target_params' in value:
+                # Existing Count tests do not simulate generating the next site.
+                # Exercise the supported failure/retry path; new hunt tests model success.
+                for id in value.get('false_eocs', []):
+                    self.run(id)
+                return
             if 'math' in value:
                 name, rhs = value['math'][0].split(' = ')
                 self.flags[name] = self.evaluate(rhs)
@@ -153,7 +161,8 @@ class ApostleHunts(unittest.TestCase):
         g=copy.deepcopy(g)  # data persistence, not an actual game save/load
         calls=len(g.update_calls);g.run('EOC_BERSERK_COUNT_SEAL')
         self.assertEqual(len(g.update_calls),calls)
-        self.assertFalse(g.inventory)  # trophy comes only from the unique boss's loot
+        self.assertEqual(g.inventory, ['berserk_apostle_hunt_journal'])
+        # Count trophy still comes only from the unique boss's loot.
 
     def test_two_sealed_regions_do_not_suppress_unrelated_area(self):
         g=HuntGraph({'berserk_hunt_first_breach_state':4,

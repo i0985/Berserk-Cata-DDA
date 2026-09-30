@@ -1,0 +1,1564 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_SEEK",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "has_var(berserk_hunt_wyald_location)"
+            ]
+          },
+          {
+            "math": [
+              "berserk_hunt_wyald_state >= 1"
+            ]
+          }
+        ]
+      },
+      "then": [
+        {
+          "reveal_map": {
+            "global_val": "berserk_hunt_wyald_location"
+          },
+          "radius": 1
+        },
+        {
+          "u_message": "Wyald's Black Dog encampment is marked on your map. Follow the broken cart tracks east or circle through the western quarry. The killing ring lies in the southeast; Wyald appears when you enter it.",
+          "type": "info",
+          "popup": true
+        }
+      ],
+      "else": {
+        "run_eocs": "EOC_BERSERK_WYALD_FIND"
+      }
+    },
+    "false_effect": {
+      "u_message": "Follow named apostle trails above ground after the Eclipse and the first hunt.",
+      "type": "info",
+      "popup": true
+    },
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_FIND",
+    "effect": {
+      "u_location_variable": {
+        "global_val": "berserk_hunt_wyald_location"
+      },
+      "target_params": {
+        "om_terrain": "berserk_wyald_ring",
+        "om_special": "berserk_wyald_camp_special",
+        "search_range": 40,
+        "random": true,
+        "z": 0
+      },
+      "furniture": "f_berserk_wyald_breach",
+      "target_max_radius": 23,
+      "true_eocs": [
+        "EOC_BERSERK_WYALD_FOUND"
+      ],
+      "false_eocs": [
+        "EOC_BERSERK_HUNT_NOT_FOUND"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_FOUND",
+    "effect": [
+      {
+        "location_variable_adjust": {
+          "global_val": "berserk_hunt_wyald_location"
+        },
+        "overmap_tile": true,
+        "x_adjust": 0,
+        "y_adjust": 0
+      },
+      {
+        "math": [
+          "berserk_hunt_wyald_state = max(1, berserk_hunt_wyald_state)"
+        ]
+      },
+      {
+        "reveal_map": {
+          "global_val": "berserk_hunt_wyald_location"
+        },
+        "radius": 1
+      },
+      {
+        "u_message": "Wyald's Black Dog encampment is marked on your map. Follow the broken cart tracks east or circle through the western quarry. The killing ring lies in the southeast; Wyald appears when you enter it.",
+        "type": "info",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_ENSURE_BOSS",
+    "effect": [
+      {
+        "if": {
+          "not": {
+            "math": [
+              "has_var(berserk_hunt_wyald_location)"
+            ]
+          }
+        },
+        "then": [
+          {
+            "u_location_variable": {
+              "global_val": "berserk_hunt_wyald_location"
+            }
+          },
+          {
+            "location_variable_adjust": {
+              "global_val": "berserk_hunt_wyald_location"
+            },
+            "overmap_tile": true,
+            "x_adjust": 0,
+            "y_adjust": 0
+          }
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_wyald_state = max(2, berserk_hunt_wyald_state)"
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_wyald_attempts = berserk_hunt_wyald_attempts + 1"
+        ]
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_hunt_wyald_location"
+        },
+        "target_var": {
+          "context_val": "hunt_boss_anchor"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "hunt_boss_anchor"
+        },
+        "x_adjust": 12,
+        "y_adjust": 14
+      },
+      {
+        "u_spawn_monster": "mon_berserk_apostle_wyald",
+        "target_var": {
+          "context_val": "hunt_boss_anchor"
+        },
+        "real_count": 1,
+        "min_radius": 0,
+        "max_radius": 2,
+        "true_eocs": [
+          "EOC_BERSERK_WYALD_ARRIVED"
+        ],
+        "false_eocs": [
+          "EOC_BERSERK_HUNT_SPAWN_BLOCKED"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_wyald_ring"
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_state < 3"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_spawned != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostle_wyald_dead != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_attempts < 6"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_ENTER",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_WYALD_ENSURE_BOSS"
+    },
+    "eoc_type": "EVENT",
+    "required_event": "avatar_enters_omt",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_wyald_ring"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_RETRY",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_WYALD_ENSURE_BOSS"
+    },
+    "global": true,
+    "recurrence": "10 seconds",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_wyald_ring"
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_state < 3"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_spawned != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_attempts < 6"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_ARRIVED",
+    "effect": [
+      {
+        "math": [
+          "berserk_hunt_wyald_spawned = 1"
+        ]
+      },
+      {
+        "u_message": "Wyald emerges in the final clearing. Read the preparation effect when a heavy attack is winding up; break the line or leave its reach. Retreat is still possible.",
+        "type": "warning",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_DIES",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostle_wyald_dead = 1"
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_wyald_state = max(3, berserk_hunt_wyald_state)"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "has_var(berserk_hunt_wyald_location)"
+            ]
+          }
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "global_val": "berserk_hunt_wyald_location"
+            }
+          },
+          {
+            "location_variable_adjust": {
+              "global_val": "berserk_hunt_wyald_location"
+            },
+            "overmap_tile": true,
+            "x_adjust": 0,
+            "y_adjust": 0
+          }
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_DEFEATED",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_apostle_wyald_dead != 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_DEFEATED",
+    "effect": [
+      {
+        "reveal_map": {
+          "global_val": "berserk_hunt_wyald_location"
+        },
+        "radius": 1
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+      },
+      {
+        "u_message": "Wyald is dead. The local breach is exposed in the northern part of the final clearing. Examine it to close the wound, then examine the sealed mark to claim the relic and recall the next trail.",
+        "type": "good",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_SEAL",
+    "effect": [
+      {
+        "mapgen_update": "berserk_wyald_breach_seal",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_SEAL_COMMIT"
+      }
+    ],
+    "false_effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_wyald_spawned != 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_wyald_state < 3"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "berserk_hunt_wyald_attempts = 0"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_WYALD_ENSURE_BOSS"
+          }
+        ]
+      },
+      {
+        "u_message": "The local breach is held by its guardian. Defeat the apostle first; if its approach was blocked, clear the final clearing and examine this mark to retry.",
+        "type": "warning",
+        "popup": true
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_wyald_ring"
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_state == 3"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_wyald_breach",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_SEAL_COMMIT",
+    "effect": [
+      {
+        "math": [
+          "berserk_hunt_wyald_state = 4"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+      },
+      {
+        "u_message": "This breach is sealed. New demonic incursions are suppressed only within roughly two overmap tiles of this place. Existing demons, the Brand and armor shadows remain. Examine the closed mark to claim the unique relic.",
+        "type": "good",
+        "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_NEXT"
+      }
+    ],
+    "false_effect": {
+      "u_message": "The seal did not take hold. Step away from its center and examine it again; no completion or reward was recorded.",
+      "type": "warning",
+      "popup": true
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_hunt_wyald_state == 3"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_wyald_breach_sealed",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_CLAIM",
+    "effect": [
+      {
+        "math": [
+          "berserk_hunt_wyald_reward_claimed = 1"
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_wyald_state = 5"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_item": "berserk_wyald_beast_knot"
+          }
+        },
+        "then": {
+          "u_spawn_item": "berserk_wyald_beast_knot",
+          "count": 1
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+      },
+      {
+        "u_message": "You claim the relic from the sealed mark. The gift is issued once for this hunt; check the floor if you cannot carry it. Wear it to receive its effect. The hunt journal preserves the directions.",
+        "type": "good",
+        "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_NEXT"
+      }
+    ],
+    "false_effect": [
+      {
+        "u_message": "This closed mark has no second relic to give. Your recorded hunt remains complete.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HUNT_STATUS"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_wyald_ring"
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_state == 4"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_reward_claimed != 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_wyald_breach_sealed",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_INSCRIPTION",
+    "effect": [
+      {
+        "u_message": "Broken campaign orders name Wyald, leader of the Black Dogs. His heavy rush needs a clear line: step behind stone when he braces his body. A scratched note points toward Rosine's mist-filled valley. This camp is an adaptation of his pursuit, not a reconstruction of a manga panel.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_SEEK",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "has_var(berserk_hunt_rosine_location)"
+            ]
+          },
+          {
+            "math": [
+              "berserk_hunt_rosine_state >= 1"
+            ]
+          }
+        ]
+      },
+      "then": [
+        {
+          "reveal_map": {
+            "global_val": "berserk_hunt_rosine_location"
+          },
+          "radius": 1
+        },
+        {
+          "u_message": "Rosine's Mistvale is marked on your map. Follow the pale trail east through the cocoons or loop south along the stony gully. The nest lies in the southeast; Rosine appears when you enter it.",
+          "type": "info",
+          "popup": true
+        }
+      ],
+      "else": {
+        "run_eocs": "EOC_BERSERK_ROSINE_FIND"
+      }
+    },
+    "false_effect": {
+      "u_message": "Follow named apostle trails above ground after the Eclipse and the first hunt.",
+      "type": "info",
+      "popup": true
+    },
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_FIND",
+    "effect": {
+      "u_location_variable": {
+        "global_val": "berserk_hunt_rosine_location"
+      },
+      "target_params": {
+        "om_terrain": "berserk_rosine_nest",
+        "om_special": "berserk_rosine_valley_special",
+        "search_range": 40,
+        "random": true,
+        "z": 0
+      },
+      "furniture": "f_berserk_rosine_breach",
+      "target_max_radius": 23,
+      "true_eocs": [
+        "EOC_BERSERK_ROSINE_FOUND"
+      ],
+      "false_eocs": [
+        "EOC_BERSERK_HUNT_NOT_FOUND"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_FOUND",
+    "effect": [
+      {
+        "location_variable_adjust": {
+          "global_val": "berserk_hunt_rosine_location"
+        },
+        "overmap_tile": true,
+        "x_adjust": 0,
+        "y_adjust": 0
+      },
+      {
+        "math": [
+          "berserk_hunt_rosine_state = max(1, berserk_hunt_rosine_state)"
+        ]
+      },
+      {
+        "reveal_map": {
+          "global_val": "berserk_hunt_rosine_location"
+        },
+        "radius": 1
+      },
+      {
+        "u_message": "Rosine's Mistvale is marked on your map. Follow the pale trail east through the cocoons or loop south along the stony gully. The nest lies in the southeast; Rosine appears when you enter it.",
+        "type": "info",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_ENSURE_BOSS",
+    "effect": [
+      {
+        "if": {
+          "not": {
+            "math": [
+              "has_var(berserk_hunt_rosine_location)"
+            ]
+          }
+        },
+        "then": [
+          {
+            "u_location_variable": {
+              "global_val": "berserk_hunt_rosine_location"
+            }
+          },
+          {
+            "location_variable_adjust": {
+              "global_val": "berserk_hunt_rosine_location"
+            },
+            "overmap_tile": true,
+            "x_adjust": 0,
+            "y_adjust": 0
+          }
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_rosine_state = max(2, berserk_hunt_rosine_state)"
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_rosine_attempts = berserk_hunt_rosine_attempts + 1"
+        ]
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_hunt_rosine_location"
+        },
+        "target_var": {
+          "context_val": "hunt_boss_anchor"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "hunt_boss_anchor"
+        },
+        "x_adjust": 12,
+        "y_adjust": 14
+      },
+      {
+        "u_spawn_monster": "mon_berserk_apostle_rosine",
+        "target_var": {
+          "context_val": "hunt_boss_anchor"
+        },
+        "real_count": 1,
+        "min_radius": 0,
+        "max_radius": 2,
+        "true_eocs": [
+          "EOC_BERSERK_ROSINE_ARRIVED"
+        ],
+        "false_eocs": [
+          "EOC_BERSERK_HUNT_SPAWN_BLOCKED"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_rosine_nest"
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_state < 3"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_spawned != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostle_rosine_dead != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_attempts < 6"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_ENTER",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_ROSINE_ENSURE_BOSS"
+    },
+    "eoc_type": "EVENT",
+    "required_event": "avatar_enters_omt",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_rosine_nest"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_RETRY",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_ROSINE_ENSURE_BOSS"
+    },
+    "global": true,
+    "recurrence": "10 seconds",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_rosine_nest"
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_state < 3"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_spawned != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_attempts < 6"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_ARRIVED",
+    "effect": [
+      {
+        "math": [
+          "berserk_hunt_rosine_spawned = 1"
+        ]
+      },
+      {
+        "u_message": "Rosine emerges in the final clearing. Read the preparation effect when a heavy attack is winding up; break the line or leave its reach. Retreat is still possible.",
+        "type": "warning",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_DIES",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostle_rosine_dead = 1"
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_rosine_state = max(3, berserk_hunt_rosine_state)"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "has_var(berserk_hunt_rosine_location)"
+            ]
+          }
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "global_val": "berserk_hunt_rosine_location"
+            }
+          },
+          {
+            "location_variable_adjust": {
+              "global_val": "berserk_hunt_rosine_location"
+            },
+            "overmap_tile": true,
+            "x_adjust": 0,
+            "y_adjust": 0
+          }
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_DEFEATED",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_apostle_rosine_dead != 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_DEFEATED",
+    "effect": [
+      {
+        "reveal_map": {
+          "global_val": "berserk_hunt_rosine_location"
+        },
+        "radius": 1
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+      },
+      {
+        "u_message": "Rosine is dead. The local breach is exposed in the northern part of the final clearing. Examine it to close the wound, then examine the sealed mark to claim the relic and recall the next trail.",
+        "type": "good",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_SEAL",
+    "effect": [
+      {
+        "mapgen_update": "berserk_rosine_breach_seal",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_SEAL_COMMIT"
+      }
+    ],
+    "false_effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_rosine_spawned != 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_rosine_state < 3"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "berserk_hunt_rosine_attempts = 0"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_ROSINE_ENSURE_BOSS"
+          }
+        ]
+      },
+      {
+        "u_message": "The local breach is held by its guardian. Defeat the apostle first; if its approach was blocked, clear the final clearing and examine this mark to retry.",
+        "type": "warning",
+        "popup": true
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_rosine_nest"
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_state == 3"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_rosine_breach",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_SEAL_COMMIT",
+    "effect": [
+      {
+        "math": [
+          "berserk_hunt_rosine_state = 4"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+      },
+      {
+        "u_message": "This breach is sealed. New demonic incursions are suppressed only within roughly two overmap tiles of this place. Existing demons, the Brand and armor shadows remain. Examine the closed mark to claim the unique relic.",
+        "type": "good",
+        "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_NEXT"
+      }
+    ],
+    "false_effect": {
+      "u_message": "The seal did not take hold. Step away from its center and examine it again; no completion or reward was recorded.",
+      "type": "warning",
+      "popup": true
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_hunt_rosine_state == 3"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_rosine_breach_sealed",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_CLAIM",
+    "effect": [
+      {
+        "math": [
+          "berserk_hunt_rosine_reward_claimed = 1"
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_rosine_state = 5"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_item": "berserk_rosine_mistvale_veil"
+          }
+        },
+        "then": {
+          "u_spawn_item": "berserk_rosine_mistvale_veil",
+          "count": 1
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+      },
+      {
+        "u_message": "You claim the relic from the sealed mark. The gift is issued once for this hunt; check the floor if you cannot carry it. Wear it to receive its effect. The hunt journal preserves the directions.",
+        "type": "good",
+        "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_NEXT"
+      }
+    ],
+    "false_effect": [
+      {
+        "u_message": "This closed mark has no second relic to give. Your recorded hunt remains complete.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HUNT_STATUS"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_rosine_nest"
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_state == 4"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_reward_claimed != 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_rosine_breach_sealed",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_INSCRIPTION",
+    "effect": [
+      {
+        "u_message": "Torn travelers' notes describe Rosine's false paradise: winged creatures, cocoons and victims who never came home. A dive needs a clear line; trunks and stone can break it. Other notes connect the trail to the Count's residence. Closing one valley will not undo the Brand.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HUNT_NOT_FOUND",
+    "effect": {
+      "u_message": "No suitable forest site was found nearby. Travel to another region and consult the hunt journal again; no encounter or reward was consumed.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HUNT_SPAWN_BLOCKED",
+    "effect": {
+      "u_message": "The apostle's arrival is blocked. Clear the final clearing. After automatic retries end, examine the exposed breach to try again.",
+      "type": "warning",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HUNT_GIVE_JOURNAL",
+    "effect": {
+      "u_spawn_item": "berserk_apostle_hunt_journal",
+      "count": 1
+    },
+    "condition": {
+      "not": {
+        "u_has_item": "berserk_apostle_hunt_journal"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_NEXT",
+    "effect": {
+      "if": {
+        "math": [
+          "berserk_hunt_rosine_state < 4"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_ROSINE_SEEK"
+      },
+      "else": {
+        "if": {
+          "math": [
+            "berserk_hunt_count_state < 4"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_COUNT_SEEK"
+        },
+        "else": {
+          "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
+        }
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_NEXT",
+    "effect": {
+      "if": {
+        "math": [
+          "berserk_hunt_wyald_state < 4"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_WYALD_SEEK"
+      },
+      "else": {
+        "if": {
+          "math": [
+            "berserk_hunt_count_state < 4"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_COUNT_SEEK"
+        },
+        "else": {
+          "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
+        }
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HUNT_RETURN_BREACH",
+    "effect": {
+      "if": {
+        "math": [
+          "has_var(berserk_hunt_first_breach_location)"
+        ]
+      },
+      "then": [
+        {
+          "reveal_map": {
+            "global_val": "berserk_hunt_first_breach_location"
+          },
+          "radius": 1
+        },
+        {
+          "u_message": "The available named hunts are settled. Your first sealed breach is marked again: recover near that quiet region and prepare your refuge. The journal keeps every cleared site; the later dragon hunt is not yet available.",
+          "type": "info",
+          "popup": true
+        }
+      ],
+      "else": {
+        "u_message": "The available named hunts are settled. Consult the journal to revisit a known sealed site and recover near its quiet region. The later dragon hunt is not yet available.",
+        "type": "info",
+        "popup": true
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HUNT_STATUS",
+    "effect": {
+      "u_message": "Hunt record: Count <global_val:berserk_hunt_count_state>, Wyald <global_val:berserk_hunt_wyald_state>, Rosine <global_val:berserk_hunt_rosine_state>. 0 or blank = unknown; 1 = found; 2 = encounter; 3 = guardian defeated; 4 = breach closed; 5 = relic received. Each place has its own coordinates.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HUNT_JOURNAL_USE",
+    "effect": {
+      "if": {
+        "u_query": "Trace Wyald and the Black Dogs?",
+        "default": false
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_WYALD_SEEK"
+      },
+      "else": {
+        "if": {
+          "u_query": "Trace Rosine's Mistvale?",
+          "default": false
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_ROSINE_SEEK"
+        },
+        "else": {
+          "if": {
+            "u_query": "Trace the Count's residence?",
+            "default": false
+          },
+          "then": {
+            "run_eocs": "EOC_BERSERK_COUNT_SEEK"
+          },
+          "else": [
+            {
+              "run_eocs": "EOC_BERSERK_HUNT_STATUS"
+            },
+            {
+              "if": {
+                "and": [
+                  {
+                    "math": [
+                      "berserk_hunt_count_state >= 4"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "berserk_hunt_wyald_state >= 4"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "berserk_hunt_rosine_state >= 4"
+                    ]
+                  }
+                ]
+              },
+              "then": {
+                "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
+              }
+            }
+          ]
+        }
+      }
+    },
+    "false_effect": {
+      "u_message": "These trails belong to the road after the Eclipse and the first hunt.",
+      "type": "info",
+      "popup": true
+    },
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_REWARD_REGISTER",
+    "effect": [
+      {
+        "math": [
+          "berserk_hunt_count_reward_claimed = 1"
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_count_state = 5"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_hunt_count_state == 4"
+          ]
+        },
+        {
+          "u_has_item": "berserk_count_iron_seal"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_REWARD_WATCH",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_COUNT_REWARD_REGISTER"
+    },
+    "global": true,
+    "recurrence": "1 minute",
+    "condition": {
+      "math": [
+        "berserk_hunt_count_state == 4"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_CLEAR_READY",
+    "effect": {
+      "u_lose_effect": "berserk_wyald_ready"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_CLEAR_READY",
+    "effect": {
+      "u_lose_effect": "berserk_rosine_ready"
+    }
+  }
+]

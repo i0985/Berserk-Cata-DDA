@@ -1,0 +1,39 @@
+[
+  {
+    "type": "palette",
+    "id": "berserk_named_hunt_palette",
+    "terrain": {
+      ".": "t_grass",
+      "d": "t_dirt",
+      "T": "t_tree",
+      "#": "t_rock",
+      "_": "t_floor",
+      "+": "t_door_o",
+      "b": "t_grass",
+      "r": "t_grass",
+      "C": "t_grass",
+      "B": "t_grass",
+      "I": "t_grass",
+      "?": "t_grass"
+    },
+    "furniture": {
+      "b": "f_bench",
+      "r": "f_rubble",
+      "C": "f_berserk_rosine_cocoon"
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_cocoon",
+    "name": "empty Mistvale cocoon",
+    "description": "A split cocoon, empty now. It obscures the path without producing more creatures.",
+    "looks_like": "f_rubble",
+    "symbol": "o",
+    "color": "light_gray",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  }
+]

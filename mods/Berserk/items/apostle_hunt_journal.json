@@ -1,0 +1,28 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_apostle_hunt_journal",
+    "category": "tools",
+    "name": {
+      "str_sp": "journal of the named apostle hunts"
+    },
+    "description": "Remembered trails to the Count, Wyald and Rosine. Activate to mark one known site or seek its unique lair after the first hunt. Each breach and relic has its own world record. These memories need no literacy; the journal works without the Skull Knight.",
+    "weight": "25 g",
+    "volume": "50 ml",
+    "material": [
+      "paper"
+    ],
+    "symbol": "?",
+    "color": "light_gray",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Recall an apostle trail",
+      "effect_on_conditions": [
+        "EOC_BERSERK_HUNT_JOURNAL_USE"
+      ]
+    }
+  }
+]

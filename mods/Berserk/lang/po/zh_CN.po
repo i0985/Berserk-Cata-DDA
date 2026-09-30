@@ -2786,3 +2786,301 @@ msgstr "芙罗拉烧毁的宅邸已标记在地图上。结界和宁静的会面
 #: mods/Berserk/flora_siege
 msgid "\"The grove has fallen. What Flora entrusted to you remains yours, but her house will no longer shelter the branded. Return to your refuge, recover, then follow the remaining trails. An original apostle killed there stays dead; a projection elsewhere is only an echo.\""
 msgstr "“树林已经陷落。芙罗拉托付给你的东西仍然属于你，但她的房屋已无法再庇护被烙印者。回到你的避难处，恢复后再追寻剩余的线索。在那里杀死的使徒本体不会复活；别处的投影只不过是回响。”"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "\"Wyald holds a ruined encampment; Rosine rules a valley of cocoons. Your journal can mark either trail. Defeat each guardian, close that site's breach, then claim its relic. Neither victory abolishes the Brand. Choose which hunt to prepare for first.\""
+msgstr "“瓦伊阿尔德占据着破败的营地；罗西妮统治着满是茧的山谷。日志可以标记任一条线索。击败守卫，封闭当地裂隙，再领取遗物。任何一场胜利都无法消除烙印。选择先准备哪一场狩猎。”"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "A closed wound containing one relic. Examine it to claim the reward once. Nearby existing demons remain."
+msgstr "已封闭的伤口，内藏一件遗物。检查它可领取一次奖励。附近已有的恶魔不会消失。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "A living tear at the north of the final clearing. Defeat this site's apostle and examine it to seal only this local wound."
+msgstr "最后一片空地北侧的活体裂隙。击败此地的使徒，再检查它，只封闭这一处伤口。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "A marauder remade by the Black Dogs' apostle. Its warped body still wears scraps of campaign gear. It guards the camp but is mortal and will not be replaced."
+msgstr "被黑犬团使徒改造的掠夺者。扭曲的身躯仍披着残破的行军装备。它守卫营地，但可以被杀死，也不会被新的仆从取代。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "A split cocoon, empty now. It obscures the path without producing more creatures."
+msgstr "裂开的空茧。它会妨碍通行，但不会产生更多生物。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "A winged apostle ruling a mist-veiled false paradise. Rosine fights quickly and folds her wings before a piercing dive. Break its straight line with trees or stone rather than trading blows. She does not regenerate and does not summon endless replacements."
+msgstr "统治迷雾中虚假乐园的有翼使徒。罗西妮行动迅速，在刺穿目标的俯冲前收拢翅膀。用树木或岩石阻断直线，不要与她硬拼。她不会再生，也不会召唤无尽的增援。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "An insect-like creature from Rosine's cocoons, carrying the outline of a false fairy. Quick wings hide a fragile body. These creatures are placed in finite groups around the valley."
+msgstr "来自罗西妮之茧的昆虫状生物，有着虚假妖精的轮廓。敏捷的翅膀掩盖了脆弱的身体。它们以数量有限的群体分布在山谷中。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Black Dog encampment — approach"
+msgstr "黑犬团营地——入口"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Black Dog encampment — camp"
+msgstr "黑犬团营地——营区"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Black Dog encampment — quarry"
+msgstr "黑犬团营地——采石场"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Black Dog encampment — ring"
+msgstr "黑犬团营地——斗场"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Mistvale — cocoons"
+msgstr "迷雾山谷——茧群"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Mistvale — gully"
+msgstr "迷雾山谷——沟壑"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Mistvale — nest"
+msgstr "迷雾山谷——巢穴"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Mistvale — trail"
+msgstr "迷雾山谷——小径"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Broken campaign orders name Wyald, leader of the Black Dogs. His heavy rush needs a clear line: step behind stone when he braces his body. A scratched note points toward Rosine's mist-filled valley. This camp is an adaptation of his pursuit, not a reconstruction of a manga panel."
+msgstr "残破的行军命令提到了黑犬团首领瓦伊阿尔德。他的重击需要畅通的直线：当他绷紧身体时，躲到岩石后面。刻写的笔记指向罗西妮的迷雾山谷。此营地改编自他的追击，并非逐格复现漫画。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Consult the independent trails to Wyald and Rosine?"
+msgstr "查阅通往瓦伊阿尔德和罗西妮的独立线索？"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Follow named apostle trails above ground after the Eclipse and the first hunt."
+msgstr "在蚀和第一次狩猎之后，到地表追踪有名使徒的线索。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Hunt record: Count <global_val:berserk_hunt_count_state>, Wyald <global_val:berserk_hunt_wyald_state>, Rosine <global_val:berserk_hunt_rosine_state>. 0 or blank = unknown; 1 = found; 2 = encounter; 3 = guardian defeated; 4 = breach closed; 5 = relic received. Each place has its own coordinates."
+msgstr "狩猎记录：伯爵 <global_val:berserk_hunt_count_state>，瓦伊阿尔德 <global_val:berserk_hunt_wyald_state>，罗西妮 <global_val:berserk_hunt_rosine_state>。0或空白=未知；1=已发现；2=遭遇开始；3=守卫被击败；4=裂隙已封闭；5=已领取遗物。每个地点有独立坐标。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Leader of the Black Dogs, swollen into a hulking apostle. He presses the attack and braces before a crushing long-reach blow. Stone cover breaks its line. His wounds do not regenerate. This is the original Wyald; defeating him exposes the camp's breach."
+msgstr "黑犬团首领，膨胀成庞大的使徒。他不断施压，并在远距重击前绷紧身体。岩石掩体可以阻断攻击线。他的伤口不会再生。这是瓦伊阿尔德本体；击败他会暴露营地的裂隙。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Mark Rosine's trail."
+msgstr "标记罗西妮的线索。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Mark Rosine's valley."
+msgstr "标记罗西妮的山谷。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Mark Wyald's camp."
+msgstr "标记瓦伊阿尔德的营地。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Mark Wyald's trail."
+msgstr "标记瓦伊阿尔德的线索。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Preparing a crushing rush"
+msgstr "正在准备重击"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Preparing a piercing dive"
+msgstr "正在准备穿刺俯冲"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Recall an apostle trail"
+msgstr "回忆使徒的线索"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Rosine"
+msgstr "罗西妮"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Show me the trails to Wyald and Rosine."
+msgstr "告诉我通往瓦伊阿尔德和罗西妮的路。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Trace Rosine's Mistvale?"
+msgstr "追踪罗西妮的迷雾山谷？"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Trace Wyald and the Black Dogs?"
+msgstr "追踪瓦伊阿尔德和黑犬团？"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Trace the Count's residence?"
+msgstr "追踪伯爵的居所？"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Wyald"
+msgstr "瓦伊阿尔德"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "empty Mistvale cocoon"
+msgstr "迷雾山谷的空茧"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "journal of the named apostle hunts"
+msgstr "有名使徒狩猎日志"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "No suitable forest site was found nearby. Travel to another region and consult the hunt journal again; no encounter or reward was consumed."
+msgstr "附近未找到合适的森林地点。前往其他区域，再查阅狩猎日志；遭遇和奖励都没有被消耗。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Remembered trails to the Count, Wyald and Rosine. Activate to mark one known site or seek its unique lair after the first hunt. Each breach and relic has its own world record. These memories need no literacy; the journal works without the Skull Knight."
+msgstr "记录通往伯爵、瓦伊阿尔德和罗西妮的记忆。激活可标记已知地点，或在第一次狩猎后寻找其唯一巢穴。每处裂隙与遗物都有独立的世界记录。无需识字；没有骷髅骑士也能使用日志。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Rosine braces for a heavy attack!"
+msgstr "罗西妮正在准备重击！"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Rosine braces for a heavy attack! Break the line or leave its reach!"
+msgstr "罗西妮正在准备重击！阻断攻击线，或离开其攻击范围！"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Rosine emerges in the final clearing. Read the preparation effect when a heavy attack is winding up; break the line or leave its reach. Retreat is still possible."
+msgstr "罗西妮在最后的空地现身。注意重击准备的状态效果；阻断攻击线或离开攻击范围。仍然可以撤退。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Rosine is dead. The local breach is exposed in the northern part of the final clearing. Examine it to close the wound, then examine the sealed mark to claim the relic and recall the next trail."
+msgstr "罗西妮已死。最后空地北侧的当地裂隙已经暴露。检查它以封闭伤口，再检查封印标记领取遗物并回忆下一条线索。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Rosine trail record"
+msgstr "罗西妮的线索记录"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Rosine's exposed breach"
+msgstr "罗西妮的暴露裂隙"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Rosine's prepared attack crashes into %s!"
+msgstr "罗西妮蓄势的攻击击中了%s！"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Rosine's prepared attack crashes into you!"
+msgstr "罗西妮蓄势的攻击击中了你！"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Rosine's prepared attack misses %s!"
+msgstr "罗西妮蓄势的攻击未能击中%s！"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Rosine's prepared attack misses you!"
+msgstr "罗西妮蓄势的攻击未能击中你！"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Rosine's sealed breach"
+msgstr "罗西妮的封闭裂隙"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Wyald braces for a heavy attack!"
+msgstr "瓦伊阿尔德正在准备重击！"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Wyald braces for a heavy attack! Break the line or leave its reach!"
+msgstr "瓦伊阿尔德正在准备重击！阻断攻击线，或离开其攻击范围！"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Wyald emerges in the final clearing. Read the preparation effect when a heavy attack is winding up; break the line or leave its reach. Retreat is still possible."
+msgstr "瓦伊阿尔德在最后的空地现身。注意重击准备的状态效果；阻断攻击线或离开攻击范围。仍然可以撤退。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Wyald is dead. The local breach is exposed in the northern part of the final clearing. Examine it to close the wound, then examine the sealed mark to claim the relic and recall the next trail."
+msgstr "瓦伊阿尔德已死。最后空地北侧的当地裂隙已经暴露。检查它以封闭伤口，再检查封印标记领取遗物并回忆下一条线索。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Wyald trail record"
+msgstr "瓦伊阿尔德的线索记录"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Wyald's exposed breach"
+msgstr "瓦伊阿尔德的暴露裂隙"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Wyald's prepared attack crashes into %s!"
+msgstr "瓦伊阿尔德蓄势的攻击击中了%s！"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Wyald's prepared attack crashes into you!"
+msgstr "瓦伊阿尔德蓄势的攻击击中了你！"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Wyald's prepared attack misses %s!"
+msgstr "瓦伊阿尔德蓄势的攻击未能击中%s！"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Wyald's prepared attack misses you!"
+msgstr "瓦伊阿尔德蓄势的攻击未能击中你！"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Wyald's sealed breach"
+msgstr "瓦伊阿尔德的封闭裂隙"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Rosine's Mistvale is marked on your map. Follow the pale trail east through the cocoons or loop south along the stony gully. The nest lies in the southeast; Rosine appears when you enter it."
+msgstr "罗西妮的迷雾山谷已标记在地图上。沿浅色小径向东穿过茧群，或向南绕过石质沟壑。巢穴位于东南；进入后罗西妮才会出现。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Wyald's Black Dog encampment is marked on your map. Follow the broken cart tracks east or circle through the western quarry. The killing ring lies in the southeast; Wyald appears when you enter it."
+msgstr "瓦伊阿尔德的黑犬团营地已标记在地图上。沿破损车辙向东，或绕过西侧采石场。斗场位于东南；进入后瓦伊阿尔德才会出现。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "The apostle's arrival is blocked. Clear the final clearing. After automatic retries end, examine the exposed breach to try again."
+msgstr "使徒的到来被阻挡。清理最后的空地。自动重试结束后，检查暴露的裂隙可再次尝试。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "The available named hunts are settled. Consult the journal to revisit a known sealed site and recover near its quiet region. The later dragon hunt is not yet available."
+msgstr "现有的有名使徒狩猎已完成。查阅日志以重访已知封闭地点，在平静区域附近恢复。后期的巨龙狩猎尚未开放。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "The available named hunts are settled. Your first sealed breach is marked again: recover near that quiet region and prepare your refuge. The journal keeps every cleared site; the later dragon hunt is not yet available."
+msgstr "现有的有名使徒狩猎已完成。第一处封闭裂隙已重新标记：在其平静区域恢复并准备避难处。日志保存所有已清理地点；后期的巨龙狩猎尚未开放。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "The local breach is held by its guardian. Defeat the apostle first; if its approach was blocked, clear the final clearing and examine this mark to retry."
+msgstr "守卫仍控制着裂隙。先击败使徒；若其出现被阻挡，请清理最后的空地并检查标记以重试。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "The seal did not take hold. Step away from its center and examine it again; no completion or reward was recorded."
+msgstr "封印未能生效。离开中心位置后再次检查；未记录完成或奖励。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "These trails belong to the road after the Eclipse and the first hunt."
+msgstr "这些线索属于蚀和第一次狩猎之后的旅途。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "This breach is sealed. New demonic incursions are suppressed only within roughly two overmap tiles of this place. Existing demons, the Brand and armor shadows remain. Examine the closed mark to claim the unique relic."
+msgstr "裂隙已封闭。仅在此地周围约两格大地图范围内抑制新的恶魔侵入。已有恶魔、烙印和铠甲阴影仍然存在。检查封印标记以领取独特遗物。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "This closed mark has no second relic to give. Your recorded hunt remains complete."
+msgstr "这个封印标记不会再给予第二件遗物。狩猎记录仍然是完成状态。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "This creature is preparing a heavy attack. Break its straight line or move beyond its reach."
+msgstr "这个生物正在准备重击。阻断直线，或离开其攻击范围。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "Torn travelers' notes describe Rosine's false paradise: winged creatures, cocoons and victims who never came home. A dive needs a clear line; trunks and stone can break it. Other notes connect the trail to the Count's residence. Closing one valley will not undo the Brand."
+msgstr "旅人的残破笔记描述了罗西妮的虚假乐园：有翼生物、茧，以及再未回家的受害者。俯冲需要畅通直线；树干和岩石可以阻断它。其他笔记将线索指向伯爵的居所。封闭一座山谷无法消除烙印。"
+
+#: mods/Berserk/named_apostle_hunts
+msgid "You claim the relic from the sealed mark. The gift is issued once for this hunt; check the floor if you cannot carry it. Wear it to receive its effect. The hunt journal preserves the directions."
+msgstr "你从封印标记中取出了遗物。每场狩猎只会给予一次；若无法携带，请检查地面。穿戴遗物才能获得效果。狩猎日志会保存方向。"
+
+#: mods/Berserk/monsters/apostle_wyald.json mods/Berserk/monsters/apostle_rosine.json
+msgid "Black Dog thrall"
+msgid_plural "Black Dog thralls"
+msgstr[0] "黑犬团仆从"
+
+#: mods/Berserk/monsters/apostle_wyald.json mods/Berserk/monsters/apostle_rosine.json
+msgid "cocoon-born ravager"
+msgid_plural "cocoon-born ravagers"
+msgstr[0] "茧生掠食者"

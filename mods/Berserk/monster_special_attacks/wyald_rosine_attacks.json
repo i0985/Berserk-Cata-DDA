@@ -1,0 +1,112 @@
+[
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "berserk_wyald_a_crush",
+    "cooldown": 14,
+    "move_cost": 220,
+    "range": 3,
+    "condition": {
+      "u_has_effect": "berserk_wyald_ready"
+    },
+    "damage_max_instance": [
+      {
+        "damage_type": "bash",
+        "amount": 40
+      }
+    ],
+    "eoc": [
+      "EOC_BERSERK_WYALD_CLEAR_READY"
+    ],
+    "hit_dmg_u": "Wyald's prepared attack crashes into you!",
+    "hit_dmg_npc": "Wyald's prepared attack crashes into %s!",
+    "miss_msg_u": "Wyald's prepared attack misses you!",
+    "miss_msg_npc": "Wyald's prepared attack misses %s!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "berserk_wyald_b_prepare",
+    "cooldown": 18,
+    "move_cost": 220,
+    "range": 3,
+    "condition": {
+      "not": {
+        "u_has_effect": "berserk_wyald_ready"
+      }
+    },
+    "damage_max_instance": [
+      {
+        "damage_type": "bash",
+        "amount": 0
+      }
+    ],
+    "dodgeable": false,
+    "blockable": false,
+    "self_effects_always": [
+      {
+        "id": "berserk_wyald_ready",
+        "duration": 5
+      }
+    ],
+    "no_dmg_msg_u": "Wyald braces for a heavy attack! Break the line or leave its reach!",
+    "no_dmg_msg_npc": "Wyald braces for a heavy attack!",
+    "miss_msg_u": "Wyald braces for a heavy attack! Break the line or leave its reach!",
+    "miss_msg_npc": "Wyald braces for a heavy attack!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "berserk_rosine_a_dive",
+    "cooldown": 12,
+    "move_cost": 240,
+    "range": 4,
+    "condition": {
+      "u_has_effect": "berserk_rosine_ready"
+    },
+    "damage_max_instance": [
+      {
+        "damage_type": "stab",
+        "amount": 30
+      }
+    ],
+    "eoc": [
+      "EOC_BERSERK_ROSINE_CLEAR_READY"
+    ],
+    "hit_dmg_u": "Rosine's prepared attack crashes into you!",
+    "hit_dmg_npc": "Rosine's prepared attack crashes into %s!",
+    "miss_msg_u": "Rosine's prepared attack misses you!",
+    "miss_msg_npc": "Rosine's prepared attack misses %s!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "berserk_rosine_b_prepare",
+    "cooldown": 16,
+    "move_cost": 240,
+    "range": 4,
+    "condition": {
+      "not": {
+        "u_has_effect": "berserk_rosine_ready"
+      }
+    },
+    "damage_max_instance": [
+      {
+        "damage_type": "bash",
+        "amount": 0
+      }
+    ],
+    "dodgeable": false,
+    "blockable": false,
+    "self_effects_always": [
+      {
+        "id": "berserk_rosine_ready",
+        "duration": 5
+      }
+    ],
+    "no_dmg_msg_u": "Rosine braces for a heavy attack! Break the line or leave its reach!",
+    "no_dmg_msg_npc": "Rosine braces for a heavy attack!",
+    "miss_msg_u": "Rosine braces for a heavy attack! Break the line or leave its reach!",
+    "miss_msg_npc": "Rosine braces for a heavy attack!"
+  }
+]

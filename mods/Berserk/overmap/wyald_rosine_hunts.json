@@ -1,0 +1,216 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_wyald_approach",
+    "name": "Black Dog encampment — approach",
+    "sym": "W",
+    "color": "red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_wyald_camp",
+    "name": "Black Dog encampment — camp",
+    "sym": "W",
+    "color": "red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_wyald_quarry",
+    "name": "Black Dog encampment — quarry",
+    "sym": "W",
+    "color": "red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_wyald_ring",
+    "name": "Black Dog encampment — ring",
+    "sym": "W",
+    "color": "red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_wyald_camp_special",
+    "flags": [
+      "GLOBALLY_UNIQUE"
+    ],
+    "occurrences": [
+      0,
+      100
+    ],
+    "rotate": false,
+    "//": "Quest-created after the Eclipse; no random boss or lair spawns.",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_wyald_approach",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          0,
+          0
+        ],
+        "overmap": "berserk_wyald_camp",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "overmap": "berserk_wyald_quarry",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          1,
+          0
+        ],
+        "overmap": "berserk_wyald_ring",
+        "locations": [
+          "forest"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_rosine_trail",
+    "name": "Mistvale — trail",
+    "sym": "R",
+    "color": "light_green",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_rosine_cocoons",
+    "name": "Mistvale — cocoons",
+    "sym": "R",
+    "color": "light_green",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_rosine_gully",
+    "name": "Mistvale — gully",
+    "sym": "R",
+    "color": "light_green",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_rosine_nest",
+    "name": "Mistvale — nest",
+    "sym": "R",
+    "color": "light_green",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_rosine_valley_special",
+    "flags": [
+      "GLOBALLY_UNIQUE"
+    ],
+    "occurrences": [
+      0,
+      100
+    ],
+    "rotate": false,
+    "//": "Quest-created after the Eclipse; no random boss or lair spawns.",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_rosine_trail",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          0,
+          0
+        ],
+        "overmap": "berserk_rosine_cocoons",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "overmap": "berserk_rosine_gully",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          1,
+          0
+        ],
+        "overmap": "berserk_rosine_nest",
+        "locations": [
+          "forest"
+        ]
+      }
+    ]
+  }
+]

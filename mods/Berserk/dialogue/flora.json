@@ -326,6 +326,58 @@
         }
       },
       {
+        "text": "Mark Wyald's trail.",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_WYALD_SEEK"
+          }
+        ],
+        "topic": "TALK_BERSERK_FLORA_NEXT"
+      },
+      {
+        "text": "Mark Rosine's trail.",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_ROSINE_SEEK"
+          }
+        ],
+        "topic": "TALK_BERSERK_FLORA_NEXT"
+      },
+      {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
