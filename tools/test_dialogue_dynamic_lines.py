@@ -7,7 +7,9 @@ import json
 from pathlib import Path
 import unittest
 
-from validate_mod_assets import ROOT, ValidationError, validate_dynamic_lines
+from validate_mod_assets import (
+    ROOT, ValidationError, validate_dynamic_lines, validate_query_defaults,
+)
 
 
 class DynamicLineCompatibility(unittest.TestCase):
@@ -53,6 +55,34 @@ class DynamicLineCompatibility(unittest.TestCase):
         for path in (ROOT / "mods").glob("*/dialogue/*.json"):
             data = json.loads(path.read_text(encoding="utf-8"))
             validate_dynamic_lines(path, data if isinstance(data, list) else [data])
+
+
+class QueryDefaultCompatibility(unittest.TestCase):
+    def check(self, query):
+        validate_query_defaults(ROOT / "example.json", [{
+            "type": "effect_on_condition",
+            "effect": [{"if": query, "then": {"u_message": "Confirmed."}}],
+        }])
+
+    def test_both_query_talkers_require_a_boolean_default(self):
+        for field in ("u_query", "npc_query"):
+            for default in (None, "false", 0):
+                query = {field: "Proceed?"}
+                if default is not None:
+                    query["default"] = default
+                with self.subTest(query=query), self.assertRaises(ValidationError):
+                    self.check(query)
+
+    def test_true_and_false_defaults_are_valid(self):
+        for field in ("u_query", "npc_query"):
+            for default in (False, True):
+                self.check({field: "Proceed?", "default": default})
+
+    def test_unrelated_objects_need_no_query_default(self):
+        self.check({"math": ["1 == 1"]})
+        validate_query_defaults(ROOT / "example.json", [{
+            "type": "talk_topic", "dynamic_line": "Hello.",
+        }])
 
 
 if __name__ == "__main__":

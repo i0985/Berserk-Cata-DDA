@@ -600,7 +600,8 @@
         },
         "then": {
           "if": {
-            "u_query": "Begin the one-time attack now? Prepare your armor first. The sanctuary will be lost; escape through the western road or southern garden."
+            "u_query": "Begin the one-time attack now? Prepare your armor first. The sanctuary will be lost; escape through the western road or southern garden.",
+            "default": false
           },
           "then": [
             {

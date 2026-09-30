@@ -155,6 +155,30 @@ def validate_turn_cost_durations(path: Path, objects: list[dict[str, Any]]) -> N
     visit(objects)
 
 
+def validate_query_defaults(path: Path, objects: list[dict[str, Any]]) -> None:
+    """0.I-1 conditional_fun::f_query requires a boolean default.
+
+    The avatar sees a yes/no prompt; default is returned for other talkers.
+    Even avatar-only queries must provide it because loading reads it first.
+    """
+    def visit(value: Any) -> None:
+        if isinstance(value, list):
+            for part in value:
+                visit(part)
+        elif isinstance(value, dict):
+            if ("u_query" in value or "npc_query" in value) and not isinstance(
+                value.get("default"), bool
+            ):
+                raise ValidationError(
+                    f"{path.relative_to(ROOT)}: u_query/npc_query requires "
+                    "a boolean default in CDDA 0.I-1"
+                )
+            for part in value.values():
+                visit(part)
+
+    visit(objects)
+
+
 def png_size(path: Path) -> tuple[int, int]:
     try:
         with path.open("rb") as image:
@@ -354,6 +378,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
             validate_monster_attacks(path, objects)
             validate_dynamic_lines(path, objects)
             validate_turn_cost_durations(path, objects)
+            validate_query_defaults(path, objects)
             if sum(entry.get("type") == "mod_tileset" for entry in objects) > 1:
                 raise ValidationError(
                     f"{path.relative_to(ROOT)}: CDDA 0.I-1 requires one mod_tileset per file"
