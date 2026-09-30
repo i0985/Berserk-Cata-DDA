@@ -3,11 +3,9 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA",
     "dynamic_line": {
-      "if": {
-        "math": [
-          "berserk_flora_stage == 2"
-        ]
-      },
+      "math": [
+        "berserk_flora_stage == 2"
+      ],
       "yes": "\"There is no more time for counsel. The guardians are holding the northern and eastern approaches. Leave through the western road or the southern garden. Do not wait for a victory.\"",
       "no": "\"You have found a quiet place, traveler. Here you may ask before you choose. A suit of armor is not a cure for a wounded soul, and possessing it is not the end of your road.\""
     },

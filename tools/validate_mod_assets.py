@@ -90,6 +90,35 @@ def validate_monster_attacks(path: Path, objects: list[dict[str, Any]]) -> None:
             )
 
 
+def validate_dynamic_lines(path: Path, objects: list[dict[str, Any]]) -> None:
+    """Reject unsupported conditional wrappers in 0.I-1 talk-topic lines.
+
+    dynamic_line_t(JsonObject) in src/npctalk.cpp accepts a dialogue condition
+    directly, with yes/no branches. EOC's if wrapper and logical combinators
+    are not line conditions. This checks that known incompatibility only;
+    it does not implement the full native dialogue loader.
+    """
+    def visit(line: Any) -> None:
+        if isinstance(line, list):
+            for part in line:
+                visit(part)
+        elif isinstance(line, dict):
+            unsupported = {"if", "and", "or", "not"}.intersection(line)
+            if unsupported:
+                raise ValidationError(
+                    f"{path.relative_to(ROOT)}: dynamic_line does not support "
+                    f"{', '.join(sorted(unsupported))} in CDDA 0.I-1; "
+                    "put a single dialogue condition directly beside yes/no"
+                )
+            for field in ("yes", "no", "concatenate"):
+                if field in line:
+                    visit(line[field])
+
+    for entry in objects:
+        if entry.get("type") == "talk_topic":
+            visit(entry.get("dynamic_line"))
+
+
 def png_size(path: Path) -> tuple[int, int]:
     try:
         with path.open("rb") as image:
@@ -287,6 +316,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
             validate_mapgen_update_effects(path, objects)
             validate_furniture_required_fields(path, objects)
             validate_monster_attacks(path, objects)
+            validate_dynamic_lines(path, objects)
             if sum(entry.get("type") == "mod_tileset" for entry in objects) > 1:
                 raise ValidationError(
                     f"{path.relative_to(ROOT)}: CDDA 0.I-1 requires one mod_tileset per file"
