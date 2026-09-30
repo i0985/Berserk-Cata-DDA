@@ -1342,7 +1342,17 @@
           "run_eocs": "EOC_BERSERK_COUNT_SEEK"
         },
         "else": {
-          "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
+          "if": {
+            "math": [
+              "berserk_hunt_grunbeld_state < 4"
+            ]
+          },
+          "then": {
+            "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
+          },
+          "else": {
+            "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
+          }
         }
       }
     }
@@ -1369,7 +1379,17 @@
           "run_eocs": "EOC_BERSERK_COUNT_SEEK"
         },
         "else": {
-          "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
+          "if": {
+            "math": [
+              "berserk_hunt_grunbeld_state < 4"
+            ]
+          },
+          "then": {
+            "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
+          },
+          "else": {
+            "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
+          }
         }
       }
     }
@@ -1391,13 +1411,13 @@
           "radius": 1
         },
         {
-          "u_message": "The available named hunts are settled. Your first sealed breach is marked again: recover near that quiet region and prepare your refuge. The journal keeps every cleared site; the later dragon hunt is not yet available.",
+          "u_message": "All four named breaches are settled. Your first sealed breach is marked again. Recover in that quiet region, build your refuge and consult the journal to revisit any completed hunt. The Brand remains; this chapter ends with a place to return to.",
           "type": "info",
           "popup": true
         }
       ],
       "else": {
-        "u_message": "The available named hunts are settled. Consult the journal to revisit a known sealed site and recover near its quiet region. The later dragon hunt is not yet available.",
+        "u_message": "All four named breaches are settled. Use the journal to mark a known sealed lair, recover nearby and prepare your refuge. The Brand and demons elsewhere remain.",
         "type": "info",
         "popup": true
       }
@@ -1407,7 +1427,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_HUNT_STATUS",
     "effect": {
-      "u_message": "Hunt record: Count <global_val:berserk_hunt_count_state>, Wyald <global_val:berserk_hunt_wyald_state>, Rosine <global_val:berserk_hunt_rosine_state>. 0 or blank = unknown; 1 = found; 2 = encounter; 3 = guardian defeated; 4 = breach closed; 5 = relic received. Each place has its own coordinates.",
+      "u_message": "Hunt record: Count <global_val:berserk_hunt_count_state>, Wyald <global_val:berserk_hunt_wyald_state>, Rosine <global_val:berserk_hunt_rosine_state>, Grunbeld <global_val:berserk_hunt_grunbeld_state>. 0 or blank = unknown; 1 = found; 2 = encounter; 3 = guardian defeated; 4 = breach closed; 5 = relic received. Each place has its own coordinates.",
       "type": "info",
       "popup": true
     }
@@ -1439,35 +1459,49 @@
           "then": {
             "run_eocs": "EOC_BERSERK_COUNT_SEEK"
           },
-          "else": [
-            {
-              "run_eocs": "EOC_BERSERK_HUNT_STATUS"
+          "else": {
+            "if": {
+              "u_query": "Trace Grunbeld's scarred stronghold?",
+              "default": false
             },
-            {
-              "if": {
-                "and": [
-                  {
-                    "math": [
-                      "berserk_hunt_count_state >= 4"
-                    ]
-                  },
-                  {
-                    "math": [
-                      "berserk_hunt_wyald_state >= 4"
-                    ]
-                  },
-                  {
-                    "math": [
-                      "berserk_hunt_rosine_state >= 4"
-                    ]
-                  }
-                ]
+            "then": {
+              "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
+            },
+            "else": [
+              {
+                "run_eocs": "EOC_BERSERK_HUNT_STATUS"
               },
-              "then": {
-                "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
+              {
+                "if": {
+                  "and": [
+                    {
+                      "math": [
+                        "berserk_hunt_count_state >= 4"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "berserk_hunt_wyald_state >= 4"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "berserk_hunt_rosine_state >= 4"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "berserk_hunt_grunbeld_state >= 4"
+                      ]
+                    }
+                  ]
+                },
+                "then": {
+                  "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
+                }
               }
-            }
-          ]
+            ]
+          }
         }
       }
     },

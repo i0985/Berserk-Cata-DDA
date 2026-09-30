@@ -1,0 +1,44 @@
+[
+  {
+    "type": "effect_type",
+    "id": "berserk_grunbeld_knight_form",
+    "name": [
+      "Armored apostle form"
+    ],
+    "desc": [
+      "This body will change form at half health. A lethal hit to this form is not the end of the hunt."
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_grunbeld_dragon_form",
+    "name": [
+      "Final dragon form"
+    ],
+    "desc": [
+      "This is the final body. Its defeat exposes only its own stronghold breach."
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_grunbeld_hammer_ready",
+    "name": [
+      "Preparing a hammer sweep"
+    ],
+    "desc": [
+      "Grunbeld raises his hammer. Leave its reach or break the attack line with stone."
+    ],
+    "max_duration": "6 seconds"
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_grunbeld_flame_ready",
+    "name": [
+      "Preparing focused flame"
+    ],
+    "desc": [
+      "Heat gathers in the dragon's mouth. Move beyond six tiles or behind solid stone."
+    ],
+    "max_duration": "7 seconds"
+  }
+]

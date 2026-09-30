@@ -1,0 +1,154 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_grunbeld_approach",
+    "name": "Grunbeld stronghold — approach",
+    "sym": "G",
+    "color": "light_red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_grunbeld_ramparts",
+    "name": "Grunbeld stronghold — ramparts",
+    "sym": "G",
+    "color": "light_red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_grunbeld_quarry",
+    "name": "Grunbeld stronghold — quarry",
+    "sym": "G",
+    "color": "light_red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_grunbeld_barracks",
+    "name": "Grunbeld stronghold — barracks",
+    "sym": "G",
+    "color": "light_red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_grunbeld_ruins",
+    "name": "Grunbeld stronghold — ruins",
+    "sym": "G",
+    "color": "light_red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_grunbeld_crucible",
+    "name": "Grunbeld stronghold — crucible",
+    "sym": "G",
+    "color": "light_red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_grunbeld_stronghold_special",
+    "occurrences": [
+      0,
+      100
+    ],
+    "flags": [
+      "GLOBALLY_UNIQUE"
+    ],
+    "rotate": false,
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_grunbeld_approach",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          0,
+          0
+        ],
+        "overmap": "berserk_grunbeld_ramparts",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "overmap": "berserk_grunbeld_quarry",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          1,
+          0
+        ],
+        "overmap": "berserk_grunbeld_barracks",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          0,
+          2,
+          0
+        ],
+        "overmap": "berserk_grunbeld_ruins",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          2,
+          0
+        ],
+        "overmap": "berserk_grunbeld_crucible",
+        "locations": [
+          "forest"
+        ]
+      }
+    ]
+  }
+]

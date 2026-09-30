@@ -348,7 +348,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_NAMED_HUNTS",
-    "dynamic_line": "\"Wyald holds a ruined encampment; Rosine rules a valley of cocoons. Your journal can mark either trail. Defeat each guardian, close that site's breach, then claim its relic. Neither victory abolishes the Brand. Choose which hunt to prepare for first.\"",
+    "dynamic_line": "\"Each apostle holds a separate wound. Seal the Count, Wyald and Rosine's breaches before seeking Grunbeld. His armored body is only the beginning; the dragon is his final form. Your journal marks each trail. Once all four are sealed, return to a quiet place and protect the living.\"",
     "responses": [
       {
         "text": "Mark Wyald's camp.",
@@ -362,6 +362,46 @@
         "effect": {
           "run_eocs": "EOC_BERSERK_ROSINE_SEEK"
         },
+        "topic": "TALK_DONE"
+      },
+      {
+        "text": "Mark Grunbeld's stronghold.",
+        "condition": {
+          "or": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_hunt_count_state >= 4"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_wyald_state >= 4"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_rosine_state >= 4"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "berserk_apostle_grunbeld_dead == 1"
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
+          }
+        ],
         "topic": "TALK_DONE"
       },
       {

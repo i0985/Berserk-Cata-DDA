@@ -796,6 +796,16 @@
           "math": [
             "berserk_flora_grunbeld_attempts < 6"
           ]
+        },
+        {
+          "math": [
+            "berserk_hunt_grunbeld_spawned != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_grunbeld_site_registered != 1"
+          ]
         }
       ]
     }
@@ -816,9 +826,30 @@
         "run_eocs": "EOC_BERSERK_FLORA_SPAWN_GRUNBELD"
       },
       {
-        "u_message": "The northern ward breaks under a great blade; an armored giant closes from the east. The guardians can only delay them. Both escape paths remain open. Keep moving toward the western road or the southern garden exit.",
-        "type": "warning",
-        "popup": true
+        "if": {
+          "or": [
+            {
+              "math": [
+                "berserk_hunt_grunbeld_site_registered == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_apostle_grunbeld_dead == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "u_message": "The ward shudders. Grunbeld's fate is already recorded elsewhere; no second original appears at the eastern approach. Both escape paths remain open. Keep moving toward the western road or the southern garden.",
+          "type": "warning",
+          "popup": true
+        },
+        "else": {
+          "u_message": "The northern ward breaks under a great blade; an armored giant closes from the east. The guardians can only delay them. Both escape paths remain open. Keep moving toward the western road or the southern garden exit.",
+          "type": "warning",
+          "popup": true
+        }
       }
     ],
     "condition": {
@@ -1093,17 +1124,38 @@
         ]
       },
       {
-        "npc_location_variable": {
-          "global_val": "berserk_hunt_grunbeld_location"
-        }
+        "math": [
+          "berserk_hunt_grunbeld_phase = 3"
+        ]
       },
       {
-        "location_variable_adjust": {
-          "global_val": "berserk_hunt_grunbeld_location"
+        "math": [
+          "berserk_hunt_grunbeld_reward_claimed = 1"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "berserk_hunt_grunbeld_site_registered == 1"
+            ]
+          }
         },
-        "overmap_tile": true,
-        "x_adjust": 0,
-        "y_adjust": 0
+        "then": [
+          {
+            "npc_location_variable": {
+              "global_val": "berserk_hunt_grunbeld_location"
+            }
+          },
+          {
+            "location_variable_adjust": {
+              "global_val": "berserk_hunt_grunbeld_location"
+            },
+            "overmap_tile": true,
+            "x_adjust": 0,
+            "y_adjust": 0
+          }
+        ]
       }
     ]
   },

@@ -1,0 +1,114 @@
+[
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "range": 3,
+    "move_cost": 260,
+    "id": "berserk_grunbeld_hammer_a_strike",
+    "cooldown": 18,
+    "condition": {
+      "u_has_effect": "berserk_grunbeld_hammer_ready"
+    },
+    "damage_max_instance": [
+      {
+        "damage_type": "bash",
+        "amount": 48
+      }
+    ],
+    "blockable": true,
+    "eoc": [
+      "EOC_BERSERK_GRUNBELD_CLEAR_HAMMER"
+    ],
+    "hit_dmg_u": "Grunbeld's hammer strikes you!",
+    "hit_dmg_npc": "Grunbeld's hammer strikes %s!",
+    "miss_msg_u": "Grunbeld's hammer misses you!",
+    "miss_msg_npc": "Grunbeld's hammer misses %s!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "range": 3,
+    "move_cost": 260,
+    "id": "berserk_grunbeld_hammer_b_prepare",
+    "cooldown": 24,
+    "condition": {
+      "not": {
+        "u_has_effect": "berserk_grunbeld_hammer_ready"
+      }
+    },
+    "damage_max_instance": [
+      {
+        "damage_type": "bash",
+        "amount": 0
+      }
+    ],
+    "dodgeable": false,
+    "blockable": false,
+    "self_effects_always": [
+      {
+        "id": "berserk_grunbeld_hammer_ready",
+        "duration": 6
+      }
+    ],
+    "no_dmg_msg_u": "Grunbeld prepares his hammer! Break the line or leave its reach!",
+    "no_dmg_msg_npc": "Grunbeld prepares his hammer! Break the line or leave its reach!",
+    "miss_msg_u": "Grunbeld prepares his hammer! Break the line or leave its reach!",
+    "miss_msg_npc": "Grunbeld prepares his hammer! Break the line or leave its reach!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "range": 6,
+    "move_cost": 300,
+    "id": "berserk_grunbeld_flame_a_strike",
+    "cooldown": 18,
+    "condition": {
+      "u_has_effect": "berserk_grunbeld_flame_ready"
+    },
+    "damage_max_instance": [
+      {
+        "damage_type": "heat",
+        "amount": 36
+      }
+    ],
+    "blockable": false,
+    "eoc": [
+      "EOC_BERSERK_GRUNBELD_CLEAR_FLAME"
+    ],
+    "hit_dmg_u": "Grunbeld's flame strikes you!",
+    "hit_dmg_npc": "Grunbeld's flame strikes %s!",
+    "miss_msg_u": "Grunbeld's flame misses you!",
+    "miss_msg_npc": "Grunbeld's flame misses %s!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "range": 6,
+    "move_cost": 300,
+    "id": "berserk_grunbeld_flame_b_prepare",
+    "cooldown": 24,
+    "condition": {
+      "not": {
+        "u_has_effect": "berserk_grunbeld_flame_ready"
+      }
+    },
+    "damage_max_instance": [
+      {
+        "damage_type": "bash",
+        "amount": 0
+      }
+    ],
+    "dodgeable": false,
+    "blockable": false,
+    "self_effects_always": [
+      {
+        "id": "berserk_grunbeld_flame_ready",
+        "duration": 7
+      }
+    ],
+    "no_dmg_msg_u": "Grunbeld prepares his flame! Break the line or leave its reach!",
+    "no_dmg_msg_npc": "Grunbeld prepares his flame! Break the line or leave its reach!",
+    "miss_msg_u": "Grunbeld prepares his flame! Break the line or leave its reach!",
+    "miss_msg_npc": "Grunbeld prepares his flame! Break the line or leave its reach!"
+  }
+]

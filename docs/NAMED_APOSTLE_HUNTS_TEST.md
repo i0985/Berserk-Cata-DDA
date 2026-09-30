@@ -3,6 +3,8 @@
 Target: CDDA **0.I-1**. Branch: `codex/3.0-new-horizon`.
 This milestone has **not been run in the game**. Static checks below do not establish combat balance, native save persistence, map generation or successful loading.
 
+The following milestone adds Grunbeld's late hunt and the assembled four-hunt chapter. See [GRUNBELD_HUNT_TEST.md](GRUNBELD_HUNT_TEST.md) for its phase handling, old-save behavior, current validation totals and full-flow checklist.
+
 ## Access and progression
 
 After the Eclipse and completion of the first small-apostle hunt, ask the Skull Knight or peaceful Flora to mark either trail. The first-breach journal also offers the independent trails. Sealing the Count's breach gives the new journal, including in an existing world when that interaction is performed again.
@@ -54,7 +56,7 @@ The seal suppresses new incursions within a distance of 48 map squares from that
 
 The Count's existing loot is preserved. If his breach is sealed and his original seal is carried/worn, a one-minute watcher advances the Count's record from 4 to 5 without creating another item. Old IDs are retained. No four-site single completion flag is introduced.
 
-Closing a site gives a journal and a concrete next location: the other named hunt, then the Count if unfinished. When the available hunts are sealed, the first closed breach is marked as a recovery destination. The later dragon hunt is explicitly described as unavailable rather than advertised as implemented.
+Closing a site gives a journal and a concrete next location: the other named hunt, then the Count if unfinished. The subsequent Grunbeld milestone adds his late hunt after these three breaches are sealed. Once all four are sealed, the first closed breach is marked as a recovery destination.
 
 ## Checked without launching the game
 

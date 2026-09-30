@@ -1,0 +1,338 @@
+[
+  {
+    "type": "palette",
+    "id": "berserk_grunbeld_palette",
+    "terrain": {
+      ".": "t_grass",
+      "d": "t_rock_floor",
+      "T": "t_tree",
+      "#": "t_rock",
+      "_": "t_rock_floor",
+      "+": "t_door_o",
+      "b": "t_grass",
+      "r": "t_grass",
+      "C": "t_grass",
+      "B": "t_grass",
+      "I": "t_grass",
+      "?": "t_grass"
+    },
+    "furniture": {
+      "b": "f_bench",
+      "r": "f_rubble",
+      "C": "f_berserk_rosine_cocoon"
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_grunbeld_approach"
+    ],
+    "object": {
+      "fill_ter": "t_grass",
+      "rows": [
+        "..........ddd...........",
+        ".#########ddd###########",
+        ".#........ddd...........",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        "dddddddddIdddddddddddddd",
+        "dddddddddddddddddddddddd",
+        "dddddddddddddddddddddddd",
+        ".#........ddd..........#"
+      ],
+      "palettes": [
+        "berserk_grunbeld_palette"
+      ],
+      "place_monster": [],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_grunbeld_record",
+          "x": 9,
+          "y": 20
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_grunbeld_ramparts"
+    ],
+    "object": {
+      "fill_ter": "t_grass",
+      "rows": [
+        "............ddd.........",
+        "############ddd########.",
+        "............ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "dddddddddddddddddddddddd",
+        "dddddddddddddddddddddddd",
+        "dddddddddddddddddddddddd",
+        "#...........ddd.......#."
+      ],
+      "palettes": [
+        "berserk_grunbeld_palette"
+      ],
+      "place_monster": [
+        {
+          "monster": "mon_berserk_eclipse_halfbreed",
+          "x": 10,
+          "y": 14,
+          "chance": 100,
+          "one_or_none": true
+        }
+      ],
+      "place_furniture": []
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_grunbeld_quarry"
+    ],
+    "object": {
+      "fill_ter": "t_grass",
+      "rows": [
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#......r.ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd....r.....#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        "dddddddddddddddddddddddd",
+        "dddddddddddddddddddddddd",
+        "dddddddddddddddddddddddd",
+        ".#........ddd..........#"
+      ],
+      "palettes": [
+        "berserk_grunbeld_palette"
+      ],
+      "place_monster": [
+        {
+          "monster": "mon_berserk_eclipse_butcher",
+          "x": 15,
+          "y": 8,
+          "chance": 100,
+          "one_or_none": true
+        }
+      ],
+      "place_furniture": []
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_grunbeld_barracks"
+    ],
+    "object": {
+      "fill_ter": "t_grass",
+      "rows": [
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#..##########+######..#.",
+        "#..#_______________#..#.",
+        "#..#_______________#..#.",
+        "#..#_______________#..#.",
+        "#..#_r_____________#..#.",
+        "#..#_______________#..#.",
+        "#..#_______________#..#.",
+        "#..#_______________#..#.",
+        "#..#_____________r_#..#.",
+        "#..#_______________#..#.",
+        "#..#_______________#..#.",
+        "#..#_______________#..#.",
+        "#..##########+######..#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "dddddddddddddddddddddddd",
+        "dddddddddddddddddddddddd",
+        "dddddddddddddddddddddddd",
+        "#...........ddd.......#."
+      ],
+      "palettes": [
+        "berserk_grunbeld_palette"
+      ],
+      "place_monster": [
+        {
+          "monster": "mon_berserk_eclipse_elite",
+          "x": 7,
+          "y": 10,
+          "chance": 100,
+          "one_or_none": true
+        }
+      ],
+      "place_furniture": []
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_grunbeld_ruins"
+    ],
+    "object": {
+      "fill_ter": "t_grass",
+      "rows": [
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#......r.ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        "dddddddddddddddddddddddd",
+        "dddddddddddddddddddddddd",
+        "dddddddddddddddddddddddd",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd..........#",
+        ".#........ddd....r.....#",
+        ".#........ddd..........#",
+        ".#........ddd...........",
+        ".#........ddd...........",
+        ".#........ddd...........",
+        ".#########ddd###########",
+        "..........ddd..........."
+      ],
+      "palettes": [
+        "berserk_grunbeld_palette"
+      ],
+      "place_monster": [
+        {
+          "monster": "mon_berserk_eclipse_halfbreed",
+          "x": 16,
+          "y": 2,
+          "chance": 100,
+          "one_or_none": true
+        }
+      ],
+      "place_furniture": [],
+      "place_loot": [
+        {
+          "item": "bandages",
+          "x": 7,
+          "y": 7,
+          "chance": 100
+        },
+        {
+          "item": "water_clean",
+          "x": 7,
+          "y": 8,
+          "chance": 100
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "om_terrain": [
+      "berserk_grunbeld_crucible"
+    ],
+    "object": {
+      "fill_ter": "t_grass",
+      "rows": [
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...........ddd.......#.",
+        "#...________________..#.",
+        "#...________________..#.",
+        "#...________________..#.",
+        "#..._##_________##__..#.",
+        "#..._##_____?___##__..#.",
+        "dddd________________dddd",
+        "dddd________________dddd",
+        "dddd________________dddd",
+        "#...________________..#.",
+        "#...________________..#.",
+        "#...________________..#.",
+        "#..._##_____________..#.",
+        "#..._##_____________..#.",
+        "#...________________..#.",
+        "#...____________##__..#.",
+        "#...____________##__..#.",
+        "....________________..#.",
+        "....________________..#.",
+        "............ddd.......#.",
+        "############ddd########.",
+        "............ddd........."
+      ],
+      "palettes": [
+        "berserk_grunbeld_palette"
+      ],
+      "place_monster": [
+        {
+          "monster": "mon_berserk_eclipse_butcher",
+          "x": 9,
+          "y": 10,
+          "chance": 100,
+          "one_or_none": true
+        },
+        {
+          "monster": "mon_berserk_eclipse_halfbreed",
+          "x": 18,
+          "y": 13,
+          "chance": 100,
+          "one_or_none": true
+        }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_grunbeld_breach",
+          "x": 12,
+          "y": 7
+        }
+      ]
+    }
+  }
+]

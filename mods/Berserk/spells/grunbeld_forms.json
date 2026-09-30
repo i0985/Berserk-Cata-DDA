@@ -1,0 +1,27 @@
+[
+  {
+    "type": "SPELL",
+    "id": "berserk_grunbeld_change_form",
+    "name": "Grunbeld: dragon form",
+    "description": "The armored apostle reveals his final body.",
+    "valid_targets": [
+      "self"
+    ],
+    "effect": "targeted_polymorph",
+    "effect_str": "mon_berserk_grunbeld_dragon",
+    "shape": "blast",
+    "min_damage": 1000000,
+    "max_damage": 1000000,
+    "min_range": 0,
+    "max_range": 0,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "flags": [
+      "SILENT"
+    ]
+  }
+]

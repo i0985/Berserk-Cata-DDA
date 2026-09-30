@@ -1,0 +1,62 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_breach",
+    "name": "Grunbeld's exposed breach",
+    "description": "A living tear at the north of the final clearing. Defeat this site's apostle and examine it to seal only this local wound.",
+    "looks_like": "f_berserk_open_breach",
+    "symbol": "?",
+    "color": "red",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_SEAL"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_breach_sealed",
+    "name": "Grunbeld's sealed breach",
+    "description": "A closed wound containing one relic. Examine it to claim the reward once. Nearby existing demons remain.",
+    "looks_like": "f_berserk_open_breach",
+    "symbol": "?",
+    "color": "dark_gray",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_CLAIM"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_record",
+    "name": "Grunbeld campaign tablet",
+    "description": "A scorched campaign tablet names Grunbeld. The armored apostle is only the first form; the dragon's carapace resists blades and heat, but does not regenerate. Stone blocks the focused flame. Close the wound north of the crucible after his final defeat, then claim its shard. Beyond this hunt, return to a marked sealed site and protect your refuge.",
+    "looks_like": "f_counter",
+    "symbol": "?",
+    "color": "white",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_INSCRIPTION"
+      ]
+    }
+  }
+]

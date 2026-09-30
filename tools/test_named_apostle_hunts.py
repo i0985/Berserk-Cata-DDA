@@ -19,7 +19,7 @@ class NamedHuntGraph(HuntGraph):
         self.blocked=False
         self.spawn_attempts=[]
         self.spawned=[]
-        self.origins={'wyald':(-72,24,0),'rosine':(432,-240,0)}
+        self.origins={'wyald':(-72,24,0),'rosine':(432,-240,0),'grunbeld':(-480,720,0)}
 
     def run(self, id):
         obj=self.eocs[id]
@@ -31,7 +31,7 @@ class NamedHuntGraph(HuntGraph):
     def effect(self, value):
         if isinstance(value,dict):
             if 'target_params' in value:
-                kind='wyald' if 'wyald' in value['target_params']['om_terrain'] else 'rosine'
+                kind=next(k for k in self.origins if k in value['target_params']['om_terrain'])
                 self.locator_calls.append(kind)
                 if self.can_locate:
                     origin=self.origins[kind]
@@ -61,7 +61,7 @@ class NamedHuntGraph(HuntGraph):
 
     def arena(self,kind):
         origin=self.origins[kind]
-        self.omt='berserk_'+kind+('_ring' if kind=='wyald' else '_nest')
+        self.omt='berserk_'+kind+{'wyald':'_ring','rosine':'_nest','grunbeld':'_crucible'}[kind]
         self.avatar=(origin[0]+12,origin[1]+12,0)
         self.context['pos']=(origin[0]+12,origin[1]+7,0)
         self.furniture[self.context['pos']]='f_berserk_'+kind+'_breach'
@@ -214,8 +214,11 @@ class NamedApostleHunts(unittest.TestCase):
         self.assertIn('berserk_apostle_hunt_journal',g.inventory)
         g.flags['berserk_hunt_wyald_state']=5;g.flags['berserk_hunt_count_state']=5
         g.flags['berserk_hunt_first_breach_location']=(120,120,0)
-        g.run('EOC_BERSERK_ROSINE_NEXT') # concrete return site after all available hunts
-        self.assertFalse(g.flags.get('berserk_hunt_grunbeld_state'))
+        g.flags['berserk_hunt_rosine_state']=5
+        g.run('EOC_BERSERK_ROSINE_NEXT') # the final independent hunt is now available
+        self.assertEqual(g.flags['berserk_hunt_grunbeld_state'],1)
+        self.assertEqual(g.flags['berserk_hunt_grunbeld_location'],g.origins['grunbeld'])
+        g.flags['berserk_hunt_grunbeld_state']=5
         g.flags['berserk_hunt_rosine_state']=5
         before=list(g.locator_calls)
         g.run('EOC_BERSERK_WYALD_NEXT')

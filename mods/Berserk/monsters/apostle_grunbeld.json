@@ -1,0 +1,113 @@
+[
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_grunbeld_knight",
+    "copy-from": "mon_berserk_eclipse_butcher",
+    "looks_like": "mon_berserk_eclipse_elite",
+    "name": {
+      "str_sp": "Grunbeld, armored apostle"
+    },
+    "description": "An armored giant carrying a heavy hammer. Grunbeld braces before a sweeping blow and becomes a dragon when this body is broken. He does not regenerate. Defeating this form does not award a relic or close the breach.",
+    "hp": 720,
+    "speed": 90,
+    "volume": "400 L",
+    "weight": "600 kg",
+    "melee_skill": 7,
+    "melee_dice": 3,
+    "melee_dice_sides": 8,
+    "melee_damage": [
+      {
+        "damage_type": "bash",
+        "amount": 18
+      }
+    ],
+    "dodge": 0,
+    "armor": {
+      "bash": 14,
+      "cut": 20,
+      "heat": 8
+    },
+    "regenerates": 0,
+    "vision_day": 28,
+    "vision_night": 22,
+    "flags": [
+      "SEES",
+      "HEARS",
+      "WARM",
+      "BASHES",
+      "DESTROYS",
+      "ATTACKMON"
+    ],
+    "special_attacks": [
+      {
+        "id": "berserk_grunbeld_hammer_a_strike",
+        "cooldown": 18
+      },
+      {
+        "id": "berserk_grunbeld_hammer_b_prepare",
+        "cooldown": 24
+      }
+    ],
+    "death_drops": "EMPTY_GROUP",
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "eoc": "EOC_BERSERK_GRUNBELD_KNIGHT_DIES",
+      "message": "The %s sheds its ruined armor!"
+    }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_grunbeld_dragon",
+    "copy-from": "mon_berserk_eclipse_butcher",
+    "looks_like": "mon_berserk_eclipse_butcher",
+    "name": {
+      "str_sp": "Grunbeld, flaming dragon"
+    },
+    "description": "Grunbeld's final body, a great dragon clad in a fiery stone carapace. He gathers heat before a focused flame jet. Solid stone interrupts its line; distance buys time. The armor is formidable but the wounds do not regenerate.",
+    "hp": 950,
+    "speed": 85,
+    "volume": "2000 L",
+    "weight": "2500 kg",
+    "melee_skill": 7,
+    "melee_dice": 3,
+    "melee_dice_sides": 10,
+    "melee_damage": [
+      {
+        "damage_type": "cut",
+        "amount": 18
+      }
+    ],
+    "dodge": 0,
+    "armor": {
+      "bash": 12,
+      "cut": 18,
+      "heat": 28
+    },
+    "regenerates": 0,
+    "vision_day": 28,
+    "vision_night": 22,
+    "flags": [
+      "SEES",
+      "HEARS",
+      "WARM",
+      "BASHES",
+      "DESTROYS",
+      "ATTACKMON"
+    ],
+    "special_attacks": [
+      {
+        "id": "berserk_grunbeld_flame_a_strike",
+        "cooldown": 18
+      },
+      {
+        "id": "berserk_grunbeld_flame_b_prepare",
+        "cooldown": 24
+      }
+    ],
+    "death_drops": "EMPTY_GROUP",
+    "death_function": {
+      "corpse_type": "NORMAL",
+      "eoc": "EOC_BERSERK_GRUNBELD_DIES"
+    }
+  }
+]
