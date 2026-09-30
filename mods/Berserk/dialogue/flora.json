@@ -1,0 +1,223 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA",
+    "dynamic_line": "\"You have found a quiet place, traveler. Here you may ask before you choose. A suit of armor is not a cure for a wounded soul, and possessing it is not the end of your road.\"",
+    "responses": [
+      {
+        "text": "What does the Brand mean, and why do things come at night?",
+        "topic": "TALK_BERSERK_FLORA_BRAND"
+      },
+      {
+        "text": "What is the Berserker armor?",
+        "topic": "TALK_BERSERK_FLORA_ARMOR"
+      },
+      {
+        "text": "What price will I pay for Berserk mode?",
+        "topic": "TALK_BERSERK_FLORA_COST"
+      },
+      {
+        "text": "What are apostles, projections and the God Hand?",
+        "topic": "TALK_BERSERK_FLORA_APOSTLES"
+      },
+      {
+        "text": "Can a trophy taken from an apostle help me?",
+        "topic": "TALK_BERSERK_FLORA_RELICS"
+      },
+      {
+        "text": "What should I do next?",
+        "topic": "TALK_BERSERK_FLORA_NEXT"
+      },
+      {
+        "text": "I already have all six pieces, or the packed armor.",
+        "topic": "TALK_BERSERK_FLORA_OWNED",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_ACKNOWLEDGE_ARMOR"
+        }
+      },
+      {
+        "text": "Will you entrust the armor to me?",
+        "topic": "TALK_BERSERK_FLORA_OFFER",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
+        }
+      },
+      {
+        "text": "You already helped me with the armor.",
+        "topic": "TALK_BERSERK_FLORA_RECEIVED",
+        "condition": {
+          "math": [
+            "u_berserk_flora_armor_resolved == 1"
+          ]
+        }
+      },
+      {
+        "text": "Has the armor already been given away?",
+        "topic": "TALK_BERSERK_FLORA_UNAVAILABLE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_armor_claimed == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_flora_armor_resolved != 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I will return when I am ready.",
+        "topic": "TALK_DONE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "run_eocs": "EOC_BERSERK_FLORA_REGISTER_HERE"
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_BRAND",
+    "dynamic_line": "\"The Brand calls to beings beyond the ordinary world. Its pain can warn of a nearby presence, but it gives neither a name nor a direction. After dark, prepare cover and a way out. A bone and stone ward quiets its summons within eight tiles; it cannot banish creatures already there. This grove also offers a limited respite while it remains peaceful.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_ARMOR",
+    "dynamic_line": "\"The armor forces a wounded body onward and gives strength, but wearing it builds tension. Your senses falter, and shadows gather. It is not draining blood continuously anymore; the great loss comes when Berserk mode ends. You may wear ordinary clothing beneath the separate pieces. A packed suit must be unpacked before it can be worn.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_COST",
+    "dynamic_line": "\"Without a Beast Knot, the rage lasts 150 seconds. A Knot worn before it begins extends it to 210; putting it on during the rage does not. When it ends, stamina is emptied, blood volume falls and a three-day recovery follows. Taking off the armor ends the rush, not its price. Heed the warning window and countdown. Prepare your retreat before losing control.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_APOSTLES",
+    "dynamic_line": "\"An apostle has a body and a will of its own. A projection is an echo: destroying it does not kill the original. The God Hand preside over sacrifice and are not ordinary prey. Judge the creature before you, not merely a familiar name. A residence, servants and traces of victims can tell you more than a rumor.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_RELICS",
+    "dynamic_line": "\"A trophy is not a universal crystal that washes every curse away. The Count's Seal of Severed Flesh adds damage against a specific list of demons only while worn. Other relics have their own limits. They can support a choice, but cannot replace preparation or undo the Brand.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_NEXT",
+    "dynamic_line": "\"Keep a defensible refuge and learn to use the prosthetic arm cannon before seeking a greater enemy. After the first hunt, the Count's residence is a separate trail; the Skull Knight or your hunt journal can mark it. Explore both wings, defeat the servants, then descend beneath the northeastern hall. His death exposes a breach that must be closed separately. Do not rush from my door straight into his.\"",
+    "responses": [
+      {
+        "text": "Mark the Count's trail.",
+        "topic": "TALK_BERSERK_FLORA_NEXT",
+        "condition": {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_COUNT_SEEK"
+        }
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_OWNED",
+    "dynamic_line": "\"Then there is no need for a second suit. Whether you carry the packed armor or its six separate parts, keep what is yours. We may still speak of its dangers and your next journey. Owning the armor does not close my door to you.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_OFFER",
+    "dynamic_line": "\"I can entrust the missing parts to you once. A helmet or gauntlet found elsewhere does not disqualify you; I will not duplicate it. Accept only after you understand the tension, shadows and the blood price of the rage. You need not wear the armor immediately.\"",
+    "responses": [
+      {
+        "text": "I understand. Entrust the missing armor to me.",
+        "topic": "TALK_BERSERK_FLORA_RECEIVED",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_GIVE_ARMOR"
+        }
+      },
+      {
+        "text": "Not yet. I want to ask more first.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_RECEIVED",
+    "dynamic_line": "\"Make your preparations deliberately. I will not take your existing armor or force you into the new pieces. If they are too heavy to carry, check the floor nearby. You may return with questions; this meeting does not send you into a battle without a choice.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_UNAVAILABLE",
+    "dynamic_line": "\"The armor I guarded has already been entrusted to a traveler. I cannot conjure endless copies. My counsel and these paths remain open to you.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  }
+]

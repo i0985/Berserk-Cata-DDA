@@ -1,0 +1,538 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_FULL_SET",
+    "condition": {
+      "or": [
+        {
+          "u_has_item": "berserk_armor_bundle"
+        },
+        {
+          "and": [
+            {
+              "u_has_item": "berserk_helmet"
+            },
+            {
+              "u_has_item": "berserk_chestplate"
+            },
+            {
+              "u_has_item": "berserk_gloves"
+            },
+            {
+              "u_has_item": "berserk_armguards"
+            },
+            {
+              "u_has_item": "berserk_legguards"
+            },
+            {
+              "u_has_item": "berserk_boots"
+            }
+          ]
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_CAN_RECEIVE",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "and": [
+            "has_beta",
+            "npc_is_monster",
+            {
+              "math": [
+                "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_flora_armor_resolved != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_armor_claimed != 1"
+          ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+          }
+        },
+        {
+          "math": [
+            "berserk_flora_stage == 1"
+          ]
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_SEEK",
+    "false_effect": {
+      "u_message": "Recover after the Eclipse and complete the first hunt, then ask the Skull Knight about Flora above ground.",
+      "type": "info",
+      "popup": true
+    },
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "has_var(berserk_flora_location)"
+            ]
+          },
+          {
+            "math": [
+              "berserk_flora_stage >= 1"
+            ]
+          }
+        ]
+      },
+      "then": [
+        {
+          "reveal_map": {
+            "global_val": "berserk_flora_location"
+          },
+          "radius": 1
+        },
+        {
+          "u_message": "Flora's manor is marked on your map. She can explain the Brand and the armor even if you already own a complete set.",
+          "type": "info",
+          "popup": true
+        }
+      ],
+      "else": {
+        "run_eocs": "EOC_BERSERK_FLORA_FIND"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_FIND",
+    "effect": {
+      "u_location_variable": {
+        "global_val": "berserk_flora_location"
+      },
+      "target_params": {
+        "om_terrain": "berserk_flora_manor_west",
+        "om_special": "berserk_flora_manor_special",
+        "random": true,
+        "search_range": 40,
+        "z": 0
+      },
+      "furniture": "f_berserk_flora_ward",
+      "target_max_radius": 23,
+      "true_eocs": [
+        "EOC_BERSERK_FLORA_FOUND"
+      ],
+      "false_eocs": [
+        "EOC_BERSERK_FLORA_NOT_FOUND"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_FOUND",
+    "effect": [
+      {
+        "location_variable_adjust": {
+          "global_val": "berserk_flora_location"
+        },
+        "overmap_tile": true,
+        "x_adjust": 0,
+        "y_adjust": 0
+      },
+      {
+        "math": [
+          "berserk_flora_stage = 1"
+        ]
+      },
+      {
+        "reveal_map": {
+          "global_val": "berserk_flora_location"
+        },
+        "radius": 1
+      },
+      {
+        "u_message": "A sheltered forest manor is marked on your map. Flora waits in the western study. Follow the garden paths; the house has western and southern exits.",
+        "type": "info",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_NOT_FOUND",
+    "effect": {
+      "u_message": "No suitable forest clearing was found nearby. Travel to another area and consult the Skull Knight or his directions again. No armor has been claimed.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_ACKNOWLEDGE_ARMOR",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "has_beta",
+            "npc_is_monster",
+            {
+              "math": [
+                "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+              ]
+            }
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+        }
+      ]
+    },
+    "effect": {
+      "math": [
+        "u_berserk_flora_armor_resolved = 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_GIVE_ARMOR",
+    "false_effect": {
+      "u_message": "Flora cannot offer another set now. You must have survived the Eclipse, speak to her in person, and not already possess a complete or packed set or have accepted her gift.",
+      "type": "info",
+      "popup": true
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
+    },
+    "effect": [
+      {
+        "math": [
+          "berserk_flora_armor_claimed = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_flora_armor_resolved = 1"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_item": "berserk_helmet"
+          }
+        },
+        "then": {
+          "u_spawn_item": "berserk_helmet",
+          "count": 1
+        }
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_item": "berserk_chestplate"
+          }
+        },
+        "then": {
+          "u_spawn_item": "berserk_chestplate",
+          "count": 1
+        }
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_item": "berserk_gloves"
+          }
+        },
+        "then": {
+          "u_spawn_item": "berserk_gloves",
+          "count": 1
+        }
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_item": "berserk_armguards"
+          }
+        },
+        "then": {
+          "u_spawn_item": "berserk_armguards",
+          "count": 1
+        }
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_item": "berserk_legguards"
+          }
+        },
+        "then": {
+          "u_spawn_item": "berserk_legguards",
+          "count": 1
+        }
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_item": "berserk_boots"
+          }
+        },
+        "then": {
+          "u_spawn_item": "berserk_boots",
+          "count": 1
+        }
+      },
+      {
+        "u_message": "Flora gives you the missing pieces of Berserker armor. Existing pieces are kept. The gift is offered once; check your inventory and the floor if you cannot carry it all. Nothing forces you to wear it.",
+        "type": "good",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_REGION_QUIET",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_flora_stage == 1"
+          ]
+        },
+        {
+          "math": [
+            "has_var(berserk_flora_location)"
+          ]
+        },
+        {
+          "math": [
+            "distance(_berserk_quiet_target, berserk_flora_location) <= 48"
+          ]
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_NIGHT_QUIET",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_flora_stage == 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "u_near_om_location": "berserk_flora_manor_west",
+              "range": 1
+            },
+            {
+              "u_near_om_location": "berserk_flora_manor_east",
+              "range": 1
+            },
+            {
+              "u_near_om_location": "berserk_flora_garden_west",
+              "range": 1
+            },
+            {
+              "u_near_om_location": "berserk_flora_garden_east",
+              "range": 1
+            }
+          ]
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_POST_ECLIPSE_START",
+    "condition": {
+      "and": [
+        {
+          "u_profession": "berserk"
+        },
+        {
+          "math": [
+            "u_berserk_post_eclipse_start_initialized != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_post_eclipse_start_initialized = 1"
+        ]
+      },
+      {
+        "math": [
+          "berserk_eclipse_era = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_eclipse_rescue_state = 2"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_eclipse_behelit_spent = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_eclipse_trial_active = 0"
+        ]
+      },
+      {
+        "u_learn_recipe": "bio_berserk_arm_cannon"
+      },
+      {
+        "u_learn_recipe": "berserk_arm_cannon_charge"
+      },
+      {
+        "math": [
+          "u_berserk_hand_recipes_learned = 1"
+        ]
+      },
+      {
+        "u_add_var": "berserk_knight_waiting",
+        "value": "yes"
+      },
+      {
+        "u_spawn_monster": "mon_skull_knight_rescuer",
+        "real_count": 1,
+        "min_radius": 1,
+        "max_radius": 5,
+        "true_eocs": [
+          "EOC_BERSERK_ECLIPSE_KNIGHT_ARRIVED"
+        ]
+      },
+      {
+        "u_message": "You begin after the Eclipse: the Brand, lost eye and prosthetic arm are already part of your body, and the new era has begun. The Eclipse cannot be entered again. Speak to the Skull Knight and prepare for your first hunt.",
+        "type": "warning",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_DIRECTIONS",
+    "effect": [
+      {
+        "if": {
+          "not": {
+            "u_has_item": "berserk_flora_directions"
+          }
+        },
+        "then": {
+          "u_spawn_item": "berserk_flora_directions",
+          "count": 1
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_SEEK"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_REGISTER_HERE",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "has_beta",
+            "npc_is_monster",
+            {
+              "math": [
+                "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage == 0"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "npc_location_variable": {
+          "global_val": "berserk_flora_location"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "global_val": "berserk_flora_location"
+        },
+        "overmap_tile": true,
+        "x_adjust": 0,
+        "y_adjust": 0
+      },
+      {
+        "math": [
+          "berserk_flora_stage = 1"
+        ]
+      }
+    ]
+  }
+]

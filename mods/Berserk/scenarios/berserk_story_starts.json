@@ -1,0 +1,21 @@
+[
+  {
+    "type": "scenario",
+    "id": "berserk_story_start",
+    "name": "(BERSERK) Before or after the Eclipse",
+    "description": "Choose the beginning of your road: before the sacrifice with ordinary leather armor, or after it with the Brand, prosthetic arm cannon and the cursed suit. The before-Eclipse profession does not rewind a world whose new era has already begun.",
+    "points": 0,
+    "allowed_locs": [
+      "sloc_forest",
+      "sloc_field"
+    ],
+    "start_name": "On the road",
+    "professions": [
+      "berserk_before_eclipse",
+      "berserk"
+    ],
+    "flags": [
+      "LONE_START"
+    ]
+  }
+]

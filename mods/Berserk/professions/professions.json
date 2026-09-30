@@ -2,8 +2,8 @@
   {
     "type": "profession",
     "id": "berserk",
-    "name": "Berserker",
-    "description": "You are a brute forged in a world-sized meat grinder, where zombies are little more than an excuse to exercise your fists and enormous sword. Illiterate but brutally capable, you cut down the dead like firewood. Now you wear cursed armor that steadily takes hold of your mind. How did you get here? It hardly matters—in this hell, strength is your ticket to another day.",
+    "name": "Berserker after the Eclipse",
+    "description": "You begin after the Eclipse with the true sword and all six pieces of Berserker armor. Your left hand carries an installed prosthetic arm cannon; an eye is lost, and the Brand of Sacrifice calls to demons. The Eclipse is already behind you and the new era is active. Speak to the Skull Knight, establish a refuge and follow the first hunt.",
     "points": 8,
     "traits": [
       "ILLITERATE",
@@ -11,33 +11,130 @@
       "ADRENALINE"
     ],
     "skills": [
-      { "level": 0, "name": "speech" },
-      { "level": 0, "name": "firstaid" },
-      { "level": 6, "name": "melee" },
-      { "level": 6, "name": "cutting" },
-      { "level": 5, "name": "bashing" }
+      {
+        "level": 0,
+        "name": "speech"
+      },
+      {
+        "level": 0,
+        "name": "firstaid"
+      },
+      {
+        "level": 6,
+        "name": "melee"
+      },
+      {
+        "level": 6,
+        "name": "cutting"
+      },
+      {
+        "level": 5,
+        "name": "bashing"
+      }
     ],
     "items": {
       "both": {
         "entries": [
-          { "item": "berserk_helmet" },
-          { "item": "berserk_chestplate" },
-          { "item": "berserk_gloves" },
-          { "item": "berserk_armguards" },
-          { "item": "berserk_legguards" },
-          { "item": "berserk_boots" },
-          { "item": "true_guts_sword" }
+          {
+            "item": "berserk_helmet"
+          },
+          {
+            "item": "berserk_chestplate"
+          },
+          {
+            "item": "berserk_gloves"
+          },
+          {
+            "item": "berserk_armguards"
+          },
+          {
+            "item": "berserk_legguards"
+          },
+          {
+            "item": "berserk_boots"
+          },
+          {
+            "item": "true_guts_sword"
+          }
         ]
       }
-    }
+    },
+    "CBMs": [
+      "bio_berserk_hand_stump",
+      "bio_berserk_arm_cannon",
+      "bio_berserk_lost_eye",
+      "bio_berserk_brand_of_sacrifice"
+    ],
+    "effect_on_conditions": [
+      "EOC_BERSERK_POST_ECLIPSE_START"
+    ]
   },
   {
     "type": "profession",
     "id": "berserk_prosthesis",
-    "copy-from": "berserk",
     "name": "Berserker with a lost hand",
     "description": "Your left hand is gone.  The interface on its stump can support a cannon once you forge and install one.  Until then, your remaining hand and true sword must carry you through the Cataclysm.",
-    "CBMs": [ "bio_berserk_hand_stump" ]
+    "points": 8,
+    "traits": [
+      "ILLITERATE",
+      "TOUGH",
+      "ADRENALINE"
+    ],
+    "skills": [
+      {
+        "level": 0,
+        "name": "speech"
+      },
+      {
+        "level": 0,
+        "name": "firstaid"
+      },
+      {
+        "level": 6,
+        "name": "melee"
+      },
+      {
+        "level": 6,
+        "name": "cutting"
+      },
+      {
+        "level": 5,
+        "name": "bashing"
+      }
+    ],
+    "items": {
+      "both": {
+        "entries": [
+          {
+            "item": "berserk_helmet"
+          },
+          {
+            "item": "berserk_chestplate"
+          },
+          {
+            "item": "berserk_gloves"
+          },
+          {
+            "item": "berserk_armguards"
+          },
+          {
+            "item": "berserk_legguards"
+          },
+          {
+            "item": "berserk_boots"
+          },
+          {
+            "item": "true_guts_sword"
+          }
+        ]
+      }
+    },
+    "CBMs": [
+      "bio_berserk_hand_stump"
+    ],
+    "flags": [
+      "SCEN_ONLY"
+    ]
   },
   {
     "type": "profession",
@@ -46,18 +143,102 @@
     "description": "You reread every volume of Berserk while zombies hammered on your apartment door and decided: 'If Guts could do it, so can I!' You may lack his strength, but you have a homemade copy of his sword, a stylish hoodie, and a bandana—everything you need to look the part. In this apocalypse you have a DREAM, even if you do not have much of a chance. Perhaps one day you too will be free.",
     "points": 4,
     "skills": [
-      { "level": 2, "name": "cutting" }
+      {
+        "level": 2,
+        "name": "cutting"
+      }
     ],
     "items": {
       "both": {
         "entries": [
-          { "item": "forged_guts_sword" },
-          { "item": "hoodie" },
-          { "item": "bandana" },
-          { "item": "boots" },
-          { "item": "jeans" },
-          { "item": "briefs" },
-          { "item": "socks" }
+          {
+            "item": "forged_guts_sword"
+          },
+          {
+            "item": "hoodie"
+          },
+          {
+            "item": "bandana"
+          },
+          {
+            "item": "boots"
+          },
+          {
+            "item": "jeans"
+          },
+          {
+            "item": "briefs"
+          },
+          {
+            "item": "socks"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "profession",
+    "id": "berserk_before_eclipse",
+    "name": "Berserker before the Eclipse",
+    "description": "You begin before the Eclipse, with both hands and eyes intact, an early true sword, leather-padded armor and a light barbute helm. There is no Brand, cannon or cursed armor at this start. Find a Behelit and face the Eclipse before seeking Flora and the armor. Starting in a world where the Eclipse already happened does not reset that world.",
+    "points": 6,
+    "traits": [
+      "ILLITERATE",
+      "TOUGH",
+      "ADRENALINE"
+    ],
+    "skills": [
+      {
+        "level": 0,
+        "name": "speech"
+      },
+      {
+        "level": 0,
+        "name": "firstaid"
+      },
+      {
+        "level": 6,
+        "name": "melee"
+      },
+      {
+        "level": 6,
+        "name": "cutting"
+      },
+      {
+        "level": 5,
+        "name": "bashing"
+      }
+    ],
+    "items": {
+      "both": {
+        "entries": [
+          {
+            "item": "true_guts_early_sword"
+          },
+          {
+            "item": "survivor_adhoc_leather_shirt"
+          },
+          {
+            "item": "survivor_adhoc_leather_sleeves"
+          },
+          {
+            "item": "survivor_adhoc_leather_pants"
+          },
+          {
+            "item": "gloves_leather"
+          },
+          {
+            "item": "helmet_barbute"
+          },
+          {
+            "item": "boots"
+          },
+          {
+            "item": "briefs"
+          },
+          {
+            "item": "socks"
+          }
         ]
       }
     }

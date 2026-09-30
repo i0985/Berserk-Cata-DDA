@@ -1,0 +1,109 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_flora_manor_west",
+    "name": "Flora's western manor",
+    "sym": "F",
+    "color": "light_green",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_flora_manor_east",
+    "name": "Flora's eastern manor",
+    "sym": "F",
+    "color": "light_green",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_flora_garden_west",
+    "name": "Flora's west garden",
+    "sym": "F",
+    "color": "light_green",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_flora_garden_east",
+    "name": "Flora's east garden",
+    "sym": "F",
+    "color": "light_green",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_flora_manor_special",
+    "occurrences": [
+      0,
+      100
+    ],
+    "flags": [
+      "GLOBALLY_UNIQUE"
+    ],
+    "rotate": false,
+    "//": "Created only by the quest locator; global coordinates prevent repeat creation. No spontaneous mansion copies in each overmap.",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_flora_manor_west",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          0,
+          0
+        ],
+        "overmap": "berserk_flora_manor_east",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "overmap": "berserk_flora_garden_west",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          1,
+          0
+        ],
+        "overmap": "berserk_flora_garden_east",
+        "locations": [
+          "forest"
+        ]
+      }
+    ]
+  }
+]

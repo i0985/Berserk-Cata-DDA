@@ -1,0 +1,37 @@
+[
+  {
+    "type": "ITEM",
+    "copy-from": "mc_zweihander",
+    "id": "true_guts_early_sword",
+    "name": {
+      "str_sp": "Guts' Early True Sword"
+    },
+    "description": "Guts' sword from before the Eclipse: a long blade shaped by years of battle, not the Dragonslayer. It hits harder than an ordinary steel greatsword but lacks the overwhelming damage of his later true sword. Like his later true sword, it has no forced two-handed restriction, so losing a hand does not make it unusable by definition.",
+    "weight": "1800 g",
+    "looks_like": "zweihander",
+    "flags": [
+      "DURABLE_MELEE",
+      "CONDUCTIVE",
+      "SHEATH_SWORD"
+    ],
+    "techniques": [
+      "WBLOCK_1",
+      "WIDE",
+      "BRUTAL"
+    ],
+    "melee_damage": {
+      "bash": 16,
+      "cut": 52
+    },
+    "qualities": [
+      [
+        "CUT",
+        1
+      ],
+      [
+        "BUTCHER",
+        2
+      ]
+    ]
+  }
+]

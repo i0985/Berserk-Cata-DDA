@@ -252,6 +252,18 @@
     "dynamic_line": "'A lesser apostle has taken root in a forest hollow. Its location will be marked on your map. Build a ward, prepare your arm cannon if you can, and choose when to hunt it. Its remains may point toward the next breach.'",
     "responses": [
       {
+        "text": "The first hunt is over. Where can I find Flora?",
+        "condition": {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_FLORA"
+      },
+      {
         "text": "I survived the first hunt. Show me the Count's trail.",
         "condition": {
           "math": [
@@ -295,6 +307,17 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_COUNT",
     "dynamic_line": "\"The Count is no projection. His fortified residence shelters men he remade with his flesh. Explore the wings, clear the servants, then descend beneath the northeastern execution hall. His death exposes one local wound; each apostle and each breach must be answered separately.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_FLORA",
+    "dynamic_line": "\"Seek Flora in her forest manor. She understands the mark you bear and the armor that can carry you beyond ordinary limits. If you already possess the entire armor, ask for counsel rather than another gift. Remember these directions; you need not keep me here to follow them.\"",
     "responses": [
       {
         "text": "Ask something else.",

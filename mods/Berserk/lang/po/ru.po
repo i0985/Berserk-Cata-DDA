@@ -2489,3 +2489,263 @@ msgstr "Режим Берсерка: осталось 180 секунд."
 #: effects/apostle_hunt_eocs.json
 msgid "Wear the Seal of Severed Flesh to add 20% of each damaging hit against the listed demons, apostles and projections; the extra damage is rounded down after their defenses. Zombies and people receive no extra damage. Closing the Count's exposed breach quiets future incursions near his residence, but does not erase the Brand. Other apostles must be hunted separately."
 msgstr "Наденьте Печать рассечённой плоти, чтобы добавлять 20% урона каждого успешного попадания по демонам, апостолам и проекциям из заданного списка; бонус рассчитывается после защиты и округляется вниз. Зомби и люди дополнительного урона не получают. Закрыв открывшийся прорыв Графа, вы ослабите будущие вторжения возле его резиденции, но Клеймо останется. Других апостолов придётся выслеживать отдельно."
+
+#: effects/flora_eocs.json
+msgid "Flora's manor is marked on your map. She can explain the Brand and the armor even if you already own a complete set."
+msgstr "Особняк Флоры отмечен на карте. Она расскажет о Клейме и доспехе, даже если полный комплект у вас уже есть."
+
+#: effects/flora_eocs.json
+msgid "Recover after the Eclipse and complete the first hunt, then ask the Skull Knight about Flora above ground."
+msgstr "Восстановитесь после Затмения и завершите первую охоту, затем на поверхности спросите Рыцаря-Черепа о Флоре."
+
+#: effects/flora_eocs.json
+msgid "A sheltered forest manor is marked on your map. Flora waits in the western study. Follow the garden paths; the house has western and southern exits."
+msgstr "Укрытый в лесу особняк отмечен на карте. Флора ждёт в западном кабинете. Идите по садовым дорожкам; из дома есть западный и южный выходы."
+
+#: effects/flora_eocs.json
+msgid "No suitable forest clearing was found nearby. Travel to another area and consult the Skull Knight or his directions again. No armor has been claimed."
+msgstr "Поблизости не нашлось подходящей лесной поляны. Переместитесь в другой район и снова обратитесь к Рыцарю-Черепу или его указаниям. Броня не была выдана."
+
+#: effects/flora_eocs.json
+msgid "Flora gives you the missing pieces of Berserker armor. Existing pieces are kept. The gift is offered once; check your inventory and the floor if you cannot carry it all. Nothing forces you to wear it."
+msgstr "Флора передаёт недостающие части доспеха Берсерка. Имеющиеся части остаются у вас. Дар выдаётся один раз; проверьте инвентарь и пол, если всё не помещается. Надевать его немедленно не обязательно."
+
+#: effects/flora_eocs.json
+msgid "Flora cannot offer another set now. You must have survived the Eclipse, speak to her in person, and not already possess a complete or packed set or have accepted her gift."
+msgstr "Сейчас Флора не может выдать ещё один комплект. Нужно пережить Затмение и говорить с ней лично; полный или упакованный комплект и уже принятый дар исключают повторную выдачу."
+
+#: effects/flora_eocs.json
+msgid "You begin after the Eclipse: the Brand, lost eye and prosthetic arm are already part of your body, and the new era has begun. The Eclipse cannot be entered again. Speak to the Skull Knight and prepare for your first hunt."
+msgstr "Вы начинаете после Затмения: Клеймо, потерянный глаз и протез уже стали частью вашей жизни, а новая эпоха началась. Вернуться в Затмение нельзя. Поговорите с Рыцарем-Черепом и готовьтесь к первой охоте."
+
+#: monsters/flora.json
+msgid "Flora"
+msgstr "Флора"
+
+#: monsters/flora.json
+msgid "A wise witch tending a quiet sanctuary in the forest. She can explain the Brand and the cursed armor. This story actor remains where she is and will not attack you or your companions."
+msgstr "Мудрая ведьма хранит тихое убежище в лесу. Она расскажет о Клейме и проклятом доспехе. Этот сюжетный собеседник остаётся на месте и не нападает на вас или ваших спутников."
+
+#: furniture/flora.json
+msgid "Flora's sanctuary ward"
+msgstr "оберег убежища Флоры"
+
+#: furniture/flora.json
+msgid "A ring of pale stones and living roots anchors the quiet grove. While the manor remains peaceful, it suppresses new era encounters nearby and the Brand's night summons. It does not remove demons already present or the armor's shadows."
+msgstr "Кольцо светлых камней и живых корней поддерживает покой рощи. Пока особняк мирный, поблизости подавляются новые встречи эпохи и ночные призывы Клейма. Уже появившиеся демоны и тени от брони не исчезают."
+
+#: overmap/flora_manor.json
+msgid "Flora's western manor"
+msgstr "западное крыло особняка Флоры"
+
+#: overmap/flora_manor.json
+msgid "Flora's eastern manor"
+msgstr "восточное крыло особняка Флоры"
+
+#: overmap/flora_manor.json
+msgid "Flora's west garden"
+msgstr "западный сад Флоры"
+
+#: overmap/flora_manor.json
+msgid "Flora's east garden"
+msgstr "восточный сад Флоры"
+
+#: items/flora_directions.json
+msgid "the Skull Knight's directions to Flora"
+msgstr "указания Рыцаря-Черепа к Флоре"
+
+#: items/flora_directions.json
+msgid "Remembered directions to a secluded forest manor. Activate them after the first hunt to locate Flora or reveal the same manor again. They are memories, not a book, and can be used without knowing how to read."
+msgstr "Запомнившиеся указания к укромному лесному особняку. Активируйте их после первой охоты, чтобы найти Флору или вновь отметить тот же особняк. Это воспоминания, а не книга: читать уметь не нужно."
+
+#: items/flora_directions.json
+msgid "Recall the way to Flora"
+msgstr "Вспомнить путь к Флоре"
+
+#: dialogue/skull_knight.json
+msgid "The first hunt is over. Where can I find Flora?"
+msgstr "Первая охота завершена. Где найти Флору?"
+
+#: dialogue/skull_knight.json
+msgid "\"Seek Flora in her forest manor. She understands the mark you bear and the armor that can carry you beyond ordinary limits. If you already possess the entire armor, ask for counsel rather than another gift. Remember these directions; you need not keep me here to follow them.\""
+msgstr "«Ищи Флору в её лесном особняке. Она понимает твоё Клеймо и доспех, который позволяет выйти за человеческие пределы. Если у тебя уже весь комплект, проси совета, а не второго дара. Запомни путь: меня не нужно удерживать рядом, чтобы найти её»."
+
+#: dialogue/flora.json
+msgid "What does the Brand mean, and why do things come at night?"
+msgstr "Что означает Клеймо и почему твари приходят ночью?"
+
+#: dialogue/flora.json
+msgid "What is the Berserker armor?"
+msgstr "Что представляет собой доспех Берсерка?"
+
+#: dialogue/flora.json
+msgid "What price will I pay for Berserk mode?"
+msgstr "Какую цену я заплачу за режим Берсерка?"
+
+#: dialogue/flora.json
+msgid "What are apostles, projections and the God Hand?"
+msgstr "Кто такие апостолы, проекции и Рука Бога?"
+
+#: dialogue/flora.json
+msgid "Can a trophy taken from an apostle help me?"
+msgstr "Может ли трофей апостола помочь мне?"
+
+#: dialogue/flora.json
+msgid "What should I do next?"
+msgstr "Что мне делать дальше?"
+
+#: dialogue/flora.json
+msgid "I already have all six pieces, or the packed armor."
+msgstr "У меня уже есть все шесть частей или упакованный комплект."
+
+#: dialogue/flora.json
+msgid "Will you entrust the armor to me?"
+msgstr "Ты доверишь мне доспех?"
+
+#: dialogue/flora.json
+msgid "You already helped me with the armor."
+msgstr "Ты уже помогла мне с доспехом."
+
+#: dialogue/flora.json
+msgid "Has the armor already been given away?"
+msgstr "Доспех уже кому-то передан?"
+
+#: dialogue/flora.json
+msgid "I will return when I am ready."
+msgstr "Я вернусь, когда буду готов."
+
+#: dialogue/flora.json
+msgid "\"You have found a quiet place, traveler. Here you may ask before you choose. A suit of armor is not a cure for a wounded soul, and possessing it is not the end of your road.\""
+msgstr "«Ты нашёл тихое место, путник. Здесь можно спросить, прежде чем выбирать. Доспех не исцеляет раненую душу, а обладание им не заканчивает твой путь»."
+
+#: dialogue/flora.json
+msgid "\"The Brand calls to beings beyond the ordinary world. Its pain can warn of a nearby presence, but it gives neither a name nor a direction. After dark, prepare cover and a way out. A bone and stone ward quiets its summons within eight tiles; it cannot banish creatures already there. This grove also offers a limited respite while it remains peaceful.\""
+msgstr "«Клеймо зовёт существ из-за пределов обычного мира. Его боль предупреждает о присутствии поблизости, но не сообщает ни имени, ни направления. Ночью готовь укрытие и путь к отходу. Оберег из костей и камня подавляет призывы в восьми клетках, но уже пришедших тварей не изгоняет. Эта роща тоже даёт ограниченную передышку, пока здесь мирно»."
+
+#: dialogue/flora.json
+msgid "\"The armor forces a wounded body onward and gives strength, but wearing it builds tension. Your senses falter, and shadows gather. It is not draining blood continuously anymore; the great loss comes when Berserk mode ends. You may wear ordinary clothing beneath the separate pieces. A packed suit must be unpacked before it can be worn.\""
+msgstr "«Доспех гонит раненое тело вперёд и даёт силу, но его ношение накапливает напряжение. Чувства ослабевают, тени собираются. Теперь кровь не уходит непрерывно: большая потеря наступает при завершении режима Берсерка. Под отдельными частями можно носить обычную одежду. Упакованный комплект сначала нужно разобрать»."
+
+#: dialogue/flora.json
+msgid "\"Without a Beast Knot, the rage lasts 150 seconds. A Knot worn before it begins extends it to 210; putting it on during the rage does not. When it ends, stamina is emptied, blood volume falls and a three-day recovery follows. Taking off the armor ends the rush, not its price. Heed the warning window and countdown. Prepare your retreat before losing control.\""
+msgstr "«Без Узла Зверя ярость длится 150 секунд. Узел, надетый до её начала, продлевает её до 210; надевание во время ярости не поможет. После окончания выносливость иссякает, запас крови падает и наступает трёхдневное восстановление. Сняв доспех, ты остановишь вспышку, но не отменишь цену. Следи за предупреждающим окном и отсчётом. Готовь отступление до потери контроля»."
+
+#: dialogue/flora.json
+msgid "\"An apostle has a body and a will of its own. A projection is an echo: destroying it does not kill the original. The God Hand preside over sacrifice and are not ordinary prey. Judge the creature before you, not merely a familiar name. A residence, servants and traces of victims can tell you more than a rumor.\""
+msgstr "«У апостола есть своё тело и воля. Проекция — отголосок: её разрушение не убивает оригинал. Рука Бога распоряжается жертвоприношением, это не обычная добыча. Судить нужно о существе перед тобой, а не только о знакомом имени. Резиденция, слуги и следы жертв расскажут больше слухов»."
+
+#: dialogue/flora.json
+msgid "\"A trophy is not a universal crystal that washes every curse away. The Count's Seal of Severed Flesh adds damage against a specific list of demons only while worn. Other relics have their own limits. They can support a choice, but cannot replace preparation or undo the Brand.\""
+msgstr "«Трофей — не универсальный кристалл, смывающий любое проклятие. Печать рассечённой плоти Графа усиливает урон лишь по определённому списку демонов и только когда надета. У других реликвий свои ограничения. Они могут поддержать твой выбор, но не заменят подготовку и не отменят Клеймо»."
+
+#: dialogue/flora.json
+msgid "Mark the Count's trail."
+msgstr "Отметь путь к Графу."
+
+#: dialogue/flora.json
+msgid "\"Keep a defensible refuge and learn to use the prosthetic arm cannon before seeking a greater enemy. After the first hunt, the Count's residence is a separate trail; the Skull Knight or your hunt journal can mark it. Explore both wings, defeat the servants, then descend beneath the northeastern hall. His death exposes a breach that must be closed separately. Do not rush from my door straight into his.\""
+msgstr "«Сохраняй защищённое убежище и освой протезную руку-пушку, прежде чем идти на сильного врага. После первой охоты отдельный след ведёт к резиденции Графа; Рыцарь-Череп или дневник охоты отметят её. Исследуй оба крыла, разбей слуг и спустись под северо-восточный зал. Его смерть обнажает прорыв, который нужно закрыть отдельно. Не бросайся от моего порога прямо к его»."
+
+#: dialogue/flora.json
+msgid "\"Then there is no need for a second suit. Whether you carry the packed armor or its six separate parts, keep what is yours. We may still speak of its dangers and your next journey. Owning the armor does not close my door to you.\""
+msgstr "«Тогда второй доспех тебе не нужен. Упакован он или состоит из шести отдельных частей — сохраняй то, что уже твоё. Мы всё равно можем поговорить об опасностях и следующем пути. Обладание доспехом не закрывает перед тобой мою дверь»."
+
+#: dialogue/flora.json
+msgid "I understand. Entrust the missing armor to me."
+msgstr "Я понимаю. Передай мне недостающие части."
+
+#: dialogue/flora.json
+msgid "Not yet. I want to ask more first."
+msgstr "Пока нет. Сначала я хочу узнать больше."
+
+#: dialogue/flora.json
+msgid "\"I can entrust the missing parts to you once. A helmet or gauntlet found elsewhere does not disqualify you; I will not duplicate it. Accept only after you understand the tension, shadows and the blood price of the rage. You need not wear the armor immediately.\""
+msgstr "«Я могу один раз доверить тебе недостающие части. Найденный в другом месте шлем или перчатки не лишают тебя этой возможности; я просто не стану их дублировать. Принимай дар, лишь поняв напряжение, тени и кровавую цену ярости. Надевать доспех сразу не обязательно»."
+
+#: dialogue/flora.json
+msgid "\"Make your preparations deliberately. I will not take your existing armor or force you into the new pieces. If they are too heavy to carry, check the floor nearby. You may return with questions; this meeting does not send you into a battle without a choice.\""
+msgstr "«Готовься обдуманно. Я не отберу имеющийся доспех и не заставлю надеть новые части. Если они не помещаются, проверь пол поблизости. Можешь вернуться с вопросами: эта встреча не отправит тебя в бой без выбора»."
+
+#: dialogue/flora.json
+msgid "\"The armor I guarded has already been entrusted to a traveler. I cannot conjure endless copies. My counsel and these paths remain open to you.\""
+msgstr "«Хранимый мной доспех уже доверен путнику. Я не могу создавать бесконечные копии. Но мой совет и эти пути остаются для тебя открытыми»."
+
+#: professions/professions.json
+msgctxt "profession_male"
+msgid "Berserker after the Eclipse"
+msgstr "Берсерк после Затмения"
+
+#: professions/professions.json
+msgctxt "profession_female"
+msgid "Berserker after the Eclipse"
+msgstr "Берсерк после Затмения"
+
+#: professions/professions.json
+msgctxt "prof_desc_male"
+msgid "You begin after the Eclipse with the true sword and all six pieces of Berserker armor. Your left hand carries an installed prosthetic arm cannon; an eye is lost, and the Brand of Sacrifice calls to demons. The Eclipse is already behind you and the new era is active. Speak to the Skull Knight, establish a refuge and follow the first hunt."
+msgstr "Вы начинаете после Затмения с истинным мечом и всеми шестью частями доспеха Берсерка. На месте левой кисти установлена рука-пушка; глаз потерян, а Клеймо жертвы зовёт демонов. Затмение уже позади, новая эпоха активна. Поговорите с Рыцарем-Черепом, обустройте убежище и идите по следу первой охоты."
+
+#: professions/professions.json
+msgctxt "prof_desc_female"
+msgid "You begin after the Eclipse with the true sword and all six pieces of Berserker armor. Your left hand carries an installed prosthetic arm cannon; an eye is lost, and the Brand of Sacrifice calls to demons. The Eclipse is already behind you and the new era is active. Speak to the Skull Knight, establish a refuge and follow the first hunt."
+msgstr "Вы начинаете после Затмения с истинным мечом и всеми шестью частями доспеха Берсерка. На месте левой кисти установлена рука-пушка; глаз потерян, а Клеймо жертвы зовёт демонов. Затмение уже позади, новая эпоха активна. Поговорите с Рыцарем-Черепом, обустройте убежище и идите по следу первой охоты."
+
+#: professions/professions.json
+msgctxt "profession_male"
+msgid "Berserker before the Eclipse"
+msgstr "Берсерк до Затмения"
+
+#: professions/professions.json
+msgctxt "profession_female"
+msgid "Berserker before the Eclipse"
+msgstr "Берсерк до Затмения"
+
+#: professions/professions.json
+msgctxt "prof_desc_male"
+msgid "You begin before the Eclipse, with both hands and eyes intact, an early true sword, leather-padded armor and a light barbute helm. There is no Brand, cannon or cursed armor at this start. Find a Behelit and face the Eclipse before seeking Flora and the armor. Starting in a world where the Eclipse already happened does not reset that world."
+msgstr "Вы начинаете до Затмения с целыми руками и глазами, ранним истинным мечом, кожаным защитным комплектом и лёгким шлемом-барбютом. В этом старте нет Клейма, пушки и проклятого доспеха. Найдите Бехелит и переживите Затмение, прежде чем искать Флору и броню. Старт в мире, где Затмение уже произошло, не сбрасывает его историю."
+
+#: professions/professions.json
+msgctxt "prof_desc_female"
+msgid "You begin before the Eclipse, with both hands and eyes intact, an early true sword, leather-padded armor and a light barbute helm. There is no Brand, cannon or cursed armor at this start. Find a Behelit and face the Eclipse before seeking Flora and the armor. Starting in a world where the Eclipse already happened does not reset that world."
+msgstr "Вы начинаете до Затмения с целыми руками и глазами, ранним истинным мечом, кожаным защитным комплектом и лёгким шлемом-барбютом. В этом старте нет Клейма, пушки и проклятого доспеха. Найдите Бехелит и переживите Затмение, прежде чем искать Флору и броню. Старт в мире, где Затмение уже произошло, не сбрасывает его историю."
+
+#: items/true_guts_early_sword.json
+msgid "Guts' Early True Sword"
+msgstr "Ранний истинный меч Гатса"
+
+#: items/true_guts_early_sword.json
+msgid "Guts' sword from before the Eclipse: a long, disciplined two-handed blade, not the Dragonslayer. It hits harder than an ordinary steel greatsword but lacks the overwhelming damage of his later true sword. This is the weapon of the before-Eclipse start."
+msgstr "Меч Гатса до Затмения: длинный двуручный клинок, ещё не Убийца драконов. Он бьёт сильнее обычного стального двуручника, но уступает сокрушительному урону позднего истинного меча. Это оружие старта до Затмения."
+
+#: scenarios/berserk_story_starts.json
+msgctxt "scenario_male"
+msgid "(BERSERK) Before or after the Eclipse"
+msgstr "(BERSERK) До или после Затмения"
+
+#: scenarios/berserk_story_starts.json
+msgctxt "scenario_female"
+msgid "(BERSERK) Before or after the Eclipse"
+msgstr "(BERSERK) До или после Затмения"
+
+#: scenarios/berserk_story_starts.json
+msgctxt "scen_desc_male"
+msgid "Choose the beginning of your road: before the sacrifice with ordinary leather armor, or after it with the Brand, prosthetic arm cannon and the cursed suit. The before-Eclipse profession does not rewind a world whose new era has already begun."
+msgstr "Выберите начало пути: до жертвоприношения, в обычной кожаной броне, или после него — с Клеймом, рукой-пушкой и проклятым доспехом. Профессия до Затмения не возвращает назад мир, в котором новая эпоха уже началась."
+
+#: scenarios/berserk_story_starts.json
+msgctxt "scen_desc_female"
+msgid "Choose the beginning of your road: before the sacrifice with ordinary leather armor, or after it with the Brand, prosthetic arm cannon and the cursed suit. The before-Eclipse profession does not rewind a world whose new era has already begun."
+msgstr "Выберите начало пути: до жертвоприношения, в обычной кожаной броне, или после него — с Клеймом, рукой-пушкой и проклятым доспехом. Профессия до Затмения не возвращает назад мир, в котором новая эпоха уже началась."
+
+#: items/true_guts_early_sword.json
+msgid "Guts' sword from before the Eclipse: a long blade shaped by years of battle, not the Dragonslayer. It hits harder than an ordinary steel greatsword but lacks the overwhelming damage of his later true sword. Like his later true sword, it has no forced two-handed restriction, so losing a hand does not make it unusable by definition."
+msgstr "Меч Гатса до Затмения: длинный клинок, прошедший годы сражений, ещё не Убийца драконов. Он бьёт сильнее обычного стального двуручника, но уступает позднему истинному мечу. Как и поздний истинный меч, он не имеет обязательного двуручного ограничения: потеря кисти сама по себе не делает его непригодным."
+
+#: effects/local_breach_eocs.json
+msgid "Follow the Skull Knight's remembered directions to Flora?"
+msgstr "Вспомнить указания Рыцаря-Черепа и найти Флору?"
+
+#: items/post_eclipse_journal.json
+msgid "The first sealed breach opened several paths. Activate this journal to follow the Skull Knight's remembered directions to Flora, consider protecting a refuge, or trace the Count's residence. His hunt has its own record and local breach."
+msgstr "Первый закрытый прорыв открыл несколько путей. Активируйте дневник, чтобы вспомнить указания Рыцаря-Черепа к Флоре, обдумать защиту убежища или найти резиденцию Графа. Его охота и местный прорыв учитываются отдельно."

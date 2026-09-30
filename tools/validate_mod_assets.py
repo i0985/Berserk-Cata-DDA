@@ -155,7 +155,7 @@ def validate_translation_catalogs(package: Path) -> int:
     """Ensure the release contains usable catalogs for both non-English locales."""
     mod_id = package.name
     example = (
-        ("profession_male", "Berserker")
+        ("profession_male", "Berserker after the Eclipse")
         if mod_id == CONTENT_MOD_ID
         else (None, "Berserk: Extended tileset (Chibi / MSX+ / Undead)")
     )

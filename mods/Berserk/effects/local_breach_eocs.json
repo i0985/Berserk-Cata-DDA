@@ -194,44 +194,53 @@
     },
     "effect": {
       "if": {
-        "u_query": "Record a promise to defend a refuge and its people?",
+        "u_query": "Follow the Skull Knight's remembered directions to Flora?",
         "default": false
       },
-      "then": [
-        {
-          "math": [
-            "u_berserk_path_choice = 1"
-          ]
-        },
-        {
-          "u_message": "You choose to protect a refuge and those who reach it. The journal keeps this intention for a future chapter.",
-          "type": "good",
-          "popup": true
-        }
-      ],
+      "then": {
+        "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
+      },
       "else": {
         "if": {
-          "u_query": "Record a vow to pursue the next apostle instead?",
+          "u_query": "Record a promise to defend a refuge and its people?",
           "default": false
         },
         "then": [
           {
             "math": [
-              "u_berserk_path_choice = 2"
+              "u_berserk_path_choice = 1"
             ]
           },
           {
-            "u_message": "You choose to pursue the next apostle. The journal now traces the Count's residence; you can return to this trail even if the Skull Knight has departed.",
+            "u_message": "You choose to protect a refuge and those who reach it. The journal keeps this intention for a future chapter.",
             "type": "good",
             "popup": true
-          },
-          {
-            "run_eocs": "EOC_BERSERK_COUNT_SEEK"
           }
         ],
         "else": {
-          "u_message": "You close the journal without changing your path.",
-          "type": "info"
+          "if": {
+            "u_query": "Record a vow to pursue the next apostle instead?",
+            "default": false
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_path_choice = 2"
+              ]
+            },
+            {
+              "u_message": "You choose to pursue the next apostle. The journal now traces the Count's residence; you can return to this trail even if the Skull Knight has departed.",
+              "type": "good",
+              "popup": true
+            },
+            {
+              "run_eocs": "EOC_BERSERK_COUNT_SEEK"
+            }
+          ],
+          "else": {
+            "u_message": "You close the journal without changing your path.",
+            "type": "info"
+          }
         }
       }
     },

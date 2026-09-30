@@ -2374,3 +2374,263 @@ msgstr "狂战士模式：剩余180秒。"
 #: effects/apostle_hunt_eocs.json
 msgid "Wear the Seal of Severed Flesh to add 20% of each damaging hit against the listed demons, apostles and projections; the extra damage is rounded down after their defenses. Zombies and people receive no extra damage. Closing the Count's exposed breach quiets future incursions near his residence, but does not erase the Brand. Other apostles must be hunted separately."
 msgstr "佩戴裂肉之印后，对指定列表中的恶魔、使徒及投影，每次造成伤害的命中额外造成20%伤害，按防御结算后的数值向下取整。丧尸和人类不受额外伤害。关闭伯爵暴露的裂隙可减弱其宅邸附近的后续入侵，但不会消除烙印。其他使徒仍须分别猎杀。"
+
+#: effects/flora_eocs.json
+msgid "Flora's manor is marked on your map. She can explain the Brand and the armor even if you already own a complete set."
+msgstr "芙罗拉的宅邸已标在地图上。即使你已有完整铠甲，她仍能解释烙印与铠甲。"
+
+#: effects/flora_eocs.json
+msgid "Recover after the Eclipse and complete the first hunt, then ask the Skull Knight about Flora above ground."
+msgstr "从蚀中恢复并完成第一次狩猎后，在地表向骷髅骑士询问芙罗拉。"
+
+#: effects/flora_eocs.json
+msgid "A sheltered forest manor is marked on your map. Flora waits in the western study. Follow the garden paths; the house has western and southern exits."
+msgstr "地图上标出了一座隐蔽的林间宅邸。芙罗拉在西侧书房等候。沿花园小径前行；房屋有西门和南门。"
+
+#: effects/flora_eocs.json
+msgid "No suitable forest clearing was found nearby. Travel to another area and consult the Skull Knight or his directions again. No armor has been claimed."
+msgstr "附近没有合适的林间空地。换个地区，再向骷髅骑士询问或查看他的指引。尚未领取铠甲。"
+
+#: effects/flora_eocs.json
+msgid "Flora gives you the missing pieces of Berserker armor. Existing pieces are kept. The gift is offered once; check your inventory and the floor if you cannot carry it all. Nothing forces you to wear it."
+msgstr "芙罗拉将缺少的狂战士铠甲部件交给你，已有部件会保留。此赠礼只能领取一次；若带不下，请查看物品栏和地面。你不必立刻穿上它。"
+
+#: effects/flora_eocs.json
+msgid "Flora cannot offer another set now. You must have survived the Eclipse, speak to her in person, and not already possess a complete or packed set or have accepted her gift."
+msgstr "芙罗拉现在无法再赠送一套。你必须已从蚀中生还并当面与她交谈；持有完整或打包铠甲，或已领取赠礼，都会阻止重复领取。"
+
+#: effects/flora_eocs.json
+msgid "You begin after the Eclipse: the Brand, lost eye and prosthetic arm are already part of your body, and the new era has begun. The Eclipse cannot be entered again. Speak to the Skull Knight and prepare for your first hunt."
+msgstr "你从蚀之后开始：烙印、失去的眼睛和义肢已是你身体的一部分，新时代也已开始。无法再次进入蚀。与骷髅骑士交谈，为第一次狩猎做准备。"
+
+#: monsters/flora.json
+msgid "Flora"
+msgstr "芙罗拉"
+
+#: monsters/flora.json
+msgid "A wise witch tending a quiet sanctuary in the forest. She can explain the Brand and the cursed armor. This story actor remains where she is and will not attack you or your companions."
+msgstr "守护林间宁静庇护所的睿智女巫。她能解释烙印与诅咒铠甲。这个剧情角色会留在原地，不会攻击你或你的同伴。"
+
+#: furniture/flora.json
+msgid "Flora's sanctuary ward"
+msgstr "芙罗拉的庇护结界"
+
+#: furniture/flora.json
+msgid "A ring of pale stones and living roots anchors the quiet grove. While the manor remains peaceful, it suppresses new era encounters nearby and the Brand's night summons. It does not remove demons already present or the armor's shadows."
+msgstr "浅色石块与活根构成圆环，维系着林地的宁静。宅邸和平时，会抑制附近新时代遭遇和烙印的夜间召唤，但不会清除已有恶魔或铠甲产生的暗影。"
+
+#: overmap/flora_manor.json
+msgid "Flora's western manor"
+msgstr "芙罗拉宅邸西翼"
+
+#: overmap/flora_manor.json
+msgid "Flora's eastern manor"
+msgstr "芙罗拉宅邸东翼"
+
+#: overmap/flora_manor.json
+msgid "Flora's west garden"
+msgstr "芙罗拉的西花园"
+
+#: overmap/flora_manor.json
+msgid "Flora's east garden"
+msgstr "芙罗拉的东花园"
+
+#: items/flora_directions.json
+msgid "the Skull Knight's directions to Flora"
+msgstr "骷髅骑士留下的芙罗拉指引"
+
+#: items/flora_directions.json
+msgid "Remembered directions to a secluded forest manor. Activate them after the first hunt to locate Flora or reveal the same manor again. They are memories, not a book, and can be used without knowing how to read."
+msgstr "通往隐蔽林间宅邸的记忆指引。第一次狩猎后激活，可寻找芙罗拉或再次标出同一座宅邸。这是记忆而非书本，不识字也能使用。"
+
+#: items/flora_directions.json
+msgid "Recall the way to Flora"
+msgstr "回想通往芙罗拉的路"
+
+#: dialogue/skull_knight.json
+msgid "The first hunt is over. Where can I find Flora?"
+msgstr "第一次狩猎结束了。我在哪里能找到芙罗拉？"
+
+#: dialogue/skull_knight.json
+msgid "\"Seek Flora in her forest manor. She understands the mark you bear and the armor that can carry you beyond ordinary limits. If you already possess the entire armor, ask for counsel rather than another gift. Remember these directions; you need not keep me here to follow them.\""
+msgstr "“去林间宅邸寻找芙罗拉。她了解你的烙印，也了解能让你超越凡人极限的铠甲。若你已有全套铠甲，就寻求指点，而不是另一份赠礼。记住这些指引；不必把我留在身边也能找到她。”"
+
+#: dialogue/flora.json
+msgid "What does the Brand mean, and why do things come at night?"
+msgstr "烙印意味着什么？为何怪物会在夜里出现？"
+
+#: dialogue/flora.json
+msgid "What is the Berserker armor?"
+msgstr "狂战士铠甲是什么？"
+
+#: dialogue/flora.json
+msgid "What price will I pay for Berserk mode?"
+msgstr "狂战士模式要付出什么代价？"
+
+#: dialogue/flora.json
+msgid "What are apostles, projections and the God Hand?"
+msgstr "使徒、投影与神之手有何区别？"
+
+#: dialogue/flora.json
+msgid "Can a trophy taken from an apostle help me?"
+msgstr "从使徒身上取得的战利品能帮助我吗？"
+
+#: dialogue/flora.json
+msgid "What should I do next?"
+msgstr "我下一步该做什么？"
+
+#: dialogue/flora.json
+msgid "I already have all six pieces, or the packed armor."
+msgstr "我已有全部六件部件，或打包好的铠甲。"
+
+#: dialogue/flora.json
+msgid "Will you entrust the armor to me?"
+msgstr "你愿意把铠甲交给我吗？"
+
+#: dialogue/flora.json
+msgid "You already helped me with the armor."
+msgstr "你已经帮我取得铠甲了。"
+
+#: dialogue/flora.json
+msgid "Has the armor already been given away?"
+msgstr "铠甲已经赠给别人了吗？"
+
+#: dialogue/flora.json
+msgid "I will return when I am ready."
+msgstr "准备好后我会再来。"
+
+#: dialogue/flora.json
+msgid "\"You have found a quiet place, traveler. Here you may ask before you choose. A suit of armor is not a cure for a wounded soul, and possessing it is not the end of your road.\""
+msgstr "“旅人，你找到了一处宁静之地。在做出选择前，你可以先问清楚。铠甲并不能治愈受伤的灵魂，拥有它也不是旅途的终点。”"
+
+#: dialogue/flora.json
+msgid "\"The Brand calls to beings beyond the ordinary world. Its pain can warn of a nearby presence, but it gives neither a name nor a direction. After dark, prepare cover and a way out. A bone and stone ward quiets its summons within eight tiles; it cannot banish creatures already there. This grove also offers a limited respite while it remains peaceful.\""
+msgstr "“烙印会召唤超出常世的存在。它的疼痛能警告你附近有东西，却不会给出名称或方向。入夜后要准备掩体和退路。骨石结界可抑制八格范围内的召唤，却不能驱逐已经到来的怪物。这片林地和平时也能提供有限的喘息机会。”"
+
+#: dialogue/flora.json
+msgid "\"The armor forces a wounded body onward and gives strength, but wearing it builds tension. Your senses falter, and shadows gather. It is not draining blood continuously anymore; the great loss comes when Berserk mode ends. You may wear ordinary clothing beneath the separate pieces. A packed suit must be unpacked before it can be worn.\""
+msgstr "“铠甲驱使受伤的身体继续前进，并赋予力量，但穿着会积累紧张。感官会衰弱，暗影会聚集。现在它不会持续放血；大量失血发生在狂战士模式结束时。各部件下面可以穿普通衣物。打包铠甲必须先拆开才能穿。”"
+
+#: dialogue/flora.json
+msgid "\"Without a Beast Knot, the rage lasts 150 seconds. A Knot worn before it begins extends it to 210; putting it on during the rage does not. When it ends, stamina is emptied, blood volume falls and a three-day recovery follows. Taking off the armor ends the rush, not its price. Heed the warning window and countdown. Prepare your retreat before losing control.\""
+msgstr "“没有野兽之结时，狂怒持续150秒。开始前佩戴兽结可延长至210秒，狂怒中途佩戴则无效。结束后耐力耗尽、血容量下降，并进入三天恢复期。脱下铠甲能结束爆发，却不能免除代价。留意警告窗口和倒计时；失控之前就准备好退路。”"
+
+#: dialogue/flora.json
+msgid "\"An apostle has a body and a will of its own. A projection is an echo: destroying it does not kill the original. The God Hand preside over sacrifice and are not ordinary prey. Judge the creature before you, not merely a familiar name. A residence, servants and traces of victims can tell you more than a rumor.\""
+msgstr "“使徒有自己的身体与意志。投影只是回声，摧毁它不会杀死本体。神之手主持献祭，并非普通猎物。判断眼前的存在，而不只是熟悉的名字。宅邸、仆从与受害者的痕迹，比传闻更能说明问题。”"
+
+#: dialogue/flora.json
+msgid "\"A trophy is not a universal crystal that washes every curse away. The Count's Seal of Severed Flesh adds damage against a specific list of demons only while worn. Other relics have their own limits. They can support a choice, but cannot replace preparation or undo the Brand.\""
+msgstr "“战利品不是能洗净所有诅咒的万能水晶。伯爵的裂肉之印仅在佩戴时，对指定列表中的恶魔增加伤害。其他遗物也各有界限。它们能帮助你的选择，却无法代替准备，更不能消除烙印。”"
+
+#: dialogue/flora.json
+msgid "Mark the Count's trail."
+msgstr "标出伯爵的踪迹。"
+
+#: dialogue/flora.json
+msgid "\"Keep a defensible refuge and learn to use the prosthetic arm cannon before seeking a greater enemy. After the first hunt, the Count's residence is a separate trail; the Skull Knight or your hunt journal can mark it. Explore both wings, defeat the servants, then descend beneath the northeastern hall. His death exposes a breach that must be closed separately. Do not rush from my door straight into his.\""
+msgstr "“保住可防守的庇护所，学会使用义肢臂炮，再追寻更强的敌人。第一次狩猎后，另一条线索通往伯爵宅邸；骷髅骑士或狩猎日志可以标出它。探索两翼、击败仆从，再下到东北大厅之下。他死后暴露的裂隙仍须另行封闭。不要刚离开我的门，就冲进他的门。”"
+
+#: dialogue/flora.json
+msgid "\"Then there is no need for a second suit. Whether you carry the packed armor or its six separate parts, keep what is yours. We may still speak of its dangers and your next journey. Owning the armor does not close my door to you.\""
+msgstr "“那就不需要第二套铠甲了。无论是打包的，还是六件分开的部件，都保留属于你的东西。我们仍可讨论它的危险和接下来的旅程。拥有铠甲不会让我的门对你关闭。”"
+
+#: dialogue/flora.json
+msgid "I understand. Entrust the missing armor to me."
+msgstr "我明白。请把缺少的铠甲交给我。"
+
+#: dialogue/flora.json
+msgid "Not yet. I want to ask more first."
+msgstr "还没有。我想先问清楚。"
+
+#: dialogue/flora.json
+msgid "\"I can entrust the missing parts to you once. A helmet or gauntlet found elsewhere does not disqualify you; I will not duplicate it. Accept only after you understand the tension, shadows and the blood price of the rage. You need not wear the armor immediately.\""
+msgstr "“我能把缺少的部件交给你一次。别处找到的头盔或手套不会使你失去资格，只是不会重复赠送。理解紧张、暗影与狂怒的失血代价后再接受。你不必立刻穿上铠甲。”"
+
+#: dialogue/flora.json
+msgid "\"Make your preparations deliberately. I will not take your existing armor or force you into the new pieces. If they are too heavy to carry, check the floor nearby. You may return with questions; this meeting does not send you into a battle without a choice.\""
+msgstr "“认真做好准备。我不会拿走你已有的铠甲，也不会强迫你穿上新部件。若带不下，请查看附近地面。你可以回来继续提问；这次会面不会让你毫无选择地被送入战斗。”"
+
+#: dialogue/flora.json
+msgid "\"The armor I guarded has already been entrusted to a traveler. I cannot conjure endless copies. My counsel and these paths remain open to you.\""
+msgstr "“我守护的铠甲已交给一位旅人。我不能凭空制造无尽的复制品，但我的建议与这些道路仍向你开放。”"
+
+#: professions/professions.json
+msgctxt "profession_male"
+msgid "Berserker after the Eclipse"
+msgstr "蚀后的狂战士"
+
+#: professions/professions.json
+msgctxt "profession_female"
+msgid "Berserker after the Eclipse"
+msgstr "蚀后的狂战士"
+
+#: professions/professions.json
+msgctxt "prof_desc_male"
+msgid "You begin after the Eclipse with the true sword and all six pieces of Berserker armor. Your left hand carries an installed prosthetic arm cannon; an eye is lost, and the Brand of Sacrifice calls to demons. The Eclipse is already behind you and the new era is active. Speak to the Skull Knight, establish a refuge and follow the first hunt."
+msgstr "你从蚀之后开始，持有真正的大剑与全部六件狂战士铠甲。左手已装上义肢臂炮，一只眼睛失去，牺牲烙印会召来恶魔。蚀已经过去，新时代已开启。与骷髅骑士交谈，建立庇护所，再追寻第一次狩猎。"
+
+#: professions/professions.json
+msgctxt "prof_desc_female"
+msgid "You begin after the Eclipse with the true sword and all six pieces of Berserker armor. Your left hand carries an installed prosthetic arm cannon; an eye is lost, and the Brand of Sacrifice calls to demons. The Eclipse is already behind you and the new era is active. Speak to the Skull Knight, establish a refuge and follow the first hunt."
+msgstr "你从蚀之后开始，持有真正的大剑与全部六件狂战士铠甲。左手已装上义肢臂炮，一只眼睛失去，牺牲烙印会召来恶魔。蚀已经过去，新时代已开启。与骷髅骑士交谈，建立庇护所，再追寻第一次狩猎。"
+
+#: professions/professions.json
+msgctxt "profession_male"
+msgid "Berserker before the Eclipse"
+msgstr "蚀前的狂战士"
+
+#: professions/professions.json
+msgctxt "profession_female"
+msgid "Berserker before the Eclipse"
+msgstr "蚀前的狂战士"
+
+#: professions/professions.json
+msgctxt "prof_desc_male"
+msgid "You begin before the Eclipse, with both hands and eyes intact, an early true sword, leather-padded armor and a light barbute helm. There is no Brand, cannon or cursed armor at this start. Find a Behelit and face the Eclipse before seeking Flora and the armor. Starting in a world where the Eclipse already happened does not reset that world."
+msgstr "你从蚀之前开始，双手双眼完好，持有早期真正的大剑、皮革衬垫护具与轻型巴布特头盔。此开局没有烙印、臂炮或诅咒铠甲。找到贝黑莱特，经历蚀后再寻找芙罗拉与铠甲。在已经发生蚀的世界中开局，不会重置世界历史。"
+
+#: professions/professions.json
+msgctxt "prof_desc_female"
+msgid "You begin before the Eclipse, with both hands and eyes intact, an early true sword, leather-padded armor and a light barbute helm. There is no Brand, cannon or cursed armor at this start. Find a Behelit and face the Eclipse before seeking Flora and the armor. Starting in a world where the Eclipse already happened does not reset that world."
+msgstr "你从蚀之前开始，双手双眼完好，持有早期真正的大剑、皮革衬垫护具与轻型巴布特头盔。此开局没有烙印、臂炮或诅咒铠甲。找到贝黑莱特，经历蚀后再寻找芙罗拉与铠甲。在已经发生蚀的世界中开局，不会重置世界历史。"
+
+#: items/true_guts_early_sword.json
+msgid "Guts' Early True Sword"
+msgstr "格斯早期的真正大剑"
+
+#: items/true_guts_early_sword.json
+msgid "Guts' sword from before the Eclipse: a long, disciplined two-handed blade, not the Dragonslayer. It hits harder than an ordinary steel greatsword but lacks the overwhelming damage of his later true sword. This is the weapon of the before-Eclipse start."
+msgstr "格斯在蚀之前使用的剑：修长而稳健的双手剑，还不是斩龙剑。它比普通钢制大剑更强，却没有后来真正大剑的压倒性伤害。这是蚀前开局的武器。"
+
+#: scenarios/berserk_story_starts.json
+msgctxt "scenario_male"
+msgid "(BERSERK) Before or after the Eclipse"
+msgstr "(BERSERK) 蚀之前或之后"
+
+#: scenarios/berserk_story_starts.json
+msgctxt "scenario_female"
+msgid "(BERSERK) Before or after the Eclipse"
+msgstr "(BERSERK) 蚀之前或之后"
+
+#: scenarios/berserk_story_starts.json
+msgctxt "scen_desc_male"
+msgid "Choose the beginning of your road: before the sacrifice with ordinary leather armor, or after it with the Brand, prosthetic arm cannon and the cursed suit. The before-Eclipse profession does not rewind a world whose new era has already begun."
+msgstr "选择旅程的起点：献祭前，穿普通皮革护具；或献祭后，带着烙印、义肢臂炮与诅咒铠甲。蚀前职业不会倒转已开启新时代的世界。"
+
+#: scenarios/berserk_story_starts.json
+msgctxt "scen_desc_female"
+msgid "Choose the beginning of your road: before the sacrifice with ordinary leather armor, or after it with the Brand, prosthetic arm cannon and the cursed suit. The before-Eclipse profession does not rewind a world whose new era has already begun."
+msgstr "选择旅程的起点：献祭前，穿普通皮革护具；或献祭后，带着烙印、义肢臂炮与诅咒铠甲。蚀前职业不会倒转已开启新时代的世界。"
+
+#: items/true_guts_early_sword.json
+msgid "Guts' sword from before the Eclipse: a long blade shaped by years of battle, not the Dragonslayer. It hits harder than an ordinary steel greatsword but lacks the overwhelming damage of his later true sword. Like his later true sword, it has no forced two-handed restriction, so losing a hand does not make it unusable by definition."
+msgstr "格斯在蚀之前使用的剑：经历多年战斗的修长剑刃，还不是斩龙剑。它比普通钢制大剑更强，却不及后来真正大剑的压倒性伤害。与后来的真正大剑一样，它没有强制双手限制，因此失去一只手本身不会使其必然无法使用。"
+
+#: effects/local_breach_eocs.json
+msgid "Follow the Skull Knight's remembered directions to Flora?"
+msgstr "回想骷髅骑士的指引，寻找芙罗拉？"
+
+#: items/post_eclipse_journal.json
+msgid "The first sealed breach opened several paths. Activate this journal to follow the Skull Knight's remembered directions to Flora, consider protecting a refuge, or trace the Count's residence. His hunt has its own record and local breach."
+msgstr "封闭第一个裂隙后，数条道路向你敞开。激活日志，可回想骷髅骑士通往芙罗拉的指引、考虑守护庇护所，或追踪伯爵宅邸。伯爵的狩猎与当地裂隙有独立记录。"
