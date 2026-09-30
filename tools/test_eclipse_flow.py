@@ -78,14 +78,13 @@ class EclipseFlowTests(unittest.TestCase):
         self.assertTrue(set(expected) <= members)
         self.assertTrue(set(expected.values()).isdisjoint(members))
         drops = objects(MOD / "monsterdrops" / "projection_drops.json")[0]
-        self.assertIn(
-            {"item": "berserk_behelit", "prob": 100}, drops["items"]
-        )
+        self.assertEqual(drops["items"], [])
         for projection_id, original_id in expected.items():
             monster = projections[projection_id]
             self.assertEqual(monster["copy-from"], original_id)
             self.assertEqual(monster["death_drops"], drops["id"])
             self.assertEqual(monster["death_function"]["corpse_type"], "NO_CORPSE")
+            self.assertEqual(monster["death_function"]["eoc"], "EOC_BERSERK_BEHELIT_BOSS_DIES")
             self.assertEqual(monster["regenerates"], 0)
             self.assertTrue((MOD / "monsters" / {
                 "mon_nosferatu_zodd": "nosferatu_zodd.json",

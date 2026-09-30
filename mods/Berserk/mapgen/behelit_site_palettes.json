@@ -47,5 +47,53 @@
       "A": "f_berserk_cave_relic",
       "N": "f_berserk_cave_noisemaker"
     }
+  },
+  {
+    "type": "palette",
+    "id": "berserk_chapel_site_palette",
+    "terrain": {
+      ".": "t_grass",
+      ",": "t_dirt",
+      "T": "t_tree",
+      "#": "t_wall",
+      "_": "t_floor",
+      "b": "t_floor",
+      "r": "t_floor",
+      "N": "t_floor",
+      "A": "t_floor",
+      "?": "t_floor",
+      "+": "t_door_o"
+    },
+    "furniture": {
+      "b": "f_bench",
+      "r": "f_rack",
+      "N": "f_berserk_chapel_noisemaker",
+      "A": "f_berserk_chapel_relic",
+      "?": "f_berserk_chapel_record"
+    }
+  },
+  {
+    "type": "palette",
+    "id": "berserk_expedition_site_palette",
+    "terrain": {
+      ".": "t_grass",
+      ",": "t_dirt",
+      "T": "t_tree",
+      "#": "t_wall",
+      "_": "t_floor",
+      "b": "t_floor",
+      "r": "t_floor",
+      "N": "t_floor",
+      "A": "t_floor",
+      "?": "t_floor",
+      "+": "t_door_o"
+    },
+    "furniture": {
+      "b": "f_bench",
+      "r": "f_rack",
+      "N": "f_berserk_expedition_noisemaker",
+      "A": "f_berserk_expedition_relic",
+      "?": "f_berserk_expedition_record"
+    }
   }
 ]

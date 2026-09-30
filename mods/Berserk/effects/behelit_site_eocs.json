@@ -3,63 +3,211 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_OAK_DISTRACTION",
     "effect": [
-      { "u_make_sound": "The bone chimes clatter through the trees!", "volume": 30, "type": "alarm", "target_var": { "context_val": "pos" } },
-      { "u_message": "The bone chimes rattle. Now is your chance to draw the oak demon away.", "type": "info" }
+      {
+        "u_make_sound": "The bone chimes clatter through the trees!",
+        "volume": 30,
+        "type": "alarm",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "u_message": "The bone chimes rattle. Now is your chance to draw the oak demon away.",
+        "type": "info"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_CAVE_DISTRACTION",
     "effect": [
-      { "u_make_sound": "Stones crash and echo through the cave!", "volume": 30, "type": "alarm", "target_var": { "context_val": "pos" } },
-      { "u_message": "The stone chime rings through the cave. Use the pillars to circle behind the keeper.", "type": "info" }
+      {
+        "u_make_sound": "Stones crash and echo through the cave!",
+        "volume": 30,
+        "type": "alarm",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "u_message": "The stone chime rings through the cave. Use the pillars to circle behind the keeper.",
+        "type": "info"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_COUNT_GUARD",
-    "effect": { "math": [ "berserk_site_guard_nearby_count += 1" ] }
+    "effect": {
+      "math": [
+        "berserk_site_guard_nearby_count += 1"
+      ]
+    }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_CLAIM_OAK_BEHELIT",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_BEHELIT_SITE_CLAIM",
+      "variables": {
+        "berserk_site_guardian": "mon_berserk_cursed_oak_guardian",
+        "berserk_site_relic": "f_berserk_oak_relic",
+        "berserk_site_empty": "f_berserk_oak_relic_empty",
+        "berserk_site_commit": "EOC_BERSERK_COMMIT_OAK_BEHELIT"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMIT_OAK_BEHELIT",
     "effect": [
-      { "math": [ "berserk_site_guard_nearby_count = 0" ] },
       {
-        "u_run_monster_eocs": [ "EOC_BERSERK_SITE_COUNT_GUARD" ],
-        "mtype_ids": [ "mon_berserk_cursed_oak_guardian" ],
-        "monster_range": 8
+        "mapgen_update": "berserk_oak_relic_taken",
+        "target_var": {
+          "context_val": "pos"
+        }
       },
       {
-        "if": { "math": [ "berserk_site_guard_nearby_count == 0" ] },
-        "then": [
-          { "mapgen_update": "berserk_oak_relic_taken" },
-          { "u_spawn_item": "berserk_behelit", "count": 1 },
-          { "u_message": "You wrench the Behelit from the roots. The oak's grasp cannot reach you here.", "type": "good" }
-        ],
-        "else": { "u_message": "The oak demon's roots tighten around the Behelit. Drive it away or lure it from the hollow.", "type": "warning" }
+        "run_eocs": "EOC_BERSERK_BEHELIT_SITE_AFTER_UPDATE"
       }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_CLAIM_CAVE_BEHELIT",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_BEHELIT_SITE_CLAIM",
+      "variables": {
+        "berserk_site_guardian": "mon_berserk_echo_cave_guardian",
+        "berserk_site_relic": "f_berserk_cave_relic",
+        "berserk_site_empty": "f_berserk_cave_relic_empty",
+        "berserk_site_commit": "EOC_BERSERK_COMMIT_CAVE_BEHELIT"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMIT_CAVE_BEHELIT",
     "effect": [
-      { "math": [ "berserk_site_guard_nearby_count = 0" ] },
       {
-        "u_run_monster_eocs": [ "EOC_BERSERK_SITE_COUNT_GUARD" ],
-        "mtype_ids": [ "mon_berserk_echo_cave_guardian" ],
-        "monster_range": 8
+        "mapgen_update": "berserk_cave_relic_taken",
+        "target_var": {
+          "context_val": "pos"
+        }
       },
       {
-        "if": { "math": [ "berserk_site_guard_nearby_count == 0" ] },
-        "then": [
-          { "mapgen_update": "berserk_cave_relic_taken" },
-          { "u_spawn_item": "berserk_behelit", "count": 1 },
-          { "u_message": "You take the Behelit from the stone hollow while its keeper is gone.", "type": "good" }
-        ],
-        "else": { "u_message": "The cave demon hears your movement near the hollow. Draw it away or kill it first.", "type": "warning" }
+        "run_eocs": "EOC_BERSERK_BEHELIT_SITE_AFTER_UPDATE"
       }
     ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_CLAIM_CHAPEL_BEHELIT",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_BEHELIT_SITE_CLAIM",
+      "variables": {
+        "berserk_site_guardian": "mon_berserk_eclipse_butcher",
+        "berserk_site_relic": "f_berserk_chapel_relic",
+        "berserk_site_empty": "f_berserk_chapel_relic_empty",
+        "berserk_site_commit": "EOC_BERSERK_COMMIT_CHAPEL_BEHELIT"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMIT_CHAPEL_BEHELIT",
+    "effect": [
+      {
+        "mapgen_update": "berserk_chapel_relic_taken",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_BEHELIT_SITE_AFTER_UPDATE"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_CLAIM_EXPEDITION_BEHELIT",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_BEHELIT_SITE_CLAIM",
+      "variables": {
+        "berserk_site_guardian": "mon_berserk_eclipse_halfbreed",
+        "berserk_site_relic": "f_berserk_expedition_relic",
+        "berserk_site_empty": "f_berserk_expedition_relic_empty",
+        "berserk_site_commit": "EOC_BERSERK_COMMIT_EXPEDITION_BEHELIT"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMIT_EXPEDITION_BEHELIT",
+    "effect": [
+      {
+        "mapgen_update": "berserk_expedition_relic_taken",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_BEHELIT_SITE_AFTER_UPDATE"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_CHAPEL_DISTRACTION",
+    "effect": [
+      {
+        "u_make_sound": "The cracked bell tolls across the ruined chapel!",
+        "volume": 40,
+        "type": "alarm",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "u_message": "The bell can draw the chapel's guardian south. The broken west wall offers another route to the reliquary.",
+        "type": "info"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_EXPEDITION_DISTRACTION",
+    "effect": [
+      {
+        "u_make_sound": "An emergency siren howls through the abandoned camp!",
+        "volume": 35,
+        "type": "alarm",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "u_message": "The siren draws attention to the edge of camp. Circle around the ruined shelters to reach the specimen case.",
+        "type": "info"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_CHAPEL_RECORD",
+    "effect": {
+      "u_message": "The inscription reads: \"We hid the red stone in the northern reliquary. The thing that followed it cannot resist the bell. Circle through the broken west wall while it searches the nave.\"",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_EXPEDITION_RECORD",
+    "effect": {
+      "u_message": "The final entry reads: \"Specimen: a red stone face, secured in the northeastern shelter. A human-shaped predator keeps returning to it. Use the hand-cranked siren to draw it south, then approach through the gaps between the shelters.\"",
+      "type": "info",
+      "popup": true
+    }
   }
 ]

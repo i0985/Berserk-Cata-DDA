@@ -1,0 +1,164 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BEHELIT_AVAILABLE",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_eclipse_era == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_behelit_spent == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 0"
+          ]
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BEHELIT_BOSS_DIES",
+    "effect": [
+      {
+        "npc_location_variable": {
+          "context_val": "berserk_behelit_drop_pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_BEHELIT_BOSS_REWARD",
+        "alpha_talker": "avatar"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BEHELIT_BOSS_REWARD",
+    "condition": {
+      "test_eoc": "EOC_BERSERK_BEHELIT_AVAILABLE"
+    },
+    "effect": {
+      "map_spawn_item": "berserk_behelit",
+      "loc": {
+        "context_val": "berserk_behelit_drop_pos"
+      },
+      "count": 1,
+      "suppress_message": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BEHELIT_SITE_REWARD",
+    "condition": {
+      "test_eoc": "EOC_BERSERK_BEHELIT_AVAILABLE"
+    },
+    "effect": [
+      {
+        "u_spawn_item": "berserk_behelit",
+        "count": 1
+      },
+      {
+        "u_message": "You recover a Behelit from the hiding place. The empty recess holds nothing else.",
+        "type": "good"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BEHELIT_SITE_CLAIM",
+    "condition": {
+      "map_furniture_id": {
+        "context_val": "berserk_site_relic"
+      },
+      "loc": {
+        "context_val": "pos"
+      }
+    },
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_BEHELIT_AVAILABLE"
+      },
+      "then": [
+        {
+          "math": [
+            "berserk_site_guard_nearby_count = 0"
+          ]
+        },
+        {
+          "u_run_monster_eocs": [
+            "EOC_BERSERK_SITE_COUNT_GUARD"
+          ],
+          "mtype_ids": [
+            {
+              "context_val": "berserk_site_guardian"
+            }
+          ],
+          "monster_range": 8
+        },
+        {
+          "if": {
+            "math": [
+              "berserk_site_guard_nearby_count == 0"
+            ]
+          },
+          "then": {
+            "run_eocs": {
+              "context_val": "berserk_site_commit"
+            }
+          },
+          "else": {
+            "u_message": "The guardian is too close to the hiding place. Defeat it or lure it away before taking the Behelit.",
+            "type": "warning"
+          }
+        }
+      ],
+      "else": {
+        "run_eocs": {
+          "context_val": "berserk_site_commit"
+        }
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BEHELIT_SITE_AFTER_UPDATE",
+    "effect": {
+      "if": {
+        "map_furniture_id": {
+          "context_val": "berserk_site_empty"
+        },
+        "loc": {
+          "context_val": "pos"
+        }
+      },
+      "then": {
+        "if": {
+          "test_eoc": "EOC_BERSERK_BEHELIT_AVAILABLE"
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_BEHELIT_SITE_REWARD"
+        },
+        "else": {
+          "u_message": "The hiding place has fallen silent. Your passage into the Eclipse has already been used; no Behelit remains here.",
+          "type": "neutral"
+        }
+      },
+      "else": {
+        "u_message": "You cannot open the hiding place. Nothing has been taken; you can try again.",
+        "type": "warning"
+      }
+    }
+  }
+]

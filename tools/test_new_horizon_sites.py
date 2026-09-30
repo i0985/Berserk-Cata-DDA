@@ -67,7 +67,9 @@ class BehelitSiteTests(unittest.TestCase):
                                  ("monsters", "behelit_site_guardians.json"),
                                  ("furniture", "behelit_sites.json"),
                                  ("monster_special_attacks", "behelit_site_attacks.json"),
-                                 ("effects", "behelit_site_eocs.json")):
+                                 ("effects", "behelit_site_eocs.json"),
+                                 ("effects", "behelit_reward_eocs.json"),
+                                 ("monsters", "apostle_projections.json")):
             for obj in objects(MOD / folder / filename):
                 def collect(value):
                     if isinstance(value, list):
@@ -76,7 +78,7 @@ class BehelitSiteTests(unittest.TestCase):
                     elif isinstance(value, dict):
                         for key, child in value.items():
                             if key in {"name", "description", "u_message", "u_make_sound", "hit_dmg_u", "hit_dmg_npc",
-                                       "miss_msg_u", "miss_msg_npc"}:
+                                       "miss_msg_u", "miss_msg_npc", "message"}:
                                 if isinstance(child, str):
                                     messages.add(child)
                                 elif isinstance(child, dict) and "str" in child:
@@ -129,17 +131,50 @@ class BehelitSiteTests(unittest.TestCase):
         updates = {m["update_mapgen_id"]: m for m in objects(MOD / "mapgen" / "behelit_sites.json") if "update_mapgen_id" in m}
         furniture = {f["id"]: f for f in objects(MOD / "furniture" / "behelit_sites.json")}
         for name, guardian, x, y in (("oak", "mon_berserk_cursed_oak_guardian", 12, 12),
-                                     ("cave", "mon_berserk_echo_cave_guardian", 12, 5)):
+                                     ("cave", "mon_berserk_echo_cave_guardian", 12, 5),
+                                     ("chapel", "mon_berserk_eclipse_butcher", 12, 6),
+                                     ("expedition", "mon_berserk_eclipse_halfbreed", 18, 6)):
             relic = furniture[f"f_berserk_{name}_relic"]
             eoc = eocs[relic["examine_action"]["effect_on_conditions"][0]]
-            scan = next(effect for effect in eoc["effect"] if "u_run_monster_eocs" in effect)
-            self.assertEqual(scan["mtype_ids"], [guardian])
-            result = next(effect["then"] for effect in eoc["effect"] if "if" in effect)
-            self.assertEqual(result[0]["mapgen_update"], f"berserk_{name}_relic_taken")
-            self.assertEqual(result[1]["u_spawn_item"], "berserk_behelit")
-            self.assertEqual(updates[result[0]["mapgen_update"]]["object"]["set"],
+            call = eoc["effect"]
+            self.assertEqual(call["run_eocs"], "EOC_BERSERK_BEHELIT_SITE_CLAIM")
+            self.assertEqual(call["variables"]["berserk_site_guardian"], guardian)
+            commit = eocs[call["variables"]["berserk_site_commit"]]["effect"]
+            self.assertEqual(commit[0]["mapgen_update"], f"berserk_{name}_relic_taken")
+            self.assertEqual(commit[0]["target_var"], {"context_val": "pos"})
+            self.assertEqual(commit[1]["run_eocs"], "EOC_BERSERK_BEHELIT_SITE_AFTER_UPDATE")
+            self.assertEqual(updates[commit[0]["mapgen_update"]]["object"]["set"],
                              [{"point": "furniture", "id": f"f_berserk_{name}_relic_empty", "x": x, "y": y}])
             self.assertNotIn("examine_action", furniture[f"f_berserk_{name}_relic_empty"])
+
+    def test_chapel_seam_and_alternate_routes_are_connected(self):
+        maps = {m["om_terrain"][0]: m["object"]["rows"] for m in objects(MOD / "mapgen" / "behelit_sites.json") if "om_terrain" in m}
+        north = maps["berserk_desecrated_chapel_reliquary"]
+        south = maps["berserk_desecrated_chapel_nave"]
+        self.assertEqual(north[6][12], "A")
+        self.assertEqual(south[15][6], "N")
+        for x in (7, 8, 11, 12, 13):
+            self.assertNotIn(north[-1][x], "#T")
+            self.assertNotIn(south[0][x], "#T")
+        self.assertTrue(reachable(north, (12, 23), (12, 6)))
+        self.assertTrue(reachable(north, (3, 18), (12, 6)))
+        self.assertTrue(reachable(south, (12, 23), (12, 0)))
+        camp = maps["berserk_lost_expedition"]
+        self.assertEqual(camp[6][18], "A")
+        self.assertEqual(camp[20][4], "N")
+        self.assertTrue(reachable(camp, (11, 23), (18, 6)))
+        self.assertTrue(reachable(camp, (23, 6), (18, 6)))
+
+    def test_new_specials_are_placeable_and_use_existing_monster_sprites(self):
+        definitions = objects(MOD / "overmap" / "behelit_sites.json")
+        terrains = {d["id"]: d for d in definitions if d["type"] == "overmap_terrain"}
+        specials = {d["id"]: d for d in definitions if d["type"] == "overmap_special"}
+        for id in ("berserk_desecrated_chapel_special", "berserk_lost_expedition_special"):
+            self.assertGreater(specials[id]["occurrences"][1], 0)
+            for part in specials[id]["overmaps"]:
+                self.assertIn("NO_ROTATE", terrains[part["overmap"]]["flags"])
+        self.assertEqual([p["point"] for p in specials["berserk_desecrated_chapel_special"]["overmaps"]],
+                         [[0, 0, 0], [0, 1, 0]])
 
 
 if __name__ == "__main__":

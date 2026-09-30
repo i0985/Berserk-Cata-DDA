@@ -7,7 +7,9 @@
     "color": "red",
     "see_cost": "high",
     "travel_cost_type": "forest",
-    "flags": [ "NO_ROTATE" ]
+    "flags": [
+      "NO_ROTATE"
+    ]
   },
   {
     "type": "overmap_terrain",
@@ -17,7 +19,9 @@
     "color": "dark_gray",
     "see_cost": "high",
     "travel_cost_type": "forest",
-    "flags": [ "NO_ROTATE" ]
+    "flags": [
+      "NO_ROTATE"
+    ]
   },
   {
     "type": "overmap_terrain",
@@ -27,26 +31,163 @@
     "color": "red",
     "see_cost": "high",
     "travel_cost_type": "impassable",
-    "flags": [ "NO_ROTATE" ]
+    "flags": [
+      "NO_ROTATE"
+    ]
   },
   {
     "type": "overmap_special",
     "id": "berserk_cursed_oak_special",
-    "overmaps": [ { "point": [ 0, 0, 0 ], "overmap": "berserk_cursed_oak" } ],
-    "locations": [ "forest" ],
-    "occurrences": [ 25, 100 ],
-    "flags": [ "OVERMAP_UNIQUE" ],
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_cursed_oak"
+      }
+    ],
+    "locations": [
+      "forest"
+    ],
+    "occurrences": [
+      25,
+      100
+    ],
+    "flags": [
+      "OVERMAP_UNIQUE"
+    ],
     "rotate": false
   },
   {
     "type": "overmap_special",
     "id": "berserk_echo_cave_special",
     "overmaps": [
-      { "point": [ 0, 0, 0 ], "overmap": "berserk_echo_cave_entrance", "locations": [ "forest" ] },
-      { "point": [ 0, 0, -1 ], "overmap": "berserk_echo_cave_depth", "locations": [ "subterranean_empty" ] }
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_echo_cave_entrance",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          0,
+          0,
+          -1
+        ],
+        "overmap": "berserk_echo_cave_depth",
+        "locations": [
+          "subterranean_empty"
+        ]
+      }
     ],
-    "occurrences": [ 25, 100 ],
-    "flags": [ "OVERMAP_UNIQUE" ],
+    "occurrences": [
+      25,
+      100
+    ],
+    "flags": [
+      "OVERMAP_UNIQUE"
+    ],
+    "rotate": false
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_desecrated_chapel_nave",
+    "name": "desecrated chapel",
+    "sym": "C",
+    "color": "dark_gray",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_desecrated_chapel_reliquary",
+    "name": "desecrated chapel reliquary",
+    "sym": "C",
+    "color": "red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_lost_expedition",
+    "name": "lost expedition camp",
+    "sym": "E",
+    "color": "light_gray",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_desecrated_chapel_special",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_desecrated_chapel_reliquary"
+      },
+      {
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "overmap": "berserk_desecrated_chapel_nave"
+      }
+    ],
+    "locations": [
+      "forest"
+    ],
+    "occurrences": [
+      25,
+      100
+    ],
+    "flags": [
+      "OVERMAP_UNIQUE"
+    ],
+    "rotate": false
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_lost_expedition_special",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_lost_expedition"
+      }
+    ],
+    "locations": [
+      "forest"
+    ],
+    "occurrences": [
+      25,
+      100
+    ],
+    "flags": [
+      "OVERMAP_UNIQUE"
+    ],
     "rotate": false
   }
 ]

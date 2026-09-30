@@ -29,7 +29,10 @@ Chibi tileset. Their smaller HP and zero regeneration are provisional for
 these new IDs only; later combat tuning must assess their inherited attacks.
 CDDA 0.I-1 supports `death_function.corpse_type: NO_CORPSE` separately from
 `death_drops`, allowing their single Behelit drop without a physical corpse.
-No ordinary-location Behelit cache is included in step 1.
+The later Behelit-route pass replaces the unconditional Behelit entries with
+a shared, state-gated death EOC. Original drop-group IDs remain defined and
+non-Behelit loot is preserved. Projection death messages no longer promise
+an item after the Eclipse. See [BEHELIT_ROUTES_TEST.md](BEHELIT_ROUTES_TEST.md).
 
 ## Step 2: Behelit encounter sites (unverified in game)
 
@@ -65,8 +68,12 @@ one-time state at the site through save/reload; visiting a different site
 does not share a character-wide reward flag. Check that map update and item
 delivery order in game before treating one-time rewards as proven.
 
-Further sites, such as an expedition's final camp, and map clues can follow
-after the oak and cave are tested.
+The next pass adds a two-OMT desecrated chapel and a lost expedition camp.
+All four caches and boss rewards share an eligibility check; successful entry
+and the completed world era block new Behelits. Each examined cache is updated
+on its own OMT using the object's position, and delivery requires the furniture
+update to have succeeded. Existing Behelits are not removed retroactively.
+Details and debug IDs are in [BEHELIT_ROUTES_TEST.md](BEHELIT_ROUTES_TEST.md).
 
 ## Verification still needed in game
 

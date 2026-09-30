@@ -8,8 +8,15 @@
     "color": "white",
     "move_cost_mod": 0,
     "required_str": -1,
-    "flags": [ "TRANSPARENT" ],
-    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_BERSERK_OAK_DISTRACTION" ] }
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_OAK_DISTRACTION"
+      ]
+    }
   },
   {
     "type": "furniture",
@@ -20,8 +27,15 @@
     "color": "light_gray",
     "move_cost_mod": 0,
     "required_str": -1,
-    "flags": [ "TRANSPARENT" ],
-    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_BERSERK_CAVE_DISTRACTION" ] }
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_CAVE_DISTRACTION"
+      ]
+    }
   },
   {
     "type": "furniture",
@@ -32,8 +46,15 @@
     "color": "red",
     "move_cost_mod": 0,
     "required_str": 900,
-    "flags": [ "TRANSPARENT" ],
-    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_BERSERK_CLAIM_OAK_BEHELIT" ] }
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_CLAIM_OAK_BEHELIT"
+      ]
+    }
   },
   {
     "type": "furniture",
@@ -44,7 +65,9 @@
     "color": "brown",
     "move_cost_mod": 0,
     "required_str": 900,
-    "flags": [ "TRANSPARENT" ]
+    "flags": [
+      "TRANSPARENT"
+    ]
   },
   {
     "type": "furniture",
@@ -55,8 +78,15 @@
     "color": "red",
     "move_cost_mod": 0,
     "required_str": 900,
-    "flags": [ "TRANSPARENT" ],
-    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_BERSERK_CLAIM_CAVE_BEHELIT" ] }
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_CLAIM_CAVE_BEHELIT"
+      ]
+    }
   },
   {
     "type": "furniture",
@@ -67,6 +97,156 @@
     "color": "dark_gray",
     "move_cost_mod": 0,
     "required_str": 900,
-    "flags": [ "TRANSPARENT" ]
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_chapel_relic",
+    "name": "sealed chapel reliquary",
+    "description": "A red stone face rests inside a cracked reliquary. The butcher guards the approach. Examine the case after defeating or distracting it.",
+    "looks_like": "f_safe_c",
+    "symbol": "O",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": 900,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_CLAIM_CHAPEL_BEHELIT"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_chapel_relic_empty",
+    "name": "silent chapel reliquary",
+    "description": "The broken reliquary holds only dust. It will yield no Behelit.",
+    "looks_like": "f_safe_c",
+    "symbol": "O",
+    "color": "dark_gray",
+    "move_cost_mod": 0,
+    "required_str": 900,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_chapel_noisemaker",
+    "name": "cracked chapel bell",
+    "description": "The fallen bell still hangs from a timber frame. Examine it to draw attention away from the northern reliquary.",
+    "looks_like": "f_counter",
+    "symbol": "!",
+    "color": "yellow",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_CHAPEL_DISTRACTION"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_chapel_record",
+    "name": "chapel inscription",
+    "description": "Scratched words cover a stone near the entrance. Examine them to learn what lies farther north.",
+    "looks_like": "f_counter",
+    "symbol": "?",
+    "color": "white",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_CHAPEL_RECORD"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_expedition_relic",
+    "name": "sealed expedition specimen case",
+    "description": "A stone with a human face rests inside a battered specimen case. A half-demon prowls nearby. Examine the case when it cannot reach you.",
+    "looks_like": "f_safe_c",
+    "symbol": "O",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": 900,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_CLAIM_EXPEDITION_BEHELIT"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_expedition_relic_empty",
+    "name": "empty expedition specimen case",
+    "description": "The specimen case holds nothing but torn packing material. It will yield no Behelit.",
+    "looks_like": "f_safe_c",
+    "symbol": "O",
+    "color": "dark_gray",
+    "move_cost_mod": 0,
+    "required_str": 900,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_expedition_noisemaker",
+    "name": "wind-up emergency siren",
+    "description": "A hand-cranked siren lies at the southern edge of camp. Examine it to distract the creature guarding the specimen shelter.",
+    "looks_like": "f_counter",
+    "symbol": "!",
+    "color": "yellow",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_EXPEDITION_DISTRACTION"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_expedition_record",
+    "name": "expedition field log",
+    "description": "Water-stained pages remain pinned to the camp table. Examine them for the expedition's final observations.",
+    "looks_like": "f_counter",
+    "symbol": "?",
+    "color": "white",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_EXPEDITION_RECORD"
+      ]
+    }
   }
 ]

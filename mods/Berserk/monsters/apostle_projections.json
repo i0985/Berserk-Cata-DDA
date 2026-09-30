@@ -14,7 +14,7 @@
     "dodge": 1,
     "special_attacks": [ { "id": "berserk_zodd_leap", "cooldown": 16 } ],
     "death_drops": "berserk_projection_behelit_drops",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s unravels, leaving a Behelit behind." }
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s unravels.", "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES" }
   },
   {
     "type": "MONSTER",
@@ -31,7 +31,7 @@
     "dodge": 2,
     "special_attacks": [ { "id": "swift_strike", "cooldown": 16 } ],
     "death_drops": "berserk_projection_behelit_drops",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s unravels, leaving a Behelit behind." }
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s unravels.", "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES" }
   },
   {
     "type": "MONSTER",
@@ -57,6 +57,6 @@
       }
     ],
     "death_drops": "berserk_projection_behelit_drops",
-    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s unravels, leaving a Behelit behind." }
+    "death_function": { "corpse_type": "NO_CORPSE", "message": "The %s unravels.", "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES" }
   }
 ]
