@@ -1,0 +1,56 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_count_breach",
+    "name": "the Count's exposed breach",
+    "description": "A raw seam in the northern stone. Examine it after killing the Count to weaken future incursions around this residence.",
+    "looks_like": "f_berserk_open_breach",
+    "symbol": "?",
+    "color": "red",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COUNT_SEAL"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_count_execution_record",
+    "name": "the Count's execution record",
+    "description": "Names and a scratched warning. Examine the record before descending into the dungeon.",
+    "looks_like": "f_counter",
+    "symbol": "?",
+    "color": "white",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COUNT_INSCRIPTION"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_count_breach_sealed",
+    "name": "the Count's sealed breach",
+    "description": "The Count's wound has closed. Its nearby influence is recorded in the world; existing demons remain.",
+    "looks_like": "f_berserk_open_breach",
+    "symbol": "?",
+    "color": "dark_gray",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  }
+]

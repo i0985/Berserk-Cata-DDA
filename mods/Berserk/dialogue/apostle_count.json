@@ -1,0 +1,63 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_WITNESS",
+    "dynamic_line": "\"Keep your voice down. I hid here when the Count remade the others. I can show you where he waits, but I will not go back down there.\"",
+    "responses": [
+      {
+        "text": "How do I reach him?",
+        "topic": "TALK_BERSERK_COUNT_ROUTE"
+      },
+      {
+        "text": "What are his servants?",
+        "topic": "TALK_BERSERK_COUNT_SERVANTS"
+      },
+      {
+        "text": "He is dead. What about the opening below?",
+        "condition": {
+          "math": [
+            "berserk_hunt_count_state >= 3"
+          ]
+        },
+        "topic": "TALK_BERSERK_COUNT_AFTER"
+      },
+      {
+        "text": "Stay here. I will look around.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_ROUTE",
+    "dynamic_line": "\"The execution hall is in the northeast. The stairs go down from its center. Both wings lead there; the broken western wall gives you another way around the yard. The pillars below will break his line of sight, but do not let his body pin you against them.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_SERVANTS",
+    "dynamic_line": "\"They were people. He forced his own flesh into them. There are only a few left here. Kill them separately if you must; they will not return, and he cannot call an endless army.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_AFTER",
+    "dynamic_line": "\"The exposed stone at the north end feeds this place. Examine it now that he cannot hold it open. It should quiet new incursions nearby. It will not undo your Brand or kill the things already outside.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  }
+]

@@ -252,7 +252,9 @@ class EclipseFlowTests(unittest.TestCase):
         self.assertEqual(ward_search["furniture"], "f_berserk_shelter_ward")
         self.assertEqual(ward_search["target_max_radius"], 8)
         self.assertNotIn("true_eocs", ward_search)
-        self.assertEqual(ward_search["false_eocs"], ["EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED"])
+        self.assertEqual(ward_search["false_eocs"], ["EOC_BERSERK_BRAND_NIGHT_HUNT_QUIET_CHECK"])
+        self.assertIn("EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED",
+                      self.reachable(ward_search["false_eocs"][0]))
         unsheltered = self.eocs["EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED"]
         self.assertIn("berserk_local_breach", str(unsheltered))
         self.assertIn("x_in_y_chance", str(unsheltered))
@@ -530,7 +532,10 @@ class EclipseFlowTests(unittest.TestCase):
         update = next(o for o in mapgen if o.get("update_mapgen_id") == "berserk_local_breach_seal")
         self.assertEqual(update["object"]["set"], [
             {"point": "furniture", "id": "f_berserk_sealed_breach", "x": 11, "y": 11}])
-        self.assertIn("berserk_post_eclipse_journal", str(close["effect"]))
+        commit = self.eocs["EOC_BERSERK_BREACH_CLOSE_COMMIT"]
+        self.assertIn("EOC_BERSERK_BREACH_CLOSE_COMMIT", references(close))
+        self.assertIn("f_berserk_sealed_breach", str(commit["condition"]))
+        self.assertIn("berserk_post_eclipse_journal", str(commit["effect"]))
 
         era = self.eocs["EOC_BERSERK_ECLIPSE_ERA_ENTER_OMT"]
         self.assertIn("u_berserk_breach_sealed == 1", str(era["condition"]))

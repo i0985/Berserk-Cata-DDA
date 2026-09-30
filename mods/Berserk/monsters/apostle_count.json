@@ -1,0 +1,97 @@
+[
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_apostle_count",
+    "copy-from": "mon_berserk_eclipse_butcher",
+    "looks_like": "mon_berserk_eclipse_butcher",
+    "name": {
+      "str": "the Count",
+      "str_pl": "Counts"
+    },
+    "description": "The Count, an apostle whose swollen, slug-like body fills the dungeon. He ruled through executions and twisted servants. His weight makes every close blow dangerous, but he turns slowly and his wounds do not regenerate. When he coils his body, leave room to evade the sweep.",
+    "hp": 560,
+    "speed": 85,
+    "volume": "400 L",
+    "weight": "480 kg",
+    "melee_skill": 6,
+    "melee_dice": 2,
+    "melee_dice_sides": 6,
+    "melee_damage": [
+      {
+        "damage_type": "bash",
+        "amount": 20
+      }
+    ],
+    "dodge": 0,
+    "armor": {
+      "bash": 8,
+      "cut": 12
+    },
+    "regenerates": 0,
+    "special_attacks": [
+      [
+        "berserk_count_a_body_sweep",
+        14
+      ],
+      [
+        "berserk_count_b_windup",
+        18
+      ]
+    ],
+    "death_drops": "berserk_count_trophy_drops",
+    "death_function": {
+      "eoc": "EOC_BERSERK_COUNT_DIES"
+    }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_count_servant",
+    "copy-from": "mon_berserk_eclipse_halfbreed",
+    "looks_like": "mon_berserk_eclipse_halfbreed",
+    "name": {
+      "str": "the Count's twisted servant",
+      "str_pl": "the Count's twisted servants"
+    },
+    "description": "A human servant remade with the Count's flesh. A second jaw splits its chest, but beneath the deformity its body is still vulnerable. This servant will not be replaced when killed.",
+    "hp": 160,
+    "speed": 92,
+    "melee_skill": 4,
+    "melee_dice": 1,
+    "melee_dice_sides": 6,
+    "melee_damage": [
+      {
+        "damage_type": "cut",
+        "amount": 12
+      }
+    ],
+    "armor": {
+      "bash": 2,
+      "cut": 3
+    },
+    "regenerates": 0,
+    "special_attacks": []
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_count_witness",
+    "copy-from": "mon_skull_knight_rescuer",
+    "looks_like": "mon_human",
+    "name": {
+      "str": "survivor of the Count's prison"
+    },
+    "description": "An unnamed prisoner hiding in the abandoned western wing. They know the passage to the execution hall and will speak if you approach. This encounter is an adaptation, not a named character from the manga.",
+    "hp": 100,
+    "volume": "70 L",
+    "weight": "70 kg",
+    "material": [
+      "flesh"
+    ],
+    "symbol": "@",
+    "color": "light_gray",
+    "chat_topics": [
+      "TALK_BERSERK_COUNT_WITNESS"
+    ],
+    "vision_day": 20,
+    "vision_night": 10
+  }
+]

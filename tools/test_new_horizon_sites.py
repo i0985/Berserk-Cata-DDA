@@ -109,10 +109,11 @@ class BehelitSiteTests(unittest.TestCase):
         self.assertEqual(oak[12][12], "A")
         self.assertEqual(surface[12][12], "V")
         self.assertEqual(cave[12][12], "U")
-        self.assertEqual(cave[5][12], "A")
+        chamber = maps["berserk_echo_cave_relic_chamber"]["rows"]
+        self.assertEqual(chamber[5][12], "A")
         self.assertTrue(reachable(oak, (1, 12), (12, 12)))
         self.assertTrue(reachable(surface, (12, 23), (12, 12)))
-        self.assertTrue(reachable(cave, (12, 12), (12, 5)))
+        self.assertTrue(reachable(cave, (12, 12), (23, 8)))
 
     def test_guardians_only_spawn_on_their_encounter_maps(self):
         guardians = {m["id"] for m in objects(MOD / "monsters" / "behelit_site_guardians.json")}

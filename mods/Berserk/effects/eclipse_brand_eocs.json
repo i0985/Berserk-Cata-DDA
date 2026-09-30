@@ -4,12 +4,24 @@
     "id": "EOC_BERSERK_ECLIPSE_INSTALL_MARKS",
     "effect": [
       {
-        "if": { "not": { "u_has_bionics": "bio_berserk_brand_of_sacrifice" } },
-        "then": { "u_add_bionic": "bio_berserk_brand_of_sacrifice" }
+        "if": {
+          "not": {
+            "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+          }
+        },
+        "then": {
+          "u_add_bionic": "bio_berserk_brand_of_sacrifice"
+        }
       },
       {
-        "if": { "not": { "u_has_bionics": "bio_berserk_lost_eye" } },
-        "then": { "u_add_bionic": "bio_berserk_lost_eye" }
+        "if": {
+          "not": {
+            "u_has_bionics": "bio_berserk_lost_eye"
+          }
+        },
+        "then": {
+          "u_add_bionic": "bio_berserk_lost_eye"
+        }
       }
     ]
   },
@@ -20,17 +32,35 @@
     "recurrence": "1 minute",
     "condition": {
       "and": [
-        { "math": [ "berserk_eclipse_era == 1" ] },
-        { "math": [ "u_berserk_eclipse_rescue_state == 2" ] },
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        },
         {
           "or": [
-            { "not": { "u_has_bionics": "bio_berserk_brand_of_sacrifice" } },
-            { "not": { "u_has_bionics": "bio_berserk_lost_eye" } }
+            {
+              "not": {
+                "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+              }
+            },
+            {
+              "not": {
+                "u_has_bionics": "bio_berserk_lost_eye"
+              }
+            }
           ]
         }
       ]
     },
-    "effect": { "run_eocs": "EOC_BERSERK_ECLIPSE_INSTALL_MARKS" }
+    "effect": {
+      "run_eocs": "EOC_BERSERK_ECLIPSE_INSTALL_MARKS"
+    }
   },
   {
     "type": "effect_on_condition",
@@ -39,18 +69,38 @@
     "recurrence": "1 hour",
     "condition": {
       "and": [
-        { "u_has_bionics": "bio_berserk_brand_of_sacrifice" },
-        { "math": [ "berserk_eclipse_era == 1" ] },
-        { "math": [ "u_val('pos_z') == 0" ] },
-        { "math": [ "u_berserk_eclipse_trial_active != 1" ] },
-        { "not": "is_day" }
+        {
+          "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+        },
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active != 1"
+          ]
+        },
+        {
+          "not": "is_day"
+        }
       ]
     },
     "effect": {
-      "u_location_variable": { "context_val": "berserk_near_shelter_ward" },
+      "u_location_variable": {
+        "context_val": "berserk_near_shelter_ward"
+      },
       "furniture": "f_berserk_shelter_ward",
       "target_max_radius": 8,
-      "false_eocs": [ "EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED" ]
+      "false_eocs": [
+        "EOC_BERSERK_BRAND_NIGHT_HUNT_QUIET_CHECK"
+      ]
     }
   },
   {
@@ -58,25 +108,61 @@
     "id": "EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED",
     "effect": {
       "if": {
-        "and": [
-          { "math": [ "u_berserk_breach_sealed == 1" ] },
-          { "u_near_om_location": "berserk_local_breach", "range": 2 }
+        "or": [
+          {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_breach_sealed == 1"
+                ]
+              },
+              {
+                "u_near_om_location": "berserk_local_breach",
+                "range": 2
+              },
+              {
+                "math": [
+                  "u_berserk_first_breach_registered != 1"
+                ]
+              }
+            ]
+          },
+          {
+            "math": [
+              "berserk_apostle_quiet_here == 1"
+            ]
+          }
         ]
       },
       "then": {
-        "if": { "x_in_y_chance": { "x": 1, "y": 3 } },
-        "then": { "run_eocs": "EOC_BERSERK_BRAND_NIGHT_HUNT_SPAWN" }
+        "if": {
+          "x_in_y_chance": {
+            "x": 1,
+            "y": 3
+          }
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_BRAND_NIGHT_HUNT_SPAWN"
+        }
       },
-      "else": { "run_eocs": "EOC_BERSERK_BRAND_NIGHT_HUNT_SPAWN" }
+      "else": {
+        "run_eocs": "EOC_BERSERK_BRAND_NIGHT_HUNT_SPAWN"
+      }
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_BRAND_NIGHT_HUNT_SPAWN",
     "effect": [
-      { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_COUNT_NEARBY" },
       {
-        "if": { "math": [ "berserk_era_nearby_count < 8" ] },
+        "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_COUNT_NEARBY"
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_era_nearby_count < 8"
+          ]
+        },
         "then": {
           "u_spawn_monster": "GROUP_BERSERK_ECLIPSE_ERA_CITY",
           "group": true,
@@ -85,7 +171,9 @@
           "min_radius": 20,
           "max_radius": 30,
           "outdoor_only": true,
-          "true_eocs": [ "EOC_BERSERK_BRAND_DEMON_ARRIVAL" ]
+          "true_eocs": [
+            "EOC_BERSERK_BRAND_DEMON_ARRIVAL"
+          ]
         }
       }
     ]
@@ -93,16 +181,22 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_BRAND_DEMON_ARRIVAL",
-    "effect": { "run_eocs": "EOC_BERSERK_BRAND_ORDINARY_WARNING" }
+    "effect": {
+      "run_eocs": "EOC_BERSERK_BRAND_ORDINARY_WARNING"
+    }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_BRAND_DEMON_SCAN",
     "global": true,
     "recurrence": "1 minute",
-    "condition": { "u_has_bionics": "bio_berserk_brand_of_sacrifice" },
+    "condition": {
+      "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+    },
     "effect": {
-      "u_run_monster_eocs": [ "EOC_BERSERK_BRAND_REPORT_DEMON" ],
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_BRAND_REPORT_DEMON"
+      ],
       "mtype_ids": [
         "mon_berserk_eclipse_wretch",
         "mon_berserk_eclipse_halfbreed",
@@ -112,7 +206,8 @@
         "mon_beast_of_darkness_3",
         "mon_beast_of_darkness_4",
         "mon_beast_of_darkness_5",
-        "mon_beast_of_darkness_6"
+        "mon_beast_of_darkness_6",
+        "mon_berserk_count_servant"
       ],
       "monster_range": 24
     }
@@ -120,24 +215,47 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_BRAND_REPORT_DEMON",
-    "effect": { "run_eocs": "EOC_BERSERK_BRAND_ORDINARY_WARNING", "alpha_talker": "avatar" }
+    "effect": {
+      "run_eocs": "EOC_BERSERK_BRAND_ORDINARY_WARNING",
+      "alpha_talker": "avatar"
+    }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_BRAND_ORDINARY_WARNING",
     "condition": {
       "and": [
-        { "u_has_bionics": "bio_berserk_brand_of_sacrifice" },
-        { "not": { "u_has_effect": "berserk_brand_demon_cooldown" } }
+        {
+          "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+        },
+        {
+          "not": {
+            "u_has_effect": "berserk_brand_demon_cooldown"
+          }
+        }
       ]
     },
     "effect": [
-      { "u_add_effect": "berserk_brand_demon_cooldown", "duration": "8 minutes" },
       {
-        "if": { "math": [ "u_pain() < 10" ] },
-        "then": { "math": [ "u_pain() = min(10, u_pain() + 2)" ] }
+        "u_add_effect": "berserk_brand_demon_cooldown",
+        "duration": "8 minutes"
       },
-      { "u_message": "The Brand of Sacrifice stings. Demons are gathering nearby.", "type": "warning" }
+      {
+        "if": {
+          "math": [
+            "u_pain() < 10"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_pain() = min(10, u_pain() + 2)"
+          ]
+        }
+      },
+      {
+        "u_message": "The Brand of Sacrifice stings. Demons are gathering nearby.",
+        "type": "warning"
+      }
     ]
   },
   {
@@ -145,9 +263,13 @@
     "id": "EOC_BERSERK_BRAND_POWERFUL_SCAN",
     "global": true,
     "recurrence": "30 seconds",
-    "condition": { "u_has_bionics": "bio_berserk_brand_of_sacrifice" },
+    "condition": {
+      "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+    },
     "effect": {
-      "u_run_monster_eocs": [ "EOC_BERSERK_BRAND_REPORT_POWERFUL" ],
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_BRAND_REPORT_POWERFUL"
+      ],
       "mtype_ids": [
         "mon_void_apostle",
         "mon_nosferatu_zodd",
@@ -157,7 +279,8 @@
         "mon_berserk_projection_void",
         "mon_berserk_eclipse_griffith",
         "mon_berserk_eclipse_butcher",
-        "mon_berserk_eclipse_elite"
+        "mon_berserk_eclipse_elite",
+        "mon_berserk_apostle_count"
       ],
       "monster_range": 40
     }
@@ -165,24 +288,59 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_BRAND_REPORT_POWERFUL",
-    "effect": { "run_eocs": "EOC_BERSERK_BRAND_POWERFUL_WARNING", "alpha_talker": "avatar" }
+    "effect": {
+      "run_eocs": "EOC_BERSERK_BRAND_POWERFUL_WARNING",
+      "alpha_talker": "avatar"
+    }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_BRAND_POWERFUL_WARNING",
     "condition": {
       "and": [
-        { "u_has_bionics": "bio_berserk_brand_of_sacrifice" },
-        { "not": { "u_has_effect": "berserk_brand_powerful_cooldown" } }
+        {
+          "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+        },
+        {
+          "not": {
+            "u_has_effect": "berserk_brand_powerful_cooldown"
+          }
+        }
       ]
     },
     "effect": [
-      { "u_add_effect": "berserk_brand_powerful_cooldown", "duration": "5 minutes" },
       {
-        "if": { "math": [ "u_pain() < 10" ] },
-        "then": { "math": [ "u_pain() = min(10, u_pain() + 2)" ] }
+        "u_add_effect": "berserk_brand_powerful_cooldown",
+        "duration": "5 minutes"
       },
-      { "u_message": "The Brand of Sacrifice burns. A terrifying presence is somewhere nearby.", "type": "warning" }
+      {
+        "if": {
+          "math": [
+            "u_pain() < 10"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_pain() = min(10, u_pain() + 2)"
+          ]
+        }
+      },
+      {
+        "u_message": "The Brand of Sacrifice burns. A terrifying presence is somewhere nearby.",
+        "type": "warning"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BRAND_NIGHT_HUNT_QUIET_CHECK",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_APOSTLE_CHECK_HERE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED"
+      }
     ]
   }
 ]

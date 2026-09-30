@@ -82,7 +82,10 @@
     "dynamic_line": "'You escaped, but the Eclipse has marked you. Your hand is gone. What comes next is yours to decide.'",
     "speaker_effect": {
       "sentinel": "berserk_knight_first_conversation",
-      "effect": { "u_add_var": "berserk_knight_spoken", "value": "yes" }
+      "effect": {
+        "u_add_var": "berserk_knight_spoken",
+        "value": "yes"
+      }
     },
     "responses": [
       {
@@ -143,10 +146,24 @@
       },
       {
         "text": "I have my answers. Farewell, Skull Knight.",
-        "condition": { "compare_string": [ "yes", { "u_val": "berserk_knight_spoken" } ] },
+        "condition": {
+          "compare_string": [
+            "yes",
+            {
+              "u_val": "berserk_knight_spoken"
+            }
+          ]
+        },
         "effect": [
-          { "u_add_var": "berserk_knight_farewell", "value": "yes" },
-          { "npc_die": { "remove_from_creature_tracker": true } }
+          {
+            "u_add_var": "berserk_knight_farewell",
+            "value": "yes"
+          },
+          {
+            "npc_die": {
+              "remove_from_creature_tracker": true
+            }
+          }
         ],
         "topic": "TALK_DONE"
       }
@@ -156,37 +173,67 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_NOW",
     "dynamic_line": "'Tend your wounds and find a defensible shelter before nightfall. Build a bone and stone ward there: within eight tiles it quiets the Brand's summons, but wandering demons can still enter. The arm cannon and its charge can be crafted when you are ready.'",
-    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE",
     "dynamic_line": "'The Behelit opened the Eclipse, a place of sacrifice. I could not undo what happened there. I cut a path out while there was still someone left to save.'",
-    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_BRAND",
     "dynamic_line": "'The Brand marks a survivor of the sacrifice. Its pain warns you when demons draw near; a stronger presence hurts more. At night, expect them to seek you out. Find cover and leave yourself a way to flee.'",
-    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_APOSTLES",
     "dynamic_line": "'Apostles are monstrous beings with wills and bodies of their own. The God Hand stand apart: they preside over the sacrifice. Void and Griffith are not ordinary apostles. Do not mistake surviving an encounter for defeating them.'",
-    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_PROJECTIONS",
     "dynamic_line": "'Some things you met before were projections: an echo formed around a Behelit. Breaking the echo leaves the true being untouched. The Behelit itself was real.'",
-    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_INJURIES",
     "dynamic_line": "'You lost your left hand and an eye in the Eclipse. The missing hand limits your grip; the lost eye narrows your perception. The Brand is another wound, and it will keep calling to the dark.'",
-    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
   },
   {
     "type": "talk_topic",
@@ -203,7 +250,24 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_NEXT",
     "dynamic_line": "'A lesser apostle has taken root in a forest hollow. Its location will be marked on your map. Build a ward, prepare your arm cannon if you can, and choose when to hunt it. Its remains may point toward the next breach.'",
-    "responses": [ { "text": "Ask something else.", "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER" } ]
+    "responses": [
+      {
+        "text": "I survived the first hunt. Show me the Count's trail.",
+        "condition": {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_COUNT_SEEK"
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_COUNT"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
   },
   {
     "type": "talk_topic",
@@ -224,6 +288,17 @@
       {
         "text": "I will remember.",
         "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_COUNT",
+    "dynamic_line": "\"The Count is no projection. His fortified residence shelters men he remade with his flesh. Explore the wings, clear the servants, then descend beneath the northeastern execution hall. His death exposes one local wound; each apostle and each breach must be answered separately.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
   }

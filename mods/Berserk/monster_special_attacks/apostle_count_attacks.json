@@ -1,0 +1,54 @@
+[
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "berserk_count_a_body_sweep",
+    "cooldown": 14,
+    "move_cost": 180,
+    "range": 2,
+    "condition": {
+      "u_has_effect": "berserk_count_heavy_ready"
+    },
+    "damage_max_instance": [
+      {
+        "damage_type": "bash",
+        "amount": 36
+      }
+    ],
+    "hit_dmg_u": "The Count smashes his massive body into you!",
+    "hit_dmg_npc": "The Count smashes his massive body into %s!",
+    "miss_msg_u": "The Count's heavy body sweeps past you!",
+    "miss_msg_npc": "The Count's heavy body sweeps past %s!"
+  },
+  {
+    "type": "monster_attack",
+    "attack_type": "melee",
+    "id": "berserk_count_b_windup",
+    "cooldown": 18,
+    "move_cost": 180,
+    "range": 2,
+    "condition": {
+      "not": {
+        "u_has_effect": "berserk_count_heavy_ready"
+      }
+    },
+    "damage_max_instance": [
+      {
+        "damage_type": "bash",
+        "amount": 0
+      }
+    ],
+    "self_effects_always": [
+      {
+        "id": "berserk_count_heavy_ready",
+        "duration": 4
+      }
+    ],
+    "dodgeable": false,
+    "blockable": false,
+    "no_dmg_msg_u": "The Count coils his enormous body for a crushing sweep!",
+    "no_dmg_msg_npc": "The Count coils his enormous body for a crushing sweep!",
+    "miss_msg_u": "The Count coils his enormous body for a crushing sweep!",
+    "miss_msg_npc": "The Count coils his enormous body for a crushing sweep!"
+  }
+]

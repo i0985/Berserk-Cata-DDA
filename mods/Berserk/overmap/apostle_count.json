@@ -1,0 +1,129 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_count_prison",
+    "name": "the Count's western prison",
+    "sym": "C",
+    "color": "red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_count_hall",
+    "name": "the Count's execution hall",
+    "sym": "C",
+    "color": "red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_count_west_yard",
+    "name": "the Count's west courtyard",
+    "sym": "C",
+    "color": "red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_count_east_yard",
+    "name": "the Count's east courtyard",
+    "sym": "C",
+    "color": "red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_count_dungeon",
+    "name": "the Count's dungeon",
+    "sym": "C",
+    "color": "red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_count_residence_special",
+    "occurrences": [
+      0,
+      0
+    ],
+    "rotate": false,
+    "//": "Created by the post-Eclipse hunt locator, never by random world encounters.",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_count_prison",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          0,
+          0
+        ],
+        "overmap": "berserk_count_hall",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "overmap": "berserk_count_west_yard",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          1,
+          0
+        ],
+        "overmap": "berserk_count_east_yard",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          0,
+          -1
+        ],
+        "overmap": "berserk_count_dungeon",
+        "locations": [
+          "subterranean_empty"
+        ]
+      }
+    ]
+  }
+]

@@ -85,6 +85,39 @@
         "locations": [
           "subterranean_empty"
         ]
+      },
+      {
+        "point": [
+          1,
+          0,
+          -1
+        ],
+        "overmap": "berserk_echo_cave_gallery",
+        "locations": [
+          "subterranean_empty"
+        ]
+      },
+      {
+        "point": [
+          0,
+          1,
+          -1
+        ],
+        "overmap": "berserk_echo_cave_passage",
+        "locations": [
+          "subterranean_empty"
+        ]
+      },
+      {
+        "point": [
+          1,
+          1,
+          -1
+        ],
+        "overmap": "berserk_echo_cave_relic_chamber",
+        "locations": [
+          "subterranean_empty"
+        ]
       }
     ],
     "occurrences": [
@@ -189,5 +222,41 @@
       "OVERMAP_UNIQUE"
     ],
     "rotate": false
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_echo_cave_gallery",
+    "name": "echo cave gallery",
+    "sym": "^",
+    "color": "red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_echo_cave_passage",
+    "name": "echo cave winding passage",
+    "sym": "^",
+    "color": "red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_echo_cave_relic_chamber",
+    "name": "echo cave relic chamber",
+    "sym": "^",
+    "color": "red",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
   }
 ]

@@ -1,0 +1,228 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTLE_REGION_QUIET",
+    "//": "State 4 means sealed. Coordinates are surface OMT origins in abs_ms. Query requires context berserk_quiet_target. Distance uses the game rl_dist metric, roughly two OMTs.",
+    "condition": {
+      "or": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_first_breach_state == 4"
+              ]
+            },
+            {
+              "math": [
+                "has_var(berserk_hunt_first_breach_location)"
+              ]
+            },
+            {
+              "math": [
+                "distance(_berserk_quiet_target, berserk_hunt_first_breach_location) <= 48"
+              ]
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_count_state == 4"
+              ]
+            },
+            {
+              "math": [
+                "has_var(berserk_hunt_count_location)"
+              ]
+            },
+            {
+              "math": [
+                "distance(_berserk_quiet_target, berserk_hunt_count_location) <= 48"
+              ]
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_wyald_state == 4"
+              ]
+            },
+            {
+              "math": [
+                "has_var(berserk_hunt_wyald_location)"
+              ]
+            },
+            {
+              "math": [
+                "distance(_berserk_quiet_target, berserk_hunt_wyald_location) <= 48"
+              ]
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_rosine_state == 4"
+              ]
+            },
+            {
+              "math": [
+                "has_var(berserk_hunt_rosine_location)"
+              ]
+            },
+            {
+              "math": [
+                "distance(_berserk_quiet_target, berserk_hunt_rosine_location) <= 48"
+              ]
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_grunbeld_state == 4"
+              ]
+            },
+            {
+              "math": [
+                "has_var(berserk_hunt_grunbeld_location)"
+              ]
+            },
+            {
+              "math": [
+                "distance(_berserk_quiet_target, berserk_hunt_grunbeld_location) <= 48"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTLE_CHECK_HERE",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_quiet_target"
+        },
+        "x_adjust": {
+          "math": [
+            "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x')"
+          ]
+        },
+        "y_adjust": {
+          "math": [
+            "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y')"
+          ]
+        },
+        "z_override": true,
+        "z_adjust": 0
+      },
+      {
+        "math": [
+          "berserk_apostle_quiet_here = 0"
+        ]
+      },
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTLE_REGION_QUIET"
+        },
+        "then": {
+          "math": [
+            "berserk_apostle_quiet_here = 1"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTLE_MIGRATE_FIRST_BREACH",
+    "global": true,
+    "recurrence": "1 minute",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_breach_sealed == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_first_breach_registered != 1"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_local_breach_location)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "copy_var": {
+          "u_val": "berserk_local_breach_location"
+        },
+        "target_var": {
+          "global_val": "berserk_hunt_first_breach_location"
+        }
+      },
+      {
+        "math": [
+          "berserk_hunt_first_breach_state = 4"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_first_breach_registered = 1"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_REGISTER_SEAL",
+    "condition": {
+      "math": [
+        "berserk_hunt_count_state == 3"
+      ]
+    },
+    "effect": [
+      {
+        "u_location_variable": {
+          "global_val": "berserk_hunt_count_location"
+        },
+        "x_adjust": {
+          "math": [
+            "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x')"
+          ]
+        },
+        "y_adjust": {
+          "math": [
+            "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y')"
+          ]
+        },
+        "z_override": true,
+        "z_adjust": 0
+      },
+      {
+        "math": [
+          "berserk_hunt_count_state = 4"
+        ]
+      },
+      {
+        "u_message": "The Count's breach hardens into cold stone. New incursions weaken within roughly two overmap tiles of this place. The Brand and the demons already here remain.",
+        "type": "good",
+        "popup": true
+      }
+    ]
+  }
+]

@@ -1,21 +1,22 @@
 # New Horizon 3.0: four Behelit routes
 
 Target: **CDDA 0.I-1**. This build was checked statically; CDDA was not run.
-It expands pre-Eclipse exploration. Flora and the named-apostle hunts are
-planned follow-up work, not features included in this build.
+This document describes the earlier Behelit-routes milestone. The later
+[Count hunt test build](COUNT_HUNT_TEST.md) adds the Count and expands the
+cave. Flora and the other named-apostle hunts remain follow-up work.
 
 ## Places to test
 
 | Location | Overmap special ID | OMT IDs | Cache / diversion |
 | --- | --- | --- | --- |
 | Cursed oak | `berserk_cursed_oak_special` | `berserk_cursed_oak` | Roots at (12,12); bone chimes |
-| Echo cave | `berserk_echo_cave_special` | `berserk_echo_cave_entrance`, `berserk_echo_cave_depth` | Underground hollow at (12,5); stone chime |
+| Echo cave | `berserk_echo_cave_special` | Entrance plus four underground OMTs; see the Count test notes | Hollow at (12,5) in the southeastern relic chamber; western stone chimes |
 | Desecrated chapel | `berserk_desecrated_chapel_special` | `berserk_desecrated_chapel_reliquary`, `berserk_desecrated_chapel_nave` | Northern reliquary at (12,6); bell in the southern nave |
 | Lost expedition camp | `berserk_lost_expedition_special` | `berserk_lost_expedition` | Specimen case at (18,6); southern hand-cranked siren |
 
 Use **the overmap editor's special-placement menu**, not the local-map
 mapgen-template menu, to place an entire site. The chapel contains two OMTs
-aligned north/south; the cave contains two z-levels. The special is not a local
+aligned north/south; the cave contains a surface entrance and a 2 × 2 underground area. The special is not a local
 mapgen template. Enter the placed site to generate its local map. Test on a
 fresh, ungenerated area: overwriting an OMT marker does not regenerate a local
 map that already exists in the save. `OVERMAP_UNIQUE` specials should only be

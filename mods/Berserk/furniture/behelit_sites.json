@@ -6,7 +6,7 @@
     "description": "A cord of bones hangs at the edge of the clearing. Examine it to make a distracting noise, then circle back toward the roots.",
     "symbol": "!",
     "color": "white",
-    "move_cost_mod": 0,
+    "move_cost_mod": -1,
     "required_str": -1,
     "flags": [
       "TRANSPARENT"
@@ -16,16 +16,17 @@
       "effect_on_conditions": [
         "EOC_BERSERK_OAK_DISTRACTION"
       ]
-    }
+    },
+    "looks_like": "f_counter"
   },
   {
     "type": "furniture",
     "id": "f_berserk_cave_noisemaker",
     "name": "loose stone chime",
-    "description": "Loose stones have been strung over a hollow at the back of the cave. Examine them to make a loud echo and draw the keeper away from its relic.",
+    "description": "A stone chime hangs beside the winding western passage. Stand next to it and examine it to make a loud echo. Break the keeper's line of sight first: noise cannot force it to ignore visible prey.",
     "symbol": "!",
     "color": "light_gray",
-    "move_cost_mod": 0,
+    "move_cost_mod": -1,
     "required_str": -1,
     "flags": [
       "TRANSPARENT"
@@ -35,7 +36,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_CAVE_DISTRACTION"
       ]
-    }
+    },
+    "looks_like": "f_counter"
   },
   {
     "type": "furniture",

@@ -14,6 +14,9 @@
       {
         "u_message": "The bone chimes rattle. Now is your chance to draw the oak demon away.",
         "type": "info"
+      },
+      {
+        "turn_cost": "1 sec"
       }
     ]
   },
@@ -23,15 +26,18 @@
     "effect": [
       {
         "u_make_sound": "Stones crash and echo through the cave!",
-        "volume": 30,
+        "volume": 45,
         "type": "alarm",
         "target_var": {
           "context_val": "pos"
         }
       },
       {
-        "u_message": "The stone chime rings through the cave. Use the pillars to circle behind the keeper.",
+        "u_message": "The stone chime rings out. Use the winding galleries to break line of sight and approach the eastern relic chamber by the other route.",
         "type": "info"
+      },
+      {
+        "turn_cost": "1 sec"
       }
     ]
   },
@@ -171,6 +177,9 @@
       {
         "u_message": "The bell can draw the chapel's guardian south. The broken west wall offers another route to the reliquary.",
         "type": "info"
+      },
+      {
+        "turn_cost": "1 sec"
       }
     ]
   },
@@ -189,6 +198,9 @@
       {
         "u_message": "The siren draws attention to the edge of camp. Circle around the ruined shelters to reach the specimen case.",
         "type": "info"
+      },
+      {
+        "turn_cost": "1 sec"
       }
     ]
   },

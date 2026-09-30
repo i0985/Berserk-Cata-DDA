@@ -1,0 +1,315 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_SEEK",
+    "false_effect": {
+      "u_message": "Follow this trail above ground after surviving the Eclipse and completing the first hunt.",
+      "type": "info"
+    },
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "has_var(berserk_hunt_count_location)"
+            ]
+          },
+          {
+            "math": [
+              "berserk_hunt_count_state >= 1"
+            ]
+          }
+        ]
+      },
+      "then": [
+        {
+          "reveal_map": {
+            "global_val": "berserk_hunt_count_location"
+          },
+          "radius": 1
+        },
+        {
+          "u_message": "The Count's residence is marked on your map. His servants patrol the grounds; the apostle waits below the execution hall.",
+          "type": "info"
+        }
+      ],
+      "else": {
+        "run_eocs": "EOC_BERSERK_COUNT_FIND"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_FIND",
+    "effect": {
+      "u_location_variable": {
+        "global_val": "berserk_hunt_count_location"
+      },
+      "target_params": {
+        "om_terrain": "berserk_count_hall",
+        "om_special": "berserk_count_residence_special",
+        "random": true,
+        "search_range": 40,
+        "z": 0
+      },
+      "true_eocs": [
+        "EOC_BERSERK_COUNT_FOUND"
+      ],
+      "false_eocs": [
+        "EOC_BERSERK_COUNT_NOT_FOUND"
+      ],
+      "furniture": "f_berserk_count_execution_record",
+      "target_max_radius": 23
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_FOUND",
+    "effect": [
+      {
+        "math": [
+          "berserk_hunt_count_state = max(1, berserk_hunt_count_state)"
+        ]
+      },
+      {
+        "reveal_map": {
+          "global_val": "berserk_hunt_count_location"
+        },
+        "radius": 1
+      },
+      {
+        "u_message": "A trail of executions leads to the Count's fortified residence, now marked on your map. Explore the grounds before descending. His servants are mortal; no endless reinforcements will replace them.",
+        "type": "warning",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_NOT_FOUND",
+    "effect": {
+      "u_message": "No suitable residence could be located nearby. Travel elsewhere and consult the hunt journal or the Skull Knight again.",
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_ENTER",
+    "eoc_type": "EVENT",
+    "required_event": "avatar_enters_omt",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_count_dungeon"
+        },
+        {
+          "math": [
+            "berserk_hunt_count_state < 2"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "math": [
+        "berserk_hunt_count_state = 2"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_DIES",
+    "//": "Monster death uses beta for the dying monster in 0.I-1. Record the site even if an NPC or another monster struck the last blow.",
+    "effect": [
+      {
+        "npc_location_variable": {
+          "global_val": "berserk_hunt_count_location"
+        },
+        "x_adjust": {
+          "math": [
+            "floor(n_val('pos_x') / 24) * 24 - n_val('pos_x')"
+          ]
+        },
+        "y_adjust": {
+          "math": [
+            "floor(n_val('pos_y') / 24) * 24 - n_val('pos_y')"
+          ]
+        },
+        "z_override": true,
+        "z_adjust": 0
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COUNT_DEFEATED",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_hunt_count_state < 3"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_DEFEATED",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_hunt_count_state < 3"
+          ]
+        },
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "berserk_hunt_count_state = 3"
+        ]
+      },
+      {
+        "reveal_map": {
+          "global_val": "berserk_hunt_count_location"
+        },
+        "radius": 1
+      },
+      {
+        "u_message": "The Count is dead. His broken iron seal remains among his spoils. Examine the exposed breach at the north end of the dungeon to close this local wound.",
+        "type": "good",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_SEAL",
+    "false_effect": {
+      "u_message": "The breach is still held by the Count. Defeat him before examining it again.",
+      "type": "warning"
+    },
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_count_state == 3"
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_count_dungeon"
+        },
+        {
+          "map_furniture_id": "f_berserk_count_breach",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    },
+    "effect": [
+      {
+        "mapgen_update": "berserk_count_breach_seal",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COUNT_SEAL_COMMIT"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_SEAL_COMMIT",
+    "false_effect": {
+      "u_message": "The opening resisted the seal. Step away from its center and examine it again; the hunt has not been marked complete.",
+      "type": "warning"
+    },
+    "condition": {
+      "map_furniture_id": "f_berserk_count_breach_sealed",
+      "loc": {
+        "context_val": "pos"
+      }
+    },
+    "effect": {
+      "run_eocs": "EOC_BERSERK_COUNT_REGISTER_SEAL"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_INSCRIPTION",
+    "effect": {
+      "u_message": "The stone records an execution list. A different hand scratched beneath it: \"The thing below us made his servants from men. Clear the yard; there are passages through both wings. The stairs lie in the northeastern hall. Leave room to evade his heavy body.\"",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_TROPHY_READ",
+    "effect": {
+      "u_message": "The Count's shattered iron seal is proof of your hunt. Closing his exposed breach quiets future incursions near his residence, but does not erase the Brand. Other apostles must be hunted separately. This trophy grants no damage or Berserk-duration bonus.",
+      "type": "info",
+      "popup": true
+    }
+  }
+]
