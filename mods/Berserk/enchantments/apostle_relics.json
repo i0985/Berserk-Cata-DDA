@@ -1,0 +1,32 @@
+[
+  {
+    "type": "enchantment",
+    "id": "ench_berserk_rosine_mistvale_veil",
+    "condition": "ALWAYS",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "DODGE_CHANCE",
+        "add": 1
+      }
+    ]
+  },
+  {
+    "type": "enchantment",
+    "id": "ench_berserk_grunbeld_carapace_shard",
+    "condition": "ALWAYS",
+    "has": "WORN",
+    "values": [
+      {
+        "value": "CLIMATE_CONTROL_CHILL",
+        "add": 10
+      }
+    ],
+    "incoming_damage_mod": [
+      {
+        "type": "heat",
+        "multiply": -0.2
+      }
+    ]
+  }
+]

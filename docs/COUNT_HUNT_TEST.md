@@ -37,10 +37,11 @@ Exact warning timing, AI selection and opportunities to dodge need a game test.
 The Count and servants use the existing butcher/half-demon art as placeholders.
 They retain the existing demon faction's hostility to zombies.
 
-The Count's shattered iron seal is a unique **trophy**, with an activation
-that explains the breach. The practical reward is the quiet region. It does
-not yet grant extra damage or extend Berserk; magical artifact bonuses are
-future work. There are no recurring summons or random world spawns of the
+The Count's original trophy ID is retained as the wearable **Seal of Severed
+Flesh**. It now adds 20% post-defense damage to an explicit demon whitelist
+when worn; its activation still explains the breach. See
+[APOSTLE_RELICS_TEST.md](APOSTLE_RELICS_TEST.md) for the artifact prototype
+and its separate, pending in-game checks. The quiet-region reward remains. There are no recurring summons or random world spawns of the
 Count. The eight servants are placed once by mapgen, six above and two below.
 
 The prisoner is a friendly, immobile conversable monster in a closed cell,

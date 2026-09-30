@@ -1,0 +1,39 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_RELIC_DAMAGE",
+    "eoc_type": "EVENT",
+    "required_event": "monster_takes_damage",
+    "//": "The event alpha is the damaged monster; beta is the attacker. Direct ALL-HP assignment avoids recursive damage events and preserves the original hit attribution. Radius zero tests the target against an explicit ID whitelist.",
+    "condition": {
+      "and": [
+        "u_is_monster",
+        "has_beta",
+        "npc_is_avatar",
+        {
+          "npc_is_wearing": "berserk_count_iron_seal"
+        },
+        {
+          "math": [
+            "_damage > 0"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "u_monsters_nearby('mon_beast_of_darkness_1', 'mon_beast_of_darkness_2', 'mon_beast_of_darkness_3', 'mon_beast_of_darkness_4', 'mon_beast_of_darkness_5', 'mon_beast_of_darkness_6', 'mon_berserk_eclipse_wretch', 'mon_berserk_eclipse_halfbreed', 'mon_berserk_eclipse_hunter', 'mon_berserk_eclipse_butcher', 'mon_berserk_eclipse_elite', 'mon_berserk_hollow_apostle', 'mon_berserk_breach_warden', 'mon_berserk_cursed_oak_guardian', 'mon_berserk_echo_cave_guardian', 'mon_berserk_apostle_count', 'mon_berserk_count_servant', 'mon_nosferatu_zodd', 'mon_griffith_reborn', 'mon_void_apostle', 'mon_berserk_projection_zodd', 'mon_berserk_projection_griffith', 'mon_berserk_projection_void', 'mon_berserk_eclipse_griffith', 'mon_berserk_eclipse_griffith_active', 'radius': 0) > 0"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "math": [
+        "u_hp('ALL') = max(0, u_hp('ALL') - floor(_damage * 0.20))"
+      ]
+    }
+  }
+]

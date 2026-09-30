@@ -1,0 +1,188 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "ARMOR",
+      "ARTIFACT",
+      "TOOL"
+    ],
+    "id": "berserk_count_iron_seal",
+    "category": "armor",
+    "name": {
+      "str": "Seal of Severed Flesh",
+      "str_pl": "Seals of Severed Flesh"
+    },
+    "description": "A broken iron seal wrested from the Count. Wear it to deal an additional 20% of each damaging hit to the mod's listed demons, apostles and their projections, rounded down after their defenses. It gives no bonus against ordinary zombies or people. Carrying it is not enough. Activate it to recall how to close the Count's breach.",
+    "weight": "350 g",
+    "volume": "250 ml",
+    "material": [
+      "iron"
+    ],
+    "symbol": "*",
+    "color": "dark_gray",
+    "warmth": 0,
+    "max_worn": 1,
+    "flags": [
+      "AURA"
+    ],
+    "armor": [
+      {
+        "covers": [
+          "torso"
+        ],
+        "coverage": 0,
+        "encumbrance": 0,
+        "material": [
+          {
+            "type": "iron",
+            "covered_by_mat": 100,
+            "thickness": 0.1
+          }
+        ]
+      }
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Recall the Count's breach",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COUNT_TROPHY_READ"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "ARMOR",
+      "ARTIFACT"
+    ],
+    "id": "berserk_wyald_beast_knot",
+    "category": "armor",
+    "name": {
+      "str": "Beast Knot",
+      "str_pl": "Beast Knots"
+    },
+    "description": "A sinewy knot in which a beast's frenzy still stirs. Wear it before Berserk mode begins to extend that activation from 150 to 210 seconds. Removing or putting it on during a rage does not change the running timer. The blood loss, exhaustion and three-day recovery remain unchanged. Carrying it is not enough.",
+    "weight": "200 g",
+    "volume": "250 ml",
+    "material": [
+      "flesh"
+    ],
+    "symbol": "*",
+    "color": "red",
+    "warmth": 0,
+    "max_worn": 1,
+    "flags": [
+      "AURA"
+    ],
+    "armor": [
+      {
+        "covers": [
+          "torso"
+        ],
+        "coverage": 0,
+        "encumbrance": 0,
+        "material": [
+          {
+            "type": "flesh",
+            "covered_by_mat": 100,
+            "thickness": 0.1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "ARMOR",
+      "ARTIFACT"
+    ],
+    "id": "berserk_rosine_mistvale_veil",
+    "category": "armor",
+    "name": {
+      "str": "Mistvale Veil",
+      "str_pl": "Mistvale Veils"
+    },
+    "description": "A pale veil threaded with the lingering mist of Rosine's valley. While worn, it grants +1 to your dodge bonus. It does not make every attack miss and currently grants no stamina benefit. Carrying it is not enough.",
+    "weight": "100 g",
+    "volume": "250 ml",
+    "material": [
+      "cotton"
+    ],
+    "symbol": "*",
+    "color": "light_gray",
+    "warmth": 0,
+    "max_worn": 1,
+    "flags": [
+      "AURA"
+    ],
+    "armor": [
+      {
+        "covers": [
+          "torso"
+        ],
+        "coverage": 0,
+        "encumbrance": 0,
+        "material": [
+          {
+            "type": "cotton",
+            "covered_by_mat": 100,
+            "thickness": 0.1
+          }
+        ]
+      }
+    ],
+    "passive_effects": [
+      {
+        "id": "ench_berserk_rosine_mistvale_veil"
+      }
+    ]
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "ARMOR",
+      "ARTIFACT"
+    ],
+    "id": "berserk_grunbeld_carapace_shard",
+    "category": "armor",
+    "name": {
+      "str": "Flaming Carapace Shard",
+      "str_pl": "Flaming Carapace Shards"
+    },
+    "description": "A dark shard of Grunbeld's fiery carapace. While worn, it reduces incoming heat damage by 20% before clothing protection and provides modest cooling in hot conditions. It does not protect against smoke, prevent your equipment from burning or make you fireproof. Carrying it is not enough.",
+    "weight": "500 g",
+    "volume": "250 ml",
+    "material": [
+      "stone"
+    ],
+    "symbol": "*",
+    "color": "light_red",
+    "warmth": 0,
+    "max_worn": 1,
+    "flags": [
+      "AURA"
+    ],
+    "armor": [
+      {
+        "covers": [
+          "torso"
+        ],
+        "coverage": 0,
+        "encumbrance": 0,
+        "material": [
+          {
+            "type": "stone",
+            "covered_by_mat": 100,
+            "thickness": 0.1
+          }
+        ]
+      }
+    ],
+    "passive_effects": [
+      {
+        "id": "ench_berserk_grunbeld_carapace_shard"
+      }
+    ]
+  }
+]

@@ -158,13 +158,32 @@
         ]
       },
       {
+        "if": {
+          "u_is_wearing": "berserk_wyald_beast_knot"
+        },
+        "then": {
+          "math": [
+            "u_berserk_mode_duration = 210"
+          ]
+        },
+        "else": {
+          "math": [
+            "u_berserk_mode_duration = 150"
+          ]
+        }
+      },
+      {
         "math": [
-          "u_berserk_mode_countdown = 151"
+          "u_berserk_mode_countdown = u_berserk_mode_duration + 1"
         ]
       },
       {
         "u_add_effect": "berserk_mode_rush",
-        "duration": "150 seconds"
+        "duration": {
+          "math": [
+            "u_berserk_mode_duration"
+          ]
+        }
       },
       {
         "math": [
@@ -172,7 +191,7 @@
         ]
       },
       {
-        "u_message": "The armor takes control! Berserk mode: 150 seconds. When it ends, your stamina will empty and you will lose a great deal of blood. Prepare an escape now!",
+        "u_message": "The armor takes control! Berserk mode: <u_val:berserk_mode_duration> seconds. When it ends, your stamina will empty and you will lose a great deal of blood. Prepare an escape now!",
         "type": "warning",
         "popup": true
       }
@@ -597,6 +616,60 @@
           {
             "math": [
               "u_berserk_mode_countdown = 120"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 150"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 151"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 150 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 150"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_effect_duration('berserk_mode_rush') <= 180"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mode_countdown > 181"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_message": "Berserk mode: 180 seconds remaining.",
+            "type": "warning"
+          },
+          {
+            "math": [
+              "u_berserk_mode_countdown = 180"
             ]
           }
         ]
