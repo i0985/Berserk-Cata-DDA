@@ -317,7 +317,15 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_FLORA",
-    "dynamic_line": "\"Seek Flora in her forest manor. She understands the mark you bear and the armor that can carry you beyond ordinary limits. If you already possess the entire armor, ask for counsel rather than another gift. Remember these directions; you need not keep me here to follow them.\"",
+    "dynamic_line": {
+      "if": {
+        "math": [
+          "berserk_flora_stage == 3"
+        ]
+      },
+      "yes": "\"The grove has fallen. What Flora entrusted to you remains yours, but her house will no longer shelter the branded. Return to your refuge, recover, then follow the remaining trails. An original apostle killed there stays dead; a projection elsewhere is only an echo.\"",
+      "no": "\"Seek Flora in her forest manor. She understands the mark you bear and the armor that can carry you beyond ordinary limits. If you already possess the entire armor, ask for counsel rather than another gift. Remember these directions; you need not keep me here to follow them.\""
+    },
     "responses": [
       {
         "text": "Ask something else.",

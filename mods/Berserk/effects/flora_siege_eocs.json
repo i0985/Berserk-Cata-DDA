@@ -1,0 +1,1183 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "and": [
+            "has_beta",
+            "npc_is_monster",
+            {
+              "math": [
+                "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_siege_state == 0"
+          ]
+        },
+        {
+          "or": [
+            {
+              "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+            },
+            {
+              "math": [
+                "u_berserk_flora_armor_resolved == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_PREPARE_SIEGE",
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_FLORA_GIVE_ARMOR"
+        }
+      },
+      {
+        "math": [
+          "berserk_flora_siege_state = 1"
+        ]
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "global_val": "berserk_flora_center"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "global_val": "berserk_flora_center"
+        },
+        "x_adjust": 24,
+        "y_adjust": 24
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "global_val": "berserk_flora_zodd_anchor"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "global_val": "berserk_flora_zodd_anchor"
+        },
+        "x_adjust": 14,
+        "y_adjust": 2
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "global_val": "berserk_flora_grunbeld_anchor"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "global_val": "berserk_flora_grunbeld_anchor"
+        },
+        "x_adjust": 44,
+        "y_adjust": 18
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "global_val": "berserk_flora_guard_north_anchor"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "global_val": "berserk_flora_guard_north_anchor"
+        },
+        "x_adjust": 14,
+        "y_adjust": 4
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "global_val": "berserk_flora_guard_east_anchor"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "global_val": "berserk_flora_guard_east_anchor"
+        },
+        "x_adjust": 42,
+        "y_adjust": 18
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_item": "berserk_flora_escape_charm"
+          }
+        },
+        "then": {
+          "u_spawn_item": "berserk_flora_escape_charm",
+          "count": 1
+        }
+      },
+      {
+        "u_message": "Flora entrusts you with the armor and an escape charm. Equip and pack what you need first. Activate Flora's escape charm in the manor when ready: that starts the attack. Leave by the western door or the southern garden path; you need not kill the apostles. Until you activate it, the siege does not advance.",
+        "type": "warning",
+        "popup": true
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "and": [
+            "has_beta",
+            "npc_is_monster",
+            {
+              "math": [
+                "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_siege_state == 0"
+          ]
+        },
+        {
+          "or": [
+            {
+              "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+            },
+            {
+              "math": [
+                "u_berserk_flora_armor_resolved == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_INSIDE_SIEGE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(berserk_flora_center)"
+          ]
+        },
+        {
+          "math": [
+            "distance(_flora_player_pos, berserk_flora_center) <= 32"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_UPDATE_WARNING",
+    "effect": [
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "flora_patch"
+        },
+        "overmap_tile": true,
+        "x_adjust": 0,
+        "y_adjust": 0
+      },
+      {
+        "mapgen_update": "berserk_flora_warning_west",
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "flora_patch"
+        },
+        "overmap_tile": true,
+        "x_adjust": 1,
+        "y_adjust": 0
+      },
+      {
+        "mapgen_update": "berserk_flora_warning_east",
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "flora_patch"
+        },
+        "overmap_tile": true,
+        "x_adjust": 0,
+        "y_adjust": 1
+      },
+      {
+        "mapgen_update": "berserk_flora_warning_garden_west",
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "flora_patch"
+        },
+        "overmap_tile": true,
+        "x_adjust": 1,
+        "y_adjust": 1
+      },
+      {
+        "mapgen_update": "berserk_flora_warning_garden_east",
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      }
+    ],
+    "condition": {
+      "math": [
+        "has_var(berserk_flora_location)"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_UPDATE_COLLAPSE",
+    "effect": [
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "flora_patch"
+        },
+        "overmap_tile": true,
+        "x_adjust": 0,
+        "y_adjust": 0
+      },
+      {
+        "mapgen_update": "berserk_flora_collapse_west",
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "flora_patch"
+        },
+        "overmap_tile": true,
+        "x_adjust": 1,
+        "y_adjust": 0
+      },
+      {
+        "mapgen_update": "berserk_flora_collapse_east",
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "flora_patch"
+        },
+        "overmap_tile": true,
+        "x_adjust": 0,
+        "y_adjust": 1
+      },
+      {
+        "mapgen_update": "berserk_flora_collapse_garden_west",
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "flora_patch"
+        },
+        "overmap_tile": true,
+        "x_adjust": 1,
+        "y_adjust": 1
+      },
+      {
+        "mapgen_update": "berserk_flora_collapse_garden_east",
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      }
+    ],
+    "condition": {
+      "math": [
+        "has_var(berserk_flora_location)"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_UPDATE_RUINS",
+    "effect": [
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "flora_patch"
+        },
+        "overmap_tile": true,
+        "x_adjust": 0,
+        "y_adjust": 0
+      },
+      {
+        "mapgen_update": "berserk_flora_ruins_west",
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "flora_patch"
+        },
+        "overmap_tile": true,
+        "x_adjust": 1,
+        "y_adjust": 0
+      },
+      {
+        "mapgen_update": "berserk_flora_ruins_east",
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "flora_patch"
+        },
+        "overmap_tile": true,
+        "x_adjust": 0,
+        "y_adjust": 1
+      },
+      {
+        "mapgen_update": "berserk_flora_ruins_garden_west",
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "flora_patch"
+        },
+        "overmap_tile": true,
+        "x_adjust": 1,
+        "y_adjust": 1
+      },
+      {
+        "mapgen_update": "berserk_flora_ruins_garden_east",
+        "target_var": {
+          "context_val": "flora_patch"
+        }
+      }
+    ],
+    "condition": {
+      "math": [
+        "has_var(berserk_flora_location)"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_START_SIEGE",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "flora_player_pos"
+        }
+      },
+      {
+        "if": {
+          "and": [
+            "u_is_avatar",
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_eclipse_era == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                }
+              ]
+            },
+            {
+              "or": [
+                {
+                  "u_at_om_location": "berserk_flora_manor_west"
+                },
+                {
+                  "u_at_om_location": "berserk_flora_manor_east"
+                },
+                {
+                  "u_at_om_location": "berserk_flora_garden_west"
+                },
+                {
+                  "u_at_om_location": "berserk_flora_garden_east"
+                }
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_siege_state == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "if": {
+            "u_query": "Begin the one-time attack now? Prepare your armor first. The sanctuary will be lost; escape through the western road or southern garden."
+          },
+          "then": [
+            {
+              "math": [
+                "berserk_flora_siege_state = 2"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage = 2"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_siege_started = time('now')"
+              ]
+            },
+            {
+              "run_eocs": "EOC_BERSERK_FLORA_UPDATE_WARNING"
+            },
+            {
+              "u_spawn_monster": "mon_berserk_flora_root_guard",
+              "real_count": 1,
+              "min_radius": 0,
+              "max_radius": 2,
+              "target_var": {
+                "global_val": "berserk_flora_guard_north_anchor"
+              },
+              "friendly": true,
+              "lifespan": "10 minutes"
+            },
+            {
+              "u_spawn_monster": "mon_berserk_flora_root_guard",
+              "real_count": 1,
+              "min_radius": 0,
+              "max_radius": 2,
+              "target_var": {
+                "global_val": "berserk_flora_guard_east_anchor"
+              },
+              "friendly": true,
+              "lifespan": "10 minutes"
+            },
+            {
+              "u_make_sound": "wood cracking beyond the ward",
+              "volume": 36,
+              "type": "combat",
+              "target_var": {
+                "global_val": "berserk_flora_zodd_anchor"
+              }
+            },
+            {
+              "u_message": "The ward trembles. Root guardians rise outside the house as footsteps approach from the north and east. ESCAPE: use the western door or the southern door, then follow the ash-marked path beyond the grove. Zodd and Grunbeld arrive in about 30 seconds. Escape, not victory, is the objective.",
+              "type": "warning",
+              "popup": true
+            }
+          ]
+        },
+        "else": {
+          "u_message": "The charm cannot begin another attack. Prepare with Flora after the Eclipse, then activate it in her still-peaceful manor.",
+          "type": "warning",
+          "popup": true
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_ZODD_ARRIVED",
+    "effect": [
+      {
+        "math": [
+          "berserk_flora_zodd_spawned = 1"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_GRUNBELD_ARRIVED",
+    "effect": [
+      {
+        "math": [
+          "berserk_flora_grunbeld_spawned = 1"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_SPAWN_ZODD",
+    "effect": {
+      "if": {
+        "math": [
+          "u_monsters_nearby('mon_nosferatu_zodd', 'radius': 100) > 0"
+        ]
+      },
+      "then": {
+        "math": [
+          "berserk_flora_zodd_spawned = 1"
+        ]
+      },
+      "else": [
+        {
+          "math": [
+            "berserk_flora_zodd_attempts = berserk_flora_zodd_attempts + 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_zodd_last_try = time('now')"
+          ]
+        },
+        {
+          "u_spawn_monster": "mon_berserk_flora_zodd",
+          "real_count": 1,
+          "min_radius": 0,
+          "max_radius": 2,
+          "target_var": {
+            "global_val": "berserk_flora_zodd_anchor"
+          },
+          "true_eocs": [
+            "EOC_BERSERK_FLORA_ZODD_ARRIVED"
+          ],
+          "false_eocs": [
+            "EOC_BERSERK_FLORA_ZODD_BLOCKED"
+          ]
+        }
+      ]
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_apostle_zodd_dead != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_zodd_spawned != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_zodd_attempts < 6"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_SPAWN_GRUNBELD",
+    "effect": [
+      {
+        "math": [
+          "berserk_flora_grunbeld_attempts = berserk_flora_grunbeld_attempts + 1"
+        ]
+      },
+      {
+        "math": [
+          "berserk_flora_grunbeld_last_try = time('now')"
+        ]
+      },
+      {
+        "u_spawn_monster": "mon_berserk_flora_grunbeld",
+        "real_count": 1,
+        "min_radius": 0,
+        "max_radius": 2,
+        "target_var": {
+          "global_val": "berserk_flora_grunbeld_anchor"
+        },
+        "true_eocs": [
+          "EOC_BERSERK_FLORA_GRUNBELD_ARRIVED"
+        ],
+        "false_eocs": [
+          "EOC_BERSERK_FLORA_GRUNBELD_BLOCKED"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_apostle_grunbeld_dead != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_grunbeld_spawned != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_grunbeld_attempts < 6"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_APOSTLES_ARRIVE",
+    "effect": [
+      {
+        "math": [
+          "berserk_flora_siege_state = 3"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_SPAWN_ZODD"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_SPAWN_GRUNBELD"
+      },
+      {
+        "u_message": "The northern ward breaks under a great blade; an armored giant closes from the east. The guardians can only delay them. Both escape paths remain open. Keep moving toward the western road or the southern garden exit.",
+        "type": "warning",
+        "popup": true
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_flora_siege_state == 2"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_COLLAPSE",
+    "effect": [
+      {
+        "math": [
+          "berserk_flora_siege_state = 4"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_UPDATE_COLLAPSE"
+      },
+      {
+        "u_message": "The upper rooms char and a section of the eastern wall gives way. The ward holds the embers back from the western and southern escape paths. Take what you need and leave the grove; staying to fight is your choice.",
+        "type": "warning",
+        "popup": true
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_flora_siege_state == 3"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_ESCAPED",
+    "effect": [
+      {
+        "math": [
+          "berserk_flora_siege_state = 5"
+        ]
+      },
+      {
+        "math": [
+          "berserk_flora_stage = 3"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_flora_escaped = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_UPDATE_RUINS"
+      },
+      {
+        "u_message": "You reach the far side of the grove. Behind you, Flora's sanctuary becomes a silent, charred ruin. Its protection is gone. Apostles you killed remain dead; surviving attackers are not erased. Recover at your refuge, then follow the Count's trail when ready.",
+        "type": "warning",
+        "popup": true
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_flora_siege_state >= 2"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_siege_state <= 4"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_SIEGE_TICK",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "flora_player_pos"
+        }
+      },
+      {
+        "if": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FLORA_INSIDE_SIEGE"
+          }
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_FLORA_ESCAPED"
+        },
+        "else": [
+          {
+            "if": {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_siege_state == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "time('now') - berserk_flora_siege_started >= 30"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "run_eocs": "EOC_BERSERK_FLORA_APOSTLES_ARRIVE"
+            }
+          },
+          {
+            "if": {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_siege_state >= 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "time('now') - berserk_flora_zodd_last_try >= 10"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "run_eocs": "EOC_BERSERK_FLORA_SPAWN_ZODD"
+            }
+          },
+          {
+            "if": {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_siege_state >= 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "time('now') - berserk_flora_grunbeld_last_try >= 10"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "run_eocs": "EOC_BERSERK_FLORA_SPAWN_GRUNBELD"
+            }
+          },
+          {
+            "if": {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_siege_state == 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "time('now') - berserk_flora_siege_started >= 90"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "run_eocs": "EOC_BERSERK_FLORA_COLLAPSE"
+            }
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_flora_siege_state >= 2"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_siege_state <= 4"
+          ]
+        }
+      ]
+    },
+    "global": true,
+    "recurrence": "1 second"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_REMOVE_SCENE_ACTOR",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "flora_actor_pos"
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "distance(_flora_actor_pos, berserk_flora_center) <= 32"
+          ]
+        },
+        "then": {
+          "u_die": {
+            "remove_from_creature_tracker": true
+          }
+        }
+      }
+    ],
+    "condition": {
+      "math": [
+        "has_var(berserk_flora_center)"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_RUINS_CLEANUP",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_FLORA_REMOVE_SCENE_ACTOR"
+      ],
+      "mtype_ids": [
+        "mon_berserk_flora",
+        "mon_berserk_flora_root_guard"
+      ],
+      "monster_range": 100
+    },
+    "global": true,
+    "recurrence": "10 seconds",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_flora_stage == 3"
+          ]
+        },
+        {
+          "math": [
+            "u_monsters_nearby('mon_berserk_flora', 'mon_berserk_flora_root_guard', 'radius': 100, 'attitude': 'both') > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_ZODD_DIES",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostle_zodd_dead = 1"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_GRUNBELD_DIES",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostle_grunbeld_dead = 1"
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_grunbeld_state = max(3, berserk_hunt_grunbeld_state)"
+        ]
+      },
+      {
+        "npc_location_variable": {
+          "global_val": "berserk_hunt_grunbeld_location"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "global_val": "berserk_hunt_grunbeld_location"
+        },
+        "overmap_tile": true,
+        "x_adjust": 0,
+        "y_adjust": 0
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_LEGACY_ZODD_DIES",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_ZODD_DIES"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_BEHELIT_BOSS_DIES"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_REPLACE_CHARM",
+    "effect": {
+      "u_spawn_item": "berserk_flora_escape_charm",
+      "count": 1
+    },
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "has_beta",
+            "npc_is_monster",
+            {
+              "math": [
+                "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_siege_state == 1"
+          ]
+        },
+        {
+          "not": {
+            "u_has_item": "berserk_flora_escape_charm"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_ZODD_BLOCKED",
+    "effect": {
+      "u_message": "An attacker could not enter the grove because its approach is blocked. Your escape remains available; the siege will not summon replacements endlessly.",
+      "type": "warning",
+      "popup": true
+    },
+    "condition": {
+      "math": [
+        "berserk_flora_zodd_attempts == 6"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_GRUNBELD_BLOCKED",
+    "effect": {
+      "u_message": "An attacker could not enter the grove because its approach is blocked. Your escape remains available; the siege will not summon replacements endlessly.",
+      "type": "warning",
+      "popup": true
+    },
+    "condition": {
+      "math": [
+        "berserk_flora_grunbeld_attempts == 6"
+      ]
+    }
+  }
+]

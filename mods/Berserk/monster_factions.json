@@ -3,6 +3,37 @@
     "type": "MONSTER_FACTION",
     "name": "berserk_eclipse_demons",
     "base_faction": "nether",
-    "hate": [ "zombie", "zombie_aquatic", "human", "player" ]
+    "hate": [
+      "zombie",
+      "zombie_aquatic",
+      "human",
+      "player"
+    ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "berserk_flora_guardians",
+    "base_faction": "player",
+    "friendly": [
+      "human",
+      "player"
+    ],
+    "hate": [
+      "berserk_flora_attackers"
+    ]
+  },
+  {
+    "type": "MONSTER_FACTION",
+    "name": "berserk_flora_attackers",
+    "base_faction": "nether",
+    "friendly": [
+      "berserk_eclipse_demons"
+    ],
+    "hate": [
+      "berserk_flora_guardians",
+      "human",
+      "player",
+      "zombie"
+    ]
   }
 ]

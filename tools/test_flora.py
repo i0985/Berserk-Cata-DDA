@@ -217,6 +217,8 @@ class FloraStory(unittest.TestCase):
             self.assertEqual(g.condition(query),expected)
         g.context['berserk_quiet_target'] = (-96,48,0)
         g.flags['berserk_flora_stage'] = 2
+        self.assertTrue(g.condition(query))
+        g.flags['berserk_flora_stage'] = 3
         self.assertFalse(g.condition(query))
         flora_text = (MOD/'effects/flora_eocs.json').read_text()
         self.assertNotIn('npc_die',flora_text)

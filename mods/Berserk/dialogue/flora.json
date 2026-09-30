@@ -2,37 +2,138 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA",
-    "dynamic_line": "\"You have found a quiet place, traveler. Here you may ask before you choose. A suit of armor is not a cure for a wounded soul, and possessing it is not the end of your road.\"",
+    "dynamic_line": {
+      "if": {
+        "math": [
+          "berserk_flora_stage == 2"
+        ]
+      },
+      "yes": "\"There is no more time for counsel. The guardians are holding the northern and eastern approaches. Leave through the western road or the southern garden. Do not wait for a victory.\"",
+      "no": "\"You have found a quiet place, traveler. Here you may ask before you choose. A suit of armor is not a cure for a wounded soul, and possessing it is not the end of your road.\""
+    },
     "responses": [
       {
         "text": "What does the Brand mean, and why do things come at night?",
-        "topic": "TALK_BERSERK_FLORA_BRAND"
+        "topic": "TALK_BERSERK_FLORA_BRAND",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            },
+            {
+              "math": [
+                "1 == 1"
+              ]
+            }
+          ]
+        }
       },
       {
         "text": "What is the Berserker armor?",
-        "topic": "TALK_BERSERK_FLORA_ARMOR"
+        "topic": "TALK_BERSERK_FLORA_ARMOR",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            },
+            {
+              "math": [
+                "1 == 1"
+              ]
+            }
+          ]
+        }
       },
       {
         "text": "What price will I pay for Berserk mode?",
-        "topic": "TALK_BERSERK_FLORA_COST"
+        "topic": "TALK_BERSERK_FLORA_COST",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            },
+            {
+              "math": [
+                "1 == 1"
+              ]
+            }
+          ]
+        }
       },
       {
         "text": "What are apostles, projections and the God Hand?",
-        "topic": "TALK_BERSERK_FLORA_APOSTLES"
+        "topic": "TALK_BERSERK_FLORA_APOSTLES",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            },
+            {
+              "math": [
+                "1 == 1"
+              ]
+            }
+          ]
+        }
       },
       {
         "text": "Can a trophy taken from an apostle help me?",
-        "topic": "TALK_BERSERK_FLORA_RELICS"
+        "topic": "TALK_BERSERK_FLORA_RELICS",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            },
+            {
+              "math": [
+                "1 == 1"
+              ]
+            }
+          ]
+        }
       },
       {
         "text": "What should I do next?",
-        "topic": "TALK_BERSERK_FLORA_NEXT"
+        "topic": "TALK_BERSERK_FLORA_NEXT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            },
+            {
+              "math": [
+                "1 == 1"
+              ]
+            }
+          ]
+        }
       },
       {
         "text": "I already have all six pieces, or the packed armor.",
         "topic": "TALK_BERSERK_FLORA_OWNED",
         "condition": {
-          "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+          "and": [
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+            }
+          ]
         },
         "effect": {
           "run_eocs": "EOC_BERSERK_FLORA_ACKNOWLEDGE_ARMOR"
@@ -42,15 +143,33 @@
         "text": "Will you entrust the armor to me?",
         "topic": "TALK_BERSERK_FLORA_OFFER",
         "condition": {
-          "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
+          "and": [
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
+            }
+          ]
         }
       },
       {
         "text": "You already helped me with the armor.",
         "topic": "TALK_BERSERK_FLORA_RECEIVED",
         "condition": {
-          "math": [
-            "u_berserk_flora_armor_resolved == 1"
+          "and": [
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_flora_armor_resolved == 1"
+              ]
+            }
           ]
         }
       },
@@ -61,20 +180,66 @@
           "and": [
             {
               "math": [
-                "berserk_flora_armor_claimed == 1"
+                "berserk_flora_stage == 1"
               ]
             },
             {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_armor_claimed == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_flora_armor_resolved != 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "I am ready to accept the armor and face the attack.",
+        "topic": "TALK_BERSERK_FLORA_SIEGE_CONFIRM",
+        "condition": {
+          "and": [
+            {
               "math": [
-                "u_berserk_flora_armor_resolved != 1"
+                "berserk_flora_stage == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
+            }
+          ]
+        }
+      },
+      {
+        "text": "I need another escape charm before I begin.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_siege_state == 1"
               ]
             },
             {
               "not": {
-                "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+                "u_has_item": "berserk_flora_escape_charm"
               }
             }
           ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_REPLACE_CHARM"
         }
       },
       {
@@ -216,6 +381,27 @@
     "responses": [
       {
         "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_SIEGE_CONFIRM",
+    "dynamic_line": "\"If you take this road, the sanctuary will not remain your shelter. I will entrust the missing armor to you, and the guardians will buy time. Zodd approaches from the north; Grunbeld from the east. Do not try to defeat both. Prepare first, then activate my escape charm to begin. The western door and southern garden offer two ways out. Once you begin, there is no return to this peaceful house.\"",
+    "responses": [
+      {
+        "text": "I understand the danger. Give me the armor and the escape charm.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_PREPARE_SIEGE"
+        },
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
+        }
+      },
+      {
+        "text": "Not yet. I need to prepare and ask more.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]

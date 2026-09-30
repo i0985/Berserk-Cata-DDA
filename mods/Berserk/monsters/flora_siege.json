@@ -1,0 +1,90 @@
+[
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_flora_root_guard",
+    "copy-from": "mon_berserk_cursed_oak_guardian",
+    "looks_like": "mon_berserk_cursed_oak_guardian",
+    "name": {
+      "str": "Flora's root guardian",
+      "str_pl": "Flora's root guardians"
+    },
+    "description": "A knot of living roots raised by Flora outside her sanctuary. It holds its ground to delay the attackers, buying you time to escape. It will not attack you or your companions.",
+    "default_faction": "berserk_flora_guardians",
+    "hp": 280,
+    "speed": 90,
+    "aggression": 100,
+    "aggro_character": false,
+    "armor": {
+      "bash": 8,
+      "cut": 12
+    },
+    "special_attacks": [],
+    "death_drops": "EMPTY_GROUP",
+    "flags": [
+      "SEES",
+      "HEARS",
+      "IMMOBILE",
+      "ATTACKMON"
+    ]
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_flora_zodd",
+    "copy-from": "mon_nosferatu_zodd",
+    "looks_like": "mon_nosferatu_zodd",
+    "name": {
+      "str_sp": "Nosferatu Zodd, attacker of the grove"
+    },
+    "description": "The real Zodd has come to destroy Flora's sanctuary. Root guardians delay him at the northern ward. You are meant to escape, but if you kill him his death is recorded for future stories.",
+    "default_faction": "berserk_flora_attackers",
+    "death_function": {
+      "eoc": "EOC_BERSERK_FLORA_ZODD_DIES"
+    }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_flora_grunbeld",
+    "copy-from": "mon_berserk_eclipse_butcher",
+    "looks_like": "mon_berserk_eclipse_butcher",
+    "name": {
+      "str_sp": "Grunbeld, attacker of the grove"
+    },
+    "description": "A towering armored apostle whose advance crushes the eastern ward. This encounter shows Grunbeld in his armored form, not his later dragon battle. Slow movement gives you a chance to escape. Killing him is optional and is recorded as the death of the original, not a projection.",
+    "default_faction": "berserk_flora_attackers",
+    "hp": 850,
+    "speed": 80,
+    "volume": "400 L",
+    "weight": "600 kg",
+    "melee_skill": 7,
+    "melee_dice": 3,
+    "melee_dice_sides": 8,
+    "melee_damage": [
+      {
+        "damage_type": "bash",
+        "amount": 24
+      }
+    ],
+    "dodge": 0,
+    "armor": {
+      "bash": 16,
+      "cut": 24,
+      "heat": 12
+    },
+    "regenerates": 0,
+    "vision_day": 35,
+    "vision_night": 30,
+    "flags": [
+      "SEES",
+      "HEARS",
+      "WARM",
+      "BASHES",
+      "DESTROYS",
+      "ATTACKMON"
+    ],
+    "special_attacks": [],
+    "death_drops": "berserk_grunbeld_relic_drops",
+    "death_function": {
+      "eoc": "EOC_BERSERK_FLORA_GRUNBELD_DIES"
+    }
+  }
+]

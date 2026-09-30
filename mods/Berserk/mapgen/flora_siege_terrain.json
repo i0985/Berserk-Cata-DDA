@@ -1,0 +1,70 @@
+[
+  {
+    "type": "terrain",
+    "id": "t_berserk_flora_ash_floor",
+    "name": "charred sanctuary floor",
+    "description": "Ash and scorched stone cover what remains of Flora's sanctuary. The grove no longer quiets the Brand.",
+    "looks_like": "t_dirt",
+    "symbol": ".",
+    "color": "dark_gray",
+    "move_cost": 2,
+    "flags": [
+      "TRANSPARENT",
+      "FLAT",
+      "INDOORS",
+      "SUPPORTS_ROOF"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_held_embers",
+    "name": "ward-bound embers",
+    "description": "Glowing embers held inside a ring of Flora's dying ward. They give light but cannot spread fire; the escape paths remain clear.",
+    "looks_like": "f_rubble",
+    "symbol": "*",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "light_emitted": 12,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_ruined_ward",
+    "name": "Flora's broken ward",
+    "description": "The protective mark has burned cold. The Brand is no longer quieted here.",
+    "looks_like": "f_berserk_flora_ward",
+    "symbol": "O",
+    "color": "dark_gray",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_flora_escape_path",
+    "name": "ash-marked escape path",
+    "description": "Pale marks trace a clear path from the house toward the western road or southern garden.",
+    "looks_like": "t_dirt",
+    "symbol": ".",
+    "color": "light_gray",
+    "move_cost": 2,
+    "flags": [
+      "TRANSPARENT",
+      "FLAT"
+    ]
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_flora_charred_wall",
+    "copy-from": "t_wall",
+    "name": "charred sanctuary wall",
+    "description": "The blackened shell of Flora's sanctuary. The walls no longer protect a peaceful haven.",
+    "looks_like": "t_wall",
+    "color": "dark_gray"
+  }
+]

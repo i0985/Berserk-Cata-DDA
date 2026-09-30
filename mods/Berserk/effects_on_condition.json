@@ -8,6 +8,8 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ZODD_PURSUER",
+    "condition": { "math": [ "berserk_apostle_zodd_dead != 1" ] },
+    "false_effect": { "u_message": "Zodd has already fallen in this world. His old challenge will not resurrect him.", "type": "info", "popup": true },
     "effect": [
       {
         "u_spawn_monster": "mon_nosferatu_zodd",

@@ -225,9 +225,11 @@ class ApostleRelics(unittest.TestCase):
         self.assertEqual(groups['berserk_count_trophy_drops']['items'],
                          [{'item':'berserk_count_iron_seal','prob':100}])
         all_monsters = json.dumps([e for p in (MOD/'monsters').glob('*.json') for e in objects(p)])
-        for group in ('berserk_wyald_relic_drops','berserk_rosine_relic_drops','berserk_grunbeld_relic_drops'):
+        for group in ('berserk_wyald_relic_drops','berserk_rosine_relic_drops'):
             self.assertIn(group, groups)
             self.assertNotIn(group, all_monsters)
+        grunbeld = next(e for e in objects(MOD/'monsters/flora_siege.json') if e['id']=='mon_berserk_flora_grunbeld')
+        self.assertEqual(grunbeld['death_drops'],'berserk_grunbeld_relic_drops')
 
     def test_new_player_strings_have_compiled_russian_and_chinese_translations(self):
         items = objects(MOD/'items/apostle_relics.json')

@@ -200,7 +200,8 @@ class BehelitRewards(unittest.TestCase):
                     self.assertNotIn('"berserk_behelit"', json.dumps(obj), str(path))
         for filename in ("nosferatu_zodd.json", "griffith_reborn.json", "mon_void_apostle.json", "apostle_projections.json"):
             for monster in objects(MOD / "monsters" / filename):
-                self.assertEqual(monster["death_function"]["eoc"], "EOC_BERSERK_BEHELIT_BOSS_DIES")
+                expected = "EOC_BERSERK_FLORA_LEGACY_ZODD_DIES" if monster["id"] == "mon_nosferatu_zodd" else "EOC_BERSERK_BEHELIT_BOSS_DIES"
+                self.assertEqual(monster["death_function"]["eoc"], expected)
         for filename in ("griffith_eclipse.json", "griffith_eclipse_active.json"):
             self.assertEqual(objects(MOD / "monsters" / filename)[0]["death_function"]["eoc"],
                              "EOC_BERSERK_ECLIPSE_GRIFFITH_DIES")

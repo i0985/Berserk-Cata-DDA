@@ -1,0 +1,32 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_flora_escape_charm",
+    "category": "tools",
+    "name": {
+      "str_sp": "Flora's escape charm"
+    },
+    "description": "Flora's token of your decision. Equip and pack the armor before activating it in her manor. Activation starts a one-time attack: guardians delay Zodd and Grunbeld, and you must leave by the western road or southern garden. It needs no power and does not teleport you. It cannot restart the siege.",
+    "weight": "1 g",
+    "volume": "1 ml",
+    "material": [
+      "paper"
+    ],
+    "symbol": "?",
+    "color": "light_green",
+    "flags": [
+      "NO_SALVAGE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Begin the escape from Flora's manor",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_START_SIEGE"
+      ]
+    },
+    "looks_like": "paper"
+  }
+]
