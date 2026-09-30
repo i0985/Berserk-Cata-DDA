@@ -263,7 +263,7 @@ class ApostleHunts(unittest.TestCase):
         cave_eocs={e['id']:e for e in objects(MOD/'effects/behelit_site_eocs.json')}
         noise=cave_eocs['EOC_BERSERK_CAVE_DISTRACTION']['effect']
         self.assertEqual(noise[0]['target_var'],{'context_val':'pos'})
-        self.assertEqual(noise[-1],{'turn_cost':'1 sec'})
+        self.assertEqual(noise[-1],{'turn_cost':'1 second'})
 
     def test_new_text_and_monster_plurals_are_localized(self):
         messages=set(); plurals=[]

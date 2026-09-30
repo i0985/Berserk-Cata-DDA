@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import gettext
 import json
+import re
 import struct
 import sys
 from collections import defaultdict
@@ -117,6 +118,41 @@ def validate_dynamic_lines(path: Path, objects: list[dict[str, Any]]) -> None:
     for entry in objects:
         if entry.get("type") == "talk_topic":
             visit(entry.get("dynamic_line"))
+
+
+def validate_turn_cost_durations(path: Path, objects: list[dict[str, Any]]) -> None:
+    """Check literal turn_cost strings against 0.I-1's time_duration units.
+
+    The '1 sec' documentation example is not accepted by calendar.cpp's unit
+    list. units.h consumes its 's', then rejects the leftover 'ec'. Integers,
+    variable objects and ranges remain the native loader's responsibility.
+    """
+    quantity = re.compile(
+        r"(?: *[+-]?[0-9]+ *(?:turns|turn|t|seconds|second|s|"
+        r"minutes|minute|m|hours|hour|h|days|day|d))+ *"
+    )
+
+    def check(value: Any) -> None:
+        if isinstance(value, str) and value != "infinite" and not quantity.fullmatch(value):
+            raise ValidationError(
+                f"{path.relative_to(ROOT)}: invalid turn_cost duration {value!r} "
+                "in CDDA 0.I-1; use e.g. '1 second', not '1 sec'"
+            )
+        if isinstance(value, list):
+            for part in value:
+                check(part)
+
+    def visit(value: Any) -> None:
+        if isinstance(value, list):
+            for part in value:
+                visit(part)
+        elif isinstance(value, dict):
+            for key, part in value.items():
+                if key == "turn_cost":
+                    check(part)
+                visit(part)
+
+    visit(objects)
 
 
 def png_size(path: Path) -> tuple[int, int]:
@@ -317,6 +353,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
             validate_furniture_required_fields(path, objects)
             validate_monster_attacks(path, objects)
             validate_dynamic_lines(path, objects)
+            validate_turn_cost_durations(path, objects)
             if sum(entry.get("type") == "mod_tileset" for entry in objects) > 1:
                 raise ValidationError(
                     f"{path.relative_to(ROOT)}: CDDA 0.I-1 requires one mod_tileset per file"
