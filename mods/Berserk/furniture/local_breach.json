@@ -1,0 +1,25 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_open_breach",
+    "name": "open breach",
+    "description": "The ground folds inward around a pulsing wound in the world. Defeat its guardian, then examine this place to close the breach.",
+    "symbol": "O",
+    "color": "light_red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT" ],
+    "examine_action": { "type": "effect_on_condition", "effect_on_conditions": [ "EOC_BERSERK_BREACH_CLOSE" ] }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_sealed_breach",
+    "name": "sealed breach",
+    "description": "The wound in the world has hardened to black glass. New demonic incursions are weaker nearby; creatures already in the region remain.",
+    "symbol": "O",
+    "color": "dark_gray",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT" ]
+  }
+]

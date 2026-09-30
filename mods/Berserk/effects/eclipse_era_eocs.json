@@ -21,6 +21,14 @@
           "math": [
             "u_berserk_eclipse_trial_active != 1"
           ]
+        },
+        {
+          "not": {
+            "and": [
+              { "math": [ "u_berserk_breach_sealed == 1" ] },
+              { "u_near_om_location": "berserk_local_breach", "range": 2 }
+            ]
+          }
         }
       ]
     },

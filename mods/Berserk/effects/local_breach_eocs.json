@@ -1,0 +1,112 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BREACH_READ_CLUE",
+    "condition": {
+      "and": [
+        { "math": [ "berserk_eclipse_era == 1" ] },
+        { "math": [ "u_berserk_first_hunt_done == 1" ] },
+        { "math": [ "u_val('pos_z') == 0" ] }
+      ]
+    },
+    "effect": {
+      "if": { "math": [ "u_berserk_breach_marked == 1" ] },
+      "then": [
+        { "reveal_map": { "u_val": "berserk_local_breach_location" }, "radius": 0 },
+        { "u_message": "The ashen breach is already marked on your map.", "type": "info" }
+      ],
+      "else": { "run_eocs": "EOC_BERSERK_BREACH_FIND" }
+    },
+    "false_effect": { "u_message": "The scorched routes make sense only after you survive the Eclipse and the first hunt. Read them above ground.", "type": "info" }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BREACH_FIND",
+    "effect": {
+      "u_location_variable": { "u_val": "berserk_local_breach_location" },
+      "target_params": {
+        "om_terrain": "berserk_local_breach",
+        "om_special": "berserk_local_breach_special",
+        "random": true,
+        "search_range": 36,
+        "z": 0
+      },
+      "true_eocs": [ "EOC_BERSERK_BREACH_FOUND" ],
+      "false_eocs": [ "EOC_BERSERK_BREACH_NOT_FOUND" ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BREACH_FOUND",
+    "effect": [
+      { "math": [ "u_berserk_breach_marked = 1" ] },
+      { "reveal_map": { "u_val": "berserk_local_breach_location" }, "radius": 0 },
+      { "u_message": "You follow the burned lines to an ashen breach marked on your map. Its guardian holds the opening; defeating it may let you close the wound.", "type": "warning", "popup": true }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BREACH_NOT_FOUND",
+    "effect": { "u_message": "You cannot locate the breach from here. Travel farther and consult the scrap again.", "type": "info" }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BREACH_WARDEN_DIES",
+    "effect": { "run_eocs": "EOC_BERSERK_BREACH_WARDEN_DEFEATED", "alpha_talker": "avatar" }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BREACH_WARDEN_DEFEATED",
+    "condition": {
+      "and": [
+        { "math": [ "berserk_eclipse_era == 1" ] },
+        { "math": [ "u_berserk_breach_marked == 1" ] },
+        { "math": [ "u_berserk_breach_guardian_defeated != 1" ] }
+      ]
+    },
+    "effect": [
+      { "math": [ "u_berserk_breach_guardian_defeated = 1" ] },
+      { "u_message": "The guardian collapses. The breach is exposed; examine its center to seal it.", "type": "good", "popup": true }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BREACH_CLOSE",
+    "condition": {
+      "and": [
+        { "u_at_om_location": "berserk_local_breach" },
+        { "math": [ "u_berserk_first_hunt_done == 1" ] },
+        { "math": [ "u_berserk_breach_guardian_defeated == 1" ] },
+        { "math": [ "u_berserk_breach_sealed != 1" ] }
+      ]
+    },
+    "effect": [
+      { "mapgen_update": "berserk_local_breach_seal" },
+      { "math": [ "u_berserk_breach_sealed = 1" ] },
+      { "u_spawn_item": "berserk_post_eclipse_journal", "count": 1 },
+      { "u_message": "The wound turns to dark glass. New incursions weaken around this breach, but the demons already loose remain. A journal records what you have learned; choose your next path when ready.", "type": "good", "popup": true }
+    ],
+    "false_effect": { "u_message": "The breach cannot be closed while its guardian lives. Defeat it and return to the center.", "type": "warning" }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_POST_ECLIPSE_CHOOSE",
+    "condition": { "math": [ "u_berserk_breach_sealed == 1" ] },
+    "effect": {
+      "if": { "u_query": "Record a promise to defend a refuge and its people?", "default": false },
+      "then": [
+        { "math": [ "u_berserk_path_choice = 1" ] },
+        { "u_message": "You choose to protect a refuge and those who reach it. The journal keeps this intention for a future chapter.", "type": "good", "popup": true }
+      ],
+      "else": {
+        "if": { "u_query": "Record a vow to pursue the next apostle instead?", "default": false },
+        "then": [
+          { "math": [ "u_berserk_path_choice = 2" ] },
+          { "u_message": "You choose to follow the next apostle's trail. The journal keeps this intention for a future chapter.", "type": "good", "popup": true }
+        ],
+        "else": { "u_message": "You close the journal without changing your path.", "type": "info" }
+      }
+    },
+    "false_effect": { "u_message": "The journal has no ending to record until the local breach is sealed.", "type": "info" }
+  }
+]

@@ -1,0 +1,19 @@
+[
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_breach_warden",
+    "copy-from": "mon_berserk_eclipse_butcher",
+    "looks_like": "mon_berserk_eclipse_butcher",
+    "name": { "str": "breach warden", "str_pl": "breach wardens" },
+    "description": "A heavy apostle bound to the wound in the forest. It guards the opening with deliberate blows. Beneath its armor of fused bone, nothing knits back together once broken.",
+    "hp": 430,
+    "speed": 82,
+    "melee_skill": 5,
+    "melee_dice": 2,
+    "melee_dice_sides": 6,
+    "melee_damage": [ { "damage_type": "bash", "amount": 22 } ],
+    "dodge": 0,
+    "regenerates": 0,
+    "death_function": { "eoc": "EOC_BERSERK_BREACH_WARDEN_DIES" }
+  }
+]

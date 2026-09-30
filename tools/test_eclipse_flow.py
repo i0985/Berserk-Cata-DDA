@@ -254,7 +254,10 @@ class EclipseFlowTests(unittest.TestCase):
         self.assertEqual(ward_search["target_max_radius"], 8)
         self.assertNotIn("true_eocs", ward_search)
         self.assertEqual(ward_search["false_eocs"], ["EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED"])
-        spawn = self.eocs["EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED"]["effect"][1]["then"]
+        unsheltered = self.eocs["EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED"]
+        self.assertIn("berserk_local_breach", str(unsheltered))
+        self.assertIn("x_in_y_chance", str(unsheltered))
+        spawn = self.eocs["EOC_BERSERK_BRAND_NIGHT_HUNT_SPAWN"]["effect"][1]["then"]
         self.assertEqual(spawn["real_count"], 1)
         self.assertEqual((spawn["min_radius"], spawn["max_radius"]), (20, 30))
         self.assertTrue(spawn["outdoor_only"])
@@ -483,6 +486,90 @@ class EclipseFlowTests(unittest.TestCase):
                       references(self.eocs[boss["death_function"]["eoc"]]))
         self.assertIn("u_berserk_first_hunt_done != 1",
                       str(self.eocs["EOC_BERSERK_FIRST_HUNT_COMPLETE"]["condition"]))
+
+    def test_breach_requires_first_hunt_and_closes_only_after_guardian_dies(self) -> None:
+        clue = objects(MOD / "items" / "first_hunt_clue.json")[0]
+        self.assertEqual(clue["use_action"]["effect_on_conditions"],
+                         ["EOC_BERSERK_BREACH_READ_CLUE"])
+        loot = objects(MOD / "monsterdrops" / "first_hunt.json")[0]
+        self.assertIn({"item": clue["id"], "prob": 100}, loot["items"])
+        hunt = self.eocs["EOC_BERSERK_BREACH_READ_CLUE"]
+        self.assertIn("u_berserk_first_hunt_done == 1", str(hunt["condition"]))
+        special = next(o for o in objects(MOD / "overmap" / "local_breach.json")
+                       if o["type"] == "overmap_special")
+        self.assertEqual(special["occurrences"], [0, 0])
+        finder = self.eocs["EOC_BERSERK_BREACH_FIND"]
+        self.assertEqual(finder["effect"]["target_params"]["om_special"], special["id"])
+        self.assertEqual(finder["effect"]["true_eocs"], ["EOC_BERSERK_BREACH_FOUND"])
+
+        mapgen = objects(MOD / "mapgen" / "local_breach.json")
+        room = next(o["object"] for o in mapgen if "om_terrain" in o)
+        self.assertEqual(len(room["rows"]), 24)
+        self.assertTrue(all(len(row) == 24 for row in room["rows"]))
+        self.assertEqual(room["rows"][11][11], "A")
+        self.assertEqual(room["furniture"]["A"], "f_berserk_open_breach")
+        visited = {(2, 0)}
+        queue = deque(visited)
+        while queue:
+            x, y = queue.popleft()
+            for nx, ny in ((x - 1, y), (x + 1, y), (x, y - 1), (x, y + 1)):
+                if 0 <= nx < 24 and 0 <= ny < 24 and room["rows"][ny][nx] != "T" and (nx, ny) not in visited:
+                    visited.add((nx, ny))
+                    queue.append((nx, ny))
+        self.assertIn((11, 10), visited)
+        self.assertIn((11, 11), visited)
+        warden = objects(MOD / "monsters" / "breach_warden.json")[0]
+        self.assertEqual(sum(x["monster"] == warden["id"] for x in room["place_monster"]), 1)
+        for monster in room["place_monster"]:
+            self.assertEqual(room["rows"][monster["y"]][monster["x"]], ".")
+        self.assertEqual(warden["regenerates"], 0)
+        death = self.eocs[warden["death_function"]["eoc"]]
+        self.assertIn("EOC_BERSERK_BREACH_WARDEN_DEFEATED", references(death))
+        close = self.eocs["EOC_BERSERK_BREACH_CLOSE"]
+        self.assertIn("u_berserk_breach_guardian_defeated == 1", str(close["condition"]))
+        self.assertIn("u_berserk_breach_sealed != 1", str(close["condition"]))
+        update = next(o for o in mapgen if o.get("update_mapgen_id") == "berserk_local_breach_seal")
+        self.assertEqual(update["object"]["set"], [
+            {"point": "furniture", "id": "f_berserk_sealed_breach", "x": 11, "y": 11}])
+        self.assertIn("berserk_post_eclipse_journal", str(close["effect"]))
+
+        era = self.eocs["EOC_BERSERK_ECLIPSE_ERA_ENTER_OMT"]
+        self.assertIn("u_berserk_breach_sealed == 1", str(era["condition"]))
+        self.assertIn("u_near_om_location", str(era["condition"]))
+        brand = self.eocs["EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED"]
+        self.assertEqual(brand["effect"]["then"]["if"]["x_in_y_chance"],
+                         {"x": 1, "y": 3})
+        journal = objects(MOD / "items" / "post_eclipse_journal.json")[0]
+        choice = self.eocs[journal["use_action"]["effect_on_conditions"][0]]
+        self.assertIn("u_berserk_breach_sealed == 1", str(choice["condition"]))
+        self.assertIn("u_berserk_path_choice = 1", str(choice["effect"]))
+        self.assertIn("u_berserk_path_choice = 2", str(choice["effect"]))
+
+        texts: set[str] = set()
+        for section, filename in (("overmap", "local_breach.json"),
+                                  ("furniture", "local_breach.json"),
+                                  ("monsters", "breach_warden.json"),
+                                  ("items", "post_eclipse_journal.json"),
+                                  ("effects", "local_breach_eocs.json"),
+                                  ("items", "first_hunt_clue.json")):
+            def collect(value: object) -> None:
+                if isinstance(value, list):
+                    for child in value:
+                        collect(child)
+                elif isinstance(value, dict):
+                    for key, child in value.items():
+                        if key in ("name", "description", "u_message", "menu_text", "u_query"):
+                            if isinstance(child, str):
+                                texts.add(child)
+                            elif isinstance(child, dict) and "str" in child:
+                                texts.add(child["str"])
+                        collect(child)
+            collect(objects(MOD / section / filename))
+        for locale in ("ru", "zh_CN"):
+            catalog_path = MOD / "lang" / "mo" / locale / "LC_MESSAGES" / "Berserk.mo"
+            with catalog_path.open("rb") as catalog_file:
+                catalog = gettext.GNUTranslations(catalog_file)
+            self.assertFalse({entry for entry in texts if catalog.gettext(entry) == entry}, locale)
 
     def test_eclipse_text_is_present_in_both_compiled_catalogs(self) -> None:
         paths = [

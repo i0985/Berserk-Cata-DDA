@@ -1,13 +1,20 @@
 [
   {
     "id": "berserk_apostle_burned_clue",
-    "type": "GENERIC",
+    "type": "ITEM",
+    "subtypes": [ "TOOL" ],
+    "category": "tools",
     "name": { "str": "apostle's burned scrap" },
-    "description": "A charred scrap covered with routes between old breaches. The hollow's keeper carried it. Its markings suggest this was only one of several places where the worlds touch.",
+    "description": "A charred scrap covered with routes between old breaches. The hollow's keeper carried it. Activate it after the first hunt to trace one nearby breach on your map.",
     "weight": "5 g",
     "volume": "10 ml",
     "material": [ "paper" ],
     "symbol": "?",
-    "color": "light_gray"
+    "color": "light_gray",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Follow the scorched trail",
+      "effect_on_conditions": [ "EOC_BERSERK_BREACH_READ_CLUE" ]
+    }
   }
 ]

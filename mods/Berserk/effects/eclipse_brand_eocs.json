@@ -56,6 +56,23 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED",
+    "effect": {
+      "if": {
+        "and": [
+          { "math": [ "u_berserk_breach_sealed == 1" ] },
+          { "u_near_om_location": "berserk_local_breach", "range": 2 }
+        ]
+      },
+      "then": {
+        "if": { "x_in_y_chance": { "x": 1, "y": 3 } },
+        "then": { "run_eocs": "EOC_BERSERK_BRAND_NIGHT_HUNT_SPAWN" }
+      },
+      "else": { "run_eocs": "EOC_BERSERK_BRAND_NIGHT_HUNT_SPAWN" }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BRAND_NIGHT_HUNT_SPAWN",
     "effect": [
       { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_COUNT_NEARBY" },
       {

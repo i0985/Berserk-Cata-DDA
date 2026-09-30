@@ -1,0 +1,20 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [ "TOOL" ],
+    "id": "berserk_post_eclipse_journal",
+    "category": "tools",
+    "name": { "str": "journal of the first breach" },
+    "description": "The burned scrap and the sealed wound explain two possible paths: defend a refuge and its people, or hunt the next apostle. Activate the journal to record your present intention. No further quest is unlocked yet.",
+    "weight": "25 g",
+    "volume": "50 ml",
+    "material": [ "paper" ],
+    "symbol": "?",
+    "color": "light_gray",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Consider the next path",
+      "effect_on_conditions": [ "EOC_BERSERK_POST_ECLIPSE_CHOOSE" ]
+    }
+  }
+]

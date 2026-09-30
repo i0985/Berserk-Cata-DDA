@@ -1,0 +1,48 @@
+[
+  {
+    "type": "mapgen",
+    "om_terrain": [ "berserk_local_breach" ],
+    "object": {
+      "rows": [
+        "TT.TT.TT.TT.TT.TT.TT.TTT",
+        "T......................T",
+        "T......................T",
+        "T....T.................T",
+        "T......................T",
+        "T......................T",
+        "T.......TT...TT........T",
+        "T......................T",
+        "T......................T",
+        "T.....T..........T.....T",
+        "T......................T",
+        "T..........A...........T",
+        "T......................T",
+        "T......................T",
+        "T.....T..........T.....T",
+        "T......................T",
+        "T......................T",
+        "T.......TT...TT........T",
+        "T......................T",
+        "T......................T",
+        "T......................T",
+        "T......................T",
+        "T......................T",
+        "TT.TT.TT.TT.TT.TT.TT.TTT"
+      ],
+      "terrain": { ".": "t_dirt", "A": "t_dirt", "T": "t_tree" },
+      "furniture": { "A": "f_berserk_open_breach" },
+      "place_monster": [
+        { "monster": "mon_berserk_breach_warden", "x": 15, "y": 10 },
+        { "monster": "mon_berserk_eclipse_halfbreed", "x": 5, "y": 10 },
+        { "monster": "mon_berserk_eclipse_wretch", "x": 18, "y": 18 }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_local_breach_seal",
+    "object": {
+      "set": [ { "point": "furniture", "id": "f_berserk_sealed_breach", "x": 11, "y": 11 } ]
+    }
+  }
+]
