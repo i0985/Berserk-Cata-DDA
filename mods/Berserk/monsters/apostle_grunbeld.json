@@ -63,7 +63,7 @@
     "name": {
       "str_sp": "Grunbeld, flaming dragon"
     },
-    "description": "Grunbeld's final body, a great dragon clad in a fiery stone carapace. He gathers heat before a focused flame jet. Solid stone interrupts its line; distance buys time. The armor is formidable but the wounds do not regenerate.",
+    "description": "Grunbeld's final body, a great dragon clad in a fiery stone carapace. He braces and marks a narrow path before breathing fire along it three seconds later. Move sideways or behind solid cover during preparation: the aim will not follow you. After the burst, his body needs a brief recovery. The armor is formidable but the wounds do not regenerate.",
     "hp": 950,
     "speed": 85,
     "volume": "2000 L",
@@ -95,10 +95,6 @@
       "ATTACKMON"
     ],
     "special_attacks": [
-      {
-        "id": "berserk_grunbeld_flame_a_strike",
-        "cooldown": 18
-      },
       {
         "id": "berserk_grunbeld_flame_b_prepare",
         "cooldown": 24

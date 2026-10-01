@@ -63,7 +63,9 @@
     "id": "berserk_grunbeld_flame_a_strike",
     "cooldown": 18,
     "condition": {
-      "u_has_effect": "berserk_grunbeld_flame_ready"
+      "math": [
+        "0"
+      ]
     },
     "damage_max_instance": [
       {
@@ -78,37 +80,47 @@
     "hit_dmg_u": "Grunbeld's flame strikes you!",
     "hit_dmg_npc": "Grunbeld's flame strikes %s!",
     "miss_msg_u": "Grunbeld's flame misses you!",
-    "miss_msg_npc": "Grunbeld's flame misses %s!"
+    "miss_msg_npc": "Grunbeld's flame misses %s!",
+    "//": "Retired ID retained for compatibility. The dragon no longer uses this retargeting heat melee attack."
   },
   {
     "type": "monster_attack",
-    "attack_type": "melee",
-    "range": 6,
-    "move_cost": 300,
     "id": "berserk_grunbeld_flame_b_prepare",
+    "attack_type": "spell",
     "cooldown": 24,
-    "condition": {
-      "not": {
-        "u_has_effect": "berserk_grunbeld_flame_ready"
-      }
+    "spell_data": {
+      "id": "berserk_grunbeld_breath_prepare",
+      "min_level": 0
     },
-    "damage_max_instance": [
-      {
-        "damage_type": "bash",
-        "amount": 0
-      }
-    ],
-    "dodgeable": false,
-    "blockable": false,
-    "self_effects_always": [
-      {
-        "id": "berserk_grunbeld_flame_ready",
-        "duration": 7
-      }
-    ],
-    "no_dmg_msg_u": "Grunbeld prepares his flame! Break the line or leave its reach!",
-    "no_dmg_msg_npc": "Grunbeld prepares his flame! Break the line or leave its reach!",
-    "miss_msg_u": "Grunbeld prepares his flame! Break the line or leave its reach!",
-    "miss_msg_npc": "Grunbeld prepares his flame! Break the line or leave its reach!"
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "u_has_effect": "berserk_grunbeld_flame_ready"
+          }
+        },
+        {
+          "not": {
+            "u_has_effect": "berserk_grunbeld_breath_recovery"
+          }
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_grunbeld_breath_cooldown"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == n_val('pos_z')"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_grunbeld_breath_phase != 1"
+          ]
+        }
+      ]
+    },
+    "monster_message": "%1$s braces to breathe! The marked line will erupt in three seconds; move sideways or get behind solid cover!"
   }
 ]

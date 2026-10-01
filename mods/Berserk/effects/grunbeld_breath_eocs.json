@@ -1,0 +1,242 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_BREATH_BEGIN",
+    "//": "Spell EOC convention in 0.I-1 is alpha=victim and beta=caster, unlike melee attack EOCs. All persistent state here belongs to npc (the dragon).",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "n_hp('ALL') > 0"
+          ]
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_grunbeld_flame_ready"
+          }
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_grunbeld_breath_recovery"
+          }
+        },
+        {
+          "math": [
+            "time('now') >= n_berserk_grunbeld_breath_cooldown"
+          ]
+        },
+        {
+          "math": [
+            "n_berserk_grunbeld_breath_phase != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_location_variable": {
+          "npc_val": "berserk_grunbeld_breath_target"
+        }
+      },
+      {
+        "npc_location_variable": {
+          "npc_val": "berserk_grunbeld_breath_origin"
+        }
+      },
+      {
+        "math": [
+          "n_berserk_grunbeld_breath_phase = 1"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_grunbeld_breath_due = time('now') + 3"
+        ]
+      },
+      {
+        "npc_add_effect": "berserk_grunbeld_flame_ready",
+        "duration": "4 seconds",
+        "intensity": 1
+      },
+      {
+        "npc_cast_spell": {
+          "id": "berserk_grunbeld_breath_warning",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "npc_val": "berserk_grunbeld_breath_target"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_BREATH_CLEAR_WARNING",
+    "condition": {
+      "math": [
+        "has_var(u_berserk_grunbeld_breath_origin)"
+      ]
+    },
+    "effect": {
+      "u_transform_radius": 6,
+      "ter_furn_transform": "berserk_grunbeld_clear_breath_warning",
+      "target_var": {
+        "u_val": "berserk_grunbeld_breath_origin"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_BREATH_RECOVER",
+    "effect": [
+      {
+        "u_lose_effect": "berserk_grunbeld_flame_ready"
+      },
+      {
+        "u_add_effect": "berserk_grunbeld_breath_recovery",
+        "duration": "3 seconds",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "u_berserk_grunbeld_breath_cooldown = time('now') + 18"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_BREATH_RELEASE",
+    "//": "Commit before casting to prevent repeated damage. The cast reads the stored cell, never the current target or avatar position.",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_grunbeld_breath_phase = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_BREATH_CLEAR_WARNING"
+      },
+      {
+        "u_cast_spell": {
+          "id": "berserk_grunbeld_breath_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_grunbeld_breath_target"
+        }
+      },
+      {
+        "u_make_sound": "Dragonfire roars along the marked path!",
+        "type": "combat",
+        "volume": 40
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_BREATH_RECOVER"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_BREATH_CANCEL",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_grunbeld_breath_phase = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_BREATH_CLEAR_WARNING"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_BREATH_RECOVER"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_BREATH_TICK",
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_grunbeld_breath_phase == 1"
+          ]
+        },
+        {
+          "u_has_effect": "berserk_grunbeld_flame_ready"
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "u_berserk_grunbeld_breath_phase == 1"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('ALL') > 0"
+            ]
+          },
+          {
+            "math": [
+              "has_var(u_berserk_grunbeld_breath_origin)"
+            ]
+          },
+          {
+            "math": [
+              "has_var(u_berserk_grunbeld_breath_target)"
+            ]
+          },
+          {
+            "u_has_effect": "berserk_grunbeld_flame_ready"
+          },
+          {
+            "math": [
+              "distance('u', u_berserk_grunbeld_breath_origin) == 0"
+            ]
+          },
+          {
+            "math": [
+              "time('now') <= u_berserk_grunbeld_breath_due + 1"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "if": {
+          "math": [
+            "time('now') >= u_berserk_grunbeld_breath_due"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_GRUNBELD_BREATH_RELEASE"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_BREATH_CANCEL"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_BREATH_WATCH",
+    "recurrence": "1 second",
+    "global": true,
+    "//": "Monster actors cannot queue timed run_eocs in 0.I-1. Scan only nearby loaded dragons; overdue preparations cancel when encountered again.",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_GRUNBELD_BREATH_TICK"
+      ],
+      "mtype_ids": [
+        "mon_berserk_grunbeld_dragon"
+      ],
+      "monster_range": 48
+    }
+  }
+]

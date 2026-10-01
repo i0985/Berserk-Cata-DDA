@@ -34,11 +34,30 @@
     "type": "effect_type",
     "id": "berserk_grunbeld_flame_ready",
     "name": [
-      "Preparing focused flame"
+      "Preparing fixed dragonfire"
     ],
     "desc": [
-      "Heat gathers in the dragon's mouth. Move beyond six tiles or behind solid stone."
+      "The dragon is braced. The marked path will burn after three seconds; its aim is fixed. Move sideways or behind solid cover."
     ],
-    "max_duration": "7 seconds"
+    "max_duration": "4 seconds",
+    "flags": [
+      "CANNOT_MOVE",
+      "CANNOT_ATTACK"
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_grunbeld_breath_recovery",
+    "name": [
+      "Recovering after dragonfire"
+    ],
+    "desc": [
+      "The dragon pauses after releasing or interrupting its breath. This is a brief opening to move or counterattack."
+    ],
+    "max_duration": "3 seconds",
+    "flags": [
+      "CANNOT_MOVE",
+      "CANNOT_ATTACK"
+    ]
   }
 ]

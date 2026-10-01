@@ -1,0 +1,92 @@
+[
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 6,
+    "max_range": 6,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "id": "berserk_grunbeld_breath_prepare",
+    "name": "Grunbeld: gather dragonfire",
+    "description": "Fix a hostile target cell and begin a three-second breath preparation.",
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_BERSERK_GRUNBELD_BREATH_BEGIN",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NO_PROJECTILE"
+    ]
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 6,
+    "max_range": 6,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "id": "berserk_grunbeld_breath_warning",
+    "name": "Grunbeld: threatened path",
+    "description": "Mark the fixed breath path without dealing damage.",
+    "effect": "attack",
+    "shape": "line",
+    "valid_targets": [
+      "ground"
+    ],
+    "min_damage": 0,
+    "max_damage": 0,
+    "field_id": "fd_berserk_grunbeld_breath_warning",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "field_chance": 1,
+    "min_duration": 400,
+    "max_duration": 400,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ]
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 6,
+    "max_range": 6,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "id": "berserk_grunbeld_breath_release",
+    "name": "Grunbeld: fixed dragonfire",
+    "description": "Release heat along the previously marked line. Solid obstacles stop the jet.",
+    "effect": "attack",
+    "shape": "line",
+    "valid_targets": [
+      "ground"
+    ],
+    "min_damage": 36,
+    "max_damage": 36,
+    "damage_type": "heat",
+    "min_accuracy": 10,
+    "max_accuracy": 10,
+    "field_id": "fd_berserk_grunbeld_breath_flash",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "field_chance": 1,
+    "min_duration": 100,
+    "max_duration": 100,
+    "flags": [
+      "SILENT",
+      "NON_MAGICAL"
+    ]
+  }
+]

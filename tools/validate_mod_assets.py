@@ -79,7 +79,7 @@ def validate_furniture_required_fields(path: Path, objects: list[dict[str, Any]]
 
 
 def validate_monster_attacks(path: Path, objects: list[dict[str, Any]]) -> None:
-    """The standalone monster_attack loader in 0.I-1 requires cooldown."""
+    """Required cooldown and attack actor names from the 0.I-1 factory."""
     for entry in objects:
         if entry.get("type") != "monster_attack" or "copy-from" in entry:
             continue
@@ -89,6 +89,50 @@ def validate_monster_attacks(path: Path, objects: list[dict[str, Any]]) -> None:
                 f"{path.relative_to(ROOT)}: monster_attack {entry.get('id')!r} "
                 "requires cooldown in CDDA 0.I-1"
             )
+        actor = entry.get("attack_type", "monster_attack")
+        if actor not in {"monster_attack", "leap", "melee", "bite", "gun", "spell"}:
+            raise ValidationError(
+                f"{path.relative_to(ROOT)}: monster_attack {entry.get('id')!r} "
+                f"has unsupported attack_type {actor!r} in CDDA 0.I-1"
+            )
+        if actor == "spell" and not (
+            isinstance(entry.get("spell_data"), dict)
+            and isinstance(entry["spell_data"].get("id"), str)
+        ):
+            raise ValidationError(
+                f"{path.relative_to(ROOT)}: spell attack {entry.get('id')!r} "
+                "requires spell_data with an id in CDDA 0.I-1"
+            )
+
+
+def validate_math_actor_scopes(path: Path, objects: list[dict[str, Any]]) -> None:
+    """Check actor namespace mistakes, not the complete native math grammar.
+
+    JSON effects use npc_* keys, but math uses n_* for the beta actor.
+    Single-letter variable scopes are u, n, and v; globals are unprefixed.
+    """
+    def visit(value):
+        if isinstance(value, list):
+            for child in value:
+                visit(child)
+        elif isinstance(value, dict):
+            for key, child in value.items():
+                if key == "math" and isinstance(child, list):
+                    for expression in child:
+                        if not isinstance(expression, str):
+                            continue
+                        stripped = re.sub(r"'[^']*'|\"[^\"]*\"", "", expression)
+                        for match in re.finditer(r"\b(?:npc_\w+|[A-Za-z]_\w+)\b", stripped):
+                            token = match.group()
+                            is_function = stripped[match.end():].lstrip().startswith("(")
+                            if token.startswith("npc_") or (not is_function and token[0] not in "unv"):
+                                raise ValidationError(
+                                    f"{path.relative_to(ROOT)}: unsupported math scope in {token!r}; "
+                                    "use n_* for beta actor, u_* for alpha, and unprefixed globals"
+                                )
+                else:
+                    visit(child)
+    visit(objects)
 
 
 def validate_dynamic_lines(path: Path, objects: list[dict[str, Any]]) -> None:
@@ -376,6 +420,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
             validate_mapgen_update_effects(path, objects)
             validate_furniture_required_fields(path, objects)
             validate_monster_attacks(path, objects)
+            validate_math_actor_scopes(path, objects)
             validate_dynamic_lines(path, objects)
             validate_turn_cost_durations(path, objects)
             validate_query_defaults(path, objects)

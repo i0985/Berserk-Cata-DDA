@@ -219,14 +219,14 @@ class GrunbeldHunt(unittest.TestCase):
 
     def test_telegraphs_and_reward_are_partial_heat_protection_not_immunity(self):
         actors={m['id']:m for m in objects(MOD/'monster_special_attacks/grunbeld_attacks.json')}
-        for tag,reach in (('hammer',3),('flame',6)):
+        for tag,reach in (('hammer',3),):
             a=actors['berserk_grunbeld_'+tag+'_a_strike'];b=actors['berserk_grunbeld_'+tag+'_b_prepare']
             self.assertGreaterEqual(b['move_cost'],260)
             self.assertEqual(b['damage_max_instance'][0]['amount'],0)
             self.assertEqual(a['condition']['u_has_effect'],b['self_effects_always'][0]['id'])
             self.assertEqual(a['range'],reach);self.assertLess(a['id'],b['id'])
-        self.assertFalse(actors['berserk_grunbeld_flame_a_strike']['blockable'])
-        self.assertEqual(actors['berserk_grunbeld_flame_a_strike']['damage_max_instance'][0]['damage_type'],'heat')
+        self.assertEqual(actors['berserk_grunbeld_flame_a_strike']['condition'],{'math':['0']})
+        self.assertEqual(actors['berserk_grunbeld_flame_b_prepare']['attack_type'],'spell')
         eocs=(MOD/'effects/grunbeld_hunt_eocs.json').read_text()
         self.assertNotIn("hp_max('ALL')",eocs)
         self.assertNotIn('fd_fire',eocs)
@@ -238,7 +238,7 @@ class GrunbeldHunt(unittest.TestCase):
 
     def test_all_new_ui_strings_have_russian_and_chinese_catalog_entries(self):
         keys={'name','str','str_sp','description','desc','text','dynamic_line','u_message','u_query','message',
-              'hit_dmg_u','hit_dmg_npc','miss_msg_u','miss_msg_npc','no_dmg_msg_u','no_dmg_msg_npc'}
+              'hit_dmg_u','hit_dmg_npc','miss_msg_u','miss_msg_npc','no_dmg_msg_u','no_dmg_msg_npc','monster_message','u_make_sound'}
         texts=set()
         def walk(v):
             if isinstance(v,list):
@@ -251,7 +251,8 @@ class GrunbeldHunt(unittest.TestCase):
                     walk(x)
         for p in ('effects/grunbeld_hunt_eocs.json','effects/grunbeld_combat_effects.json',
                   'monsters/apostle_grunbeld.json','monster_special_attacks/grunbeld_attacks.json',
-                  'furniture/grunbeld_hunt.json','overmap/grunbeld_hunt.json','spells/grunbeld_forms.json'):
+                  'furniture/grunbeld_hunt.json','overmap/grunbeld_hunt.json','spells/grunbeld_forms.json',
+                  'effects/grunbeld_breath_eocs.json','spells/grunbeld_breath.json','fields/grunbeld_breath.json'):
             walk(objects(MOD/p))
         for lang in ('ru','zh_CN'):
             with (MOD/f'lang/mo/{lang}/LC_MESSAGES/Berserk.mo').open('rb') as f:cat=gettext.GNUTranslations(f)
