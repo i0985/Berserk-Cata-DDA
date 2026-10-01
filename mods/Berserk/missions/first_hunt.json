@@ -1,0 +1,30 @@
+[
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_FIRST_HUNT",
+    "name": "First hunt: the apostle's hollow",
+    "description": "Find the apostle in the marked forest hollow and defeat it. Recover from the Eclipse and prepare a ward and your equipment before approaching. After victory, search its remains for a burned scrap and activate the scrap to trace a nearby breach. The mission does not require the Skull Knight to remain nearby.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "u_berserk_first_hunt_done == 1"
+      ]
+    },
+    "difficulty": 4,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_first_hunt_lair",
+        "var": {
+          "u_val": "berserk_first_hunt_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  }
+]

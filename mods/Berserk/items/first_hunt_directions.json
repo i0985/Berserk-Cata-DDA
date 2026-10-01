@@ -1,0 +1,32 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_first_hunt_directions",
+    "category": "tools",
+    "name": {
+      "str_sp": "first-hunt notes"
+    },
+    "description": "The Skull Knight's first trail after the Eclipse. Activate to recover the same hunt target or retry a failed search after travelling. Track the hollow through the missions menu; the notes never create a second lair after a target has been recorded. After victory, they remind you to collect and activate the burned scrap. No living guide or literacy is needed.",
+    "weight": "5 g",
+    "volume": "10 ml",
+    "material": [
+      "paper"
+    ],
+    "symbol": "?",
+    "color": "light_gray",
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "charges_per_use": 0,
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Recall the first hunt",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FIRST_HUNT_RECALL"
+      ]
+    }
+  }
+]

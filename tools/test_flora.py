@@ -68,6 +68,8 @@ class FloraGraph(HuntGraph):
     def effect(self, value):
         if isinstance(value, dict):
             if 'target_params' in value:
+                if value['target_params']['om_terrain'] != 'berserk_flora_manor_west':
+                    return HuntGraph.effect(self, value)
                 self.location_calls += 1
                 if self.can_locate:
                     # Mock the native locator finding the ward inside northwest.
@@ -183,7 +185,7 @@ class FloraStory(unittest.TestCase):
         self.assertEqual(g.flags['u_berserk_knight_waiting'],'placed')
         self.assertEqual(g.flags['berserk_hunt_count_state'],4)
         self.assertEqual(g.flags['berserk_flora_stage'],1)
-        self.assertEqual(g.inventory,original)
+        self.assertEqual(g.inventory,original+['berserk_first_hunt_directions'])
         g = FloraGraph();g.profession = 'berserk_before_eclipse'
         g.run('EOC_BERSERK_POST_ECLIPSE_START')
         self.assertFalse(g.flags);self.assertFalse(g.spawns)

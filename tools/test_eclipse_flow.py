@@ -472,8 +472,10 @@ class EclipseFlowTests(unittest.TestCase):
         hunt = self.eocs["EOC_BERSERK_FIRST_HUNT_FIND"]
         self.assertIn("berserk_eclipse_era == 1", str(hunt["condition"]))
         self.assertIn("u_berserk_first_hunt_marked != 1", str(hunt["condition"]))
-        self.assertEqual(hunt["effect"]["target_params"]["om_special"], special["id"])
-        self.assertEqual(hunt["effect"]["true_eocs"], ["EOC_BERSERK_FIRST_HUNT_FOUND"])
+        self.assertEqual(hunt["effect"]["run_eocs"], "EOC_BERSERK_FIRST_HUNT_REQUEST")
+        locator = self.eocs["EOC_BERSERK_FIRST_HUNT_LOCATE"]["effect"][-1]
+        self.assertEqual(locator["target_params"]["om_terrain_replace"], "forest")
+        self.assertEqual(locator["true_eocs"], ["EOC_BERSERK_FIRST_HUNT_VALIDATE"])
         self.assertIn("u_berserk_first_hunt_marked = 1",
                       str(self.eocs["EOC_BERSERK_FIRST_HUNT_FOUND"]))
         room = objects(MOD / "mapgen" / "first_hunt.json")[0]["object"]

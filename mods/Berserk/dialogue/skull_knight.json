@@ -93,6 +93,18 @@
         "topic": "TALK_BERSERK_SKULL_KNIGHT_NOW"
       },
       {
+        "text": "Remind me where the first hunt leads.",
+        "condition": {
+          "math": [
+            "u_berserk_first_hunt_done != 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FIRST_HUNT_RECALL"
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      },
+      {
         "text": "What happened, and why did you save me?",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
       },

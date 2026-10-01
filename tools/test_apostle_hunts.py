@@ -29,6 +29,8 @@ class HuntGraph(RewardGraph):
         self.omt = 'berserk_count_dungeon'
         self.update_calls = []
         self.in_city = True
+        self.active_missions = {}
+        self.completed_missions = []
 
     def resolve(self, value):
         if isinstance(value, dict):
@@ -51,6 +53,8 @@ class HuntGraph(RewardGraph):
         return eval(expr, {'__builtins__': {}}, names)
 
     def condition(self, value):
+        if 'u_has_mission' in value:
+            return value['u_has_mission'] in self.active_missions
         if 'u_has_item' in value:
             return value['u_has_item'] in self.inventory
         if 'math' in value:
@@ -92,6 +96,8 @@ class HuntGraph(RewardGraph):
                     target = value[field]
                     if 'global_val' in target:
                         self.flags[target['global_val']] = point
+                    elif 'u_val' in target:
+                        self.flags['u_'+target['u_val']] = point
                     else:
                         self.context[target['context_val']] = point
                     return
@@ -100,6 +106,8 @@ class HuntGraph(RewardGraph):
                 result = self.resolve(value['copy_var'])
                 if 'global_val' in target:
                     self.flags[target['global_val']] = result
+                elif 'u_val' in target:
+                    self.flags['u_'+target['u_val']] = result
                 else:
                     self.context[target['context_val']] = result
                 return
