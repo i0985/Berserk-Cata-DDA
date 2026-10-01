@@ -19,6 +19,7 @@ class FloraGraph(HuntGraph):
         self.worn = set()
         self.nested = set()
         self.beta = 'mon_berserk_flora'
+        self.beta_omt = 'berserk_flora_manor_west'
         self.victim = (-81,60,0)
         self.profession = 'berserk'
         self.location_calls = 0
@@ -38,6 +39,8 @@ class FloraGraph(HuntGraph):
             return value['u_has_item'] in set(self.inventory) | self.worn | self.nested
         if 'u_profession' in value:
             return self.profession == value['u_profession']
+        if 'npc_at_om_location' in value:
+            return self.beta_omt == value['npc_at_om_location']
         return super().condition(value)
 
     def evaluate(self, expr):
@@ -45,11 +48,22 @@ class FloraGraph(HuntGraph):
             ids = re.findall(r"'(mon_[^']+)'", expr)
             self.assert_beta()
             return self.beta in ids
+        # Native distance accepts the explicit actor strings "u" and "npc".
+        self.context['flora_test_avatar'] = self.avatar
+        self.context['flora_test_speaker'] = self.victim
+        expr = expr.replace("distance('u',", 'distance(_flora_test_avatar,')
+        expr = expr.replace("distance('npc',", 'distance(_flora_test_speaker,')
         return super().evaluate(expr)
 
     def assert_beta(self):
         if self.beta is None:
             raise AssertionError('missing beta talker')
+
+    def run(self, id):
+        obj = self.eocs[id]
+        key = 'effect' if 'condition' not in obj or self.condition(obj['condition']) else 'false_effect'
+        if key in obj:
+            self.effect(obj[key])
 
     def effect(self, value):
         if isinstance(value, dict):
@@ -67,7 +81,13 @@ class FloraGraph(HuntGraph):
             if 'location_variable_adjust' in value:
                 key = value['location_variable_adjust']['global_val']
                 pos = self.flags[key]
-                self.flags[key] = (pos[0]//24*24,pos[1]//24*24,pos[2])
+                if value.get('overmap_tile'):
+                    pos = (pos[0]//24*24,pos[1]//24*24,pos[2])
+                    scale = 24
+                else:
+                    scale = 1
+                self.flags[key] = tuple(pos[i]+value.get(axis+'_adjust',0)*scale
+                                        for i,axis in enumerate(('x','y','z')))
                 return
             if 'u_learn_recipe' in value:
                 self.flags['recipe_'+value['u_learn_recipe']] = True

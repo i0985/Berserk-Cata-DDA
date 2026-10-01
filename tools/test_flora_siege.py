@@ -73,7 +73,8 @@ class SiegeGraph(FloraGraph):
 
 def ready(full=False):
     g=SiegeGraph({'berserk_eclipse_era':1,'u_berserk_eclipse_rescue_state':2,
-                  'berserk_flora_stage':1,'berserk_flora_location':(-96,48,0)})
+                  'berserk_flora_stage':1,'berserk_flora_location':(-96,48,0),
+                  'berserk_flora_center':(-72,72,0)})
     if full:g.worn=set(ARMOR)
     return g
 

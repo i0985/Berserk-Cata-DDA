@@ -31,6 +31,41 @@
           ]
         },
         {
+          "and": [
+            {
+              "math": [
+                "has_var(berserk_flora_location)"
+              ]
+            },
+            {
+              "math": [
+                "has_var(berserk_flora_center)"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "npc_at_om_location": "berserk_flora_manor_west"
+                },
+                {
+                  "npc_at_om_location": "berserk_flora_manor_east"
+                },
+                {
+                  "npc_at_om_location": "berserk_flora_garden_west"
+                },
+                {
+                  "npc_at_om_location": "berserk_flora_garden_east"
+                }
+              ]
+            },
+            {
+              "math": [
+                "distance('npc', berserk_flora_center) <= 34"
+              ]
+            }
+          ]
+        },
+        {
           "math": [
             "berserk_flora_stage == 1"
           ]
@@ -69,6 +104,9 @@
         "then": {
           "run_eocs": "EOC_BERSERK_FLORA_GIVE_ARMOR"
         }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_ACKNOWLEDGE_ARMOR"
       },
       {
         "math": [
@@ -162,64 +200,18 @@
         }
       },
       {
-        "u_message": "Flora entrusts you with the armor and an escape charm. Equip and pack what you need first. Activate Flora's escape charm in the manor when ready: that starts the attack. Leave by the western door or the southern garden path; you need not kill the apostles. Until you activate it, the siege does not advance.",
+        "u_message": "Readiness is confirmed and Flora gives you an escape charm. Your existing armor is kept; missing pieces are entrusted only once. Equip and pack what you need, then activate the charm inside her manor. The attack waits for your explicit confirmation. Escape by the western road or southern garden; you need not kill the apostles.",
         "type": "warning",
         "popup": true
       }
     ],
     "condition": {
-      "and": [
-        {
-          "and": [
-            {
-              "math": [
-                "berserk_eclipse_era == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
-              ]
-            }
-          ]
-        },
-        {
-          "and": [
-            "has_beta",
-            "npc_is_monster",
-            {
-              "math": [
-                "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
-              ]
-            }
-          ]
-        },
-        {
-          "math": [
-            "berserk_flora_stage == 1"
-          ]
-        },
-        {
-          "math": [
-            "berserk_flora_siege_state == 0"
-          ]
-        },
-        {
-          "or": [
-            {
-              "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
-            },
-            {
-              "math": [
-                "u_berserk_flora_armor_resolved == 1"
-              ]
-            },
-            {
-              "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
-            }
-          ]
-        }
-      ]
+      "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
+    },
+    "false_effect": {
+      "u_message": "Flora could not confirm readiness. Speak to her in the peaceful registered manor after surviving the Eclipse. You need either her armor gift or an existing complete or packed suit; an attack already begun cannot be prepared again.",
+      "type": "info",
+      "popup": true
     }
   },
   {
@@ -554,49 +546,7 @@
       },
       {
         "if": {
-          "and": [
-            "u_is_avatar",
-            {
-              "and": [
-                {
-                  "math": [
-                    "berserk_eclipse_era == 1"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_eclipse_rescue_state == 2"
-                  ]
-                }
-              ]
-            },
-            {
-              "or": [
-                {
-                  "u_at_om_location": "berserk_flora_manor_west"
-                },
-                {
-                  "u_at_om_location": "berserk_flora_manor_east"
-                },
-                {
-                  "u_at_om_location": "berserk_flora_garden_west"
-                },
-                {
-                  "u_at_om_location": "berserk_flora_garden_east"
-                }
-              ]
-            },
-            {
-              "math": [
-                "berserk_flora_siege_state == 1"
-              ]
-            },
-            {
-              "math": [
-                "berserk_flora_stage == 1"
-              ]
-            }
-          ]
+          "test_eoc": "EOC_BERSERK_FLORA_CAN_START_SIEGE"
         },
         "then": {
           "if": {
@@ -657,12 +607,15 @@
               "type": "warning",
               "popup": true
             }
-          ]
+          ],
+          "else": {
+            "u_message": "You postpone the attack. Readiness remains confirmed; activate the charm again when your preparations are complete.",
+            "type": "info",
+            "popup": true
+          }
         },
         "else": {
-          "u_message": "The charm cannot begin another attack. Prepare with Flora after the Eclipse, then activate it in her still-peaceful manor.",
-          "type": "warning",
-          "popup": true
+          "run_eocs": "EOC_BERSERK_FLORA_SIEGE_REFUSAL"
         }
       }
     ]
@@ -909,6 +862,12 @@
         "u_message": "You reach the far side of the grove. Behind you, Flora's sanctuary becomes a silent, charred ruin. Its protection is gone. Apostles you killed remain dead; surviving attackers are not erased. Recover at your refuge, then follow the Count's trail when ready.",
         "type": "warning",
         "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_PROGRESS_REPORT"
       }
     ],
     "condition": {
@@ -1231,6 +1190,211 @@
       "math": [
         "berserk_flora_grunbeld_attempts == 6"
       ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_AT_REGISTERED_MANOR",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_flora_location)"
+          ]
+        },
+        {
+          "math": [
+            "has_var(berserk_flora_center)"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        },
+        {
+          "or": [
+            {
+              "u_at_om_location": "berserk_flora_manor_west"
+            },
+            {
+              "u_at_om_location": "berserk_flora_manor_east"
+            },
+            {
+              "u_at_om_location": "berserk_flora_garden_west"
+            },
+            {
+              "u_at_om_location": "berserk_flora_garden_east"
+            }
+          ]
+        },
+        {
+          "math": [
+            "distance('u', berserk_flora_center) <= 34"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_CAN_START_SIEGE",
+    "effect": [],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_siege_state == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage == 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_AT_REGISTERED_MANOR"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_SIEGE_REFUSAL",
+    "effect": {
+      "if": {
+        "or": [
+          {
+            "math": [
+              "berserk_flora_siege_state >= 5"
+            ]
+          },
+          {
+            "math": [
+              "berserk_flora_stage == 3"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "u_message": "The escape is already complete. Flora's manor has fallen; this charm cannot start the attack again.",
+        "type": "info",
+        "popup": true
+      },
+      "else": {
+        "if": {
+          "or": [
+            {
+              "math": [
+                "berserk_flora_siege_state >= 2"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage == 2"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "u_message": "The attack has already begun. Leave through the western road or southern garden and go beyond the grove; the charm cannot restart it.",
+          "type": "info",
+          "popup": true
+        },
+        "else": {
+          "if": {
+            "not": {
+              "and": [
+                {
+                  "math": [
+                    "berserk_eclipse_era == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                }
+              ]
+            }
+          },
+          "then": {
+            "u_message": "You must survive the Eclipse before preparing Flora's attack. The charm does nothing for now.",
+            "type": "info",
+            "popup": true
+          },
+          "else": {
+            "if": {
+              "math": [
+                "berserk_flora_siege_state != 1"
+              ]
+            },
+            "then": {
+              "u_message": "Readiness has not been confirmed. Speak to Flora and explicitly agree to prepare the attack. If you already have the armor, choose the armor-owner readiness response. Merely receiving or wearing armor is not enough.",
+              "type": "info",
+              "popup": true
+            },
+            "else": {
+              "if": {
+                "or": [
+                  {
+                    "not": {
+                      "math": [
+                        "has_var(berserk_flora_location)"
+                      ]
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "has_var(berserk_flora_center)"
+                      ]
+                    }
+                  }
+                ]
+              },
+              "then": {
+                "u_message": "The manor has not been registered. Begin a conversation with Flora in her manor, then try the charm again.",
+                "type": "info",
+                "popup": true
+              },
+              "else": {
+                "if": {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_FLORA_AT_REGISTERED_MANOR"
+                  }
+                },
+                "then": {
+                  "u_message": "You are outside the registered manor. Return to Flora's house or its southern gardens, then activate the charm when ready.",
+                  "type": "info",
+                  "popup": true
+                },
+                "else": {
+                  "u_message": "The manor is not in its peaceful preparation state. Speak to Flora before trying again.",
+                  "type": "info",
+                  "popup": true
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 ]

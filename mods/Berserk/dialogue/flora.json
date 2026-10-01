@@ -1,13 +1,39 @@
 [
   {
     "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_ENTER",
+    "dynamic_line": "*Flora turns to you and waits for you to speak.",
+    "speaker_effect": {
+      "effect": {
+        "run_eocs": "EOC_BERSERK_FLORA_DIALOGUE_BEGIN"
+      }
+    },
+    "responses": [
+      {
+        "text": "Let us speak.",
+        "topic": "TALK_BERSERK_FLORA"
+      },
+      {
+        "text": "Not now.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA",
     "dynamic_line": {
       "math": [
-        "berserk_flora_stage == 2"
+        "berserk_flora_stage == 3"
       ],
-      "yes": "\"There is no more time for counsel. The guardians are holding the northern and eastern approaches. Leave through the western road or the southern garden. Do not wait for a victory.\"",
-      "no": "\"You have found a quiet place, traveler. Here you may ask before you choose. A suit of armor is not a cure for a wounded soul, and possessing it is not the end of your road.\""
+      "yes": "\"The sanctuary is lost, but your road continues. Recover, then follow the unfinished hunts. There will be no second attack on this house.\"",
+      "no": {
+        "math": [
+          "berserk_flora_stage == 2"
+        ],
+        "yes": "\"There is no more time for counsel. The guardians are holding the northern and eastern approaches. Leave through the western road or the southern garden. Do not wait for a victory.\"",
+        "no": "\"You have found a quiet place, traveler. Here you may ask before you choose. A suit of armor is not a cure for a wounded soul, and possessing it is not the end of your road.\""
+      }
     },
     "responses": [
       {
@@ -209,12 +235,44 @@
         "condition": {
           "and": [
             {
-              "math": [
-                "berserk_flora_stage == 1"
-              ]
+              "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
             },
             {
+              "not": {
+                "or": [
+                  {
+                    "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+                  },
+                  {
+                    "math": [
+                      "u_berserk_flora_armor_resolved == 1"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I already have the armor. Help me prepare for the attack.",
+        "topic": "TALK_BERSERK_FLORA_SIEGE_OWNER_CONFIRM",
+        "condition": {
+          "and": [
+            {
               "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
+            },
+            {
+              "or": [
+                {
+                  "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+                },
+                {
+                  "math": [
+                    "u_berserk_flora_armor_resolved == 1"
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -241,15 +299,17 @@
         }
       },
       {
+        "text": "What is the next step in our plan?",
+        "topic": "TALK_BERSERK_FLORA_STATUS",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_PROGRESS_REPORT"
+        }
+      },
+      {
         "text": "I will return when I am ready.",
         "topic": "TALK_DONE"
       }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "run_eocs": "EOC_BERSERK_FLORA_REGISTER_HERE"
-      }
-    }
+    ]
   },
   {
     "type": "talk_topic",
@@ -492,6 +552,50 @@
       },
       {
         "text": "Not yet. I need to prepare and ask more.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_SIEGE_OWNER_CONFIRM",
+    "dynamic_line": "\"Keep the armor you already have; I will not issue another suit. If you agree, I will prepare an escape charm. The attack will begin only when you activate it here and confirm. Equip and pack first. Escape through the western road or southern garden, not through victory over both apostles.\"",
+    "responses": [
+      {
+        "text": "I understand. Confirm my readiness and give me the escape charm.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_PREPARE_SIEGE"
+        }
+      },
+      {
+        "text": "Not yet. I need to prepare and ask more.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_STATUS",
+    "dynamic_line": {
+      "math": [
+        "berserk_flora_siege_state == 1"
+      ],
+      "yes": "\"You have confirmed readiness. The charm waits for your decision; there is no attack clock yet. Return here with your equipment and activate it when ready.\"",
+      "no": {
+        "math": [
+          "berserk_flora_stage == 3"
+        ],
+        "yes": "\"The escape has ended. Seek shelter and recover; your hunt journal can guide you to the remaining apostles. My gift remains yours, but the grove can no longer protect you.\"",
+        "no": "\"Questions and receiving armor do not commit you to battle. A separate readiness response prepares the charm, and its activation starts the attack. If you have not survived the Eclipse or are away from my manor, that preparation is unavailable.\""
+      }
+    },
+    "responses": [
+      {
+        "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
