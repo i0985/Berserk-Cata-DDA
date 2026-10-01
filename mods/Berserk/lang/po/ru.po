@@ -921,8 +921,8 @@ msgid "prosthetic arm cannon CBM"
 msgstr "КБМ руки-пушки"
 
 #: items/bionics/arm_cannon_cbms.json
-msgid "A handmade mechanical arm cannon. With the lost left-hand interface installed, activate this item from your inventory to attach it yourself. No power, surgical equipment, or other materials are required. The item is consumed when the prosthetic arm cannon bionic is installed."
-msgstr "Самодельная механическая рука-пушка. Если крепление утраченной левой кисти установлено, активируй этот предмет в инвентаре, чтобы закрепить пушку самостоятельно. Электричество, хирургическое оборудование и другие материалы не нужны. Предмет исчезнет при установке бионики руки-пушки."
+msgid "A handmade mechanical arm cannon. With the lost left-hand interface installed, activate this item directly in your inventory to attach it yourself, even with your remaining hand occupied. Do not wield it to install it. No power, surgical equipment, or other materials are required. The item is consumed only after the prosthetic arm cannon bionic is successfully installed."
+msgstr "Самодельная механическая рука-пушка. Если крепление утраченной левой кисти установлено, активируй этот предмет прямо в инвентаре, чтобы закрепить пушку самостоятельно, даже если оставшаяся рука занята. Для установки не нужно брать её в руки. Электричество, хирургическое оборудование и другие материалы не нужны. Предмет исчезнет только после успешной установки бионики руки-пушки."
 
 #: items/guns/arm_cannon.json
 msgid "prosthetic arm cannon"
@@ -3403,3 +3403,7 @@ msgstr "%s сбрасывает разрушенный доспех!"
 #: mods/Berserk/effects/flora_siege_eocs.json
 msgid "The ward shudders. Grunbeld's fate is already recorded elsewhere; no second original appears at the eastern approach. Both escape paths remain open. Keep moving toward the western road or the southern garden."
 msgstr "Защитный круг содрогается. Судьба Грюнбельда уже определена в другом месте; второй оригинал не появляется на восточных подступах. Оба пути отхода открыты. Продолжайте двигаться к западной дороге или южному саду."
+
+#: effects/arm_cannon_install_eocs.json
+msgid "The arm cannon could not be installed. You keep the crafted cannon."
+msgstr "Не удалось установить руку-пушку. Созданная пушка остаётся у тебя."

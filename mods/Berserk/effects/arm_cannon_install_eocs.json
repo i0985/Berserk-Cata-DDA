@@ -10,11 +10,20 @@
       ]
     },
     "effect": [
-      { "u_consume_item": "bio_berserk_arm_cannon", "count": 1 },
       { "u_add_bionic": "bio_berserk_arm_cannon" },
       {
-        "u_message": "You attach the arm cannon to your missing left hand. Activate the new bionic to deploy it.",
-        "type": "good"
+        "if": { "u_has_bionics": "bio_berserk_arm_cannon" },
+        "then": [
+          { "u_consume_item": "bio_berserk_arm_cannon", "count": 1 },
+          {
+            "u_message": "You attach the arm cannon to your missing left hand. Activate the new bionic to deploy it.",
+            "type": "good"
+          }
+        ],
+        "else": {
+          "u_message": "The arm cannon could not be installed. You keep the crafted cannon.",
+          "type": "warning"
+        }
       }
     ],
     "false_effect": {

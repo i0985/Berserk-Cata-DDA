@@ -279,10 +279,10 @@ class EclipseFlowTests(unittest.TestCase):
         self.assertIn({"u_has_bionics": "bio_berserk_hand_stump"}, install["condition"]["and"])
         self.assertIn({"not": {"u_has_bionics": "bio_berserk_arm_cannon"}}, install["condition"]["and"])
         self.assertIn({"u_has_items": {"item": "bio_berserk_arm_cannon", "count": 1}}, install["condition"]["and"])
-        self.assertEqual(install["effect"][:2], [
-            {"u_consume_item": "bio_berserk_arm_cannon", "count": 1},
-            {"u_add_bionic": "bio_berserk_arm_cannon"},
-        ])
+        self.assertEqual(install["effect"][0], {"u_add_bionic": "bio_berserk_arm_cannon"})
+        confirmation = install["effect"][1]
+        self.assertEqual(confirmation["if"], {"u_has_bionics": "bio_berserk_arm_cannon"})
+        self.assertEqual(confirmation["then"][0], {"u_consume_item": "bio_berserk_arm_cannon", "count": 1})
         self.assertNotIn("use_action", items["bio_berserk_hand_stump"])
 
     def test_all_six_rooms_and_story_targets_are_reachable(self) -> None:

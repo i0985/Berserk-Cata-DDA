@@ -832,8 +832,8 @@ msgid "prosthetic arm cannon CBM"
 msgstr "机械臂炮CBM"
 
 #: items/bionics/arm_cannon_cbms.json
-msgid "A handmade mechanical arm cannon. With the lost left-hand interface installed, activate this item from your inventory to attach it yourself. No power, surgical equipment, or other materials are required. The item is consumed when the prosthetic arm cannon bionic is installed."
-msgstr "手工制作的机械臂炮。装好失去左手的接口后，在物品栏中激活此物品即可自行安装。无需电力、手术设备或其他材料。安装机械臂炮义体后，该物品会被消耗。"
+msgid "A handmade mechanical arm cannon. With the lost left-hand interface installed, activate this item directly in your inventory to attach it yourself, even with your remaining hand occupied. Do not wield it to install it. No power, surgical equipment, or other materials are required. The item is consumed only after the prosthetic arm cannon bionic is successfully installed."
+msgstr "手工制作的机械臂炮。装好失去左手的接口后，直接在物品栏中激活此物品即可自行安装，即使剩下的手正拿着东西也可以。安装时无需持握臂炮。无需电力、手术设备或其他材料。只有成功安装机械臂炮义体后，该物品才会被消耗。"
 
 #: items/guns/arm_cannon.json
 msgid "prosthetic arm cannon"
@@ -3284,3 +3284,7 @@ msgstr "%s褪去了破碎的铠甲！"
 #: mods/Berserk/effects/flora_siege_eocs.json
 msgid "The ward shudders. Grunbeld's fate is already recorded elsewhere; no second original appears at the eastern approach. Both escape paths remain open. Keep moving toward the western road or the southern garden."
 msgstr "结界在颤抖。古伦贝尔德的命运已在别处记录；东面的入口不会出现第二个本体。两条逃生路线仍然开放。继续前往西边道路或南边花园。"
+
+#: effects/arm_cannon_install_eocs.json
+msgid "The arm cannon could not be installed. You keep the crafted cannon."
+msgstr "无法安装机械臂炮。制作好的臂炮仍然保留。"

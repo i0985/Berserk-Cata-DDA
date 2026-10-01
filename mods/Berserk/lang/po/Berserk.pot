@@ -812,7 +812,7 @@ msgid "prosthetic arm cannon CBM"
 msgstr ""
 
 #: items/bionics/arm_cannon_cbms.json
-msgid "A handmade mechanical arm cannon. With the lost left-hand interface installed, activate this item from your inventory to attach it yourself. No power, surgical equipment, or other materials are required. The item is consumed when the prosthetic arm cannon bionic is installed."
+msgid "A handmade mechanical arm cannon. With the lost left-hand interface installed, activate this item directly in your inventory to attach it yourself, even with your remaining hand occupied. Do not wield it to install it. No power, surgical equipment, or other materials are required. The item is consumed only after the prosthetic arm cannon bionic is successfully installed."
 msgstr ""
 
 #: items/guns/arm_cannon.json
@@ -2962,4 +2962,8 @@ msgstr ""
 
 #: mods/Berserk/effects/flora_siege_eocs.json
 msgid "The ward shudders. Grunbeld's fate is already recorded elsewhere; no second original appears at the eastern approach. Both escape paths remain open. Keep moving toward the western road or the southern garden."
+msgstr ""
+
+#: effects/arm_cannon_install_eocs.json
+msgid "The arm cannon could not be installed. You keep the crafted cannon."
 msgstr ""

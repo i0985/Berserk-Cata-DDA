@@ -14,16 +14,22 @@
   {
     "id": "bio_berserk_arm_cannon",
     "type": "ITEM",
-    "subtypes": [ "BIONIC_ITEM" ],
-    "copy-from": "bionic_general",
+    "subtypes": [ "TOOL" ],
+    "category": "bionics",
+    "material": [ "steel", "plastic" ],
+    "symbol": ":",
+    "color": "yellow",
+    "price_postapoc": "10 USD",
+    "flags": [ "CBM", "ALLOWS_REMOTE_USE", "FRAGILE_MELEE" ],
+    "charges_per_use": 0,
     "looks_like": "bio_shotgun",
     "name": { "str": "prosthetic arm cannon CBM" },
-    "description": "A handmade mechanical arm cannon. With the lost left-hand interface installed, activate this item from your inventory to attach it yourself. No power, surgical equipment, or other materials are required. The item is consumed when the prosthetic arm cannon bionic is installed.",
+    "description": "A handmade mechanical arm cannon. With the lost left-hand interface installed, activate this item directly in your inventory to attach it yourself, even with your remaining hand occupied. Do not wield it to install it. No power, surgical equipment, or other materials are required. The item is consumed only after the prosthetic arm cannon bionic is successfully installed.",
     "weight": "3500 g",
     "volume": "3000 ml",
-    "difficulty": 5,
     "use_action": {
       "type": "effect_on_conditions",
+      "need_wielding": false,
       "menu_text": "Attach arm cannon",
       "effect_on_conditions": [ "EOC_BERSERK_ARM_CANNON_SELF_INSTALL" ]
     }
