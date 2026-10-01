@@ -182,9 +182,9 @@
         "............ddd.......T.",
         "............ddd.......T.",
         "......dddddddddddddd..T.",
-        "......dddddddddddddd..T.",
-        "dddddddddddddddddddd..T.",
-        "dddddddddddd?ddddddd..T.",
+        "......d#dddddddd#ddd..T.",
+        "ddddddd#dddddddd#ddd..T.",
+        "ddddd###dddd?ddd###d..T.",
         "dddddddddddddddddddd..T.",
         "......dddddddddddddd..T.",
         "......dddddddddddddd..T.",
@@ -193,9 +193,9 @@
         "......dddddddddddddd..T.",
         "......dddddddddddddd..T.",
         "......dddddddddddddd..T.",
-        "......dd##dddddddddd..T.",
-        "......dd##dddddddd##..T.",
-        "......dddddddddddd##..T.",
+        ".....#####dddddd###d..T.",
+        "......d###dddddd#d##..T.",
+        "......d#dddddddd#d##..T.",
         "......dddddddddddddd..T.",
         "............ddd.......T.",
         "............ddd.......T.",
@@ -226,8 +226,16 @@
           "furn": "f_berserk_wyald_breach",
           "x": 12,
           "y": 7
+        },
+        {
+          "furn": "f_berserk_hunt_arena_tracks",
+          "x": 12,
+          "y": 12
         }
-      ]
+      ],
+      "terrain": {
+        "#": "t_rock"
+      }
     }
   }
 ]

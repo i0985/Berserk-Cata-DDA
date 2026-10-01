@@ -324,5 +324,344 @@
         "popup": true
       }
     ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BREACH_ENSURE_BOSS",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_local_breach"
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_breach_guardian_defeated != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_breach_guardian_spawned != 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "not": {
+                "math": [
+                  "has_var(u_berserk_local_breach_location)"
+                ]
+              }
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "floor(u_berserk_local_breach_location.x / 24) == floor(u_val('pos_x') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "floor(u_berserk_local_breach_location.y / 24) == floor(u_val('pos_y') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_local_breach_location.z == u_val('pos_z')"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "if": {
+          "not": {
+            "math": [
+              "has_var(u_berserk_local_breach_location)"
+            ]
+          }
+        },
+        "then": {
+          "u_location_variable": {
+            "u_val": "berserk_local_breach_location"
+          },
+          "x_adjust": {
+            "math": [
+              "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x') + 0"
+            ]
+          },
+          "y_adjust": {
+            "math": [
+              "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y') + 0"
+            ]
+          }
+        }
+      },
+      {
+        "math": [
+          "u_berserk_breach_marked = 1"
+        ]
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_arena_existing"
+        },
+        "monster": "mon_berserk_breach_warden",
+        "target_max_radius": 60,
+        "true_eocs": [
+          "EOC_BERSERK_BREACH_ADOPT"
+        ],
+        "false_eocs": [
+          "EOC_BERSERK_BREACH_TRY_HIDDEN"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BREACH_ENTER",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_local_breach"
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_breach_guardian_defeated != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_breach_guardian_spawned != 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "not": {
+                "math": [
+                  "has_var(u_berserk_local_breach_location)"
+                ]
+              }
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "floor(u_berserk_local_breach_location.x / 24) == floor(u_val('pos_x') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "floor(u_berserk_local_breach_location.y / 24) == floor(u_val('pos_y') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_local_breach_location.z == u_val('pos_z')"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        }
+      ]
+    },
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_BREACH_ENSURE_BOSS"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BREACH_RETRY",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_local_breach"
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_breach_guardian_defeated != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_breach_guardian_spawned != 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "not": {
+                "math": [
+                  "has_var(u_berserk_local_breach_location)"
+                ]
+              }
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "floor(u_berserk_local_breach_location.x / 24) == floor(u_val('pos_x') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "floor(u_berserk_local_breach_location.y / 24) == floor(u_val('pos_y') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_local_breach_location.z == u_val('pos_z')"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        }
+      ]
+    },
+    "global": true,
+    "recurrence": "1 turn",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_BREACH_ENSURE_BOSS"
+    }
   }
 ]

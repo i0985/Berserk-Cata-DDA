@@ -1,0 +1,21 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_hunt_arena_tracks",
+    "name": "battle-scarred ground",
+    "description": "Deep tracks cross the center of the lair. Its guardian emerges from cover when you enter this inner area. If its arrival was blocked, clear a recess and examine these tracks to retry.",
+    "symbol": ":",
+    "color": "dark_gray",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_HUNT_ARENA_MANUAL_RETRY"
+      ]
+    }
+  }
+]

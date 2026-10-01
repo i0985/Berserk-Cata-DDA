@@ -133,9 +133,8 @@
         "location_variable_adjust": {
           "global_val": "berserk_hunt_grunbeld_location"
         },
-        "overmap_tile": true,
-        "x_adjust": 0,
-        "y_adjust": 0
+        "x_adjust": -12,
+        "y_adjust": -7
       },
       {
         "math": [
@@ -169,6 +168,121 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GRUNBELD_ENSURE_BOSS",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_grunbeld_crucible"
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostle_grunbeld_dead != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_grunbeld_spawned != 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "not": {
+                "math": [
+                  "has_var(berserk_hunt_grunbeld_location)"
+                ]
+              }
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "floor(berserk_hunt_grunbeld_location.x / 24) == floor(u_val('pos_x') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "floor(berserk_hunt_grunbeld_location.y / 24) == floor(u_val('pos_y') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_grunbeld_location.z == u_val('pos_z')"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_grunbeld_state < 3"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_grunbeld_dragon_pending != 1"
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_count_state >= 4"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_wyald_state >= 4"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_rosine_state >= 4"
+              ]
+            }
+          ]
+        }
+      ]
+    },
     "effect": [
       {
         "if": {
@@ -182,15 +296,17 @@
           {
             "u_location_variable": {
               "global_val": "berserk_hunt_grunbeld_location"
-            }
-          },
-          {
-            "location_variable_adjust": {
-              "global_val": "berserk_hunt_grunbeld_location"
             },
-            "overmap_tile": true,
-            "x_adjust": 0,
-            "y_adjust": 0
+            "x_adjust": {
+              "math": [
+                "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x') + 0"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y') + 0"
+              ]
+            }
           },
           {
             "math": [
@@ -200,46 +316,23 @@
         ]
       },
       {
-        "math": [
-          "berserk_hunt_grunbeld_state = max(2, berserk_hunt_grunbeld_state)"
-        ]
-      },
-      {
-        "math": [
-          "berserk_hunt_grunbeld_attempts = berserk_hunt_grunbeld_attempts + 1"
-        ]
-      },
-      {
-        "copy_var": {
-          "global_val": "berserk_hunt_grunbeld_location"
+        "u_location_variable": {
+          "context_val": "berserk_arena_existing"
         },
-        "target_var": {
-          "context_val": "hunt_boss_anchor"
-        }
-      },
-      {
-        "location_variable_adjust": {
-          "context_val": "hunt_boss_anchor"
-        },
-        "x_adjust": 12,
-        "y_adjust": 14
-      },
-      {
-        "u_spawn_monster": "mon_berserk_grunbeld_knight",
-        "target_var": {
-          "context_val": "hunt_boss_anchor"
-        },
-        "real_count": 1,
-        "min_radius": 0,
-        "max_radius": 2,
+        "monster": "mon_berserk_grunbeld_dragon",
+        "target_max_radius": 60,
         "true_eocs": [
-          "EOC_BERSERK_GRUNBELD_ARRIVED"
+          "EOC_BERSERK_GRUNBELD_ADOPT_DRAGON"
         ],
         "false_eocs": [
-          "EOC_BERSERK_HUNT_SPAWN_BLOCKED"
+          "EOC_BERSERK_GRUNBELD_SCAN_KNIGHT"
         ]
       }
-    ],
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_ENTER",
     "condition": {
       "and": [
         {
@@ -266,12 +359,82 @@
         },
         {
           "math": [
-            "berserk_hunt_grunbeld_state < 3"
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 >= 8"
           ]
         },
         {
           "math": [
-            "berserk_hunt_grunbeld_spawned != 1"
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 <= 15"
+          ]
+        }
+      ]
+    },
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_REGISTER_HERE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_ENSURE_BOSS"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_RETRY",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_grunbeld_crucible"
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 <= 15"
           ]
         },
         {
@@ -281,111 +444,38 @@
         },
         {
           "math": [
-            "berserk_hunt_grunbeld_attempts < 6"
+            "berserk_hunt_grunbeld_spawned != 1"
           ]
         },
         {
           "or": [
             {
+              "not": {
+                "math": [
+                  "has_var(berserk_hunt_grunbeld_location)"
+                ]
+              }
+            },
+            {
               "and": [
                 {
                   "math": [
-                    "berserk_hunt_count_state >= 4"
+                    "floor(berserk_hunt_grunbeld_location.x / 24) == floor(u_val('pos_x') / 24)"
                   ]
                 },
                 {
                   "math": [
-                    "berserk_hunt_wyald_state >= 4"
+                    "floor(berserk_hunt_grunbeld_location.y / 24) == floor(u_val('pos_y') / 24)"
                   ]
                 },
                 {
                   "math": [
-                    "berserk_hunt_rosine_state >= 4"
+                    "berserk_hunt_grunbeld_location.z == u_val('pos_z')"
                   ]
                 }
               ]
-            },
-            {
-              "math": [
-                "berserk_apostle_grunbeld_dead == 1"
-              ]
             }
           ]
-        }
-      ]
-    }
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_BERSERK_GRUNBELD_ENTER",
-    "effect": [
-      {
-        "run_eocs": "EOC_BERSERK_GRUNBELD_REGISTER_HERE"
-      },
-      {
-        "run_eocs": "EOC_BERSERK_GRUNBELD_ENSURE_BOSS"
-      }
-    ],
-    "eoc_type": "EVENT",
-    "required_event": "avatar_enters_omt",
-    "condition": {
-      "and": [
-        {
-          "and": [
-            {
-              "math": [
-                "berserk_eclipse_era == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_eclipse_trial_active != 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
-              ]
-            }
-          ]
-        },
-        {
-          "u_at_om_location": "berserk_grunbeld_crucible"
-        }
-      ]
-    }
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_BERSERK_GRUNBELD_RETRY",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_GRUNBELD_ENSURE_BOSS"
-    },
-    "global": true,
-    "recurrence": "10 seconds",
-    "condition": {
-      "and": [
-        {
-          "and": [
-            {
-              "math": [
-                "berserk_eclipse_era == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_eclipse_trial_active != 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
-              ]
-            }
-          ]
-        },
-        {
-          "u_at_om_location": "berserk_grunbeld_crucible"
         },
         {
           "math": [
@@ -394,21 +484,45 @@
         },
         {
           "math": [
-            "berserk_hunt_grunbeld_spawned != 1"
+            "berserk_hunt_grunbeld_dragon_pending != 1"
           ]
         },
         {
-          "math": [
-            "berserk_hunt_grunbeld_attempts < 6"
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_count_state >= 4"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_wyald_state >= 4"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_rosine_state >= 4"
+              ]
+            }
           ]
         }
       ]
+    },
+    "global": true,
+    "recurrence": "1 turn",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_GRUNBELD_ENSURE_BOSS"
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GRUNBELD_ARRIVED",
     "effect": [
+      {
+        "math": [
+          "berserk_hunt_grunbeld_state = max(2, berserk_hunt_grunbeld_state)"
+        ]
+      },
       {
         "math": [
           "berserk_hunt_grunbeld_spawned = 1"
@@ -1366,15 +1480,17 @@
       {
         "u_location_variable": {
           "global_val": "berserk_hunt_grunbeld_location"
-        }
-      },
-      {
-        "location_variable_adjust": {
-          "global_val": "berserk_hunt_grunbeld_location"
         },
-        "overmap_tile": true,
-        "x_adjust": 0,
-        "y_adjust": 0
+        "x_adjust": {
+          "math": [
+            "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x') + 0"
+          ]
+        },
+        "y_adjust": {
+          "math": [
+            "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y') + 0"
+          ]
+        }
       },
       {
         "math": [

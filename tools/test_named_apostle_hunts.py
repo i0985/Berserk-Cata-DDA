@@ -2,6 +2,7 @@
 import copy
 import gettext
 import json
+import re
 import unittest
 
 from test_apostle_hunts import HuntGraph, connected, stitched
@@ -21,6 +22,16 @@ class NamedHuntGraph(HuntGraph):
         self.spawned=[]
         self.origins={'wyald':(-72,24,0),'rosine':(432,-240,0),'grunbeld':(-480,720,0)}
 
+    def evaluate(self, expr):
+        expr = re.sub(r'(\w+)\.([xyz])',
+                      lambda m: str(self.variable(m[1])[{'x':0,'y':1,'z':2}[m[2]]]), expr)
+        return super().evaluate(expr)
+
+    def condition(self, value):
+        if isinstance(value,dict) and 'u_can_see_location' in value:
+            return False  # Detailed terrain/visibility checks live in test_hunt_arenas.
+        return super().condition(value)
+
     def run(self, id):
         obj=self.eocs[id]
         if 'condition' not in obj or self.condition(obj['condition']):
@@ -30,6 +41,14 @@ class NamedHuntGraph(HuntGraph):
 
     def effect(self, value):
         if isinstance(value,dict):
+            if 'u_location_variable' in value and 'monster' in value:
+                monster=value['monster']
+                candidates=list(self.spawned)+list(self.monsters)
+                found=any(m==monster and p[2]==self.avatar[2] and
+                          max(abs(p[i]-self.avatar[i]) for i in (0,1)) <= value['target_max_radius']
+                          for m,p in candidates)
+                for id in value['true_eocs' if found else 'false_eocs']:self.run(id)
+                return
             if 'target_params' in value:
                 kind=next(k for k in self.origins if k in value['target_params']['om_terrain'])
                 self.locator_calls.append(kind)
@@ -45,7 +64,6 @@ class NamedHuntGraph(HuntGraph):
                 scope=self.flags if 'global_val' in target else self.context
                 key=target.get('global_val',target.get('context_val'));pos=scope[key]
                 scale=24 if value.get('overmap_tile') else 1
-                if scale==24:pos=(pos[0]//24*24,pos[1]//24*24,pos[2])
                 scope[key]=tuple(pos[i]+value.get(axis+'_adjust',0)*scale
                                  for i,axis in enumerate(('x','y','z')))
                 return

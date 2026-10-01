@@ -105,9 +105,8 @@
         "location_variable_adjust": {
           "global_val": "berserk_hunt_wyald_location"
         },
-        "overmap_tile": true,
-        "x_adjust": 0,
-        "y_adjust": 0
+        "x_adjust": -12,
+        "y_adjust": -7
       },
       {
         "math": [
@@ -130,72 +129,6 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_WYALD_ENSURE_BOSS",
-    "effect": [
-      {
-        "if": {
-          "not": {
-            "math": [
-              "has_var(berserk_hunt_wyald_location)"
-            ]
-          }
-        },
-        "then": [
-          {
-            "u_location_variable": {
-              "global_val": "berserk_hunt_wyald_location"
-            }
-          },
-          {
-            "location_variable_adjust": {
-              "global_val": "berserk_hunt_wyald_location"
-            },
-            "overmap_tile": true,
-            "x_adjust": 0,
-            "y_adjust": 0
-          }
-        ]
-      },
-      {
-        "math": [
-          "berserk_hunt_wyald_state = max(2, berserk_hunt_wyald_state)"
-        ]
-      },
-      {
-        "math": [
-          "berserk_hunt_wyald_attempts = berserk_hunt_wyald_attempts + 1"
-        ]
-      },
-      {
-        "copy_var": {
-          "global_val": "berserk_hunt_wyald_location"
-        },
-        "target_var": {
-          "context_val": "hunt_boss_anchor"
-        }
-      },
-      {
-        "location_variable_adjust": {
-          "context_val": "hunt_boss_anchor"
-        },
-        "x_adjust": 12,
-        "y_adjust": 14
-      },
-      {
-        "u_spawn_monster": "mon_berserk_apostle_wyald",
-        "target_var": {
-          "context_val": "hunt_boss_anchor"
-        },
-        "real_count": 1,
-        "min_radius": 0,
-        "max_radius": 2,
-        "true_eocs": [
-          "EOC_BERSERK_WYALD_ARRIVED"
-        ],
-        "false_eocs": [
-          "EOC_BERSERK_HUNT_SPAWN_BLOCKED"
-        ]
-      }
-    ],
     "condition": {
       "and": [
         {
@@ -222,12 +155,22 @@
         },
         {
           "math": [
-            "berserk_hunt_wyald_state < 3"
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 >= 8"
           ]
         },
         {
           "math": [
-            "berserk_hunt_wyald_spawned != 1"
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 <= 15"
           ]
         },
         {
@@ -237,55 +180,89 @@
         },
         {
           "math": [
-            "berserk_hunt_wyald_attempts < 6"
+            "berserk_hunt_wyald_spawned != 1"
           ]
-        }
-      ]
-    }
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_BERSERK_WYALD_ENTER",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_WYALD_ENSURE_BOSS"
-    },
-    "eoc_type": "EVENT",
-    "required_event": "avatar_enters_omt",
-    "condition": {
-      "and": [
+        },
         {
-          "and": [
+          "or": [
             {
-              "math": [
-                "berserk_eclipse_era == 1"
-              ]
+              "not": {
+                "math": [
+                  "has_var(berserk_hunt_wyald_location)"
+                ]
+              }
             },
             {
-              "math": [
-                "u_berserk_eclipse_trial_active != 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "and": [
+                {
+                  "math": [
+                    "floor(berserk_hunt_wyald_location.x / 24) == floor(u_val('pos_x') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "floor(berserk_hunt_wyald_location.y / 24) == floor(u_val('pos_y') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_wyald_location.z == u_val('pos_z')"
+                  ]
+                }
               ]
             }
           ]
         },
         {
-          "u_at_om_location": "berserk_wyald_ring"
+          "math": [
+            "berserk_hunt_wyald_state < 3"
+          ]
         }
       ]
-    }
+    },
+    "effect": [
+      {
+        "if": {
+          "not": {
+            "math": [
+              "has_var(berserk_hunt_wyald_location)"
+            ]
+          }
+        },
+        "then": {
+          "u_location_variable": {
+            "global_val": "berserk_hunt_wyald_location"
+          },
+          "x_adjust": {
+            "math": [
+              "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x') + 0"
+            ]
+          },
+          "y_adjust": {
+            "math": [
+              "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y') + 0"
+            ]
+          }
+        }
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_arena_existing"
+        },
+        "monster": "mon_berserk_apostle_wyald",
+        "target_max_radius": 60,
+        "true_eocs": [
+          "EOC_BERSERK_WYALD_ADOPT"
+        ],
+        "false_eocs": [
+          "EOC_BERSERK_WYALD_TRY_HIDDEN"
+        ]
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
-    "id": "EOC_BERSERK_WYALD_RETRY",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_WYALD_ENSURE_BOSS"
-    },
-    "global": true,
-    "recurrence": "10 seconds",
+    "id": "EOC_BERSERK_WYALD_ENTER",
     "condition": {
       "and": [
         {
@@ -312,7 +289,27 @@
         },
         {
           "math": [
-            "berserk_hunt_wyald_state < 3"
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostle_wyald_dead != 1"
           ]
         },
         {
@@ -321,17 +318,157 @@
           ]
         },
         {
+          "or": [
+            {
+              "not": {
+                "math": [
+                  "has_var(berserk_hunt_wyald_location)"
+                ]
+              }
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "floor(berserk_hunt_wyald_location.x / 24) == floor(u_val('pos_x') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "floor(berserk_hunt_wyald_location.y / 24) == floor(u_val('pos_y') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_wyald_location.z == u_val('pos_z')"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
           "math": [
-            "berserk_hunt_wyald_attempts < 6"
+            "berserk_hunt_wyald_state < 3"
           ]
         }
       ]
+    },
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_WYALD_ENSURE_BOSS"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_RETRY",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_wyald_ring"
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostle_wyald_dead != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_spawned != 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "not": {
+                "math": [
+                  "has_var(berserk_hunt_wyald_location)"
+                ]
+              }
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "floor(berserk_hunt_wyald_location.x / 24) == floor(u_val('pos_x') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "floor(berserk_hunt_wyald_location.y / 24) == floor(u_val('pos_y') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_wyald_location.z == u_val('pos_z')"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_state < 3"
+          ]
+        }
+      ]
+    },
+    "global": true,
+    "recurrence": "1 turn",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_WYALD_ENSURE_BOSS"
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_WYALD_ARRIVED",
     "effect": [
+      {
+        "math": [
+          "berserk_hunt_wyald_state = max(2, berserk_hunt_wyald_state)"
+        ]
+      },
       {
         "math": [
           "berserk_hunt_wyald_spawned = 1"
@@ -750,9 +887,8 @@
         "location_variable_adjust": {
           "global_val": "berserk_hunt_rosine_location"
         },
-        "overmap_tile": true,
-        "x_adjust": 0,
-        "y_adjust": 0
+        "x_adjust": -12,
+        "y_adjust": -7
       },
       {
         "math": [
@@ -775,72 +911,6 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ROSINE_ENSURE_BOSS",
-    "effect": [
-      {
-        "if": {
-          "not": {
-            "math": [
-              "has_var(berserk_hunt_rosine_location)"
-            ]
-          }
-        },
-        "then": [
-          {
-            "u_location_variable": {
-              "global_val": "berserk_hunt_rosine_location"
-            }
-          },
-          {
-            "location_variable_adjust": {
-              "global_val": "berserk_hunt_rosine_location"
-            },
-            "overmap_tile": true,
-            "x_adjust": 0,
-            "y_adjust": 0
-          }
-        ]
-      },
-      {
-        "math": [
-          "berserk_hunt_rosine_state = max(2, berserk_hunt_rosine_state)"
-        ]
-      },
-      {
-        "math": [
-          "berserk_hunt_rosine_attempts = berserk_hunt_rosine_attempts + 1"
-        ]
-      },
-      {
-        "copy_var": {
-          "global_val": "berserk_hunt_rosine_location"
-        },
-        "target_var": {
-          "context_val": "hunt_boss_anchor"
-        }
-      },
-      {
-        "location_variable_adjust": {
-          "context_val": "hunt_boss_anchor"
-        },
-        "x_adjust": 12,
-        "y_adjust": 14
-      },
-      {
-        "u_spawn_monster": "mon_berserk_apostle_rosine",
-        "target_var": {
-          "context_val": "hunt_boss_anchor"
-        },
-        "real_count": 1,
-        "min_radius": 0,
-        "max_radius": 2,
-        "true_eocs": [
-          "EOC_BERSERK_ROSINE_ARRIVED"
-        ],
-        "false_eocs": [
-          "EOC_BERSERK_HUNT_SPAWN_BLOCKED"
-        ]
-      }
-    ],
     "condition": {
       "and": [
         {
@@ -867,12 +937,22 @@
         },
         {
           "math": [
-            "berserk_hunt_rosine_state < 3"
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 >= 8"
           ]
         },
         {
           "math": [
-            "berserk_hunt_rosine_spawned != 1"
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 <= 15"
           ]
         },
         {
@@ -882,55 +962,89 @@
         },
         {
           "math": [
-            "berserk_hunt_rosine_attempts < 6"
+            "berserk_hunt_rosine_spawned != 1"
           ]
-        }
-      ]
-    }
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_BERSERK_ROSINE_ENTER",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_ROSINE_ENSURE_BOSS"
-    },
-    "eoc_type": "EVENT",
-    "required_event": "avatar_enters_omt",
-    "condition": {
-      "and": [
+        },
         {
-          "and": [
+          "or": [
             {
-              "math": [
-                "berserk_eclipse_era == 1"
-              ]
+              "not": {
+                "math": [
+                  "has_var(berserk_hunt_rosine_location)"
+                ]
+              }
             },
             {
-              "math": [
-                "u_berserk_eclipse_trial_active != 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "and": [
+                {
+                  "math": [
+                    "floor(berserk_hunt_rosine_location.x / 24) == floor(u_val('pos_x') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "floor(berserk_hunt_rosine_location.y / 24) == floor(u_val('pos_y') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_rosine_location.z == u_val('pos_z')"
+                  ]
+                }
               ]
             }
           ]
         },
         {
-          "u_at_om_location": "berserk_rosine_nest"
+          "math": [
+            "berserk_hunt_rosine_state < 3"
+          ]
         }
       ]
-    }
+    },
+    "effect": [
+      {
+        "if": {
+          "not": {
+            "math": [
+              "has_var(berserk_hunt_rosine_location)"
+            ]
+          }
+        },
+        "then": {
+          "u_location_variable": {
+            "global_val": "berserk_hunt_rosine_location"
+          },
+          "x_adjust": {
+            "math": [
+              "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x') + 0"
+            ]
+          },
+          "y_adjust": {
+            "math": [
+              "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y') + 0"
+            ]
+          }
+        }
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_arena_existing"
+        },
+        "monster": "mon_berserk_apostle_rosine",
+        "target_max_radius": 60,
+        "true_eocs": [
+          "EOC_BERSERK_ROSINE_ADOPT"
+        ],
+        "false_eocs": [
+          "EOC_BERSERK_ROSINE_TRY_HIDDEN"
+        ]
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
-    "id": "EOC_BERSERK_ROSINE_RETRY",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_ROSINE_ENSURE_BOSS"
-    },
-    "global": true,
-    "recurrence": "10 seconds",
+    "id": "EOC_BERSERK_ROSINE_ENTER",
     "condition": {
       "and": [
         {
@@ -957,7 +1071,27 @@
         },
         {
           "math": [
-            "berserk_hunt_rosine_state < 3"
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostle_rosine_dead != 1"
           ]
         },
         {
@@ -966,17 +1100,157 @@
           ]
         },
         {
+          "or": [
+            {
+              "not": {
+                "math": [
+                  "has_var(berserk_hunt_rosine_location)"
+                ]
+              }
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "floor(berserk_hunt_rosine_location.x / 24) == floor(u_val('pos_x') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "floor(berserk_hunt_rosine_location.y / 24) == floor(u_val('pos_y') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_rosine_location.z == u_val('pos_z')"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
           "math": [
-            "berserk_hunt_rosine_attempts < 6"
+            "berserk_hunt_rosine_state < 3"
           ]
         }
       ]
+    },
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_ROSINE_ENSURE_BOSS"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_RETRY",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_rosine_nest"
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_x') - floor(u_val('pos_x') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostle_rosine_dead != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_spawned != 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "not": {
+                "math": [
+                  "has_var(berserk_hunt_rosine_location)"
+                ]
+              }
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "floor(berserk_hunt_rosine_location.x / 24) == floor(u_val('pos_x') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "floor(berserk_hunt_rosine_location.y / 24) == floor(u_val('pos_y') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_rosine_location.z == u_val('pos_z')"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_state < 3"
+          ]
+        }
+      ]
+    },
+    "global": true,
+    "recurrence": "1 turn",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_ROSINE_ENSURE_BOSS"
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ROSINE_ARRIVED",
     "effect": [
+      {
+        "math": [
+          "berserk_hunt_rosine_state = max(2, berserk_hunt_rosine_state)"
+        ]
+      },
       {
         "math": [
           "berserk_hunt_rosine_spawned = 1"

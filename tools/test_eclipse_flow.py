@@ -497,7 +497,7 @@ class EclipseFlowTests(unittest.TestCase):
         self.assertTrue(all(len(row) == 24 for row in room["rows"]))
         boss = objects(MOD / "monsters" / "first_hunt_apostle.json")[0]
         self.assertEqual(sum(mon["monster"] == boss["id"] for mon in
-                             room["place_monster"]), 1)
+                             room["place_monster"]), 0)
         self.assertEqual(boss["hp"], 290)
         self.assertIn("EOC_BERSERK_FIRST_HUNT_COMPLETE",
                       references(self.eocs[boss["death_function"]["eoc"]]))
@@ -536,7 +536,7 @@ class EclipseFlowTests(unittest.TestCase):
         self.assertIn((11, 10), visited)
         self.assertIn((11, 11), visited)
         warden = objects(MOD / "monsters" / "breach_warden.json")[0]
-        self.assertEqual(sum(x["monster"] == warden["id"] for x in room["place_monster"]), 1)
+        self.assertEqual(sum(x["monster"] == warden["id"] for x in room["place_monster"]), 0)
         for monster in room["place_monster"]:
             self.assertEqual(room["rows"][monster["y"]][monster["x"]], ".")
         self.assertEqual(warden["regenerates"], 0)
