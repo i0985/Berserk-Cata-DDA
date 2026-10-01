@@ -94,6 +94,9 @@
           { "math": [ "u_berserk_eclipse_trial_active = 1" ] },
           { "math": [ "u_berserk_eclipse_behelit_spent = 1" ] },
           { "math": [ "u_berserk_eclipse_final_started = 0" ] },
+          { "math": [ "u_berserk_eclipse_final_spawned = 0" ] },
+          { "math": [ "u_berserk_eclipse_final_spawn_attempts = 0" ] },
+          { "math": [ "u_berserk_eclipse_grasp_state = 0" ] },
           { "u_consume_item": "berserk_behelit", "count": 1 },
           {
             "if": { "u_at_om_location": "berserk_eclipse_expanded_arrival" },

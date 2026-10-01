@@ -6,31 +6,213 @@
     "required_event": "avatar_enters_omt",
     "condition": {
       "and": [
-        { "u_at_om_location": "berserk_eclipse_expanded_ceremony" },
-        { "math": [ "u_berserk_eclipse_trial_active == 1" ] },
-        { "math": [ "u_berserk_eclipse_rescue_state == 0" ] },
-        { "math": [ "u_berserk_eclipse_final_started != 1" ] }
+        {
+          "u_at_om_location": "berserk_eclipse_expanded_ceremony"
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_started != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_spawned != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_eclipse_final_spawn_attempts = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_ENSURE"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_RETRY",
+    "global": true,
+    "recurrence": "1 turn",
+    "condition": {
+      "and": [
+        {
+          "u_at_om_location": "berserk_eclipse_expanded_ceremony"
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_started != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_spawned != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_spawn_attempts < 3"
+          ]
+        }
       ]
     },
     "effect": {
-      "u_location_variable": { "context_val": "berserk_existing_griffith" },
+      "run_eocs": "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_ENSURE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_ENSURE",
+    "condition": {
+      "and": [
+        {
+          "u_at_om_location": "berserk_eclipse_expanded_ceremony"
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_started != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_spawned != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_spawn_attempts < 3"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "u_location_variable": {
+        "context_val": "berserk_existing_griffith"
+      },
       "monster": "mon_berserk_eclipse_griffith_active",
       "target_max_radius": 40,
-      "true_eocs": [ "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_ALREADY_PRESENT" ],
-      "false_eocs": [ "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_SPAWN" ]
+      "true_eocs": [
+        "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_ALREADY_PRESENT"
+      ],
+      "false_eocs": [
+        "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_SPAWN"
+      ]
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_ALREADY_PRESENT",
-    "effect": { "math": [ "u_berserk_eclipse_final_started = 1" ] }
+    "effect": [
+      {
+        "u_run_monster_eocs": [
+          "EOC_BERSERK_ECLIPSE_GRIFFITH_WAIT"
+        ],
+        "mtype_ids": [
+          "mon_berserk_eclipse_griffith_active"
+        ],
+        "monster_range": 40
+      },
+      {
+        "math": [
+          "u_berserk_eclipse_final_spawned = 1"
+        ]
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_SPAWN",
     "effect": [
-      { "math": [ "u_berserk_eclipse_final_started = 1" ] },
-      { "mapgen_update": "berserk_eclipse_griffith_on_entry" }
+      {
+        "math": [
+          "u_berserk_eclipse_final_spawn_attempts = u_berserk_eclipse_final_spawn_attempts + 1"
+        ]
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_ceremony_griffith_spawn"
+        },
+        "x_adjust": {
+          "math": [
+            "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x') + 15"
+          ]
+        },
+        "y_adjust": {
+          "math": [
+            "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y') + 17"
+          ]
+        }
+      },
+      {
+        "u_spawn_monster": "mon_berserk_eclipse_griffith_active",
+        "target_var": {
+          "context_val": "berserk_ceremony_griffith_spawn"
+        },
+        "real_count": 1,
+        "min_radius": 0,
+        "max_radius": 1,
+        "true_eocs": [
+          "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_ALREADY_PRESENT"
+        ],
+        "false_eocs": [
+          "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_BLOCKED"
+        ]
+      }
     ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_BLOCKED",
+    "condition": {
+      "math": [
+        "u_berserk_eclipse_final_spawn_attempts == 3"
+      ]
+    },
+    "effect": {
+      "u_message": "The center of the ceremony is blocked. Griffith could not appear; no confrontation has started. Clear the center and leave and re-enter the ceremony to retry.",
+      "type": "warning",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_GRIFFITH_WAIT",
+    "effect": {
+      "u_add_effect": "berserk_eclipse_griffith_waiting",
+      "duration": "PERMANENT"
+    }
   }
 ]

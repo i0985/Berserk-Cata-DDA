@@ -1,0 +1,40 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_APPLY_STORY_WOUNDS",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "not": {
+                "u_has_bionics": "bio_berserk_hand_stump"
+              }
+            },
+            {
+              "not": {
+                "u_has_bionics": "bio_berserk_arm_cannon"
+              }
+            }
+          ]
+        },
+        "then": {
+          "u_add_bionic": "bio_berserk_hand_stump"
+        }
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_bionics": "bio_berserk_lost_eye"
+          }
+        },
+        "then": {
+          "u_add_bionic": "bio_berserk_lost_eye"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND_STUMP"
+      }
+    ]
+  }
+]

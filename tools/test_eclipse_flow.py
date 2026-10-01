@@ -455,11 +455,25 @@ class EclipseFlowTests(unittest.TestCase):
         finale = self.eocs["EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_START"]
         self.assertEqual(finale["required_event"], "avatar_enters_omt")
         self.assertIn("u_berserk_eclipse_final_started != 1", str(finale["condition"]))
-        self.assertEqual(finale["effect"]["monster"], boss["id"])
-        self.assertEqual(finale["effect"]["false_eocs"],
+        self.assertIn("EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_ENSURE", references(finale))
+        ensure = self.eocs["EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_ENSURE"]
+        self.assertEqual(ensure["effect"]["monster"], boss["id"])
+        self.assertEqual(ensure["effect"]["false_eocs"],
                          ["EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_SPAWN"])
         spawn = self.eocs["EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_SPAWN"]
-        self.assertIn("berserk_eclipse_griffith_on_entry", str(spawn))
+        direct_spawn = spawn["effect"][-1]
+        self.assertEqual(direct_spawn["u_spawn_monster"], boss["id"])
+        self.assertEqual(direct_spawn["true_eocs"],
+                         ["EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_ALREADY_PRESENT"])
+        location = spawn["effect"][1]
+        self.assertEqual(location["u_location_variable"],
+                         {"context_val": "berserk_ceremony_griffith_spawn"})
+        self.assertEqual(location["x_adjust"]["math"],
+                         ["floor(u_val('pos_x') / 24) * 24 - u_val('pos_x') + 15"])
+        self.assertEqual(location["y_adjust"]["math"],
+                         ["floor(u_val('pos_y') / 24) * 24 - u_val('pos_y') + 17"])
+        # Preserve the old update ID for save/debug compatibility; the current
+        # entry flow directly spawns and immediately pauses the actual creature.
         update = objects(MOD / "mapgen" / "eclipse_griffith_on_entry.json")[0]
         self.assertEqual(update["object"]["place_monster"][0]["monster"], boss["id"])
         self.assertEqual((update["object"]["place_monster"][0]["x"],

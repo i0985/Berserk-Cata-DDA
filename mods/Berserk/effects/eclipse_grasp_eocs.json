@@ -1,0 +1,467 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_GRASP_ON_MOVE",
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": {
+      "and": [
+        {
+          "u_at_om_location": "berserk_eclipse_expanded_ceremony"
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_spawned == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_started != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_grasp_state < 2"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "run_eocs": "EOC_BERSERK_ECLIPSE_GRASP_SCAN"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_GRASP_RETRY",
+    "global": true,
+    "recurrence": "1 turn",
+    "condition": {
+      "and": [
+        {
+          "u_at_om_location": "berserk_eclipse_expanded_ceremony"
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_spawned == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_started != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_grasp_state < 2"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "run_eocs": "EOC_BERSERK_ECLIPSE_GRASP_SCAN"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_GRASP_SCAN",
+    "condition": {
+      "and": [
+        {
+          "u_at_om_location": "berserk_eclipse_expanded_ceremony"
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_spawned == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_final_started != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_grasp_state < 2"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "math": [
+          "u_berserk_eclipse_grasp_state == 1"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_GRASP_RESOLVE"
+      },
+      "else": {
+        "u_run_monster_eocs": [
+          "EOC_BERSERK_ECLIPSE_GRASP_CHECK_GRIFFITH"
+        ],
+        "mtype_ids": [
+          "mon_berserk_eclipse_griffith_active"
+        ],
+        "monster_range": 3,
+        "monster_must_see": true
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_GRASP_CHECK_GRIFFITH",
+    "condition": {
+      "u_has_effect": "berserk_eclipse_griffith_waiting"
+    },
+    "effect": {
+      "run_eocs": "EOC_BERSERK_ECLIPSE_GRASP_BEGIN",
+      "alpha_talker": "avatar"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_GRASP_BEGIN",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_ceremony"
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_final_spawned == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_final_started != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_grasp_state < 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_grasp_state == 0"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_eclipse_grasp_state = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_GRASP_RING"
+      },
+      {
+        "if": {
+          "not": {
+            "or": [
+              {
+                "u_has_bionics": "bio_berserk_hand_stump"
+              },
+              {
+                "u_has_bionics": "bio_berserk_arm_cannon"
+              }
+            ]
+          }
+        },
+        "then": {
+          "if": {
+            "not": {
+              "u_has_bionics": "bio_berserk_lost_eye"
+            }
+          },
+          "then": {
+            "u_message": "Griffith stands before you, silent and untouched by the slaughter. The sight of him drives you into a blind rage. Demons close in from every side and seize your left wrist. You hack through your own wrist to tear free; a claw destroys one eye as you wrench yourself out of their grip. Your left hand is gone and your Perception is halved. Close this window to resume the fight.",
+            "type": "warning",
+            "popup": true
+          },
+          "else": {
+            "u_message": "Griffith stands before you, silent and untouched by the slaughter. The sight of him drives you into a blind rage. Demons close in from every side and seize your left wrist. You hack through your own wrist to tear free as claws rake your scarred face. Your left hand is gone; your existing eye wound is not applied a second time. Close this window to resume the fight.",
+            "type": "warning",
+            "popup": true
+          }
+        },
+        "else": {
+          "if": {
+            "not": {
+              "u_has_bionics": "bio_berserk_lost_eye"
+            }
+          },
+          "then": {
+            "u_message": "Griffith stands before you, silent and untouched by the slaughter. The sight of him drives you into a blind rage. Demons close in from every side. You wrench your already ruined left arm from their grip, but a claw destroys one eye. Your existing hand wound or arm cannon is preserved; your Perception is halved. Close this window to resume the fight.",
+            "type": "warning",
+            "popup": true
+          },
+          "else": {
+            "u_message": "Griffith stands before you, silent and untouched by the slaughter. The sight of him drives you into a blind rage. Demons close in from every side. You tear your already ruined arm free as claws rake your scarred face. Your existing wounds and any installed arm cannon are preserved. Close this window to resume the fight.",
+            "type": "warning",
+            "popup": true
+          }
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_GRASP_RESOLVE"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_GRASP_RESOLVE",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_ceremony"
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_final_spawned == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_final_started != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_grasp_state < 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_grasp_state == 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_APPLY_STORY_WOUNDS"
+      },
+      {
+        "math": [
+          "u_berserk_eclipse_grasp_state = 2"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_eclipse_final_started = 1"
+        ]
+      },
+      {
+        "u_run_monster_eocs": [
+          "EOC_BERSERK_ECLIPSE_GRIFFITH_RELEASE"
+        ],
+        "mtype_ids": [
+          "mon_berserk_eclipse_griffith_active"
+        ],
+        "monster_range": 40
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_GRIFFITH_RELEASE",
+    "effect": {
+      "u_lose_effect": "berserk_eclipse_griffith_waiting"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_GRASP_RING",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "x_adjust": -1,
+        "y_adjust": -1
+      },
+      {
+        "u_spawn_monster": "mon_berserk_eclipse_wretch",
+        "target_var": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "real_count": 1,
+        "min_radius": 0,
+        "max_radius": 0
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "x_adjust": 0,
+        "y_adjust": -1
+      },
+      {
+        "u_spawn_monster": "mon_berserk_eclipse_halfbreed",
+        "target_var": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "real_count": 1,
+        "min_radius": 0,
+        "max_radius": 0
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "x_adjust": 1,
+        "y_adjust": -1
+      },
+      {
+        "u_spawn_monster": "mon_berserk_eclipse_wretch",
+        "target_var": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "real_count": 1,
+        "min_radius": 0,
+        "max_radius": 0
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "x_adjust": -1,
+        "y_adjust": 0
+      },
+      {
+        "u_spawn_monster": "mon_berserk_eclipse_wretch",
+        "target_var": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "real_count": 1,
+        "min_radius": 0,
+        "max_radius": 0
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "x_adjust": 1,
+        "y_adjust": 0
+      },
+      {
+        "u_spawn_monster": "mon_berserk_eclipse_wretch",
+        "target_var": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "real_count": 1,
+        "min_radius": 0,
+        "max_radius": 0
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "x_adjust": -1,
+        "y_adjust": 1
+      },
+      {
+        "u_spawn_monster": "mon_berserk_eclipse_wretch",
+        "target_var": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "real_count": 1,
+        "min_radius": 0,
+        "max_radius": 0
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "x_adjust": 0,
+        "y_adjust": 1
+      },
+      {
+        "u_spawn_monster": "mon_berserk_eclipse_halfbreed",
+        "target_var": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "real_count": 1,
+        "min_radius": 0,
+        "max_radius": 0
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "x_adjust": 1,
+        "y_adjust": 1
+      },
+      {
+        "u_spawn_monster": "mon_berserk_eclipse_wretch",
+        "target_var": {
+          "context_val": "berserk_grasp_neighbor"
+        },
+        "real_count": 1,
+        "min_radius": 0,
+        "max_radius": 0
+      }
+    ]
+  }
+]
