@@ -68,6 +68,8 @@ class BehelitSiteTests(unittest.TestCase):
                                  ("furniture", "behelit_sites.json"),
                                  ("monster_special_attacks", "behelit_site_attacks.json"),
                                  ("effects", "behelit_site_eocs.json"),
+                                 ("effects", "behelit_distraction_eocs.json"),
+                                 ("furniture", "behelit_distractions.json"),
                                  ("effects", "behelit_reward_eocs.json"),
                                  ("monsters", "apostle_projections.json")):
             for obj in objects(MOD / folder / filename):
@@ -133,8 +135,8 @@ class BehelitSiteTests(unittest.TestCase):
         furniture = {f["id"]: f for f in objects(MOD / "furniture" / "behelit_sites.json")}
         for name, guardian, x, y in (("oak", "mon_berserk_cursed_oak_guardian", 12, 12),
                                      ("cave", "mon_berserk_echo_cave_guardian", 12, 5),
-                                     ("chapel", "mon_berserk_eclipse_butcher", 12, 6),
-                                     ("expedition", "mon_berserk_eclipse_halfbreed", 18, 6)):
+                                     ("chapel", "mon_berserk_chapel_guardian", 12, 6),
+                                     ("expedition", "mon_berserk_expedition_guardian", 18, 6)):
             relic = furniture[f"f_berserk_{name}_relic"]
             eoc = eocs[relic["examine_action"]["effect_on_conditions"][0]]
             call = eoc["effect"]

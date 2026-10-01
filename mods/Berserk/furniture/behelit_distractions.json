@@ -1,0 +1,136 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_noisemaker_armed",
+    "copy-from": "f_berserk_oak_noisemaker",
+    "description": "The delayed mechanism is wound. It will make four bursts of noise, then stop. It cannot be wound again until 90 seconds after activation.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_DISTRACTION_BUSY"
+      ]
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_oak_noisemaker_arm",
+    "furniture": [
+      {
+        "result": "f_berserk_oak_noisemaker_armed",
+        "valid_furniture": [
+          "f_berserk_oak_noisemaker"
+        ],
+        "valid_flags": []
+      }
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_cave_noisemaker_armed",
+    "copy-from": "f_berserk_cave_noisemaker",
+    "description": "The delayed mechanism is wound. It will make four bursts of noise, then stop. It cannot be wound again until 90 seconds after activation.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_DISTRACTION_BUSY"
+      ]
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_cave_noisemaker_arm",
+    "furniture": [
+      {
+        "result": "f_berserk_cave_noisemaker_armed",
+        "valid_furniture": [
+          "f_berserk_cave_noisemaker"
+        ],
+        "valid_flags": []
+      }
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_chapel_noisemaker_armed",
+    "copy-from": "f_berserk_chapel_noisemaker",
+    "description": "The delayed mechanism is wound. It will make four bursts of noise, then stop. It cannot be wound again until 90 seconds after activation.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_DISTRACTION_BUSY"
+      ]
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_chapel_noisemaker_arm",
+    "furniture": [
+      {
+        "result": "f_berserk_chapel_noisemaker_armed",
+        "valid_furniture": [
+          "f_berserk_chapel_noisemaker"
+        ],
+        "valid_flags": []
+      }
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_expedition_noisemaker_armed",
+    "copy-from": "f_berserk_expedition_noisemaker",
+    "description": "The delayed mechanism is wound. It will make four bursts of noise, then stop. It cannot be wound again until 90 seconds after activation.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_DISTRACTION_BUSY"
+      ]
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_expedition_noisemaker_arm",
+    "furniture": [
+      {
+        "result": "f_berserk_expedition_noisemaker_armed",
+        "valid_furniture": [
+          "f_berserk_expedition_noisemaker"
+        ],
+        "valid_flags": []
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_noisemakers_reset",
+    "furniture": [
+      {
+        "result": "f_berserk_oak_noisemaker",
+        "valid_furniture": [
+          "f_berserk_oak_noisemaker_armed"
+        ],
+        "valid_flags": []
+      },
+      {
+        "result": "f_berserk_cave_noisemaker",
+        "valid_furniture": [
+          "f_berserk_cave_noisemaker_armed"
+        ],
+        "valid_flags": []
+      },
+      {
+        "result": "f_berserk_chapel_noisemaker",
+        "valid_furniture": [
+          "f_berserk_chapel_noisemaker_armed"
+        ],
+        "valid_flags": []
+      },
+      {
+        "result": "f_berserk_expedition_noisemaker",
+        "valid_furniture": [
+          "f_berserk_expedition_noisemaker_armed"
+        ],
+        "valid_flags": []
+      }
+    ]
+  }
+]

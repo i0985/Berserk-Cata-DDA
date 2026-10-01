@@ -2,44 +2,118 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_OAK_DISTRACTION",
-    "effect": [
-      {
-        "u_make_sound": "The bone chimes clatter through the trees!",
-        "volume": 30,
-        "type": "alarm",
-        "target_var": {
+    "effect": {
+      "if": {
+        "map_furniture_id": "f_berserk_oak_noisemaker",
+        "loc": {
           "context_val": "pos"
         }
       },
-      {
-        "u_message": "The bone chimes rattle. Now is your chance to draw the oak demon away.",
-        "type": "info"
-      },
-      {
-        "turn_cost": "1 second"
-      }
-    ]
+      "then": [
+        {
+          "u_transform_radius": 0,
+          "ter_furn_transform": "berserk_oak_noisemaker_arm",
+          "target_var": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "math": [
+            "_berserk_noise_z = u_val('pos_z')"
+          ]
+        },
+        {
+          "u_message": "You wind the mechanism. The first noise will come from this device in 20 seconds; get behind cover. Four bursts will follow, then it will stop.",
+          "type": "info"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_OAK_DISTRACTION_PULSE",
+          "time_in_future": "20 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_OAK_DISTRACTION_PULSE",
+          "time_in_future": "35 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_OAK_DISTRACTION_PULSE",
+          "time_in_future": "50 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_OAK_DISTRACTION_PULSE",
+          "time_in_future": "65 seconds"
+        },
+        {
+          "//": "0.I-1 adds one second to delayed transform_radius; 89 + 1 resets at 90 seconds. This world timer survives loss of the activating character.",
+          "u_transform_radius": 0,
+          "ter_furn_transform": "berserk_noisemakers_reset",
+          "target_var": {
+            "context_val": "pos"
+          },
+          "time_in_future": "89 seconds"
+        },
+        {
+          "turn_cost": "1 second"
+        }
+      ]
+    }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_CAVE_DISTRACTION",
-    "effect": [
-      {
-        "u_make_sound": "Stones crash and echo through the cave!",
-        "volume": 45,
-        "type": "alarm",
-        "target_var": {
+    "effect": {
+      "if": {
+        "map_furniture_id": "f_berserk_cave_noisemaker",
+        "loc": {
           "context_val": "pos"
         }
       },
-      {
-        "u_message": "The stone chime rings out. Use the winding galleries to break line of sight and approach the eastern relic chamber by the other route.",
-        "type": "info"
-      },
-      {
-        "turn_cost": "1 second"
-      }
-    ]
+      "then": [
+        {
+          "u_transform_radius": 0,
+          "ter_furn_transform": "berserk_cave_noisemaker_arm",
+          "target_var": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "math": [
+            "_berserk_noise_z = u_val('pos_z')"
+          ]
+        },
+        {
+          "u_message": "You wind the mechanism. The first noise will come from this device in 20 seconds; get behind cover. Four bursts will follow, then it will stop.",
+          "type": "info"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAVE_DISTRACTION_PULSE",
+          "time_in_future": "20 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAVE_DISTRACTION_PULSE",
+          "time_in_future": "35 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAVE_DISTRACTION_PULSE",
+          "time_in_future": "50 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAVE_DISTRACTION_PULSE",
+          "time_in_future": "65 seconds"
+        },
+        {
+          "//": "0.I-1 adds one second to delayed transform_radius; 89 + 1 resets at 90 seconds. This world timer survives loss of the activating character.",
+          "u_transform_radius": 0,
+          "ter_furn_transform": "berserk_noisemakers_reset",
+          "target_var": {
+            "context_val": "pos"
+          },
+          "time_in_future": "89 seconds"
+        },
+        {
+          "turn_cost": "1 second"
+        }
+      ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -59,7 +133,8 @@
         "berserk_site_guardian": "mon_berserk_cursed_oak_guardian",
         "berserk_site_relic": "f_berserk_oak_relic",
         "berserk_site_empty": "f_berserk_oak_relic_empty",
-        "berserk_site_commit": "EOC_BERSERK_COMMIT_OAK_BEHELIT"
+        "berserk_site_commit": "EOC_BERSERK_COMMIT_OAK_BEHELIT",
+        "berserk_site_legacy_guardian": "mon_berserk_cursed_oak_guardian"
       }
     }
   },
@@ -87,7 +162,8 @@
         "berserk_site_guardian": "mon_berserk_echo_cave_guardian",
         "berserk_site_relic": "f_berserk_cave_relic",
         "berserk_site_empty": "f_berserk_cave_relic_empty",
-        "berserk_site_commit": "EOC_BERSERK_COMMIT_CAVE_BEHELIT"
+        "berserk_site_commit": "EOC_BERSERK_COMMIT_CAVE_BEHELIT",
+        "berserk_site_legacy_guardian": "mon_berserk_echo_cave_guardian"
       }
     }
   },
@@ -112,10 +188,11 @@
     "effect": {
       "run_eocs": "EOC_BERSERK_BEHELIT_SITE_CLAIM",
       "variables": {
-        "berserk_site_guardian": "mon_berserk_eclipse_butcher",
+        "berserk_site_guardian": "mon_berserk_chapel_guardian",
         "berserk_site_relic": "f_berserk_chapel_relic",
         "berserk_site_empty": "f_berserk_chapel_relic_empty",
-        "berserk_site_commit": "EOC_BERSERK_COMMIT_CHAPEL_BEHELIT"
+        "berserk_site_commit": "EOC_BERSERK_COMMIT_CHAPEL_BEHELIT",
+        "berserk_site_legacy_guardian": "mon_berserk_eclipse_butcher"
       }
     }
   },
@@ -140,10 +217,11 @@
     "effect": {
       "run_eocs": "EOC_BERSERK_BEHELIT_SITE_CLAIM",
       "variables": {
-        "berserk_site_guardian": "mon_berserk_eclipse_halfbreed",
+        "berserk_site_guardian": "mon_berserk_expedition_guardian",
         "berserk_site_relic": "f_berserk_expedition_relic",
         "berserk_site_empty": "f_berserk_expedition_relic_empty",
-        "berserk_site_commit": "EOC_BERSERK_COMMIT_EXPEDITION_BEHELIT"
+        "berserk_site_commit": "EOC_BERSERK_COMMIT_EXPEDITION_BEHELIT",
+        "berserk_site_legacy_guardian": "mon_berserk_eclipse_halfbreed"
       }
     }
   },
@@ -165,50 +243,124 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_CHAPEL_DISTRACTION",
-    "effect": [
-      {
-        "u_make_sound": "The cracked bell tolls across the ruined chapel!",
-        "volume": 40,
-        "type": "alarm",
-        "target_var": {
+    "effect": {
+      "if": {
+        "map_furniture_id": "f_berserk_chapel_noisemaker",
+        "loc": {
           "context_val": "pos"
         }
       },
-      {
-        "u_message": "The bell can draw the chapel's guardian south. The broken west wall offers another route to the reliquary.",
-        "type": "info"
-      },
-      {
-        "turn_cost": "1 second"
-      }
-    ]
+      "then": [
+        {
+          "u_transform_radius": 0,
+          "ter_furn_transform": "berserk_chapel_noisemaker_arm",
+          "target_var": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "math": [
+            "_berserk_noise_z = u_val('pos_z')"
+          ]
+        },
+        {
+          "u_message": "You wind the mechanism. The first noise will come from this device in 20 seconds; get behind cover. Four bursts will follow, then it will stop.",
+          "type": "info"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CHAPEL_DISTRACTION_PULSE",
+          "time_in_future": "20 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CHAPEL_DISTRACTION_PULSE",
+          "time_in_future": "35 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CHAPEL_DISTRACTION_PULSE",
+          "time_in_future": "50 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CHAPEL_DISTRACTION_PULSE",
+          "time_in_future": "65 seconds"
+        },
+        {
+          "//": "0.I-1 adds one second to delayed transform_radius; 89 + 1 resets at 90 seconds. This world timer survives loss of the activating character.",
+          "u_transform_radius": 0,
+          "ter_furn_transform": "berserk_noisemakers_reset",
+          "target_var": {
+            "context_val": "pos"
+          },
+          "time_in_future": "89 seconds"
+        },
+        {
+          "turn_cost": "1 second"
+        }
+      ]
+    }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_EXPEDITION_DISTRACTION",
-    "effect": [
-      {
-        "u_make_sound": "An emergency siren howls through the abandoned camp!",
-        "volume": 35,
-        "type": "alarm",
-        "target_var": {
+    "effect": {
+      "if": {
+        "map_furniture_id": "f_berserk_expedition_noisemaker",
+        "loc": {
           "context_val": "pos"
         }
       },
-      {
-        "u_message": "The siren draws attention to the edge of camp. Circle around the ruined shelters to reach the specimen case.",
-        "type": "info"
-      },
-      {
-        "turn_cost": "1 second"
-      }
-    ]
+      "then": [
+        {
+          "u_transform_radius": 0,
+          "ter_furn_transform": "berserk_expedition_noisemaker_arm",
+          "target_var": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "math": [
+            "_berserk_noise_z = u_val('pos_z')"
+          ]
+        },
+        {
+          "u_message": "You wind the mechanism. The first noise will come from this device in 20 seconds; get behind cover. Four bursts will follow, then it will stop.",
+          "type": "info"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_EXPEDITION_DISTRACTION_PULSE",
+          "time_in_future": "20 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_EXPEDITION_DISTRACTION_PULSE",
+          "time_in_future": "35 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_EXPEDITION_DISTRACTION_PULSE",
+          "time_in_future": "50 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_EXPEDITION_DISTRACTION_PULSE",
+          "time_in_future": "65 seconds"
+        },
+        {
+          "//": "0.I-1 adds one second to delayed transform_radius; 89 + 1 resets at 90 seconds. This world timer survives loss of the activating character.",
+          "u_transform_radius": 0,
+          "ter_furn_transform": "berserk_noisemakers_reset",
+          "target_var": {
+            "context_val": "pos"
+          },
+          "time_in_future": "89 seconds"
+        },
+        {
+          "turn_cost": "1 second"
+        }
+      ]
+    }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_CHAPEL_RECORD",
     "effect": {
-      "u_message": "The inscription reads: \"We hid the red stone in the northern reliquary. The thing that followed it cannot resist the bell. Circle through the broken west wall while it searches the nave.\"",
+      "u_message": "The inscription reads: \"We hid the red stone in the northern reliquary. Wind the bell, hide, and wait for its delayed peals. The thing follows sounds when it has lost sight of prey. Circle through the broken west wall while it searches the nave.\"",
       "type": "info",
       "popup": true
     }
@@ -217,7 +369,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_EXPEDITION_RECORD",
     "effect": {
-      "u_message": "The final entry reads: \"Specimen: a red stone face, secured in the northeastern shelter. A human-shaped predator keeps returning to it. Use the hand-cranked siren to draw it south, then approach through the gaps between the shelters.\"",
+      "u_message": "The final entry reads: \"Specimen: a red stone face, secured in the northeastern tent. A human-shaped predator keeps returning to it. Wind the siren, hide behind the tents before it starts, then approach the case from the other side. Noise cannot distract a creature that still sees you.\"",
       "type": "info",
       "popup": true
     }

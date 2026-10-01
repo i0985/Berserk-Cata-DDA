@@ -3,10 +3,10 @@
     "type": "furniture",
     "id": "f_berserk_oak_noisemaker",
     "name": "hanging bone chimes",
-    "description": "A cord of bones hangs at the edge of the clearing. Examine it to make a distracting noise, then circle back toward the roots.",
+    "description": "A cord of bones hangs at the southwestern edge of the clearing. Examine it to wind a delayed mechanism: four bursts begin after 20 seconds, then repeat every 15 seconds. It can be wound again after 90 seconds. Hide behind solid cover before the first burst; noise will not make a creature ignore visible prey.",
     "symbol": "!",
     "color": "white",
-    "move_cost_mod": -1,
+    "move_cost_mod": 0,
     "required_str": -1,
     "flags": [
       "TRANSPARENT"
@@ -23,10 +23,10 @@
     "type": "furniture",
     "id": "f_berserk_cave_noisemaker",
     "name": "loose stone chime",
-    "description": "A stone chime hangs beside the winding western passage. Stand next to it and examine it to make a loud echo. Break the keeper's line of sight first: noise cannot force it to ignore visible prey.",
+    "description": "A weighted stone chime hangs in the western passage, away from the eastern relic chamber. Examine it to wind a delayed mechanism: four bursts begin after 20 seconds, then repeat every 15 seconds. It can be wound again after 90 seconds. Hide behind solid cover before the first burst; noise will not make a creature ignore visible prey.",
     "symbol": "!",
     "color": "light_gray",
-    "move_cost_mod": -1,
+    "move_cost_mod": 0,
     "required_str": -1,
     "flags": [
       "TRANSPARENT"
@@ -141,7 +141,7 @@
     "type": "furniture",
     "id": "f_berserk_chapel_noisemaker",
     "name": "cracked chapel bell",
-    "description": "The fallen bell still hangs from a timber frame. Examine it to draw attention away from the northern reliquary.",
+    "description": "The fallen bell hangs from a frame in the southern nave, far from the northern reliquary. Examine it to wind a delayed mechanism: four bursts begin after 20 seconds, then repeat every 15 seconds. It can be wound again after 90 seconds. Hide behind solid cover before the first burst; noise will not make a creature ignore visible prey.",
     "looks_like": "f_counter",
     "symbol": "!",
     "color": "yellow",
@@ -215,7 +215,7 @@
     "type": "furniture",
     "id": "f_berserk_expedition_noisemaker",
     "name": "wind-up emergency siren",
-    "description": "A hand-cranked siren lies at the southern edge of camp. Examine it to distract the creature guarding the specimen shelter.",
+    "description": "A hand-cranked siren lies at the southwestern edge of the abandoned tent camp. Examine it to wind a delayed mechanism: four bursts begin after 20 seconds, then repeat every 15 seconds. It can be wound again after 90 seconds. Hide behind solid cover before the first burst; noise will not make a creature ignore visible prey.",
     "looks_like": "f_counter",
     "symbol": "!",
     "color": "yellow",

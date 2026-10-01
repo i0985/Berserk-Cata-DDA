@@ -14,7 +14,8 @@
       "d": "t_dirt",
       "T": "t_tree",
       "A": "t_dirt",
-      "N": "t_grass"
+      "N": "t_grass",
+      "#": "t_rock"
     },
     "furniture": {
       "A": "f_berserk_oak_relic",
@@ -79,21 +80,24 @@
       ".": "t_grass",
       ",": "t_dirt",
       "T": "t_tree",
-      "#": "t_wall",
-      "_": "t_floor",
-      "b": "t_floor",
-      "r": "t_floor",
-      "N": "t_floor",
-      "A": "t_floor",
-      "?": "t_floor",
-      "+": "t_door_o"
+      "#": "t_grass",
+      "_": "t_grass",
+      "b": "t_grass",
+      "r": "t_grass",
+      "N": "t_grass",
+      "A": "t_grass",
+      "?": "t_grass",
+      "+": "t_grass"
     },
     "furniture": {
       "b": "f_bench",
       "r": "f_rack",
       "N": "f_berserk_expedition_noisemaker",
       "A": "f_berserk_expedition_relic",
-      "?": "f_berserk_expedition_record"
+      "?": "f_berserk_expedition_record",
+      "#": "f_canvas_wall",
+      "_": "f_canvas_floor",
+      "+": "f_canvas_door_o"
     }
   }
 ]

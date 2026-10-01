@@ -165,6 +165,21 @@ class BehelitRewards(unittest.TestCase):
         graph.run("EOC_BERSERK_CLAIM_CAVE_BEHELIT")
         self.assertEqual(graph.inventory, ["berserk_behelit"])
 
+    def test_old_chapel_and_camp_guardians_still_block_claim(self):
+        for name in ('chapel', 'expedition'):
+            graph = RewardGraph()
+            graph.cache(name)
+            wrapper = graph.eocs[f'EOC_BERSERK_CLAIM_{name.upper()}_BEHELIT']
+            legacy = wrapper['effect']['variables']['berserk_site_legacy_guardian']
+            self.assertNotEqual(legacy,wrapper['effect']['variables']['berserk_site_guardian'])
+            x,y,z = graph.avatar
+            graph.monsters = [(legacy,(x+8,y,z))]
+            graph.run(wrapper['id'])
+            self.assertFalse(graph.inventory)
+            graph.monsters = [(legacy,(x+9,y,z))]
+            graph.run(wrapper['id'])
+            self.assertEqual(graph.inventory,['berserk_behelit'])
+
     def test_local_cache_state_survives_reload_and_does_not_block_other_sites(self):
         graph = RewardGraph()
         graph.cache("oak")

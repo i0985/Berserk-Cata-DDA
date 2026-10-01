@@ -269,8 +269,11 @@ class ApostleHunts(unittest.TestCase):
                       if p['monster']=='mon_berserk_echo_cave_guardian')
         self.assertGreater(max(abs(guardian['x']+24-12),abs(guardian['y']+24-12)),20)
         cave_eocs={e['id']:e for e in objects(MOD/'effects/behelit_site_eocs.json')}
-        noise=cave_eocs['EOC_BERSERK_CAVE_DISTRACTION']['effect']
+        noise=cave_eocs['EOC_BERSERK_CAVE_DISTRACTION']['effect']['then']
         self.assertEqual(noise[0]['target_var'],{'context_val':'pos'})
+        self.assertEqual(noise[0]['u_transform_radius'],0)
+        queued=[e for e in noise if 'run_eocs' in e]
+        self.assertEqual(queued[0],{'run_eocs':'EOC_BERSERK_CAVE_DISTRACTION_PULSE','time_in_future':'20 seconds'})
         self.assertEqual(noise[-1],{'turn_cost':'1 second'})
 
     def test_new_text_and_monster_plurals_are_localized(self):
