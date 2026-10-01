@@ -12,7 +12,7 @@ from test_behelit_rewards import MOD, objects
 class NamedHuntGraph(HuntGraph):
     def __init__(self, flags=None):
         super().__init__({'berserk_eclipse_era':1,'u_berserk_eclipse_rescue_state':2,
-                          'u_berserk_first_hunt_done':1,**(flags or {})})
+                          'u_berserk_first_hunt_done':1,'u_berserk_first_hunt_location':(0,0,0),'berserk_flora_location':(0,0,0),**(flags or {})})
         self.updates.update({m['update_mapgen_id']:m['object']['set']
                              for m in objects(MOD/'mapgen/wyald_rosine_updates.json')})
         self.locator_calls=[]
@@ -20,7 +20,7 @@ class NamedHuntGraph(HuntGraph):
         self.blocked=False
         self.spawn_attempts=[]
         self.spawned=[]
-        self.origins={'wyald':(-72,24,0),'rosine':(432,-240,0),'grunbeld':(-480,720,0)}
+        self.origins={'wyald':(-480,-240,0),'rosine':(432,-240,0),'grunbeld':(-480,720,0)}
 
     def evaluate(self, expr):
         expr = re.sub(r'(\w+)\.([xyz])',
@@ -54,12 +54,16 @@ class NamedHuntGraph(HuntGraph):
                 self.locator_calls.append(kind)
                 if self.can_locate:
                     origin=self.origins[kind]
-                    self.flags[value['u_location_variable']['global_val']]=(origin[0]+12,origin[1]+7,0)
+                    p=(origin[0]+12,origin[1]+7,0)
+                    scope,key=next(iter(value['u_location_variable'].items()))
+                    (self.context if scope=='context_val' else self.flags)[key]=p
+                    self.terrain_locations[p]=value['target_params']['om_terrain']
                     for id in value['true_eocs']:self.run(id)
                 else:
                     for id in value['false_eocs']:self.run(id)
                 return
             if 'location_variable_adjust' in value:
+                if value.get('overmap_tile'):return HuntGraph.effect(self,value)
                 target=value['location_variable_adjust']
                 scope=self.flags if 'global_val' in target else self.context
                 key=target.get('global_val',target.get('context_val'));pos=scope[key]
@@ -214,12 +218,12 @@ class NamedApostleHunts(unittest.TestCase):
         attacks={a['id']:a for a in objects(MOD/'monster_special_attacks/wyald_rosine_attacks.json')}
         for kind,payload in [('wyald','crush'),('rosine','dive')]:
             prepare=attacks['berserk_'+kind+'_b_prepare'];strike=attacks['berserk_'+kind+'_a_'+payload]
-            self.assertGreaterEqual(prepare['move_cost'],220)
-            self.assertEqual(prepare['damage_max_instance'][0]['amount'],0)
+            self.assertEqual(prepare['attack_type'],'spell')
+            self.assertIn('spell_data',prepare)
             self.assertLess(strike['id'],prepare['id'])
-            self.assertEqual(strike['condition']['u_has_effect'],prepare['self_effects_always'][0]['id'])
+            self.assertEqual(strike['condition'],{'math':['0']})
             self.assertEqual(strike['eoc'],['EOC_BERSERK_'+kind.upper()+'_CLEAR_READY'])
-            self.assertEqual(prepare['self_effects_always'][0]['duration'],5)
+            self.assertNotIn('self_effects_always',prepare)
         wyald=objects(MOD/'monsters/apostle_wyald.json')[0];rosine=objects(MOD/'monsters/apostle_rosine.json')[0]
         self.assertEqual(wyald['regenerates'],0);self.assertEqual(rosine['regenerates'],0)
         self.assertEqual(rosine['hp'],420);self.assertIn('FLIES',rosine['flags'])

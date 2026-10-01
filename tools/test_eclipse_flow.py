@@ -516,8 +516,8 @@ class EclipseFlowTests(unittest.TestCase):
                        if o["type"] == "overmap_special")
         self.assertEqual(special["occurrences"], [0, 0])
         finder = self.eocs["EOC_BERSERK_BREACH_FIND"]
-        self.assertEqual(finder["effect"]["target_params"]["om_special"], special["id"])
-        self.assertEqual(finder["effect"]["true_eocs"], ["EOC_BERSERK_BREACH_FOUND"])
+        self.assertEqual(finder["effect"][-1]["then"][-1]["target_params"]["om_special"], special["id"])
+        self.assertEqual(finder["effect"][-1]["then"][-1]["true_eocs"], ["EOC_BERSERK_SITE_BREACH_VALIDATE"])
 
         mapgen = objects(MOD / "mapgen" / "local_breach.json")
         room = next(o["object"] for o in mapgen if "om_terrain" in o)

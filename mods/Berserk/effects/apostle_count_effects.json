@@ -6,8 +6,12 @@
       "Preparing a body sweep"
     ],
     "desc": [
-      "The Count is drawing back his massive body for a sweeping blow. Move out of reach."
+      "This creature has fixed its attack direction. The marked area will be struck in three seconds; move out of it before the attack."
     ],
-    "max_duration": "4 turns"
+    "max_duration": "4 seconds",
+    "flags": [
+      "CANNOT_MOVE",
+      "CANNOT_ATTACK"
+    ]
   }
 ]

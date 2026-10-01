@@ -7,7 +7,9 @@
     "move_cost": 220,
     "range": 3,
     "condition": {
-      "u_has_effect": "berserk_wyald_ready"
+      "math": [
+        "0"
+      ]
     },
     "damage_max_instance": [
       {
@@ -21,38 +23,48 @@
     "hit_dmg_u": "Wyald's prepared attack crashes into you!",
     "hit_dmg_npc": "Wyald's prepared attack crashes into %s!",
     "miss_msg_u": "Wyald's prepared attack misses you!",
-    "miss_msg_npc": "Wyald's prepared attack misses %s!"
+    "miss_msg_npc": "Wyald's prepared attack misses %s!",
+    "//": "Retired retargeting melee ID retained. Its replacement resolves a fixed marked area through the committed attack handler."
   },
   {
     "type": "monster_attack",
-    "attack_type": "melee",
     "id": "berserk_wyald_b_prepare",
+    "attack_type": "spell",
     "cooldown": 18,
-    "move_cost": 220,
-    "range": 3,
-    "condition": {
-      "not": {
-        "u_has_effect": "berserk_wyald_ready"
-      }
+    "spell_data": {
+      "id": "berserk_committed_wyald_prepare",
+      "min_level": 0
     },
-    "damage_max_instance": [
-      {
-        "damage_type": "bash",
-        "amount": 0
-      }
-    ],
-    "dodgeable": false,
-    "blockable": false,
-    "self_effects_always": [
-      {
-        "id": "berserk_wyald_ready",
-        "duration": 5
-      }
-    ],
-    "no_dmg_msg_u": "Wyald braces for a heavy attack! Break the line or leave its reach!",
-    "no_dmg_msg_npc": "Wyald braces for a heavy attack!",
-    "miss_msg_u": "Wyald braces for a heavy attack! Break the line or leave its reach!",
-    "miss_msg_npc": "Wyald braces for a heavy attack!"
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "u_has_effect": "berserk_wyald_ready"
+          }
+        },
+        {
+          "not": {
+            "u_has_effect": "berserk_apostle_attack_recovery"
+          }
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_committed_wyald_cooldown"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_wyald_phase != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == n_val('pos_z')"
+          ]
+        }
+      ]
+    },
+    "monster_message": "Wyald lowers his body for a rush! Move sideways from the marked path; he charges in three seconds!"
   },
   {
     "type": "monster_attack",
@@ -62,7 +74,9 @@
     "move_cost": 240,
     "range": 4,
     "condition": {
-      "u_has_effect": "berserk_rosine_ready"
+      "math": [
+        "0"
+      ]
     },
     "damage_max_instance": [
       {
@@ -76,37 +90,47 @@
     "hit_dmg_u": "Rosine's prepared attack crashes into you!",
     "hit_dmg_npc": "Rosine's prepared attack crashes into %s!",
     "miss_msg_u": "Rosine's prepared attack misses you!",
-    "miss_msg_npc": "Rosine's prepared attack misses %s!"
+    "miss_msg_npc": "Rosine's prepared attack misses %s!",
+    "//": "Retired retargeting melee ID retained. Its replacement resolves a fixed marked area through the committed attack handler."
   },
   {
     "type": "monster_attack",
-    "attack_type": "melee",
     "id": "berserk_rosine_b_prepare",
+    "attack_type": "spell",
     "cooldown": 16,
-    "move_cost": 240,
-    "range": 4,
-    "condition": {
-      "not": {
-        "u_has_effect": "berserk_rosine_ready"
-      }
+    "spell_data": {
+      "id": "berserk_committed_rosine_prepare",
+      "min_level": 0
     },
-    "damage_max_instance": [
-      {
-        "damage_type": "bash",
-        "amount": 0
-      }
-    ],
-    "dodgeable": false,
-    "blockable": false,
-    "self_effects_always": [
-      {
-        "id": "berserk_rosine_ready",
-        "duration": 5
-      }
-    ],
-    "no_dmg_msg_u": "Rosine braces for a heavy attack! Break the line or leave its reach!",
-    "no_dmg_msg_npc": "Rosine braces for a heavy attack!",
-    "miss_msg_u": "Rosine braces for a heavy attack! Break the line or leave its reach!",
-    "miss_msg_npc": "Rosine braces for a heavy attack!"
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "u_has_effect": "berserk_rosine_ready"
+          }
+        },
+        {
+          "not": {
+            "u_has_effect": "berserk_apostle_attack_recovery"
+          }
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_committed_rosine_cooldown"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_rosine_phase != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == n_val('pos_z')"
+          ]
+        }
+      ]
+    },
+    "monster_message": "Rosine folds her wings for a dive! Move sideways from the marked path before she dives in three seconds!"
   }
 ]

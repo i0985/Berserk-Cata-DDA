@@ -36,6 +36,8 @@ class MissionGraph(HuntGraph):
     def effect(self, value):
         if isinstance(value, dict):
             if 'target_params' in value:
+                if value['target_params']['om_terrain']!='berserk_first_hunt_lair':
+                    return HuntGraph.effect(self,value)
                 self.search_calls += 1
                 if self.next_search is not None:
                     self.context[value['u_location_variable']['context_val']] = self.next_search

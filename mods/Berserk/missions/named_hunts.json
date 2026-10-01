@@ -1,0 +1,170 @@
+[
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_BREACH",
+    "name": "Close the ashen breach",
+    "description": "Defeat the guardian at the marked breach, then examine the wound at its center to seal it. Existing demons remain. Read your journal afterward to choose another trail.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "u_berserk_breach_sealed == 1"
+      ]
+    },
+    "difficulty": 4,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_local_breach",
+        "var": {
+          "u_val": "berserk_local_breach_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  },
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_FLORA",
+    "name": "Flora: sanctuary and escape",
+    "description": "Visit Flora at the marked manor. Ask about the Brand and your armor, prepare deliberately, and confirm readiness before starting the attack. Escape by the western road or southern garden. Already owning armor does not block the conversation or preparation.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "u_berserk_flora_escaped == 1"
+      ]
+    },
+    "difficulty": 4,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_flora_manor_west",
+        "var": {
+          "global_val": "berserk_flora_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  },
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_COUNT",
+    "name": "Hunt the Count",
+    "description": "Explore the marked residence, descend below the execution hall and defeat the Count. Examine his exposed breach, seal it and claim the relic. The other hunts keep separate progress.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "berserk_hunt_count_state >= 5"
+      ]
+    },
+    "difficulty": 4,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_count_hall",
+        "var": {
+          "global_val": "berserk_hunt_count_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  },
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_WYALD",
+    "name": "Hunt Wyald and the Black Dogs",
+    "description": "Enter the marked camp and explore its stores and prisoner cages. The apostle waits in the southeastern fighting ground. Defeat him, examine the breach and claim the Beast Knot.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "berserk_hunt_wyald_state >= 5"
+      ]
+    },
+    "difficulty": 4,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_wyald_ring",
+        "var": {
+          "global_val": "berserk_hunt_wyald_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  },
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_ROSINE",
+    "name": "Hunt Rosine in Mistvale",
+    "description": "Follow the marked valley through flowers and cocoons to its southeastern nest. Defeat Rosine, seal her breach and claim the Mistvale Veil. Some cocoons can be opened or destroyed.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "berserk_hunt_rosine_state >= 5"
+      ]
+    },
+    "difficulty": 4,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_rosine_nest",
+        "var": {
+          "global_val": "berserk_hunt_rosine_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  },
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_GRUNBELD",
+    "name": "Hunt Grunbeld in the scarred stronghold",
+    "description": "After sealing the Count, Wyald and Rosine breaches, follow the marked stronghold trail. Defeat both forms in the crucible, seal this site and claim its relic. A recorded death during Flora's siege remains valid.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "berserk_hunt_grunbeld_state >= 5"
+      ]
+    },
+    "difficulty": 4,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_grunbeld_crucible",
+        "var": {
+          "global_val": "berserk_hunt_grunbeld_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  }
+]

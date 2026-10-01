@@ -6,9 +6,13 @@
       "Preparing a crushing rush"
     ],
     "desc": [
-      "This creature is preparing a heavy attack. Break its straight line or move beyond its reach."
+      "This creature has fixed its attack direction. The marked area will be struck in three seconds; move out of it before the attack."
     ],
-    "max_duration": "5 seconds"
+    "max_duration": "4 seconds",
+    "flags": [
+      "CANNOT_MOVE",
+      "CANNOT_ATTACK"
+    ]
   },
   {
     "type": "effect_type",
@@ -17,8 +21,12 @@
       "Preparing a piercing dive"
     ],
     "desc": [
-      "This creature is preparing a heavy attack. Break its straight line or move beyond its reach."
+      "This creature has fixed its attack direction. The marked area will be struck in three seconds; move out of it before the attack."
     ],
-    "max_duration": "5 seconds"
+    "max_duration": "4 seconds",
+    "flags": [
+      "CANNOT_MOVE",
+      "CANNOT_ATTACK"
+    ]
   }
 ]

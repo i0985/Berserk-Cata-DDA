@@ -59,6 +59,9 @@
         {
           "u_message": "The Count's residence is marked on your map. His servants patrol the grounds; the apostle waits below the execution hall.",
           "type": "info"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
         }
       ],
       "else": {
@@ -69,26 +72,74 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_COUNT_FIND",
-    "effect": {
-      "u_location_variable": {
-        "global_val": "berserk_hunt_count_location"
+    "effect": [
+      {
+        "if": {
+          "or": [
+            {
+              "math": [
+                "has_var(u_berserk_site_count_search_origin) == 0"
+              ]
+            },
+            {
+              "math": [
+                "distance('u', u_berserk_site_count_search_origin) >= 24"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_site_count_tries = 0"
+            ]
+          },
+          {
+            "u_location_variable": {
+              "u_val": "berserk_site_count_search_origin"
+            }
+          }
+        ]
       },
-      "target_params": {
-        "om_terrain": "berserk_count_hall",
-        "om_special": "berserk_count_residence_special",
-        "random": true,
-        "search_range": 40,
-        "z": 0
-      },
-      "true_eocs": [
-        "EOC_BERSERK_COUNT_FOUND"
-      ],
-      "false_eocs": [
-        "EOC_BERSERK_COUNT_NOT_FOUND"
-      ],
-      "furniture": "f_berserk_count_execution_record",
-      "target_max_radius": 23
-    }
+      {
+        "if": {
+          "math": [
+            "u_berserk_site_count_tries < 3"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_site_count_tries = u_berserk_site_count_tries + 1"
+            ]
+          },
+          {
+            "u_location_variable": {
+              "context_val": "berserk_site_count_candidate"
+            },
+            "target_params": {
+              "om_terrain": "berserk_count_hall",
+              "om_special": "berserk_count_residence_special",
+              "random": true,
+              "search_range": 35,
+              "z": 0,
+              "min_distance": 15
+            },
+            "true_eocs": [
+              "EOC_BERSERK_SITE_COUNT_VALIDATE"
+            ],
+            "false_eocs": [
+              "EOC_BERSERK_SITE_COUNT_FAILED"
+            ],
+            "furniture": "f_berserk_count_execution_record",
+            "target_max_radius": 23
+          }
+        ],
+        "else": {
+          "run_eocs": "EOC_BERSERK_SITE_COUNT_MESSAGE"
+        }
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -109,6 +160,9 @@
         "u_message": "A trail of executions leads to the Count's fortified residence, now marked on your map. Explore the grounds before descending. His servants are mortal; no endless reinforcements will replace them.",
         "type": "warning",
         "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
       }
     ]
   },

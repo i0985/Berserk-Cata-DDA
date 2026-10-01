@@ -1,0 +1,354 @@
+[
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 2,
+    "max_range": 2,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "id": "berserk_committed_count_prepare",
+    "name": "Prepare a committed apostle attack",
+    "description": "Fix the attack direction and begin a three-second preparation.",
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_BERSERK_COUNT_COMMITTED_BEGIN",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NO_PROJECTILE"
+    ]
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 2,
+    "max_range": 2,
+    "min_aoe": 75,
+    "max_aoe": 75,
+    "id": "berserk_committed_count_warning",
+    "name": "Marked apostle attack",
+    "description": "Mark the fixed cells without dealing damage.",
+    "effect": "attack",
+    "shape": "cone",
+    "valid_targets": [
+      "ground"
+    ],
+    "min_damage": 0,
+    "max_damage": 0,
+    "min_accuracy": 10,
+    "max_accuracy": 10,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "field_id": "fd_berserk_committed_count_warning",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "field_chance": 1,
+    "min_duration": 400,
+    "max_duration": 400
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 2,
+    "max_range": 2,
+    "min_aoe": 75,
+    "max_aoe": 75,
+    "id": "berserk_committed_count_release",
+    "name": "Committed apostle strike",
+    "description": "Strike the previously marked cells once.",
+    "effect": "attack",
+    "shape": "cone",
+    "valid_targets": [
+      "ground"
+    ],
+    "min_damage": 36,
+    "max_damage": 36,
+    "min_accuracy": 10,
+    "max_accuracy": 10,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NON_MAGICAL"
+    ],
+    "damage_type": "bash"
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 3,
+    "max_range": 3,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "id": "berserk_committed_wyald_prepare",
+    "name": "Prepare a committed apostle attack",
+    "description": "Fix the attack direction and begin a three-second preparation.",
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_BERSERK_WYALD_COMMITTED_BEGIN",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NO_PROJECTILE"
+    ]
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 3,
+    "max_range": 3,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "id": "berserk_committed_wyald_warning",
+    "name": "Marked apostle attack",
+    "description": "Mark the fixed cells without dealing damage.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "ground"
+    ],
+    "min_damage": 0,
+    "max_damage": 0,
+    "min_accuracy": 10,
+    "max_accuracy": 10,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NO_PROJECTILE"
+    ],
+    "field_id": "fd_berserk_committed_wyald_warning",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "field_chance": 1,
+    "min_duration": 400,
+    "max_duration": 400
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 3,
+    "max_range": 3,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "id": "berserk_committed_wyald_release",
+    "name": "Committed apostle strike",
+    "description": "Strike the previously marked cells once.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "ground"
+    ],
+    "min_damage": 40,
+    "max_damage": 40,
+    "min_accuracy": 10,
+    "max_accuracy": 10,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NON_MAGICAL",
+      "NO_PROJECTILE"
+    ],
+    "damage_type": "bash"
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 4,
+    "max_range": 4,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "id": "berserk_committed_rosine_prepare",
+    "name": "Prepare a committed apostle attack",
+    "description": "Fix the attack direction and begin a three-second preparation.",
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_BERSERK_ROSINE_COMMITTED_BEGIN",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NO_PROJECTILE"
+    ]
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 4,
+    "max_range": 4,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "id": "berserk_committed_rosine_warning",
+    "name": "Marked apostle attack",
+    "description": "Mark the fixed cells without dealing damage.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "ground"
+    ],
+    "min_damage": 0,
+    "max_damage": 0,
+    "min_accuracy": 10,
+    "max_accuracy": 10,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NO_PROJECTILE"
+    ],
+    "field_id": "fd_berserk_committed_rosine_warning",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "field_chance": 1,
+    "min_duration": 400,
+    "max_duration": 400
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 4,
+    "max_range": 4,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "id": "berserk_committed_rosine_release",
+    "name": "Committed apostle strike",
+    "description": "Strike the previously marked cells once.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "ground"
+    ],
+    "min_damage": 30,
+    "max_damage": 30,
+    "min_accuracy": 10,
+    "max_accuracy": 10,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NON_MAGICAL",
+      "NO_PROJECTILE"
+    ],
+    "damage_type": "stab"
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 3,
+    "max_range": 3,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "id": "berserk_committed_grunbeld_knight_prepare",
+    "name": "Prepare a committed apostle attack",
+    "description": "Fix the attack direction and begin a three-second preparation.",
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_BEGIN",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NO_PROJECTILE"
+    ]
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 3,
+    "max_range": 3,
+    "min_aoe": 90,
+    "max_aoe": 90,
+    "id": "berserk_committed_grunbeld_knight_warning",
+    "name": "Marked apostle attack",
+    "description": "Mark the fixed cells without dealing damage.",
+    "effect": "attack",
+    "shape": "cone",
+    "valid_targets": [
+      "ground"
+    ],
+    "min_damage": 0,
+    "max_damage": 0,
+    "min_accuracy": 10,
+    "max_accuracy": 10,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "field_id": "fd_berserk_committed_grunbeld_knight_warning",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "field_chance": 1,
+    "min_duration": 400,
+    "max_duration": 400
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 3,
+    "max_range": 3,
+    "min_aoe": 90,
+    "max_aoe": 90,
+    "id": "berserk_committed_grunbeld_knight_release",
+    "name": "Committed apostle strike",
+    "description": "Strike the previously marked cells once.",
+    "effect": "attack",
+    "shape": "cone",
+    "valid_targets": [
+      "ground"
+    ],
+    "min_damage": 48,
+    "max_damage": 48,
+    "min_accuracy": 10,
+    "max_accuracy": 10,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NON_MAGICAL"
+    ],
+    "damage_type": "bash"
+  }
+]

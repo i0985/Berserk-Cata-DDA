@@ -221,9 +221,9 @@ class GrunbeldHunt(unittest.TestCase):
         actors={m['id']:m for m in objects(MOD/'monster_special_attacks/grunbeld_attacks.json')}
         for tag,reach in (('hammer',3),):
             a=actors['berserk_grunbeld_'+tag+'_a_strike'];b=actors['berserk_grunbeld_'+tag+'_b_prepare']
-            self.assertGreaterEqual(b['move_cost'],260)
-            self.assertEqual(b['damage_max_instance'][0]['amount'],0)
-            self.assertEqual(a['condition']['u_has_effect'],b['self_effects_always'][0]['id'])
+            self.assertEqual(b['attack_type'],'spell')
+            self.assertIn('spell_data',b)
+            self.assertEqual(a['condition'],{'math':['0']})
             self.assertEqual(a['range'],reach);self.assertLess(a['id'],b['id'])
         self.assertEqual(actors['berserk_grunbeld_flame_a_strike']['condition'],{'math':['0']})
         self.assertEqual(actors['berserk_grunbeld_flame_b_prepare']['attack_type'],'spell')

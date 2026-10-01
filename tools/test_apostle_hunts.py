@@ -31,6 +31,11 @@ class HuntGraph(RewardGraph):
         self.in_city = True
         self.active_missions = {}
         self.completed_missions = []
+        self.terrain_locations = {}
+
+    def variable(self, name):
+        if name.startswith("_"):return self.context.get(name[1:],0)
+        return super().variable(name)
 
     def resolve(self, value):
         if isinstance(value, dict):
@@ -41,18 +46,23 @@ class HuntGraph(RewardGraph):
         return super().resolve(value)
 
     def evaluate(self, expr):
+        expr = re.sub(r'(\w+)\.([xyz])', lambda m: str(self.variable(m[1])[{'x':0,'y':1,'z':2}[m[2]]]), expr)
         names = {name: self.variable(name) for name in re.findall(r'\b\w+\b', expr)
                  if not name.startswith('_')}
         names.update({'_'+key: value for key, value in self.context.items()})
         expr = re.sub(r'has_var\((\w+)\)',
                       lambda m: str(m[1] in self.flags or m[1].lstrip('_') in self.context), expr)
-        names.update(floor=math.floor, max=max, min=min,
+        names.update(floor=math.floor, max=max, min=min, abs=abs,
                      u_val=lambda axis: self.avatar[{'pos_x': 0, 'pos_y': 1, 'pos_z': 2}[axis]],
                      n_val=lambda axis: self.victim[{'pos_x': 0, 'pos_y': 1, 'pos_z': 2}[axis]],
-                     distance=lambda a, b: max(abs(a[i]-b[i]) for i in range(3)))
+                     distance=lambda a, b: max(abs((self.avatar if a=='u' else self.victim if a=='npc' else a)[i]-b[i]) for i in range(3)))
         return eval(expr, {'__builtins__': {}}, names)
 
     def condition(self, value):
+        if 'overmap_at_point' in value:
+            p=self.resolve(value['point'])
+            return any((q[0]//24,q[1]//24,q[2])==(p[0]//24,p[1]//24,p[2]) and t==value['overmap_at_point']
+                       for q,t in self.terrain_locations.items())
         if 'u_has_mission' in value:
             return value['u_has_mission'] in self.active_missions
         if 'u_has_item' in value:
@@ -73,6 +83,22 @@ class HuntGraph(RewardGraph):
 
     def effect(self, value):
         if isinstance(value, dict):
+            if 'assign_mission' in value:
+                definitions={m['id']:m for p in (MOD/'missions').glob('*.json') for m in objects(p)}
+                m=definitions[value['assign_mission']]
+                self.active_missions[m['id']]=self.resolve(m['start']['assign_mission_target']['var'])
+                return
+            if 'finish_mission' in value:
+                m=value['finish_mission']
+                if m in self.active_missions:self.completed_missions.append(m);del self.active_missions[m]
+                return
+            if 'location_variable_adjust' in value:
+                target=value['location_variable_adjust'];scope,key=next(iter(target.items()))
+                d=self.context if scope=='context_val' else self.flags
+                key=('u_' if scope=='u_val' else '')+key;p=d[key]
+                scale=24 if value.get('overmap_tile') else 1
+                d[key]=tuple(p[i]+value.get(a+'_adjust',0)*scale for i,a in enumerate(('x','y','z')))
+                return
             if 'target_params' in value:
                 # Existing Count tests do not simulate generating the next site.
                 # Exercise the supported failure/retry path; new hunt tests model success.
@@ -81,7 +107,9 @@ class HuntGraph(RewardGraph):
                 return
             if 'math' in value:
                 name, rhs = value['math'][0].split(' = ')
-                self.flags[name] = self.evaluate(rhs)
+                if '.' in name:
+                    key,axis=name.split('.');d=self.context if key.startswith('_') else self.flags;key=key.lstrip('_');pos=list(d[key]);pos[{'x':0,'y':1,'z':2}[axis]]=self.evaluate(rhs);d[key]=tuple(pos)
+                else:self.flags[name] = self.evaluate(rhs)
                 return
             for field, pos in (('u_location_variable', self.avatar),
                                ('npc_location_variable', self.victim)):

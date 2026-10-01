@@ -7,7 +7,9 @@
     "id": "berserk_grunbeld_hammer_a_strike",
     "cooldown": 18,
     "condition": {
-      "u_has_effect": "berserk_grunbeld_hammer_ready"
+      "math": [
+        "0"
+      ]
     },
     "damage_max_instance": [
       {
@@ -22,38 +24,48 @@
     "hit_dmg_u": "Grunbeld's hammer strikes you!",
     "hit_dmg_npc": "Grunbeld's hammer strikes %s!",
     "miss_msg_u": "Grunbeld's hammer misses you!",
-    "miss_msg_npc": "Grunbeld's hammer misses %s!"
+    "miss_msg_npc": "Grunbeld's hammer misses %s!",
+    "//": "Retired retargeting melee ID retained. Its replacement resolves a fixed marked area through the committed attack handler."
   },
   {
     "type": "monster_attack",
-    "attack_type": "melee",
-    "range": 3,
-    "move_cost": 260,
     "id": "berserk_grunbeld_hammer_b_prepare",
+    "attack_type": "spell",
     "cooldown": 24,
-    "condition": {
-      "not": {
-        "u_has_effect": "berserk_grunbeld_hammer_ready"
-      }
+    "spell_data": {
+      "id": "berserk_committed_grunbeld_knight_prepare",
+      "min_level": 0
     },
-    "damage_max_instance": [
-      {
-        "damage_type": "bash",
-        "amount": 0
-      }
-    ],
-    "dodgeable": false,
-    "blockable": false,
-    "self_effects_always": [
-      {
-        "id": "berserk_grunbeld_hammer_ready",
-        "duration": 6
-      }
-    ],
-    "no_dmg_msg_u": "Grunbeld prepares his hammer! Break the line or leave its reach!",
-    "no_dmg_msg_npc": "Grunbeld prepares his hammer! Break the line or leave its reach!",
-    "miss_msg_u": "Grunbeld prepares his hammer! Break the line or leave its reach!",
-    "miss_msg_npc": "Grunbeld prepares his hammer! Break the line or leave its reach!"
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "u_has_effect": "berserk_grunbeld_hammer_ready"
+          }
+        },
+        {
+          "not": {
+            "u_has_effect": "berserk_apostle_attack_recovery"
+          }
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_committed_grunbeld_knight_cooldown"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_grunbeld_knight_phase != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == n_val('pos_z')"
+          ]
+        }
+      ]
+    },
+    "monster_message": "Grunbeld raises his hammer! Leave the marked sector before the sweep lands in three seconds!"
   },
   {
     "type": "monster_attack",

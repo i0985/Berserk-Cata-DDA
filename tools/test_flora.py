@@ -73,7 +73,9 @@ class FloraGraph(HuntGraph):
                 self.location_calls += 1
                 if self.can_locate:
                     # Mock the native locator finding the ward inside northwest.
-                    self.flags['berserk_flora_location'] = (-81,60,0)
+                    target=value['u_location_variable'];scope,key=next(iter(target.items()))
+                    (self.context if scope=='context_val' else self.flags)[key]=(-81,60,0)
+                    self.terrain_locations[(-81,60,0)]='berserk_flora_manor_west'
                     for id in value['true_eocs']:
                         self.run(id)
                 else:
@@ -81,6 +83,8 @@ class FloraGraph(HuntGraph):
                         self.run(id)
                 return
             if 'location_variable_adjust' in value:
+                if 'global_val' not in value['location_variable_adjust']:
+                    return HuntGraph.effect(self,value)
                 key = value['location_variable_adjust']['global_val']
                 pos = self.flags[key]
                 if value.get('overmap_tile'):
@@ -148,6 +152,7 @@ class FloraStory(unittest.TestCase):
 
     def test_locator_reuses_one_world_location_and_failure_does_not_claim(self):
         g = after();g.flags.pop('berserk_flora_stage')
+        g.flags['u_berserk_first_hunt_location']=(-576,48,0)
         g.can_locate = False;g.run('EOC_BERSERK_FLORA_SEEK')
         self.assertEqual(g.location_calls,1)
         self.assertNotIn('berserk_flora_stage',g.flags)

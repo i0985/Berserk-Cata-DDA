@@ -26,9 +26,13 @@
       "Preparing a hammer sweep"
     ],
     "desc": [
-      "Grunbeld raises his hammer. Leave its reach or break the attack line with stone."
+      "This creature has fixed its attack direction. The marked area will be struck in three seconds; move out of it before the attack."
     ],
-    "max_duration": "6 seconds"
+    "max_duration": "4 seconds",
+    "flags": [
+      "CANNOT_MOVE",
+      "CANNOT_ATTACK"
+    ]
   },
   {
     "type": "effect_type",

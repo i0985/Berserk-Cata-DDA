@@ -28,6 +28,9 @@
           "u_message": "Wyald's Black Dog encampment is marked on your map. Follow the broken cart tracks east or circle through the western quarry. The killing ring lies in the southeast; Wyald appears when you enter it.",
           "type": "info",
           "popup": true
+        },
+        {
+          "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
         }
       ],
       "else": {
@@ -76,26 +79,74 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_WYALD_FIND",
-    "effect": {
-      "u_location_variable": {
-        "global_val": "berserk_hunt_wyald_location"
+    "effect": [
+      {
+        "if": {
+          "or": [
+            {
+              "math": [
+                "has_var(u_berserk_site_wyald_search_origin) == 0"
+              ]
+            },
+            {
+              "math": [
+                "distance('u', u_berserk_site_wyald_search_origin) >= 24"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_site_wyald_tries = 0"
+            ]
+          },
+          {
+            "u_location_variable": {
+              "u_val": "berserk_site_wyald_search_origin"
+            }
+          }
+        ]
       },
-      "target_params": {
-        "om_terrain": "berserk_wyald_ring",
-        "om_special": "berserk_wyald_camp_special",
-        "search_range": 40,
-        "random": true,
-        "z": 0
-      },
-      "furniture": "f_berserk_wyald_breach",
-      "target_max_radius": 23,
-      "true_eocs": [
-        "EOC_BERSERK_WYALD_FOUND"
-      ],
-      "false_eocs": [
-        "EOC_BERSERK_HUNT_NOT_FOUND"
-      ]
-    }
+      {
+        "if": {
+          "math": [
+            "u_berserk_site_wyald_tries < 3"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_site_wyald_tries = u_berserk_site_wyald_tries + 1"
+            ]
+          },
+          {
+            "u_location_variable": {
+              "context_val": "berserk_site_wyald_candidate"
+            },
+            "target_params": {
+              "om_terrain": "berserk_wyald_ring",
+              "om_special": "berserk_wyald_camp_special",
+              "search_range": 35,
+              "random": true,
+              "z": 0,
+              "min_distance": 15
+            },
+            "furniture": "f_berserk_wyald_breach",
+            "target_max_radius": 23,
+            "true_eocs": [
+              "EOC_BERSERK_SITE_WYALD_VALIDATE"
+            ],
+            "false_eocs": [
+              "EOC_BERSERK_SITE_WYALD_FAILED"
+            ]
+          }
+        ],
+        "else": {
+          "run_eocs": "EOC_BERSERK_SITE_WYALD_MESSAGE"
+        }
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -123,6 +174,9 @@
         "u_message": "Wyald's Black Dog encampment is marked on your map. Follow the broken cart tracks east or circle through the western quarry. The killing ring lies in the southeast; Wyald appears when you enter it.",
         "type": "info",
         "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
       }
     ]
   },
@@ -654,6 +708,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_WYALD_NEXT"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
       }
     ],
     "false_effect": {
@@ -712,6 +769,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_WYALD_NEXT"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
       }
     ],
     "false_effect": [
@@ -810,6 +870,9 @@
           "u_message": "Rosine's Mistvale is marked on your map. Follow the pale trail east through the cocoons or loop south along the stony gully. The nest lies in the southeast; Rosine appears when you enter it.",
           "type": "info",
           "popup": true
+        },
+        {
+          "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
         }
       ],
       "else": {
@@ -858,26 +921,74 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ROSINE_FIND",
-    "effect": {
-      "u_location_variable": {
-        "global_val": "berserk_hunt_rosine_location"
+    "effect": [
+      {
+        "if": {
+          "or": [
+            {
+              "math": [
+                "has_var(u_berserk_site_rosine_search_origin) == 0"
+              ]
+            },
+            {
+              "math": [
+                "distance('u', u_berserk_site_rosine_search_origin) >= 24"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_site_rosine_tries = 0"
+            ]
+          },
+          {
+            "u_location_variable": {
+              "u_val": "berserk_site_rosine_search_origin"
+            }
+          }
+        ]
       },
-      "target_params": {
-        "om_terrain": "berserk_rosine_nest",
-        "om_special": "berserk_rosine_valley_special",
-        "search_range": 40,
-        "random": true,
-        "z": 0
-      },
-      "furniture": "f_berserk_rosine_breach",
-      "target_max_radius": 23,
-      "true_eocs": [
-        "EOC_BERSERK_ROSINE_FOUND"
-      ],
-      "false_eocs": [
-        "EOC_BERSERK_HUNT_NOT_FOUND"
-      ]
-    }
+      {
+        "if": {
+          "math": [
+            "u_berserk_site_rosine_tries < 3"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_site_rosine_tries = u_berserk_site_rosine_tries + 1"
+            ]
+          },
+          {
+            "u_location_variable": {
+              "context_val": "berserk_site_rosine_candidate"
+            },
+            "target_params": {
+              "om_terrain": "berserk_rosine_nest",
+              "om_special": "berserk_rosine_valley_special",
+              "search_range": 35,
+              "random": true,
+              "z": 0,
+              "min_distance": 15
+            },
+            "furniture": "f_berserk_rosine_breach",
+            "target_max_radius": 23,
+            "true_eocs": [
+              "EOC_BERSERK_SITE_ROSINE_VALIDATE"
+            ],
+            "false_eocs": [
+              "EOC_BERSERK_SITE_ROSINE_FAILED"
+            ]
+          }
+        ],
+        "else": {
+          "run_eocs": "EOC_BERSERK_SITE_ROSINE_MESSAGE"
+        }
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -905,6 +1016,9 @@
         "u_message": "Rosine's Mistvale is marked on your map. Follow the pale trail east through the cocoons or loop south along the stony gully. The nest lies in the southeast; Rosine appears when you enter it.",
         "type": "info",
         "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
       }
     ]
   },
@@ -1436,6 +1550,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_ROSINE_NEXT"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
       }
     ],
     "false_effect": {
@@ -1494,6 +1611,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_ROSINE_NEXT"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
       }
     ],
     "false_effect": [
@@ -1709,76 +1829,81 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_HUNT_JOURNAL_USE",
-    "effect": {
-      "if": {
-        "u_query": "Trace Wyald and the Black Dogs?",
-        "default": false
-      },
-      "then": {
-        "run_eocs": "EOC_BERSERK_WYALD_SEEK"
-      },
-      "else": {
+    "effect": [
+      {
         "if": {
-          "u_query": "Trace Rosine's Mistvale?",
+          "u_query": "Trace Wyald and the Black Dogs?",
           "default": false
         },
         "then": {
-          "run_eocs": "EOC_BERSERK_ROSINE_SEEK"
+          "run_eocs": "EOC_BERSERK_WYALD_SEEK"
         },
         "else": {
           "if": {
-            "u_query": "Trace the Count's residence?",
+            "u_query": "Trace Rosine's Mistvale?",
             "default": false
           },
           "then": {
-            "run_eocs": "EOC_BERSERK_COUNT_SEEK"
+            "run_eocs": "EOC_BERSERK_ROSINE_SEEK"
           },
           "else": {
             "if": {
-              "u_query": "Trace Grunbeld's scarred stronghold?",
+              "u_query": "Trace the Count's residence?",
               "default": false
             },
             "then": {
-              "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
+              "run_eocs": "EOC_BERSERK_COUNT_SEEK"
             },
-            "else": [
-              {
-                "run_eocs": "EOC_BERSERK_HUNT_STATUS"
+            "else": {
+              "if": {
+                "u_query": "Trace Grunbeld's scarred stronghold?",
+                "default": false
               },
-              {
-                "if": {
-                  "and": [
-                    {
-                      "math": [
-                        "berserk_hunt_count_state >= 4"
-                      ]
-                    },
-                    {
-                      "math": [
-                        "berserk_hunt_wyald_state >= 4"
-                      ]
-                    },
-                    {
-                      "math": [
-                        "berserk_hunt_rosine_state >= 4"
-                      ]
-                    },
-                    {
-                      "math": [
-                        "berserk_hunt_grunbeld_state >= 4"
-                      ]
-                    }
-                  ]
+              "then": {
+                "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
+              },
+              "else": [
+                {
+                  "run_eocs": "EOC_BERSERK_HUNT_STATUS"
                 },
-                "then": {
-                  "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
+                {
+                  "if": {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_hunt_count_state >= 4"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_hunt_wyald_state >= 4"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_hunt_rosine_state >= 4"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_hunt_grunbeld_state >= 4"
+                        ]
+                      }
+                    ]
+                  },
+                  "then": {
+                    "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
+                  }
                 }
-              }
-            ]
+              ]
+            }
           }
         }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
       }
-    },
+    ],
     "false_effect": {
       "u_message": "These trails belong to the road after the Eclipse and the first hunt.",
       "type": "info",
@@ -1826,6 +1951,9 @@
         "math": [
           "berserk_hunt_count_state = 5"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
       }
     ],
     "condition": {

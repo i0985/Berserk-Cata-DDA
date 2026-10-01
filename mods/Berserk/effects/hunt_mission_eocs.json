@@ -1,0 +1,579 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_MISSION_BREACH",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(u_berserk_local_breach_location)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_breach_marked >= 1"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "math": [
+          "u_berserk_breach_sealed == 1"
+        ]
+      },
+      "then": [
+        {
+          "if": {
+            "u_has_mission": "MISSION_BERSERK_BREACH"
+          },
+          "then": {
+            "finish_mission": "MISSION_BERSERK_BREACH",
+            "success": true
+          }
+        },
+        {
+          "math": [
+            "u_berserk_mission_breach_finished = 1"
+          ]
+        }
+      ],
+      "else": {
+        "if": {
+          "and": [
+            {
+              "not": {
+                "u_has_mission": "MISSION_BERSERK_BREACH"
+              }
+            },
+            {
+              "math": [
+                "u_berserk_mission_breach_finished != 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "assign_mission": "MISSION_BERSERK_BREACH"
+          },
+          {
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_BREACH"
+            },
+            "then": [
+              {
+                "math": [
+                  "u_berserk_mission_breach_issued = 1"
+                ]
+              },
+              {
+                "u_message": "A new objective has been added to your missions. Select it in the mission journal to follow its exact overmap target; your other hunts remain active.",
+                "type": "info"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_MISSION_FLORA",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_flora_location)"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage >= 1"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "math": [
+          "u_berserk_flora_escaped == 1"
+        ]
+      },
+      "then": [
+        {
+          "if": {
+            "u_has_mission": "MISSION_BERSERK_FLORA"
+          },
+          "then": {
+            "finish_mission": "MISSION_BERSERK_FLORA",
+            "success": true
+          }
+        },
+        {
+          "math": [
+            "u_berserk_mission_flora_finished = 1"
+          ]
+        }
+      ],
+      "else": {
+        "if": {
+          "and": [
+            {
+              "not": {
+                "u_has_mission": "MISSION_BERSERK_FLORA"
+              }
+            },
+            {
+              "math": [
+                "u_berserk_mission_flora_finished != 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "assign_mission": "MISSION_BERSERK_FLORA"
+          },
+          {
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_FLORA"
+            },
+            "then": [
+              {
+                "math": [
+                  "u_berserk_mission_flora_issued = 1"
+                ]
+              },
+              {
+                "u_message": "A new objective has been added to your missions. Select it in the mission journal to follow its exact overmap target; your other hunts remain active.",
+                "type": "info"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_MISSION_COUNT",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_hunt_count_location)"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_count_state >= 1"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "math": [
+          "berserk_hunt_count_state >= 5"
+        ]
+      },
+      "then": [
+        {
+          "if": {
+            "u_has_mission": "MISSION_BERSERK_COUNT"
+          },
+          "then": {
+            "finish_mission": "MISSION_BERSERK_COUNT",
+            "success": true
+          }
+        },
+        {
+          "math": [
+            "u_berserk_mission_count_finished = 1"
+          ]
+        }
+      ],
+      "else": {
+        "if": {
+          "and": [
+            {
+              "not": {
+                "u_has_mission": "MISSION_BERSERK_COUNT"
+              }
+            },
+            {
+              "math": [
+                "u_berserk_mission_count_finished != 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "assign_mission": "MISSION_BERSERK_COUNT"
+          },
+          {
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_COUNT"
+            },
+            "then": [
+              {
+                "math": [
+                  "u_berserk_mission_count_issued = 1"
+                ]
+              },
+              {
+                "u_message": "A new objective has been added to your missions. Select it in the mission journal to follow its exact overmap target; your other hunts remain active.",
+                "type": "info"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_MISSION_WYALD",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_hunt_wyald_location)"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_state >= 1"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "math": [
+          "berserk_hunt_wyald_state >= 5"
+        ]
+      },
+      "then": [
+        {
+          "if": {
+            "u_has_mission": "MISSION_BERSERK_WYALD"
+          },
+          "then": {
+            "finish_mission": "MISSION_BERSERK_WYALD",
+            "success": true
+          }
+        },
+        {
+          "math": [
+            "u_berserk_mission_wyald_finished = 1"
+          ]
+        }
+      ],
+      "else": {
+        "if": {
+          "and": [
+            {
+              "not": {
+                "u_has_mission": "MISSION_BERSERK_WYALD"
+              }
+            },
+            {
+              "math": [
+                "u_berserk_mission_wyald_finished != 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "assign_mission": "MISSION_BERSERK_WYALD"
+          },
+          {
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_WYALD"
+            },
+            "then": [
+              {
+                "math": [
+                  "u_berserk_mission_wyald_issued = 1"
+                ]
+              },
+              {
+                "u_message": "A new objective has been added to your missions. Select it in the mission journal to follow its exact overmap target; your other hunts remain active.",
+                "type": "info"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_MISSION_ROSINE",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_hunt_rosine_location)"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_state >= 1"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "math": [
+          "berserk_hunt_rosine_state >= 5"
+        ]
+      },
+      "then": [
+        {
+          "if": {
+            "u_has_mission": "MISSION_BERSERK_ROSINE"
+          },
+          "then": {
+            "finish_mission": "MISSION_BERSERK_ROSINE",
+            "success": true
+          }
+        },
+        {
+          "math": [
+            "u_berserk_mission_rosine_finished = 1"
+          ]
+        }
+      ],
+      "else": {
+        "if": {
+          "and": [
+            {
+              "not": {
+                "u_has_mission": "MISSION_BERSERK_ROSINE"
+              }
+            },
+            {
+              "math": [
+                "u_berserk_mission_rosine_finished != 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "assign_mission": "MISSION_BERSERK_ROSINE"
+          },
+          {
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_ROSINE"
+            },
+            "then": [
+              {
+                "math": [
+                  "u_berserk_mission_rosine_issued = 1"
+                ]
+              },
+              {
+                "u_message": "A new objective has been added to your missions. Select it in the mission journal to follow its exact overmap target; your other hunts remain active.",
+                "type": "info"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_MISSION_GRUNBELD",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_hunt_grunbeld_location)"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_grunbeld_site_registered == 1"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "math": [
+          "berserk_hunt_grunbeld_state >= 5"
+        ]
+      },
+      "then": [
+        {
+          "if": {
+            "u_has_mission": "MISSION_BERSERK_GRUNBELD"
+          },
+          "then": {
+            "finish_mission": "MISSION_BERSERK_GRUNBELD",
+            "success": true
+          }
+        },
+        {
+          "math": [
+            "u_berserk_mission_grunbeld_finished = 1"
+          ]
+        }
+      ],
+      "else": {
+        "if": {
+          "and": [
+            {
+              "not": {
+                "u_has_mission": "MISSION_BERSERK_GRUNBELD"
+              }
+            },
+            {
+              "math": [
+                "u_berserk_mission_grunbeld_finished != 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "assign_mission": "MISSION_BERSERK_GRUNBELD"
+          },
+          {
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_GRUNBELD"
+            },
+            "then": [
+              {
+                "math": [
+                  "u_berserk_mission_grunbeld_issued = 1"
+                ]
+              },
+              {
+                "u_message": "A new objective has been added to your missions. Select it in the mission journal to follow its exact overmap target; your other hunts remain active.",
+                "type": "info"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_MISSIONS_SYNC",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_MISSION_BREACH"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSION_FLORA"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSION_COUNT"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSION_WYALD"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSION_ROSINE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_MISSION_GRUNBELD"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_NEXT_STRONGHOLD_GUIDE"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_MISSIONS_RECOVER",
+    "recurrence": "1 minute",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active != 1"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NEXT_STRONGHOLD_GUIDE",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_hunt_count_state >= 4"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_state >= 4"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_state >= 4"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_grunbeld_site_registered != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage != 2"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "has_var(u_berserk_site_grunbeld_search_origin) == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_site_grunbeld_tries < 3"
+              ]
+            },
+            {
+              "math": [
+                "distance('u', u_berserk_site_grunbeld_search_origin) >= 24"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
+    }
+  }
+]

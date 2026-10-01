@@ -1,0 +1,142 @@
+[
+  {
+    "type": "field_type",
+    "id": "fd_berserk_committed_count_warning",
+    "looks_like": "fd_laser",
+    "priority": 7,
+    "half_life": "1 second",
+    "linear_half_life": true,
+    "percent_spread": 0,
+    "display_field": true,
+    "display_items": false,
+    "phase": "plasma",
+    "intensity_levels": [
+      {
+        "name": "marked apostle attack area",
+        "sym": "*",
+        "color": "light_red",
+        "transparent": true,
+        "dangerous": false,
+        "move_cost": 0,
+        "light_emitted": 2
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_committed_count_clear_warning",
+    "field": [
+      {
+        "result": "fd_null",
+        "valid_field": [
+          "fd_berserk_committed_count_warning"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "field_type",
+    "id": "fd_berserk_committed_wyald_warning",
+    "looks_like": "fd_laser",
+    "priority": 7,
+    "half_life": "1 second",
+    "linear_half_life": true,
+    "percent_spread": 0,
+    "display_field": true,
+    "display_items": false,
+    "phase": "plasma",
+    "intensity_levels": [
+      {
+        "name": "marked apostle attack area",
+        "sym": "*",
+        "color": "light_red",
+        "transparent": true,
+        "dangerous": false,
+        "move_cost": 0,
+        "light_emitted": 2
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_committed_wyald_clear_warning",
+    "field": [
+      {
+        "result": "fd_null",
+        "valid_field": [
+          "fd_berserk_committed_wyald_warning"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "field_type",
+    "id": "fd_berserk_committed_rosine_warning",
+    "looks_like": "fd_laser",
+    "priority": 7,
+    "half_life": "1 second",
+    "linear_half_life": true,
+    "percent_spread": 0,
+    "display_field": true,
+    "display_items": false,
+    "phase": "plasma",
+    "intensity_levels": [
+      {
+        "name": "marked apostle attack area",
+        "sym": "*",
+        "color": "light_red",
+        "transparent": true,
+        "dangerous": false,
+        "move_cost": 0,
+        "light_emitted": 2
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_committed_rosine_clear_warning",
+    "field": [
+      {
+        "result": "fd_null",
+        "valid_field": [
+          "fd_berserk_committed_rosine_warning"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "field_type",
+    "id": "fd_berserk_committed_grunbeld_knight_warning",
+    "looks_like": "fd_laser",
+    "priority": 7,
+    "half_life": "1 second",
+    "linear_half_life": true,
+    "percent_spread": 0,
+    "display_field": true,
+    "display_items": false,
+    "phase": "plasma",
+    "intensity_levels": [
+      {
+        "name": "marked apostle attack area",
+        "sym": "*",
+        "color": "light_red",
+        "transparent": true,
+        "dangerous": false,
+        "move_cost": 0,
+        "light_emitted": 2
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_committed_grunbeld_knight_clear_warning",
+    "field": [
+      {
+        "result": "fd_null",
+        "valid_field": [
+          "fd_berserk_committed_grunbeld_knight_warning"
+        ]
+      }
+    ]
+  }
+]

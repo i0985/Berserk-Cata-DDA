@@ -1,0 +1,17 @@
+[
+  {
+    "type": "effect_type",
+    "id": "berserk_apostle_attack_recovery",
+    "name": [
+      "Recovering after a committed attack"
+    ],
+    "desc": [
+      "This creature must recover after committing to its marked attack. This is a brief opening to reposition or counterattack."
+    ],
+    "max_duration": "3 seconds",
+    "flags": [
+      "CANNOT_MOVE",
+      "CANNOT_ATTACK"
+    ]
+  }
+]

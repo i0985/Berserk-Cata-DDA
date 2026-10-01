@@ -1,0 +1,1619 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_COMMITTED_BEGIN",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "n_hp('ALL') > 0"
+          ]
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_count_heavy_ready"
+          }
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_apostle_attack_recovery"
+          }
+        },
+        {
+          "math": [
+            "time('now') >= n_berserk_committed_count_cooldown"
+          ]
+        },
+        {
+          "math": [
+            "n_berserk_committed_count_phase != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_location_variable": {
+          "npc_val": "berserk_committed_count_target"
+        }
+      },
+      {
+        "npc_location_variable": {
+          "npc_val": "berserk_committed_count_origin"
+        }
+      },
+      {
+        "math": [
+          "n_berserk_committed_count_phase = 1"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_committed_count_due = time('now') + 3"
+        ]
+      },
+      {
+        "npc_add_effect": "berserk_count_heavy_ready",
+        "duration": "4 seconds",
+        "intensity": 1
+      },
+      {
+        "npc_cast_spell": {
+          "id": "berserk_committed_count_warning",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "npc_val": "berserk_committed_count_target"
+        }
+      }
+    ],
+    "//": "Spell EOC: alpha=victim, beta=caster. Snapshot all direction/cells onto the caster before warning."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_COMMITTED_CLEAR_WARNING",
+    "condition": {
+      "math": [
+        "has_var(u_berserk_committed_count_origin)"
+      ]
+    },
+    "effect": {
+      "u_transform_radius": 2,
+      "ter_furn_transform": "berserk_committed_count_clear_warning",
+      "target_var": {
+        "u_val": "berserk_committed_count_origin"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_COMMITTED_RECOVER",
+    "effect": [
+      {
+        "u_lose_effect": "berserk_count_heavy_ready"
+      },
+      {
+        "u_add_effect": "berserk_apostle_attack_recovery",
+        "duration": "2 seconds",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "u_berserk_committed_count_cooldown = time('now') + 14"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_COMMITTED_RELEASE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_committed_count_phase = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COUNT_COMMITTED_CLEAR_WARNING"
+      },
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_count_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_count_target"
+        }
+      },
+      {
+        "u_make_sound": "A heavy blow crashes through the marked sector!",
+        "type": "combat",
+        "volume": 30
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COUNT_COMMITTED_RECOVER"
+      }
+    ],
+    "//": "Commit once before damage. Fixed saved geometry; no reacquisition of the avatar."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_COMMITTED_CANCEL",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_committed_count_phase = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COUNT_COMMITTED_CLEAR_WARNING"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COUNT_COMMITTED_RECOVER"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_COMMITTED_TICK",
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_committed_count_phase == 1"
+          ]
+        },
+        {
+          "u_has_effect": "berserk_count_heavy_ready"
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "u_berserk_committed_count_phase == 1"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('ALL') > 0"
+            ]
+          },
+          {
+            "math": [
+              "has_var(u_berserk_committed_count_origin)"
+            ]
+          },
+          {
+            "math": [
+              "has_var(u_berserk_committed_count_target)"
+            ]
+          },
+          {
+            "u_has_effect": "berserk_count_heavy_ready"
+          },
+          {
+            "math": [
+              "distance('u', u_berserk_committed_count_origin) == 0"
+            ]
+          },
+          {
+            "math": [
+              "time('now') <= u_berserk_committed_count_due + 1"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "if": {
+          "math": [
+            "time('now') >= u_berserk_committed_count_due"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_COUNT_COMMITTED_RELEASE"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_COUNT_COMMITTED_CANCEL"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_COMMITTED_WATCH",
+    "recurrence": "1 second",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_COUNT_COMMITTED_TICK"
+      ],
+      "mtype_ids": [
+        "mon_berserk_apostle_count"
+      ],
+      "monster_range": 48
+    },
+    "global": true
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_COMMITTED_BEGIN",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "n_hp('ALL') > 0"
+          ]
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_wyald_ready"
+          }
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_apostle_attack_recovery"
+          }
+        },
+        {
+          "math": [
+            "time('now') >= n_berserk_committed_wyald_cooldown"
+          ]
+        },
+        {
+          "math": [
+            "n_berserk_committed_wyald_phase != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_location_variable": {
+          "npc_val": "berserk_committed_wyald_target"
+        }
+      },
+      {
+        "npc_location_variable": {
+          "npc_val": "berserk_committed_wyald_origin"
+        }
+      },
+      {
+        "math": [
+          "n_berserk_committed_wyald_phase = 1"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_committed_wyald_due = time('now') + 3"
+        ]
+      },
+      {
+        "npc_add_effect": "berserk_wyald_ready",
+        "duration": "4 seconds",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "n_berserk_committed_wyald_dx = u_val('pos_x') - n_val('pos_x')"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_committed_wyald_dy = u_val('pos_y') - n_val('pos_y')"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_committed_wyald_length = max(1, max(abs(n_berserk_committed_wyald_dx), abs(n_berserk_committed_wyald_dy)))"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_wyald_length >= 1"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_wyald_step_1"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_wyald_dx * 1 / n_berserk_committed_wyald_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_wyald_dy * 1 / n_berserk_committed_wyald_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_wyald_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_wyald_step_1"
+            }
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_wyald_length >= 2"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_wyald_step_2"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_wyald_dx * 2 / n_berserk_committed_wyald_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_wyald_dy * 2 / n_berserk_committed_wyald_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_wyald_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_wyald_step_2"
+            }
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_wyald_length >= 3"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_wyald_step_3"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_wyald_dx * 3 / n_berserk_committed_wyald_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_wyald_dy * 3 / n_berserk_committed_wyald_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_wyald_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_wyald_step_3"
+            }
+          }
+        ]
+      }
+    ],
+    "//": "Spell EOC: alpha=victim, beta=caster. Snapshot all direction/cells onto the caster before warning."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_COMMITTED_CLEAR_WARNING",
+    "condition": {
+      "math": [
+        "has_var(u_berserk_committed_wyald_origin)"
+      ]
+    },
+    "effect": {
+      "u_transform_radius": 3,
+      "ter_furn_transform": "berserk_committed_wyald_clear_warning",
+      "target_var": {
+        "u_val": "berserk_committed_wyald_origin"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_COMMITTED_RECOVER",
+    "effect": [
+      {
+        "u_lose_effect": "berserk_wyald_ready"
+      },
+      {
+        "u_add_effect": "berserk_apostle_attack_recovery",
+        "duration": "2 seconds",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "u_berserk_committed_wyald_cooldown = time('now') + 14"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_COMMITTED_RELEASE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_committed_wyald_phase = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_CLEAR_WARNING"
+      },
+      {
+        "u_lose_effect": "berserk_wyald_ready"
+      },
+      {
+        "math": [
+          "u_berserk_committed_wyald_moving = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_STEP_1"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_STEP_2"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_STEP_3"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_RECOVER"
+      }
+    ],
+    "//": "Commit once before damage. Fixed saved geometry; no reacquisition of the avatar."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_COMMITTED_CANCEL",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_committed_wyald_phase = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_CLEAR_WARNING"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_RECOVER"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_COMMITTED_TICK",
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_committed_wyald_phase == 1"
+          ]
+        },
+        {
+          "u_has_effect": "berserk_wyald_ready"
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "u_berserk_committed_wyald_phase == 1"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('ALL') > 0"
+            ]
+          },
+          {
+            "math": [
+              "has_var(u_berserk_committed_wyald_origin)"
+            ]
+          },
+          {
+            "math": [
+              "has_var(u_berserk_committed_wyald_target)"
+            ]
+          },
+          {
+            "u_has_effect": "berserk_wyald_ready"
+          },
+          {
+            "math": [
+              "distance('u', u_berserk_committed_wyald_origin) == 0"
+            ]
+          },
+          {
+            "math": [
+              "time('now') <= u_berserk_committed_wyald_due + 1"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "if": {
+          "math": [
+            "time('now') >= u_berserk_committed_wyald_due"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_RELEASE"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_CANCEL"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_COMMITTED_STEP_1",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_wyald_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_wyald_length >= 1"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_wyald_step_1)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_wyald_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_wyald_step_1"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_wyald_step_1"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_wyald_step_1) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_wyald_moving = 0"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_COMMITTED_STEP_2",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_wyald_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_wyald_length >= 2"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_wyald_step_2)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_wyald_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_wyald_step_2"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_wyald_step_2"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_wyald_step_2) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_wyald_moving = 0"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_COMMITTED_STEP_3",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_wyald_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_wyald_length >= 3"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_wyald_step_3)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_wyald_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_wyald_step_3"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_wyald_step_3"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_wyald_step_3) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_wyald_moving = 0"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_COMMITTED_WATCH",
+    "recurrence": "1 second",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_WYALD_COMMITTED_TICK"
+      ],
+      "mtype_ids": [
+        "mon_berserk_apostle_wyald"
+      ],
+      "monster_range": 48
+    },
+    "global": true
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_BEGIN",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "n_hp('ALL') > 0"
+          ]
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_rosine_ready"
+          }
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_apostle_attack_recovery"
+          }
+        },
+        {
+          "math": [
+            "time('now') >= n_berserk_committed_rosine_cooldown"
+          ]
+        },
+        {
+          "math": [
+            "n_berserk_committed_rosine_phase != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_location_variable": {
+          "npc_val": "berserk_committed_rosine_target"
+        }
+      },
+      {
+        "npc_location_variable": {
+          "npc_val": "berserk_committed_rosine_origin"
+        }
+      },
+      {
+        "math": [
+          "n_berserk_committed_rosine_phase = 1"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_committed_rosine_due = time('now') + 3"
+        ]
+      },
+      {
+        "npc_add_effect": "berserk_rosine_ready",
+        "duration": "4 seconds",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "n_berserk_committed_rosine_dx = u_val('pos_x') - n_val('pos_x')"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_committed_rosine_dy = u_val('pos_y') - n_val('pos_y')"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_committed_rosine_length = max(1, max(abs(n_berserk_committed_rosine_dx), abs(n_berserk_committed_rosine_dy)))"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_rosine_length >= 1"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_rosine_step_1"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dx * 1 / n_berserk_committed_rosine_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dy * 1 / n_berserk_committed_rosine_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_rosine_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_rosine_step_1"
+            }
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_rosine_length >= 2"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_rosine_step_2"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dx * 2 / n_berserk_committed_rosine_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dy * 2 / n_berserk_committed_rosine_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_rosine_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_rosine_step_2"
+            }
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_rosine_length >= 3"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_rosine_step_3"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dx * 3 / n_berserk_committed_rosine_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dy * 3 / n_berserk_committed_rosine_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_rosine_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_rosine_step_3"
+            }
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_rosine_length >= 4"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_rosine_step_4"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dx * 4 / n_berserk_committed_rosine_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dy * 4 / n_berserk_committed_rosine_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_rosine_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_rosine_step_4"
+            }
+          }
+        ]
+      }
+    ],
+    "//": "Spell EOC: alpha=victim, beta=caster. Snapshot all direction/cells onto the caster before warning."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_CLEAR_WARNING",
+    "condition": {
+      "math": [
+        "has_var(u_berserk_committed_rosine_origin)"
+      ]
+    },
+    "effect": {
+      "u_transform_radius": 4,
+      "ter_furn_transform": "berserk_committed_rosine_clear_warning",
+      "target_var": {
+        "u_val": "berserk_committed_rosine_origin"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_RECOVER",
+    "effect": [
+      {
+        "u_lose_effect": "berserk_rosine_ready"
+      },
+      {
+        "u_add_effect": "berserk_apostle_attack_recovery",
+        "duration": "2 seconds",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "u_berserk_committed_rosine_cooldown = time('now') + 14"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_RELEASE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_committed_rosine_phase = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_CLEAR_WARNING"
+      },
+      {
+        "u_lose_effect": "berserk_rosine_ready"
+      },
+      {
+        "math": [
+          "u_berserk_committed_rosine_moving = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_STEP_1"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_STEP_2"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_STEP_3"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_STEP_4"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_RECOVER"
+      }
+    ],
+    "//": "Commit once before damage. Fixed saved geometry; no reacquisition of the avatar."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_CANCEL",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_committed_rosine_phase = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_CLEAR_WARNING"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_RECOVER"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_TICK",
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_committed_rosine_phase == 1"
+          ]
+        },
+        {
+          "u_has_effect": "berserk_rosine_ready"
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "u_berserk_committed_rosine_phase == 1"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('ALL') > 0"
+            ]
+          },
+          {
+            "math": [
+              "has_var(u_berserk_committed_rosine_origin)"
+            ]
+          },
+          {
+            "math": [
+              "has_var(u_berserk_committed_rosine_target)"
+            ]
+          },
+          {
+            "u_has_effect": "berserk_rosine_ready"
+          },
+          {
+            "math": [
+              "distance('u', u_berserk_committed_rosine_origin) == 0"
+            ]
+          },
+          {
+            "math": [
+              "time('now') <= u_berserk_committed_rosine_due + 1"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "if": {
+          "math": [
+            "time('now') >= u_berserk_committed_rosine_due"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_RELEASE"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_CANCEL"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_STEP_1",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_rosine_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_rosine_length >= 1"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_rosine_step_1)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_rosine_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_rosine_step_1"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_rosine_step_1"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_rosine_step_1) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_rosine_moving = 0"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_STEP_2",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_rosine_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_rosine_length >= 2"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_rosine_step_2)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_rosine_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_rosine_step_2"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_rosine_step_2"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_rosine_step_2) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_rosine_moving = 0"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_STEP_3",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_rosine_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_rosine_length >= 3"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_rosine_step_3)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_rosine_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_rosine_step_3"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_rosine_step_3"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_rosine_step_3) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_rosine_moving = 0"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_STEP_4",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_rosine_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_rosine_length >= 4"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_rosine_step_4)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_rosine_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_rosine_step_4"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_rosine_step_4"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_rosine_step_4) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_rosine_moving = 0"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_WATCH",
+    "recurrence": "1 second",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_ROSINE_COMMITTED_TICK"
+      ],
+      "mtype_ids": [
+        "mon_berserk_apostle_rosine"
+      ],
+      "monster_range": 48
+    },
+    "global": true
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_BEGIN",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "n_hp('ALL') > 0"
+          ]
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_grunbeld_hammer_ready"
+          }
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_apostle_attack_recovery"
+          }
+        },
+        {
+          "math": [
+            "time('now') >= n_berserk_committed_grunbeld_knight_cooldown"
+          ]
+        },
+        {
+          "math": [
+            "n_berserk_committed_grunbeld_knight_phase != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_location_variable": {
+          "npc_val": "berserk_committed_grunbeld_knight_target"
+        }
+      },
+      {
+        "npc_location_variable": {
+          "npc_val": "berserk_committed_grunbeld_knight_origin"
+        }
+      },
+      {
+        "math": [
+          "n_berserk_committed_grunbeld_knight_phase = 1"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_committed_grunbeld_knight_due = time('now') + 3"
+        ]
+      },
+      {
+        "npc_add_effect": "berserk_grunbeld_hammer_ready",
+        "duration": "4 seconds",
+        "intensity": 1
+      },
+      {
+        "npc_cast_spell": {
+          "id": "berserk_committed_grunbeld_knight_warning",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "npc_val": "berserk_committed_grunbeld_knight_target"
+        }
+      }
+    ],
+    "//": "Spell EOC: alpha=victim, beta=caster. Snapshot all direction/cells onto the caster before warning."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_CLEAR_WARNING",
+    "condition": {
+      "math": [
+        "has_var(u_berserk_committed_grunbeld_knight_origin)"
+      ]
+    },
+    "effect": {
+      "u_transform_radius": 3,
+      "ter_furn_transform": "berserk_committed_grunbeld_knight_clear_warning",
+      "target_var": {
+        "u_val": "berserk_committed_grunbeld_knight_origin"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_RECOVER",
+    "effect": [
+      {
+        "u_lose_effect": "berserk_grunbeld_hammer_ready"
+      },
+      {
+        "u_add_effect": "berserk_apostle_attack_recovery",
+        "duration": "3 seconds",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "u_berserk_committed_grunbeld_knight_cooldown = time('now') + 18"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_RELEASE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_committed_grunbeld_knight_phase = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_CLEAR_WARNING"
+      },
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_grunbeld_knight_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_grunbeld_knight_target"
+        }
+      },
+      {
+        "u_make_sound": "A heavy blow crashes through the marked sector!",
+        "type": "combat",
+        "volume": 30
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_RECOVER"
+      }
+    ],
+    "//": "Commit once before damage. Fixed saved geometry; no reacquisition of the avatar."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_CANCEL",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_committed_grunbeld_knight_phase = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_CLEAR_WARNING"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_RECOVER"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_TICK",
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_committed_grunbeld_knight_phase == 1"
+          ]
+        },
+        {
+          "u_has_effect": "berserk_grunbeld_hammer_ready"
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "u_berserk_committed_grunbeld_knight_phase == 1"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('ALL') > 0"
+            ]
+          },
+          {
+            "math": [
+              "has_var(u_berserk_committed_grunbeld_knight_origin)"
+            ]
+          },
+          {
+            "math": [
+              "has_var(u_berserk_committed_grunbeld_knight_target)"
+            ]
+          },
+          {
+            "u_has_effect": "berserk_grunbeld_hammer_ready"
+          },
+          {
+            "math": [
+              "distance('u', u_berserk_committed_grunbeld_knight_origin) == 0"
+            ]
+          },
+          {
+            "math": [
+              "time('now') <= u_berserk_committed_grunbeld_knight_due + 1"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "if": {
+          "math": [
+            "time('now') >= u_berserk_committed_grunbeld_knight_due"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_RELEASE"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_CANCEL"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_WATCH",
+    "recurrence": "1 second",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_TICK"
+      ],
+      "mtype_ids": [
+        "mon_berserk_grunbeld_knight"
+      ],
+      "monster_range": 48
+    },
+    "global": true
+  }
+]
