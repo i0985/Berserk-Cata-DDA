@@ -14,26 +14,49 @@
       "C": "t_grass",
       "B": "t_grass",
       "I": "t_grass",
-      "?": "t_grass"
+      "?": "t_grass",
+      "c": "t_grass",
+      "v": "t_grass",
+      "g": "t_grass",
+      "e": "t_grass",
+      "q": "t_grass",
+      "h": "t_grass",
+      "f": "t_grass",
+      "k": "t_grass"
     },
     "furniture": {
       "b": "f_bench",
       "r": "f_rubble",
-      "C": "f_berserk_rosine_cocoon"
+      "C": "f_berserk_rosine_cocoon",
+      "c": "f_canvas_wall",
+      "v": "f_canvas_door_o",
+      "g": "f_groundsheet",
+      "e": "f_crate_o",
+      "q": "f_table",
+      "h": "f_chair_folding",
+      "f": "f_flower_tulip",
+      "k": "f_berserk_rosine_cocoon_sealed"
     }
   },
   {
     "type": "furniture",
     "id": "f_berserk_rosine_cocoon",
     "name": "empty Mistvale cocoon",
-    "description": "A split cocoon, empty now. It obscures the path without producing more creatures.",
-    "looks_like": "f_rubble",
+    "description": "A split Mistvale cocoon. The creature inside has already left; this shell cannot produce another.",
+    "looks_like": "f_egg_sacke",
     "symbol": "o",
     "color": "light_gray",
     "move_cost_mod": 1,
     "required_str": -1,
     "flags": [
       "TRANSPARENT"
-    ]
+    ],
+    "bash": {
+      "str_min": 2,
+      "str_max": 6,
+      "sound": "splat!",
+      "sound_fail": "whump.",
+      "furn_set": "f_berserk_rosine_cocoon_destroyed"
+    }
   }
 ]

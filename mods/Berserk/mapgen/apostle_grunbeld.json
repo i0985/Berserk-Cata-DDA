@@ -64,6 +64,36 @@
           "furn": "f_berserk_grunbeld_record",
           "x": 9,
           "y": 20
+        },
+        {
+          "furn": "f_rubble",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "furn": "f_rubble",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "furn": "f_rubble",
+          "x": 18,
+          "y": 16
+        },
+        {
+          "furn": "f_rubble",
+          "x": 19,
+          "y": 16
+        },
+        {
+          "furn": "f_rubble",
+          "x": 4,
+          "y": 19
+        },
+        {
+          "furn": "f_berserk_grunbeld_scene",
+          "x": 5,
+          "y": 16
         }
       ]
     }
@@ -82,6 +112,7 @@
         "#...........ddd.......#.",
         "#...........ddd.......#.",
         "#...........ddd.......#.",
+        "#...###r##..ddd.......#.",
         "#...........ddd.......#.",
         "#...........ddd.......#.",
         "#...........ddd.......#.",
@@ -90,8 +121,7 @@
         "#...........ddd.......#.",
         "#...........ddd.......#.",
         "#...........ddd.......#.",
-        "#...........ddd.......#.",
-        "#...........ddd.......#.",
+        "#...........ddd##r##..#.",
         "#...........ddd.......#.",
         "#...........ddd.......#.",
         "#...........ddd.......#.",
@@ -113,7 +143,33 @@
           "one_or_none": true
         }
       ],
-      "place_furniture": []
+      "place_furniture": [
+        {
+          "furn": "f_rubble",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "furn": "f_rubble",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "furn": "f_rubble",
+          "x": 18,
+          "y": 16
+        },
+        {
+          "furn": "f_rubble",
+          "x": 19,
+          "y": 16
+        },
+        {
+          "furn": "f_rubble",
+          "x": 4,
+          "y": 19
+        }
+      ]
     }
   },
   {
@@ -161,7 +217,46 @@
           "one_or_none": true
         }
       ],
-      "place_furniture": []
+      "place_furniture": [
+        {
+          "furn": "f_rubble",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "furn": "f_rubble",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "furn": "f_rubble",
+          "x": 18,
+          "y": 16
+        },
+        {
+          "furn": "f_rubble",
+          "x": 19,
+          "y": 16
+        },
+        {
+          "furn": "f_rubble",
+          "x": 4,
+          "y": 19
+        },
+        {
+          "furn": "f_crate_o",
+          "x": 18,
+          "y": 18
+        }
+      ],
+      "place_loot": [
+        {
+          "item": "primitive_hammer",
+          "x": 18,
+          "y": 18,
+          "chance": 100
+        }
+      ]
     }
   },
   {
@@ -209,7 +304,82 @@
           "one_or_none": true
         }
       ],
-      "place_furniture": []
+      "place_furniture": [
+        {
+          "furn": "f_rubble",
+          "x": 18,
+          "y": 16
+        },
+        {
+          "furn": "f_rubble",
+          "x": 19,
+          "y": 16
+        },
+        {
+          "furn": "f_rubble",
+          "x": 4,
+          "y": 19
+        },
+        {
+          "furn": "f_bed",
+          "x": 5,
+          "y": 5
+        },
+        {
+          "furn": "f_bed",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "furn": "f_bed",
+          "x": 11,
+          "y": 5
+        },
+        {
+          "furn": "f_bed",
+          "x": 16,
+          "y": 5
+        },
+        {
+          "furn": "f_bed",
+          "x": 5,
+          "y": 13
+        },
+        {
+          "furn": "f_bed",
+          "x": 8,
+          "y": 13
+        },
+        {
+          "furn": "f_crate_o",
+          "x": 17,
+          "y": 7
+        },
+        {
+          "furn": "f_crate_o",
+          "x": 17,
+          "y": 9
+        },
+        {
+          "furn": "f_crate_o",
+          "x": 5,
+          "y": 11
+        }
+      ],
+      "place_loot": [
+        {
+          "item": "bandages",
+          "x": 17,
+          "y": 7,
+          "chance": 100
+        },
+        {
+          "item": "water_clean",
+          "x": 17,
+          "y": 9,
+          "chance": 100
+        }
+      ]
     }
   },
   {
@@ -257,7 +427,33 @@
           "one_or_none": true
         }
       ],
-      "place_furniture": [],
+      "place_furniture": [
+        {
+          "furn": "f_rubble",
+          "x": 4,
+          "y": 4
+        },
+        {
+          "furn": "f_rubble",
+          "x": 5,
+          "y": 4
+        },
+        {
+          "furn": "f_rubble",
+          "x": 18,
+          "y": 16
+        },
+        {
+          "furn": "f_rubble",
+          "x": 19,
+          "y": 16
+        },
+        {
+          "furn": "f_rubble",
+          "x": 4,
+          "y": 19
+        }
+      ],
       "place_loot": [
         {
           "item": "bandages",

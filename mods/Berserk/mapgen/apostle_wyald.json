@@ -12,11 +12,11 @@
         ".T........ddd...........",
         ".T........ddd.........##",
         ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
+        ".T.|||||..ddd.........##",
+        ".T.|...|..ddd.........##",
+        ".T.|.../..ddd.........##",
+        ".T.|...|..ddd.........##",
+        ".T.|||||..ddd.........##",
         ".T........ddd.........##",
         ".T........ddd.........##",
         ".T........ddd.........##",
@@ -41,8 +41,32 @@
           "furn": "f_berserk_wyald_record",
           "x": 9,
           "y": 20
+        },
+        {
+          "furn": "f_bench",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "furn": "f_rubble",
+          "x": 16,
+          "y": 5
+        },
+        {
+          "furn": "f_rubble",
+          "x": 16,
+          "y": 10
+        },
+        {
+          "furn": "f_rubble",
+          "x": 18,
+          "y": 13
         }
-      ]
+      ],
+      "terrain": {
+        "|": "t_chainfence",
+        "/": "t_fencegate_o"
+      }
     }
   },
   {
@@ -60,16 +84,16 @@
         "......................T.",
         "......................T.",
         "......................T.",
-        "..#################...T.",
-        "..#_______________#...T.",
-        "..#_______________#...T.",
-        "..#__b_________b__#...T.",
-        "..#_______________#...T.",
-        "..#_______________#...T.",
-        "..#_______________#...T.",
-        "..#_______________#...T.",
-        "..#_______________#...T.",
-        "..########+########...T.",
+        "..ccccccccvcccccccc...T.",
+        "..cgegggggggggggegc...T.",
+        "..cgggggggggggggggc...T.",
+        "..cggbqqgggggqqbggc...T.",
+        "..cggghgggggghggggc...T.",
+        "..cgggggggggggggggc...T.",
+        "..cgggggggggggggggc...T.",
+        "..cgggggggggggggggc...T.",
+        "..cgggggggggggggggc...T.",
+        "..ccccccccvcccccccc...T.",
         "......................T.",
         "............ddd.......T.",
         "............ddd.......T.",
@@ -104,7 +128,29 @@
           "one_or_none": true
         }
       ],
-      "place_furniture": []
+      "place_furniture": [
+        {
+          "furn": "f_berserk_wyald_scene",
+          "x": 4,
+          "y": 14
+        }
+      ],
+      "place_items": [
+        {
+          "item": "cannedfood",
+          "x": 4,
+          "y": 8,
+          "chance": 75
+        }
+      ],
+      "place_loot": [
+        {
+          "item": "water_clean",
+          "x": 16,
+          "y": 8,
+          "chance": 100
+        }
+      ]
     }
   },
   {
@@ -152,7 +198,43 @@
           "one_or_none": true
         }
       ],
-      "place_furniture": [],
+      "place_furniture": [
+        {
+          "furn": "f_bench",
+          "x": 4,
+          "y": 13
+        },
+        {
+          "furn": "f_bench",
+          "x": 6,
+          "y": 13
+        },
+        {
+          "furn": "f_bench",
+          "x": 4,
+          "y": 15
+        },
+        {
+          "furn": "f_bench",
+          "x": 6,
+          "y": 15
+        },
+        {
+          "furn": "f_rubble",
+          "x": 17,
+          "y": 3
+        },
+        {
+          "furn": "f_rubble",
+          "x": 18,
+          "y": 3
+        },
+        {
+          "furn": "f_rubble",
+          "x": 17,
+          "y": 4
+        }
+      ],
       "place_loot": [
         {
           "item": "bandages",
@@ -164,6 +246,12 @@
           "item": "water_clean",
           "x": 7,
           "y": 8,
+          "chance": 100
+        },
+        {
+          "item": "bandages",
+          "x": 4,
+          "y": 14,
           "chance": 100
         }
       ]

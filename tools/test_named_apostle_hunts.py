@@ -202,7 +202,8 @@ class NamedApostleHunts(unittest.TestCase):
                     self.assertNotIn(obj['rows'][actor['y']][actor['x']],'#TbI?')
                     spawns.append(actor['monster'])
                 for loot in obj.get('place_loot',[]):self.assertNotIn('container',loot)
-            self.assertEqual(len(spawns),6)
+            # Two of Rosine's six ravagers now start inside finite cocoons.
+            self.assertEqual(len(spawns),4 if kind=='rosine' else 6)
             self.assertNotIn('mon_berserk_apostle_'+kind,spawns)
             for path in (MOD/'monstergroups').glob('*.json'):
                 self.assertNotIn('mon_berserk_apostle_'+kind,path.read_text())

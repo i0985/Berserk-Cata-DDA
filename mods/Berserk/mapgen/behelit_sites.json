@@ -174,6 +174,43 @@
           "y": 7,
           "chance": 100
         }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_table",
+          "x": 10,
+          "y": 5
+        },
+        {
+          "furn": "f_table",
+          "x": 11,
+          "y": 5
+        },
+        {
+          "furn": "f_table",
+          "x": 13,
+          "y": 5
+        },
+        {
+          "furn": "f_table",
+          "x": 14,
+          "y": 5
+        },
+        {
+          "furn": "f_bookcase",
+          "x": 18,
+          "y": 4
+        },
+        {
+          "furn": "f_rubble",
+          "x": 6,
+          "y": 8
+        },
+        {
+          "furn": "f_rubble",
+          "x": 17,
+          "y": 13
+        }
       ]
     }
   },
@@ -186,19 +223,19 @@
       "rows": [
         "...####__##___#######...",
         "...#________________#...",
-        "...#_____#_____#____#...",
+        "...#_bb__#b___b#__bb#...",
         "...#________________#...",
         "...___bb________bb__#...",
         "..._________________#...",
-        "...#________________#...",
+        "...#_bb__bb___bb__bb#...",
         ".T.#__bb________bb__#...",
         "...#________________#...",
         "...####__##___#######...",
         "...#________________#...",
-        "...#_____#_____#____#...",
-        "...#________________#...",
+        "...#_bb_##b___b#__bb#...",
+        "...#____+___________#...",
         "...#_####___________#...",
-        "...#________________#...",
+        "...#____+___________#...",
         "...___N_____________#.T.",
         "..._________________#...",
         "...#____________?___#...",
@@ -224,6 +261,21 @@
           "x": 7,
           "y": 12,
           "one_or_none": true
+        }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_chapel_scene",
+          "x": 5,
+          "y": 17
+        }
+      ],
+      "place_items": [
+        {
+          "item": "religious_books",
+          "x": 18,
+          "y": 17,
+          "chance": 75
         }
       ]
     }
@@ -285,10 +337,146 @@
       ],
       "place_loot": [
         {
-          "group": "berserk_eclipse_supply_cache",
+          "item": "sleeping_bag_roll",
+          "x": 4,
+          "y": 5,
+          "chance": 100
+        },
+        {
+          "item": "sleeping_bag_roll",
+          "x": 4,
+          "y": 7,
+          "chance": 100
+        },
+        {
+          "item": "sleeping_bag_roll",
+          "x": 17,
+          "y": 5,
+          "chance": 100
+        },
+        {
+          "item": "sleeping_bag_roll",
+          "x": 17,
+          "y": 7,
+          "chance": 100
+        },
+        {
+          "item": "sleeping_bag_roll",
+          "x": 4,
+          "y": 16,
+          "chance": 100
+        },
+        {
+          "item": "sleeping_bag_roll",
+          "x": 4,
+          "y": 18,
+          "chance": 100
+        },
+        {
+          "item": "sleeping_bag_roll",
+          "x": 15,
+          "y": 16,
+          "chance": 100
+        },
+        {
+          "item": "sleeping_bag_roll",
+          "x": 15,
+          "y": 18,
+          "chance": 100
+        },
+        {
+          "item": "bandages",
           "x": 15,
           "y": 17,
           "chance": 100
+        },
+        {
+          "item": "water_clean",
+          "x": 17,
+          "y": 18,
+          "chance": 100
+        }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_crate_o",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "furn": "f_crate_o",
+          "x": 19,
+          "y": 7
+        },
+        {
+          "furn": "f_crate_o",
+          "x": 6,
+          "y": 17
+        },
+        {
+          "furn": "f_crate_o",
+          "x": 17,
+          "y": 18
+        },
+        {
+          "furn": "f_berserk_expedition_scene",
+          "x": 7,
+          "y": 16
+        },
+        {
+          "furn": "f_table",
+          "x": 8,
+          "y": 4
+        },
+        {
+          "furn": "f_chair_folding",
+          "x": 9,
+          "y": 4
+        },
+        {
+          "furn": "f_rubble",
+          "x": 2,
+          "y": 10
+        },
+        {
+          "furn": "f_rubble",
+          "x": 7,
+          "y": 14
+        },
+        {
+          "furn": "f_rubble",
+          "x": 20,
+          "y": 11
+        }
+      ],
+      "place_items": [
+        {
+          "item": "camping",
+          "x": 7,
+          "y": 7,
+          "chance": 75
+        },
+        {
+          "item": "cannedfood",
+          "x": 6,
+          "y": 17,
+          "chance": 75
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 6,
+          "y": 10,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 19,
+          "y": 13,
+          "intensity": 1,
+          "age": 0
         }
       ]
     }

@@ -11,9 +11,9 @@
         ".TTTTTTTTTdddTTTTTTTTTTT",
         ".T........ddd...........",
         ".T........ddd.........##",
+        ".T..ff....ddd.........##",
         ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
+        ".T........ddd.....ff..##",
         ".T........ddd.........##",
         ".T........ddd....TT...##",
         ".T........ddd....TT...##",
@@ -23,9 +23,9 @@
         ".T........ddd.........##",
         ".T........ddd.........##",
         ".T........ddd.........##",
+        ".T...f....ddd.........##",
         ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
+        ".T........ddd.....f...##",
         ".T........ddd...........",
         "dddddddddIdddddddddddddd",
         "dddddddddddddddddddddddd",
@@ -57,21 +57,21 @@
         "TTTTTTTTTTTTTTTTTTTTTTT.",
         "......................T.",
         "......................T.",
+        "....ff................T.",
         "......................T.",
-        "......................T.",
-        "......................T.",
+        "..................ff..T.",
         "...C..................T.",
-        ".............C........T.",
+        ".............K........T.",
+        "..........T...........T.",
+        "..........T...........T.",
+        "......K...............T.",
+        "................T.....T.",
+        "................T.....T.",
+        "..................k...T.",
         "......................T.",
+        ".....f................T.",
         "......................T.",
-        "......C...............T.",
-        "......................T.",
-        "......................T.",
-        "..................C...T.",
-        "......................T.",
-        "......................T.",
-        "......................T.",
-        "............ddd.......T.",
+        "............ddd...f...T.",
         ".....TT.....ddd.......T.",
         "dddddTTdddddddddddTTddd.",
         "ddddddddddddddddddTTddd.",
@@ -81,23 +81,20 @@
       "palettes": [
         "berserk_named_hunt_palette"
       ],
-      "place_monster": [
+      "place_monster": [],
+      "place_furniture": [
         {
-          "monster": "mon_berserk_cocoon_ravager",
-          "x": 5,
-          "y": 9,
-          "chance": 100,
-          "one_or_none": true
-        },
-        {
-          "monster": "mon_berserk_cocoon_ravager",
-          "x": 14,
-          "y": 12,
-          "chance": 100,
-          "one_or_none": true
+          "furn": "f_berserk_rosine_scene",
+          "x": 17,
+          "y": 16
         }
       ],
-      "place_furniture": []
+      "terrain": {
+        "K": "t_grass"
+      },
+      "furniture": {
+        "K": "f_berserk_rosine_cocoon_inhabited"
+      }
     }
   },
   {
@@ -112,7 +109,7 @@
         ".T........ddd.........##",
         ".T........ddd.........##",
         ".T........ddd.........##",
-        ".T......C.ddd.........##",
+        ".T..ff..k.ddd.........##",
         ".T........ddd...TT....##",
         ".T........ddddddTTdddddd",
         ".T........dddddddddddddd",
@@ -122,11 +119,11 @@
         ".T........ddd.........##",
         ".T........ddd.........##",
         ".T........ddd.........##",
-        ".T........ddd..C......##",
+        ".T........ddd..k......##",
         ".T........ddd.........##",
+        ".T...f....ddd.........##",
         ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
+        ".T........ddd.....f...##",
         ".T........ddd.........##",
         ".T........ddd.........##",
         ".T........ddd.........##",
@@ -152,7 +149,13 @@
           "one_or_none": true
         }
       ],
-      "place_furniture": [],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_rosine_cocoon_destroyed",
+          "x": 6,
+          "y": 15
+        }
+      ],
       "place_loot": [
         {
           "item": "bandages",
@@ -164,6 +167,12 @@
           "item": "water_clean",
           "x": 7,
           "y": 8,
+          "chance": 100
+        },
+        {
+          "item": "bandages",
+          "x": 6,
+          "y": 15,
           "chance": 100
         }
       ]
@@ -177,13 +186,13 @@
     "object": {
       "fill_ter": "t_grass",
       "rows": [
-        ".....C......ddd.......T.",
+        ".....k......ddd.......T.",
         "............ddd.......T.",
         "............ddd.......T.",
         "............ddd.......T.",
-        "......dddddddddddddd..T.",
+        "....ffdddddddddddddd..T.",
         "......d#dddddddd#ddd..T.",
-        "ddddddd#dddddddd#ddC..T.",
+        "ddddddd#dddddddd#ddk..T.",
         "ddddd###dddd?ddd###d..T.",
         "dddddddddddddddddddd..T.",
         "......dddddddddddddd..T.",
@@ -191,7 +200,7 @@
         "......d##ddddddd##dd..T.",
         "......d##ddddddd##dd..T.",
         "......dddddddddddddd..T.",
-        "......Cddddddddddddd..T.",
+        "......kddddddddddddd..T.",
         "......dddddddddddddd..T.",
         ".....#####dddddd###d..T.",
         "......d###dddddd#d##..T.",

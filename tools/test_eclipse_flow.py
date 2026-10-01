@@ -538,7 +538,7 @@ class EclipseFlowTests(unittest.TestCase):
         warden = objects(MOD / "monsters" / "breach_warden.json")[0]
         self.assertEqual(sum(x["monster"] == warden["id"] for x in room["place_monster"]), 0)
         for monster in room["place_monster"]:
-            self.assertEqual(room["rows"][monster["y"]][monster["x"]], ".")
+            self.assertIn(room["rows"][monster["y"]][monster["x"]], ".sa")
         self.assertEqual(warden["regenerates"], 0)
         death = self.eocs[warden["death_function"]["eoc"]]
         self.assertIn("EOC_BERSERK_BREACH_WARDEN_DEFEATED", references(death))

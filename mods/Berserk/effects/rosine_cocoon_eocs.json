@@ -1,0 +1,70 @@
+[
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_open_rosine_cocoon",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_rosine_cocoon_inhabited"
+        ],
+        "result": "f_berserk_rosine_cocoon"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COCOON_OPEN",
+    "condition": {
+      "map_furniture_id": "f_berserk_rosine_cocoon_inhabited",
+      "loc": {
+        "context_val": "pos"
+      }
+    },
+    "effect": {
+      "if": {
+        "u_query": "Cut open the stirring cocoon? A creature may emerge beside it.",
+        "default": false
+      },
+      "then": {
+        "u_spawn_monster": "mon_berserk_cocoon_ravager",
+        "target_var": {
+          "context_val": "pos"
+        },
+        "real_count": 1,
+        "min_radius": 1,
+        "max_radius": 2,
+        "true_eocs": [
+          "EOC_BERSERK_COCOON_EMPTIED"
+        ],
+        "false_eocs": [
+          "EOC_BERSERK_COCOON_BLOCKED"
+        ]
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COCOON_EMPTIED",
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_open_rosine_cocoon",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "u_message": "The silk splits. A winged creature crawls free, leaving an empty shell.",
+        "type": "warning"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COCOON_BLOCKED",
+    "effect": {
+      "u_message": "The cocoon remains sealed: there is no room for its occupant to emerge.",
+      "type": "info"
+    }
+  }
+]

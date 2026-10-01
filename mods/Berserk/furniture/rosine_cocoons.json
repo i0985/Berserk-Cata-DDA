@@ -1,0 +1,67 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_cocoon_sealed",
+    "name": "sealed Mistvale cocoon",
+    "description": "A large, motionless cocoon among the flowers. Its opaque silk hides the shape inside. It can be smashed, but this dormant shell does not release a creature.",
+    "looks_like": "f_egg_sackbw",
+    "symbol": "O",
+    "color": "white",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 16,
+      "sound": "splat!",
+      "sound_fail": "whump.",
+      "furn_set": "f_berserk_rosine_cocoon_destroyed"
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_cocoon_inhabited",
+    "name": "stirring Mistvale cocoon",
+    "description": "Something moves behind the silk. Examine it to open the shell deliberately; one creature may emerge. Smashing it destroys the shell instead.",
+    "looks_like": "f_egg_sackws",
+    "symbol": "O",
+    "color": "yellow",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 16,
+      "sound": "splat!",
+      "sound_fail": "whump.",
+      "furn_set": "f_berserk_rosine_cocoon_destroyed"
+    },
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COCOON_OPEN"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_cocoon_destroyed",
+    "name": "shredded Mistvale cocoon",
+    "description": "Torn silk and crushed remains mark a destroyed cocoon. It cannot release creatures.",
+    "looks_like": "f_egg_sacke",
+    "symbol": "x",
+    "color": "dark_gray",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC"
+    ]
+  }
+]

@@ -8,26 +8,26 @@
       "rows": [
         "TT.TT.TT.TT.TT.TT.TT.TTT",
         "T......................T",
-        "T......................T",
-        "T....T.................T",
-        "T......................T",
-        "T......#........#......T",
-        "T......#TT...TT.#......T",
-        "T....###........###....T",
-        "T......................T",
-        "T.....T..........T.....T",
-        "T......................T",
-        "T..........A...........T",
-        "T......................T",
-        "T......................T",
-        "T.....T..........T.....T",
-        "T......................T",
-        "T....###........###....T",
-        "T......#TT...TT.#......T",
-        "T......#........#......T",
-        "T......................T",
-        "T......................T",
-        "T......................T",
+        "T.aaaaaaaaaaaaaaaaaaaa.T",
+        "T.aaaTaaaaaaaaaaaaappa.T",
+        "T.appaaaaaaaaaaaaaaaaa.T",
+        "T.aaass#ssssssss#sssaa.T",
+        "T.aaass#TTsssTTs#sssaa.T",
+        "T.aaa###ssssssss###saa.T",
+        "T.aaasssssssssssssssaa.T",
+        "T.aaasTssssssssssTssaa.T",
+        "T.aaasssssssssssssssaa.T",
+        "T.aaassssssAssssssssaa.T",
+        "T.aaasssssssssssssssaa.T",
+        "T.aaasssssssssssssssaa.T",
+        "T.aaasTssssssssssTssaa.T",
+        "T.aaasssssssssssssssaa.T",
+        "T.aaa###ssssssss###saa.T",
+        "T.aaass#TTsssTTs#sssaa.T",
+        "T.aaass#ssssssss#sssaa.T",
+        "T.apasssssssssssssssaa.T",
+        "T.aaaaaaaaaaaaaaaaaapa.T",
+        "T.aaaaaaaaaaaaaaaaaaaa.T",
         "T......................T",
         "TT.TT.TT.TT.TT.TT.TT.TTT"
       ],
@@ -35,7 +35,10 @@
         ".": "t_dirt",
         "A": "t_dirt",
         "T": "t_tree",
-        "#": "t_rock"
+        "#": "t_rock",
+        "s": "t_rock_floor",
+        "p": "t_pit_shallow",
+        "a": "t_dirt"
       },
       "furniture": {
         "A": "f_berserk_open_breach"
@@ -57,6 +60,54 @@
           "furn": "f_berserk_hunt_arena_tracks",
           "x": 12,
           "y": 12
+        },
+        {
+          "furn": "f_rubble",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "furn": "f_rubble",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "furn": "f_rubble",
+          "x": 20,
+          "y": 14
+        },
+        {
+          "furn": "f_rubble",
+          "x": 20,
+          "y": 15
+        },
+        {
+          "furn": "f_rubble",
+          "x": 9,
+          "y": 3
+        },
+        {
+          "furn": "f_rubble",
+          "x": 15,
+          "y": 20
+        },
+        {
+          "furn": "f_berserk_breach_scene",
+          "x": 4,
+          "y": 14
+        },
+        {
+          "furn": "f_crate_o",
+          "x": 18,
+          "y": 21
+        }
+      ],
+      "place_loot": [
+        {
+          "item": "bandages",
+          "x": 18,
+          "y": 21,
+          "chance": 100
         }
       ]
     }

@@ -1,0 +1,162 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_expedition_scene",
+    "name": "abandoned survey equipment",
+    "description": "The survey journal ends in mid-sentence. A chalk diagram links the specimen case to the disturbances in the forest. The tents were torn from outside; nobody finished packing.",
+    "looks_like": "f_counter",
+    "symbol": "?",
+    "color": "light_gray",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_EXPEDITION"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_chapel_scene",
+    "name": "defaced memorial",
+    "description": "Names have been scraped from the memorial. Beneath the altar, black wax covers a chain of handprints. A narrow side aisle leads around the nave; the bell mechanism is in the western tower.",
+    "looks_like": "f_bookcase",
+    "symbol": "?",
+    "color": "light_gray",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_CHAPEL"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_first_hunt_scene",
+    "name": "dragged remains",
+    "description": "Drag marks lead from the stripped camp into the sunken hollow. The creature has dragged its victims behind the broken stone screens. The supply bundle lies off the main approach.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "light_gray",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_FIRST_HUNT"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_breach_scene",
+    "name": "fractured boundary stone",
+    "description": "The ruined foundation has split around a living fissure. Ash covers the approach, but the central wound is still open. Sealing it will suppress new manifestations nearby, not remove creatures already here.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "light_gray",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_BREACH"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_scene",
+    "name": "Black Dogs trophy rack",
+    "description": "Broken shields, shackles and stolen clothing hang beside the training yard. The prisoners scratched an escape route around the tents. Beyond the stone screens lies the leader's fighting ground.",
+    "looks_like": "f_rack",
+    "symbol": "?",
+    "color": "light_gray",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_WYALD"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_scene",
+    "name": "discarded playthings",
+    "description": "Tiny shoes and torn toys lie under flowers that grow around the cocoons. This promise of paradise ended here. Some cocoons are split and empty; sealed ones still move.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "light_gray",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_ROSINE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_scene",
+    "name": "Flora's work journal",
+    "description": "Notes on herbs and wards lie beside unfinished repairs. The west road and southern garden are kept clear. Take time to prepare before agreeing to the attack; these two routes are meant for escape.",
+    "looks_like": "f_bookcase",
+    "symbol": "?",
+    "color": "light_gray",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_FLORA"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_scene",
+    "name": "charred siege standard",
+    "description": "The standard survived a siege that melted its fittings. Broken ramparts offer cover on the approach. Inside the crucible, leave the marked breath line during preparation; the dragon cannot turn the shot after aiming.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "light_gray",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_GRUNBELD"
+      ]
+    }
+  }
+]
