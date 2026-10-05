@@ -223,6 +223,132 @@ def validate_query_defaults(path: Path, objects: list[dict[str, Any]]) -> None:
     visit(objects)
 
 
+def validate_om_location_conditions(path: Path, objects: list[dict[str, Any]]) -> None:
+    """Actor/point location conditions compare directionless names in 0.I-1.
+
+    Mission target_params instead search actual terrain IDs: do not normalize
+    those. NO_ROTATE does not bypass oter_no_dir_or_connections.
+    """
+    fields = {"overmap_at_point", "u_at_om_location", "npc_at_om_location",
+              "u_near_om_location", "npc_near_om_location"}
+
+    def visit(value: Any) -> None:
+        if isinstance(value, list):
+            for child in value:
+                visit(child)
+        elif isinstance(value, dict):
+            for key, child in value.items():
+                if (key in fields and isinstance(child, str)
+                        and child.startswith("berserk_")
+                        and child.endswith(("_north", "_west", "_south", "_east"))):
+                    raise ValidationError(
+                        f"{path.relative_to(ROOT)}: {key} compares a directionless "
+                        f"terrain name in CDDA 0.I-1, not {child!r}"
+                    )
+                visit(child)
+
+    visit(objects)
+
+
+def validate_location_target_params(path: Path, objects: list[dict[str, Any]]) -> None:
+    """Only fields read by 0.I-1 mission_util::parse_mission_om_target.
+
+    create_if_necessary is a C++ struct member, not a JSON member. In this
+    release a search of revealed sites uses must_see to prevent creation.
+    """
+    allowed = {
+        "om_terrain", "om_terrain_match_type", "origin_npc", "om_terrain_replace",
+        "om_special", "reveal_radius", "must_see", "cant_see", "random",
+        "search_range", "min_distance", "offset_x", "offset_y", "offset_z", "z", "var",
+    }
+    def check(params: Any, context: str) -> None:
+        if not isinstance(params, dict):
+            raise ValidationError(
+                f"{path.relative_to(ROOT)}: {context} must be an object in CDDA 0.I-1"
+            )
+        unknown = set(params) - allowed - {"//"}
+        if unknown:
+            raise ValidationError(
+                f"{path.relative_to(ROOT)}: unsupported 0.I-1 {context}: {sorted(unknown)}"
+            )
+        # mission_target_params::random defaults to false. The native JSON
+        # parser rejects an explicit search_range unless random is true.
+        if "search_range" in params and params.get("random", False) is not True:
+            raise ValidationError(
+                f"{path.relative_to(ROOT)}: {context} search_range requires random: true "
+                "in CDDA 0.I-1; omit search_range for a nearest-target search"
+            )
+
+    def visit(value):
+        if isinstance(value, list):
+            for child in value:
+                visit(child)
+        elif isinstance(value, dict):
+            if any(key in value for key in ("u_location_variable", "npc_location_variable")):
+                check(value.get("target_params", {}), "target_params")
+            if "assign_mission_target" in value:
+                check(value["assign_mission_target"], "assign_mission_target")
+            for child in value.values():
+                visit(child)
+    visit(objects)
+
+
+def validate_early_map_ids(objects_by_file: dict[Path, list[dict[str, Any]]]) -> None:
+    """Catch mod-local map IDs converted before their definition is loaded.
+
+    Terrain and furniture do not finalize forward inheritance in 0.I-1;
+    palettes eagerly resolve their terrain/furniture IDs. Vanilla IDs are
+    outside this check, since this mod does not own their load order.
+    """
+    local = {kind: {o["id"] for entries in objects_by_file.values() for o in entries
+                    if o.get("type") == kind and isinstance(o.get("id"), str)}
+             for kind in ("terrain", "furniture")}
+    loaded = {kind: set() for kind in local}
+    for path, entries in objects_by_file.items():
+        for obj in entries:
+            kind = obj.get("type")
+            if kind in local:
+                parent = obj.get("copy-from")
+                if parent in local[kind] and parent not in loaded[kind]:
+                    raise ValidationError(f"{path.relative_to(ROOT)}: {kind} {obj.get('id')} copies unloaded {parent}")
+                loaded[kind].add(obj["id"])
+            if kind == "palette":
+                for category in local:
+                    for value in obj.get(category, {}).values():
+                        if isinstance(value, str) and value in local[category] and value not in loaded[category]:
+                            raise ValidationError(f"{path.relative_to(ROOT)}: palette resolves unloaded {category} {value}")
+
+
+def validate_known_loot_migrations(path: Path, objects: list[dict[str, Any]]) -> None:
+    """Guard the confirmed 0.I-1 loot failures without guessing other item types.
+
+    Solid bread, jerky and aspirin are individual items, not charge stacks.
+    Liquids, tools and magazines can still legitimately specify charges.
+    This is not a complete native item-ID or inheritance validator.
+    """
+    def visit(value: Any, in_group: bool = False) -> None:
+        if isinstance(value, list):
+            for child in value:
+                visit(child, in_group)
+        elif isinstance(value, dict):
+            item = value.get("item") if in_group else None
+            if isinstance(item, str) and item in {"bread", "jerky", "aspirin"} and "charges" in value:
+                raise ValidationError(
+                    f"{path.relative_to(ROOT)}: loot item {item!r} requires count, not charges"
+                )
+            if item == "rag" or any(
+                value.get(key) == "rag" for key in ("map_spawn_item", "u_spawn_item", "npc_spawn_item")
+            ):
+                raise ValidationError(
+                    f"{path.relative_to(ROOT)}: obsolete loot item 'rag'; use 'scrap_cotton'"
+                )
+            for child in value.values():
+                visit(child, in_group)
+
+    for entry in objects:
+        visit(entry, entry.get("type") == "item_group")
+
+
 def png_size(path: Path) -> tuple[int, int]:
     try:
         with path.open("rb") as image:
@@ -415,7 +541,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
     json_count = 0
     for package in packages:
         package_objects: dict[Path, list[dict[str, Any]]] = {}
-        for path in sorted(package.rglob("*.json")):
+        for path in sorted(package.rglob("*.json"), key=lambda p: (len(p.relative_to(package).parts), p.as_posix())):
             objects = top_level_objects(path)
             validate_mapgen_update_effects(path, objects)
             validate_furniture_required_fields(path, objects)
@@ -424,12 +550,16 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
             validate_dynamic_lines(path, objects)
             validate_turn_cost_durations(path, objects)
             validate_query_defaults(path, objects)
+            validate_location_target_params(path, objects)
+            validate_om_location_conditions(path, objects)
+            validate_known_loot_migrations(path, objects)
             if sum(entry.get("type") == "mod_tileset" for entry in objects) > 1:
                 raise ValidationError(
                     f"{path.relative_to(ROOT)}: CDDA 0.I-1 requires one mod_tileset per file"
                 )
             package_objects[path] = objects
             json_count += 1
+        validate_early_map_ids(package_objects)
         objects_by_package[package] = package_objects
 
     packages_by_id: dict[str, Path] = {}

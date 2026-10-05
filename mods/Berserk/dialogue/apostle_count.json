@@ -13,6 +13,10 @@
         "topic": "TALK_BERSERK_COUNT_SERVANTS"
       },
       {
+        "text": "Why is the family room untouched?",
+        "topic": "TALK_BERSERK_COUNT_FAMILY"
+      },
+      {
         "text": "He is dead. What about the opening below?",
         "condition": {
           "math": [
@@ -30,7 +34,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_ROUTE",
-    "dynamic_line": "\"The execution hall is in the northeast. The stairs go down from its center. Both wings lead there; the broken western wall gives you another way around the yard. The pillars below will break his line of sight, but do not let his body pin you against them.\"",
+    "dynamic_line": "\"The stairs are in the northeastern execution hall. Cross the open yard, approach through the kitchen and offices, or use the break in the western wall. The clerk's key opens a short barred passage, but you do not need it. Below, the exposed seam is in a separate northern alcove; leave space around the pillars during the fight.\"",
     "responses": [
       {
         "text": "Ask something else.",
@@ -53,6 +57,17 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_AFTER",
     "dynamic_line": "\"The exposed stone at the north end feeds this place. Examine it now that he cannot hold it open. It should quiet new incursions nearby. It will not undo your Brand or kill the things already outside.\"",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_FAMILY",
+    "dynamic_line": "\"That is Theresia's room. He kept it free of what he did to the rest of us. It tells you something about him; it does not erase the execution lists. I do not know where she is now.\"",
     "responses": [
       {
         "text": "Ask something else.",

@@ -560,12 +560,31 @@
             },
             {
               "math": [
-                "u_berserk_site_grunbeld_tries < 3"
+                "u_berserk_site_grunbeld_tries < 2"
               ]
             },
             {
               "math": [
                 "distance('u', u_berserk_site_grunbeld_search_origin) >= 24"
+              ]
+            }
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_flora_escaped == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage == 3"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_grunbeld_site_registered == 1"
               ]
             }
           ]

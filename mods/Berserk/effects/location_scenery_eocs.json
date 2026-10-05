@@ -3,7 +3,8 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SCENERY_EXPEDITION",
     "effect": {
-      "u_message": "The survey journal ends in mid-sentence. A chalk diagram links the specimen case to the disturbances in the forest. The tents were torn from outside; nobody finished packing.",
+      "u_message": "A cup has rolled under the leader's table. The beds were left made; the medical tent holds open dressings, while tied repair crates remain in the torn store. Muddy footprints lead toward the eastern break in the cordon. Nobody finished packing.",
+      "type": "info",
       "popup": true
     }
   },
@@ -11,7 +12,8 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SCENERY_CHAPEL",
     "effect": {
-      "u_message": "Names have been scraped from the memorial. Beneath the altar, black wax covers a chain of handprints. A narrow side aisle leads around the nave; the bell mechanism is in the western tower.",
+      "u_message": "The memorial was altered rather than broken. Names are scraped away, but the older words offering shelter remain. Wax fills the altar joints, and handprints continue around its far side. The books in the sacristy still carry the names of their donors.",
+      "type": "info",
       "popup": true
     }
   },
@@ -19,7 +21,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SCENERY_FIRST_HUNT",
     "effect": {
-      "u_message": "Drag marks lead from the stripped camp into the sunken hollow. The creature has dragged its victims behind the broken stone screens. The supply bundle lies off the main approach.",
+      "u_message": "The ruined stop belonged to several travelers. Drag marks enter the hollow behind the stone folds; a root-covered shelter lies to the west. Examine the gouged stone before entering. Clear the scavengers or leave the perimeter route open for retreat.",
       "popup": true
     }
   },
@@ -27,7 +29,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SCENERY_BREACH",
     "effect": {
-      "u_message": "The ruined foundation has split around a living fissure. Ash covers the approach, but the central wound is still open. Sealing it will suppress new manifestations nearby, not remove creatures already here.",
+      "u_message": "The road post split along its foundations. The short middle route crosses firm landings; the longer western route follows the remaining wall. The loose beam can open another covered gap. Defeat the keeper, then examine the wound: only this recorded region will quiet.",
       "popup": true
     }
   },
@@ -35,7 +37,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SCENERY_WYALD",
     "effect": {
-      "u_message": "Broken shields, shackles and stolen clothing hang beside the training yard. The prisoners scratched an escape route around the tents. Beyond the stone screens lies the leader's fighting ground.",
+      "u_message": "Broken shields, shackles and stolen clothing hang beside the training yard. Human soldiers left ration lists and rough bedding; the guards remaining here are warped followers. The prisoners scratched a way through tied cage doors. Beyond the timber screens lies the leader's fighting ground.",
       "popup": true
     }
   },
@@ -43,7 +45,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SCENERY_ROSINE",
     "effect": {
-      "u_message": "Tiny shoes and torn toys lie under flowers that grow around the cocoons. This promise of paradise ended here. Some cocoons are split and empty; sealed ones still move.",
+      "u_message": "Tiny shoes and torn playthings lie under the flowers. The games end where the silk begins. Dry shells lie split and empty; swelling cocoons may open after your approach. Their occupants cannot be turned back into people.",
       "popup": true
     }
   },
@@ -51,7 +53,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SCENERY_FLORA",
     "effect": {
-      "u_message": "Notes on herbs and wards lie beside unfinished repairs. The west road and southern garden are kept clear. Take time to prepare before agreeing to the attack; these two routes are meant for escape.",
+      "u_message": "Pressed herbs lie beside a half-mended sleeve. Root-grown shelves follow the curve of the tree. Beyond the western door a narrow woodland road leads away; to the south, garden steps descend between medicinal beds.",
       "popup": true
     }
   },
@@ -59,7 +61,43 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SCENERY_GRUNBELD",
     "effect": {
-      "u_message": "The standard survived a siege that melted its fittings. Broken ramparts offer cover on the approach. Inside the crucible, leave the marked breath line during preparation; the dragon cannot turn the shot after aiming.",
+      "u_message": "The standard hangs from a blackened beam. Shield rims have fused into the stone below it. Deep gouges cut through the inner gate; whoever broke this defense did not need a siege engine.",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_SCENERY_OAK",
+    "effect": {
+      "u_message": "Two deep wheel grooves end where the cart lost a wheel. Someone carried its cloth bundles to a small camp east of the track. The roots have grown over the return footprints; higher up, a two-knotted cord hangs from the bark.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_SCENERY_CAVE_CLAW_MARKS",
+    "effect": {
+      "u_message": "An old arrow points toward the wider gallery. Deep parallel cuts cross it; farther along, a dragged line appears between the scratches. A scrap of wool is snagged behind the next stone pillar.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_SCENERY_CAVE_RETURN_MARKS",
+    "effect": {
+      "u_message": "The oldest marks lead toward the red face. Later arrows point back, first cut neatly and then scratched in a hurry. One ends at a drawing of a peg. The hand beneath it wrote only: From the far side.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_SCENERY_EXPEDITION_SAMPLE_DIAGRAM",
+    "effect": {
+      "u_message": "String marks the successive positions of the measuring instruments. Each day the circle was moved farther from the case. Beside it, a sleep log repeats the same three names and the same sketch of a red face. The last line records the alarm test and Pavel's injury.",
+      "type": "info",
       "popup": true
     }
   }

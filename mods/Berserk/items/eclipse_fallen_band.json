@@ -49,7 +49,7 @@
     "name": {
       "str": "Judeau's knife hilt"
     },
-    "description": "A worn knife hilt from the Band of the Hawk. Carry it when you speak to the Skull Knight about the Eclipse.",
+    "description": "The grip is worn smooth where Judeau turned the knife before a throw. A dark thread remains wound around its broken end.",
     "weight": "20 g",
     "volume": "50 ml",
     "material": [
@@ -69,7 +69,7 @@
     "name": {
       "str": "Pippin's broken clasp"
     },
-    "description": "The last clasp from Pippin's battered armor. Carry it when you ask the Skull Knight about those left behind.",
+    "description": "A heavy clasp torn from Pippin's battered armor. Fresh scratches cut through older hammer marks along the edge.",
     "weight": "20 g",
     "volume": "50 ml",
     "material": [
@@ -78,5 +78,46 @@
     "symbol": "*",
     "color": "light_gray",
     "looks_like": "warhammer"
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_corkus_scabbard_fragment",
+    "category": "tools",
+    "name": {
+      "str": "Corkus's scabbard fragment"
+    },
+    "description": "A cracked piece of Corkus's scabbard, polished where a hand gripped it too tightly. The broken seam holds a curl of pale ash.",
+    "weight": "20 g",
+    "volume": "50 ml",
+    "material": [
+      "wood",
+      "leather"
+    ],
+    "symbol": "*",
+    "color": "light_gray",
+    "looks_like": "billet_wood"
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_gaston_sewing_roll",
+    "category": "tools",
+    "name": {
+      "str": "Gaston's sewing roll"
+    },
+    "description": "Gaston's crushed roll of needles and cloth. The repairs inside are careful and small, made for a quieter life that never began.",
+    "weight": "20 g",
+    "volume": "50 ml",
+    "material": [
+      "cotton"
+    ],
+    "symbol": "*",
+    "color": "light_gray",
+    "looks_like": "scrap_cotton"
   }
 ]

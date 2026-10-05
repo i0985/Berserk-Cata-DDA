@@ -1,0 +1,365 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_READ_SIEGE_ORDERS",
+    "effect": {
+      "u_message": "\"The shields at the gate are lost. Keep the broken mantlets standing until the wounded have passed. Send the second squad through the quarry cut. Do not crowd the inner road.\" The last lines are burned away.",
+      "popup": true,
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_READ_GARRISON_ROLL",
+    "effect": {
+      "u_message": "Names are crossed out by squads. The barracks held the wounded; the smith kept repairing shields after the inner wall fell. A charcoal arrow points toward the southern breach. This was a working garrison before it became an apostle's hunting ground.",
+      "popup": true,
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_READ_QUARRY_NOTE",
+    "effect": {
+      "u_message": "A workman scratched an arrow beneath the hoist: \"The drum is jammed. Take the spare rope beside it; leave the loads. Follow the cut south and make for the breach by the smithy.\" Drag marks follow the same bend around the stone faces.",
+      "popup": true,
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_READ_SOLDIER_LETTER",
+    "effect": {
+      "u_message": "I kept my bed made so they would think I was coming back. The cook still leaves bread for the smith. We hear hammering from below, though no one has returned from the inner court. If the southern road is open, do not wait for my squad.",
+      "popup": true,
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_READ_DRESSER_NOTE",
+    "effect": {
+      "u_message": "\"Keep the clean water for the wounded. Tear the spare linen into strips. More men arrived burned inside their padded coats; do not send anyone back for the shields.\" A nearly empty bottle stands beside the tally.",
+      "popup": true,
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_READ_SMITH_NOTE",
+    "effect": {
+      "u_message": "\"The shield buckled before I could lift it. The timber screen behind it caught fire, but the old stone pier stood. I have moved the tools to the lower room. If the court must be crossed, keep masonry between you and that furnace.\"",
+      "popup": true,
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_READ_INNER_WARNING",
+    "effect": {
+      "u_message": "Orders are scratched into the broken door: \"Leave the stores. Bring the wounded through the western smithy or the southern breach. The inner hall cannot be held.\" Deep scorch marks continue into the court.",
+      "popup": true,
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_READ_LAST_WARNING",
+    "effect": {
+      "u_message": "Heat has eaten through the shield, but the broken stone behind it is intact. Several separate bulwarks cross the courtyard. None protects every approach. The northern opening and western repair court lead in; the southern breach remains a way out.",
+      "popup": true,
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_READ_FALLEN_GARRISON",
+    "effect": {
+      "u_message": "Broken spearheads point back toward the hall while discarded packs lead south. The defenders were covering a retreat. Beneath the fallen stone the earth still pulses, drawing ash into the wound instead of letting it settle.",
+      "popup": true,
+      "type": "info"
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_grunbeld_evacuated_cart_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_grunbeld_evacuated_cart"
+        ],
+        "result": "f_berserk_grunbeld_evacuated_cart_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_CLAIM_EVACUATED_CART",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_grunbeld_evacuated_cart",
+        "berserk_location_empty": "f_berserk_grunbeld_evacuated_cart_empty",
+        "berserk_location_transform": "f_berserk_grunbeld_evacuated_cart_searched",
+        "berserk_location_loot": "berserk_grunbeld_supplies_evacuated_cart"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_grunbeld_armory_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_grunbeld_armory"
+        ],
+        "result": "f_berserk_grunbeld_armory_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_CLAIM_ARMORY",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_grunbeld_armory",
+        "berserk_location_empty": "f_berserk_grunbeld_armory_empty",
+        "berserk_location_transform": "f_berserk_grunbeld_armory_searched",
+        "berserk_location_loot": "berserk_grunbeld_supplies_armory"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_grunbeld_ration_store_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_grunbeld_ration_store"
+        ],
+        "result": "f_berserk_grunbeld_ration_store_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_CLAIM_RATION_STORE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_grunbeld_ration_store",
+        "berserk_location_empty": "f_berserk_grunbeld_ration_store_empty",
+        "berserk_location_transform": "f_berserk_grunbeld_ration_store_searched",
+        "berserk_location_loot": "berserk_grunbeld_supplies_ration_store"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_grunbeld_quarry_rope_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_grunbeld_quarry_rope"
+        ],
+        "result": "f_berserk_grunbeld_quarry_rope_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_CLAIM_QUARRY_ROPE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_grunbeld_quarry_rope",
+        "berserk_location_empty": "f_berserk_grunbeld_quarry_rope_empty",
+        "berserk_location_transform": "f_berserk_grunbeld_quarry_rope_searched",
+        "berserk_location_loot": "berserk_grunbeld_supplies_quarry_rope"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_grunbeld_dressing_store_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_grunbeld_dressing_store"
+        ],
+        "result": "f_berserk_grunbeld_dressing_store_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_CLAIM_DRESSING_STORE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_grunbeld_dressing_store",
+        "berserk_location_empty": "f_berserk_grunbeld_dressing_store_empty",
+        "berserk_location_transform": "f_berserk_grunbeld_dressing_store_searched",
+        "berserk_location_loot": "berserk_grunbeld_supplies_dressing_store"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_grunbeld_barrack_pantry_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_grunbeld_barrack_pantry"
+        ],
+        "result": "f_berserk_grunbeld_barrack_pantry_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_CLAIM_BARRACK_PANTRY",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_grunbeld_barrack_pantry",
+        "berserk_location_empty": "f_berserk_grunbeld_barrack_pantry_empty",
+        "berserk_location_transform": "f_berserk_grunbeld_barrack_pantry_searched",
+        "berserk_location_loot": "berserk_grunbeld_supplies_barrack_pantry"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_grunbeld_repair_store_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_grunbeld_repair_store"
+        ],
+        "result": "f_berserk_grunbeld_repair_store_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_CLAIM_REPAIR_STORE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_grunbeld_repair_store",
+        "berserk_location_empty": "f_berserk_grunbeld_repair_store_empty",
+        "berserk_location_transform": "f_berserk_grunbeld_repair_store_searched",
+        "berserk_location_loot": "berserk_grunbeld_supplies_repair_store"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_grunbeld_forge_store_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_grunbeld_forge_store"
+        ],
+        "result": "f_berserk_grunbeld_forge_store_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_CLAIM_FORGE_STORE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_grunbeld_forge_store",
+        "berserk_location_empty": "f_berserk_grunbeld_forge_store_empty",
+        "berserk_location_transform": "f_berserk_grunbeld_forge_store_searched",
+        "berserk_location_loot": "berserk_grunbeld_supplies_forge_store"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_grunbeld_heat_clothing_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_grunbeld_heat_clothing"
+        ],
+        "result": "f_berserk_grunbeld_heat_clothing_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_CLAIM_HEAT_CLOTHING",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_grunbeld_heat_clothing",
+        "berserk_location_empty": "f_berserk_grunbeld_heat_clothing_empty",
+        "berserk_location_transform": "f_berserk_grunbeld_heat_clothing_searched",
+        "berserk_location_loot": "berserk_grunbeld_supplies_heat_clothing"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_grunbeld_standard_keepsake_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_grunbeld_standard_keepsake"
+        ],
+        "result": "f_berserk_grunbeld_standard_keepsake_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_CLAIM_STANDARD_KEEPSAKE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_grunbeld_standard_keepsake",
+        "berserk_location_empty": "f_berserk_grunbeld_standard_keepsake_empty",
+        "berserk_location_transform": "f_berserk_grunbeld_standard_keepsake_searched",
+        "berserk_location_loot": "berserk_grunbeld_supplies_standard_keepsake"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_READ_BADGE",
+    "effect": [
+      {
+        "u_message": "A burned clasp is all that remains of the garrison standard. No magic lives in it. Names scratched into the back remember those who held the southern road open. Keep it as testimony; the Carapace Shard belongs to the apostle, not to these fallen soldiers.",
+        "popup": true,
+        "type": "info"
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostle_grunbeld_dead == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_grunbeld_defeated_in_lair != 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "u_message": "Grunbeld died at Flora's grove. The fortress still holds his unsealed wound and the garrison's testimony, not another living original or another Carapace Shard.",
+          "popup": true,
+          "type": "info"
+        }
+      }
+    ]
+  }
+]

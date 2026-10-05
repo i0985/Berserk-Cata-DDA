@@ -45,6 +45,11 @@
       },
       {
         "math": [
+          "n_berserk_grunbeld_breath_last_result = 1"
+        ]
+      },
+      {
+        "math": [
           "n_berserk_grunbeld_breath_phase = 1"
         ]
       },
@@ -116,6 +121,11 @@
         ]
       },
       {
+        "math": [
+          "u_berserk_grunbeld_breath_last_result = 2"
+        ]
+      },
+      {
         "run_eocs": "EOC_BERSERK_GRUNBELD_BREATH_CLEAR_WARNING"
       },
       {
@@ -148,10 +158,49 @@
         ]
       },
       {
+        "if": {
+          "math": [
+            "u_hp('ALL') <= 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_grunbeld_breath_last_result = 5"
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "time('now') > u_berserk_grunbeld_breath_due + 1"
+            ]
+          },
+          "then": {
+            "math": [
+              "u_berserk_grunbeld_breath_last_result = 3"
+            ]
+          },
+          "else": {
+            "math": [
+              "u_berserk_grunbeld_breath_last_result = 4"
+            ]
+          }
+        }
+      },
+      {
         "run_eocs": "EOC_BERSERK_GRUNBELD_BREATH_CLEAR_WARNING"
       },
       {
-        "run_eocs": "EOC_BERSERK_GRUNBELD_BREATH_RECOVER"
+        "u_lose_effect": "berserk_grunbeld_flame_ready"
+      },
+      {
+        "u_add_effect": "berserk_grunbeld_breath_recovery",
+        "duration": "1 second",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "u_berserk_grunbeld_breath_cooldown = time('now') + 6"
+        ]
       }
     ]
   },
@@ -205,6 +254,16 @@
             "math": [
               "time('now') <= u_berserk_grunbeld_breath_due + 1"
             ]
+          },
+          {
+            "not": {
+              "u_has_effect": "stunned"
+            }
+          },
+          {
+            "not": {
+              "u_has_effect": "downed"
+            }
           }
         ]
       },

@@ -1,0 +1,862 @@
+[
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_eclipse_feast_one_spent",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_eclipse_feast_one"
+        ],
+        "result": "f_berserk_eclipse_feast_one_spent"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_FEAST_ONE_SCAN",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "berserk_field_token"
+      },
+      "furniture": "f_berserk_eclipse_feast_one",
+      "target_min_radius": -1,
+      "target_max_radius": 3,
+      "true_eocs": [
+        "EOC_BERSERK_ECLIPSE_FEAST_ONE_START"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_FEAST_ONE_START",
+    "effect": [
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_field_token"
+        },
+        "output_var": {
+          "context_val": "berserk_field_spawn"
+        },
+        "x_adjust": 2,
+        "y_adjust": -5
+      },
+      {
+        "if": {
+          "not": {
+            "u_can_see_location": {
+              "context_val": "berserk_field_spawn"
+            }
+          }
+        },
+        "then": {
+          "u_spawn_monster": "mon_berserk_eclipse_wretch",
+          "target_var": {
+            "context_val": "berserk_field_spawn"
+          },
+          "real_count": 1,
+          "min_radius": 0,
+          "max_radius": 0,
+          "true_eocs": [
+            "EOC_BERSERK_ECLIPSE_FEAST_ONE_DONE"
+          ]
+        }
+      }
+    ],
+    "condition": {
+      "map_furniture_id": "f_berserk_eclipse_feast_one",
+      "loc": {
+        "context_val": "berserk_field_token"
+      }
+    },
+    "//": "Spawn one real creature at the fixed hidden pocket. Consume its map token only on success; an occupied or visible pocket retries on a later movement."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_FEAST_ONE_DONE",
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_eclipse_feast_one_spent",
+        "target_var": {
+          "context_val": "berserk_field_token"
+        }
+      },
+      {
+        "u_message": "A feeder abandons the dead and claws its way around the flesh fold!",
+        "type": "info"
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_eclipse_feast_two_spent",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_eclipse_feast_two"
+        ],
+        "result": "f_berserk_eclipse_feast_two_spent"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_FEAST_TWO_SCAN",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "berserk_field_token"
+      },
+      "furniture": "f_berserk_eclipse_feast_two",
+      "target_min_radius": -1,
+      "target_max_radius": 3,
+      "true_eocs": [
+        "EOC_BERSERK_ECLIPSE_FEAST_TWO_START"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_FEAST_TWO_START",
+    "effect": [
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_field_token"
+        },
+        "output_var": {
+          "context_val": "berserk_field_spawn"
+        },
+        "x_adjust": 2,
+        "y_adjust": -5
+      },
+      {
+        "if": {
+          "not": {
+            "u_can_see_location": {
+              "context_val": "berserk_field_spawn"
+            }
+          }
+        },
+        "then": {
+          "u_spawn_monster": "mon_berserk_eclipse_wretch",
+          "target_var": {
+            "context_val": "berserk_field_spawn"
+          },
+          "real_count": 1,
+          "min_radius": 0,
+          "max_radius": 0,
+          "true_eocs": [
+            "EOC_BERSERK_ECLIPSE_FEAST_TWO_DONE"
+          ]
+        }
+      }
+    ],
+    "condition": {
+      "map_furniture_id": "f_berserk_eclipse_feast_two",
+      "loc": {
+        "context_val": "berserk_field_token"
+      }
+    },
+    "//": "Spawn one real creature at the fixed hidden pocket. Consume its map token only on success; an occupied or visible pocket retries on a later movement."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_FEAST_TWO_DONE",
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_eclipse_feast_two_spent",
+        "target_var": {
+          "context_val": "berserk_field_token"
+        }
+      },
+      {
+        "u_message": "A feeder abandons the dead and claws its way around the flesh fold!",
+        "type": "info"
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_eclipse_feast_three_spent",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_eclipse_feast_three"
+        ],
+        "result": "f_berserk_eclipse_feast_three_spent"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_FEAST_THREE_SCAN",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "berserk_field_token"
+      },
+      "furniture": "f_berserk_eclipse_feast_three",
+      "target_min_radius": -1,
+      "target_max_radius": 3,
+      "true_eocs": [
+        "EOC_BERSERK_ECLIPSE_FEAST_THREE_START"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_FEAST_THREE_START",
+    "effect": [
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_field_token"
+        },
+        "output_var": {
+          "context_val": "berserk_field_spawn"
+        },
+        "x_adjust": 2,
+        "y_adjust": -5
+      },
+      {
+        "if": {
+          "not": {
+            "u_can_see_location": {
+              "context_val": "berserk_field_spawn"
+            }
+          }
+        },
+        "then": {
+          "u_spawn_monster": "mon_berserk_eclipse_halfbreed",
+          "target_var": {
+            "context_val": "berserk_field_spawn"
+          },
+          "real_count": 1,
+          "min_radius": 0,
+          "max_radius": 0,
+          "true_eocs": [
+            "EOC_BERSERK_ECLIPSE_FEAST_THREE_DONE"
+          ]
+        }
+      }
+    ],
+    "condition": {
+      "map_furniture_id": "f_berserk_eclipse_feast_three",
+      "loc": {
+        "context_val": "berserk_field_token"
+      }
+    },
+    "//": "Spawn one real creature at the fixed hidden pocket. Consume its map token only on success; an occupied or visible pocket retries on a later movement."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_FEAST_THREE_DONE",
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_eclipse_feast_three_spent",
+        "target_var": {
+          "context_val": "berserk_field_token"
+        }
+      },
+      {
+        "u_message": "A feeder abandons the dead and claws its way around the flesh fold!",
+        "type": "info"
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_eclipse_side_hunter_spent",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_eclipse_side_hunter"
+        ],
+        "result": "f_berserk_eclipse_side_hunter_spent"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_SIDE_HUNTER_SCAN",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "berserk_field_token"
+      },
+      "furniture": "f_berserk_eclipse_side_hunter",
+      "target_min_radius": -1,
+      "target_max_radius": 3,
+      "true_eocs": [
+        "EOC_BERSERK_ECLIPSE_SIDE_HUNTER_START"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_SIDE_HUNTER_START",
+    "effect": [
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_field_token"
+        },
+        "output_var": {
+          "context_val": "berserk_field_spawn"
+        },
+        "x_adjust": 5,
+        "y_adjust": -4
+      },
+      {
+        "if": {
+          "not": {
+            "u_can_see_location": {
+              "context_val": "berserk_field_spawn"
+            }
+          }
+        },
+        "then": {
+          "u_spawn_monster": "mon_berserk_eclipse_hunter",
+          "target_var": {
+            "context_val": "berserk_field_spawn"
+          },
+          "real_count": 1,
+          "min_radius": 0,
+          "max_radius": 0,
+          "true_eocs": [
+            "EOC_BERSERK_ECLIPSE_SIDE_HUNTER_DONE"
+          ]
+        }
+      }
+    ],
+    "condition": {
+      "map_furniture_id": "f_berserk_eclipse_side_hunter",
+      "loc": {
+        "context_val": "berserk_field_token"
+      }
+    },
+    "//": "Spawn one real creature at the fixed hidden pocket. Consume its map token only on success; an occupied or visible pocket retries on a later movement."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_SIDE_HUNTER_DONE",
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_eclipse_side_hunter_spent",
+        "target_var": {
+          "context_val": "berserk_field_token"
+        }
+      },
+      {
+        "u_message": "The lone hunter leaves its hollow. You hear its claws following the side trail.",
+        "type": "info"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_FIELD_ON_MOVE",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_CACHE_ONE_SCAN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_CACHE_TWO_SCAN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_FEAST_ONE_SCAN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_FEAST_TWO_SCAN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_FEAST_THREE_SCAN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_SIDE_HUNTER_SCAN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_GATE_WARNING_SCAN"
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": {
+      "and": [
+        {
+          "or": [
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_arrival"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_traces"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_cache"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_torn"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_crossroads"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_feast"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_hunt"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_ravine"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_approach"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_laststand"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_threshold"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_ceremony"
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_eclipse_shortcut_opened",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_eclipse_shortcut_block"
+        ],
+        "result": "f_null"
+      },
+      {
+        "valid_furniture": [
+          "f_berserk_eclipse_shortcut_edge"
+        ],
+        "result": "f_berserk_eclipse_shortcut_opened"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_SHORTCUT_OPEN",
+    "effect": {
+      "if": {
+        "u_query": "Pull the diaphragm aside? This takes five seconds.",
+        "default": false
+      },
+      "then": [
+        {
+          "u_transform_radius": 1,
+          "ter_furn_transform": "berserk_eclipse_shortcut_opened",
+          "target_var": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "turn_cost": "5 seconds"
+        },
+        {
+          "u_message": "The tissue parts. A short passage joins the scarred ground beyond.",
+          "type": "info"
+        }
+      ]
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_eclipse_shortcut_edge",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_PULSE_NORTH",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "berserk_field_artery"
+      },
+      "furniture": "f_berserk_eclipse_vein_north",
+      "target_min_radius": -1,
+      "target_max_radius": 35,
+      "true_eocs": [
+        "EOC_BERSERK_ECLIPSE_PULSE_SWAP"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_PULSE_FEAST",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "berserk_field_artery"
+      },
+      "furniture": "f_berserk_eclipse_vein_feast",
+      "target_min_radius": -1,
+      "target_max_radius": 35,
+      "true_eocs": [
+        "EOC_BERSERK_ECLIPSE_PULSE_SWAP"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_PULSE_CEREMONY",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "berserk_field_artery"
+      },
+      "furniture": "f_berserk_eclipse_vein_ceremony",
+      "target_min_radius": -1,
+      "target_max_radius": 35,
+      "true_eocs": [
+        "EOC_BERSERK_ECLIPSE_PULSE_SWAP"
+      ]
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_eclipse_vein_pulse",
+    "terrain": [
+      {
+        "valid_terrain": [
+          "t_berserk_eclipse_dim_vein"
+        ],
+        "result": "t_berserk_eclipse_pulsing_vein"
+      },
+      {
+        "valid_terrain": [
+          "t_berserk_eclipse_pulsing_vein"
+        ],
+        "result": "t_berserk_eclipse_dim_vein"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_PULSE_SWAP",
+    "effect": {
+      "u_transform_radius": 3,
+      "ter_furn_transform": "berserk_eclipse_vein_pulse",
+      "target_var": {
+        "context_val": "berserk_field_artery"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_FIELD_PULSE",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_PULSE_NORTH"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_PULSE_FEAST"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_PULSE_CEREMONY"
+      }
+    ],
+    "global": true,
+    "recurrence": "8 seconds",
+    "condition": {
+      "and": [
+        {
+          "or": [
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_arrival"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_traces"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_cache"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_torn"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_crossroads"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_feast"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_hunt"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_ravine"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_approach"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_laststand"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_threshold"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_ceremony"
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_eclipse_warning_seen",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_eclipse_ceremony_warning"
+        ],
+        "result": "f_berserk_eclipse_ceremony_warned"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_GATE_WARNING_SCAN",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "berserk_field_warning"
+      },
+      "furniture": "f_berserk_eclipse_ceremony_warning",
+      "target_min_radius": -1,
+      "target_max_radius": 5,
+      "true_eocs": [
+        "EOC_BERSERK_ECLIPSE_GATE_WARNING"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_GATE_WARNING",
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_eclipse_warning_seen",
+        "target_var": {
+          "context_val": "berserk_field_warning"
+        }
+      },
+      {
+        "u_message": "Beyond the pale ribs, a motionless figure watches the slaughter. The air is heavy; even the creatures fall silent near him.",
+        "type": "info",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_eclipse_cache_one_spent",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_eclipse_cache_one"
+        ],
+        "result": "f_berserk_eclipse_cache_one_spent"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_CACHE_ONE_SCAN",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "berserk_field_token"
+      },
+      "furniture": "f_berserk_eclipse_cache_one",
+      "target_min_radius": -1,
+      "target_max_radius": 3,
+      "true_eocs": [
+        "EOC_BERSERK_ECLIPSE_CACHE_ONE_START"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_CACHE_ONE_START",
+    "effect": [
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_field_token"
+        },
+        "output_var": {
+          "context_val": "berserk_field_spawn"
+        },
+        "x_adjust": -3,
+        "y_adjust": -4
+      },
+      {
+        "if": {
+          "not": {
+            "u_can_see_location": {
+              "context_val": "berserk_field_spawn"
+            }
+          }
+        },
+        "then": {
+          "u_spawn_monster": "mon_berserk_eclipse_wretch",
+          "target_var": {
+            "context_val": "berserk_field_spawn"
+          },
+          "real_count": 1,
+          "min_radius": 0,
+          "max_radius": 0,
+          "true_eocs": [
+            "EOC_BERSERK_ECLIPSE_CACHE_ONE_DONE"
+          ]
+        }
+      }
+    ],
+    "condition": {
+      "map_furniture_id": "f_berserk_eclipse_cache_one",
+      "loc": {
+        "context_val": "berserk_field_token"
+      }
+    },
+    "//": "Spawn one real creature at the fixed hidden pocket. Consume its map token only on success; an occupied or visible pocket retries on a later movement."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_CACHE_ONE_DONE",
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_eclipse_cache_one_spent",
+        "target_var": {
+          "context_val": "berserk_field_token"
+        }
+      },
+      {
+        "u_message": "Claws scrape around the ruined baggage as a small feeder leaves its hollow.",
+        "type": "info"
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_eclipse_cache_two_spent",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_eclipse_cache_two"
+        ],
+        "result": "f_berserk_eclipse_cache_two_spent"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_CACHE_TWO_SCAN",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "berserk_field_token"
+      },
+      "furniture": "f_berserk_eclipse_cache_two",
+      "target_min_radius": -1,
+      "target_max_radius": 3,
+      "true_eocs": [
+        "EOC_BERSERK_ECLIPSE_CACHE_TWO_START"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_CACHE_TWO_START",
+    "effect": [
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_field_token"
+        },
+        "output_var": {
+          "context_val": "berserk_field_spawn"
+        },
+        "x_adjust": -3,
+        "y_adjust": -4
+      },
+      {
+        "if": {
+          "not": {
+            "u_can_see_location": {
+              "context_val": "berserk_field_spawn"
+            }
+          }
+        },
+        "then": {
+          "u_spawn_monster": "mon_berserk_eclipse_wretch",
+          "target_var": {
+            "context_val": "berserk_field_spawn"
+          },
+          "real_count": 1,
+          "min_radius": 0,
+          "max_radius": 0,
+          "true_eocs": [
+            "EOC_BERSERK_ECLIPSE_CACHE_TWO_DONE"
+          ]
+        }
+      }
+    ],
+    "condition": {
+      "map_furniture_id": "f_berserk_eclipse_cache_two",
+      "loc": {
+        "context_val": "berserk_field_token"
+      }
+    },
+    "//": "Spawn one real creature at the fixed hidden pocket. Consume its map token only on success; an occupied or visible pocket retries on a later movement."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_CACHE_TWO_DONE",
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_eclipse_cache_two_spent",
+        "target_var": {
+          "context_val": "berserk_field_token"
+        }
+      },
+      {
+        "u_message": "Claws scrape around the ruined baggage as a small feeder leaves its hollow.",
+        "type": "info"
+      }
+    ]
+  }
+]

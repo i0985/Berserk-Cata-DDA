@@ -4,7 +4,7 @@
     "id": "EOC_BERSERK_ECLIPSE_ERA_ENTER_OMT",
     "eoc_type": "EVENT",
     "required_event": "avatar_enters_omt",
-    "//": "One entry seeds four adjacent overmap tiles. Each source tile runs once; a target can receive at most four city passes.",
+    "//": "v5: each target OMT gets one world-seeding attempt across all four approaches. v4 source history is preserved; its already-treated neighbors are not seeded again. No density increase or deletion of existing monsters.",
     "condition": {
       "and": [
         {
@@ -65,6 +65,19 @@
         },
         "then": [
           {
+            "set_string_var": "g_berserk_eclipse_era_source_v5_<context_val:pos>",
+            "target_var": {
+              "context_val": "berserk_era_source_v5_key"
+            },
+            "parse_tags": true
+          },
+          {
+            "set_string_var": "1",
+            "target_var": {
+              "var_val": "berserk_era_source_v5_key"
+            }
+          },
+          {
             "set_string_var": "1",
             "target_var": {
               "var_val": "berserk_era_omt_key"
@@ -103,7 +116,10 @@
             }
           },
           {
-            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_SEED_EAST"
+            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_TARGET_ONCE",
+            "variables": {
+              "berserk_era_seed_eoc": "EOC_BERSERK_ECLIPSE_ERA_SEED_EAST"
+            }
           },
           {
             "u_location_variable": {
@@ -138,7 +154,10 @@
             }
           },
           {
-            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_SEED_WEST"
+            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_TARGET_ONCE",
+            "variables": {
+              "berserk_era_seed_eoc": "EOC_BERSERK_ECLIPSE_ERA_SEED_WEST"
+            }
           },
           {
             "u_location_variable": {
@@ -173,7 +192,10 @@
             }
           },
           {
-            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_SEED_SOUTH"
+            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_TARGET_ONCE",
+            "variables": {
+              "berserk_era_seed_eoc": "EOC_BERSERK_ECLIPSE_ERA_SEED_SOUTH"
+            }
           },
           {
             "u_location_variable": {
@@ -208,7 +230,10 @@
             }
           },
           {
-            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_SEED_NORTH"
+            "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_TARGET_ONCE",
+            "variables": {
+              "berserk_era_seed_eoc": "EOC_BERSERK_ECLIPSE_ERA_SEED_NORTH"
+            }
           }
         ]
       }
@@ -231,12 +256,19 @@
         }
       ]
     },
-    "effect": {
-      "mapgen_update": "berserk_eclipse_era_city_east",
-      "target_var": {
-        "context_val": "berserk_era_neighbor"
+    "effect": [
+      {
+        "math": [
+          "berserk_era_patch_requests_total += 1"
+        ]
+      },
+      {
+        "mapgen_update": "berserk_eclipse_era_city_east",
+        "target_var": {
+          "context_val": "berserk_era_neighbor"
+        }
       }
-    },
+    ],
     "false_effect": {
       "if": {
         "and": [
@@ -253,12 +285,19 @@
           }
         ]
       },
-      "then": {
-        "mapgen_update": "berserk_eclipse_era_wild_east",
-        "target_var": {
-          "context_val": "berserk_era_neighbor"
+      "then": [
+        {
+          "math": [
+            "berserk_era_patch_requests_total += 1"
+          ]
+        },
+        {
+          "mapgen_update": "berserk_eclipse_era_wild_east",
+          "target_var": {
+            "context_val": "berserk_era_neighbor"
+          }
         }
-      }
+      ]
     }
   },
   {
@@ -278,12 +317,19 @@
         }
       ]
     },
-    "effect": {
-      "mapgen_update": "berserk_eclipse_era_city_west",
-      "target_var": {
-        "context_val": "berserk_era_neighbor"
+    "effect": [
+      {
+        "math": [
+          "berserk_era_patch_requests_total += 1"
+        ]
+      },
+      {
+        "mapgen_update": "berserk_eclipse_era_city_west",
+        "target_var": {
+          "context_val": "berserk_era_neighbor"
+        }
       }
-    },
+    ],
     "false_effect": {
       "if": {
         "and": [
@@ -300,12 +346,19 @@
           }
         ]
       },
-      "then": {
-        "mapgen_update": "berserk_eclipse_era_wild_west",
-        "target_var": {
-          "context_val": "berserk_era_neighbor"
+      "then": [
+        {
+          "math": [
+            "berserk_era_patch_requests_total += 1"
+          ]
+        },
+        {
+          "mapgen_update": "berserk_eclipse_era_wild_west",
+          "target_var": {
+            "context_val": "berserk_era_neighbor"
+          }
         }
-      }
+      ]
     }
   },
   {
@@ -325,12 +378,19 @@
         }
       ]
     },
-    "effect": {
-      "mapgen_update": "berserk_eclipse_era_city_south",
-      "target_var": {
-        "context_val": "berserk_era_neighbor"
+    "effect": [
+      {
+        "math": [
+          "berserk_era_patch_requests_total += 1"
+        ]
+      },
+      {
+        "mapgen_update": "berserk_eclipse_era_city_south",
+        "target_var": {
+          "context_val": "berserk_era_neighbor"
+        }
       }
-    },
+    ],
     "false_effect": {
       "if": {
         "and": [
@@ -347,12 +407,19 @@
           }
         ]
       },
-      "then": {
-        "mapgen_update": "berserk_eclipse_era_wild_south",
-        "target_var": {
-          "context_val": "berserk_era_neighbor"
+      "then": [
+        {
+          "math": [
+            "berserk_era_patch_requests_total += 1"
+          ]
+        },
+        {
+          "mapgen_update": "berserk_eclipse_era_wild_south",
+          "target_var": {
+            "context_val": "berserk_era_neighbor"
+          }
         }
-      }
+      ]
     }
   },
   {
@@ -372,12 +439,19 @@
         }
       ]
     },
-    "effect": {
-      "mapgen_update": "berserk_eclipse_era_city_north",
-      "target_var": {
-        "context_val": "berserk_era_neighbor"
+    "effect": [
+      {
+        "math": [
+          "berserk_era_patch_requests_total += 1"
+        ]
+      },
+      {
+        "mapgen_update": "berserk_eclipse_era_city_north",
+        "target_var": {
+          "context_val": "berserk_era_neighbor"
+        }
       }
-    },
+    ],
     "false_effect": {
       "if": {
         "and": [
@@ -394,12 +468,19 @@
           }
         ]
       },
-      "then": {
-        "mapgen_update": "berserk_eclipse_era_wild_north",
-        "target_var": {
-          "context_val": "berserk_era_neighbor"
+      "then": [
+        {
+          "math": [
+            "berserk_era_patch_requests_total += 1"
+          ]
+        },
+        {
+          "mapgen_update": "berserk_eclipse_era_wild_north",
+          "target_var": {
+            "context_val": "berserk_era_neighbor"
+          }
         }
-      }
+      ]
     }
   },
   {
@@ -412,12 +493,87 @@
         ]
       },
       {
+        "math": [
+          "berserk_spawn_brand_nearby = 0"
+        ]
+      },
+      {
+        "math": [
+          "berserk_spawn_armor_nearby = 0"
+        ]
+      },
+      {
+        "math": [
+          "berserk_spawn_world_or_site_nearby = 0"
+        ]
+      },
+      {
         "u_run_monster_eocs": [
           {
             "id": "EOC_BERSERK_ECLIPSE_ERA_COUNT_ONE",
-            "effect": {
+            "effect": [
+              {
+                "math": [
+                  "berserk_era_nearby_count += 1"
+                ]
+              },
+              {
+                "if": {
+                  "or": [
+                    {
+                      "compare_string": [
+                        "brand",
+                        {
+                          "u_val": "berserk_spawn_source"
+                        }
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_monsters_nearby('mon_berserk_brand_wretch', 'mon_berserk_brand_halfbreed', 'mon_berserk_brand_hunter', 'mon_berserk_brand_butcher', 'radius': 0) > 0"
+                      ]
+                    }
+                  ]
+                },
+                "then": {
+                  "math": [
+                    "berserk_spawn_brand_nearby += 1"
+                  ]
+                },
+                "else": {
+                  "if": {
+                    "or": [
+                      {
+                        "compare_string": [
+                          "armor",
+                          {
+                            "u_val": "berserk_spawn_source"
+                          }
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_monsters_nearby('mon_beast_of_darkness_1', 'mon_beast_of_darkness_2', 'mon_beast_of_darkness_3', 'mon_beast_of_darkness_4', 'mon_beast_of_darkness_5', 'mon_beast_of_darkness_6', 'radius': 0) > 0"
+                        ]
+                      }
+                    ]
+                  },
+                  "then": {
+                    "math": [
+                      "berserk_spawn_armor_nearby += 1"
+                    ]
+                  },
+                  "else": {
+                    "math": [
+                      "berserk_spawn_world_or_site_nearby += 1"
+                    ]
+                  }
+                }
+              }
+            ],
+            "condition": {
               "math": [
-                "berserk_era_nearby_count += 1"
+                "u_hp('ALL') > 0"
               ]
             }
           }
@@ -450,9 +606,311 @@
           "mon_berserk_apostle_wyald",
           "mon_berserk_black_dog_thrall",
           "mon_berserk_apostle_rosine",
-          "mon_berserk_cocoon_ravager"
+          "mon_berserk_cocoon_ravager",
+          "mon_berserk_hollow_apostle",
+          "mon_berserk_breach_warden",
+          "mon_berserk_cursed_oak_guardian",
+          "mon_berserk_echo_cave_guardian",
+          "mon_berserk_eclipse_griffith_active",
+          "mon_berserk_chapel_guardian",
+          "mon_berserk_expedition_guardian",
+          "mon_berserk_brand_wretch",
+          "mon_berserk_brand_halfbreed",
+          "mon_berserk_brand_hunter",
+          "mon_berserk_brand_butcher"
         ],
-        "monster_range": 24
+        "monster_range": 44
+      }
+    ],
+    "//": "Loaded same-floor demons within 44 cells cover the full Brand spawn square even with circular-distance mode (30*sqrt(2)). Brand variants and new Brand/armor source tags are counted separately. Unmarked world/site/legacy demons share the remainder; native mapgen groups cannot carry source vars in 0.I-1. This is a local gate, not a global hard cap."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_ERA_TARGET_ONCE",
+    "//": "Native mapgen density is stochastic and groups can materialize later. This is a loaded-nearby gate, not a hard global monster cap. Mark an attempted target even if quiet or busy; never refill it by circling.",
+    "effect": [
+      {
+        "copy_var": {
+          "context_val": "berserk_era_neighbor"
+        },
+        "target_var": {
+          "context_val": "berserk_era_target_omt"
+        }
+      },
+      {
+        "math": [
+          "_berserk_era_target_omt.x = floor(_berserk_era_target_omt.x / 24)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_era_target_omt.y = floor(_berserk_era_target_omt.y / 24)"
+        ]
+      },
+      {
+        "set_string_var": "g_berserk_eclipse_era_target_v5_<context_val:berserk_era_target_omt>",
+        "target_var": {
+          "context_val": "berserk_era_target_key"
+        },
+        "parse_tags": true
+      },
+      {
+        "copy_var": {
+          "context_val": "berserk_era_target_omt"
+        },
+        "target_var": {
+          "context_val": "berserk_era_legacy_source_0"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_era_legacy_source_0"
+        },
+        "x_adjust": 1,
+        "y_adjust": 0
+      },
+      {
+        "set_string_var": "g_berserk_eclipse_era_omt_v4_<context_val:berserk_era_legacy_source_0>",
+        "target_var": {
+          "context_val": "berserk_era_legacy_source_0_v4"
+        },
+        "parse_tags": true
+      },
+      {
+        "set_string_var": "g_berserk_eclipse_era_source_v5_<context_val:berserk_era_legacy_source_0>",
+        "target_var": {
+          "context_val": "berserk_era_legacy_source_0_v5"
+        },
+        "parse_tags": true
+      },
+      {
+        "copy_var": {
+          "context_val": "berserk_era_target_omt"
+        },
+        "target_var": {
+          "context_val": "berserk_era_legacy_source_1"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_era_legacy_source_1"
+        },
+        "x_adjust": -1,
+        "y_adjust": 0
+      },
+      {
+        "set_string_var": "g_berserk_eclipse_era_omt_v4_<context_val:berserk_era_legacy_source_1>",
+        "target_var": {
+          "context_val": "berserk_era_legacy_source_1_v4"
+        },
+        "parse_tags": true
+      },
+      {
+        "set_string_var": "g_berserk_eclipse_era_source_v5_<context_val:berserk_era_legacy_source_1>",
+        "target_var": {
+          "context_val": "berserk_era_legacy_source_1_v5"
+        },
+        "parse_tags": true
+      },
+      {
+        "copy_var": {
+          "context_val": "berserk_era_target_omt"
+        },
+        "target_var": {
+          "context_val": "berserk_era_legacy_source_2"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_era_legacy_source_2"
+        },
+        "x_adjust": 0,
+        "y_adjust": 1
+      },
+      {
+        "set_string_var": "g_berserk_eclipse_era_omt_v4_<context_val:berserk_era_legacy_source_2>",
+        "target_var": {
+          "context_val": "berserk_era_legacy_source_2_v4"
+        },
+        "parse_tags": true
+      },
+      {
+        "set_string_var": "g_berserk_eclipse_era_source_v5_<context_val:berserk_era_legacy_source_2>",
+        "target_var": {
+          "context_val": "berserk_era_legacy_source_2_v5"
+        },
+        "parse_tags": true
+      },
+      {
+        "copy_var": {
+          "context_val": "berserk_era_target_omt"
+        },
+        "target_var": {
+          "context_val": "berserk_era_legacy_source_3"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_era_legacy_source_3"
+        },
+        "x_adjust": 0,
+        "y_adjust": -1
+      },
+      {
+        "set_string_var": "g_berserk_eclipse_era_omt_v4_<context_val:berserk_era_legacy_source_3>",
+        "target_var": {
+          "context_val": "berserk_era_legacy_source_3_v4"
+        },
+        "parse_tags": true
+      },
+      {
+        "set_string_var": "g_berserk_eclipse_era_source_v5_<context_val:berserk_era_legacy_source_3>",
+        "target_var": {
+          "context_val": "berserk_era_legacy_source_3_v5"
+        },
+        "parse_tags": true
+      },
+      {
+        "if": {
+          "not": {
+            "compare_string": [
+              "1",
+              {
+                "var_val": "berserk_era_target_key"
+              }
+            ]
+          }
+        },
+        "then": [
+          {
+            "set_string_var": "1",
+            "target_var": {
+              "var_val": "berserk_era_target_key"
+            }
+          },
+          {
+            "if": {
+              "not": {
+                "or": [
+                  {
+                    "and": [
+                      {
+                        "compare_string": [
+                          "1",
+                          {
+                            "var_val": "berserk_era_legacy_source_0_v4"
+                          }
+                        ]
+                      },
+                      {
+                        "not": {
+                          "compare_string": [
+                            "1",
+                            {
+                              "var_val": "berserk_era_legacy_source_0_v5"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      {
+                        "compare_string": [
+                          "1",
+                          {
+                            "var_val": "berserk_era_legacy_source_1_v4"
+                          }
+                        ]
+                      },
+                      {
+                        "not": {
+                          "compare_string": [
+                            "1",
+                            {
+                              "var_val": "berserk_era_legacy_source_1_v5"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      {
+                        "compare_string": [
+                          "1",
+                          {
+                            "var_val": "berserk_era_legacy_source_2_v4"
+                          }
+                        ]
+                      },
+                      {
+                        "not": {
+                          "compare_string": [
+                            "1",
+                            {
+                              "var_val": "berserk_era_legacy_source_2_v5"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  {
+                    "and": [
+                      {
+                        "compare_string": [
+                          "1",
+                          {
+                            "var_val": "berserk_era_legacy_source_3_v4"
+                          }
+                        ]
+                      },
+                      {
+                        "not": {
+                          "compare_string": [
+                            "1",
+                            {
+                              "var_val": "berserk_era_legacy_source_3_v5"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "then": [
+              {
+                "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_COUNT_NEARBY"
+              },
+              {
+                "if": {
+                  "and": [
+                    {
+                      "math": [
+                        "berserk_era_nearby_count < 8"
+                      ]
+                    },
+                    {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_APOSTLE_REGION_QUIET"
+                      }
+                    }
+                  ]
+                },
+                "then": {
+                  "run_eocs": {
+                    "context_val": "berserk_era_seed_eoc"
+                  }
+                }
+              }
+            ]
+          }
+        ]
       }
     ]
   }

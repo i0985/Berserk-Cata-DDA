@@ -38,7 +38,7 @@
       }
     },
     "false_effect": {
-      "u_message": "Grunbeld is a late hunt. Seal the Count, Wyald and Rosine's breaches first, then consult the journal on the surface. Finish any ongoing escape from Flora before following this trail.",
+      "u_message": "The remaining trails lead first to Flora. Consult her directions after closing the Count, Wyald and Rosine breaches; the road to Grunbeld continues beyond that meeting.",
       "type": "info",
       "popup": true
     },
@@ -100,6 +100,30 @@
           "math": [
             "berserk_flora_stage != 2"
           ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_flora_escaped == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_siege_state >= 5"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage == 3"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_grunbeld_site_registered == 1"
+              ]
+            }
+          ]
         }
       ]
     }
@@ -111,6 +135,11 @@
       {
         "if": {
           "or": [
+            {
+              "math": [
+                "u_berserk_site_grunbeld_placement_v31 != 1"
+              ]
+            },
             {
               "math": [
                 "has_var(u_berserk_site_grunbeld_search_origin) == 0"
@@ -130,6 +159,11 @@
             ]
           },
           {
+            "math": [
+              "u_berserk_site_grunbeld_placement_v31 = 1"
+            ]
+          },
+          {
             "u_location_variable": {
               "u_val": "berserk_site_grunbeld_search_origin"
             }
@@ -139,7 +173,7 @@
       {
         "if": {
           "math": [
-            "u_berserk_site_grunbeld_tries < 3"
+            "u_berserk_site_grunbeld_tries < 2"
           ]
         },
         "then": [
@@ -149,32 +183,80 @@
             ]
           },
           {
-            "u_location_variable": {
-              "context_val": "berserk_site_grunbeld_candidate"
+            "if": {
+              "math": [
+                "u_berserk_site_grunbeld_tries == 1"
+              ]
             },
-            "target_params": {
-              "om_terrain": "berserk_grunbeld_crucible",
-              "om_special": "berserk_grunbeld_stronghold_special",
-              "search_range": 45,
-              "random": true,
-              "z": 0,
-              "min_distance": 25
+            "then": {
+              "u_location_variable": {
+                "context_val": "berserk_site_grunbeld_candidate"
+              },
+              "target_params": {
+                "om_terrain": "berserk_grunbeld_crucible",
+                "random": false,
+                "min_distance": 0,
+                "z": 0
+              },
+              "true_eocs": [
+                "EOC_BERSERK_SITE_GRUNBELD_VALIDATE"
+              ],
+              "false_eocs": [
+                "EOC_BERSERK_SITE_GRUNBELD_FAILED"
+              ]
             },
-            "furniture": "f_berserk_grunbeld_breach",
-            "target_max_radius": 23,
-            "true_eocs": [
-              "EOC_BERSERK_SITE_GRUNBELD_VALIDATE"
-            ],
-            "false_eocs": [
-              "EOC_BERSERK_SITE_GRUNBELD_FAILED"
-            ]
+            "else": {
+              "u_location_variable": {
+                "context_val": "berserk_site_grunbeld_candidate"
+              },
+              "target_params": {
+                "om_terrain": "berserk_grunbeld_crucible",
+                "random": false,
+                "min_distance": 0,
+                "z": 0
+              },
+              "true_eocs": [
+                "EOC_BERSERK_SITE_GRUNBELD_VALIDATE"
+              ],
+              "false_eocs": [
+                "EOC_BERSERK_SITE_GRUNBELD_FAILED"
+              ]
+            }
           }
         ],
         "else": {
           "run_eocs": "EOC_BERSERK_SITE_GRUNBELD_MESSAGE"
         }
       }
-    ]
+    ],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_flora_escaped == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage == 3"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_grunbeld_site_registered == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -317,22 +399,8 @@
           ]
         },
         {
-          "and": [
-            {
-              "math": [
-                "berserk_hunt_count_state >= 4"
-              ]
-            },
-            {
-              "math": [
-                "berserk_hunt_wyald_state >= 4"
-              ]
-            },
-            {
-              "math": [
-                "berserk_hunt_rosine_state >= 4"
-              ]
-            }
+          "math": [
+            "berserk_flora_stage != 2"
           ]
         }
       ]
@@ -429,6 +497,11 @@
         {
           "math": [
             "u_val('pos_y') - floor(u_val('pos_y') / 24) * 24 <= 15"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage != 2"
           ]
         }
       ]
@@ -559,6 +632,11 @@
               ]
             }
           ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage != 2"
+          ]
         }
       ]
     },
@@ -572,6 +650,9 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GRUNBELD_ARRIVED",
     "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_WITHDRAW_GROVE"
+      },
       {
         "math": [
           "berserk_hunt_grunbeld_state = max(2, berserk_hunt_grunbeld_state)"
@@ -588,12 +669,27 @@
         ]
       },
       {
-        "u_message": "Grunbeld bars the crucible in his armored form. At half health his armor gives way to a dragon. Watch the visible preparations: leave the hammer reach, then use stone cover against the dragon's focused flame. Defeating the first form alone does not finish this hunt.",
+        "u_message": "Heavy footsteps sound beyond the broken stone. Grunbeld has entered the crucible. Leave room to retreat and watch his hammer before committing to an attack.",
         "type": "warning",
         "popup": true
       },
       {
         "run_eocs": "EOC_BERSERK_GRUNBELD_TAG_LOADED"
+      }
+    ],
+    "condition": {
+      "math": [
+        "u_monsters_nearby('mon_berserk_grunbeld_knight', 'radius': 60, 'attitude': 'both') > 0"
+      ]
+    },
+    "false_effect": [
+      {
+        "math": [
+          "berserk_hunt_grunbeld_spawned = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_PLACE_FAILED"
       }
     ]
   },
@@ -641,12 +737,14 @@
             }
           },
           {
-            "location_variable_adjust": {
-              "global_val": "berserk_hunt_grunbeld_location"
-            },
-            "overmap_tile": true,
-            "x_adjust": 0,
-            "y_adjust": 0
+            "math": [
+              "berserk_hunt_grunbeld_location.x = floor(berserk_hunt_grunbeld_location.x / 24) * 24"
+            ]
+          },
+          {
+            "math": [
+              "berserk_hunt_grunbeld_location.y = floor(berserk_hunt_grunbeld_location.y / 24) * 24"
+            ]
           },
           {
             "math": [
@@ -870,7 +968,8 @@
         },
         "then": {
           "u_spawn_item": "berserk_grunbeld_carapace_shard",
-          "count": 1
+          "count": 1,
+          "suppress_message": true
         }
       },
       {
@@ -946,7 +1045,7 @@
     "id": "EOC_BERSERK_GRUNBELD_INSCRIPTION",
     "effect": [
       {
-        "u_message": "A scorched campaign tablet names Grunbeld. The armored apostle is only the first form; the dragon's carapace resists blades and heat, but does not regenerate. Stone blocks the focused flame. Close the wound north of the crucible after his final defeat, then claim its shard. Beyond this hunt, return to a marked sealed site and protect your refuge.",
+        "u_message": "The gatehouse tablet names Grunbeld among the forces that broke the garrison. A later hand has scratched a warning below: \"We saw the armored giant vanish inside a shape like a burning dragon. Our shields softened; the old stone piers held. Take the wounded south.\" Ash has gathered in the grooves as though drawn toward the inner court.",
         "type": "info",
         "popup": true
       },
@@ -1045,13 +1144,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GRUNBELD_RECALL_GROVE",
     "effect": {
-      "u_run_monster_eocs": [
-        "EOC_BERSERK_GRUNBELD_LEAVE_GROVE"
-      ],
-      "mtype_ids": [
-        "mon_berserk_flora_grunbeld"
-      ],
-      "monster_range": 1000
+      "run_eocs": "EOC_BERSERK_GRUNBELD_WITHDRAW_GROVE"
     },
     "condition": {
       "and": [
@@ -1063,6 +1156,30 @@
         {
           "math": [
             "berserk_flora_stage != 2"
+          ]
+        },
+        {
+          "math": [
+            "has_var(berserk_flora_center)"
+          ]
+        },
+        {
+          "math": [
+            "distance('u', berserk_flora_center) > 72"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "berserk_flora_siege_v2 != 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_fire_phase >= 4"
+              ]
+            }
           ]
         }
       ]
@@ -1096,6 +1213,30 @@
           "math": [
             "berserk_flora_stage != 2"
           ]
+        },
+        {
+          "math": [
+            "has_var(berserk_flora_center)"
+          ]
+        },
+        {
+          "math": [
+            "distance('u', berserk_flora_center) > 72"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "berserk_flora_siege_v2 != 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_fire_phase >= 4"
+              ]
+            }
+          ]
         }
       ]
     },
@@ -1105,33 +1246,73 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GRUNBELD_TAG_KNIGHT",
-    "effect": {
-      "u_add_effect": "berserk_grunbeld_knight_form",
-      "duration": "PERMANENT"
-    },
-    "condition": {
-      "not": {
-        "u_has_effect": "berserk_grunbeld_knight_form"
+    "effect": [
+      {
+        "u_location_variable": {
+          "global_val": "berserk_hunt_grunbeld_last_position"
+        }
+      },
+      {
+        "math": [
+          "berserk_hunt_grunbeld_presence_confirmed = 1"
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_grunbeld_last_seen = time('now')"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_effect": "berserk_grunbeld_knight_form"
+          }
+        },
+        "then": [
+          {
+            "u_add_effect": "berserk_grunbeld_knight_form",
+            "duration": "PERMANENT"
+          }
+        ]
       }
-    }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GRUNBELD_TAG_DRAGON",
     "effect": [
       {
-        "u_add_effect": "berserk_grunbeld_dragon_form",
-        "duration": "PERMANENT"
+        "u_location_variable": {
+          "global_val": "berserk_hunt_grunbeld_last_position"
+        }
       },
       {
-        "turn_cost": "3 seconds"
+        "math": [
+          "berserk_hunt_grunbeld_presence_confirmed = 1"
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_grunbeld_last_seen = time('now')"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_effect": "berserk_grunbeld_dragon_form"
+          }
+        },
+        "then": [
+          {
+            "u_add_effect": "berserk_grunbeld_dragon_form",
+            "duration": "PERMANENT"
+          },
+          {
+            "turn_cost": "3 seconds"
+          }
+        ]
       }
-    ],
-    "condition": {
-      "not": {
-        "u_has_effect": "berserk_grunbeld_dragon_form"
-      }
-    }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -1502,34 +1683,6 @@
           "math": [
             "berserk_hunt_grunbeld_site_registered != 1"
           ]
-        },
-        {
-          "or": [
-            {
-              "and": [
-                {
-                  "math": [
-                    "berserk_hunt_count_state >= 4"
-                  ]
-                },
-                {
-                  "math": [
-                    "berserk_hunt_wyald_state >= 4"
-                  ]
-                },
-                {
-                  "math": [
-                    "berserk_hunt_rosine_state >= 4"
-                  ]
-                }
-              ]
-            },
-            {
-              "math": [
-                "berserk_apostle_grunbeld_dead == 1"
-              ]
-            }
-          ]
         }
       ]
     },
@@ -1562,6 +1715,77 @@
       },
       {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_WITHDRAW_GROVE",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_apostle_grunbeld_dead != 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "berserk_flora_stage >= 3"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_flora_escaped == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "berserk_grunbeld_grove_withdrawn = 1"
+        ]
+      },
+      {
+        "u_run_monster_eocs": [
+          "EOC_BERSERK_GRUNBELD_WITHDRAW_ACTOR"
+        ],
+        "mtype_ids": [
+          "mon_berserk_flora_grunbeld"
+        ],
+        "monster_range": 1000
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRUNBELD_WITHDRAW_ACTOR",
+    "condition": {
+      "and": [
+        "u_is_monster",
+        {
+          "math": [
+            "berserk_apostle_grunbeld_dead != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "berserk_grunbeld_grove_withdrawn = 1"
+        ]
+      },
+      {
+        "u_die": {
+          "remove_from_creature_tracker": true,
+          "remove_corpse": true,
+          "supress_message": true
+        }
       }
     ]
   }

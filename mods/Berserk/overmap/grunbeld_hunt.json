@@ -75,8 +75,8 @@
     "type": "overmap_special",
     "id": "berserk_grunbeld_stronghold_special",
     "occurrences": [
-      0,
-      100
+      1,
+      1
     ],
     "flags": [
       "GLOBALLY_UNIQUE"
@@ -91,7 +91,7 @@
         ],
         "overmap": "berserk_grunbeld_approach",
         "locations": [
-          "forest"
+          "wilderness"
         ]
       },
       {
@@ -102,7 +102,7 @@
         ],
         "overmap": "berserk_grunbeld_ramparts",
         "locations": [
-          "forest"
+          "wilderness"
         ]
       },
       {
@@ -113,7 +113,7 @@
         ],
         "overmap": "berserk_grunbeld_quarry",
         "locations": [
-          "forest"
+          "wilderness"
         ]
       },
       {
@@ -124,7 +124,7 @@
         ],
         "overmap": "berserk_grunbeld_barracks",
         "locations": [
-          "forest"
+          "wilderness"
         ]
       },
       {
@@ -135,7 +135,7 @@
         ],
         "overmap": "berserk_grunbeld_ruins",
         "locations": [
-          "forest"
+          "wilderness"
         ]
       },
       {
@@ -146,9 +146,10 @@
         ],
         "overmap": "berserk_grunbeld_crucible",
         "locations": [
-          "forest"
+          "wilderness"
         ]
       }
-    ]
+    ],
+    "//": "One globally unique site requested during normal overmap generation. Quest clues find existing terrain; they never force-place a nearby copy. Existing saved sites keep their coordinates. Distances are soft design targets."
   }
 ]

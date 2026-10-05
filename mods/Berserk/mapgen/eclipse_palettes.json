@@ -8,7 +8,11 @@
     "symbol": ".",
     "color": "red",
     "move_cost": 3,
-    "flags": [ "TRANSPARENT", "SUPPORTS_ROOF", "FLAT" ]
+    "flags": [
+      "TRANSPARENT",
+      "SUPPORTS_ROOF",
+      "FLAT"
+    ]
   },
   {
     "type": "terrain",
@@ -53,6 +57,77 @@
     "looks_like": "t_concrete_wall_flesh"
   },
   {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_bruised_flesh",
+    "copy-from": "t_berserk_eclipse_open_flesh",
+    "name": "bruised living ground",
+    "description": "Broad purple scars cross the yielding surface.",
+    "color": "magenta"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_sinew_ground",
+    "copy-from": "t_berserk_eclipse_open_flesh",
+    "name": "exposed sinews",
+    "description": "Bundles of pale sinews run toward the ceremony like stretched cords.",
+    "color": "light_gray"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_face_boundary",
+    "copy-from": "t_berserk_eclipse_ridge",
+    "name": "wall of enormous faces",
+    "description": "Closed eyes and mouths merge into a vast, impassable boundary.",
+    "symbol": "8"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_body_boundary",
+    "copy-from": "t_berserk_eclipse_ridge",
+    "name": "entwined bodies",
+    "description": "Interlocked bodies rise beyond the field. There is no path through them."
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_godhand_presence",
+    "copy-from": "t_berserk_eclipse_ridge",
+    "name": "distant God Hand silhouette",
+    "description": "An immense, silent presence watches the ceremony beyond the reach of any weapon. This is no ordinary apostle.",
+    "symbol": "&",
+    "color": "dark_gray"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_pulsing_vein",
+    "copy-from": "t_berserk_eclipse_dim_vein",
+    "name": "swelling luminous vein",
+    "description": "A slow pulse lights the surrounding flesh, then recedes.",
+    "light_emitted": 35
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_open_chasm",
+    "name": "open cleft in the living ground",
+    "description": "The flesh has pulled apart into a dark, unmistakable cleft. Firm ground continues around its edges; it cannot be crossed on foot.",
+    "looks_like": "t_pit",
+    "symbol": "0",
+    "color": "dark_gray",
+    "move_cost": 0,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_chasm_lip",
+    "copy-from": "t_berserk_eclipse_trampled_flesh",
+    "name": "ragged cleft edge",
+    "description": "Torn pale tissue outlines the dark opening. The rim is firm enough to walk along, with room to choose a way around.",
+    "looks_like": "t_thconc_floor_flesh",
+    "symbol": ":",
+    "color": "light_gray"
+  },
+  {
     "type": "palette",
     "id": "berserk_eclipse_flesh_palette",
     "terrain": {
@@ -73,7 +148,26 @@
       "H": "t_berserk_eclipse_open_flesh",
       "F": "t_berserk_eclipse_open_flesh",
       "W": "t_berserk_eclipse_open_flesh",
-      "R": "t_berserk_eclipse_open_flesh"
+      "R": "t_berserk_eclipse_open_flesh",
+      ",": "t_berserk_eclipse_bruised_flesh",
+      ";": "t_berserk_eclipse_sinew_ground",
+      "%": "t_berserk_eclipse_face_boundary",
+      "&": "t_berserk_eclipse_body_boundary",
+      "@": "t_berserk_eclipse_godhand_presence",
+      "1": "t_berserk_eclipse_open_flesh",
+      "2": "t_berserk_eclipse_open_flesh",
+      "3": "t_berserk_eclipse_open_flesh",
+      "4": "t_berserk_eclipse_open_flesh",
+      "B": "t_berserk_eclipse_open_flesh",
+      "O": "t_berserk_eclipse_open_flesh",
+      "!": "t_berserk_eclipse_open_flesh",
+      "q": "t_berserk_eclipse_dim_vein",
+      "s": "t_berserk_eclipse_dim_vein",
+      "t": "t_berserk_eclipse_dim_vein",
+      "p": "t_berserk_eclipse_open_chasm",
+      "l": "t_berserk_eclipse_chasm_lip",
+      "5": "t_berserk_eclipse_open_flesh",
+      "6": "t_berserk_eclipse_open_flesh"
     },
     "furniture": {
       "S": "f_berserk_eclipse_arrival_scar",
@@ -85,7 +179,19 @@
       "H": "f_berserk_eclipse_chase_scene",
       "F": "f_berserk_eclipse_feast_scene",
       "W": "f_berserk_eclipse_final_warning",
-      "R": "f_berserk_eclipse_escape_rift"
+      "R": "f_berserk_eclipse_escape_rift",
+      "1": "f_berserk_eclipse_feast_one",
+      "2": "f_berserk_eclipse_feast_two",
+      "3": "f_berserk_eclipse_feast_three",
+      "4": "f_berserk_eclipse_side_hunter",
+      "B": "f_berserk_eclipse_shortcut_block",
+      "O": "f_berserk_eclipse_shortcut_edge",
+      "q": "f_berserk_eclipse_vein_north",
+      "s": "f_berserk_eclipse_vein_feast",
+      "t": "f_berserk_eclipse_vein_ceremony",
+      "!": "f_berserk_eclipse_ceremony_warning",
+      "5": "f_berserk_eclipse_cache_one",
+      "6": "f_berserk_eclipse_cache_two"
     }
   }
 ]

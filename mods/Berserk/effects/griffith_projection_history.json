@@ -1,0 +1,24 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GRIFFITH_PROJECTION_DIES",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            "has_alpha",
+            "u_is_avatar"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_griffith_projection_defeated = 1"
+          ]
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_BEHELIT_BOSS_DIES"
+      }
+    ]
+  }
+]

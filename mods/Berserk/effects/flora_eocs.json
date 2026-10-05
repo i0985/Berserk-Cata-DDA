@@ -79,8 +79,17 @@
           }
         },
         {
-          "math": [
-            "berserk_flora_stage == 1"
+          "and": [
+            {
+              "math": [
+                "berserk_flora_stage <= 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_siege_state <= 1"
+              ]
+            }
           ]
         }
       ]
@@ -91,7 +100,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_SEEK",
     "false_effect": {
-      "u_message": "Recover after the Eclipse and complete the first hunt, then ask the Skull Knight about Flora above ground.",
+      "u_message": "Follow the Count, Wyald and Rosine trails and close their breaches. The surviving records will lead you to Flora. A grove you have already found remains known.",
       "type": "info",
       "popup": true
     },
@@ -100,26 +109,33 @@
         {
           "and": [
             {
-              "math": [
-                "berserk_eclipse_era == 1"
+              "and": [
+                {
+                  "math": [
+                    "berserk_eclipse_era == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                }
               ]
             },
             {
               "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_val('pos_z') == 0"
               ]
             }
           ]
         },
         {
-          "math": [
-            "u_berserk_first_hunt_done == 1"
-          ]
-        },
-        {
-          "math": [
-            "u_val('pos_z') == 0"
-          ]
+          "test_eoc": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE"
         }
       ]
     },
@@ -135,6 +151,9 @@
             "math": [
               "berserk_flora_stage >= 1"
             ]
+          },
+          {
+            "test_eoc": "EOC_BERSERK_FLORA_KNOWN_MANOR_VALID"
           }
         ]
       },
@@ -146,31 +165,19 @@
           "radius": 1
         },
         {
-          "if": {
-            "math": [
-              "berserk_flora_stage == 3"
-            ]
-          },
-          "then": {
-            "u_message": "Flora's burned manor is marked on your map. Its protection and peaceful meeting are gone. Recover at your refuge and follow your remaining hunts.",
-            "type": "info",
-            "popup": true
-          },
-          "else": {
-            "u_message": "Flora's manor is marked on your map. She can explain the Brand and the armor even if you already own a complete set.",
-            "type": "info",
-            "popup": true
-          }
-        },
-        {
-          "run_eocs": "EOC_BERSERK_FLORA_PROGRESS_REPORT"
-        },
-        {
           "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
         }
       ],
       "else": {
-        "run_eocs": "EOC_BERSERK_FLORA_FIND"
+        "if": {
+          "math": [
+            "berserk_flora_stage >= 2"
+          ]
+        },
+        "then": [],
+        "else": {
+          "run_eocs": "EOC_BERSERK_FLORA_FIND"
+        }
       }
     }
   },
@@ -181,6 +188,11 @@
       {
         "if": {
           "or": [
+            {
+              "math": [
+                "u_berserk_site_flora_placement_v31 != 1"
+              ]
+            },
             {
               "math": [
                 "has_var(u_berserk_site_flora_search_origin) == 0"
@@ -200,6 +212,11 @@
             ]
           },
           {
+            "math": [
+              "u_berserk_site_flora_placement_v31 = 1"
+            ]
+          },
+          {
             "u_location_variable": {
               "u_val": "berserk_site_flora_search_origin"
             }
@@ -209,7 +226,7 @@
       {
         "if": {
           "math": [
-            "u_berserk_site_flora_tries < 3"
+            "u_berserk_site_flora_tries < 2"
           ]
         },
         "then": [
@@ -219,48 +236,73 @@
             ]
           },
           {
-            "u_location_variable": {
-              "context_val": "berserk_site_flora_candidate"
+            "if": {
+              "math": [
+                "u_berserk_site_flora_tries == 1"
+              ]
             },
-            "target_params": {
-              "om_terrain": "berserk_flora_manor_west",
-              "om_special": "berserk_flora_manor_special",
-              "random": true,
-              "search_range": 30,
-              "z": 0,
-              "min_distance": 15
+            "then": {
+              "u_location_variable": {
+                "context_val": "berserk_site_flora_candidate"
+              },
+              "target_params": {
+                "om_terrain": "berserk_flora_manor_west",
+                "random": false,
+                "min_distance": 0,
+                "z": 0
+              },
+              "true_eocs": [
+                "EOC_BERSERK_SITE_FLORA_VALIDATE"
+              ],
+              "false_eocs": [
+                "EOC_BERSERK_SITE_FLORA_FAILED"
+              ]
             },
-            "furniture": "f_berserk_flora_ward",
-            "target_max_radius": 23,
-            "true_eocs": [
-              "EOC_BERSERK_SITE_FLORA_VALIDATE"
-            ],
-            "false_eocs": [
-              "EOC_BERSERK_SITE_FLORA_FAILED"
-            ]
+            "else": {
+              "u_location_variable": {
+                "context_val": "berserk_site_flora_candidate"
+              },
+              "target_params": {
+                "om_terrain": "berserk_flora_manor_west",
+                "random": false,
+                "min_distance": 0,
+                "z": 0
+              },
+              "true_eocs": [
+                "EOC_BERSERK_SITE_FLORA_VALIDATE"
+              ],
+              "false_eocs": [
+                "EOC_BERSERK_SITE_FLORA_FAILED"
+              ]
+            }
           }
         ],
         "else": {
           "run_eocs": "EOC_BERSERK_SITE_FLORA_MESSAGE"
         }
       }
-    ]
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE"
+    }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_FOUND",
     "effect": [
       {
-        "location_variable_adjust": {
-          "global_val": "berserk_flora_location"
-        },
-        "overmap_tile": true,
-        "x_adjust": 0,
-        "y_adjust": 0
+        "math": [
+          "berserk_flora_location.x = floor(berserk_flora_location.x / 24) * 24"
+        ]
       },
       {
         "math": [
-          "berserk_flora_stage = 1"
+          "berserk_flora_location.y = floor(berserk_flora_location.y / 24) * 24"
+        ]
+      },
+      {
+        "math": [
+          "berserk_flora_stage = max(berserk_flora_stage, 1)"
         ]
       },
       {
@@ -273,15 +315,26 @@
         "radius": 1
       },
       {
-        "u_message": "A sheltered forest manor is marked on your map. Flora waits in the western study. Follow the garden paths; the house has western and southern exits.",
-        "type": "info",
-        "popup": true
-      },
-      {
-        "run_eocs": "EOC_BERSERK_FLORA_PROGRESS_REPORT"
-      },
-      {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_flora_route_announced != 1"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_flora_route_announced = 1"
+            ]
+          },
+          {
+            "u_message": "The directions lead to a sheltered grove. Flora tends the spiritual tree there; its location is marked on your map.",
+            "type": "info",
+            "popup": false
+          }
+        ]
       }
     ]
   },
@@ -334,6 +387,12 @@
     },
     "effect": [
       {
+        "run_eocs": "EOC_BERSERK_FLORA_REGISTER_HERE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_SYNC_MANOR_CENTER"
+      },
+      {
         "math": [
           "berserk_flora_armor_claimed = 1"
         ]
@@ -351,7 +410,8 @@
         },
         "then": {
           "u_spawn_item": "berserk_helmet",
-          "count": 1
+          "count": 1,
+          "suppress_message": true
         }
       },
       {
@@ -362,7 +422,8 @@
         },
         "then": {
           "u_spawn_item": "berserk_chestplate",
-          "count": 1
+          "count": 1,
+          "suppress_message": true
         }
       },
       {
@@ -373,7 +434,8 @@
         },
         "then": {
           "u_spawn_item": "berserk_gloves",
-          "count": 1
+          "count": 1,
+          "suppress_message": true
         }
       },
       {
@@ -384,7 +446,8 @@
         },
         "then": {
           "u_spawn_item": "berserk_armguards",
-          "count": 1
+          "count": 1,
+          "suppress_message": true
         }
       },
       {
@@ -395,7 +458,8 @@
         },
         "then": {
           "u_spawn_item": "berserk_legguards",
-          "count": 1
+          "count": 1,
+          "suppress_message": true
         }
       },
       {
@@ -406,13 +470,9 @@
         },
         "then": {
           "u_spawn_item": "berserk_boots",
-          "count": 1
+          "count": 1,
+          "suppress_message": true
         }
-      },
-      {
-        "u_message": "Flora gives you the missing pieces of Berserker armor. Existing pieces are kept. The gift is offered once; check your inventory and the floor if you cannot carry it all. Nothing forces you to wear it.",
-        "type": "good",
-        "popup": true
       }
     ]
   },
@@ -471,19 +531,19 @@
         {
           "or": [
             {
-              "u_near_om_location": "berserk_flora_manor_west",
+              "u_near_om_location": "berserk_flora_manor",
               "range": 1
             },
             {
-              "u_near_om_location": "berserk_flora_manor_east",
+              "u_near_om_location": "berserk_flora_manor",
               "range": 1
             },
             {
-              "u_near_om_location": "berserk_flora_garden_west",
+              "u_near_om_location": "berserk_flora_garden",
               "range": 1
             },
             {
-              "u_near_om_location": "berserk_flora_garden_east",
+              "u_near_om_location": "berserk_flora_garden",
               "range": 1
             }
           ]
@@ -585,7 +645,19 @@
       {
         "run_eocs": "EOC_BERSERK_FLORA_SEEK"
       }
-    ]
+    ],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE"
+        }
+      ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -606,16 +678,10 @@
         {
           "or": [
             {
-              "npc_at_om_location": "berserk_flora_manor_west"
+              "npc_at_om_location": "berserk_flora_manor"
             },
             {
-              "npc_at_om_location": "berserk_flora_manor_east"
-            },
-            {
-              "npc_at_om_location": "berserk_flora_garden_west"
-            },
-            {
-              "npc_at_om_location": "berserk_flora_garden_east"
+              "npc_at_om_location": "berserk_flora_garden"
             }
           ]
         },
@@ -632,83 +698,230 @@
         {
           "or": [
             {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FLORA_KNOWN_MANOR_VALID"
+              }
+            },
+            {
               "math": [
                 "berserk_flora_stage == 0"
               ]
-            },
-            {
-              "not": {
-                "math": [
-                  "has_var(berserk_flora_location)"
-                ]
-              }
             }
           ]
         }
       ]
     },
-    "effect": [
-      {
-        "npc_location_variable": {
-          "global_val": "berserk_flora_location"
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_FLORA_KNOWN_MANOR_VALID"
+      },
+      "then": [
+        {
+          "math": [
+            "berserk_flora_stage = max(berserk_flora_stage, 1)"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_FLORA_SYNC_MANOR_CENTER"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
         }
-      },
-      {
-        "location_variable_adjust": {
-          "global_val": "berserk_flora_location"
+      ],
+      "else": [
+        {
+          "npc_location_variable": {
+            "context_val": "berserk_flora_registration"
+          }
         },
-        "overmap_tile": true,
-        "x_adjust": 0,
-        "y_adjust": 0
-      },
-      {
-        "if": {
-          "npc_at_om_location": "berserk_flora_manor_east"
+        {
+          "math": [
+            "_berserk_flora_registration.x = floor(_berserk_flora_registration.x / 24) * 24"
+          ]
         },
-        "then": {
-          "location_variable_adjust": {
-            "global_val": "berserk_flora_location"
+        {
+          "math": [
+            "_berserk_flora_registration.y = floor(_berserk_flora_registration.y / 24) * 24"
+          ]
+        },
+        {
+          "copy_var": {
+            "context_val": "berserk_flora_registration"
           },
-          "overmap_tile": true,
-          "x_adjust": -1,
+          "target_var": {
+            "context_val": "berserk_flora_registration_west"
+          }
+        },
+        {
+          "location_variable_adjust": {
+            "context_val": "berserk_flora_registration_west"
+          },
+          "x_adjust": -24,
           "y_adjust": 0
-        }
-      },
-      {
-        "if": {
-          "npc_at_om_location": "berserk_flora_garden_west"
         },
-        "then": {
-          "location_variable_adjust": {
-            "global_val": "berserk_flora_location"
+        {
+          "if": {
+            "or": [
+              {
+                "and": [
+                  {
+                    "overmap_at_point": "berserk_flora_manor",
+                    "point": {
+                      "context_val": "berserk_flora_registration"
+                    }
+                  },
+                  {
+                    "overmap_at_point": "berserk_flora_manor",
+                    "point": {
+                      "context_val": "berserk_flora_registration_west"
+                    }
+                  }
+                ]
+              },
+              {
+                "and": [
+                  {
+                    "overmap_at_point": "berserk_flora_garden",
+                    "point": {
+                      "context_val": "berserk_flora_registration"
+                    }
+                  },
+                  {
+                    "overmap_at_point": "berserk_flora_garden",
+                    "point": {
+                      "context_val": "berserk_flora_registration_west"
+                    }
+                  }
+                ]
+              }
+            ]
           },
-          "overmap_tile": true,
+          "then": {
+            "location_variable_adjust": {
+              "context_val": "berserk_flora_registration"
+            },
+            "x_adjust": -24,
+            "y_adjust": 0
+          }
+        },
+        {
+          "if": {
+            "overmap_at_point": "berserk_flora_garden",
+            "point": {
+              "context_val": "berserk_flora_registration"
+            }
+          },
+          "then": {
+            "location_variable_adjust": {
+              "context_val": "berserk_flora_registration"
+            },
+            "x_adjust": 0,
+            "y_adjust": -24
+          }
+        },
+        {
+          "copy_var": {
+            "context_val": "berserk_flora_registration"
+          },
+          "target_var": {
+            "context_val": "berserk_flora_registration_east"
+          }
+        },
+        {
+          "location_variable_adjust": {
+            "context_val": "berserk_flora_registration_east"
+          },
+          "x_adjust": 24,
+          "y_adjust": 0
+        },
+        {
+          "copy_var": {
+            "context_val": "berserk_flora_registration"
+          },
+          "target_var": {
+            "context_val": "berserk_flora_registration_south"
+          }
+        },
+        {
+          "location_variable_adjust": {
+            "context_val": "berserk_flora_registration_south"
+          },
           "x_adjust": 0,
-          "y_adjust": -1
-        }
-      },
-      {
-        "if": {
-          "npc_at_om_location": "berserk_flora_garden_east"
+          "y_adjust": 24
         },
-        "then": {
-          "location_variable_adjust": {
-            "global_val": "berserk_flora_location"
+        {
+          "copy_var": {
+            "context_val": "berserk_flora_registration"
           },
-          "overmap_tile": true,
-          "x_adjust": -1,
-          "y_adjust": -1
+          "target_var": {
+            "context_val": "berserk_flora_registration_southeast"
+          }
+        },
+        {
+          "location_variable_adjust": {
+            "context_val": "berserk_flora_registration_southeast"
+          },
+          "x_adjust": 24,
+          "y_adjust": 24
+        },
+        {
+          "if": {
+            "and": [
+              {
+                "math": [
+                  "_berserk_flora_registration.z == 0"
+                ]
+              },
+              {
+                "overmap_at_point": "berserk_flora_manor",
+                "point": {
+                  "context_val": "berserk_flora_registration"
+                }
+              },
+              {
+                "overmap_at_point": "berserk_flora_manor",
+                "point": {
+                  "context_val": "berserk_flora_registration_east"
+                }
+              },
+              {
+                "overmap_at_point": "berserk_flora_garden",
+                "point": {
+                  "context_val": "berserk_flora_registration_south"
+                }
+              },
+              {
+                "overmap_at_point": "berserk_flora_garden",
+                "point": {
+                  "context_val": "berserk_flora_registration_southeast"
+                }
+              }
+            ]
+          },
+          "then": [
+            {
+              "copy_var": {
+                "context_val": "berserk_flora_registration"
+              },
+              "target_var": {
+                "global_val": "berserk_flora_location"
+              }
+            },
+            {
+              "math": [
+                "berserk_flora_stage = max(berserk_flora_stage, 1)"
+              ]
+            },
+            {
+              "run_eocs": "EOC_BERSERK_FLORA_SYNC_MANOR_CENTER"
+            },
+            {
+              "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+            }
+          ]
         }
-      },
-      {
-        "math": [
-          "berserk_flora_stage = 1"
-        ]
-      },
-      {
-        "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
-      }
-    ]
+      ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -719,6 +932,16 @@
       ]
     },
     "effect": [
+      {
+        "math": [
+          "berserk_flora_location.x = floor(berserk_flora_location.x / 24) * 24"
+        ]
+      },
+      {
+        "math": [
+          "berserk_flora_location.y = floor(berserk_flora_location.y / 24) * 24"
+        ]
+      },
       {
         "copy_var": {
           "global_val": "berserk_flora_location"
@@ -761,6 +984,12 @@
         "math": [
           "u_berserk_flora_met = 1"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_TREEHOUSE_REGISTER"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_ACKNOWLEDGE_ARMOR"
       }
     ]
   },
@@ -769,43 +998,23 @@
     "id": "EOC_BERSERK_FLORA_PROGRESS_REPORT",
     "effect": {
       "if": {
-        "or": [
-          {
-            "math": [
-              "berserk_flora_siege_state >= 5"
-            ]
-          },
-          {
-            "math": [
-              "berserk_flora_stage == 3"
-            ]
-          }
+        "math": [
+          "berserk_flora_stage >= 3"
         ]
       },
       "then": {
-        "u_message": "Flora's sanctuary has fallen. The escape is complete and the attack cannot be restarted. Recover at your refuge, then activate your apostle hunt journal to choose an unfinished trail.",
-        "type": "info",
-        "popup": true
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_REPORT"
       },
       "else": {
         "if": {
-          "or": [
-            {
-              "math": [
-                "berserk_flora_siege_state >= 2"
-              ]
-            },
-            {
-              "math": [
-                "berserk_flora_stage == 2"
-              ]
-            }
+          "math": [
+            "berserk_flora_siege_state >= 2"
           ]
         },
         "then": {
-          "u_message": "The attack on Flora's manor is underway. Leave by the western road or the southern garden, then go beyond the grove.",
-          "type": "info",
-          "popup": true
+          "u_message": "The grove is under attack. Leave by the western path or the southern garden.",
+          "type": "warning",
+          "popup": false
         },
         "else": {
           "if": {
@@ -814,29 +1023,42 @@
             ]
           },
           "then": {
-            "u_message": "Readiness is confirmed. Equip and pack what you need, then activate Flora's escape charm inside the registered manor. Until you confirm activation, the attack does not begin.",
+            "u_message": "Your charm is ready. Equip the armor and take your supplies; activate the charm in the grove when you decide to leave.",
             "type": "info",
-            "popup": true
+            "popup": false
           },
           "else": {
-            "if": {
-              "math": [
-                "u_berserk_flora_armor_resolved == 1"
-              ]
-            },
-            "then": {
-              "u_message": "You have already resolved the armor gift. To prepare the attack, speak to Flora and choose the separate readiness response for an armor owner. Receiving or wearing the armor does not confirm readiness.",
-              "type": "info",
-              "popup": true
-            },
-            "else": {
-              "u_message": "Speak to Flora in her manor. You can ask questions and receive the missing armor without beginning an attack. Readiness requires a separate dialogue confirmation.",
-              "type": "info",
-              "popup": true
-            }
+            "u_message": "Ask Flora about the Brand, the armor, and the help she can offer for your journey.",
+            "type": "info",
+            "popup": false
           }
         }
       }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_KNOWN_MANOR_VALID",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_flora_location)"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_location.z == 0"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_flora_manor",
+          "point": {
+            "global_val": "berserk_flora_location"
+          }
+        }
+      ]
     }
   }
 ]

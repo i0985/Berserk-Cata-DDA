@@ -5,7 +5,7 @@
     "terrain": {
       ".": "t_grass",
       ",": "t_dirt",
-      "#": "t_wall",
+      "#": "t_stone_masonry_wall_whitewashed",
       "_": "t_floor",
       "r": "t_floor",
       "b": "t_floor",
@@ -14,7 +14,9 @@
       "U": "t_stairs_up",
       "V": "t_stairs_down",
       "L": "t_berserk_echo_cave_glow",
-      "+": "t_door_c"
+      "+": "t_door_c",
+      "|": "t_bars",
+      "!": "t_door_bar_c"
     },
     "furniture": {
       "r": "f_rack",

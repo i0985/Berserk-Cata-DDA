@@ -1,0 +1,35 @@
+[
+  {
+    "type": "effect_type",
+    "id": "berserk_oak_root_ready",
+    "name": [
+      "Lifting a mass of roots"
+    ],
+    "desc": [
+      "The oak guardian is braced for a root sweep. Its direction is fixed; the disturbed earth will be struck in two seconds."
+    ],
+    "max_duration": "3 seconds",
+    "flags": [
+      "CANNOT_MOVE",
+      "CANNOT_ATTACK"
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_oak_root_tangle",
+    "name": [
+      "Roots caught around your feet"
+    ],
+    "desc": [
+      "Roots briefly hinder your movement. You can still move and fight."
+    ],
+    "rating": "bad",
+    "max_duration": "2 seconds",
+    "max_intensity": 1,
+    "base_mods": {
+      "speed_mod": [
+        -25
+      ]
+    }
+  }
+]

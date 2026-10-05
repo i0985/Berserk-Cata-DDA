@@ -60,6 +60,11 @@
           "or": [
             {
               "math": [
+                "u_berserk_site_breach_placement_v31 != 1"
+              ]
+            },
+            {
+              "math": [
                 "has_var(u_berserk_site_breach_search_origin) == 0"
               ]
             },
@@ -77,6 +82,11 @@
             ]
           },
           {
+            "math": [
+              "u_berserk_site_breach_placement_v31 = 1"
+            ]
+          },
+          {
             "u_location_variable": {
               "u_val": "berserk_site_breach_search_origin"
             }
@@ -86,7 +96,7 @@
       {
         "if": {
           "math": [
-            "u_berserk_site_breach_tries < 3"
+            "u_berserk_site_breach_tries < 2"
           ]
         },
         "then": [
@@ -96,23 +106,49 @@
             ]
           },
           {
-            "u_location_variable": {
-              "context_val": "berserk_site_breach_candidate"
+            "if": {
+              "math": [
+                "u_berserk_site_breach_tries == 1"
+              ]
             },
-            "target_params": {
-              "om_terrain": "berserk_local_breach",
-              "om_special": "berserk_local_breach_special",
-              "random": true,
-              "search_range": 12,
-              "z": 0,
-              "min_distance": 6
+            "then": {
+              "u_location_variable": {
+                "context_val": "berserk_site_breach_candidate"
+              },
+              "target_params": {
+                "om_terrain": "berserk_local_breach",
+                "om_special": "berserk_local_breach_special",
+                "search_range": 24,
+                "random": true,
+                "min_distance": 0,
+                "z": 0
+              },
+              "true_eocs": [
+                "EOC_BERSERK_SITE_BREACH_VALIDATE"
+              ],
+              "false_eocs": [
+                "EOC_BERSERK_SITE_BREACH_FAILED"
+              ]
             },
-            "true_eocs": [
-              "EOC_BERSERK_SITE_BREACH_VALIDATE"
-            ],
-            "false_eocs": [
-              "EOC_BERSERK_SITE_BREACH_FAILED"
-            ]
+            "else": {
+              "u_location_variable": {
+                "context_val": "berserk_site_breach_candidate"
+              },
+              "target_params": {
+                "om_terrain": "berserk_local_breach",
+                "om_special": "berserk_local_breach_special",
+                "search_range": 48,
+                "random": true,
+                "min_distance": 0,
+                "z": 0
+              },
+              "true_eocs": [
+                "EOC_BERSERK_SITE_BREACH_VALIDATE"
+              ],
+              "false_eocs": [
+                "EOC_BERSERK_SITE_BREACH_FAILED"
+              ]
+            }
           }
         ],
         "else": {
@@ -219,6 +255,47 @@
           "math": [
             "u_berserk_breach_sealed != 1"
           ]
+        },
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_open_breach",
+          "loc": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "or": [
+            {
+              "not": {
+                "math": [
+                  "has_var(u_berserk_local_breach_location)"
+                ]
+              }
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "floor(u_berserk_local_breach_location.x / 24) == floor(u_val('pos_x') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "floor(u_berserk_local_breach_location.y / 24) == floor(u_val('pos_y') / 24)"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_local_breach_location.z == u_val('pos_z')"
+                  ]
+                }
+              ]
+            }
+          ]
         }
       ]
     },
@@ -234,7 +311,7 @@
       }
     ],
     "false_effect": {
-      "u_message": "The breach cannot be closed while its guardian lives. Defeat it and return to the center.",
+      "u_message": "This breach cannot be sealed yet: its guardian must be defeated, this must be your recorded first breach, and you must examine the open wound beside you. A sealed breach grants nothing again.",
       "type": "warning"
     }
   },
@@ -246,72 +323,90 @@
         "u_berserk_breach_sealed == 1"
       ]
     },
-    "effect": {
-      "if": {
-        "u_query": "Consult the independent trails to Wyald and Rosine?",
-        "default": false
-      },
-      "then": [
-        {
-          "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
-        },
-        {
-          "run_eocs": "EOC_BERSERK_HUNT_JOURNAL_USE"
-        }
-      ],
-      "else": {
+    "effect": [
+      {
         "if": {
-          "u_query": "Follow the Skull Knight's remembered directions to Flora?",
+          "u_query": "Show the region quieted by the first sealed breach? No continues to the next-path choices.",
           "default": false
         },
         "then": {
-          "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
+          "run_eocs": "EOC_BERSERK_FIRST_BREACH_REPORT"
+        }
+      },
+      {
+        "if": {
+          "u_query": "Consult the independent trails to Wyald and Rosine?",
+          "default": false
         },
+        "then": [
+          {
+            "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_HUNT_JOURNAL_USE"
+          }
+        ],
         "else": {
           "if": {
-            "u_query": "Record a promise to defend a refuge and its people?",
-            "default": false
+            "and": [
+              {
+                "test_eoc": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE"
+              },
+              {
+                "u_query": "Follow the Skull Knight's remembered directions to Flora?",
+                "default": false
+              }
+            ]
           },
-          "then": [
-            {
-              "math": [
-                "u_berserk_path_choice = 1"
-              ]
-            },
-            {
-              "u_message": "You choose to protect a refuge and those who reach it. The journal keeps this intention for a future chapter.",
-              "type": "good",
-              "popup": true
-            }
-          ],
+          "then": {
+            "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
+          },
           "else": {
             "if": {
-              "u_query": "Record a vow to pursue the next apostle instead?",
+              "u_query": "Record a promise to defend a refuge and its people?",
               "default": false
             },
             "then": [
               {
                 "math": [
-                  "u_berserk_path_choice = 2"
+                  "u_berserk_path_choice = 1"
                 ]
               },
               {
-                "u_message": "You choose to pursue the next apostle. The journal now traces the Count's residence; you can return to this trail even if the Skull Knight has departed.",
+                "u_message": "You choose to protect a refuge and those who reach it. The journal keeps this intention for a future chapter.",
                 "type": "good",
                 "popup": true
-              },
-              {
-                "run_eocs": "EOC_BERSERK_COUNT_SEEK"
               }
             ],
             "else": {
-              "u_message": "You close the journal without changing your path.",
-              "type": "info"
+              "if": {
+                "u_query": "Record a vow to pursue the next apostle instead?",
+                "default": false
+              },
+              "then": [
+                {
+                  "math": [
+                    "u_berserk_path_choice = 2"
+                  ]
+                },
+                {
+                  "u_message": "You choose to pursue the next apostle. The journal now traces the Count's residence; you can return to this trail even if the Skull Knight has departed.",
+                  "type": "good",
+                  "popup": true
+                },
+                {
+                  "run_eocs": "EOC_BERSERK_COUNT_SEEK"
+                }
+              ],
+              "else": {
+                "u_message": "You close the journal without changing your path.",
+                "type": "info"
+              }
             }
           }
         }
       }
-    },
+    ],
     "false_effect": {
       "u_message": "The journal has no ending to record until the local breach is sealed.",
       "type": "info"
@@ -336,6 +431,9 @@
       ]
     },
     "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FIRST_BREACH_COOL"
+      },
       {
         "math": [
           "u_berserk_breach_sealed = 1"
@@ -373,7 +471,7 @@
         "count": 1
       },
       {
-        "u_message": "The wound turns to dark glass. New incursions weaken around this breach, but the demons already loose remain. A journal records what you have learned; choose your next path when ready.",
+        "u_message": "The moving crack cools into firm dark stone, and its heartbeat stops. New incursions are suppressed around this recorded breach, roughly two overmap tiles away; existing demons and your Brand remain. The journal can show this region again, then let you choose the next trail. Other apostles' breaches are unchanged.",
         "type": "good",
         "popup": true
       },

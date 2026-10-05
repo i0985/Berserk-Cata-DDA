@@ -29,6 +29,26 @@
         "topic": "TALK_BERSERK_SKULL_KNIGHT_PIPPIN"
       },
       {
+        "text": "Corkus clutched this scabbard. Was there ever a way out?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_corkus_scabbard_fragment",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_CORKUS"
+      },
+      {
+        "text": "Gaston kept this sewing roll. What became of his hopes?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_gaston_sewing_roll",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_GASTON"
+      },
+      {
         "text": "Get me out of here.",
         "topic": "TALK_DONE"
       }
@@ -48,7 +68,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_VICTORY",
-    "dynamic_line": "'You brought him down. Even so, this place will devour what remains of you. Come with me, now.'",
+    "dynamic_line": "'You broke the manifestation that held this ceremony together. Do not mistake that for killing one of the God Hand. The wound is closing: come with me, now.'",
     "responses": [
       {
         "text": "I found Judeau's knife hilt. What happened to the Band?",
@@ -69,6 +89,26 @@
           }
         },
         "topic": "TALK_BERSERK_SKULL_KNIGHT_PIPPIN"
+      },
+      {
+        "text": "Corkus clutched this scabbard. Was there ever a way out?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_corkus_scabbard_fragment",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_CORKUS"
+      },
+      {
+        "text": "Gaston kept this sewing roll. What became of his hopes?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_gaston_sewing_roll",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_GASTON"
       },
       {
         "text": "Follow the Skull Knight out of the Eclipse.",
@@ -93,18 +133,6 @@
         "topic": "TALK_BERSERK_SKULL_KNIGHT_NOW"
       },
       {
-        "text": "Remind me where the first hunt leads.",
-        "condition": {
-          "math": [
-            "u_berserk_first_hunt_done != 1"
-          ]
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_FIRST_HUNT_RECALL"
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
-      },
-      {
         "text": "What happened, and why did you save me?",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
       },
@@ -117,66 +145,53 @@
         "topic": "TALK_BERSERK_SKULL_KNIGHT_APOSTLES"
       },
       {
-        "text": "Why did the creature I fought before the Eclipse return?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PROJECTIONS"
-      },
-      {
         "text": "What happened to my hand and eye?",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_INJURIES"
       },
       {
-        "text": "How can I replace my hand?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_HAND"
-      },
-      {
-        "text": "Where do I go after I recover?",
+        "text": "Help me choose the next road.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_NEXT"
       },
       {
-        "text": "I found Judeau's knife hilt. What happened to the Band?",
+        "text": "I brought things from those who did not escape.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES",
         "condition": {
-          "u_has_items": {
-            "item": "berserk_judeau_knife_hilt",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_JUDEAU"
-      },
-      {
-        "text": "Pippin held the line. Could anyone else have escaped?",
-        "condition": {
-          "u_has_items": {
-            "item": "berserk_pippin_broken_clasp",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PIPPIN"
-      },
-      {
-        "text": "I need to go.",
-        "topic": "TALK_DONE"
-      },
-      {
-        "text": "I have my answers. Farewell, Skull Knight.",
-        "condition": {
-          "compare_string": [
-            "yes",
+          "or": [
             {
-              "u_val": "berserk_knight_spoken"
+              "u_has_items": {
+                "item": "berserk_judeau_knife_hilt",
+                "count": 1
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "berserk_pippin_broken_clasp",
+                "count": 1
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "berserk_corkus_scabbard_fragment",
+                "count": 1
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "berserk_gaston_sewing_roll",
+                "count": 1
+              }
+            },
+            {
+              "u_has_item": "berserk_wyald_command_orders"
+            },
+            {
+              "u_has_item": "berserk_rosine_witness_note"
             }
           ]
-        },
-        "effect": [
-          {
-            "u_add_var": "berserk_knight_farewell",
-            "value": "yes"
-          },
-          {
-            "npc_die": {
-              "remove_from_creature_tracker": true
-            }
-          }
-        ],
+        }
+      },
+      {
+        "text": "I need to go. Wait here.",
         "topic": "TALK_DONE"
       }
     ]
@@ -184,8 +199,32 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_NOW",
-    "dynamic_line": "'Tend your wounds and find a defensible shelter before nightfall. Build a bone and stone ward there: within eight tiles it quiets the Brand's summons, but wandering demons can still enter. The arm cannon and its charge can be crafted when you are ready.'",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_first_hunt_done != 1"
+      ],
+      "yes": "Find a defensible building and leave yourself a way out. Prepare water, light and a sleeping place; a bone-and-stone ward will quiet the Brand near your bed. Replace the missing hand when you can, then follow the marked hollow. Do not seek a greater enemy while you are still recovering.",
+      "no": {
+        "math": [
+          "u_berserk_flora_met != 1"
+        ],
+        "yes": {
+          "test_eoc": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE",
+          "yes": "The records now lead to Flora, a witch who tends a protected spiritual tree. Follow her directions and seek counsel before the next great journey.",
+          "no": "Follow the recovered trail to the ashen wound, then choose among the Count, the Black Dogs and the misty valley. Close their local breaches and keep the records you find; together they may show a road I cannot yet name for you."
+        },
+        "no": "Keep a refuge to return to. Prepare the equipment you can use with your remaining hand, and choose one unfinished trail from your journal. The wounds will not all close in a single hunt."
+      }
+    },
     "responses": [
+      {
+        "text": "How do I make that shelter useful?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD"
+      },
+      {
+        "text": "Show me the next road.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NEXT"
+      },
       {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
@@ -195,8 +234,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE",
-    "dynamic_line": "'The Behelit opened the Eclipse, a place of sacrifice. I could not undo what happened there. I cut a path out while there was still someone left to save.'",
+    "dynamic_line": "'The Behelit opened a place of sacrifice along the boundary where our worlds collided. Your Eclipse widened those wounds; it did not create this world's first catastrophe. I could not undo the sacrifice. I cut a way out while someone remained to save.'",
     "responses": [
+      {
+        "text": "Why can't you close these wounds yourself?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_WOUNDS"
+      },
       {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
@@ -209,6 +252,10 @@
     "dynamic_line": "'The Brand marks a survivor of the sacrifice. Its pain warns you when demons draw near; a stronger presence hurts more. At night, expect them to seek you out. Find cover and leave yourself a way to flee.'",
     "responses": [
       {
+        "text": "Can I quiet it long enough to sleep?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD"
+      },
+      {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
@@ -219,6 +266,19 @@
     "id": "TALK_BERSERK_SKULL_KNIGHT_APOSTLES",
     "dynamic_line": "'Apostles are monstrous beings with wills and bodies of their own. The God Hand stand apart: they preside over the sacrifice. Void and Griffith are not ordinary apostles. Do not mistake surviving an encounter for defeating them.'",
     "responses": [
+      {
+        "text": "Why are beings from another world still alive here?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_WORLD_COLLISION"
+      },
+      {
+        "text": "Why did the creature I fought before the Eclipse return?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PROJECTIONS",
+        "condition": {
+          "math": [
+            "u_berserk_griffith_projection_defeated == 1"
+          ]
+        }
+      },
       {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
@@ -242,6 +302,10 @@
     "dynamic_line": "'You lost your left hand and an eye in the Eclipse. The missing hand limits your grip; the lost eye narrows your perception. The Brand is another wound, and it will keep calling to the dark.'",
     "responses": [
       {
+        "text": "How can I replace my hand?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_HAND"
+      },
+      {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
@@ -253,6 +317,10 @@
     "dynamic_line": "'Craft the prosthetic arm cannon and its charge. Once the cannon is made, activate it from your inventory. The mount where your left hand used to be will hold it.'",
     "responses": [
       {
+        "text": "Must I hold the cannon to attach it?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_HAND_MOUNT"
+      },
+      {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
@@ -261,22 +329,67 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_NEXT",
-    "dynamic_line": "'A lesser apostle has taken root in a forest hollow. Its location will be marked on your map. Build a ward, prepare your arm cannon if you can, and choose when to hunt it. Its remains may point toward the next breach.'",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_first_hunt_done != 1"
+      ],
+      "yes": "The marked forest hollow is your first trail. A lesser apostle hunts the paths around it. Clear a way to retreat before entering the low ground; what you find there may tell you where the nearby wound lies.",
+      "no": {
+        "math": [
+          "u_berserk_flora_met != 1"
+        ],
+        "yes": {
+          "test_eoc": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE",
+          "yes": "The records now lead to Flora, a witch who tends a protected spiritual tree. Follow her directions and seek counsel before the next great journey.",
+          "no": "Follow the recovered trail to the ashen wound, then choose among the Count, the Black Dogs and the misty valley. Close their local breaches and keep the records you find; together they may show a road I cannot yet name for you."
+        },
+        "no": "Consult the trails already recorded in your journal. Choose one unfinished hunt, prepare for the country it crosses, and return to your refuge when wounded. Each sealed breach gives only its own surroundings a little respite."
+      }
+    },
     "responses": [
       {
-        "text": "The first hunt is over. Where can I find Flora?",
+        "text": "Show the first hunt on my map.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_FIRST_HUNT",
         "condition": {
           "math": [
-            "u_berserk_first_hunt_done == 1"
+            "u_berserk_first_hunt_done != 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FIRST_HUNT_RECALL"
+        }
+      },
+      {
+        "text": "Show me the road to Flora.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_FLORA",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_first_hunt_done == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_stage < 3"
+                  ]
+                }
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE"
+            }
           ]
         },
         "effect": {
           "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_FLORA"
+        }
       },
       {
-        "text": "I survived the first hunt. Show me the Count's trail.",
+        "text": "Show me the Count's trail.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_COUNT",
         "condition": {
           "math": [
             "u_berserk_first_hunt_done == 1"
@@ -284,11 +397,11 @@
         },
         "effect": {
           "run_eocs": "EOC_BERSERK_COUNT_SEEK"
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_COUNT"
+        }
       },
       {
-        "text": "Show me the trails to Wyald and Rosine.",
+        "text": "Tell me about the independent hunts.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NAMED_HUNTS",
         "condition": {
           "math": [
             "u_berserk_first_hunt_done == 1"
@@ -296,8 +409,7 @@
         },
         "effect": {
           "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_NAMED_HUNTS"
+        }
       },
       {
         "text": "Ask something else.",
@@ -341,14 +453,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_FLORA",
-    "dynamic_line": {
-      "math": [
-        "berserk_flora_stage == 3"
-      ],
-      "yes": "\"The grove has fallen. What Flora entrusted to you remains yours, but her house will no longer shelter the branded. Return to your refuge, recover, then follow the remaining trails. An original apostle killed there stays dead; a projection elsewhere is only an echo.\"",
-      "no": "\"Seek Flora in her forest manor. She understands the mark you bear and the armor that can carry you beyond ordinary limits. If you already possess the entire armor, ask for counsel rather than another gift. Remember these directions; you need not keep me here to follow them.\""
-    },
+    "dynamic_line": "\"The trails you have followed converge on a sheltered grove. Flora tends the old tree there. Ask her about the Brand and what it costs to wield cursed armor. I can leave you the directions so you need not depend on finding me again.\"",
     "responses": [
+      {
+        "text": "What should I ask her first?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_FLORA_COUNSEL"
+      },
       {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
@@ -358,7 +468,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_NAMED_HUNTS",
-    "dynamic_line": "\"Each apostle holds a separate wound. Seal the Count, Wyald and Rosine's breaches before seeking Grunbeld. His armored body is only the beginning; the dragon is his final form. Your journal marks each trail. Once all four are sealed, return to a quiet place and protect the living.\"",
+    "dynamic_line": "Each trail leads to its own creature and its own wound. Finding one does not erase the others. Read the signs before choosing an enemy; the journal keeps the roads you have learned, and records which breaches remain open.",
     "responses": [
       {
         "text": "Mark Wyald's camp.",
@@ -377,29 +487,57 @@
       {
         "text": "Mark Grunbeld's stronghold.",
         "condition": {
-          "or": [
+          "and": [
             {
-              "and": [
+              "or": [
                 {
-                  "math": [
-                    "berserk_hunt_count_state >= 4"
+                  "and": [
+                    {
+                      "math": [
+                        "berserk_hunt_count_state >= 4"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "berserk_hunt_wyald_state >= 4"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "berserk_hunt_rosine_state >= 4"
+                      ]
+                    }
                   ]
                 },
                 {
                   "math": [
-                    "berserk_hunt_wyald_state >= 4"
-                  ]
-                },
-                {
-                  "math": [
-                    "berserk_hunt_rosine_state >= 4"
+                    "berserk_apostle_grunbeld_dead == 1"
                   ]
                 }
               ]
             },
             {
-              "math": [
-                "berserk_apostle_grunbeld_dead == 1"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_flora_escaped == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state >= 5"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_stage == 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_grunbeld_site_registered == 1"
+                  ]
+                }
               ]
             }
           ]
@@ -413,6 +551,214 @@
           }
         ],
         "topic": "TALK_DONE"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_FIRST_HUNT",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_first_hunt_done == 1"
+      ],
+      "yes": "The first hunt is complete. Read the directions you recovered and inspect the marked ashen breach. The remaining records point toward the independent hunts.",
+      "no": "The first hunt leads to a forest hollow held by a lesser apostle. Select the first hunt in your mission journal to see its target. Prepare armor, medical supplies and a way to retreat before entering the hollow."
+    },
+    "responses": [
+      {
+        "text": "Show the first hunt on my map.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_FIRST_HUNT",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FIRST_HUNT_RECALL"
+        }
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_WORLD_COLLISION",
+    "dynamic_line": "The collision broke more than the ground. Some lives were drawn away from the deaths that awaited them. That does not make every being here a projection. Kill a living original and that life ends; breaking a reflection leaves its source untouched.",
+    "responses": [
+      {
+        "text": "How do I tell an original from a reflection?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_APOSTLES"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_CORKUS",
+    "dynamic_line": "'The ceremony used hope as another snare. Remember him as a man who wanted to live, not merely as another body in the feast.'",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_GASTON",
+    "dynamic_line": "'He carried the tools of a life beyond war. Taking them out of this darkness does not mend what was lost, but it denies the feast the last word.'",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_WYALD_ORDERS",
+    "dynamic_line": "'The crossing did not bring every life along the same path. In his world, Wyald's fate had already been cut short. Here that thread turned aside. The camp's master is no projection; destroying him ends this hunt, but leaves the other wounds of the world open.'",
+    "responses": [
+      {
+        "text": "I have another question.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MISTVALE_WITNESS",
+    "dynamic_line": "'A promise of paradise can become a prison. You may stop a shell from releasing its creature, and you may keep a small memory of those lost. That is not a cure for transformation. The searcher followed those who vanished, and returned with a warning rather than the people they sought.'",
+    "responses": [
+      {
+        "text": "I have another question.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES",
+    "dynamic_line": "What you carry is not merely spoil. Tell me whose memory you brought out of the dark.",
+    "responses": [
+      {
+        "text": "I found Judeau's knife hilt. What happened to the Band?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_judeau_knife_hilt",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_JUDEAU"
+      },
+      {
+        "text": "Pippin held the line. Could anyone else have escaped?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_pippin_broken_clasp",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PIPPIN"
+      },
+      {
+        "text": "Corkus clutched this scabbard. Was there ever a way out?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_corkus_scabbard_fragment",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_CORKUS"
+      },
+      {
+        "text": "Gaston kept this sewing roll. What became of his hopes?",
+        "condition": {
+          "u_has_items": {
+            "item": "berserk_gaston_sewing_roll",
+            "count": 1
+          }
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_GASTON"
+      },
+      {
+        "text": "These orders call Wyald alive. How can that be?",
+        "condition": {
+          "u_has_item": "berserk_wyald_command_orders"
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_WYALD_ORDERS"
+      },
+      {
+        "text": "The Mistvale searcher could not save those in the cocoons.",
+        "condition": {
+          "u_has_item": "berserk_rosine_witness_note"
+        },
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MISTVALE_WITNESS"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_WOUNDS",
+    "dynamic_line": "A sword can cut a path through the boundary; it cannot mend every place where two worlds have torn one another open. I act where I can. You survived to do more than follow the next blow.",
+    "responses": [
+      {
+        "text": "Then what can one survivor change?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NEXT"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_WARD",
+    "dynamic_line": "A small sign of stone and bone quiets new night summons within eight tiles. Set your bed near it, indoors if you can. It does not turn back wandering demons or the dead already at your door. Prepare water, light and an escape route as well.",
+    "responses": [
+      {
+        "text": "Where should I go after I recover?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NEXT"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_HAND_MOUNT",
+    "dynamic_line": "Carry the finished prosthetic arm cannon in your inventory and activate it there. The mount where your left hand used to be must still be empty. You need not wield the cannon or find an autodoc to attach it.",
+    "responses": [
+      {
+        "text": "What should I prepare for the night?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NOW"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_FLORA_COUNSEL",
+    "dynamic_line": "Ask what the Brand has done to you and how to endure its nights. If you carry cursed armor, let her see it. Learn its price before relying on it; counsel costs you less than another wound.",
+    "responses": [
+      {
+        "text": "And the local breach?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_FIRST_HUNT"
       },
       {
         "text": "Ask something else.",

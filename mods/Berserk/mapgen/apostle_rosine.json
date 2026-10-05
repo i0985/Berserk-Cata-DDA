@@ -7,42 +7,77 @@
     "object": {
       "fill_ter": "t_grass",
       "rows": [
-        "..........ddd...........",
-        ".TTTTTTTTTdddTTTTTTTTTTT",
-        ".T........ddd...........",
-        ".T........ddd.........##",
-        ".T..ff....ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.....ff..##",
-        ".T........ddd.........##",
-        ".T........ddd....TT...##",
-        ".T........ddd....TT...##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T...f....ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.....f...##",
-        ".T........ddd...........",
-        "dddddddddIdddddddddddddd",
-        "dddddddddddddddddddddddd",
-        "dddddddddddddddddddddddd",
-        ".T........ddd..........."
+        ".........lll............",
+        ".........lll............",
+        "...TTTT..lll..TTTTTTT...",
+        ".......T.lll.T.......TTT",
+        "..T......lll............",
+        "..T......lll............",
+        "..T......lll............",
+        "..T......lll............",
+        "...T.llllllllllllll.....",
+        "...T.lllllllllllllllllll",
+        "...T.lllllllllllllllllll",
+        "...T.lll........llllllll",
+        "...T.llsss.....lllllllll",
+        "...T.llsss.....llllTllll",
+        "...T.llsss....llllllllll",
+        "...T..ssss....llllllllll",
+        "..T..#ssss....llllllllll",
+        "..T...ssss....llllllllll",
+        "..T....ssss...llllllllll",
+        "..T....ssss....lllllllll",
+        "..T....ssss....lllllllll",
+        "..T...#sssss....lllTllll",
+        "..T....sssss....llllllll",
+        "..T....sssss....llllllll"
       ],
       "palettes": [
-        "berserk_named_hunt_palette"
+        "berserk_hunt_location_detail_palette"
       ],
-      "place_monster": [],
       "place_furniture": [
+        {
+          "furn": "f_flower_tulip",
+          "x": 15,
+          "y": 11
+        },
+        {
+          "furn": "f_flower_tulip",
+          "x": 20,
+          "y": 10
+        },
+        {
+          "furn": "f_flower_tulip",
+          "x": 22,
+          "y": 20
+        },
+        {
+          "furn": "f_flower_tulip",
+          "x": 16,
+          "y": 22
+        },
         {
           "furn": "f_berserk_rosine_record",
           "x": 9,
-          "y": 20
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_location_rosine_travelers",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_rosine_missing_trace",
+          "x": 14,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_rosine_shell_material",
+          "x": 16,
+          "y": 15
         }
-      ]
+      ],
+      "place_monster": []
     }
   },
   {
@@ -54,47 +89,76 @@
       "fill_ter": "t_grass",
       "rows": [
         "........................",
-        "TTTTTTTTTTTTTTTTTTTTTTT.",
-        "......................T.",
-        "......................T.",
-        "....ff................T.",
-        "......................T.",
-        "..................ff..T.",
-        "...C..................T.",
-        ".............K........T.",
-        "..........T...........T.",
-        "..........T...........T.",
-        "......K...............T.",
-        "................T.....T.",
-        "................T.....T.",
-        "..................k...T.",
-        "......................T.",
-        ".....f................T.",
-        "......................T.",
-        "............ddd...f...T.",
-        ".....TT.....ddd.......T.",
-        "dddddTTdddddddddddTTddd.",
-        "ddddddddddddddddddTTddd.",
-        "ddddddddddddddddddddddd.",
-        "............ddd.......T."
+        "........................",
+        "....TTTTTTT.......TTTT..",
+        "TTTT.......TTTTTTT......",
+        ".....................T..",
+        ".....................T..",
+        "....................T...",
+        "....................T...",
+        "....................T...",
+        "llllll..............T...",
+        "lllllll.............T...",
+        "lllllllll...........T...",
+        "llllllllll...........T..",
+        "llllTlllll...........T..",
+        "lllllllllll..........T..",
+        "lllllllllll..........T..",
+        "lllllllllll..........T..",
+        "lllllllllll..........T..",
+        "lllllTlllll.........T...",
+        "llllllllll..........T...",
+        "llllllllll..........T...",
+        "llllllllllllllllllllllll",
+        "llllllllllllllllllllllll",
+        "llllllllllllllllllllllll"
       ],
       "palettes": [
-        "berserk_named_hunt_palette"
+        "berserk_hunt_location_detail_palette"
       ],
-      "place_monster": [],
       "place_furniture": [
         {
+          "furn": "f_flower_tulip",
+          "x": 3,
+          "y": 9
+        },
+        {
+          "furn": "f_flower_tulip",
+          "x": 8,
+          "y": 14
+        },
+        {
+          "furn": "f_flower_tulip",
+          "x": 7,
+          "y": 20
+        },
+        {
           "furn": "f_berserk_rosine_scene",
-          "x": 17,
+          "x": 0,
+          "y": 17
+        },
+        {
+          "furn": "f_berserk_location_rosine_keepsake",
+          "x": 5,
           "y": 16
+        },
+        {
+          "furn": "f_berserk_rosine_cocoon_watchful",
+          "x": 9,
+          "y": 17
+        },
+        {
+          "furn": "f_berserk_rosine_cocoon_sealed",
+          "x": 7,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_rosine_shell_material",
+          "x": 1,
+          "y": 22
         }
       ],
-      "terrain": {
-        "K": "t_grass"
-      },
-      "furniture": {
-        "K": "f_berserk_rosine_cocoon_inhabited"
-      }
+      "place_monster": []
     }
   },
   {
@@ -105,75 +169,83 @@
     "object": {
       "fill_ter": "t_grass",
       "rows": [
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T..ff..k.ddd.........##",
-        ".T........ddd...TT....##",
-        ".T........ddddddTTdddddd",
-        ".T........dddddddddddddd",
-        ".T........dddddddddddddd",
-        ".T........ddd...........",
-        ".T........ddd...........",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd..k......##",
-        ".T........ddd.........##",
-        ".T...f....ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.....f...##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".TTTTTTTTTdddTTTTTTTTTTT",
-        "..........ddd..........."
+        "...T....ssss....llllllll",
+        "........ssss....llllllll",
+        ".......#ssss...........l",
+        "........ssss...........l",
+        ".........ssss..........l",
+        ".........ssss..........l",
+        "...T.....ssssss......T.l",
+        "...T....#ssssss........l",
+        "..T......ssssss........l",
+        "..T.......sssss........l",
+        "..T.......sssss.........",
+        "..T.......sssss.........",
+        "..T......#sssss.........",
+        "..T.......sssss.........",
+        "..T........ssss.........",
+        "..T........sssssssssssss",
+        "...T.......sssssssssssss",
+        "...T......#sssssssssssss",
+        "...T....................",
+        "...T....................",
+        ".........TTTTTTTTT......",
+        "...TTTTTT.........TTTTTT",
+        "........................",
+        "........................"
       ],
       "palettes": [
-        "berserk_named_hunt_palette"
+        "berserk_hunt_location_detail_palette"
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_flower_tulip",
+          "x": 22,
+          "y": 7
+        },
+        {
+          "furn": "f_flower_tulip",
+          "x": 20,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_rosine_story_cocoon",
+          "x": 22,
+          "y": 1
+        },
+        {
+          "furn": "f_berserk_rosine_cocoon_watchful",
+          "x": 23,
+          "y": 10
+        },
+        {
+          "furn": "f_berserk_rosine_cocoon_sealed",
+          "x": 20,
+          "y": 0
+        },
+        {
+          "furn": "f_berserk_rosine_shell_material",
+          "x": 18,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_rosine_cocoon_destroyed",
+          "x": 21,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_location_rosine_waycamp",
+          "x": 15,
+          "y": 14
+        }
       ],
       "place_monster": [
         {
           "monster": "mon_berserk_cocoon_ravager",
-          "x": 8,
-          "y": 8,
+          "x": 17,
+          "y": 4,
           "chance": 100,
           "one_or_none": true
-        },
-        {
-          "monster": "mon_berserk_cocoon_ravager",
-          "x": 18,
-          "y": 14,
-          "chance": 100,
-          "one_or_none": true
-        }
-      ],
-      "place_furniture": [
-        {
-          "furn": "f_berserk_rosine_cocoon_destroyed",
-          "x": 6,
-          "y": 15
-        }
-      ],
-      "place_loot": [
-        {
-          "item": "bandages",
-          "x": 7,
-          "y": 7,
-          "chance": 100
-        },
-        {
-          "item": "water_clean",
-          "x": 7,
-          "y": 8,
-          "chance": 100
-        },
-        {
-          "item": "bandages",
-          "x": 6,
-          "y": 15,
-          "chance": 100
         }
       ]
     }
@@ -186,65 +258,95 @@
     "object": {
       "fill_ter": "t_grass",
       "rows": [
-        ".....k......ddd.......T.",
-        "............ddd.......T.",
-        "............ddd.......T.",
-        "............ddd.......T.",
-        "....ffdddddddddddddd..T.",
-        "......d#dddddddd#ddd..T.",
-        "ddddddd#dddddddd#ddk..T.",
-        "ddddd###dddd?ddd###d..T.",
-        "dddddddddddddddddddd..T.",
-        "......dddddddddddddd..T.",
-        "......dddddddddddddd..T.",
-        "......d##ddddddd##dd..T.",
-        "......d##ddddddd##dd..T.",
-        "......dddddddddddddd..T.",
-        "......kddddddddddddd..T.",
-        "......dddddddddddddd..T.",
-        ".....#####dddddd###d..T.",
-        "......d###dddddd#d##..T.",
-        "......d#dddddddd#d##..T.",
-        "......dddddddddddddd..T.",
-        "............ddd.......T.",
-        "............ddd.......T.",
-        "TTTTTTTTTTTTdddTTTTTTTT.",
-        "............ddd........."
+        "ll......lllllllll.......",
+        "ll.....lGGGGGlllll......",
+        "ll....llllGGGllllll.....",
+        "Tl...llllllGllllllll.T..",
+        "ll..lllllllllllllllllT..",
+        "ll..lRRRllllllllRRRllT..",
+        "ll.llRllllllllllRllll...",
+        "lllllllllllllllllllll...",
+        "lllllllllllllllllllll...",
+        "lllllllllllllllllllll...",
+        "...llllllRRllllllllll...",
+        ".T.llllllllllllllllll...",
+        ".ssllllllllllllllllllT..",
+        ".ssllllllllllllRRllllT..",
+        ".ssllllllllllllllllllT..",
+        "sssslllllllllllllllllT..",
+        "sssslRRRlRRlllllRRRllT..",
+        "ssss.RllllllllllRlll.T..",
+        ".....llllllllllllll.T...",
+        ".......lllllllllll..T...",
+        "...TTTTTT...lll......T..",
+        "TTT.........lllTTTTTT...",
+        "............lll.........",
+        "............lll........."
       ],
       "palettes": [
-        "berserk_named_hunt_palette"
-      ],
-      "place_monster": [
-        {
-          "monster": "mon_berserk_cocoon_ravager",
-          "x": 8,
-          "y": 10,
-          "chance": 100,
-          "one_or_none": true
-        },
-        {
-          "monster": "mon_berserk_cocoon_ravager",
-          "x": 18,
-          "y": 15,
-          "chance": 100,
-          "one_or_none": true
-        }
+        "berserk_hunt_location_detail_palette"
       ],
       "place_furniture": [
+        {
+          "furn": "f_flower_tulip",
+          "x": 6,
+          "y": 1
+        },
+        {
+          "furn": "f_flower_tulip",
+          "x": 2,
+          "y": 4
+        },
+        {
+          "furn": "f_flower_tulip",
+          "x": 16,
+          "y": 0
+        },
+        {
+          "furn": "f_berserk_rosine_cocoon_watchful",
+          "x": 3,
+          "y": 2
+        },
+        {
+          "furn": "f_berserk_rosine_cocoon_watchful",
+          "x": 16,
+          "y": 4
+        },
+        {
+          "furn": "f_berserk_rosine_cocoon_sealed",
+          "x": 3,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_rosine_cocoon_sealed",
+          "x": 15,
+          "y": 18
+        },
+        {
+          "furn": "f_berserk_hunt_arena_tracks",
+          "x": 12,
+          "y": 12
+        },
         {
           "furn": "f_berserk_rosine_breach",
           "x": 12,
           "y": 7
         },
         {
-          "furn": "f_berserk_hunt_arena_tracks",
-          "x": 12,
-          "y": 12
+          "furn": "f_berserk_rosine_nest_warning",
+          "x": 4,
+          "y": 0
         }
       ],
-      "terrain": {
-        "#": "t_rock"
-      }
+      "place_monster": [
+        {
+          "monster": "mon_berserk_cocoon_ravager",
+          "x": 3,
+          "y": 15,
+          "chance": 100,
+          "one_or_none": true
+        }
+      ]
     }
   }
 ]

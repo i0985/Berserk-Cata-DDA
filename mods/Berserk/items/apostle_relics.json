@@ -61,7 +61,7 @@
       "str": "Beast Knot",
       "str_pl": "Beast Knots"
     },
-    "description": "A sinewy knot in which a beast's frenzy still stirs. Wear it before Berserk mode begins to extend that activation from 150 to 210 seconds. Removing or putting it on during a rage does not change the running timer. The blood loss, exhaustion and three-day recovery remain unchanged. Carrying it is not enough.",
+    "description": "A sinewy knot that sharpens the senses of a stalking beast. While worn, it adds 2 tiles to your night-vision range. Darkness still conceals what lies beyond your sight, and walls still block it. It does not extend Berserk mode and requires no cursed armor. Carrying it is not enough.",
     "weight": "200 g",
     "volume": "250 ml",
     "material": [
@@ -88,6 +88,11 @@
             "thickness": 0.1
           }
         ]
+      }
+    ],
+    "passive_effects": [
+      {
+        "id": "ench_berserk_wyald_beast_knot"
       }
     ]
   },

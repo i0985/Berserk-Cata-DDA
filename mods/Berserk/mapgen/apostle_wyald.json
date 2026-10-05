@@ -7,66 +7,107 @@
     "object": {
       "fill_ter": "t_grass",
       "rows": [
-        "..........ddd...........",
-        ".TTTTTTTTTdddTTTTTTTTTTT",
-        ".T........ddd...........",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T.|||||..ddd.........##",
-        ".T.|...|..ddd.........##",
-        ".T.|.../..ddd.........##",
-        ".T.|...|..ddd.........##",
-        ".T.|||||..ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd...........",
-        "dddddddddIdddddddddddddd",
-        "dddddddddddddddddddddddd",
-        "dddddddddddddddddddddddd",
-        ".T........ddd..........."
+        ".........ddd............",
+        ".........ddd............",
+        "...TTTT..ddd..TTTTTTT...",
+        ".......T.ddd.........TTT",
+        "..T......ddd.cccccccc...",
+        "..T......ddd.cmmmmmmc...",
+        "..T......ddd.cmmmmmmc...",
+        "..T......ddd.cmmmmmmc...",
+        "...T.....ddd.cmmmmmmc...",
+        "...T.....ddd.cmmmmmmc...",
+        "...T.....ddd.ccccvccc...",
+        "...T.....ddd............",
+        "...T.....ddd............",
+        "...T.ddddddddddddddddddd",
+        "...T.ddddddddddddddddddd",
+        "...T.ddddddddddddddddddd",
+        "..T..ddd.........ddd....",
+        "..T..ddd........ccccccc.",
+        "..T..ddcccccccc.cmmmmmc.",
+        "..T..ddcmmmmmmc.cmmmmmc.",
+        "..T..ddcmmmmmmc.cmmmmmc.",
+        "..T..ddcmmmmmmc.ccvcccc.",
+        "..T..ddcmmmmmmv..ddddddd",
+        "..T..ddcmmmmmmc..ddddddd"
       ],
       "palettes": [
-        "berserk_named_hunt_palette"
+        "berserk_hunt_location_detail_palette"
       ],
-      "place_monster": [],
       "place_furniture": [
         {
+          "furn": "f_berserk_location_wyald_baggage",
+          "x": 6,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_wyald_wagon_chime",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_wyald_wagon_wreck",
+          "x": 5,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_wyald_wagon_wreck",
+          "x": 7,
+          "y": 10
+        },
+        {
           "furn": "f_berserk_wyald_record",
+          "x": 9,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_location_wyald_kitchen",
           "x": 9,
           "y": 20
         },
         {
+          "furn": "f_clay_oven",
+          "x": 9,
+          "y": 23
+        },
+        {
+          "furn": "f_table",
+          "x": 11,
+          "y": 21
+        },
+        {
           "furn": "f_bench",
-          "x": 4,
+          "x": 11,
+          "y": 23
+        },
+        {
+          "furn": "f_berserk_location_wyald_repair",
+          "x": 20,
+          "y": 18
+        },
+        {
+          "furn": "f_berserk_campaign_bedding",
+          "x": 14,
           "y": 7
         },
         {
-          "furn": "f_rubble",
+          "furn": "f_berserk_campaign_bedding",
           "x": 16,
-          "y": 5
+          "y": 7
         },
         {
-          "furn": "f_rubble",
-          "x": 16,
-          "y": 10
+          "furn": "f_firering",
+          "x": 12,
+          "y": 12
         },
         {
-          "furn": "f_rubble",
-          "x": 18,
+          "furn": "f_firering",
+          "x": 23,
           "y": 13
         }
       ],
-      "terrain": {
-        "|": "t_chainfence",
-        "/": "t_fencegate_o"
-      }
+      "place_monster": []
     }
   },
   {
@@ -78,37 +119,84 @@
       "fill_ter": "t_grass",
       "rows": [
         "........................",
-        "TTTTTTTTTTTTTTTTTTTTTTT.",
-        "......................T.",
-        "......................T.",
-        "......................T.",
-        "......................T.",
-        "......................T.",
-        "..ccccccccvcccccccc...T.",
-        "..cgegggggggggggegc...T.",
-        "..cgggggggggggggggc...T.",
-        "..cggbqqgggggqqbggc...T.",
-        "..cggghgggggghggggc...T.",
-        "..cgggggggggggggggc...T.",
-        "..cgggggggggggggggc...T.",
-        "..cgggggggggggggggc...T.",
-        "..cgggggggggggggggc...T.",
-        "..ccccccccvcccccccc...T.",
-        "......................T.",
-        "............ddd.......T.",
-        "............ddd.......T.",
-        "ddddddddddddddddddddddd.",
-        "ddddddddddddddddddddddd.",
-        "ddddddddddddddddddddddd.",
-        ".......r....ddd.......T."
+        "........................",
+        "....TTTTTTT.......TTTT..",
+        "TTTT.......TTTTTTT......",
+        ".....................T..",
+        "ccccccc..............T..",
+        "vmmmmmc.............T...",
+        "cmmmmmc.............T...",
+        "cmmmmmc.............T...",
+        "cmmmmmc...ccccccccccT...",
+        "cmmmmmc...cmmmmmmmmcT...",
+        "cccvccc...cmmmmmmmmcT...",
+        "..........cmmmmmmmmc.T..",
+        "ddddddd...vmmmmmmmmc.T..",
+        "ddddddd...cmmmmmmmmc.T..",
+        "ddddddd...cmmmmmmmmc.T..",
+        "....ddd...cccccccccc.T..",
+        "....ddd..............T..",
+        "....ddd.............T...",
+        "....ddd.............T...",
+        "....ddd.............T...",
+        "....ddddddddddddddddT...",
+        "ddddddddddddddddddddT...",
+        "ddddddddddddddddddddT..."
       ],
       "palettes": [
-        "berserk_named_hunt_palette"
+        "berserk_hunt_location_detail_palette"
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_location_wyald_command",
+          "x": 16,
+          "y": 11
+        },
+        {
+          "furn": "f_table",
+          "x": 14,
+          "y": 13
+        },
+        {
+          "furn": "f_bench",
+          "x": 16,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_wyald_scene",
+          "x": 3,
+          "y": 18
+        },
+        {
+          "furn": "f_berserk_wyald_punishment_post",
+          "x": 0,
+          "y": 20
+        },
+        {
+          "furn": "f_berserk_wyald_punishment_post",
+          "x": 1,
+          "y": 20
+        },
+        {
+          "furn": "f_berserk_campaign_bedding",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_campaign_bedding",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "furn": "f_firering",
+          "x": 9,
+          "y": 18
+        }
       ],
       "place_monster": [
         {
           "monster": "mon_berserk_black_dog_thrall",
-          "x": 9,
+          "x": 2,
           "y": 12,
           "chance": 100,
           "one_or_none": true
@@ -127,29 +215,6 @@
           "chance": 100,
           "one_or_none": true
         }
-      ],
-      "place_furniture": [
-        {
-          "furn": "f_berserk_wyald_scene",
-          "x": 4,
-          "y": 14
-        }
-      ],
-      "place_items": [
-        {
-          "item": "cannedfood",
-          "x": 4,
-          "y": 8,
-          "chance": 75
-        }
-      ],
-      "place_loot": [
-        {
-          "item": "water_clean",
-          "x": 16,
-          "y": 8,
-          "chance": 100
-        }
       ]
     }
   },
@@ -161,98 +226,63 @@
     "object": {
       "fill_ter": "t_grass",
       "rows": [
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T.....b..ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddddddrddddddd",
-        ".T........dddddddddddddd",
-        ".T.....r..dddddddddddddd",
-        ".T........ddd...........",
-        ".T........ddd...........",
-        ".T........ddd.........##",
-        ".T........ddd..b......##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".T........ddd.........##",
-        ".TTTTTTTTTdddTTTTTTTTTTT",
-        "..........ddd..........."
+        "...T.ddcmmmmmmc..ddddddd",
+        "...T.ddcccccccc.pppp....",
+        "...T.ddd........pddp....",
+        "...T.ddd........pddp....",
+        "...T.ddd........dddd....",
+        "ddddddddddddddddpddpdddd",
+        "ddddddddddddddddpddpdddd",
+        "ddddddddddddddddppppdddd",
+        ".....................ddd",
+        ".....................ddd",
+        ".....................ddd",
+        "..T..................ddd",
+        "..T..########........ddd",
+        "..T..########........ddd",
+        "..T..########........ddd",
+        "..T..............####...",
+        "...T....########.####...",
+        "...T....########.####...",
+        "...T....########.####...",
+        "...T....................",
+        ".........TTTTTTTTT......",
+        "...TTTTTT.........TTTTTT",
+        "........................",
+        "........................"
       ],
       "palettes": [
-        "berserk_named_hunt_palette"
+        "berserk_hunt_location_detail_palette"
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_wyald_cage_gate",
+          "x": 16,
+          "y": 4
+        },
+        {
+          "furn": "f_berserk_wyald_cage_gate",
+          "x": 19,
+          "y": 4
+        },
+        {
+          "furn": "f_berserk_location_wyald_prisoners",
+          "x": 17,
+          "y": 2
+        },
+        {
+          "furn": "f_berserk_wyald_prisoner_trace",
+          "x": 18,
+          "y": 6
+        }
       ],
       "place_monster": [
         {
           "monster": "mon_berserk_black_dog_thrall",
-          "x": 10,
-          "y": 8,
+          "x": 20,
+          "y": 9,
           "chance": 100,
           "one_or_none": true
-        }
-      ],
-      "place_furniture": [
-        {
-          "furn": "f_bench",
-          "x": 4,
-          "y": 13
-        },
-        {
-          "furn": "f_bench",
-          "x": 6,
-          "y": 13
-        },
-        {
-          "furn": "f_bench",
-          "x": 4,
-          "y": 15
-        },
-        {
-          "furn": "f_bench",
-          "x": 6,
-          "y": 15
-        },
-        {
-          "furn": "f_rubble",
-          "x": 17,
-          "y": 3
-        },
-        {
-          "furn": "f_rubble",
-          "x": 18,
-          "y": 3
-        },
-        {
-          "furn": "f_rubble",
-          "x": 17,
-          "y": 4
-        }
-      ],
-      "place_loot": [
-        {
-          "item": "bandages",
-          "x": 7,
-          "y": 7,
-          "chance": 100
-        },
-        {
-          "item": "water_clean",
-          "x": 7,
-          "y": 8,
-          "chance": 100
-        },
-        {
-          "item": "bandages",
-          "x": 4,
-          "y": 14,
-          "chance": 100
         }
       ]
     }
@@ -265,39 +295,86 @@
     "object": {
       "fill_ter": "t_grass",
       "rows": [
-        "...b........dddr......T.",
-        "............ddd.......T.",
-        "............ddd.......T.",
-        "............ddd.......T.",
-        "......dddddddddddddd..T.",
-        "......d#dddddddd#ddd..T.",
-        "ddddddd#dddddddd#ddd..T.",
-        "ddddd###dddd?ddd###d..T.",
-        "dddddddddddddddddddd..T.",
-        "......dddddddddddddd..T.",
-        "......dddddddddddddd..T.",
-        "......d##ddddddd##dd..T.",
-        "......d##ddddddd##dd..T.",
-        "......dddddddddddddd..T.",
-        "......dddddddddddddd..T.",
-        "......dddddddddddddd..T.",
-        ".....#####dddddd###d..T.",
-        "......d###dddddd#d##..T.",
-        "......d#dddddddd#d##..T.",
-        "......dddddddddddddd..T.",
-        "............ddd.......T.",
-        "............ddd.......T.",
-        "TTTTTTTTTTTTdddTTTTTTTT.",
-        "............ddd........."
+        "ddddd............ddd.T..",
+        "..ddd............ddd....",
+        "..dddddddddddddddddd....",
+        "..dddddddddddddddddd....",
+        "..dddddddddddddddddddddd",
+        "..dddpppddddddddpppddddd",
+        "...ddpddddddddddpddddddd",
+        "...ddddddddddddddddd....",
+        "...dddddddddddddddddT...",
+        "...dddddddddddddddddT...",
+        "...dddddddddddddddddT...",
+        "...dddddddddddddddddT...",
+        "dddddddddddddddddddd.T..",
+        "dddddddddddddddddddd.T..",
+        "dddddddddddddddddddd.T..",
+        "...ddddddddddddddddd.T..",
+        "...ddpppddddddddpppd.T..",
+        "...ddpddddddddddpddd.T..",
+        "...dddddddddddddddddT...",
+        "...dddddddddddddddddT...",
+        "...ddddddddddd.......T..",
+        "TTT........ddd..TTTTT...",
+        "...........ddd..........",
+        "...........ddd.........."
       ],
       "palettes": [
-        "berserk_named_hunt_palette"
+        "berserk_hunt_location_detail_palette"
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_hunt_arena_tracks",
+          "x": 12,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_wyald_charge_obstacle",
+          "x": 9,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_wyald_charge_obstacle",
+          "x": 10,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_wyald_charge_obstacle",
+          "x": 15,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_wyald_charge_obstacle",
+          "x": 16,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_wyald_charge_obstacle",
+          "x": 9,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_wyald_charge_obstacle",
+          "x": 10,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_wyald_breach",
+          "x": 12,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_wyald_ring_warning",
+          "x": 2,
+          "y": 4
+        }
       ],
       "place_monster": [
         {
           "monster": "mon_berserk_black_dog_thrall",
           "x": 8,
-          "y": 9,
+          "y": 11,
           "chance": 100,
           "one_or_none": true
         },
@@ -308,22 +385,7 @@
           "chance": 100,
           "one_or_none": true
         }
-      ],
-      "place_furniture": [
-        {
-          "furn": "f_berserk_wyald_breach",
-          "x": 12,
-          "y": 7
-        },
-        {
-          "furn": "f_berserk_hunt_arena_tracks",
-          "x": 12,
-          "y": 12
-        }
-      ],
-      "terrain": {
-        "#": "t_rock"
-      }
+      ]
     }
   }
 ]

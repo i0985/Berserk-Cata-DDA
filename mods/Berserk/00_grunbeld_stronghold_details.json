@@ -1,0 +1,667 @@
+[
+  {
+    "type": "terrain",
+    "id": "t_berserk_grunbeld_wall",
+    "copy-from": "t_stone_masonry_wall_whitewashed",
+    "name": "breached fortress masonry",
+    "looks_like": "t_stone_masonry_wall_whitewashed"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_grunbeld_cover",
+    "copy-from": "t_stone_masonry_wall_whitewashed",
+    "name": "broken stone bulwark",
+    "looks_like": "t_stone_masonry_wall_whitewashed"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_grunbeld_flagstones",
+    "copy-from": "t_rock_floor",
+    "name": "garrison flagstones",
+    "looks_like": "t_rock_floor"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_grunbeld_scorched_inside",
+    "copy-from": "t_rock_floor",
+    "name": "scorched smithy floor",
+    "looks_like": "t_rock_floor",
+    "color": "dark_gray"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_grunbeld_scorched_court",
+    "copy-from": "t_rock_floor",
+    "name": "scorched inner courtyard",
+    "looks_like": "t_rock_floor",
+    "color": "dark_gray",
+    "flags": [
+      "TRANSPARENT",
+      "FLAT",
+      "ROAD"
+    ],
+    "roof": "t_null"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_grunbeld_quarry_floor",
+    "copy-from": "t_rock_floor",
+    "name": "uneven quarry bed",
+    "looks_like": "t_rock_floor",
+    "move_cost": 3,
+    "flags": [
+      "TRANSPARENT",
+      "FLAT",
+      "ROAD"
+    ],
+    "roof": "t_null"
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_siege_orders",
+    "name": "torn siege orders",
+    "description": "A scorched scrap of orders is pinned to the broken siege screen.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_READ_SIEGE_ORDERS"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_garrison_roll",
+    "name": "garrison evacuation roll",
+    "description": "Crossed-out names cover a board by the gatehouse desk.",
+    "looks_like": "f_desk",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_READ_GARRISON_ROLL"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_quarry_note",
+    "name": "quarry escape marks",
+    "description": "A workman's arrow and unfinished words are scratched into the quarry stone.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_READ_QUARRY_NOTE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_soldier_letter",
+    "name": "unfinished soldier's letter",
+    "description": "An unfinished letter lies folded beside a soldier's straw bed.",
+    "looks_like": "f_desk",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_READ_SOLDIER_LETTER"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_dresser_note",
+    "name": "dressing-room tally",
+    "description": "A dressing tally is stained with water and ash beside the wounded men's beds.",
+    "looks_like": "f_desk",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_READ_DRESSER_NOTE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_smith_note",
+    "name": "smith's heat notes",
+    "description": "The smith's hurried note lies beneath a cracked shield strap.",
+    "looks_like": "f_desk",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_READ_SMITH_NOTE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_inner_warning",
+    "name": "scarred evacuation orders",
+    "description": "An order to withdraw has been scratched into a broken door.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_READ_INNER_WARNING"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_last_warning",
+    "name": "melted shield beside the arena",
+    "description": "The shield's rim has sagged into its own charred wooden grip.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_READ_LAST_WARNING"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_fallen_garrison",
+    "name": "last stand of the garrison",
+    "description": "Broken weapons and scattered packs trace the defenders' last retreat.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_READ_FALLEN_GARRISON"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_smith_hearth",
+    "name": "cold smithy hearth",
+    "description": "Abandoned craft furniture, scarred by work and fire.",
+    "looks_like": "f_clay_oven",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_anvil_stump",
+    "name": "scarred anvil stump",
+    "description": "Abandoned craft furniture, scarred by work and fire.",
+    "looks_like": "f_workbench",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "description": "Abandoned belongings of the former garrison. Recovered supplies are finite and left on this tile.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_evacuated_cart",
+    "name": "abandoned evacuation cart",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_CLAIM_EVACUATED_CART"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Only empty wrapping remains. These supplies cannot be collected twice.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_evacuated_cart_empty",
+    "name": "searched garrison supplies",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Abandoned belongings of the former garrison. Recovered supplies are finite and left on this tile.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_armory",
+    "name": "damaged garrison armory",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_CLAIM_ARMORY"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Only empty wrapping remains. These supplies cannot be collected twice.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_armory_empty",
+    "name": "searched garrison supplies",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Abandoned belongings of the former garrison. Recovered supplies are finite and left on this tile.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_ration_store",
+    "name": "gatehouse ration chest",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_CLAIM_RATION_STORE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Only empty wrapping remains. These supplies cannot be collected twice.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_ration_store_empty",
+    "name": "searched garrison supplies",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "A coiled rope and chisel were left beside the jammed timber hoist.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_quarry_rope",
+    "name": "spare hoist rope and workman's chisel",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_CLAIM_QUARRY_ROPE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Only empty wrapping remains. These supplies cannot be collected twice.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_quarry_rope_empty",
+    "name": "searched garrison supplies",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Abandoned belongings of the former garrison. Recovered supplies are finite and left on this tile.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_dressing_store",
+    "name": "last garrison dressings",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_CLAIM_DRESSING_STORE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Only empty wrapping remains. These supplies cannot be collected twice.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_dressing_store_empty",
+    "name": "searched garrison supplies",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Abandoned belongings of the former garrison. Recovered supplies are finite and left on this tile.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_barrack_pantry",
+    "name": "barrack kitchen supplies",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_CLAIM_BARRACK_PANTRY"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Only empty wrapping remains. These supplies cannot be collected twice.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_barrack_pantry_empty",
+    "name": "searched garrison supplies",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Abandoned belongings of the former garrison. Recovered supplies are finite and left on this tile.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_repair_store",
+    "name": "barrack repair bundle",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_CLAIM_REPAIR_STORE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Only empty wrapping remains. These supplies cannot be collected twice.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_repair_store_empty",
+    "name": "searched garrison supplies",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Abandoned belongings of the former garrison. Recovered supplies are finite and left on this tile.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_forge_store",
+    "name": "smith's remaining tools",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_CLAIM_FORGE_STORE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Only empty wrapping remains. These supplies cannot be collected twice.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_forge_store_empty",
+    "name": "searched garrison supplies",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Abandoned belongings of the former garrison. Recovered supplies are finite and left on this tile.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_heat_clothing",
+    "name": "scorched work clothing",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_CLAIM_HEAT_CLOTHING"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Only empty wrapping remains. These supplies cannot be collected twice.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_heat_clothing_empty",
+    "name": "searched garrison supplies",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Abandoned belongings of the former garrison. Recovered supplies are finite and left on this tile.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_standard_keepsake",
+    "name": "fallen garrison standard",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_CLAIM_STANDARD_KEEPSAKE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "description": "Only empty wrapping remains. These supplies cannot be collected twice.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "id": "f_berserk_grunbeld_standard_keepsake_empty",
+    "name": "searched garrison supplies",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  }
+]

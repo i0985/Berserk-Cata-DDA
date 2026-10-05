@@ -13,6 +13,18 @@ ARMOR = {'berserk_helmet','berserk_chestplate','berserk_gloves',
          'berserk_armguards','berserk_legguards','berserk_boots'}
 
 
+def native_om_location(terrain):
+    """The directional part of 0.I-1 oter_no_dir_or_connections.
+
+    Flora uses NO_ROTATE terrain, but the native helper still removes these
+    suffixes. This fixture previously compared raw IDs and missed the bug.
+    """
+    for suffix in ('_north', '_west', '_south', '_east'):
+        if terrain.endswith(suffix):
+            terrain = terrain[:-len(suffix)]
+    return terrain
+
+
 class FloraGraph(HuntGraph):
     def __init__(self, flags=None):
         super().__init__(flags)
@@ -25,6 +37,12 @@ class FloraGraph(HuntGraph):
         self.location_calls = 0
         self.can_locate = True
         self.spawns = []
+        self.terrain_locations.update({
+            (-96,48,0): 'berserk_flora_manor_west',
+            (-72,48,0): 'berserk_flora_manor_east',
+            (-96,72,0): 'berserk_flora_garden_west',
+            (-72,72,0): 'berserk_flora_garden_east',
+        })
 
     def condition(self, value):
         if isinstance(value, str):
@@ -40,7 +58,14 @@ class FloraGraph(HuntGraph):
         if 'u_profession' in value:
             return self.profession == value['u_profession']
         if 'npc_at_om_location' in value:
-            return self.beta_omt == value['npc_at_om_location']
+            return native_om_location(self.beta_omt) == value['npc_at_om_location']
+        if 'u_at_om_location' in value:
+            return native_om_location(self.omt) == value['u_at_om_location']
+        if 'overmap_at_point' in value:
+            p = self.resolve(value['point'])
+            return any((q[0]//24,q[1]//24,q[2]) == (p[0]//24,p[1]//24,p[2])
+                       and native_om_location(t) == value['overmap_at_point']
+                       for q,t in self.terrain_locations.items())
         return super().condition(value)
 
     def evaluate(self, expr):
@@ -88,7 +113,6 @@ class FloraGraph(HuntGraph):
                 key = value['location_variable_adjust']['global_val']
                 pos = self.flags[key]
                 if value.get('overmap_tile'):
-                    pos = (pos[0]//24*24,pos[1]//24*24,pos[2])
                     scale = 24
                 else:
                     scale = 1

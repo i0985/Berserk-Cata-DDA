@@ -30,8 +30,8 @@
   {
     "type": "mission_definition",
     "id": "MISSION_BERSERK_FLORA",
-    "name": "Flora: sanctuary and escape",
-    "description": "Visit Flora at the marked manor. Ask about the Brand and your armor, prepare deliberately, and confirm readiness before starting the attack. Escape by the western road or southern garden. Already owning armor does not block the conversation or preparation.",
+    "name": "Flora's counsel",
+    "description": "Find the witch in the marked grove. Ask about the Brand and the armor, accept the help you need, and prepare for the road before deciding to leave.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [
@@ -143,7 +143,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_GRUNBELD",
     "name": "Hunt Grunbeld in the scarred stronghold",
-    "description": "After sealing the Count, Wyald and Rosine breaches, follow the marked stronghold trail. Defeat both forms in the crucible, seal this site and claim its relic. A recorded death during Flora's siege remains valid.",
+    "description": "After leaving Flora's grove, follow the marked stronghold trail. Defeat both forms in the crucible, seal this site and claim its relic. If Grunbeld fell during the earlier battle, follow the surviving trace instead; his unique reward is not given twice.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [

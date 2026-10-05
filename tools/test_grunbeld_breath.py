@@ -289,7 +289,7 @@ class FixedBreathTests(unittest.TestCase):
         validate_math_actor_scopes(path,data)
         begin=next(e for e in data if e['id']=='EOC_BERSERK_GRUNBELD_BREATH_BEGIN')
         self.assertEqual(begin['effect'][0],{'u_location_variable':{'npc_val':'berserk_grunbeld_breath_target'}})
-        self.assertEqual(begin['effect'][2],{'math':['n_berserk_grunbeld_breath_phase = 1']})
+        self.assertIn({'math':['n_berserk_grunbeld_breath_phase = 1']}, begin['effect'])
         for expr in ("npc_hp('ALL') > 0",'npc_berserk_grunbeld_breath_phase = 1','g_berserk_breath_phase = 1'):
             with self.assertRaises(ValidationError):validate_math_actor_scopes(path,[{'math':[expr]}])
 

@@ -59,3 +59,11 @@ The map is underground for technical placement. Distinct sky and colored
 illumination remain separate experiments; `light_emitted` in 0.I-1 is a
 brightness value, not a color. Custom floor, ridge and landmark sprites can
 replace existing `looks_like` art later without changing the route IDs.
+
+
+## Поле Затмения, итерация 4.5 — 2026-10-02
+
+Единая геометрия 72 × 96, три одноразовые сцены, четыре памятные вещи,
+пульсирующие жилы и предупреждение перед финалом подготовлены для игровой
+проверки. Размер и ID сохранены; уже созданные карты не перестраиваются.
+Подробности, ограничения и список рисунков: [ECLIPSE_FIELD_DETAIL.md](ECLIPSE_FIELD_DETAIL.md).

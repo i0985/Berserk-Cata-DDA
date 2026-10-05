@@ -6,42 +6,40 @@
     ],
     "object": {
       "rows": [
-        "TT.TT.TT.TT.TT.TT.TT.TTT",
-        "T......................T",
-        "T.aaaaaaaaaaaaaaaaaaaa.T",
-        "T.aaaTaaaaaaaaaaaaappa.T",
-        "T.appaaaaaaaaaaaaaaaaa.T",
-        "T.aaass#ssssssss#sssaa.T",
-        "T.aaass#TTsssTTs#sssaa.T",
-        "T.aaa###ssssssss###saa.T",
-        "T.aaasssssssssssssssaa.T",
-        "T.aaasTssssssssssTssaa.T",
-        "T.aaasssssssssssssssaa.T",
-        "T.aaassssssAssssssssaa.T",
-        "T.aaasssssssssssssssaa.T",
-        "T.aaasssssssssssssssaa.T",
-        "T.aaasTssssssssssTssaa.T",
-        "T.aaasssssssssssssssaa.T",
-        "T.aaa###ssssssss###saa.T",
-        "T.aaass#TTsssTTs#sssaa.T",
-        "T.aaass#ssssssss#sssaa.T",
-        "T.apasssssssssssssssaa.T",
-        "T.aaaaaaaaaaaaaaaaaapa.T",
-        "T.aaaaaaaaaaaaaaaaaaaa.T",
-        "T......................T",
-        "TT.TT.TT.TT.TT.TT.TT.TTT"
+        "uTTudduT.............uTT",
+        "TTuTddT..............TTu",
+        "TuTTdd...............TuT",
+        "uTTudd...............uTT",
+        "TTudddaaasssssssaaaaaTTu",
+        "TuTd##s#ssssssss#ss#aTuT",
+        "uT.d#ss#ssssssss#ss#auTT",
+        "T..d#ss#sswsssss#ss#aTTu",
+        "...d#ddaaswwssssaaaaaTuT",
+        "...d#dssssswwaaaaaaaa...",
+        "...d#ssssssswaaaaaaaa...",
+        "...dssssssssswaaaaaaa...",
+        "...d#sssssssswwaaaa#a...",
+        "...d#ssssssssawaaaasa...",
+        "...d#ssssssssawwsss#a...",
+        "...d#ssssssssaawssssa...",
+        "...dass#ssssaaswwssss...",
+        "...daas#ssssaasswssss...",
+        "...daaaddasaaasssssss...",
+        "...da###dasaa#assss#a...",
+        "...daaaaddsaaaaasssaa...",
+        "...dddddddddaaaaaaaaa...",
+        "........dd..............",
+        "........dd.............."
       ],
       "terrain": {
-        ".": "t_dirt",
-        "A": "t_dirt",
+        ".": "t_grass",
         "T": "t_tree",
+        "u": "t_underbrush",
         "#": "t_rock",
+        "a": "t_berserk_breach_ash",
+        "d": "t_dirt",
         "s": "t_rock_floor",
-        "p": "t_pit_shallow",
-        "a": "t_dirt"
-      },
-      "furniture": {
-        "A": "f_berserk_open_breach"
+        "w": "t_berserk_breach_wound"
       },
       "place_monster": [
         {
@@ -57,57 +55,72 @@
       ],
       "place_furniture": [
         {
+          "furn": "f_berserk_open_breach",
+          "x": 11,
+          "y": 11
+        },
+        {
           "furn": "f_berserk_hunt_arena_tracks",
           "x": 12,
           "y": 12
         },
         {
-          "furn": "f_rubble",
+          "furn": "f_berserk_breach_scene",
           "x": 3,
-          "y": 6
-        },
-        {
-          "furn": "f_rubble",
-          "x": 3,
-          "y": 7
-        },
-        {
-          "furn": "f_rubble",
-          "x": 20,
           "y": 14
         },
         {
-          "furn": "f_rubble",
-          "x": 20,
-          "y": 15
+          "furn": "f_berserk_breach_failed_line",
+          "x": 8,
+          "y": 20
+        },
+        {
+          "furn": "f_berserk_location_breach_defenders",
+          "x": 2,
+          "y": 17
+        },
+        {
+          "furn": "f_berserk_breach_fallen_beam",
+          "x": 4,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_breach_beam_end",
+          "x": 3,
+          "y": 11
         },
         {
           "furn": "f_rubble",
           "x": 9,
-          "y": 3
+          "y": 5
         },
         {
           "furn": "f_rubble",
-          "x": 15,
-          "y": 20
+          "x": 14,
+          "y": 5
         },
         {
-          "furn": "f_berserk_breach_scene",
-          "x": 4,
-          "y": 14
-        },
-        {
-          "furn": "f_crate_o",
+          "furn": "f_rubble",
           "x": 18,
-          "y": 21
+          "y": 19
+        },
+        {
+          "furn": "f_rubble",
+          "x": 19,
+          "y": 13
+        },
+        {
+          "furn": "f_bench",
+          "x": 6,
+          "y": 20
         }
       ],
-      "place_loot": [
+      "place_item": [
         {
-          "item": "bandages",
-          "x": 18,
-          "y": 21,
-          "chance": 100
+          "item": "scrap_cotton",
+          "x": 8,
+          "y": 20,
+          "amount": 2
         }
       ]
     }

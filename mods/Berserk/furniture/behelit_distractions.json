@@ -2,14 +2,22 @@
   {
     "type": "furniture",
     "id": "f_berserk_oak_noisemaker_armed",
-    "copy-from": "f_berserk_oak_noisemaker",
+    "name": "hanging bone chimes",
     "description": "The delayed mechanism is wound. It will make four bursts of noise, then stop. It cannot be wound again until 90 seconds after activation.",
+    "symbol": "!",
+    "color": "white",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
     "examine_action": {
       "type": "effect_on_condition",
       "effect_on_conditions": [
         "EOC_BERSERK_DISTRACTION_BUSY"
       ]
-    }
+    },
+    "looks_like": "f_counter"
   },
   {
     "type": "ter_furn_transform",
@@ -27,14 +35,22 @@
   {
     "type": "furniture",
     "id": "f_berserk_cave_noisemaker_armed",
-    "copy-from": "f_berserk_cave_noisemaker",
+    "name": "loose stone chime",
     "description": "The delayed mechanism is wound. It will make four bursts of noise, then stop. It cannot be wound again until 90 seconds after activation.",
+    "symbol": "!",
+    "color": "light_gray",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
     "examine_action": {
       "type": "effect_on_condition",
       "effect_on_conditions": [
         "EOC_BERSERK_DISTRACTION_BUSY"
       ]
-    }
+    },
+    "looks_like": "f_counter"
   },
   {
     "type": "ter_furn_transform",
@@ -52,8 +68,16 @@
   {
     "type": "furniture",
     "id": "f_berserk_chapel_noisemaker_armed",
-    "copy-from": "f_berserk_chapel_noisemaker",
+    "name": "cracked chapel bell",
     "description": "The delayed mechanism is wound. It will make four bursts of noise, then stop. It cannot be wound again until 90 seconds after activation.",
+    "looks_like": "f_counter",
+    "symbol": "!",
+    "color": "yellow",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
     "examine_action": {
       "type": "effect_on_condition",
       "effect_on_conditions": [
@@ -77,8 +101,16 @@
   {
     "type": "furniture",
     "id": "f_berserk_expedition_noisemaker_armed",
-    "copy-from": "f_berserk_expedition_noisemaker",
+    "name": "wind-up emergency siren",
     "description": "The delayed mechanism is wound. It will make four bursts of noise, then stop. It cannot be wound again until 90 seconds after activation.",
+    "looks_like": "f_counter",
+    "symbol": "!",
+    "color": "yellow",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
     "examine_action": {
       "type": "effect_on_condition",
       "effect_on_conditions": [

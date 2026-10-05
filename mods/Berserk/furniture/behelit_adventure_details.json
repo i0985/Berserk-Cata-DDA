@@ -1,0 +1,138 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_chapel_stone_pillar",
+    "name": "chapel stone pillar",
+    "description": "A worn stone pillar supports the roof above the nave. Candle soot darkens the side facing the altar.",
+    "looks_like": "t_column",
+    "symbol": "#",
+    "color": "light_gray",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [],
+    "bash": {
+      "str_min": 20,
+      "str_max": 80,
+      "sound": "crash!",
+      "sound_fail": "whump.",
+      "items": [ { "item": "rock", "count": [ 2, 4 ] } ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_expedition_torn_canvas",
+    "name": "torn expedition canvas",
+    "description": "The tent wall has been pulled away from its stakes. Folded canvas and snapped ties lie on the groundsheet, leaving a gap wide enough to pass through.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "light_gray",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "FLAMMABLE", "PLACE_ITEM", "SHORT" ],
+    "bash": {
+      "str_min": 1,
+      "str_max": 5,
+      "sound": "rrrip!",
+      "sound_fail": "slap!",
+      "items": [ { "item": "scrap_cotton", "count": [ 1, 2 ] } ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_expedition_approach_note",
+    "name": "message tied to the camp cordon",
+    "description": "A folded warning is tied to a stake beside the southern entrance. Rain has blurred the first line, but a hurried account of the alarm test is still legible.",
+    "looks_like": "f_sign",
+    "symbol": "?",
+    "color": "light_gray",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT" ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [ "EOC_BERSERK_READ_EXPEDITION_ALARM_NOTE" ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_chapel_altar",
+    "copy-from": "f_table",
+    "name": "blackened chapel altar",
+    "description": "Black candle wax fills the joints of the altar. Torn cloth hides older carvings; a line of bloody handprints leads toward the recess behind it.",
+    "looks_like": "f_table"
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_chapel_vigil",
+    "name": "last vigil's prayer sheet",
+    "description": "A wax-stained sheet has been pinned beside the altar. The final lines are written across the earlier prayer, in a different hand.",
+    "looks_like": "f_sign",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT" ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [ "EOC_BERSERK_READ_CHAPEL_LAST_VIGIL" ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_low_roots",
+    "name": "exposed oak roots",
+    "description": "Roots twist above the soil like knotted ropes. They slow a crossing but leave the way open on either side.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "brown",
+    "move_cost_mod": 2,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "FLAMMABLE", "SHORT" ],
+    "bash": {
+      "str_min": 6,
+      "str_max": 20,
+      "sound": "crack!",
+      "sound_fail": "whump.",
+      "items": [ { "item": "splinter", "count": [ 1, 4 ] } ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_visitor_remains",
+    "name": "traveler's remains among the roots",
+    "description": "Roots have grown through a torn woolen wrapping. One hand still rests beside the notch where a cutting tool broke.",
+    "looks_like": "f_rubble",
+    "symbol": "%",
+    "color": "brown",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "PLACE_ITEM", "SHORT" ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [ "EOC_BERSERK_SCENERY_OAK_VISITOR" ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_cave_broken_support",
+    "name": "broken cave support",
+    "description": "A split wooden prop rests on a dry ledge. An iron bar and a coil of rope were left beside it; a scrap of writing is caught beneath the end.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "brown",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [ "TRANSPARENT", "FLAMMABLE", "PLACE_ITEM", "SHORT" ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [ "EOC_BERSERK_READ_CAVE_LAST_SCRAP" ]
+    },
+    "bash": {
+      "str_min": 3,
+      "str_max": 12,
+      "sound": "crack!",
+      "sound_fail": "whump.",
+      "items": [ { "item": "stick", "count": [ 1, 2 ] } ]
+    }
+  }
+]

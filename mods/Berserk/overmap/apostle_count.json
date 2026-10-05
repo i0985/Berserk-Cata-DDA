@@ -63,11 +63,11 @@
     "type": "overmap_special",
     "id": "berserk_count_residence_special",
     "occurrences": [
-      0,
-      0
+      1,
+      1
     ],
     "rotate": false,
-    "//": "Created by the post-Eclipse hunt locator, never by random world encounters.",
+    "//": "One globally unique site requested during normal overmap generation. Quest clues find existing terrain; they never force-place a nearby copy. Existing saved sites keep their coordinates. Distances are soft design targets.",
     "overmaps": [
       {
         "point": [
@@ -77,7 +77,7 @@
         ],
         "overmap": "berserk_count_prison",
         "locations": [
-          "forest"
+          "wilderness"
         ]
       },
       {
@@ -88,7 +88,7 @@
         ],
         "overmap": "berserk_count_hall",
         "locations": [
-          "forest"
+          "wilderness"
         ]
       },
       {
@@ -99,7 +99,7 @@
         ],
         "overmap": "berserk_count_west_yard",
         "locations": [
-          "forest"
+          "wilderness"
         ]
       },
       {
@@ -110,7 +110,7 @@
         ],
         "overmap": "berserk_count_east_yard",
         "locations": [
-          "forest"
+          "wilderness"
         ]
       },
       {

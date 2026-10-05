@@ -158,19 +158,9 @@
         ]
       },
       {
-        "if": {
-          "u_is_wearing": "berserk_wyald_beast_knot"
-        },
-        "then": {
-          "math": [
-            "u_berserk_mode_duration = 210"
-          ]
-        },
-        "else": {
-          "math": [
-            "u_berserk_mode_duration = 150"
-          ]
-        }
+        "math": [
+          "u_berserk_mode_duration = 150"
+        ]
       },
       {
         "math": [

@@ -1,0 +1,683 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_TREEHOUSE_THRESHOLD",
+    "effect": {
+      "u_message": "A small welcome is woven into the mat: \"Come in from the road. There is a place by the hearth and a bed beyond the guest passage. Leave a light for whoever follows.\"",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_GUEST_RECORD",
+    "effect": {
+      "u_message": "\"Fresh linen is in the cupboard. The kitchen is across the root gallery; drinking water has been prepared there. If the night troubles you, rest beneath the tree before returning to the road.\"",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_HOUSE_RULES",
+    "effect": {
+      "u_message": "\"The books are here to be read, not carried away. Ask me for food, mending supplies or materials for a protective sign; bundles are ready in the pantry and workshop. If you seek the armor, we must speak of its price first.\"",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_COSMOLOGY_SHELF",
+    "effect": {
+      "u_message": "The books distinguish the God Hand from apostles and projections. The collision with this world deepened local wounds; quieting one breach cannot close them all.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_WARD_SHELF",
+    "effect": {
+      "u_message": "A small stone and bone ward quiets new night summons of the Brand within eight tiles. It does not stop zombies or drive away demons already present. Build it in a defensible shelter, not as a substitute for walls.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_CHRONICLE_SHELF",
+    "effect": {
+      "u_message": "These pages remember someone keeping the lamps lit, repairing a sleeve and preparing a bed for a stranger. The sanctuary was a home before it became a refuge.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_BOTANY_SHELF",
+    "effect": {
+      "u_message": "Keep drinking water clean. Boil cloth before dressing a wound. Rest does not restore a missing hand or an eye. The kitchen and garden offer care, not a cure for sacrifice.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_GALLERY_RECORD",
+    "effect": {
+      "u_message": "A faded drawing traces the house around the great trunk. Books and the hearth occupy the western wing, the kitchen faces east, and the workshop opens onto the herb garden. Two small beds are drawn beyond the western guest passage.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_GARDEN_RECORD",
+    "effect": {
+      "u_message": "Labels name the plants and the seasons when they should be gathered. The covered basin stands near the southern beds. Between the benches a wicket has been tied open, leading to the woodland path.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_WEST_SIGN",
+    "effect": {
+      "u_message": "A carved arrow points west: \"Woodland road.\" The path winds between old trees and disappears behind the grove.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_SOUTH_SIGN",
+    "effect": {
+      "u_message": "A wooden marker reads: \"Herb garden.\" Beyond the beds, a gate opens onto a footpath running south.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_ARMOR_STAND",
+    "effect": {
+      "u_message": "Leather pads cover the wooden stand. Nearby fitting notes show where the plates bear on a wearer and where straps must leave room to move. The armor is no common suit to take from a rack; Flora must entrust it to you.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_ROOT_NICHE",
+    "effect": {
+      "u_message": "A leaf-shaped carving has been tucked into a stone-lined hollow under the roots. It belongs to this house; nothing here has been set aside for a visitor.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_ALLOW_AID",
+    "effect": [
+      {
+        "math": [
+          "berserk_flora_aid_authorized = 1"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_flora_folio_given != 1"
+          ]
+        },
+        "then": [
+          {
+            "u_spawn_item": "berserk_flora_travel_folio",
+            "count": 1
+          },
+          {
+            "math": [
+              "berserk_flora_folio_given = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "u_message": "Flora offers the prepared bundles in the kitchen, workshop and southern gallery, and gives you her travel notes.",
+        "type": "info",
+        "popup": false
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "math": [
+            "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_TRAVEL_FOLIO",
+    "effect": [
+      {
+        "u_learn_recipe": "bandages_makeshift_boiled"
+      },
+      {
+        "u_learn_recipe": "waterskin"
+      },
+      {
+        "u_message": "Flora's notes: boil clean cloth for dressings; sew a waterskin before a long journey. A defensible room, drinking water, a bed and a small stone-and-bone ward make a refuge. The ward quiets new Brand summons within eight tiles, not existing enemies. Neither the missing hand nor eye will grow back through rest.",
+        "type": "info",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_flora_aid_pantry_claimed",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_flora_aid_pantry"
+        ],
+        "result": "f_berserk_flora_aid_pantry_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_AID_PANTRY",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_FLORA_CLAIM_GIFT",
+      "variables": {
+        "berserk_location_full": "f_berserk_flora_aid_pantry",
+        "berserk_location_empty": "f_berserk_flora_aid_pantry_empty",
+        "berserk_location_transform": "berserk_flora_aid_pantry_claimed",
+        "berserk_location_loot": "berserk_flora_aid_pantry"
+      }
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_AT_REGISTERED_MANOR"
+        },
+        {
+          "math": [
+            "berserk_flora_aid_authorized == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage <= 2"
+          ]
+        }
+      ]
+    },
+    "false_effect": {
+      "u_message": "These are Flora's prepared stores. Ask her for help while the house is peaceful before taking them. After the sanctuary is lost, no new aid can be given.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_flora_aid_workshop_claimed",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_flora_aid_workshop"
+        ],
+        "result": "f_berserk_flora_aid_workshop_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_AID_WORKSHOP",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_FLORA_CLAIM_GIFT",
+      "variables": {
+        "berserk_location_full": "f_berserk_flora_aid_workshop",
+        "berserk_location_empty": "f_berserk_flora_aid_workshop_empty",
+        "berserk_location_transform": "berserk_flora_aid_workshop_claimed",
+        "berserk_location_loot": "berserk_flora_aid_workshop"
+      }
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_AT_REGISTERED_MANOR"
+        },
+        {
+          "math": [
+            "berserk_flora_aid_authorized == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage <= 2"
+          ]
+        }
+      ]
+    },
+    "false_effect": {
+      "u_message": "These are Flora's prepared stores. Ask her for help while the house is peaceful before taking them. After the sanctuary is lost, no new aid can be given.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_flora_aid_ward_claimed",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_flora_aid_ward"
+        ],
+        "result": "f_berserk_flora_aid_ward_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_AID_WARD",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_FLORA_CLAIM_GIFT",
+      "variables": {
+        "berserk_location_full": "f_berserk_flora_aid_ward",
+        "berserk_location_empty": "f_berserk_flora_aid_ward_empty",
+        "berserk_location_transform": "berserk_flora_aid_ward_claimed",
+        "berserk_location_loot": "berserk_flora_aid_ward"
+      }
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_AT_REGISTERED_MANOR"
+        },
+        {
+          "math": [
+            "berserk_flora_aid_authorized == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage <= 2"
+          ]
+        }
+      ]
+    },
+    "false_effect": {
+      "u_message": "These are Flora's prepared stores. Ask her for help while the house is peaceful before taking them. After the sanctuary is lost, no new aid can be given.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_CHARRED_ARCHIVE",
+    "effect": {
+      "u_message": "The unfinished pages burned with the house. Your escape was still a success; the remaining hunts can be followed through your journal.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_SAVED_ARCHIVE",
+    "effect": {
+      "u_message": "The desk is lost, but the manuscript was taken out. The saved work cannot restore the sanctuary; it preserves something of the person who sheltered you.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_flora_manuscript_taken",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_flora_manuscript"
+        ],
+        "result": "f_berserk_flora_manuscript_taken"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_MANUSCRIPT",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "berserk_flora_siege_state >= 2"
+            ]
+          },
+          {
+            "math": [
+              "berserk_flora_siege_state <= 4"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "if": {
+          "u_query": "Rescue the unfinished manuscript? It costs time; escaping without it still succeeds.",
+          "default": false
+        },
+        "then": [
+          {
+            "u_transform_radius": 0,
+            "ter_furn_transform": "berserk_flora_manuscript_taken",
+            "target_var": {
+              "context_val": "pos"
+            }
+          },
+          {
+            "if": {
+              "map_furniture_id": "f_berserk_flora_manuscript_taken",
+              "loc": {
+                "context_val": "pos"
+              }
+            },
+            "then": [
+              {
+                "map_spawn_item": "berserk_flora_rescued_manuscript",
+                "loc": {
+                  "context_val": "pos"
+                }
+              },
+              {
+                "math": [
+                  "berserk_flora_manuscript_rescued = 1"
+                ]
+              },
+              {
+                "u_message": "The manuscript lies here ready to be picked up. Leave by the western road or southern garden; do not wait for a victory.",
+                "type": "info",
+                "popup": true
+              },
+              {
+                "turn_cost": "2 seconds"
+              }
+            ]
+          }
+        ]
+      },
+      "else": {
+        "u_message": "These unfinished pages gather Flora's notes on paths between worlds. A smooth stone holds down the loose sheets; careful annotations crowd the margins. Beside them lies a quill she has not yet cleaned.",
+        "type": "info",
+        "popup": true
+      }
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_AT_REGISTERED_MANOR"
+        },
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_flora_manuscript",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_RESCUED_MANUSCRIPT",
+    "effect": {
+      "u_message": "The pages survived because someone chose to carry them. Flora compares the joined worlds to roots grafted across a wound. A quiet place can shelter a traveler; no single refuge can mend the whole world. These notes grant no combat power.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_BOOKMARK",
+    "effect": [
+      {
+        "u_message": "A leaf-shaped wooden bookmark survived inside the stone-lined root niche. Its little inscription reads: leave a light for the next traveler. The house will not return, and its attack cannot be repeated. Your hunt journal still gives the next roads.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_PROGRESS_REPORT"
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_flora_keepsake_claimed",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_flora_ruin_keepsake"
+        ],
+        "result": "f_berserk_flora_ruin_keepsake_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_RUIN_KEEPSAKE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_flora_ruin_keepsake",
+        "berserk_location_empty": "f_berserk_flora_ruin_keepsake_empty",
+        "berserk_location_transform": "berserk_flora_keepsake_claimed",
+        "berserk_location_loot": "berserk_flora_ruin_keepsake"
+      }
+    },
+    "condition": {
+      "math": [
+        "berserk_flora_stage == 3"
+      ]
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_flora_treehouse_charred",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_flora_manuscript"
+        ],
+        "result": "f_berserk_flora_charred_archive"
+      },
+      {
+        "valid_furniture": [
+          "f_berserk_flora_manuscript_taken"
+        ],
+        "result": "f_berserk_flora_saved_archive"
+      }
+    ],
+    "terrain": [
+      {
+        "valid_terrain": [
+          "t_berserk_flora_living_wall"
+        ],
+        "result": "t_berserk_flora_charred_timber"
+      },
+      {
+        "valid_terrain": [
+          "t_berserk_flora_root_window"
+        ],
+        "result": "t_berserk_flora_charred_timber"
+      },
+      {
+        "valid_terrain": [
+          "t_berserk_flora_wood_floor"
+        ],
+        "result": "t_berserk_flora_ash_floor"
+      },
+      {
+        "valid_terrain": [
+          "t_berserk_flora_woven_rug"
+        ],
+        "result": "t_berserk_flora_ash_floor"
+      },
+      {
+        "valid_terrain": [
+          "t_berserk_flora_spiritual_trunk"
+        ],
+        "result": "t_berserk_flora_charred_trunk"
+      },
+      {
+        "valid_terrain": [
+          "t_berserk_flora_living_roots"
+        ],
+        "result": "t_berserk_flora_charred_roots"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_TREEHOUSE_REGISTER",
+    "effect": [
+      {
+        "copy_var": {
+          "global_val": "berserk_flora_location"
+        },
+        "target_var": {
+          "context_val": "flora_layout"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "flora_layout"
+        },
+        "x_adjust": 14,
+        "y_adjust": 12
+      },
+      {
+        "if": {
+          "map_furniture_id": "f_berserk_flora_treehouse_threshold_v2",
+          "loc": {
+            "context_val": "flora_layout"
+          }
+        },
+        "then": {
+          "math": [
+            "berserk_flora_treehouse_layout = 2"
+          ]
+        },
+        "else": {
+          "if": {
+            "map_furniture_id": "f_berserk_flora_treehouse_threshold",
+            "loc": {
+              "context_val": "flora_layout"
+            }
+          },
+          "then": {
+            "math": [
+              "berserk_flora_treehouse_layout = 1"
+            ]
+          }
+        }
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_FLORA_AT_REGISTERED_MANOR"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_CLAIM_GIFT",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": {
+            "context_val": "berserk_location_full"
+          },
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    },
+    "false_effect": {
+      "u_message": "Nothing could be recovered here.",
+      "type": "info"
+    },
+    "effect": {
+      "if": {
+        "u_query": "Take Flora's offered bundle?",
+        "default": false
+      },
+      "then": [
+        {
+          "u_transform_radius": 0,
+          "ter_furn_transform": {
+            "context_val": "berserk_location_transform"
+          },
+          "target_var": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "if": {
+            "map_furniture_id": {
+              "context_val": "berserk_location_empty"
+            },
+            "loc": {
+              "context_val": "pos"
+            }
+          },
+          "then": [
+            {
+              "map_spawn_item": {
+                "context_val": "berserk_location_loot"
+              },
+              "use_item_group": true,
+              "loc": {
+                "context_val": "pos"
+              }
+            },
+            {
+              "u_message": "You lay the recovered belongings here. Pick them up before leaving.",
+              "type": "info"
+            }
+          ],
+          "else": {
+            "u_message": "Nothing could be recovered here.",
+            "type": "info"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_READ_SANCTUARY_WARD",
+    "effect": {
+      "u_message": "The pale stones quiet the Brand's call while the grove is peaceful. New night pursuers and nearby manifestations are held back, but the mark remains. Enemies already inside the grove and the armor's shadows still threaten you. The tree offers a place to prepare, not invulnerability.",
+      "type": "info",
+      "popup": true
+    }
+  }
+]

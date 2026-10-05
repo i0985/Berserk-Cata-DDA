@@ -1,16 +1,44 @@
 [
   {
     "type": "monster_attack",
-    "attack_type": "melee",
+    "attack_type": "spell",
     "id": "berserk_oak_root_sweep",
-    "cooldown": 9,
-    "move_cost": 170,
-    "damage_max_instance": [ { "damage_type": "bash", "amount": 21 } ],
-    "range": 2,
-    "hit_dmg_u": "The oak demon catches you with a lashing root!",
-    "hit_dmg_npc": "The oak demon catches %s with a lashing root!",
-    "miss_msg_u": "The oak demon's root lashes past you!",
-    "miss_msg_npc": "The oak demon's root lashes past %s!"
+    "cooldown": 12,
+    "spell_data": {
+      "id": "berserk_committed_oak_prepare",
+      "min_level": 0
+    },
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "u_has_effect": "berserk_oak_root_ready"
+          }
+        },
+        {
+          "not": {
+            "u_has_effect": "berserk_apostle_attack_recovery"
+          }
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_committed_oak_cooldown"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_oak_phase != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == n_val('pos_z')"
+          ]
+        }
+      ]
+    },
+    "monster_message": "The oak demon braces; roots lift the earth in front of it. Step out of the disturbed ground before they strike!",
+    "//": "Existing ID now prepares a fixed root sector. The old instant ranged melee is no longer active."
   },
   {
     "type": "monster_attack",
@@ -18,7 +46,12 @@
     "id": "berserk_cave_hooking_lunge",
     "cooldown": 7,
     "move_cost": 140,
-    "damage_max_instance": [ { "damage_type": "cut", "amount": 18 } ],
+    "damage_max_instance": [
+      {
+        "damage_type": "cut",
+        "amount": 18
+      }
+    ],
     "range": 2,
     "hit_dmg_u": "The cave demon lunges and tears at you!",
     "hit_dmg_npc": "The cave demon lunges and tears at %s!",

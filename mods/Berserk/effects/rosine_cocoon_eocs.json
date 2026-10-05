@@ -5,7 +5,9 @@
     "furniture": [
       {
         "valid_furniture": [
-          "f_berserk_rosine_cocoon_inhabited"
+          "f_berserk_rosine_cocoon_inhabited",
+          "f_berserk_rosine_cocoon_watchful",
+          "f_berserk_rosine_cocoon_waking"
         ],
         "result": "f_berserk_rosine_cocoon"
       }
@@ -15,10 +17,35 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_COCOON_OPEN",
     "condition": {
-      "map_furniture_id": "f_berserk_rosine_cocoon_inhabited",
-      "loc": {
-        "context_val": "pos"
-      }
+      "and": [
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "map_furniture_id": "f_berserk_rosine_cocoon_inhabited",
+              "loc": {
+                "context_val": "pos"
+              }
+            },
+            {
+              "map_furniture_id": "f_berserk_rosine_cocoon_watchful",
+              "loc": {
+                "context_val": "pos"
+              }
+            },
+            {
+              "map_furniture_id": "f_berserk_rosine_cocoon_waking",
+              "loc": {
+                "context_val": "pos"
+              }
+            }
+          ]
+        }
+      ]
     },
     "effect": {
       "if": {
@@ -52,6 +79,14 @@
         "target_var": {
           "context_val": "pos"
         }
+      },
+      {
+        "map_spawn_item": "scrap_cotton",
+        "count": 2,
+        "loc": {
+          "context_val": "pos"
+        },
+        "suppress_message": true
       },
       {
         "u_message": "The silk splits. A winged creature crawls free, leaving an empty shell.",

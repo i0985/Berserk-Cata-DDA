@@ -140,11 +140,13 @@ class EclipseGrasp(unittest.TestCase):
     def test_ring_popup_wounds_then_release_in_that_order(self):
         g = GraspGraph(); boss = g.enter(); hp = boss['hp']; g.approach()
         neighbors = {(g.avatar[0]+dx, g.avatar[1]+dy, -7)
-                     for dx in (-1, 0, 1) for dy in (-1, 0, 1) if (dx,dy)!=(0,0)}
+                     for dx in (-1, 1) for dy in (-1, 1)}
         mob_positions = {m['pos'] for m in g.actors if m['id'] != BOSS}
         self.assertEqual(mob_positions, neighbors)
-        self.assertEqual(sum(m['id'] == 'mon_berserk_eclipse_wretch' for m in g.actors), 6)
-        self.assertEqual(sum(m['id'] == 'mon_berserk_eclipse_halfbreed' for m in g.actors), 2)
+        self.assertEqual(sum(m['id'] == 'mon_berserk_eclipse_wretch' for m in g.actors), 4)
+        self.assertEqual(sum(m['id'] == 'mon_berserk_eclipse_halfbreed' for m in g.actors), 0)
+        self.assertFalse(any(m['pos'] in {(g.avatar[0]+dx,g.avatar[1]+dy,-7)
+                         for dx,dy in ((-1,0),(1,0),(0,-1),(0,1))} for m in g.actors))
         self.assertEqual(g.bionics, {HAND, EYE})
         self.assertIn('berserk_missing_left_hand', g.player_effects)
         self.assertNotIn(WAITING, boss['effects'])
@@ -181,14 +183,14 @@ class EclipseGrasp(unittest.TestCase):
     def test_walls_and_occupied_neighbors_are_not_overwritten_or_retried(self):
         g = GraspGraph(); boss = g.enter()
         g.avatar=(boss['pos'][0]-3,boss['pos'][1],-7)
-        wall=(g.avatar[0]-1,g.avatar[1],-7); npc=(g.avatar[0]+1,g.avatar[1],-7)
+        wall=(g.avatar[0]-1,g.avatar[1]-1,-7); npc=(g.avatar[0]+1,g.avatar[1]+1,-7)
         g.blocked.add(wall);g.actors.append({'id':'friendly_npc_mock','pos':npc,'effects':set(),'hp':100})
         g.run('EOC_BERSERK_ECLIPSE_GRASP_ON_MOVE')
         self.assertFalse(any(m['pos']==wall for m in g.actors))
         self.assertEqual(sum(m['pos']==npc for m in g.actors),1)
-        self.assertEqual(sum(m['id'] in ('mon_berserk_eclipse_wretch','mon_berserk_eclipse_halfbreed') for m in g.actors),6)
+        self.assertEqual(sum(m['id'] in ('mon_berserk_eclipse_wretch','mon_berserk_eclipse_halfbreed') for m in g.actors),2)
         g.run('EOC_BERSERK_ECLIPSE_GRASP_RETRY')
-        self.assertEqual(len(g.actors),8)
+        self.assertEqual(len(g.actors),4)
 
     def test_blocked_center_does_not_claim_a_started_encounter_and_retry_is_bounded(self):
         g = GraspGraph();g.blocked.add((63,-7,-7))

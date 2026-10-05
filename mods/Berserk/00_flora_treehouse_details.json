@@ -1,0 +1,1049 @@
+[
+  {
+    "type": "terrain",
+    "id": "t_berserk_flora_living_wall",
+    "copy-from": "t_wall_log",
+    "name": "root-bound timber wall",
+    "description": "Hand-fitted timbers curve around living roots. The house grew around the tree rather than cutting through it.",
+    "looks_like": "t_wall_log"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_flora_wood_floor",
+    "copy-from": "t_floor_primitive",
+    "name": "worn sanctuary floorboards",
+    "description": "Clean wooden boards follow the irregular wings of the house. Rugs and furniture rest on this floor, not on bare forest soil.",
+    "looks_like": "t_floor"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_flora_woven_rug",
+    "copy-from": "t_carpet_yellow",
+    "name": "woven hearth rug",
+    "description": "A soft faded rug surrounds the tea table and the quiet hearth.",
+    "looks_like": "t_carpet_yellow"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_flora_root_window",
+    "copy-from": "t_window_domestic",
+    "name": "small root-framed window",
+    "description": "Branches frame the small window; light falls across books and herbs inside.",
+    "looks_like": "t_window_domestic"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_flora_spiritual_trunk",
+    "copy-from": "t_tree",
+    "name": "great spiritual tree",
+    "description": "The immense trunk rises through the heart of the sanctuary. Its roots embrace the library, kitchen and sleeping rooms.",
+    "looks_like": "t_tree"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_flora_living_roots",
+    "copy-from": "t_tree",
+    "name": "spiritual tree roots",
+    "description": "Heavy roots link the tree to the house and the garden. The western road and southern walk pass around them.",
+    "looks_like": "t_tree"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_flora_scorched_root_path",
+    "copy-from": "t_dirt",
+    "name": "broken outer roots",
+    "description": "The outer defense has been torn apart. Scorched roots mark where the attackers broke through.",
+    "looks_like": "t_dirt"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_flora_charred_trunk",
+    "copy-from": "t_tree",
+    "name": "burned spiritual tree",
+    "description": "The vast blackened trunk still marks the center of the ruined house. The living protection is gone.",
+    "looks_like": "t_tree",
+    "color": "dark_gray"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_flora_charred_roots",
+    "copy-from": "t_tree",
+    "name": "charred spiritual roots",
+    "description": "Black roots trace the former garden and the foundations of the house.",
+    "looks_like": "t_tree",
+    "color": "dark_gray"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_flora_charred_timber",
+    "copy-from": "t_wall_log",
+    "name": "charred tree-house wall",
+    "description": "The timber shell preserves the shapes of rooms that once sheltered travelers.",
+    "looks_like": "t_wall_log",
+    "color": "dark_gray"
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_treehouse_threshold",
+    "name": "woven threshold beside the roots",
+    "description": "A clean mat welcomes visitors beside the living roots.",
+    "looks_like": "f_bench",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_TREEHOUSE_THRESHOLD"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_guest_record",
+    "name": "guest-room welcome",
+    "description": "A handwritten welcome rests beside the made bed.",
+    "looks_like": "f_desk",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_GUEST_RECORD"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_house_rules",
+    "name": "Flora's household note",
+    "description": "The note distinguishes hospitality from plunder.",
+    "looks_like": "f_desk",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_HOUSE_RULES"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_cosmology_shelf",
+    "name": "shelf of astral studies",
+    "description": "Margins compare paths between worlds with roots beneath a forest.",
+    "looks_like": "f_bookcase",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": 9,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_COSMOLOGY_SHELF"
+      ]
+    },
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_ward_shelf",
+    "name": "shelf of protective inscriptions",
+    "description": "Cloth bookmarks separate drawings of stone and bone wards.",
+    "looks_like": "f_bookcase",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": 9,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_WARD_SHELF"
+      ]
+    },
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_chronicle_shelf",
+    "name": "shelf of household chronicles",
+    "description": "Repairs, guests and seasons are recorded beside old journeys.",
+    "looks_like": "f_bookcase",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": 9,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_CHRONICLE_SHELF"
+      ]
+    },
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_botany_shelf",
+    "name": "shelf of garden and remedy notes",
+    "description": "Pressed leaves and careful drawings fill the handwritten books.",
+    "looks_like": "f_bookcase",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": 9,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_BOTANY_SHELF"
+      ]
+    },
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_gallery_record",
+    "name": "root gallery inscription",
+    "description": "A narrow covered passage curves around the trunk.",
+    "looks_like": "f_desk",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_GALLERY_RECORD"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_garden_record",
+    "name": "herb-garden marker",
+    "description": "Names and seasons are written beside the herb beds.",
+    "looks_like": "f_sign",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_GARDEN_RECORD"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_west_sign",
+    "name": "western road marker",
+    "description": "A simple arrow points away from the house.",
+    "looks_like": "f_sign",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_WEST_SIGN"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_south_sign",
+    "name": "southern garden marker",
+    "description": "The doorway opens onto the root-framed garden walk.",
+    "looks_like": "f_sign",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_SOUTH_SIGN"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_armor_stand",
+    "name": "Berserker armor workstand",
+    "description": "Leather pads and fitting notes lie on the workstand.",
+    "looks_like": "f_rack_wood",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_ARMOR_STAND"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_root_niche",
+    "name": "sheltered niche between roots",
+    "description": "A small stone-lined hollow lies under the porch roots.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_ROOT_NICHE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_banked_hearth",
+    "name": "quiet hearth",
+    "description": "Warm-looking embers glow behind a stone lip without spreading fire.",
+    "looks_like": "f_clay_oven",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "light_emitted": 12
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_reading_lamp",
+    "name": "small sanctuary lamp",
+    "description": "A modest steady light is set beside a reading place.",
+    "looks_like": "f_table",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "light_emitted": 6
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_drying_herbs",
+    "name": "drying herb bundles",
+    "description": "Bundles hang beside the kitchen worktop.",
+    "looks_like": "f_rack_wood",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_herb_bed",
+    "name": "tended medicinal herbs",
+    "description": "Low plants grow in orderly beds that curve around the roots.",
+    "looks_like": "f_flower_tulip",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_rain_basin",
+    "name": "covered rainwater basin",
+    "description": "A ceramic basin waits beside the kitchen. Ask for prepared drinking water instead of treating rainwater as safe.",
+    "looks_like": "f_counter",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_fallen_bough",
+    "name": "fallen spiritual bough",
+    "description": "The northern gallery is blocked by a heavy bough. The southern gallery remains open.",
+    "looks_like": "f_rubble",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_charred_bedroom",
+    "name": "burned bedroom furniture",
+    "description": "Bedframes and writing desks preserve the outline of a room once prepared for rest.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_charred_fittings",
+    "name": "charred household fittings",
+    "description": "Broken crockery and scorched wood mark the old kitchen, tables and garden.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_charred_books",
+    "name": "ashes of the library",
+    "description": "Blackened bindings still stand where the shelves once were.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_aid_lost",
+    "name": "burned aid stores",
+    "description": "The remaining prepared supplies were lost with the house. Nothing can be taken again.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_aid_pantry",
+    "name": "prepared kitchen aid",
+    "description": "Food, a waterskin and clean cloth were set aside for a guest.",
+    "looks_like": "f_counter",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_AID_PANTRY"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_aid_pantry_empty",
+    "name": "used aid place",
+    "description": "The prepared bundle has already been collected.",
+    "looks_like": "f_counter",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_aid_workshop",
+    "name": "prepared repair aid",
+    "description": "A bone needle and a small supply of leather and cloth wait beside the workbench.",
+    "looks_like": "f_rack_wood",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_AID_WORKSHOP"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_aid_workshop_empty",
+    "name": "used aid place",
+    "description": "The prepared bundle has already been collected.",
+    "looks_like": "f_rack_wood",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_aid_ward",
+    "name": "prepared protective-sign materials",
+    "description": "Eight stones, four bones and two candles are bundled for a small protective sign.",
+    "looks_like": "f_rack_wood",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_AID_WARD"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_aid_ward_empty",
+    "name": "used aid place",
+    "description": "The prepared bundle has already been collected.",
+    "looks_like": "f_rack_wood",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_manuscript",
+    "name": "Flora's unfinished manuscript",
+    "description": "A sewn manuscript lies open on the library desk.",
+    "looks_like": "f_desk",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_MANUSCRIPT"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_manuscript_taken",
+    "name": "emptied manuscript desk",
+    "description": "The manuscript was removed before the library burned.",
+    "looks_like": "f_desk",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_charred_archive",
+    "name": "burned manuscript desk",
+    "description": "Only burned stitching remains among the ashes.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_CHARRED_ARCHIVE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_saved_archive",
+    "name": "burned desk of the rescued manuscript",
+    "description": "The empty place shows where the manuscript lay.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_SAVED_ARCHIVE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_ruin_keepsake",
+    "name": "surviving root-niche keepsake",
+    "description": "A small leaf-shaped object lies beneath a stone cover.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_RUIN_KEEPSAKE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_ruin_keepsake_empty",
+    "name": "empty root niche",
+    "description": "The one surviving keepsake was already recovered.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_wooden_chair",
+    "name": "hand-carved wooden chair",
+    "description": "A sturdy wooden chair joined without industrial fittings.",
+    "looks_like": "f_chair",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": 1,
+    "required_str": 8,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM",
+      "CAN_SIT",
+      "MOUNTABLE"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    "comfort": 1,
+    "floor_bedding_warmth": 0
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_wooden_bench",
+    "name": "wooden sanctuary bench",
+    "description": "A long timber seat faces the hearth or the garden.",
+    "looks_like": "f_bench",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": 1,
+    "required_str": 8,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM",
+      "CAN_SIT",
+      "MOUNTABLE"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    "comfort": 1,
+    "floor_bedding_warmth": -1500
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_linen_bed",
+    "name": "made linen bed",
+    "description": "Clean linen and a stuffed bedroll lie on a pegged wooden frame.",
+    "looks_like": "f_bed",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": 1,
+    "required_str": 8,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM",
+      "CAN_SIT",
+      "MOUNTABLE"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        },
+        {
+          "item": "scrap_cotton",
+          "count": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        },
+        {
+          "item": "scrap_cotton",
+          "count": [
+            4,
+            6
+          ]
+        }
+      ]
+    },
+    "comfort": 4,
+    "floor_bedding_warmth": 1000
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_wooden_rack",
+    "name": "wooden workshop shelf",
+    "description": "Pegged wooden shelves hold tools and cloth, not metal industrial shelving.",
+    "looks_like": "f_rack_wood",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": 8,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  }
+]

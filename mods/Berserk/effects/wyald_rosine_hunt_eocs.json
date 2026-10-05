@@ -85,6 +85,11 @@
           "or": [
             {
               "math": [
+                "u_berserk_site_wyald_placement_v31 != 1"
+              ]
+            },
+            {
+              "math": [
                 "has_var(u_berserk_site_wyald_search_origin) == 0"
               ]
             },
@@ -102,6 +107,11 @@
             ]
           },
           {
+            "math": [
+              "u_berserk_site_wyald_placement_v31 = 1"
+            ]
+          },
+          {
             "u_location_variable": {
               "u_val": "berserk_site_wyald_search_origin"
             }
@@ -111,7 +121,7 @@
       {
         "if": {
           "math": [
-            "u_berserk_site_wyald_tries < 3"
+            "u_berserk_site_wyald_tries < 2"
           ]
         },
         "then": [
@@ -121,25 +131,45 @@
             ]
           },
           {
-            "u_location_variable": {
-              "context_val": "berserk_site_wyald_candidate"
+            "if": {
+              "math": [
+                "u_berserk_site_wyald_tries == 1"
+              ]
             },
-            "target_params": {
-              "om_terrain": "berserk_wyald_ring",
-              "om_special": "berserk_wyald_camp_special",
-              "search_range": 35,
-              "random": true,
-              "z": 0,
-              "min_distance": 15
+            "then": {
+              "u_location_variable": {
+                "context_val": "berserk_site_wyald_candidate"
+              },
+              "target_params": {
+                "om_terrain": "berserk_wyald_ring",
+                "random": false,
+                "min_distance": 0,
+                "z": 0
+              },
+              "true_eocs": [
+                "EOC_BERSERK_SITE_WYALD_VALIDATE"
+              ],
+              "false_eocs": [
+                "EOC_BERSERK_SITE_WYALD_FAILED"
+              ]
             },
-            "furniture": "f_berserk_wyald_breach",
-            "target_max_radius": 23,
-            "true_eocs": [
-              "EOC_BERSERK_SITE_WYALD_VALIDATE"
-            ],
-            "false_eocs": [
-              "EOC_BERSERK_SITE_WYALD_FAILED"
-            ]
+            "else": {
+              "u_location_variable": {
+                "context_val": "berserk_site_wyald_candidate"
+              },
+              "target_params": {
+                "om_terrain": "berserk_wyald_ring",
+                "random": false,
+                "min_distance": 0,
+                "z": 0
+              },
+              "true_eocs": [
+                "EOC_BERSERK_SITE_WYALD_VALIDATE"
+              ],
+              "false_eocs": [
+                "EOC_BERSERK_SITE_WYALD_FAILED"
+              ]
+            }
           }
         ],
         "else": {
@@ -609,7 +639,8 @@
     "id": "EOC_BERSERK_WYALD_SEAL",
     "effect": [
       {
-        "mapgen_update": "berserk_wyald_breach_seal",
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_wyald_seal_at_site",
         "target_var": {
           "context_val": "pos"
         }
@@ -685,6 +716,11 @@
           "loc": {
             "context_val": "pos"
           }
+        },
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
         }
       ]
     }
@@ -711,6 +747,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_LATE_FLORA_CHECK"
       }
     ],
     "false_effect": {
@@ -756,7 +795,8 @@
         },
         "then": {
           "u_spawn_item": "berserk_wyald_beast_knot",
-          "count": 1
+          "count": 1,
+          "suppress_message": true
         }
       },
       {
@@ -832,7 +872,7 @@
     "id": "EOC_BERSERK_WYALD_INSCRIPTION",
     "effect": [
       {
-        "u_message": "Broken campaign orders name Wyald, leader of the Black Dogs. His heavy rush needs a clear line: step behind stone when he braces his body. A scratched note points toward Rosine's mist-filled valley. This camp is an adaptation of his pursuit, not a reconstruction of a manga panel.",
+        "u_message": "Broken orders name Wyald, leader of the Black Dogs. The crossing between worlds diverted his old fate: this is a living apostle, not an echo. His heavy rush needs a clear line. The quarry and side paths leave room to retreat; the tied cage doors offer another passage. A scratched note points toward Rosine's mist-filled valley.",
         "type": "info",
         "popup": true
       },
@@ -927,6 +967,11 @@
           "or": [
             {
               "math": [
+                "u_berserk_site_rosine_placement_v31 != 1"
+              ]
+            },
+            {
+              "math": [
                 "has_var(u_berserk_site_rosine_search_origin) == 0"
               ]
             },
@@ -944,6 +989,11 @@
             ]
           },
           {
+            "math": [
+              "u_berserk_site_rosine_placement_v31 = 1"
+            ]
+          },
+          {
             "u_location_variable": {
               "u_val": "berserk_site_rosine_search_origin"
             }
@@ -953,7 +1003,7 @@
       {
         "if": {
           "math": [
-            "u_berserk_site_rosine_tries < 3"
+            "u_berserk_site_rosine_tries < 2"
           ]
         },
         "then": [
@@ -963,25 +1013,45 @@
             ]
           },
           {
-            "u_location_variable": {
-              "context_val": "berserk_site_rosine_candidate"
+            "if": {
+              "math": [
+                "u_berserk_site_rosine_tries == 1"
+              ]
             },
-            "target_params": {
-              "om_terrain": "berserk_rosine_nest",
-              "om_special": "berserk_rosine_valley_special",
-              "search_range": 35,
-              "random": true,
-              "z": 0,
-              "min_distance": 15
+            "then": {
+              "u_location_variable": {
+                "context_val": "berserk_site_rosine_candidate"
+              },
+              "target_params": {
+                "om_terrain": "berserk_rosine_nest",
+                "random": false,
+                "min_distance": 0,
+                "z": 0
+              },
+              "true_eocs": [
+                "EOC_BERSERK_SITE_ROSINE_VALIDATE"
+              ],
+              "false_eocs": [
+                "EOC_BERSERK_SITE_ROSINE_FAILED"
+              ]
             },
-            "furniture": "f_berserk_rosine_breach",
-            "target_max_radius": 23,
-            "true_eocs": [
-              "EOC_BERSERK_SITE_ROSINE_VALIDATE"
-            ],
-            "false_eocs": [
-              "EOC_BERSERK_SITE_ROSINE_FAILED"
-            ]
+            "else": {
+              "u_location_variable": {
+                "context_val": "berserk_site_rosine_candidate"
+              },
+              "target_params": {
+                "om_terrain": "berserk_rosine_nest",
+                "random": false,
+                "min_distance": 0,
+                "z": 0
+              },
+              "true_eocs": [
+                "EOC_BERSERK_SITE_ROSINE_VALIDATE"
+              ],
+              "false_eocs": [
+                "EOC_BERSERK_SITE_ROSINE_FAILED"
+              ]
+            }
           }
         ],
         "else": {
@@ -1451,7 +1521,8 @@
     "id": "EOC_BERSERK_ROSINE_SEAL",
     "effect": [
       {
-        "mapgen_update": "berserk_rosine_breach_seal",
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_rosine_seal_at_site",
         "target_var": {
           "context_val": "pos"
         }
@@ -1527,6 +1598,11 @@
           "loc": {
             "context_val": "pos"
           }
+        },
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
         }
       ]
     }
@@ -1553,6 +1629,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_LATE_FLORA_CHECK"
       }
     ],
     "false_effect": {
@@ -1598,7 +1677,8 @@
         },
         "then": {
           "u_spawn_item": "berserk_rosine_mistvale_veil",
-          "count": 1
+          "count": 1,
+          "suppress_message": true
         }
       },
       {
@@ -1704,15 +1784,23 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_HUNT_GIVE_JOURNAL",
-    "effect": {
-      "u_spawn_item": "berserk_apostle_hunt_journal",
-      "count": 1
-    },
-    "condition": {
-      "not": {
-        "u_has_item": "berserk_apostle_hunt_journal"
+    "effect": [
+      {
+        "if": {
+          "not": {
+            "u_has_item": "berserk_apostle_hunt_journal"
+          }
+        },
+        "then": {
+          "u_spawn_item": "berserk_apostle_hunt_journal",
+          "count": 1,
+          "suppress_message": true
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
       }
-    }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -1742,7 +1830,7 @@
             ]
           },
           "then": {
-            "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
+            "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
           },
           "else": {
             "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
@@ -1779,7 +1867,7 @@
             ]
           },
           "then": {
-            "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
+            "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
           },
           "else": {
             "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
@@ -1791,39 +1879,33 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_HUNT_RETURN_BREACH",
-    "effect": {
-      "if": {
-        "math": [
-          "has_var(berserk_hunt_first_breach_location)"
-        ]
-      },
-      "then": [
-        {
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "has_var(berserk_hunt_first_breach_location)"
+          ]
+        },
+        "then": {
           "reveal_map": {
             "global_val": "berserk_hunt_first_breach_location"
           },
           "radius": 1
-        },
-        {
-          "u_message": "All four named breaches are settled. Your first sealed breach is marked again. Recover in that quiet region, build your refuge and consult the journal to revisit any completed hunt. The Brand remains; this chapter ends with a place to return to.",
-          "type": "info",
-          "popup": true
         }
-      ],
-      "else": {
-        "u_message": "All four named breaches are settled. Use the journal to mark a known sealed lair, recover nearby and prepare your refuge. The Brand and demons elsewhere remain.",
-        "type": "info",
-        "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_REPORT"
       }
-    }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_HUNT_STATUS",
     "effect": {
-      "u_message": "Hunt record: Count <global_val:berserk_hunt_count_state>, Wyald <global_val:berserk_hunt_wyald_state>, Rosine <global_val:berserk_hunt_rosine_state>, Grunbeld <global_val:berserk_hunt_grunbeld_state>. 0 or blank = unknown; 1 = found; 2 = encounter; 3 = guardian defeated; 4 = breach closed; 5 = relic received. Each place has its own coordinates.",
-      "type": "info",
-      "popup": true
+      "run_eocs": "EOC_BERSERK_CAMPAIGN_REPORT"
     }
   },
   {
@@ -1832,7 +1914,7 @@
     "effect": [
       {
         "if": {
-          "u_query": "Trace Wyald and the Black Dogs?",
+          "u_query": "Trace Wyald and the Black Dogs? Yes selects this trail. No shows the next trail or the hunt summary.",
           "default": false
         },
         "then": {
@@ -1840,7 +1922,7 @@
         },
         "else": {
           "if": {
-            "u_query": "Trace Rosine's Mistvale?",
+            "u_query": "Trace Rosine's Mistvale? Yes selects this trail. No shows the next trail or the hunt summary.",
             "default": false
           },
           "then": {
@@ -1848,7 +1930,7 @@
           },
           "else": {
             "if": {
-              "u_query": "Trace the Count's residence?",
+              "u_query": "Trace the Count's residence? Yes selects this trail. No shows the next trail or the hunt summary.",
               "default": false
             },
             "then": {
@@ -1856,16 +1938,36 @@
             },
             "else": {
               "if": {
-                "u_query": "Trace Grunbeld's scarred stronghold?",
-                "default": false
+                "and": [
+                  {
+                    "or": [
+                      {
+                        "math": [
+                          "u_berserk_flora_escaped == 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_stage == 3"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_hunt_grunbeld_site_registered == 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "u_query": "Trace Grunbeld's scarred stronghold? Yes selects this trail. No shows the next trail or the hunt summary.",
+                    "default": false
+                  }
+                ]
               },
               "then": {
                 "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
               },
               "else": [
-                {
-                  "run_eocs": "EOC_BERSERK_HUNT_STATUS"
-                },
                 {
                   "if": {
                     "and": [
@@ -1893,6 +1995,9 @@
                   },
                   "then": {
                     "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
+                  },
+                  "else": {
+                    "run_eocs": "EOC_BERSERK_HUNT_STATUS"
                   }
                 }
               ]

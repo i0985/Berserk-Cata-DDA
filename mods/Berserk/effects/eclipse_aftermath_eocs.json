@@ -3,12 +3,31 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_AFTERMATH",
     "effect": [
-      { "run_eocs": "EOC_BERSERK_ECLIPSE_APPLY_STORY_WOUNDS" },
-      { "run_eocs": "EOC_BERSERK_ECLIPSE_INSTALL_MARKS" },
-      { "u_learn_recipe": "bio_berserk_arm_cannon" },
-      { "u_learn_recipe": "berserk_arm_cannon_charge" },
-      { "math": [ "u_berserk_hand_recipes_learned = 1" ] },
-      { "math": [ "berserk_eclipse_era = 1" ] },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_RETURN_RECOVER"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_APPLY_STORY_WOUNDS"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_INSTALL_MARKS"
+      },
+      {
+        "u_learn_recipe": "bio_berserk_arm_cannon"
+      },
+      {
+        "u_learn_recipe": "berserk_arm_cannon_charge"
+      },
+      {
+        "math": [
+          "u_berserk_hand_recipes_learned = 1"
+        ]
+      },
+      {
+        "math": [
+          "berserk_eclipse_era = 1"
+        ]
+      },
       {
         "u_message": "The Skull Knight has brought you back. Your left hand and an eye are gone. The Brand of Sacrifice burns on your body. You can now craft the prosthetic arm cannon and its charge. Activate the crafted cannon from your inventory to attach it yourself.",
         "type": "warning",
@@ -23,15 +42,25 @@
         "real_count": 1,
         "min_radius": 1,
         "max_radius": 5,
-        "true_eocs": [ "EOC_BERSERK_ECLIPSE_KNIGHT_ARRIVED" ]
+        "true_eocs": [
+          "EOC_BERSERK_ECLIPSE_KNIGHT_ARRIVED"
+        ]
       },
-      { "run_eocs": "EOC_BERSERK_FIRST_HUNT_REQUEST" }
+      {
+        "run_eocs": "EOC_BERSERK_FIRST_HUNT_REQUEST"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_KNIGHT_ARRIVED",
-    "effect": { "u_add_var": "berserk_knight_waiting", "value": "placed" }
+    "effect": {
+      "u_add_var": "berserk_knight_waiting",
+      "value": "placed"
+    }
   },
   {
     "type": "effect_on_condition",
@@ -40,8 +69,19 @@
     "recurrence": "1 minute",
     "condition": {
       "and": [
-        { "math": [ "u_berserk_eclipse_rescue_state == 2" ] },
-        { "compare_string": [ "yes", { "u_val": "berserk_knight_waiting" } ] }
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        },
+        {
+          "compare_string": [
+            "yes",
+            {
+              "u_val": "berserk_knight_waiting"
+            }
+          ]
+        }
       ]
     },
     "effect": {
@@ -49,7 +89,211 @@
       "real_count": 1,
       "min_radius": 1,
       "max_radius": 5,
-      "true_eocs": [ "EOC_BERSERK_ECLIPSE_KNIGHT_ARRIVED" ]
+      "true_eocs": [
+        "EOC_BERSERK_ECLIPSE_KNIGHT_ARRIVED"
+      ]
     }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_RETURN_RECOVER",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_return_recovered != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_eclipse_return_recovered = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('head') = min(u_hp_max('head'), u_hp('head') + floor(u_hp_max('head') * 0.5))"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + floor(u_hp_max('torso') * 0.5))"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + floor(u_hp_max('arm_l') * 0.5))"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + floor(u_hp_max('arm_r') * 0.5))"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + floor(u_hp_max('leg_l') * 0.5))"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + floor(u_hp_max('leg_r') * 0.5))"
+        ]
+      },
+      {
+        "math": [
+          "u_vitamin('blood') = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_vitamin('redcells') = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_pain() = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_val('sleepiness') = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_val('sleep_deprivation') = 0"
+        ]
+      },
+      {
+        "u_lose_effect": [
+          "bleed",
+          "onfire",
+          "corroding",
+          "blind",
+          "stunned",
+          "downed",
+          "grabbed",
+          "winded",
+          "winded_leg_l",
+          "winded_leg_r",
+          "winded_arm_l",
+          "winded_arm_r"
+        ],
+        "target_part": "ALL"
+      },
+      {
+        "u_cast_spell": {
+          "id": "berserk_eclipse_restore_stamina",
+          "min_level": 0
+        },
+        "targeted": false
+      }
+    ],
+    "//": "Successful one-time rescue restores combat damage and transient disablement. Does not remove story bionics, the Brand, curse progress or the three-day Berserk recovery."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RESTORE_FLORA_DIRECTIONS",
+    "global": true,
+    "recurrence": "1 minute",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_flora_directions_repaired != 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE"
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_flora_directions_repaired = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RESTORE_DISMISSED_KNIGHT",
+    "global": true,
+    "recurrence": "1 minute",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_knight_return_fix != 1"
+          ]
+        },
+        {
+          "compare_string": [
+            "yes",
+            {
+              "u_val": "berserk_knight_farewell"
+            }
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_knight_return_fix = 1"
+        ]
+      },
+      {
+        "u_add_var": "berserk_knight_farewell",
+        "value": "no"
+      },
+      {
+        "if": {
+          "math": [
+            "u_monsters_nearby('mon_skull_knight_rescuer', 'radius': 60, 'attitude': 'both') > 0"
+          ]
+        },
+        "then": {
+          "u_add_var": "berserk_knight_waiting",
+          "value": "placed"
+        },
+        "else": [
+          {
+            "u_add_var": "berserk_knight_waiting",
+            "value": "yes"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_ECLIPSE_KNIGHT_RETRY"
+          }
+        ]
+      }
+    ]
   }
 ]

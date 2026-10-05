@@ -1,5 +1,10 @@
 # Berserk — Extended optional tileset
 
+Development version **3.0.0-dev**, matching the main mod. The new campaign's
+custom scenery and several named apostles currently inherit other images via
+`looks_like`; this package does not provide dedicated art for every 3.0 object.
+Visual alignment of those additions is pending a manual pass.
+
 The main **Berserk** mod ships tile definitions for **UltimateCataclysm (UltiCA)** only. This optional mod adds the same tile IDs for other popular tilesets (same approach as 锈蚀黎明 / Rusty Dawn).
 
 ## Supported tilesets
@@ -22,7 +27,7 @@ Equipment and swords use custom **Ber_Suit** 32×32 art (no per-tileset offset).
 
 1. Install the main **Berserk** mod.
 2. Copy this folder to the **user** `mods/Berserk_chibi_tileset/` directory beside the game executable. CDDA 0.I-1 does not scan translations in `data/mods/`.
-3. Enable **both** mods in the launcher.
+3. Enable **both** mods for the world.
 4. Select **Chibi_Ultica**, **MshockXottoplus**, or **Undead People** (or a compatible variant above) in game options.
 
 ## 简体中文

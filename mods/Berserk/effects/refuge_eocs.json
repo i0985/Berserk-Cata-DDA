@@ -1,0 +1,516 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REFUGE_INSPECT",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_shelter_ward",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_message": "Within eight local tiles on this level, a bone and stone ward suppresses the Brand's extra nighttime summons, including on the ward's own tile. It does not stop roaming demons, armor-created shadows, zombies or attacks, and does not erase the Brand. Choose an existing defensible building; put your sleeping place inside the ward's reach, prepare light and drinking water, and keep an escape route. The ward needs no fuel or repeated servicing. You can record your own readiness here; light, water and bedding are a checklist, not an automatic safety guarantee.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": "u_is_outside"
+        },
+        "then": {
+          "if": {
+            "u_query": "Record this ward as your prepared refuge? Confirm only after arranging drinking water, light, a sleeping place within eight tiles and an escape route. This records your assessment; it does not build or inspect those supplies for you.",
+            "default": false
+          },
+          "then": {
+            "run_eocs": "EOC_BERSERK_REFUGE_REGISTER"
+          }
+        },
+        "else": {
+          "u_message": "The ward works outdoors too, but this is not a sheltered sleeping place. Inspect it from inside a nearby building to record a refuge. Do not confuse its limited protection with walls and a roof.",
+          "type": "info",
+          "popup": false
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REFUGE_REGISTER",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "distance('u', _pos) <= 1"
+              ]
+            },
+            {
+              "map_furniture_id": "f_berserk_shelter_ward",
+              "loc": {
+                "context_val": "pos"
+              }
+            }
+          ]
+        },
+        {
+          "not": "u_is_outside"
+        }
+      ]
+    },
+    "effect": [
+      {
+        "if": {
+          "or": [
+            {
+              "not": {
+                "math": [
+                  "has_var(u_berserk_refuge_ward_location)"
+                ]
+              }
+            },
+            {
+              "math": [
+                "distance(_pos, u_berserk_refuge_ward_location) > 0"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_refuge_night_active = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_refuge_night_started = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_refuge_night_last = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_refuge_dawn_recorded = 0"
+            ]
+          }
+        ]
+      },
+      {
+        "copy_var": {
+          "context_val": "pos"
+        },
+        "target_var": {
+          "u_val": "berserk_refuge_ward_location"
+        }
+      },
+      {
+        "math": [
+          "u_berserk_refuge_ready = 1"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_refuge_journal_issued != 1"
+          ]
+        },
+        "then": [
+          {
+            "u_spawn_item": "berserk_refuge_journal",
+            "count": 1,
+            "suppress_message": true
+          },
+          {
+            "math": [
+              "u_berserk_refuge_journal_issued = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "u_message": "Refuge recorded. Stay within this ward's reach for the Brand's protection; keep watch for creatures that are already here. The refuge journal keeps your preparations and onward directions. It grants no healing, armor or immunity.",
+        "type": "good",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REFUGE_JOURNAL",
+    "effect": [
+      {
+        "u_message": "Within eight local tiles on this level, a bone and stone ward suppresses the Brand's extra nighttime summons, including on the ward's own tile. It does not stop roaming demons, armor-created shadows, zombies or attacks, and does not erase the Brand. Choose an existing defensible building; put your sleeping place inside the ward's reach, prepare light and drinking water, and keep an escape route. The ward needs no fuel or repeated servicing. You can record your own readiness here; light, water and bedding are a checklist, not an automatic safety guarantee.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_refuge_ready == 1"
+          ]
+        },
+        "then": [
+          {
+            "reveal_map": {
+              "u_val": "berserk_refuge_ward_location"
+            },
+            "radius": 0
+          },
+          {
+            "u_message": "Your chosen refuge is recorded at the ward's location. This is your readiness checklist, not a guarantee about its current walls, light or supplies.",
+            "type": "info",
+            "popup": true
+          }
+        ],
+        "else": {
+          "u_message": "No prepared refuge is currently recorded. Inspect a ward from a sheltered adjacent tile and confirm your preparations.",
+          "type": "info",
+          "popup": true
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_refuge_dawn_recorded == 1"
+          ]
+        },
+        "then": {
+          "u_message": "The journal records a dawn reached after at least an hour of nighttime presence within the recorded ward's reach. This does not certify that no enemy could enter. You can rest or prepare your prosthesis before following a trail.",
+          "type": "info",
+          "popup": true
+        }
+      },
+      {
+        "if": {
+          "u_query": "Read the next story direction? This does not require you to finish a night here or build a new base.",
+          "default": false
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_REFUGE_NEXT_TRAIL"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REFUGE_NEXT_TRAIL",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "math": [
+          "u_berserk_first_hunt_done != 1"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_FIRST_HUNT_RECALL"
+      },
+      "else": {
+        "if": {
+          "math": [
+            "u_berserk_breach_sealed != 1"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_BREACH_READ_CLUE"
+        },
+        "else": {
+          "run_eocs": "EOC_BERSERK_POST_ECLIPSE_CHOOSE"
+        }
+      }
+    },
+    "false_effect": {
+      "u_message": "The journal keeps your refuge preparations. Survive the Eclipse and return before following the post-Eclipse trails.",
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REFUGE_WATCH",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_refuge_ready == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active != 1"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "has_var(u_berserk_refuge_ward_location)"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_refuge_ward_location.z == u_val('pos_z')"
+            ]
+          },
+          {
+            "math": [
+              "distance('u', u_berserk_refuge_ward_location) <= 8"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "if": {
+          "map_furniture_id": "f_berserk_shelter_ward",
+          "loc": {
+            "u_val": "berserk_refuge_ward_location"
+          }
+        },
+        "then": {
+          "if": {
+            "math": [
+              "u_berserk_refuge_dawn_recorded != 1"
+            ]
+          },
+          "then": {
+            "if": {
+              "not": "is_day"
+            },
+            "then": [
+              {
+                "if": {
+                  "math": [
+                    "u_berserk_refuge_night_active != 1"
+                  ]
+                },
+                "then": [
+                  {
+                    "math": [
+                      "u_berserk_refuge_night_started = time('now')"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_refuge_night_active = 1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_refuge_night_last = time('now')"
+                ]
+              }
+            ],
+            "else": {
+              "if": {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_refuge_night_active == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "time('now') - u_berserk_refuge_night_last <= 120"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "time('now') - u_berserk_refuge_night_started >= 3600"
+                    ]
+                  }
+                ]
+              },
+              "then": [
+                {
+                  "math": [
+                    "u_berserk_refuge_dawn_recorded = 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_refuge_night_active = 0"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_refuge_night_started = 0"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_refuge_night_last = 0"
+                  ]
+                },
+                {
+                  "u_message": "Dawn reaches the refuge. Your journal records the night watch by the ward. The Brand remains; recover here if you can, prepare the prosthesis, then consult your next trail.",
+                  "type": "good",
+                  "popup": true
+                }
+              ],
+              "else": [
+                {
+                  "math": [
+                    "u_berserk_refuge_night_active = 0"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_refuge_night_started = 0"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_refuge_night_last = 0"
+                  ]
+                }
+              ]
+            }
+          }
+        },
+        "else": [
+          {
+            "math": [
+              "u_berserk_refuge_ready = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_refuge_night_active = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_refuge_night_started = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_refuge_night_last = 0"
+            ]
+          },
+          {
+            "u_message": "The recorded ward is gone. Its journal entry no longer marks the refuge as ready; inspect another ward when your preparations are complete.",
+            "type": "warning",
+            "popup": false
+          }
+        ]
+      },
+      "else": [
+        {
+          "math": [
+            "u_berserk_refuge_night_active = 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_refuge_night_started = 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_refuge_night_last = 0"
+          ]
+        }
+      ]
+    },
+    "global": true,
+    "recurrence": "1 minute"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REFUGE_LEAVE",
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_refuge_ready == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_refuge_night_active == 1"
+          ]
+        },
+        {
+          "not": {
+            "and": [
+              {
+                "math": [
+                  "has_var(u_berserk_refuge_ward_location)"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_refuge_ward_location.z == u_val('pos_z')"
+                ]
+              },
+              {
+                "math": [
+                  "distance('u', u_berserk_refuge_ward_location) <= 8"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_refuge_night_active = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_refuge_night_started = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_refuge_night_last = 0"
+        ]
+      }
+    ]
+  }
+]

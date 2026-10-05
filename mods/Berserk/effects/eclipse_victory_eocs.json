@@ -12,16 +12,34 @@
     "id": "EOC_BERSERK_ECLIPSE_VICTORY",
     "condition": {
       "and": [
-        { "math": [ "u_berserk_eclipse_trial_active == 1" ] },
-        { "math": [ "u_berserk_eclipse_rescue_state == 0" ] },
-        { "math": [ "has_var(u_berserk_eclipse_return_origin)" ] }
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_eclipse_return_origin)"
+          ]
+        }
       ]
     },
     "effect": [
-      { "math": [ "u_berserk_eclipse_rescue_state = 1" ] },
-      { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_STABILIZE" },
       {
-        "u_message": "Griffith falls. The Eclipse shudders, but does not release you. The Skull Knight cuts a path through the closing darkness.",
+        "math": [
+          "u_berserk_eclipse_rescue_state = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_STABILIZE"
+      },
+      {
+        "u_message": "Griffith's manifestation breaks apart. The distant figures remain untouched. The ceremony shudders, and the Skull Knight cuts through its closing darkness.",
         "type": "warning",
         "popup": true
       },
@@ -31,14 +49,22 @@
         "min_radius": 1,
         "max_radius": 3,
         "lifespan": "5 minutes",
-        "true_eocs": [ "EOC_BERSERK_ECLIPSE_VICTORY_DIALOGUE" ]
+        "true_eocs": [
+          "EOC_BERSERK_ECLIPSE_VICTORY_DIALOGUE"
+        ]
       },
-      { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_RETURN" }
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_RETURN"
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_VICTORY_DIALOGUE",
-    "effect": { "open_dialogue": { "topic": "TALK_BERSERK_SKULL_KNIGHT_VICTORY" } }
+    "effect": {
+      "open_dialogue": {
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_VICTORY"
+      }
+    }
   }
 ]

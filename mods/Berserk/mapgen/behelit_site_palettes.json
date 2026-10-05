@@ -1,12 +1,5 @@
 [
   {
-    "type": "terrain",
-    "id": "t_berserk_echo_cave_glow",
-    "copy-from": "t_rock_floor",
-    "looks_like": "t_rock_floor",
-    "light_emitted": 30
-  },
-  {
     "type": "palette",
     "id": "berserk_oak_site_palette",
     "terrain": {
@@ -15,11 +8,21 @@
       "T": "t_tree",
       "A": "t_dirt",
       "N": "t_grass",
-      "#": "t_rock"
+      "#": "t_rock",
+      "R": "t_dirt",
+      "K": "t_dirt",
+      "C": "t_dirt",
+      "W": "t_dirt",
+      "F": "t_dirt"
     },
     "furniture": {
       "A": "f_berserk_oak_relic",
-      "N": "f_berserk_oak_noisemaker"
+      "N": "f_berserk_oak_noisemaker",
+      "R": "f_berserk_oak_root_wall",
+      "K": "f_berserk_oak_great_trunk",
+      "C": "f_berserk_location_oak_cart",
+      "W": "f_berserk_location_oak_ward",
+      "F": "f_berserk_location_oak_camp"
     }
   },
   {
@@ -30,7 +33,9 @@
       "d": "t_dirt",
       "#": "t_rock",
       "T": "t_tree",
-      "V": "t_stairs_down"
+      "V": "t_stairs_down",
+      "u": "t_underbrush",
+      "h": "t_shrub"
     }
   },
   {
@@ -42,11 +47,16 @@
       "L": "t_berserk_echo_cave_glow",
       "A": "t_rock_floor",
       "U": "t_stairs_up",
-      "N": "t_rock_floor"
+      "N": "t_rock_floor",
+      "s": "t_berserk_cave_scree",
+      "B": "t_rock_floor",
+      "H": "t_rock_floor"
     },
     "furniture": {
       "A": "f_berserk_cave_relic",
-      "N": "f_berserk_cave_noisemaker"
+      "N": "f_berserk_cave_noisemaker",
+      "B": "f_berserk_cave_return_brace",
+      "H": "f_berserk_cave_return_release"
     }
   },
   {
@@ -63,11 +73,16 @@
       "N": "t_floor",
       "A": "t_floor",
       "?": "t_floor",
-      "+": "t_door_o"
+      "+": "t_door_c",
+      "G": "t_grave",
+      "w": "t_window_empty",
+      "u": "t_underbrush",
+      "h": "t_shrub",
+      "/": "t_door_o"
     },
     "furniture": {
-      "b": "f_bench",
-      "r": "f_rack",
+      "b": "f_bench_wooden",
+      "r": "f_rack_wood",
       "N": "f_berserk_chapel_noisemaker",
       "A": "f_berserk_chapel_relic",
       "?": "f_berserk_chapel_record"
@@ -80,14 +95,18 @@
       ".": "t_grass",
       ",": "t_dirt",
       "T": "t_tree",
-      "#": "t_grass",
-      "_": "t_grass",
-      "b": "t_grass",
-      "r": "t_grass",
+      "#": "t_berserk_expedition_groundsheet",
+      "_": "t_berserk_expedition_groundsheet",
+      "b": "t_berserk_expedition_groundsheet",
+      "r": "t_berserk_expedition_groundsheet",
       "N": "t_grass",
-      "A": "t_grass",
-      "?": "t_grass",
-      "+": "t_grass"
+      "A": "t_berserk_expedition_groundsheet",
+      "?": "t_berserk_expedition_groundsheet",
+      "+": "t_berserk_expedition_groundsheet",
+      "D": "t_berserk_expedition_groundsheet",
+      "P": "t_fence_rope",
+      "u": "t_underbrush",
+      "h": "t_shrub"
     },
     "furniture": {
       "b": "f_bench",
@@ -96,8 +115,8 @@
       "A": "f_berserk_expedition_relic",
       "?": "f_berserk_expedition_record",
       "#": "f_canvas_wall",
-      "_": "f_canvas_floor",
-      "+": "f_canvas_door_o"
+      "+": "f_canvas_door_o",
+      "D": "f_canvas_door"
     }
   }
 ]

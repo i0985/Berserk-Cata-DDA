@@ -1,0 +1,744 @@
+[
+  {
+    "type": "item_group",
+    "id": "berserk_location_medieval_food",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "bread",
+        "prob": 100,
+        "container-item": "null",
+        "count": 2
+      },
+      {
+        "item": "jerky",
+        "prob": 100,
+        "container-item": "null",
+        "count": 2
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_medieval_water",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "water_clean",
+        "prob": 100,
+        "charges": 2,
+        "container-item": "waterskin",
+        "sealed": false
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_cloth_dressings",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "bandages_makeshift",
+        "prob": 100,
+        "count": 2
+      },
+      {
+        "item": "scrap_cotton",
+        "prob": 100,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_medieval_supplies",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_medieval_food",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_medieval_water",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_cloth_dressings",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_worn_clothing",
+    "subtype": "distribution",
+    "entries": [
+      {
+        "item": "longshirt",
+        "prob": 65,
+        "damage": [
+          1,
+          2
+        ]
+      },
+      {
+        "item": "gambeson_vest",
+        "prob": 35,
+        "damage": [
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_damaged_weapons",
+    "subtype": "distribution",
+    "entries": [
+      {
+        "item": "arming_sword",
+        "prob": 70,
+        "damage": [
+          2,
+          3
+        ]
+      },
+      {
+        "item": "warhammer",
+        "prob": 30,
+        "damage": [
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_damaged_armor",
+    "subtype": "distribution",
+    "entries": [
+      {
+        "item": "lc_chainmail_vest",
+        "prob": 50,
+        "damage": [
+          2,
+          3
+        ]
+      },
+      {
+        "item": "armor_lc_chestplate",
+        "prob": 25,
+        "damage": [
+          2,
+          3
+        ]
+      },
+      {
+        "item": "helmet_conical",
+        "prob": 25,
+        "damage": [
+          2,
+          3
+        ]
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_sewing_supplies",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "needle_bone",
+        "prob": 100
+      },
+      {
+        "item": "leather",
+        "prob": 100,
+        "count": 2
+      },
+      {
+        "item": "scrap_cotton",
+        "prob": 100,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_modern_expedition_supplies",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "bandages",
+        "prob": 100,
+        "count": 2
+      },
+      {
+        "item": "aspirin",
+        "prob": 100,
+        "count": 4
+      },
+      {
+        "item": "water_clean",
+        "prob": 100,
+        "charges": 2
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_oak_cart",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "rope_6",
+        "prob": 100
+      },
+      {
+        "item": "berserk_oak_broken_rootcutter",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_worn_clothing",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_oak_camp",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "berserk_oak_last_note",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_medieval_food",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_cloth_dressings",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_oak_ward",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "berserk_oak_wayfarer_ward",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_cave_scout",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "backpack_leather",
+        "prob": 100,
+        "damage": 2
+      },
+      {
+        "item": "rope_6",
+        "prob": 100
+      },
+      {
+        "item": "bandages_makeshift",
+        "prob": 100
+      },
+      {
+        "item": "berserk_cave_scout_note",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_cave_lamp",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "oil_lamp_clay",
+        "prob": 100,
+        "charges": 0
+      },
+      {
+        "item": "rope_6",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_chapel_pantry",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "cannedfood",
+        "prob": 100
+      },
+      {
+        "item": "water_clean",
+        "prob": 100,
+        "charges": 4
+      },
+      {
+        "item": "berserk_chapel_forest_route",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_chapel_aid",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_modern_expedition_supplies",
+        "prob": 100
+      },
+      {
+        "item": "scrap_cotton",
+        "prob": 100,
+        "count": 2
+      },
+      {
+        "item": "berserk_chapel_relief_roster",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_expedition_medical",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_modern_expedition_supplies",
+        "prob": 100
+      },
+      {
+        "item": "bandages",
+        "prob": 100,
+        "count": 2
+      },
+      {
+        "item": "disinfectant",
+        "prob": 100,
+        "charges": 3
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_expedition_tools",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "crowbar",
+        "prob": 100
+      },
+      {
+        "item": "rope_6",
+        "prob": 100
+      },
+      {
+        "item": "light_battery_cell",
+        "prob": 100,
+        "count": 2,
+        "charges": [
+          8,
+          12
+        ]
+      },
+      {
+        "item": "roadmap",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_chapel_candles",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "candle",
+        "prob": 100,
+        "count": 2,
+        "charges": [
+          15,
+          30
+        ]
+      },
+      {
+        "item": "wax_paraffin",
+        "prob": 100,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_hunt_shelter",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "needle_bone",
+        "prob": 100
+      },
+      {
+        "item": "fur_blanket",
+        "damage": 1,
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_cloth_dressings",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_medieval_water",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_hunt_reward",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "scrap",
+        "count": 6,
+        "prob": 100
+      },
+      {
+        "item": "scrap_leather",
+        "count": 2,
+        "prob": 100
+      },
+      {
+        "item": "scraper_steel",
+        "damage": 1,
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_refuge_ward_materials",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_breach_defenders",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_cloth_dressings",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_medieval_water",
+        "prob": 100
+      },
+      {
+        "item": "flint_steel",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_refuge_ward_materials",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "rock",
+        "count": 8,
+        "prob": 100
+      },
+      {
+        "item": "bone",
+        "count": 4,
+        "prob": 100
+      },
+      {
+        "item": "candle",
+        "count": 2,
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_count_pantry",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_medieval_food",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_medieval_water",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_count_armory",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_damaged_weapons",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_damaged_armor",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_sewing_supplies",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_count_property",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_worn_clothing",
+        "prob": 100
+      },
+      {
+        "item": "rope_6",
+        "prob": 100
+      },
+      {
+        "item": "berserk_count_prison_list",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_count_physician",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_cloth_dressings",
+        "prob": 100
+      },
+      {
+        "item": "berserk_count_physician_ledger",
+        "prob": 100
+      },
+      {
+        "item": "thyme_oil",
+        "charges": 1,
+        "container-item": "waterskin",
+        "sealed": false,
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_count_clerk",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "berserk_count_service_key",
+        "prob": 100
+      },
+      {
+        "item": "candle",
+        "prob": 100
+      },
+      {
+        "item": "berserk_count_next_trace",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_count_family",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "berserk_count_family_ribbon",
+        "prob": 100
+      },
+      {
+        "item": "needle_bone",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_wyald_baggage",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "rope_6",
+        "prob": 100,
+        "count": 1
+      },
+      {
+        "item": "leather",
+        "prob": 100,
+        "count": 2
+      },
+      {
+        "item": "berserk_wyald_muster_roll",
+        "prob": 100,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_wyald_kitchen",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_medieval_food",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_medieval_water",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_wyald_repair",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_damaged_weapons",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_sewing_supplies",
+        "prob": 100
+      },
+      {
+        "item": "scraper_steel",
+        "prob": 100,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_wyald_command",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "berserk_wyald_command_orders",
+        "prob": 100,
+        "count": 1
+      },
+      {
+        "group": "berserk_location_damaged_armor",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_wyald_prisoners",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_worn_clothing",
+        "prob": 100
+      },
+      {
+        "item": "berserk_wyald_prisoner_account",
+        "prob": 100,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_rosine_travelers",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_medieval_food",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_cloth_dressings",
+        "prob": 100
+      },
+      {
+        "item": "berserk_rosine_witness_note",
+        "prob": 100,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_rosine_keepsake",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "berserk_rosine_faded_ribbon",
+        "prob": 100,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_rosine_waycamp",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_medieval_water",
+        "prob": 100
+      },
+      {
+        "item": "scrap_cotton",
+        "prob": 100,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_location_rosine_shell",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "scrap_cotton",
+        "prob": 100,
+        "count": 2
+      },
+      {
+        "item": "scrap_cotton",
+        "prob": 100,
+        "count": 2
+      }
+    ]
+  }
+]

@@ -1,0 +1,350 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_PRISON_LIST_READ",
+    "effect": {
+      "u_message": "Names repeat on the execution notices. Shoes and cloaks were sorted before the sentence, as though the owner had already ceased to be a person. One entry was crossed out and replaced by 'sent below'. There is no altar here: terror was an ordinary office routine.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_PHYSICIAN_LEDGER_READ",
+    "effect": {
+      "u_message": "The early pages discuss boiled linen and ordinary wounds. Later sketches show an extra mouth growing through a servant's chest. The writer stopped calling it an illness: fragments of the master's flesh were forcing a second life into the victim. His treatment could not reverse it. The servants are finite, not a renewing garrison.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_FAMILY_RIBBON_READ",
+    "effect": {
+      "u_message": "The ribbon lay beside sewing and a book kept clear of dust. A note calls the room Theresia's and orders the servants not to disturb it. The same ruler who signed the prison lists protected this little island of ordinary life. Her whereabouts are not recorded; the servants kept this door closed as the rest of the house fell apart.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_NEXT_TRACE_READ",
+    "effect": [
+      {
+        "u_message": "These are separate trails: Black Dogs on one route, a mist-filled valley on another. The Count's death does not close those wounds. After the battle, consult the hunt journal to choose a destination; each place keeps its own result.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_hunt_count_state >= 3"
+          ]
+        },
+        "then": [
+          {
+            "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
+          },
+          {
+            "if": {
+              "u_query": "Consult the independent hunt routes now?",
+              "default": false
+            },
+            "then": {
+              "run_eocs": "EOC_BERSERK_HUNT_JOURNAL_USE"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_location_count_pantry_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_count_pantry"
+        ],
+        "result": "f_berserk_location_count_pantry_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_F_BERSERK_LOCATION_COUNT_PANTRY",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_count_pantry",
+        "berserk_location_empty": "f_berserk_location_count_pantry_empty",
+        "berserk_location_transform": "f_berserk_location_count_pantry_searched",
+        "berserk_location_loot": "berserk_location_count_pantry"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_location_count_armory_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_count_armory"
+        ],
+        "result": "f_berserk_location_count_armory_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_F_BERSERK_LOCATION_COUNT_ARMORY",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_count_armory",
+        "berserk_location_empty": "f_berserk_location_count_armory_empty",
+        "berserk_location_transform": "f_berserk_location_count_armory_searched",
+        "berserk_location_loot": "berserk_location_count_armory"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_location_count_property_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_count_property"
+        ],
+        "result": "f_berserk_location_count_property_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_F_BERSERK_LOCATION_COUNT_PROPERTY",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_count_property",
+        "berserk_location_empty": "f_berserk_location_count_property_empty",
+        "berserk_location_transform": "f_berserk_location_count_property_searched",
+        "berserk_location_loot": "berserk_location_count_property"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_location_count_physician_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_count_physician"
+        ],
+        "result": "f_berserk_location_count_physician_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_F_BERSERK_LOCATION_COUNT_PHYSICIAN",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_count_physician",
+        "berserk_location_empty": "f_berserk_location_count_physician_empty",
+        "berserk_location_transform": "f_berserk_location_count_physician_searched",
+        "berserk_location_loot": "berserk_location_count_physician"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_location_count_clerk_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_count_clerk"
+        ],
+        "result": "f_berserk_location_count_clerk_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_F_BERSERK_LOCATION_COUNT_CLERK",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_count_clerk",
+        "berserk_location_empty": "f_berserk_location_count_clerk_empty",
+        "berserk_location_transform": "f_berserk_location_count_clerk_searched",
+        "berserk_location_loot": "berserk_location_count_clerk"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "f_berserk_location_count_family_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_count_family"
+        ],
+        "result": "f_berserk_location_count_family_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_F_BERSERK_LOCATION_COUNT_FAMILY",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_count_family",
+        "berserk_location_empty": "f_berserk_location_count_family_empty",
+        "berserk_location_transform": "f_berserk_location_count_family_searched",
+        "berserk_location_loot": "berserk_location_count_family"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_NOTICE",
+    "effect": {
+      "u_message": "The notices call fear order. The west prison holds the lists; the kitchen passage and broken western wall offer quieter approaches than the main yard. All lead toward the stairs in the northeastern hall.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_FAMILY_DOOR",
+    "effect": {
+      "u_message": "The plate names Theresia. Bedding is folded, the sewing laid out, and none of the prison's chains were brought here. At the threshold, the marks of violence stop; beyond it, someone tried to keep a little ordinary life intact.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_count_service_grate_opened",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_count_service_grate"
+        ],
+        "result": "f_berserk_count_service_grate_open"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT_OPEN_GRATE",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_count_service_grate",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "u_has_item": "berserk_count_service_key"
+      },
+      "then": [
+        {
+          "if": {
+            "u_query": "Open the service grille with the key?",
+            "default": false
+          },
+          "then": [
+            {
+              "u_transform_radius": 0,
+              "ter_furn_transform": "berserk_count_service_grate_opened",
+              "target_var": {
+                "context_val": "pos"
+              }
+            },
+            {
+              "u_message": "The service passage is open. It stays open; no key or tool is consumed.",
+              "type": "info",
+              "popup": false
+            },
+            {
+              "turn_cost": "2 seconds"
+            }
+          ]
+        }
+      ],
+      "else": {
+        "if": {
+          "or": [
+            {
+              "u_has_item": "hammer_sledge"
+            },
+            {
+              "u_has_item": "hammer_sledge_short"
+            }
+          ]
+        },
+        "then": {
+          "if": {
+            "u_query": "Break the loose latch with your sledgehammer? Thirty seconds; the noise can attract enemies.",
+            "default": false
+          },
+          "then": [
+            {
+              "u_transform_radius": 0,
+              "ter_furn_transform": "berserk_count_service_grate_opened",
+              "target_var": {
+                "context_val": "pos"
+              }
+            },
+            {
+              "u_message": "The service passage is open. It stays open; no key or tool is consumed.",
+              "type": "info",
+              "popup": false
+            },
+            {
+              "turn_cost": "30 seconds"
+            },
+            {
+              "u_make_sound": "Iron rings against the stone passage.",
+              "volume": 20,
+              "type": "activity",
+              "target_var": {
+                "context_val": "pos"
+              }
+            }
+          ]
+        },
+        "else": {
+          "u_message": "The prison clerk kept a key; a long or short sledgehammer can also break this latch. Use the open courtyard or the kitchen route if you lack both.",
+          "type": "info",
+          "popup": false
+        }
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_count_breach_closed_at_site",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_count_breach"
+        ],
+        "result": "f_berserk_count_breach_sealed"
+      }
+    ]
+  }
+]

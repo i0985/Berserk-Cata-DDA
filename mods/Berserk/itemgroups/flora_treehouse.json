@@ -1,0 +1,65 @@
+[
+  {
+    "type": "item_group",
+    "id": "berserk_flora_aid_pantry",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_medieval_food",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_medieval_water",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_cloth_dressings",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_flora_aid_workshop",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "needle_bone",
+        "count": 1,
+        "prob": 100
+      },
+      {
+        "item": "leather",
+        "count": 4,
+        "prob": 100
+      },
+      {
+        "item": "scrap_cotton",
+        "count": 4,
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_flora_aid_ward",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_refuge_ward_materials",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_flora_ruin_keepsake",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "berserk_flora_scorched_bookmark",
+        "prob": 100
+      }
+    ]
+  }
+]

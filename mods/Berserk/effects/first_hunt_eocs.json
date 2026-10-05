@@ -36,6 +36,11 @@
         {
           "or": [
             {
+              "math": [
+                "u_berserk_first_hunt_placement_v31 != 1"
+              ]
+            },
+            {
               "and": [
                 {
                   "math": [
@@ -44,7 +49,7 @@
                 },
                 {
                   "math": [
-                    "u_berserk_first_hunt_search_attempts < 3"
+                    "u_berserk_first_hunt_search_attempts < 2"
                   ]
                 }
               ]
@@ -99,6 +104,30 @@
       {
         "if": {
           "math": [
+            "u_berserk_first_hunt_placement_v31 != 1"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_first_hunt_search_attempts = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_first_hunt_location_invalid = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_first_hunt_placement_v31 = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
             "u_berserk_first_hunt_done != 1"
           ]
         },
@@ -117,43 +146,81 @@
         },
         "else": {
           "if": {
-            "math": [
-              "u_berserk_first_hunt_marked == 1"
+            "and": [
+              {
+                "math": [
+                  "has_var(u_berserk_first_hunt_location)"
+                ]
+              },
+              {
+                "overmap_at_point": "berserk_first_hunt_lair",
+                "point": {
+                  "u_val": "berserk_first_hunt_location"
+                }
+              }
             ]
           },
           "then": {
-            "run_eocs": "EOC_BERSERK_FIRST_HUNT_SYNC"
+            "run_eocs": "EOC_BERSERK_FIRST_HUNT_FOUND"
           },
-          "else": {
-            "if": {
+          "else": [
+            {
               "math": [
-                "u_berserk_first_hunt_search_attempts < 3"
+                "u_berserk_first_hunt_marked = 0"
               ]
             },
-            "then": {
-              "run_eocs": "EOC_BERSERK_FIRST_HUNT_LOCATE"
-            },
-            "else": {
+            {
               "if": {
                 "math": [
-                  "distance('u', u_berserk_first_hunt_search_origin) >= 24"
+                  "has_var(u_berserk_first_hunt_location)"
                 ]
               },
-              "then": [
-                {
-                  "math": [
-                    "u_berserk_first_hunt_search_attempts = 0"
+              "then": {
+                "math": [
+                  "u_berserk_first_hunt_location_invalid = 1"
+                ]
+              }
+            },
+            {
+              "if": {
+                "math": [
+                  "u_berserk_first_hunt_search_attempts < 2"
+                ]
+              },
+              "then": {
+                "run_eocs": "EOC_BERSERK_FIRST_HUNT_LOCATE"
+              },
+              "else": {
+                "if": {
+                  "or": [
+                    {
+                      "math": [
+                        "has_var(u_berserk_first_hunt_search_origin) == 0"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "distance('u', u_berserk_first_hunt_search_origin) >= 24"
+                      ]
+                    }
                   ]
                 },
-                {
-                  "run_eocs": "EOC_BERSERK_FIRST_HUNT_LOCATE"
+                "then": [
+                  {
+                    "math": [
+                      "u_berserk_first_hunt_search_attempts = 0"
+                    ]
+                  },
+                  {
+                    "run_eocs": "EOC_BERSERK_FIRST_HUNT_LOCATE"
+                  }
+                ],
+                "else": {
+                  "run_eocs": "EOC_BERSERK_FIRST_HUNT_NOT_FOUND"
                 }
-              ],
-              "else": {
-                "run_eocs": "EOC_BERSERK_FIRST_HUNT_NOT_FOUND"
               }
             }
-          }
+          ]
         }
       }
     ]
@@ -173,26 +240,68 @@
         }
       },
       {
-        "u_location_variable": {
-          "context_val": "berserk_first_hunt_candidate"
+        "if": {
+          "math": [
+            "u_berserk_first_hunt_search_attempts == 1"
+          ]
         },
-        "target_params": {
-          "om_terrain": "berserk_first_hunt_lair",
-          "om_terrain_replace": "forest",
-          "random": true,
-          "cant_see": true,
-          "min_distance": 8,
-          "search_range": 16,
-          "z": 0
+        "then": {
+          "u_location_variable": {
+            "context_val": "berserk_first_hunt_candidate"
+          },
+          "target_params": {
+            "om_terrain": "berserk_first_hunt_lair",
+            "random": true,
+            "min_distance": 0,
+            "search_range": 16,
+            "z": 0,
+            "om_special": "berserk_first_hunt_special"
+          },
+          "true_eocs": [
+            "EOC_BERSERK_FIRST_HUNT_VALIDATE"
+          ],
+          "false_eocs": [
+            "EOC_BERSERK_FIRST_HUNT_SEARCH_FAILED"
+          ]
         },
-        "true_eocs": [
-          "EOC_BERSERK_FIRST_HUNT_VALIDATE"
-        ],
-        "false_eocs": [
-          "EOC_BERSERK_FIRST_HUNT_NOT_FOUND"
-        ]
+        "else": {
+          "u_location_variable": {
+            "context_val": "berserk_first_hunt_candidate"
+          },
+          "target_params": {
+            "om_terrain": "berserk_first_hunt_lair",
+            "random": true,
+            "min_distance": 0,
+            "search_range": 32,
+            "z": 0,
+            "om_special": "berserk_first_hunt_special"
+          },
+          "true_eocs": [
+            "EOC_BERSERK_FIRST_HUNT_VALIDATE"
+          ],
+          "false_eocs": [
+            "EOC_BERSERK_FIRST_HUNT_SEARCH_FAILED"
+          ]
+        }
       }
     ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIRST_HUNT_SEARCH_FAILED",
+    "effect": {
+      "if": {
+        "math": [
+          "u_berserk_first_hunt_search_attempts < 2"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_FIRST_HUNT_LOCATE"
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_FIRST_HUNT_NOT_FOUND"
+      }
+    }
   },
   {
     "type": "effect_on_condition",
@@ -218,7 +327,7 @@
         }
       ],
       "else": {
-        "run_eocs": "EOC_BERSERK_FIRST_HUNT_NOT_FOUND"
+        "run_eocs": "EOC_BERSERK_FIRST_HUNT_SEARCH_FAILED"
       }
     }
   },
@@ -309,9 +418,12 @@
           ]
         },
         {
-          "u_message": "Your saved hunt location could not be verified. It has been kept unchanged; no replacement lair or duplicate mission was created. Check the save and report this message.",
-          "type": "warning",
-          "popup": true
+          "math": [
+            "u_berserk_first_hunt_marked = 0"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_FIRST_HUNT_NOT_FOUND"
         }
       ]
     }
@@ -320,7 +432,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FIRST_HUNT_NOT_FOUND",
     "effect": {
-      "u_message": "No safe forest hollow was found 8-16 overmap tiles away. No hunt has been assigned. Search retries at most three times here; travel at least 24 local tiles and activate your first-hunt notes to try from another position. Explored terrain is never replaced.",
+      "u_message": "The trail to the hollow is still unclear. Keep the notes: study them again or ask the Skull Knight after further exploration. No new hunt has been added to your missions.",
       "type": "warning"
     }
   },
@@ -352,6 +464,39 @@
     },
     "effect": [
       {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done != 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "math": [
+                      "has_var(u_berserk_first_hunt_location)"
+                    ]
+                  },
+                  {
+                    "overmap_at_point": "berserk_first_hunt_lair",
+                    "point": {
+                      "u_val": "berserk_first_hunt_location"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_first_hunt_search_attempts = 0"
+          ]
+        }
+      },
+      {
         "run_eocs": "EOC_BERSERK_FIRST_HUNT_REQUEST"
       },
       {
@@ -366,7 +511,26 @@
         },
         "else": {
           "if": {
-            "u_has_mission": "MISSION_BERSERK_FIRST_HUNT"
+            "and": [
+              {
+                "u_has_mission": "MISSION_BERSERK_FIRST_HUNT"
+              },
+              {
+                "and": [
+                  {
+                    "math": [
+                      "has_var(u_berserk_first_hunt_location)"
+                    ]
+                  },
+                  {
+                    "overmap_at_point": "berserk_first_hunt_lair",
+                    "point": {
+                      "u_val": "berserk_first_hunt_location"
+                    }
+                  }
+                ]
+              }
+            ]
           },
           "then": {
             "u_message": "The first hunt still points to the same hollow. Select \"First hunt: the apostle's hollow\" in your missions menu to track it on the overmap. Other hunts keep their own progress.",
@@ -408,6 +572,9 @@
         ]
       },
       {
+        "run_eocs": "EOC_BERSERK_HUNT_TRACE_AFTER_VICTORY"
+      },
+      {
         "run_eocs": "EOC_BERSERK_FIRST_HUNT_FINISH_MISSION"
       },
       {
@@ -417,9 +584,6 @@
       },
       {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
-      },
-      {
-        "run_eocs": "EOC_BERSERK_FLORA_SEEK"
       }
     ]
   },
@@ -452,7 +616,8 @@
           },
           "then": {
             "u_spawn_item": "berserk_first_hunt_directions",
-            "count": 1
+            "count": 1,
+            "suppress_message": true
           }
         },
         {

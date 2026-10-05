@@ -1,0 +1,28 @@
+[
+  {
+    "type": "SPELL",
+    "id": "berserk_eclipse_restore_stamina",
+    "name": "Eclipse rescue recovery",
+    "description": "Restore stamina once after the Skull Knight brings you back.",
+    "effect": "recover_energy",
+    "effect_str": "STAMINA",
+    "shape": "blast",
+    "valid_targets": [
+      "self"
+    ],
+    "min_damage": 100000,
+    "max_damage": 100000,
+    "min_range": 0,
+    "max_range": 0,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ]
+  }
+]

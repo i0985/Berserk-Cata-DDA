@@ -1,95 +1,62 @@
-# New Horizon 3.0: encounter registry (step 1)
+# New Horizon 3.0 — актуальный реестр встреч
 
-The pre-Eclipse routes distinguish physical projections from the established
-monsters. Keep all established IDs intact so monsters already present in saves
-and scenario encounters remain loadable.
+Реестр на 2 октября 2026; рамка адаптации принята в [NEW_HORIZON_DESIGN.md](NEW_HORIZON_DESIGN.md).
+Исходная сборка содержимого: `e3e54b5`, контрольная ветка `codex/3.0-before-location-content`.
+Старые ID сохраняются. Встреченные существа и найденные координаты в сохранениях не заменяются автоматически.
 
-| Role | ID | Source | Outcome |
+## Проекции, оригиналы и сюжетные фигуры
+
+| Категория | ID | Где появляется | Что означает победа |
 | --- | --- | --- | --- |
-| Zodd projection | `mon_berserk_projection_zodd` | Rare `GROUP_NETHER` roll in vanilla microlab rooms | No corpse; one Behelit |
-| Griffith reflection | `mon_berserk_projection_griffith` | `GROUP_NETHER`; also the once-per-day armor EOC's 1/100 attempt | No corpse; one Behelit |
-| Void reflection | `mon_berserk_projection_void` | Rare `GROUP_NETHER` roll in vanilla microlab rooms | No corpse; one Behelit |
-| Original Zodd | `mon_nosferatu_zodd` | `berserk_pursuer` scenario; existing saves | Original drops and behavior |
-| Original Griffith | `mon_griffith_reborn` | `berserk_griffith_confrontation` scenario; existing saves | Original drops and behavior |
-| Original Void | `mon_void_apostle` | `void_apostle_confrontation` scenario; existing `EOC_SPAWN_NETHER`; existing saves | Original drops and behavior |
-| Eclipse Griffith | `mon_berserk_eclipse_griffith` | Final Eclipse map | Existing rescue/victory handling |
-| Eclipse demons | `mon_berserk_eclipse_*` | Eclipse map and post-Eclipse era groups | Physical monsters; world era gated by event |
-| Armor shadows | `mon_beast_of_darkness_1` through `6` | Armor curse EOCs | Separate real/hallucinated encounters |
-| Skull Knight | `mon_skull_knight` / `mon_skull_knight_rescuer` | Existing scenario / rescue scene | Hostile old form / friendly story form |
+| Проекция Зодда | `mon_berserk_projection_zodd` | Редкий выбор GROUP_NETHER, в том числе использующие группу лабораторные комнаты | Разрушение проявления; нет обычного трупа; допуск к Бехелиту до события |
+| Отражение Гриффита | `mon_berserk_projection_griffith` | GROUP_NETHER и отдельное событие брони | Оригинал жив; история победы отдельно сохраняется для разговора с Рыцарем |
+| Отражение Войда | `mon_berserk_projection_void` | GROUP_NETHER | Разрушение отражения; Войд остаётся фигурой Руки Бога |
+| Старые оригиналы | `mon_nosferatu_zodd`, `mon_griffith_reborn`, `mon_void_apostle` | Специальные старты, сохранения и предусмотренные отдельные события | Сохранены ID и обработчики; имя `mon_void_apostle` историческое и не делает Войда обычным апостолом |
+| Проявление Гриффита в Затмении | `mon_berserk_eclipse_griffith`, `mon_berserk_eclipse_griffith_active` | Финальная область события: неподвижная сцена → бой | Альтернативная победа означает разрушение доступного проявления; существующий выход через спасение сохранён |
+| Рыцарь-Череп | `mon_skull_knight`, `mon_skull_knight_rescuer` | Старый сценарный ID и отдельный дружелюбный сюжетный собеседник | Старый ID не удаляется; собеседник используется для спасения и следующей цели |
+| Флора | `mon_berserk_flora` | Особняк после первой охоты; возможна ручная встреча | Ведьма и хранительница духовного дерева, не босс и не фея; дар и осада независимы |
 
-`GROUP_NETHER` also appears in CDDA 0.I-1 microlab mapgen. Its weights are
-relative selection weights, not probabilities per laboratory. The pre-existing
-mod group also includes zombie brutes and armor shadows. The three old bosses
-were removed from this group's future rolls; their distinct scenario IDs and
-the Eclipse boss remain unchanged. Previously spawned originals in a saved
-world are not replaced retroactively.
+Вес GROUP_NETHER не является процентом встречи во всей лаборатории. Группа содержит также другие существа. Оригиналы не возвращены в случайные лабораторные выборы этой правкой.
 
-All three projections reuse the original sprites in UltiCa and the optional
-Chibi tileset. Their smaller HP and zero regeneration are provisional for
-these new IDs only; later combat tuning must assess their inherited attacks.
-CDDA 0.I-1 supports `death_function.corpse_type: NO_CORPSE` separately from
-`death_drops`, allowing their single Behelit drop without a physical corpse.
-The later Behelit-route pass replaces the unconditional Behelit entries with
-a shared, state-gated death EOC. Original drop-group IDs remain defined and
-non-Behelit loot is preserved. Projection death messages no longer promise
-an item after the Eclipse. See [BEHELIT_ROUTES_TEST.md](BEHELIT_ROUTES_TEST.md).
+## Независимые охоты
 
-## Step 2: Behelit encounter sites (unverified in game)
+| Встреча | Основные ID | Место / получение цели | Результат |
+| --- | --- | --- | --- |
+| Первая охота | `mon_berserk_hollow_apostle` | `berserk_first_hunt_special`, после спасения | Первая цель, записка о прорыве и доступ к направлению Флоры |
+| Первый прорыв | `mon_berserk_breach_warden` | `berserk_local_breach_special`, по найденным указаниям | Ограниченное ослабление новых проявлений; существующие демоны остаются |
+| Граф | `mon_berserk_apostle_count`, слуги и свидетель | `berserk_count_residence_special` | Смерть самостоятельного апостола, собственный прорыв, Печать рассечённой плоти |
+| Уайлд | `mon_berserk_apostle_wyald`, Чёрные Псы | `berserk_wyald_camp_special` | Живой оригинал в изменённой хронологии; собственный прорыв, Узел Зверя |
+| Розина | `mon_berserk_apostle_rosine`, `mon_berserk_cocoon_ravager` | `berserk_rosine_valley_special` | Собственный прорыв, Покров Туманной долины; конечное число существ в коконах |
+| Грюнбельд | `mon_berserk_grunbeld_knight`, `mon_berserk_grunbeld_dragon` | `berserk_grunbeld_stronghold_special`, поздняя цель | Две формы одной охоты; собственный прорыв, Осколок пламенного панциря |
+| Нападение на Флору | Отдельные сюжетные Зодд и Грюнбельд | Подготовка у Флоры → добровольная активация оберега | Побег либо предусмотренная смерть оригинала; победы в осаде не должны воскресать в охотах |
 
-Two rare `OVERMAP_UNIQUE` specials can appear while generating previously
-unexplored overmaps. `occurrences: [25, 100]` is the chance for each special to
-join an overmap's placement pool, not a guarantee of placement. The cursed oak
-occupies one forest OMT. The echo cave has a forest entrance at z=0 and a
-separate chamber at z=-1; the stair coordinates match.
+Названия самостоятельных апостолов — личности из Berserk; конкретные маршруты, логова, сцены прорывов и четыре награды — адаптация мода. Для каждой охоты сохраняются свои координаты, состояния и одноразовая награда.
 
-Both sites have distinct named overmap symbols **once discovered**. Automatic
-notes on distant, still-hidden locations are not implemented; neither is a
-map or journal clue directing the player to them. Existing overmaps already
-generated in an old save are not retroactively repopulated. Explore new
-overmaps to find the sites.
+## Независимые пути к Бехелиту
 
-The oak guardian is a slow, heavy root attacker (360 HP, speed 85); the cave
-guardian is a faster, lighter hunter (240 HP, speed 115). Their IDs occur only
-in their respective site mapgen and local guardian checks, never in random
-monster groups. Each has a dedicated temporary UltiCa-compatible sprite in
-both graphics packages. Their two melee special attacks and balance need game
-checks. The oak clearing and cave chamber also contain two weaker demons each.
+| Место | Special | Основной хранитель | Происхождение / лут |
+| --- | --- | --- | --- |
+| Проклятый дуб | `berserk_cursed_oak_special` | `mon_berserk_cursed_oak_guardian` | Авторский проклятый лес; средневековый лут, отдельные следы путников |
+| Пещера отголосков | `berserk_echo_cave_special` | `mon_berserk_echo_cave_guardian` | Авторская пещера; средневековый лут |
+| Осквернённая часовня | `berserk_desecrated_chapel_special` | `mon_berserk_chapel_guardian` | Современные последователи в мире CDDA; современный лут допустим по назначению |
+| Пропавшая экспедиция | `berserk_lost_expedition_special` | `mon_berserk_expedition_guardian` | Современная экспедиция к месту контакта миров; палатки и конечные припасы |
+| Проекции / выбранные старые боссы | Общий обработчик `EOC_BERSERK_BEHELIT_BOSS_DIES` | По определениям встреч и совместимости | Добыча Бехелита проверяет общий допуск до Затмения |
 
-Each Behelit is represented by **examinable furniture at the center**, not a
-ground item. The player can claim it only while the corresponding living
-guardian is more than eight tiles away from the player: defeat it or draw it
-away and slip past it. The bone chimes at the oak's edge and stone chime deep
-in the cave make a loud noise to support a diversion, but monster AI response
-still needs in-game testing. Only the exact guardian ID is counted; unrelated
-zombies and the lesser demons do not block claiming. Taking the relic runs an
-update on the player's current OMT that replaces that particular cache with
-an inert version, then grants one Behelit. The changed furniture holds the
-one-time state at the site through save/reload; visiting a different site
-does not share a character-wide reward flag. Check that map update and item
-delivery order in game before treating one-time rewards as proven.
+Все четыре места используют отдельную мебель тайника; повторная выдача Бехелита после успешного входа/эпохи блокируется общей проверкой. Уже имеющиеся Бехелиты не отбираются.
 
-The next pass adds a two-OMT desecrated chapel and a lost expedition camp.
-All four caches and boss rewards share an eligibility check; successful entry
-and the completed world era block new Behelits. Each examined cache is updated
-on its own OMT using the object's position, and delivery requires the furniture
-update to have succeeded. Existing Behelits are not removed retroactively.
-Details and debug IDs are in [BEHELIT_ROUTES_TEST.md](BEHELIT_ROUTES_TEST.md).
+**Ограничение текущего размещения:** четыре special имеют `OVERMAP_UNIQUE` и `occurrences: [0,1]`. В 0.I-1 у уникальных special диапазон применяется как вероятность min/max, поэтому min=0 не обеспечивает естественный случайный поиск этих мест. Отладочная установка не доказывает доступность в обычном прохождении. Частоту, подсказки и маршруты естественного обнаружения надо пересмотреть отдельным этапом; здесь значения не менялись.
 
-## Verification still needed in game
+## Обычные существа и отдельные системы
 
-- Locate a vanilla microlab using `GROUP_NETHER`; inspect names, sprites,
-  drops, no corpse, and whether the original bosses stopped appearing there.
-- Try the three old scenarios, plus a pre-existing save with an original boss.
-- Check the armor's recurring Griffith encounter and Brand warnings.
-- Measure how often projection encounters actually occur; neither group
-  weights nor the 1/100 daily armor attempt guarantee a find in a single lab.
-- In a newly generated forest area, confirm both specials can appear. Enter
-  the cave and climb back up; check oak and cave sprites, lighting, combat and
-  map symbols. Try sprinting to each cache with the guardian nearby, luring it
-  past eight tiles, killing it, and reloading after taking the Behelit.
+- `mon_berserk_eclipse_wretch`, `halfbreed`, `hunter`, `butcher`, `elite` — обычная адаптированная нечисть; не именованные апостолы и не Рука Бога.
+- Городские/внегородские появления новой эпохи не включают рядовые копии именованных боссов.
+- `mon_beast_of_darkness_1` … `6` — настоящие и галлюцинаторные тени брони; отдельная система.
+- Клеймо, мировые встречи после события и броня имеют разные причины появления. Локальное закрытие прорыва не очищает мир и не удаляет уже живущих демонов.
 
-Static JSON and asset validation do not replace those game checks.
+## Граница этого этапа
 
-The later static balance pass for projections and original apostles is
-documented in [BOSS_BALANCE_0I1.md](BOSS_BALANCE_0I1.md). Its combat outcomes
-also require an in-game check before release.
+Согласован лор и создана общая основа содержимого. Изменены тексты о столкновении миров и финальном проявлении; обработчики победы/спасения, баланс, размещение боссов и старые ID не менялись.
+
+Текущая расширенная карта Затмения состоит из 12 OMT (3 × 4), а не из исторического прототипа 2 × 3. Четыре именных тела — Джудо, Пиппин, Коркус и Гастон. Рикерт в данных Затмения не найден и не добавляется.
+
+Новые обыски сохраняют состояние в отдельной клетке мебели. Чтение записей и сцен не выдаёт повторный лут. Изменения карты и обычного лута относятся к вновь созданным картам; существующие места не перестраиваются.

@@ -1,0 +1,177 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_wagon_wreck",
+    "name": "shattered siege wagon",
+    "description": "A split axle and collapsed wooden bed mark a supply wagon abandoned before the gate.",
+    "looks_like": "f_rubble",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": 2,
+    "required_str": -1,
+    "flags": [
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM",
+      "TRANSPARENT"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_broken_mantlet",
+    "name": "broken wooden mantlet",
+    "description": "The thick rolling shield is wedged in the earth. Its scorched boards still block sight.",
+    "looks_like": "f_crate_c",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_split_spears",
+    "name": "splintered spear shafts",
+    "description": "Broken wooden shafts and bent spearheads lie where the garrison fell back.",
+    "looks_like": "f_rubble",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM",
+      "TRANSPARENT"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_grunbeld_quarry_hoist",
+    "name": "abandoned timber hoist",
+    "description": "An idle wooden drum sits above the quarry ledge. A surviving coil of rope lies beside it.",
+    "looks_like": "f_counter",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM",
+      "TRANSPARENT"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  }
+]

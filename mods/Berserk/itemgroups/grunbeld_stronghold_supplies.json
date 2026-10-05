@@ -1,0 +1,171 @@
+[
+  {
+    "type": "item_group",
+    "id": "berserk_grunbeld_supplies_evacuated_cart",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "rope_30",
+        "prob": 100
+      },
+      {
+        "item": "billet_wood",
+        "prob": 100,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_grunbeld_supplies_armory",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_damaged_weapons",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_damaged_armor",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_grunbeld_supplies_ration_store",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_medieval_food",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_grunbeld_supplies_quarry_rope",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "rope_30",
+        "prob": 100
+      },
+      {
+        "item": "chisel",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_grunbeld_supplies_dressing_store",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_cloth_dressings",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_medieval_water",
+        "prob": 100
+      },
+      {
+        "item": "brandy",
+        "prob": 100,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_grunbeld_supplies_barrack_pantry",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_medieval_food",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_medieval_water",
+        "prob": 100
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_grunbeld_supplies_repair_store",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "needle_bone",
+        "prob": 100
+      },
+      {
+        "item": "scrap_cotton",
+        "prob": 100,
+        "count": 3
+      },
+      {
+        "item": "scrap_leather",
+        "prob": 100,
+        "count": 3
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_grunbeld_supplies_forge_store",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "metalworking_tongs",
+        "prob": 100
+      },
+      {
+        "item": "chisel",
+        "prob": 100
+      },
+      {
+        "item": "steel_chunk",
+        "prob": 100,
+        "count": 2
+      },
+      {
+        "item": "scrap",
+        "prob": 100,
+        "count": 3
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_grunbeld_supplies_heat_clothing",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "gambeson_vest",
+        "prob": 100,
+        "damage": [
+          1,
+          2
+        ]
+      },
+      {
+        "item": "scrap_leather",
+        "prob": 100,
+        "count": 2
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_grunbeld_supplies_standard_keepsake",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "berserk_grunbeld_scorched_badge",
+        "prob": 100
+      }
+    ]
+  }
+]

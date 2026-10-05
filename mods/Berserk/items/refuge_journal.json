@@ -1,0 +1,32 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_refuge_journal",
+    "category": "tools",
+    "name": {
+      "str": "refuge preparation journal"
+    },
+    "description": "Your chosen ward, water, light, sleeping place and escape plan. Activate to review the ward's limits, your recorded readiness and the next story trail. The journal neither constructs a base nor guarantees safety. A dawn observation can be recorded automatically, but is not required to continue.",
+    "weight": "25 g",
+    "volume": "50 ml",
+    "material": [
+      "paper"
+    ],
+    "symbol": "?",
+    "color": "light_gray",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Review refuge preparations",
+      "effect_on_conditions": [
+        "EOC_BERSERK_REFUGE_JOURNAL"
+      ]
+    },
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "charges_per_use": 0
+  }
+]

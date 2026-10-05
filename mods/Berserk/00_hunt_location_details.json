@@ -1,0 +1,756 @@
+[
+  {
+    "type": "terrain",
+    "id": "t_berserk_campaign_mat",
+    "name": "woven campaign matting",
+    "description": "Layers of cloth and woven straw keep sleeping gear and stores off the trampled earth.",
+    "looks_like": "t_carpet_yellow",
+    "symbol": ".",
+    "color": "brown",
+    "move_cost": 2,
+    "flags": [
+      "TRANSPARENT",
+      "FLAT",
+      "INDOORS",
+      "FLAMMABLE_ASH"
+    ]
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_campaign_palisade",
+    "name": "rough timber screen",
+    "description": "Heavy upright timbers divide the cages and the fighting ground. They obstruct sight but can be broken.",
+    "looks_like": "t_fence",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost": 0,
+    "flags": [
+      "FLAMMABLE_ASH",
+      "NOITEM"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 35,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "ter_set": "t_dirt",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            1,
+            3
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_mistvale_petals",
+    "copy-from": "t_dirt",
+    "name": "petal-strewn forest soil",
+    "description": "Flowers grow thickly over old footprints. Their sweetness cannot hide the smell beneath the roots.",
+    "looks_like": "t_grass",
+    "color": "light_green"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_mistvale_gully",
+    "copy-from": "t_dirt",
+    "name": "shallow forest gully",
+    "description": "A worn shallow channel runs beside the grove. Its bends offer a longer route around the cocoons.",
+    "looks_like": "t_dirt",
+    "move_cost": 3
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_rosine_giant_trunk",
+    "copy-from": "t_tree",
+    "name": "Mistvale giant tree",
+    "description": "An immense trunk rises above the grove. Silk hangs between its roots; a dark opening faces the trampled nest.",
+    "looks_like": "t_tree"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_rosine_root_screen",
+    "copy-from": "t_tree",
+    "name": "interwoven Mistvale roots",
+    "description": "Thick roots and trapped stones form an opaque screen. There is room to move around either end.",
+    "looks_like": "t_tree"
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_wyald_baggage",
+    "name": "plundered baggage chest",
+    "description": "Rope, leather and a campaign roll survived under the broken wagon cover.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_WYALD_BAGGAGE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_wyald_baggage_empty",
+    "name": "searched campaign belongings",
+    "description": "The useful contents have been recovered. Nothing is replenished here.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_wyald_kitchen",
+    "name": "Black Dogs mess stores",
+    "description": "A cook put a little food and water aside beneath the tent matting.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_WYALD_KITCHEN"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_wyald_kitchen_empty",
+    "name": "searched campaign belongings",
+    "description": "The useful contents have been recovered. Nothing is replenished here.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_wyald_repair",
+    "name": "stolen repair chest",
+    "description": "Damaged campaign weapons and sewing materials were sorted for repair.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_WYALD_REPAIR"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_wyald_repair_empty",
+    "name": "searched campaign belongings",
+    "description": "The useful contents have been recovered. Nothing is replenished here.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_wyald_command",
+    "name": "Black Dogs command chest",
+    "description": "Orders and a worn piece of armor remain in the leader's tent.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_WYALD_COMMAND"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_wyald_command_empty",
+    "name": "searched campaign belongings",
+    "description": "The useful contents have been recovered. Nothing is replenished here.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_wyald_prisoners",
+    "name": "prisoners' bundled belongings",
+    "description": "Confiscated cloth and one escape account lie inside the cages.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_WYALD_PRISONERS"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_wyald_prisoners_empty",
+    "name": "searched campaign belongings",
+    "description": "The useful contents have been recovered. Nothing is replenished here.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_rosine_travelers",
+    "name": "Mistvale travelers' bundle",
+    "description": "A last meal and dressings were left beside the searcher's notes at the forest edge.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_ROSINE_TRAVELERS"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_rosine_travelers_empty",
+    "name": "searched campaign belongings",
+    "description": "The useful contents have been recovered. Nothing is replenished here.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_rosine_keepsake",
+    "name": "Mistvale abandoned keepsake",
+    "description": "A faded ribbon is caught beside the abandoned playthings.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_ROSINE_KEEPSAKE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_rosine_keepsake_empty",
+    "name": "searched campaign belongings",
+    "description": "The useful contents have been recovered. Nothing is replenished here.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_rosine_waycamp",
+    "name": "searchers' last rest",
+    "description": "A waterskin and a little cloth remain by an old resting place in the gully.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_ROSINE_WAYCAMP"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_rosine_waycamp_empty",
+    "name": "searched campaign belongings",
+    "description": "The useful contents have been recovered. Nothing is replenished here.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_prisoner_trace",
+    "name": "cut bonds in the cage",
+    "description": "A cut cord and scratches show that somebody found a way out.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_F_BERSERK_WYALD_PRISONER_TRACE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_ring_warning",
+    "name": "trampled Black Dogs battle approach",
+    "description": "Deep paired tracks end beyond the timber screens. Wide paths run along both edges.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_F_BERSERK_WYALD_RING_WARNING"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_missing_trace",
+    "name": "Mistvale trail of lost shoes",
+    "description": "Shoes and scraps become smaller as the trail enters the flowers.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_F_BERSERK_ROSINE_MISSING_TRACE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_story_cocoon",
+    "name": "split cocoon with a tied marker",
+    "description": "A brittle split shell holds an old knot and a searcher's mark. It contains no living captive.",
+    "looks_like": "f_egg_sacke",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_F_BERSERK_ROSINE_STORY_COCOON"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_nest_warning",
+    "name": "silk-bound root threshold",
+    "description": "Flowers thin out around roots that dwarf the grove. A clear opening faces the nest.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_F_BERSERK_ROSINE_NEST_WARNING"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_charge_obstacle",
+    "name": "broken campaign barricade",
+    "description": "A heavy timber barrier dragged onto the fighting ground. It can break under force; the sides are clear.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "FLAMMABLE_HARD"
+    ],
+    "bash": {
+      "str_min": 6,
+      "str_max": 24,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_rubble",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            1,
+            3
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_wagon_wreck",
+    "name": "plundered wagon wreck",
+    "description": "An axle and torn canvas mark a wagon stripped for loot.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_punishment_post",
+    "name": "Black Dogs punishment post",
+    "description": "Cut ropes and old marks remain on a timber post beside the training ground.",
+    "looks_like": "f_rack",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_campaign_bedding",
+    "name": "campaign straw bedding",
+    "description": "Straw and worn cloth make a rough bed on the tent matting.",
+    "looks_like": "f_makeshift_bed",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT",
+      "FLAMMABLE_HARD"
+    ],
+    "comfort": 2
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_cage_gate",
+    "name": "tied Black Dogs cage door",
+    "description": "A cord holds the timber door shut. Examine to untie this optional passage.",
+    "looks_like": "f_crate_c",
+    "symbol": "+",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_WYALD_CAGE_OPEN"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_cage_gate_open",
+    "name": "open Black Dogs cage door",
+    "description": "The binding cord is loose. The passage remains open.",
+    "looks_like": "f_crate_o",
+    "symbol": ".",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_wagon_chime",
+    "name": "wagon harness bells",
+    "description": "A wound cord can shake the harness bells after a delay. The mechanism can be used once.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_WYALD_WAGON_BELL"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_wagon_chime_armed",
+    "name": "wound wagon harness bells",
+    "description": "The wound cord is running down. Three short bursts will come from this wagon.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_wyald_wagon_chime_spent",
+    "name": "spent wagon harness bells",
+    "description": "The frayed cord has broken. These bells cannot be wound again.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_shell_material",
+    "name": "abandoned Mistvale silk shell",
+    "description": "A dry, empty shell can be cut into a little usable cloth once. No creature lives inside.",
+    "looks_like": "f_egg_sacke",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_ROSINE_SHELL"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_shell_material_empty",
+    "name": "stripped Mistvale silk shell",
+    "description": "Only brittle strands remain after the cloth was recovered.",
+    "looks_like": "f_egg_sacke",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_cocoon_watchful",
+    "name": "swelling Mistvale cocoon",
+    "description": "Something flexes inside the silk. An approach may start its hatching; smash the shell before it opens to stop that creature.",
+    "looks_like": "f_egg_sackws",
+    "symbol": "O",
+    "color": "yellow",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_HARD"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 16,
+      "sound": "splat!",
+      "sound_fail": "whump.",
+      "furn_set": "f_berserk_rosine_cocoon_destroyed"
+    },
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COCOON_OPEN"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_cocoon_waking",
+    "name": "splitting Mistvale cocoon",
+    "description": "The silk is splitting. Its one occupant may emerge in a few seconds; destroying this shell stops the hatching.",
+    "looks_like": "f_egg_sackws",
+    "symbol": "O",
+    "color": "light_red",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_HARD"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 16,
+      "sound": "splat!",
+      "sound_fail": "whump.",
+      "furn_set": "f_berserk_rosine_cocoon_destroyed"
+    },
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COCOON_OPEN"
+      ]
+    }
+  }
+]

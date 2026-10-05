@@ -24,289 +24,101 @@
     "id": "TALK_BERSERK_FLORA",
     "dynamic_line": {
       "math": [
-        "berserk_flora_stage == 3"
+        "berserk_flora_stage >= 3"
       ],
-      "yes": "\"The sanctuary is lost, but your road continues. Recover, then follow the unfinished hunts. There will be no second attack on this house.\"",
+      "yes": "The grove can no longer shelter you. Take what you learned here into the world; the remaining wounds will not close themselves.",
       "no": {
         "math": [
           "berserk_flora_stage == 2"
         ],
-        "yes": "\"There is no more time for counsel. The guardians are holding the northern and eastern approaches. Leave through the western road or the southern garden. Do not wait for a victory.\"",
-        "no": "\"You have found a quiet place, traveler. Here you may ask before you choose. A suit of armor is not a cure for a wounded soul, and possessing it is not the end of your road.\""
+        "yes": "The roots are breaking. Leave through the western path or the southern garden. Do not spend these last moments in conversation.",
+        "no": "Come closer to the hearth. You have brought a wound from beyond this world, and questions enough to burden any traveler. Where shall we begin?"
       }
     },
     "responses": [
       {
-        "text": "What does the Brand mean, and why do things come at night?",
+        "text": "Tell me about the Brand.",
         "topic": "TALK_BERSERK_FLORA_BRAND",
         "condition": {
-          "and": [
-            {
-              "math": [
-                "berserk_flora_stage == 1"
-              ]
-            },
-            {
-              "math": [
-                "1 == 1"
-              ]
-            }
+          "math": [
+            "berserk_flora_stage <= 1"
           ]
         }
       },
       {
-        "text": "What is the Berserker armor?",
+        "text": "Tell me about the Berserker armor.",
         "topic": "TALK_BERSERK_FLORA_ARMOR",
         "condition": {
-          "and": [
-            {
-              "math": [
-                "berserk_flora_stage == 1"
-              ]
-            },
-            {
-              "math": [
-                "1 == 1"
-              ]
-            }
+          "math": [
+            "berserk_flora_stage <= 1"
           ]
         }
       },
       {
-        "text": "What price will I pay for Berserk mode?",
-        "topic": "TALK_BERSERK_FLORA_COST",
-        "condition": {
-          "and": [
-            {
-              "math": [
-                "berserk_flora_stage == 1"
-              ]
-            },
-            {
-              "math": [
-                "1 == 1"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "text": "What are apostles, projections and the God Hand?",
+        "text": "Who are the apostles and the God Hand?",
         "topic": "TALK_BERSERK_FLORA_APOSTLES",
         "condition": {
-          "and": [
-            {
-              "math": [
-                "berserk_flora_stage == 1"
-              ]
-            },
-            {
-              "math": [
-                "1 == 1"
-              ]
-            }
+          "math": [
+            "berserk_flora_stage <= 1"
           ]
         }
       },
       {
-        "text": "Can a trophy taken from an apostle help me?",
+        "text": "Can an apostle's relic help me?",
         "topic": "TALK_BERSERK_FLORA_RELICS",
         "condition": {
-          "and": [
-            {
-              "math": [
-                "berserk_flora_stage == 1"
-              ]
-            },
-            {
-              "math": [
-                "1 == 1"
-              ]
-            }
+          "math": [
+            "berserk_flora_stage <= 1"
           ]
         }
       },
       {
-        "text": "What should I do next?",
+        "text": "May I rest here and look around?",
+        "topic": "TALK_BERSERK_FLORA_HOME",
+        "condition": {
+          "math": [
+            "berserk_flora_stage <= 1"
+          ]
+        }
+      },
+      {
+        "text": "What road should I take next?",
         "topic": "TALK_BERSERK_FLORA_NEXT",
         "condition": {
-          "and": [
-            {
-              "math": [
-                "berserk_flora_stage == 1"
-              ]
-            },
-            {
-              "math": [
-                "1 == 1"
-              ]
-            }
+          "math": [
+            "berserk_flora_stage <= 1"
           ]
         }
       },
       {
-        "text": "I already have all six pieces, or the packed armor.",
-        "topic": "TALK_BERSERK_FLORA_OWNED",
+        "text": "I want to prepare for the road.",
+        "topic": "TALK_BERSERK_FLORA_PREPARATION",
         "condition": {
           "and": [
             {
               "math": [
-                "berserk_flora_stage == 1"
-              ]
-            },
-            {
-              "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
-            }
-          ]
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_FLORA_ACKNOWLEDGE_ARMOR"
-        }
-      },
-      {
-        "text": "Will you entrust the armor to me?",
-        "topic": "TALK_BERSERK_FLORA_OFFER",
-        "condition": {
-          "and": [
-            {
-              "math": [
-                "berserk_flora_stage == 1"
-              ]
-            },
-            {
-              "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
-            }
-          ]
-        }
-      },
-      {
-        "text": "You already helped me with the armor.",
-        "topic": "TALK_BERSERK_FLORA_RECEIVED",
-        "condition": {
-          "and": [
-            {
-              "math": [
-                "berserk_flora_stage == 1"
+                "berserk_flora_stage <= 1"
               ]
             },
             {
               "math": [
-                "u_berserk_flora_armor_resolved == 1"
+                "berserk_flora_siege_state == 0"
               ]
             }
           ]
         }
       },
       {
-        "text": "Has the armor already been given away?",
-        "topic": "TALK_BERSERK_FLORA_UNAVAILABLE",
+        "text": "Remind me how to use the charm.",
+        "topic": "TALK_BERSERK_FLORA_PREPARED",
         "condition": {
-          "and": [
-            {
-              "math": [
-                "berserk_flora_stage == 1"
-              ]
-            },
-            {
-              "and": [
-                {
-                  "math": [
-                    "berserk_flora_armor_claimed == 1"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_flora_armor_resolved != 1"
-                  ]
-                },
-                {
-                  "not": {
-                    "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
-                  }
-                }
-              ]
-            }
+          "math": [
+            "berserk_flora_siege_state == 1"
           ]
         }
       },
       {
-        "text": "I am ready to accept the armor and face the attack.",
-        "topic": "TALK_BERSERK_FLORA_SIEGE_CONFIRM",
-        "condition": {
-          "and": [
-            {
-              "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
-            },
-            {
-              "not": {
-                "or": [
-                  {
-                    "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
-                  },
-                  {
-                    "math": [
-                      "u_berserk_flora_armor_resolved == 1"
-                    ]
-                  }
-                ]
-              }
-            }
-          ]
-        }
-      },
-      {
-        "text": "I already have the armor. Help me prepare for the attack.",
-        "topic": "TALK_BERSERK_FLORA_SIEGE_OWNER_CONFIRM",
-        "condition": {
-          "and": [
-            {
-              "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
-            },
-            {
-              "or": [
-                {
-                  "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
-                },
-                {
-                  "math": [
-                    "u_berserk_flora_armor_resolved == 1"
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "text": "I need another escape charm before I begin.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "and": [
-            {
-              "math": [
-                "berserk_flora_siege_state == 1"
-              ]
-            },
-            {
-              "not": {
-                "u_has_item": "berserk_flora_escape_charm"
-              }
-            }
-          ]
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_FLORA_REPLACE_CHARM"
-        }
-      },
-      {
-        "text": "What is the next step in our plan?",
-        "topic": "TALK_BERSERK_FLORA_STATUS",
-        "effect": {
-          "run_eocs": "EOC_BERSERK_FLORA_PROGRESS_REPORT"
-        }
-      },
-      {
-        "text": "I will return when I am ready.",
+        "text": "Thank you. I must go.",
         "topic": "TALK_DONE"
       }
     ]
@@ -317,6 +129,14 @@
     "dynamic_line": "\"The Brand calls to beings beyond the ordinary world. Its pain can warn of a nearby presence, but it gives neither a name nor a direction. After dark, prepare cover and a way out. A bone and stone ward quiets its summons within eight tiles; it cannot banish creatures already there. This grove also offers a limited respite while it remains peaceful.\"",
     "responses": [
       {
+        "text": "Why does it hurt before I see anything?",
+        "topic": "TALK_BERSERK_FLORA_BRAND_PAIN"
+      },
+      {
+        "text": "What kind of shelter can quiet it?",
+        "topic": "TALK_BERSERK_FLORA_WARD"
+      },
+      {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
@@ -325,8 +145,76 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR",
-    "dynamic_line": "\"The armor forces a wounded body onward and gives strength, but wearing it builds tension. Your senses falter, and shadows gather. It is not draining blood continuously anymore; the great loss comes when Berserk mode ends. You may wear ordinary clothing beneath the separate pieces. A packed suit must be unpacked before it can be worn.\"",
+    "dynamic_line": "The armor drives the body beyond pain and fear. That is its gift, and its danger. A wound you no longer feel remains a wound. The longer you rely on its rage, the harder it becomes to judge what your body can still bear.",
     "responses": [
+      {
+        "text": "What price will I pay for Berserk mode?",
+        "topic": "TALK_BERSERK_FLORA_COST"
+      },
+      {
+        "text": "Will you entrust the armor to me?",
+        "topic": "TALK_BERSERK_FLORA_OFFER",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
+        }
+      },
+      {
+        "text": "I brought my own armor. What should I know?",
+        "topic": "TALK_BERSERK_FLORA_OWNED",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+            },
+            {
+              "math": [
+                "berserk_flora_armor_claimed != 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "You have already entrusted the armor to me.",
+        "topic": "TALK_BERSERK_FLORA_RECEIVED",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_flora_armor_resolved == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_armor_claimed == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Is there any armor left here?",
+        "topic": "TALK_BERSERK_FLORA_UNAVAILABLE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_armor_claimed == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_flora_armor_resolved != 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+              }
+            }
+          ]
+        }
+      },
       {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
@@ -336,8 +224,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_COST",
-    "dynamic_line": "\"Without a Beast Knot, the rage lasts 150 seconds. A Knot worn before it begins extends it to 210; putting it on during the rage does not. When it ends, stamina is emptied, blood volume falls and a three-day recovery follows. Taking off the armor ends the rush, not its price. Heed the warning window and countdown. Prepare your retreat before losing control.\"",
+    "dynamic_line": "\"The rage lasts 150 seconds. The Beast Knot sharpens sight in darkness; it does not lengthen the armor's frenzy. When the rage ends, stamina is emptied, blood volume falls and a three-day recovery follows. Taking off the armor ends the rush, not its price. Prepare your retreat before losing control.\"",
     "responses": [
+      {
+        "text": "Can I learn to stop before the armor takes over?",
+        "topic": "TALK_BERSERK_FLORA_COST_CONTROL"
+      },
       {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
@@ -350,6 +242,10 @@
     "dynamic_line": "\"An apostle has a body and a will of its own. A projection is an echo: destroying it does not kill the original. The God Hand preside over sacrifice and are not ordinary prey. Judge the creature before you, not merely a familiar name. A residence, servants and traces of victims can tell you more than a rumor.\"",
     "responses": [
       {
+        "text": "How did the two worlds collide?",
+        "topic": "TALK_BERSERK_FLORA_WORLD_COLLISION"
+      },
+      {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
@@ -358,8 +254,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_RELICS",
-    "dynamic_line": "\"A trophy is not a universal crystal that washes every curse away. The Count's Seal of Severed Flesh adds damage against a specific list of demons only while worn. Other relics have their own limits. They can support a choice, but cannot replace preparation or undo the Brand.\"",
+    "dynamic_line": "Some trophies retain a little of the power that shaped their former master. They may help you strike a demon, keep the armor's rage longer, or endure a danger you could not bear before. Wear them for their purpose, not as a promise of safety.",
     "responses": [
+      {
+        "text": "Can one of them free me from the Brand?",
+        "topic": "TALK_BERSERK_FLORA_RELIC_LIMITS"
+      },
       {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
@@ -369,7 +269,25 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_NEXT",
-    "dynamic_line": "\"Keep a defensible refuge and learn to use the prosthetic arm cannon before seeking a greater enemy. After the first hunt, the Count's residence is a separate trail; the Skull Knight or your hunt journal can mark it. Explore both wings, defeat the servants, then descend beneath the northeastern hall. His death exposes a breach that must be closed separately. Do not rush from my door straight into his.\"",
+    "dynamic_line": {
+      "math": [
+        "berserk_flora_stage >= 2"
+      ],
+      "yes": "The grove is under attack. Take the western path or the southern garden and keep moving until you are clear of the trees.",
+      "no": {
+        "math": [
+          "berserk_flora_siege_state == 1"
+        ],
+        "yes": "Your charm is ready. Finish gathering what you need, then decide when to awaken it.",
+        "no": {
+          "math": [
+            "u_berserk_flora_armor_resolved != 1"
+          ],
+          "yes": "Learn what the armor asks of its wearer before accepting it. You may also take the help I have set aside for the journey.",
+          "no": "Rest, prepare your supplies and make sure you understand the armor. I can prepare a charm for the road when you are ready. The separate trails in your journal need not all be followed at once."
+        }
+      }
+    },
     "responses": [
       {
         "text": "Mark the Count's trail.",
@@ -487,6 +405,10 @@
     "dynamic_line": "\"Then there is no need for a second suit. Whether you carry the packed armor or its six separate parts, keep what is yours. We may still speak of its dangers and your next journey. Owning the armor does not close my door to you.\"",
     "responses": [
       {
+        "text": "How can I keep its rage under control?",
+        "topic": "TALK_BERSERK_FLORA_COST_CONTROL"
+      },
+      {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
@@ -516,8 +438,21 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_RECEIVED",
-    "dynamic_line": "\"Make your preparations deliberately. I will not take your existing armor or force you into the new pieces. If they are too heavy to carry, check the floor nearby. You may return with questions; this meeting does not send you into a battle without a choice.\"",
+    "dynamic_line": "Then keep it close, and remember what we spoke of. The armor will answer your will; it will not choose wisely for you. Take time to put your supplies in order before the next journey.",
     "responses": [
+      {
+        "text": "How can I keep its rage under control?",
+        "topic": "TALK_BERSERK_FLORA_COST_CONTROL"
+      },
+      {
+        "text": "I want to prepare for the road.",
+        "topic": "TALK_BERSERK_FLORA_PREPARATION",
+        "condition": {
+          "math": [
+            "berserk_flora_siege_state == 0"
+          ]
+        }
+      },
       {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
@@ -538,20 +473,32 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_SIEGE_CONFIRM",
-    "dynamic_line": "\"If you take this road, the sanctuary will not remain your shelter. I will entrust the missing armor to you, and the guardians will buy time. Zodd approaches from the north; Grunbeld from the east. Do not try to defeat both. Prepare first, then activate my escape charm to begin. The western door and southern garden offer two ways out. Once you begin, there is no return to this peaceful house.\"",
+    "dynamic_line": "Something is pressing against the outer roots. I can prepare a charm to open a way out when the grove can no longer hold it back. Put on your armor and gather your supplies first. Awakening the charm means you have chosen to leave; the western path and southern garden are your ways out.",
     "responses": [
       {
-        "text": "I understand the danger. Give me the armor and the escape charm.",
+        "text": "Prepare the charm. I understand the danger.",
         "topic": "TALK_DONE",
-        "effect": {
-          "run_eocs": "EOC_BERSERK_FLORA_PREPARE_SIEGE"
-        },
         "condition": {
           "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_PREPARE_SIEGE"
         }
       },
       {
-        "text": "Not yet. I need to prepare and ask more.",
+        "text": "What still needs to be prepared?",
+        "topic": "TALK_BERSERK_FLORA_PREPARATION",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
+          }
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_PREPARATION_REFUSAL"
+        }
+      },
+      {
+        "text": "Not yet. I want to speak a little longer.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -559,10 +506,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_SIEGE_OWNER_CONFIRM",
-    "dynamic_line": "\"Keep the armor you already have; I will not issue another suit. If you agree, I will prepare an escape charm. The attack will begin only when you activate it here and confirm. Equip and pack first. Escape through the western road or southern garden, not through victory over both apostles.\"",
+    "dynamic_line": "Something is pressing against the outer roots. I can prepare a charm to open a way out when the grove can no longer hold it back. Put on your armor and gather your supplies first. Awakening the charm means you have chosen to leave; the western path and southern garden are your ways out.",
     "responses": [
       {
-        "text": "I understand. Confirm my readiness and give me the escape charm.",
+        "text": "Prepare the charm. I understand the danger.",
         "topic": "TALK_DONE",
         "condition": {
           "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
@@ -572,7 +519,19 @@
         }
       },
       {
-        "text": "Not yet. I need to prepare and ask more.",
+        "text": "What still needs to be prepared?",
+        "topic": "TALK_BERSERK_FLORA_PREPARATION",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
+          }
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_PREPARATION_REFUSAL"
+        }
+      },
+      {
+        "text": "Not yet. I want to speak a little longer.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -582,18 +541,208 @@
     "id": "TALK_BERSERK_FLORA_STATUS",
     "dynamic_line": {
       "math": [
-        "berserk_flora_siege_state == 1"
+        "berserk_flora_stage >= 2"
       ],
-      "yes": "\"You have confirmed readiness. The charm waits for your decision; there is no attack clock yet. Return here with your equipment and activate it when ready.\"",
+      "yes": "The grove is under attack. Take the western path or the southern garden and keep moving until you are clear of the trees.",
       "no": {
         "math": [
-          "berserk_flora_stage == 3"
+          "berserk_flora_siege_state == 1"
         ],
-        "yes": "\"The escape has ended. Seek shelter and recover; your hunt journal can guide you to the remaining apostles. My gift remains yours, but the grove can no longer protect you.\"",
-        "no": "\"Questions and receiving armor do not commit you to battle. A separate readiness response prepares the charm, and its activation starts the attack. If you have not survived the Eclipse or are away from my manor, that preparation is unavailable.\""
+        "yes": "Your charm is ready. Finish gathering what you need, then decide when to awaken it.",
+        "no": {
+          "math": [
+            "u_berserk_flora_armor_resolved != 1"
+          ],
+          "yes": "Learn what the armor asks of its wearer before accepting it. You may also take the help I have set aside for the journey.",
+          "no": "Rest, prepare your supplies and make sure you understand the armor. I can prepare a charm for the road when you are ready. The separate trails in your journal need not all be followed at once."
+        }
       }
     },
     "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_WORLD_COLLISION",
+    "dynamic_line": "\"I am a witch, not a fairy, and this house stands beside a spiritual tree. The first collision joined wounds in your world to paths in ours. Your Eclipse deepened those openings, drawing more creatures across. Quieting one breach helps the land nearby; it cannot mend every wound or erase your Brand.\"",
+    "responses": [
+      {
+        "text": "Does that make the apostles projections?",
+        "topic": "TALK_BERSERK_FLORA_APOSTLES"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_HOME",
+    "dynamic_line": "The tree is the heart of this house. The books are kept above the western study, the guest rooms below it. The northern gallery leads to the kitchen; the southern one reaches the workshop and garden. You may rest, read, and sit beside the hearth. Leave the household in the care you found it.",
+    "responses": [
+      {
+        "text": "May I take some help for the next journey?",
+        "topic": "TALK_BERSERK_FLORA_HELP"
+      },
+      {
+        "text": "Will the Brand let me sleep here?",
+        "topic": "TALK_BERSERK_FLORA_WARD"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_HELP",
+    "dynamic_line": "I have set aside food in the kitchen, repair materials in the workshop, and what you need for a small ward by the southern gallery. Those bundles are yours with my blessing. Take my travel notes as well; the rest of these shelves serves the household.",
+    "responses": [
+      {
+        "text": "Thank you. I will take only the prepared aid.",
+        "topic": "TALK_BERSERK_FLORA",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_ALLOW_AID"
+        },
+        "condition": {
+          "and": [
+            "has_beta",
+            "npc_is_monster",
+            {
+              "math": [
+                "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_BRAND_PAIN",
+    "dynamic_line": "\"The mark is a wound between worlds. It feels what your eyes cannot yet distinguish. Pain is a warning, not a promise that the thing has found you. Seek cover, listen, and keep a way out.\"",
+    "responses": [
+      {
+        "text": "Tell me more about that.",
+        "topic": "TALK_BERSERK_FLORA_BRAND"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_COST_CONTROL",
+    "dynamic_line": "\"Begin by refusing battles you do not need. The armor will hide pain; it cannot replace the blood you lose. Watch your body when the rage passes, and keep supplies where your remaining hand can reach them. Strength without judgment only brings the next wound sooner.\"",
+    "responses": [
+      {
+        "text": "Tell me more about that.",
+        "topic": "TALK_BERSERK_FLORA_COST"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_PREPARATION",
+    "dynamic_line": "Something is pressing against the outer roots. I can prepare a charm to open a way out when the grove can no longer hold it back. Put on your armor and gather your supplies first. Awakening the charm means you have chosen to leave; the western path and southern garden are your ways out.",
+    "responses": [
+      {
+        "text": "Prepare the charm. I understand the danger.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_PREPARE_SIEGE"
+        }
+      },
+      {
+        "text": "What still needs to be prepared?",
+        "topic": "TALK_BERSERK_FLORA_PREPARATION",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
+          }
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_PREPARATION_REFUSAL"
+        }
+      },
+      {
+        "text": "Not yet. I want to speak a little longer.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_PREPARED",
+    "dynamic_line": "The charm is ready. Keep it with you while you finish gathering what you need. When you awaken it here, set out at once by the western path or the southern garden. You may still rest and speak with me until then.",
+    "responses": [
+      {
+        "text": "I lost the charm. May I have another?",
+        "topic": "TALK_BERSERK_FLORA_PREPARED",
+        "condition": {
+          "not": {
+            "u_has_item": "berserk_flora_escape_charm"
+          }
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_REPLACE_CHARM"
+        }
+      },
+      {
+        "text": "I will finish preparing first.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_WARD",
+    "dynamic_line": "The living tree quiets the Brand while the grove is protected. Beyond it, a bone-and-stone ward can quiet new night summons within eight tiles. It will not drive away a creature already hunting you. A roof, water, a bed and a way out are still worth preparing.",
+    "responses": [
+      {
+        "text": "Why does the Brand hurt before I see anything?",
+        "topic": "TALK_BERSERK_FLORA_BRAND_PAIN"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_RELIC_LIMITS",
+    "dynamic_line": "No relic can restore a life sacrificed or make the Brand disappear. Carry a trophy for the help it can give, and learn its limits. A little more strength, time or shelter from heat is no reason to stand where an apostle will strike.",
+    "responses": [
+      {
+        "text": "And the armor has a price too?",
+        "topic": "TALK_BERSERK_FLORA_COST"
+      },
       {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"

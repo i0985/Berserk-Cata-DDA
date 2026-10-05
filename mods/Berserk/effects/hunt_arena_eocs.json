@@ -76,14 +76,30 @@
       },
       {
         "if": {
-          "map_furniture_id": "f_berserk_hunt_arena_tracks",
-          "loc": {
-            "context_val": "berserk_arena_roster"
+          "or": [
+            {
+              "map_furniture_id": "f_berserk_hunt_arena_tracks",
+              "loc": {
+                "context_val": "berserk_arena_roster"
+              }
+            },
+            {
+              "math": [
+                "u_berserk_arena_manual_retry == 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_arena_manual_retry = 0"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_FIRST_HUNT_TRY_1"
           }
-        },
-        "then": {
-          "run_eocs": "EOC_BERSERK_FIRST_HUNT_TRY_1"
-        },
+        ],
         "else": {
           "run_eocs": "EOC_BERSERK_FIRST_HUNT_LEGACY_UNKNOWN"
         }
@@ -342,31 +358,9 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FIRST_HUNT_NO_HIDDEN_CELL",
-    "condition": {
-      "and": [
-        {
-          "math": [
-            "u_berserk_arena_first_hunt_visibility_notice != 1"
-          ]
-        },
-        {
-          "math": [
-            "u_berserk_first_hunt_spawn_attempts == 0"
-          ]
-        }
-      ]
-    },
-    "effect": [
-      {
-        "math": [
-          "u_berserk_arena_first_hunt_visibility_notice = 1"
-        ]
-      },
-      {
-        "u_message": "Every arrival point is in view. Move behind cover inside the arena; the guardian will not appear in front of you.",
-        "type": "info"
-      }
-    ]
+    "effect": {
+      "run_eocs": "EOC_BERSERK_FIRST_HUNT_PLACE"
+    }
   },
   {
     "type": "effect_on_condition",
@@ -445,14 +439,30 @@
       },
       {
         "if": {
-          "map_furniture_id": "f_berserk_hunt_arena_tracks",
-          "loc": {
-            "context_val": "berserk_arena_roster"
+          "or": [
+            {
+              "map_furniture_id": "f_berserk_hunt_arena_tracks",
+              "loc": {
+                "context_val": "berserk_arena_roster"
+              }
+            },
+            {
+              "math": [
+                "u_berserk_arena_manual_retry == 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_arena_manual_retry = 0"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_BREACH_TRY_1"
           }
-        },
-        "then": {
-          "run_eocs": "EOC_BERSERK_BREACH_TRY_1"
-        },
+        ],
         "else": {
           "run_eocs": "EOC_BERSERK_BREACH_LEGACY_UNKNOWN"
         }
@@ -711,31 +721,9 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_BREACH_NO_HIDDEN_CELL",
-    "condition": {
-      "and": [
-        {
-          "math": [
-            "u_berserk_arena_breach_visibility_notice != 1"
-          ]
-        },
-        {
-          "math": [
-            "u_berserk_breach_spawn_attempts == 0"
-          ]
-        }
-      ]
-    },
-    "effect": [
-      {
-        "math": [
-          "u_berserk_arena_breach_visibility_notice = 1"
-        ]
-      },
-      {
-        "u_message": "Every arrival point is in view. Move behind cover inside the arena; the guardian will not appear in front of you.",
-        "type": "info"
-      }
-    ]
+    "effect": {
+      "run_eocs": "EOC_BERSERK_BREACH_PLACE"
+    }
   },
   {
     "type": "effect_on_condition",
@@ -1034,31 +1022,9 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_WYALD_NO_HIDDEN_CELL",
-    "condition": {
-      "and": [
-        {
-          "math": [
-            "u_berserk_arena_wyald_visibility_notice != 1"
-          ]
-        },
-        {
-          "math": [
-            "berserk_hunt_wyald_attempts == 0"
-          ]
-        }
-      ]
-    },
-    "effect": [
-      {
-        "math": [
-          "u_berserk_arena_wyald_visibility_notice = 1"
-        ]
-      },
-      {
-        "u_message": "Every arrival point is in view. Move behind cover inside the arena; the guardian will not appear in front of you.",
-        "type": "info"
-      }
-    ]
+    "effect": {
+      "run_eocs": "EOC_BERSERK_WYALD_PLACE"
+    }
   },
   {
     "type": "effect_on_condition",
@@ -1357,31 +1323,9 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ROSINE_NO_HIDDEN_CELL",
-    "condition": {
-      "and": [
-        {
-          "math": [
-            "u_berserk_arena_rosine_visibility_notice != 1"
-          ]
-        },
-        {
-          "math": [
-            "berserk_hunt_rosine_attempts == 0"
-          ]
-        }
-      ]
-    },
-    "effect": [
-      {
-        "math": [
-          "u_berserk_arena_rosine_visibility_notice = 1"
-        ]
-      },
-      {
-        "u_message": "Every arrival point is in view. Move behind cover inside the arena; the guardian will not appear in front of you.",
-        "type": "info"
-      }
-    ]
+    "effect": {
+      "run_eocs": "EOC_BERSERK_ROSINE_PLACE"
+    }
   },
   {
     "type": "effect_on_condition",
@@ -1729,31 +1673,9 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GRUNBELD_NO_HIDDEN_CELL",
-    "condition": {
-      "and": [
-        {
-          "math": [
-            "u_berserk_arena_grunbeld_visibility_notice != 1"
-          ]
-        },
-        {
-          "math": [
-            "berserk_hunt_grunbeld_attempts == 0"
-          ]
-        }
-      ]
-    },
-    "effect": [
-      {
-        "math": [
-          "u_berserk_arena_grunbeld_visibility_notice = 1"
-        ]
-      },
-      {
-        "u_message": "Every arrival point is in view. Move behind cover inside the arena; the guardian will not appear in front of you.",
-        "type": "info"
-      }
-    ]
+    "effect": {
+      "run_eocs": "EOC_BERSERK_GRUNBELD_PLACE"
+    }
   },
   {
     "type": "effect_on_condition",
@@ -1788,8 +1710,33 @@
         },
         "then": [
           {
+            "u_location_variable": {
+              "u_val": "berserk_first_hunt_location"
+            },
+            "x_adjust": {
+              "math": [
+                "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x')"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y')"
+              ]
+            }
+          },
+          {
+            "math": [
+              "u_berserk_first_hunt_marked = 1"
+            ]
+          },
+          {
             "math": [
               "u_berserk_first_hunt_spawn_attempts = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_arena_manual_retry = 1"
             ]
           },
           {
@@ -1817,8 +1764,28 @@
         },
         "then": [
           {
+            "u_location_variable": {
+              "u_val": "berserk_local_breach_location"
+            },
+            "x_adjust": {
+              "math": [
+                "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x')"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y')"
+              ]
+            }
+          },
+          {
             "math": [
               "u_berserk_breach_spawn_attempts = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_arena_manual_retry = 1"
             ]
           },
           {
@@ -1845,6 +1812,21 @@
           ]
         },
         "then": [
+          {
+            "u_location_variable": {
+              "global_val": "berserk_hunt_wyald_location"
+            },
+            "x_adjust": {
+              "math": [
+                "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x')"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y')"
+              ]
+            }
+          },
           {
             "math": [
               "berserk_hunt_wyald_attempts = 0"
@@ -1875,6 +1857,21 @@
         },
         "then": [
           {
+            "u_location_variable": {
+              "global_val": "berserk_hunt_rosine_location"
+            },
+            "x_adjust": {
+              "math": [
+                "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x')"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y')"
+              ]
+            }
+          },
+          {
             "math": [
               "berserk_hunt_rosine_attempts = 0"
             ]
@@ -1903,6 +1900,26 @@
           ]
         },
         "then": [
+          {
+            "u_location_variable": {
+              "global_val": "berserk_hunt_grunbeld_location"
+            },
+            "x_adjust": {
+              "math": [
+                "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x')"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y')"
+              ]
+            }
+          },
+          {
+            "math": [
+              "berserk_hunt_grunbeld_site_registered = 1"
+            ]
+          },
           {
             "math": [
               "berserk_hunt_grunbeld_attempts = 0"

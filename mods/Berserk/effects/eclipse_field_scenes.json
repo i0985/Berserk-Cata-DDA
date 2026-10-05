@@ -3,7 +3,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_SCENE_JUDEAU",
     "effect": {
-      "u_message": "Judeau fought to keep a path open for the others. Only his knives and a small hilt remain in the blood-soaked earth.",
+      "u_message": "Three empty knife sheaths lie beside Judeau. His last throws bought someone a few breaths. Beyond him, the ash trail bends south between the pale sinews; the eastern branch leads to an abandoned satchel.",
       "type": "info",
       "popup": true
     }
@@ -12,7 +12,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_SCENE_PIPPIN",
     "effect": {
-      "u_message": "Pippin stood his ground when the line collapsed. The clasp from his armor is still caught beneath his hand.",
+      "u_message": "Pippin lies across the narrowest gap in the ridge. Scrapes on his hammer show where he held back the first rush. You can continue south along the western scars or rejoin the ash trail to the east.",
       "type": "info",
       "popup": true
     }
@@ -21,7 +21,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_SCENE_CORKUS",
     "effect": {
-      "u_message": "Corkus ran toward a gap in the swarm. The path closed before he reached it.",
+      "u_message": "A fragment of scabbard is clenched beside Corkus. Something that looked like an escape drew him into the feast. The outer eastern flank remains open: you need not approach the feeding hollows.",
       "type": "info",
       "popup": true
     }
@@ -30,7 +30,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_SCENE_GASTON",
     "effect": {
-      "u_message": "Gaston faced the center of the ceremony. Whatever he saw there stopped him in his tracks.",
+      "u_message": "Gaston's sewing roll has spilled beneath the battered breastplate. Beyond him, the enormous ribs lean toward a still, luminous center. Follow their curve south to the last ceremony scar.",
       "type": "info",
       "popup": true
     }
@@ -39,7 +39,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_SCENE_SUPPLIES",
     "effect": {
-      "u_message": "Someone abandoned a satchel of bandages and painkillers. A hunter circles nearby; taking them may cost more than a detour.",
+      "u_message": "A torn cover hangs from the ruined cart. Beneath it lie a waterskin, bread and blood-stained dressings. Claws have scored the baggage; scraping comes from the other side of the fold. Behind you the broad ash trail continues south.",
       "type": "info",
       "popup": true
     }
@@ -48,7 +48,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_SCENE_CHASE",
     "effect": {
-      "u_message": "These tracks split around the pits. One route winds wide and quiet; the shorter route leads past the hunter.",
+      "u_message": "The footprints scatter where pale cords cross the ground. A sharper trail follows them out of the northern hollow. Low tangles lie ahead; a white outcrop breaks the view to the west, where firmer ground continues south.",
       "type": "info",
       "popup": true
     }
@@ -57,7 +57,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_SCENE_FEAST",
     "effect": {
-      "u_message": "The creatures are occupied with the dead. You can cross the open flank or challenge the cluster head-on.",
+      "u_message": "The dead have been dragged into the hollows between the folds. Broken shields lie above them, useless now. Wet tearing comes from behind the raised flesh; at the eastern edge, an unbroken strip of ground winds past the feast.",
       "type": "info",
       "popup": true
     }
@@ -66,7 +66,16 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_SCENE_WARNING",
     "effect": {
-      "u_message": "The field grows still. Ahead lies Griffith and the end of the procession. Your way back vanished when the Behelit opened.",
+      "u_message": "Beyond the pale ribs, a motionless figure watches the slaughter. The air is heavy; even the creatures fall silent near him.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_LAST_STAND_READ",
+    "effect": {
+      "u_message": "We broke the shields to make a wall. Held the gap until the wounded had passed. There is no road back. Keep the pale trail in sight. The great ribs bend toward the gathering.",
       "type": "info",
       "popup": true
     }

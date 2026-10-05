@@ -1,0 +1,30 @@
+[
+  {
+    "type": "terrain",
+    "id": "t_berserk_echo_cave_glow",
+    "copy-from": "t_rock_floor",
+    "looks_like": "t_rock_floor",
+    "light_emitted": 30
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_rosine_cocoon",
+    "name": "empty Mistvale cocoon",
+    "description": "A split Mistvale cocoon. The creature inside has already left; this shell cannot produce another.",
+    "looks_like": "f_egg_sacke",
+    "symbol": "o",
+    "color": "light_gray",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "bash": {
+      "str_min": 2,
+      "str_max": 6,
+      "sound": "splat!",
+      "sound_fail": "whump.",
+      "furn_set": "f_berserk_rosine_cocoon_destroyed"
+    }
+  }
+]

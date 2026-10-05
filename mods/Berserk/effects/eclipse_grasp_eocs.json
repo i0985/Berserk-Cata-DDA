@@ -221,12 +221,12 @@
             }
           },
           "then": {
-            "u_message": "Griffith stands before you, silent and untouched by the slaughter. The sight of him drives you into a blind rage. Demons close in from every side and seize your left wrist. You hack through your own wrist to tear free; a claw destroys one eye as you wrench yourself out of their grip. Your left hand is gone and your Perception is halved. Close this window to resume the fight.",
+            "u_message": "Griffith stands before you, silent and untouched by the slaughter. The sight of him drives you into a blind rage. Demons close in from every side and seize your left wrist. You hack through your own wrist to tear free; a claw destroys one eye as you wrench yourself out of their grip. You stumble free, blood running down your face.",
             "type": "warning",
             "popup": true
           },
           "else": {
-            "u_message": "Griffith stands before you, silent and untouched by the slaughter. The sight of him drives you into a blind rage. Demons close in from every side and seize your left wrist. You hack through your own wrist to tear free as claws rake your scarred face. Your left hand is gone; your existing eye wound is not applied a second time. Close this window to resume the fight.",
+            "u_message": "Griffith stands before you, silent and untouched by the slaughter. The sight of him drives you into a blind rage. Demons close in from every side and seize your left wrist. You hack through your own wrist to tear free as claws rake your scarred face. You stagger free, your scarred face wet with blood.",
             "type": "warning",
             "popup": true
           }
@@ -238,12 +238,12 @@
             }
           },
           "then": {
-            "u_message": "Griffith stands before you, silent and untouched by the slaughter. The sight of him drives you into a blind rage. Demons close in from every side. You wrench your already ruined left arm from their grip, but a claw destroys one eye. Your existing hand wound or arm cannon is preserved; your Perception is halved. Close this window to resume the fight.",
+            "u_message": "Griffith stands before you, silent and untouched by the slaughter. The sight of him drives you into a blind rage. Demons close in from every side. You wrench your already ruined left arm from their grip, but a claw destroys one eye. You stumble free, blood running down your face.",
             "type": "warning",
             "popup": true
           },
           "else": {
-            "u_message": "Griffith stands before you, silent and untouched by the slaughter. The sight of him drives you into a blind rage. Demons close in from every side. You tear your already ruined arm free as claws rake your scarred face. Your existing wounds and any installed arm cannon are preserved. Close this window to resume the fight.",
+            "u_message": "Griffith stands before you, silent and untouched by the slaughter. The sight of him drives you into a blind rage. Demons close in from every side. You tear your already ruined arm free as claws rake your scarred face. You stagger free, your scarred face wet with blood.",
             "type": "warning",
             "popup": true
           }
@@ -326,9 +326,15 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_GRIFFITH_RELEASE",
-    "effect": {
-      "u_lose_effect": "berserk_eclipse_griffith_waiting"
-    }
+    "effect": [
+      {
+        "u_lose_effect": "berserk_eclipse_griffith_waiting"
+      },
+      {
+        "u_add_effect": "stunned",
+        "duration": "2 seconds"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -354,22 +360,6 @@
         "u_location_variable": {
           "context_val": "berserk_grasp_neighbor"
         },
-        "x_adjust": 0,
-        "y_adjust": -1
-      },
-      {
-        "u_spawn_monster": "mon_berserk_eclipse_halfbreed",
-        "target_var": {
-          "context_val": "berserk_grasp_neighbor"
-        },
-        "real_count": 1,
-        "min_radius": 0,
-        "max_radius": 0
-      },
-      {
-        "u_location_variable": {
-          "context_val": "berserk_grasp_neighbor"
-        },
         "x_adjust": 1,
         "y_adjust": -1
       },
@@ -387,58 +377,10 @@
           "context_val": "berserk_grasp_neighbor"
         },
         "x_adjust": -1,
-        "y_adjust": 0
-      },
-      {
-        "u_spawn_monster": "mon_berserk_eclipse_wretch",
-        "target_var": {
-          "context_val": "berserk_grasp_neighbor"
-        },
-        "real_count": 1,
-        "min_radius": 0,
-        "max_radius": 0
-      },
-      {
-        "u_location_variable": {
-          "context_val": "berserk_grasp_neighbor"
-        },
-        "x_adjust": 1,
-        "y_adjust": 0
-      },
-      {
-        "u_spawn_monster": "mon_berserk_eclipse_wretch",
-        "target_var": {
-          "context_val": "berserk_grasp_neighbor"
-        },
-        "real_count": 1,
-        "min_radius": 0,
-        "max_radius": 0
-      },
-      {
-        "u_location_variable": {
-          "context_val": "berserk_grasp_neighbor"
-        },
-        "x_adjust": -1,
         "y_adjust": 1
       },
       {
         "u_spawn_monster": "mon_berserk_eclipse_wretch",
-        "target_var": {
-          "context_val": "berserk_grasp_neighbor"
-        },
-        "real_count": 1,
-        "min_radius": 0,
-        "max_radius": 0
-      },
-      {
-        "u_location_variable": {
-          "context_val": "berserk_grasp_neighbor"
-        },
-        "x_adjust": 0,
-        "y_adjust": 1
-      },
-      {
-        "u_spawn_monster": "mon_berserk_eclipse_halfbreed",
         "target_var": {
           "context_val": "berserk_grasp_neighbor"
         },
@@ -461,7 +403,24 @@
         "real_count": 1,
         "min_radius": 0,
         "max_radius": 0
+      },
+      {
+        "u_run_monster_eocs": [
+          "EOC_BERSERK_ECLIPSE_GRASP_STAGGER"
+        ],
+        "mtype_ids": [
+          "mon_berserk_eclipse_wretch"
+        ],
+        "monster_range": 1
       }
     ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_GRASP_STAGGER",
+    "effect": {
+      "u_add_effect": "stunned",
+      "duration": "2 seconds"
+    }
   }
 ]

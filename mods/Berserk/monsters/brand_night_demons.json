@@ -1,0 +1,34 @@
+[
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_brand_wretch",
+    "copy-from": "mon_berserk_eclipse_wretch",
+    "looks_like": "mon_berserk_eclipse_wretch",
+    "vision_night": 35,
+    "//": "Night-only source variant: all combat stats, attacks, faction, sprite and drops inherit the existing role. Better night sight lets it notice exposed prey at the spawn distance; walls still block sight. No homing or forced target."
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_brand_halfbreed",
+    "copy-from": "mon_berserk_eclipse_halfbreed",
+    "looks_like": "mon_berserk_eclipse_halfbreed",
+    "vision_night": 35,
+    "//": "Night-only source variant: all combat stats, attacks, faction, sprite and drops inherit the existing role. Better night sight lets it notice exposed prey at the spawn distance; walls still block sight. No homing or forced target."
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_brand_hunter",
+    "copy-from": "mon_berserk_eclipse_hunter",
+    "looks_like": "mon_berserk_eclipse_hunter",
+    "vision_night": 35,
+    "//": "Night-only source variant: all combat stats, attacks, faction, sprite and drops inherit the existing role. Better night sight lets it notice exposed prey at the spawn distance; walls still block sight. No homing or forced target."
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_brand_butcher",
+    "copy-from": "mon_berserk_eclipse_butcher",
+    "looks_like": "mon_berserk_eclipse_butcher",
+    "vision_night": 35,
+    "//": "Night-only source variant: all combat stats, attacks, faction, sprite and drops inherit the existing role. Better night sight lets it notice exposed prey at the spawn distance; walls still block sight. No homing or forced target."
+  }
+]

@@ -1,0 +1,595 @@
+﻿type,id,name_en,name_ru_current,source_json,looks_like,copy_from,direct_UltiCa_sheet,art_reference_not_runtime_result
+ITEM,apostle_shard,Apostle Shard,Осколок Апостола,mods/Berserk/monsterdrops/griffith_drops.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_apostle_burned_clue,apostle's burned scrap,обгоревший клочок апостола,mods/Berserk/items/first_hunt_clue.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_apostle_hunt_journal,apostle hunt journal,журнал охоты на апостолов,mods/Berserk/items/apostle_hunt_journal.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_arm_cannon_charge,arm cannon charge,заряд руки-пушки,mods/Berserk/items/ammo/arm_cannon_charge.json,flintlock_ammo,,,vanilla fallback: flintlock_ammo
+ITEM,berserk_arm_cannon_gun,prosthetic arm cannon,рука-пушка,mods/Berserk/items/guns/arm_cannon.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_armguards,Berserker Armguards,Наручи Берсерка,mods/Berserk/items/armor_berserk/berserk_armguards.json,,,"tileset/berserk_armor_upper.png [32x32; offset 0,-15]","tileset/berserk_armor_upper.png [32x32; offset 0,-15]"
+ITEM,berserk_armor_bundle,packed Berserker armor,упакованные доспехи Берсерка,mods/Berserk/items/armor_berserk/berserk_armor_bundle.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_behelit,Behelit,Бехелит,mods/Berserk/items/behelit.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_boots,Berserker Boots,Ботинки Берсерка,mods/Berserk/items/armor_berserk/berserk_boots.json,,,"tileset/berserk_armor_lower.png [32x32; offset 0,-4]","tileset/berserk_armor_lower.png [32x32; offset 0,-4]"
+ITEM,berserk_campaign_journal,journal of the road after the Eclipse,журнал пути после Затмения,mods/Berserk/items/campaign_journal.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_cave_last_scrap,cave traveler's torn sleeve note,записка путника на оторванном рукаве,mods/Berserk/items/location_records.json,,berserk_oak_last_note,,berserk_oak_last_note -> no explicit mod art reference in this definition
+ITEM,berserk_cave_scout_note,cave scout's route sketch,схема пути пещерного разведчика,mods/Berserk/items/location_records.json,,berserk_oak_last_note,,berserk_oak_last_note -> no explicit mod art reference in this definition
+ITEM,berserk_chapel_forest_route,refugee's forest directions,лесной маршрут беженца,mods/Berserk/items/location_records.json,,berserk_oak_last_note,,berserk_oak_last_note -> no explicit mod art reference in this definition
+ITEM,berserk_chapel_last_vigil,last vigil's prayer sheet,молитвенный лист последнего бдения,mods/Berserk/items/location_records.json,,berserk_oak_last_note,,berserk_oak_last_note -> no explicit mod art reference in this definition
+ITEM,berserk_chapel_relief_roster,chapel relief roster,список помощи в часовне,mods/Berserk/items/location_records.json,,berserk_oak_last_note,,berserk_oak_last_note -> no explicit mod art reference in this definition
+ITEM,berserk_chapel_ritual_note,reliquary keeper's confession,признание хранителя реликвария,mods/Berserk/items/location_records.json,,berserk_oak_last_note,,berserk_oak_last_note -> no explicit mod art reference in this definition
+ITEM,berserk_chestplate,Berserker Chestplate,Нагрудник Берсерка,mods/Berserk/items/armor_berserk/berserk_chestplate.json,,,"tileset/berserk_armor_upper.png [32x32; offset 0,-15]","tileset/berserk_armor_upper.png [32x32; offset 0,-15]"
+ITEM,berserk_corkus_scabbard_fragment,Corkus's scabbard fragment,обломок ножен Коркуса,mods/Berserk/items/eclipse_fallen_band.json,billet_wood,,,vanilla fallback: billet_wood
+ITEM,berserk_count_family_ribbon,Theresia's folded ribbon,сложенная лента Терезии,mods/Berserk/items/location_records.json,scrap_cotton,,,vanilla fallback: scrap_cotton
+ITEM,berserk_count_iron_seal,Seal of Severed Flesh,Печать рассечённой плоти,mods/Berserk/items/apostle_relics.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_count_next_trace,annotated routes from the residence,пометки о путях из резиденции,mods/Berserk/items/location_records.json,scrap_cotton,,,vanilla fallback: scrap_cotton
+ITEM,berserk_count_physician_ledger,the Count's physician ledger,записки лекаря Графа,mods/Berserk/items/location_records.json,scrap_cotton,,,vanilla fallback: scrap_cotton
+ITEM,berserk_count_prison_list,the Count's prison roll,список узников Графа,mods/Berserk/items/location_records.json,scrap_cotton,,,vanilla fallback: scrap_cotton
+ITEM,berserk_count_service_key,residence service key,ключ служебного прохода резиденции,mods/Berserk/items/location_records.json,scrap,,,vanilla fallback: scrap
+ITEM,berserk_eclipse_corkus_body,Corkus's body,Тело Коркуса,mods/Berserk/items/eclipse_fallen_band.json,corpse_generic_male,rmi2_corpse,,vanilla fallback: corpse_generic_male
+ITEM,berserk_eclipse_gaston_body,Gaston's body,Тело Гастона,mods/Berserk/items/eclipse_fallen_band.json,corpse_generic_male,rmi2_corpse,,vanilla fallback: corpse_generic_male
+ITEM,berserk_eclipse_judeau_body,Judeau's body,Тело Джудо,mods/Berserk/items/eclipse_fallen_band.json,corpse_generic_male,rmi2_corpse,,vanilla fallback: corpse_generic_male
+ITEM,berserk_eclipse_last_stand_note,last stand scratched on cloth,последние слова на ткани,mods/Berserk/items/location_records.json,,berserk_oak_last_note,,berserk_oak_last_note -> no explicit mod art reference in this definition
+ITEM,berserk_eclipse_pippin_body,Pippin's body,Тело Пиппина,mods/Berserk/items/eclipse_fallen_band.json,corpse_generic_male,rmi2_corpse,,vanilla fallback: corpse_generic_male
+ITEM,berserk_expedition_alarm_note,message from the expedition's lookout,послание дозорного экспедиции,mods/Berserk/items/location_records.json,,berserk_oak_last_note,,berserk_oak_last_note -> no explicit mod art reference in this definition
+ITEM,berserk_expedition_transfer_note,expedition transport order,распоряжение о вывозе образца,mods/Berserk/items/location_records.json,,berserk_oak_last_note,,berserk_oak_last_note -> no explicit mod art reference in this definition
+ITEM,berserk_first_hunt_directions,first-hunt notes,записка о первой охоте,mods/Berserk/items/first_hunt_directions.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_flora_directions,the Skull Knight's directions to Flora,указания Рыцаря-Черепа к Флоре,mods/Berserk/items/flora_directions.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_flora_escape_charm,Flora's escape charm,оберег Флоры для побега,mods/Berserk/items/flora_escape_charm.json,paper,,,vanilla fallback: paper
+ITEM,berserk_flora_herbal_folio,Flora's herbal folio,травник Флоры,mods/Berserk/items/location_records.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_flora_rescued_manuscript,Flora's rescued manuscript,спасённая рукопись Флоры,mods/Berserk/items/flora_treehouse.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_flora_scorched_bookmark,Flora's scorched leaf bookmark,обгоревшая закладка-лист Флоры,mods/Berserk/items/flora_treehouse.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_flora_travel_folio,Flora's travel folio,дорожная тетрадь Флоры,mods/Berserk/items/flora_treehouse.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_gaston_sewing_roll,Gaston's sewing roll,свёрток для шитья Гастона,mods/Berserk/items/eclipse_fallen_band.json,scrap_cotton,,,vanilla fallback: scrap_cotton
+ITEM,berserk_gloves,Berserker Gloves,Перчатки Берсерка,mods/Berserk/items/armor_berserk/berserk_gloves.json,,,"tileset/berserk_armor_upper.png [32x32; offset 0,-15]","tileset/berserk_armor_upper.png [32x32; offset 0,-15]"
+ITEM,berserk_grunbeld_carapace_shard,Flaming Carapace Shard,Осколок пламенного панциря,mods/Berserk/items/apostle_relics.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_grunbeld_scorched_badge,scorched garrison clasp,обгоревшая застёжка гарнизонного знамени,mods/Berserk/items/grunbeld_stronghold_records.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_helmet,Berserker Helmet,Шлем Берсерка,mods/Berserk/items/armor_berserk/berserk_helmet.json,,,"tileset/berserk_armor_upper.png [32x32; offset 0,-15]","tileset/berserk_armor_upper.png [32x32; offset 0,-15]"
+ITEM,berserk_judeau_knife_hilt,Judeau's knife hilt,рукоять ножа Джудо,mods/Berserk/items/eclipse_fallen_band.json,throwing_knife,,,vanilla fallback: throwing_knife
+ITEM,berserk_legguards,Berserker Legguards,Поножи Берсерка,mods/Berserk/items/armor_berserk/berserk_legguards.json,,,"tileset/berserk_armor_lower.png [32x32; offset 0,-4]","tileset/berserk_armor_lower.png [32x32; offset 0,-4]"
+ITEM,berserk_oak_broken_rootcutter,broken root-cutter,сломанный корнерез,mods/Berserk/items/location_records.json,billet_wood,,,vanilla fallback: billet_wood
+ITEM,berserk_oak_last_note,oak traveler's last note,последняя записка путника у дуба,mods/Berserk/items/location_records.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_oak_wayfarer_ward,wayfarer's tied ward,привязанный оберег путника,mods/Berserk/items/location_records.json,scrap_cotton,,,vanilla fallback: scrap_cotton
+ITEM,berserk_pippin_broken_clasp,Pippin's broken clasp,сломанная застёжка Пиппина,mods/Berserk/items/eclipse_fallen_band.json,warhammer,,,vanilla fallback: warhammer
+ITEM,berserk_post_eclipse_journal,journal of the first breach,дневник первого прорыва,mods/Berserk/items/post_eclipse_journal.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_refuge_journal,refuge preparation journal,журнал подготовки пристанища,mods/Berserk/items/refuge_journal.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_rosine_faded_ribbon,Mistvale faded ribbon,выцветшая лента Туманной долины,mods/Berserk/items/location_records.json,scrap_cotton,,,vanilla fallback: scrap_cotton
+ITEM,berserk_rosine_mistvale_veil,Mistvale Veil,Покров Туманной долины,mods/Berserk/items/apostle_relics.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_rosine_witness_note,Mistvale searcher's testimony,свидетельство искателя Туманной долины,mods/Berserk/items/location_records.json,scrap_cotton,,,vanilla fallback: scrap_cotton
+ITEM,berserk_wyald_beast_knot,Beast Knot,Узел Зверя,mods/Berserk/items/apostle_relics.json,,,,no explicit mod art reference in this definition
+ITEM,berserk_wyald_command_orders,Black Dogs command orders,приказы командира Чёрных Псов,mods/Berserk/items/location_records.json,scrap_cotton,,,vanilla fallback: scrap_cotton
+ITEM,berserk_wyald_muster_roll,Black Dogs stolen muster roll,украденный список Чёрных Псов,mods/Berserk/items/location_records.json,scrap_cotton,,,vanilla fallback: scrap_cotton
+ITEM,berserk_wyald_prisoner_account,Black Dogs escape testimony,свидетельство о побеге от Чёрных Псов,mods/Berserk/items/location_records.json,scrap_cotton,,,vanilla fallback: scrap_cotton
+ITEM,bio_berserk_arm_cannon,prosthetic arm cannon CBM,КБМ руки-пушки,mods/Berserk/items/bionics/arm_cannon_cbms.json,bio_shotgun,,,vanilla fallback: bio_shotgun
+ITEM,bio_berserk_brand_of_sacrifice,Brand of Sacrifice,Клеймо жертвы,mods/Berserk/items/bionics/eclipse_story_records.json,,,,no explicit mod art reference in this definition
+ITEM,bio_berserk_hand_stump,lost left hand interface CBM,КБМ крепления утраченной кисти,mods/Berserk/items/bionics/arm_cannon_cbms.json,bio_shotgun,bionic_general,,vanilla fallback: bio_shotgun
+ITEM,bio_berserk_lost_eye,Lost eye,Потерянный глаз,mods/Berserk/items/bionics/eclipse_story_records.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_breach_beam_end,loose end of the beam,свободный конец балки,mods/Berserk/furniture/hunt_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_breach_beam_moved,cleared covered gap,расчищенный укрытый проход,mods/Berserk/furniture/hunt_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_breach_failed_line,broken line of ward stakes,сломанная линия охранных кольев,mods/Berserk/furniture/hunt_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_breach_fallen_beam,fallen post beam,упавшая балка поста,mods/Berserk/furniture/hunt_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_breach_scene,fractured boundary stone,расколотый межевой камень,mods/Berserk/furniture/location_scenery.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_campaign_bedding,campaign straw bedding,походная соломенная постель,mods/Berserk/00_hunt_location_details.json,f_makeshift_bed,,,vanilla fallback: f_makeshift_bed
+furniture,f_berserk_cave_broken_support,broken cave support,сломанная пещерная подпорка,mods/Berserk/furniture/behelit_adventure_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_cave_claw_marks,claw-scored cave stone,исцарапанный камень пещеры,mods/Berserk/furniture/location_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_cave_noisemaker,loose stone chime,каменная погремушка,mods/Berserk/furniture/behelit_sites.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_cave_noisemaker_armed,loose stone chime,каменная погремушка,mods/Berserk/furniture/behelit_distractions.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_cave_relic,Behelit in the stone hollow,Бехелит в каменном углублении,mods/Berserk/furniture/behelit_sites.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_cave_relic_empty,empty stone hollow,пустое каменное углубление,mods/Berserk/furniture/behelit_sites.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_cave_return_brace,braced cave passage,проход с распоркой,mods/Berserk/furniture/location_site_details.json,f_barricade_road,,,vanilla fallback: f_barricade_road
+furniture,f_berserk_cave_return_marks,layered return marks,наслаивающиеся отметки возврата,mods/Berserk/furniture/location_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_cave_return_release,inner cave brace release,внутреннее крепление распорки,mods/Berserk/furniture/location_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_cave_return_release_opened,released cave brace fastening,снятое крепление распорки,mods/Berserk/furniture/location_site_details.json,,f_berserk_cave_return_release,,f_berserk_cave_return_release -> vanilla fallback: f_rubble
+furniture,f_berserk_chapel_altar,blackened chapel altar,почерневший алтарь часовни,mods/Berserk/furniture/behelit_adventure_details.json,f_table,f_table,,vanilla fallback: f_table
+furniture,f_berserk_chapel_noisemaker,cracked chapel bell,треснувший колокол часовни,mods/Berserk/furniture/behelit_sites.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_chapel_noisemaker_armed,cracked chapel bell,треснувший колокол часовни,mods/Berserk/furniture/behelit_distractions.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_chapel_record,chapel inscription,надпись у часовни,mods/Berserk/furniture/behelit_sites.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_chapel_relic,sealed chapel reliquary,запечатанный реликварий часовни,mods/Berserk/furniture/behelit_sites.json,f_safe_c,,,vanilla fallback: f_safe_c
+furniture,f_berserk_chapel_relic_empty,silent chapel reliquary,затихший реликварий часовни,mods/Berserk/furniture/behelit_sites.json,f_safe_c,,,vanilla fallback: f_safe_c
+furniture,f_berserk_chapel_scene,defaced memorial,осквернённый памятник,mods/Berserk/furniture/location_scenery.json,f_bookcase,,,vanilla fallback: f_bookcase
+furniture,f_berserk_chapel_stone_pillar,chapel stone pillar,каменный столб часовни,mods/Berserk/furniture/behelit_adventure_details.json,t_column,,,vanilla fallback: t_column
+furniture,f_berserk_chapel_vigil,last vigil's prayer sheet,молитвенный лист последнего бдения,mods/Berserk/furniture/behelit_adventure_details.json,f_sign,,,vanilla fallback: f_sign
+furniture,f_berserk_count_breach,the Count's exposed breach,открытый прорыв Графа,mods/Berserk/furniture/apostle_count.json,f_berserk_open_breach,,,f_berserk_open_breach -> no explicit mod art reference in this definition
+furniture,f_berserk_count_breach_sealed,the Count's sealed breach,закрытый прорыв Графа,mods/Berserk/furniture/apostle_count.json,f_berserk_open_breach,,,f_berserk_open_breach -> no explicit mod art reference in this definition
+furniture,f_berserk_count_execution_record,the Count's execution record,список казней Графа,mods/Berserk/furniture/apostle_count.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_count_family_door,door of an untouched room,дверь нетронутой комнаты,mods/Berserk/furniture/count_residence_details.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_count_notice,execution notices,объявления о казнях,mods/Berserk/furniture/count_residence_details.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_count_service_grate,barred service shortcut,служебный проход с решёткой,mods/Berserk/furniture/count_residence_details.json,f_rack,,,vanilla fallback: f_rack
+furniture,f_berserk_count_service_grate_open,opened service shortcut,открытый служебный проход,mods/Berserk/furniture/count_residence_details.json,f_rack,,,vanilla fallback: f_rack
+furniture,f_berserk_eclipse_arrival_scar,sealed Eclipse passage,запечатанный проход Затмения,mods/Berserk/furniture/eclipse_trial.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_eclipse_body_heap_high,heaped bodies against the fold,груда тел у складки плоти,mods/Berserk/furniture/eclipse_sidepath_details.json,t_nm_wall_flesh,,,vanilla fallback: t_nm_wall_flesh
+furniture,f_berserk_eclipse_body_heap_low,low heap of the fallen,низкая груда павших,mods/Berserk/furniture/eclipse_sidepath_details.json,t_pit_corpsed,,,vanilla fallback: t_pit_corpsed
+furniture,f_berserk_eclipse_bone_spur,great bone outcrop,огромный костяной выступ,mods/Berserk/furniture/eclipse_sidepath_details.json,t_nm_wall_bone,,,vanilla fallback: t_nm_wall_bone
+furniture,f_berserk_eclipse_braided_flesh,tangle of flesh and harness,переплетение плоти и упряжи,mods/Berserk/furniture/eclipse_sidepath_details.json,t_nm_floor_flesh,,,vanilla fallback: t_nm_floor_flesh
+furniture,f_berserk_eclipse_broken_crossing,sheared crossing above a cleft,оборванный переход над расселиной,mods/Berserk/furniture/eclipse_sidepath_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_cache_one,claw marks behind the baggage,следы когтей за поклажей,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_cache_one_spent,empty furrow behind the baggage,пустая борозда за поклажей,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_cache_two,claw marks behind the baggage,следы когтей за поклажей,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_cache_two_spent,empty furrow behind the baggage,пустая борозда за поклажей,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_cart_tally,blood-stained baggage tally,окровавленный список поклажи,mods/Berserk/furniture/eclipse_sidepath_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_cart_wreck,remains of a supply cart,останки телеги с припасами,mods/Berserk/furniture/eclipse_sidepath_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_ceremony_warned,crossed ceremony scar,пересечённый рубец церемонии,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_ceremony_warning,last scar before the ceremony,последний рубец перед церемонией,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_chase_scene,trampled escape trail,вытоптанный путь отступления,mods/Berserk/furniture/eclipse_trial.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_eclipse_congealed_vein,exposed clot-dark vein,обнажённая потемневшая жила,mods/Berserk/furniture/eclipse_sidepath_details.json,t_thconc_floor_flesh,,,vanilla fallback: t_thconc_floor_flesh
+furniture,f_berserk_eclipse_corkus_remains,Corkus's remains,останки Коркуса,mods/Berserk/furniture/eclipse_trial.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_eclipse_escape_rift,Skull Knight's escape rift,разлом Рыцаря-Черепа,mods/Berserk/furniture/eclipse_trial.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_eclipse_feast_one,blood-soaked feeding hollow,окровавленная впадина пиршества,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_feast_one_spent,abandoned feeding tracks,покинутые следы кормёжки,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_feast_scene,remains of a feast,следы пиршества,mods/Berserk/furniture/eclipse_trial.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_eclipse_feast_three,blood-soaked feeding hollow,окровавленная впадина пиршества,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_feast_three_spent,abandoned feeding tracks,покинутые следы кормёжки,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_feast_two,blood-soaked feeding hollow,окровавленная впадина пиршества,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_feast_two_spent,abandoned feeding tracks,покинутые следы кормёжки,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_final_warning,ceremonial scars,шрамы церемонии,mods/Berserk/furniture/eclipse_trial.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_eclipse_gaston_remains,Gaston's remains,останки Гастона,mods/Berserk/furniture/eclipse_trial.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_eclipse_held_gap,hammer scars beside the fallen,следы молота возле павшего,mods/Berserk/furniture/eclipse_sidepath_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_judeau_remains,Judeau's remains,останки Джудо,mods/Berserk/furniture/eclipse_trial.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_eclipse_last_retreat,tracks behind the shield line,следы за рубежом из щитов,mods/Berserk/furniture/eclipse_sidepath_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_pippin_remains,Pippin's remains,останки Пиппина,mods/Berserk/furniture/eclipse_trial.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_eclipse_return_seal,Eclipse return seal,Печать возвращения из Затмения,mods/Berserk/furniture/eclipse_trial.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_eclipse_shield_barricade,broken shield line,сломанный рубеж из щитов,mods/Berserk/furniture/eclipse_sidepath_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_shortcut_block,taut flesh diaphragm,натянутая перегородка плоти,mods/Berserk/furniture/eclipse_field_details.json,t_concrete_wall_flesh,,,vanilla fallback: t_concrete_wall_flesh
+furniture,f_berserk_eclipse_shortcut_edge,loose edge of the diaphragm,свободный край перегородки,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_shortcut_opened,opened flesh passage,открытый проход в плоти,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_side_hunter,fresh tracks into a fold,свежие следы за складку,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_side_hunter_spent,abandoned feeding tracks,покинутые следы кормёжки,mods/Berserk/furniture/eclipse_field_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_supply_wreck,broken field satchel,разорванная походная сумка,mods/Berserk/furniture/eclipse_trial.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_eclipse_torn_shield,split shield and straps,расколотый щит и ремни,mods/Berserk/furniture/eclipse_sidepath_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_eclipse_vein_ceremony,great luminous artery,большая светящаяся артерия,mods/Berserk/furniture/eclipse_field_details.json,t_thconc_floor_flesh,,,vanilla fallback: t_thconc_floor_flesh
+furniture,f_berserk_eclipse_vein_feast,great luminous artery,большая светящаяся артерия,mods/Berserk/furniture/eclipse_field_details.json,t_thconc_floor_flesh,,,vanilla fallback: t_thconc_floor_flesh
+furniture,f_berserk_eclipse_vein_north,great luminous artery,большая светящаяся артерия,mods/Berserk/furniture/eclipse_field_details.json,t_thconc_floor_flesh,,,vanilla fallback: t_thconc_floor_flesh
+furniture,f_berserk_expedition_approach_note,message tied to the camp cordon,записка на ограде лагеря,mods/Berserk/furniture/behelit_adventure_details.json,f_sign,,,vanilla fallback: f_sign
+furniture,f_berserk_expedition_noisemaker,wind-up emergency siren,ручная тревожная сирена,mods/Berserk/furniture/behelit_sites.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_expedition_noisemaker_armed,wind-up emergency siren,ручная тревожная сирена,mods/Berserk/furniture/behelit_distractions.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_expedition_record,expedition field log,полевой журнал экспедиции,mods/Berserk/furniture/behelit_sites.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_expedition_relic,sealed expedition specimen case,запечатанный контейнер экспедиции,mods/Berserk/furniture/behelit_sites.json,f_safe_c,,,vanilla fallback: f_safe_c
+furniture,f_berserk_expedition_relic_empty,empty expedition specimen case,пустой контейнер экспедиции,mods/Berserk/furniture/behelit_sites.json,f_safe_c,,,vanilla fallback: f_safe_c
+furniture,f_berserk_expedition_sample_diagram,specimen measurement board,доска измерений образца,mods/Berserk/furniture/location_site_details.json,f_table,,,vanilla fallback: f_table
+furniture,f_berserk_expedition_scene,abandoned survey equipment,брошенное оборудование экспедиции,mods/Berserk/furniture/location_scenery.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_expedition_torn_canvas,torn expedition canvas,разорванное полотно экспедиционной палатки,mods/Berserk/furniture/behelit_adventure_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_first_hunt_scene,dragged remains,волочёные останки,mods/Berserk/furniture/location_scenery.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_flora_aid_lost,burned aid stores,сгоревшие запасы помощи,mods/Berserk/00_flora_treehouse_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_flora_aid_pantry,prepared kitchen aid,подготовленная помощь на кухне,mods/Berserk/00_flora_treehouse_details.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_flora_aid_pantry_empty,used aid place,место уже выданной помощи,mods/Berserk/00_flora_treehouse_details.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_flora_aid_ward,prepared protective-sign materials,подготовленные материалы защитного знака,mods/Berserk/00_flora_treehouse_details.json,f_rack_wood,,,vanilla fallback: f_rack_wood
+furniture,f_berserk_flora_aid_ward_empty,used aid place,место уже выданной помощи,mods/Berserk/00_flora_treehouse_details.json,f_rack_wood,,,vanilla fallback: f_rack_wood
+furniture,f_berserk_flora_aid_workshop,prepared repair aid,подготовленный набор для ремонта,mods/Berserk/00_flora_treehouse_details.json,f_rack_wood,,,vanilla fallback: f_rack_wood
+furniture,f_berserk_flora_aid_workshop_empty,used aid place,место уже выданной помощи,mods/Berserk/00_flora_treehouse_details.json,f_rack_wood,,,vanilla fallback: f_rack_wood
+furniture,f_berserk_flora_armor_stand,Berserker armor workstand,рабочая подставка доспеха Берсерка,mods/Berserk/00_flora_treehouse_details.json,f_rack_wood,,,vanilla fallback: f_rack_wood
+furniture,f_berserk_flora_banked_hearth,quiet hearth,тихий очаг,mods/Berserk/00_flora_treehouse_details.json,f_clay_oven,,,vanilla fallback: f_clay_oven
+furniture,f_berserk_flora_botany_shelf,shelf of garden and remedy notes,полка записей о травах и лечении,mods/Berserk/00_flora_treehouse_details.json,f_bookcase,,,vanilla fallback: f_bookcase
+furniture,f_berserk_flora_charred_archive,burned manuscript desk,сгоревший стол с рукописью,mods/Berserk/00_flora_treehouse_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_flora_charred_bedroom,burned bedroom furniture,сгоревшая мебель спальни,mods/Berserk/00_flora_treehouse_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_flora_charred_books,ashes of the library,пепел библиотеки,mods/Berserk/00_flora_treehouse_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_flora_charred_fittings,charred household fittings,обугленная домашняя обстановка,mods/Berserk/00_flora_treehouse_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_flora_chronicle_shelf,shelf of household chronicles,полка домашних хроник,mods/Berserk/00_flora_treehouse_details.json,f_bookcase,,,vanilla fallback: f_bookcase
+furniture,f_berserk_flora_cosmology_shelf,shelf of astral studies,полка исследований астрального мира,mods/Berserk/00_flora_treehouse_details.json,f_bookcase,,,vanilla fallback: f_bookcase
+furniture,f_berserk_flora_drying_herbs,drying herb bundles,связки сохнущих трав,mods/Berserk/00_flora_treehouse_details.json,f_rack_wood,,,vanilla fallback: f_rack_wood
+furniture,f_berserk_flora_fallen_bough,fallen spiritual bough,упавшая ветвь духовного дерева,mods/Berserk/00_flora_treehouse_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_flora_gallery_record,root gallery inscription,надпись в галерее корней,mods/Berserk/00_flora_treehouse_details.json,f_desk,,,vanilla fallback: f_desk
+furniture,f_berserk_flora_garden_arch,open garden wicket,открытая садовая калитка,mods/Berserk/00_household_furnishings.json,f_sign,,,vanilla fallback: f_sign
+furniture,f_berserk_flora_garden_record,herb-garden marker,табличка лекарственного сада,mods/Berserk/00_flora_treehouse_details.json,f_sign,,,vanilla fallback: f_sign
+furniture,f_berserk_flora_guest_record,guest-room welcome,памятка в гостевой спальне,mods/Berserk/00_flora_treehouse_details.json,f_desk,,,vanilla fallback: f_desk
+furniture,f_berserk_flora_held_embers,ward-bound embers,угли под защитным кругом,mods/Berserk/mapgen/flora_siege_terrain.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_flora_herb_bed,tended medicinal herbs,ухоженные лекарственные травы,mods/Berserk/00_flora_treehouse_details.json,f_flower_tulip,,,vanilla fallback: f_flower_tulip
+furniture,f_berserk_flora_house_rules,Flora's household note,домашняя записка Флоры,mods/Berserk/00_flora_treehouse_details.json,f_desk,,,vanilla fallback: f_desk
+furniture,f_berserk_flora_linen_armchair,linen-cushioned wooden armchair,деревянное кресло с льняными подушками,mods/Berserk/00_household_furnishings.json,f_armchair,,,vanilla fallback: f_armchair
+furniture,f_berserk_flora_linen_bed,made linen bed,застеленная льняная постель,mods/Berserk/00_flora_treehouse_details.json,f_bed,,,vanilla fallback: f_bed
+furniture,f_berserk_flora_low_table,low wooden tea table,низкий деревянный чайный столик,mods/Berserk/00_household_furnishings.json,f_coffee_table,,,vanilla fallback: f_coffee_table
+furniture,f_berserk_flora_manuscript,Flora's unfinished manuscript,незавершённая рукопись Флоры,mods/Berserk/00_flora_treehouse_details.json,f_desk,,,vanilla fallback: f_desk
+furniture,f_berserk_flora_manuscript_taken,emptied manuscript desk,"стол, с которого спасли рукопись",mods/Berserk/00_flora_treehouse_details.json,f_desk,,,vanilla fallback: f_desk
+furniture,f_berserk_flora_pegged_table,pegged wooden table,стол на деревянных нагелях,mods/Berserk/00_household_furnishings.json,f_table,,,vanilla fallback: f_table
+furniture,f_berserk_flora_rain_basin,covered rainwater basin,крытая чаша для дождевой воды,mods/Berserk/00_flora_treehouse_details.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_flora_reading_lamp,small sanctuary lamp,маленькая лампа убежища,mods/Berserk/00_flora_treehouse_details.json,f_table,,,vanilla fallback: f_table
+furniture,f_berserk_flora_root_niche,sheltered niche between roots,защищённая ниша между корнями,mods/Berserk/00_flora_treehouse_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_flora_ruin_keepsake,surviving root-niche keepsake,уцелевшая вещь в нише корней,mods/Berserk/00_flora_treehouse_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_flora_ruin_keepsake_empty,empty root niche,пустая ниша между корнями,mods/Berserk/00_flora_treehouse_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_flora_ruined_ward,Flora's broken ward,разрушенный защитный круг Флоры,mods/Berserk/mapgen/flora_siege_terrain.json,f_berserk_flora_ward,,,f_berserk_flora_ward -> vanilla fallback: f_sign
+furniture,f_berserk_flora_saved_archive,burned desk of the rescued manuscript,сгоревший стол спасённой рукописи,mods/Berserk/00_flora_treehouse_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_flora_scene,Flora's work journal,рабочий дневник Флоры,mods/Berserk/furniture/location_scenery.json,f_bookcase,,,vanilla fallback: f_bookcase
+furniture,f_berserk_flora_south_sign,southern garden marker,указатель южного сада,mods/Berserk/00_flora_treehouse_details.json,f_sign,,,vanilla fallback: f_sign
+furniture,f_berserk_flora_stone_hearth,sanctuary stone hearth,каменный очаг убежища,mods/Berserk/00_household_furnishings.json,f_fireplace_stone,f_fireplace_stone,,vanilla fallback: f_fireplace_stone
+furniture,f_berserk_flora_treehouse_threshold,woven threshold beside the roots,тканый порог рядом с корнями,mods/Berserk/00_flora_treehouse_details.json,f_bench,,,vanilla fallback: f_bench
+furniture,f_berserk_flora_treehouse_threshold_v2,woven threshold beside the roots,тканый порог рядом с корнями,mods/Berserk/00_household_furnishings.json,,f_berserk_flora_treehouse_threshold,,f_berserk_flora_treehouse_threshold -> vanilla fallback: f_bench
+furniture,f_berserk_flora_ward,Flora's sanctuary ward,оберег убежища Флоры,mods/Berserk/furniture/flora.json,f_sign,,,vanilla fallback: f_sign
+furniture,f_berserk_flora_ward_shelf,shelf of protective inscriptions,полка защитных начертаний,mods/Berserk/00_flora_treehouse_details.json,f_bookcase,,,vanilla fallback: f_bookcase
+furniture,f_berserk_flora_west_sign,western road marker,указатель западной дороги,mods/Berserk/00_flora_treehouse_details.json,f_sign,,,vanilla fallback: f_sign
+furniture,f_berserk_flora_wooden_bench,wooden sanctuary bench,деревянная скамья убежища,mods/Berserk/00_flora_treehouse_details.json,f_bench,,,vanilla fallback: f_bench
+furniture,f_berserk_flora_wooden_chair,hand-carved wooden chair,резной деревянный стул,mods/Berserk/00_flora_treehouse_details.json,f_chair,,,vanilla fallback: f_chair
+furniture,f_berserk_flora_wooden_crate,wooden work crate,деревянный рабочий ящик,mods/Berserk/00_household_furnishings.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_flora_wooden_cupboard,pegged clothes cupboard,шкаф для одежды на деревянных нагелях,mods/Berserk/00_household_furnishings.json,f_dresser,,,vanilla fallback: f_dresser
+furniture,f_berserk_flora_wooden_rack,wooden workshop shelf,деревянная полка мастерской,mods/Berserk/00_flora_treehouse_details.json,f_rack_wood,,,vanilla fallback: f_rack_wood
+furniture,f_berserk_flora_wooden_worktop,heavy wooden worktop,массивная деревянная рабочая поверхность,mods/Berserk/00_household_furnishings.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_grunbeld_anvil_stump,scarred anvil stump,пень со следами наковальни,mods/Berserk/00_grunbeld_stronghold_details.json,f_workbench,,,vanilla fallback: f_workbench
+furniture,f_berserk_grunbeld_armory,damaged garrison armory,повреждённый гарнизонный арсенал,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_armory_empty,searched garrison supplies,осмотренные гарнизонные припасы,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_barrack_pantry,barrack kitchen supplies,припасы казарменной кухни,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_barrack_pantry_empty,searched garrison supplies,осмотренные гарнизонные припасы,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_breach,Grunbeld's exposed breach,Открытый прорыв Грюнбельда,mods/Berserk/furniture/grunbeld_hunt.json,f_berserk_open_breach,,,f_berserk_open_breach -> no explicit mod art reference in this definition
+furniture,f_berserk_grunbeld_breach_sealed,Grunbeld's sealed breach,Закрытый прорыв Грюнбельда,mods/Berserk/furniture/grunbeld_hunt.json,f_berserk_open_breach,,,f_berserk_open_breach -> no explicit mod art reference in this definition
+furniture,f_berserk_grunbeld_broken_mantlet,broken wooden mantlet,сломанный деревянный осадный щит,mods/Berserk/furniture/grunbeld_siege_scenery.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_grunbeld_dresser_note,dressing-room tally,запись в перевязочной,mods/Berserk/00_grunbeld_stronghold_details.json,f_desk,,,vanilla fallback: f_desk
+furniture,f_berserk_grunbeld_dressing_store,last garrison dressings,последняя гарнизонная перевязка,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_dressing_store_empty,searched garrison supplies,осмотренные гарнизонные припасы,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_evacuated_cart,abandoned evacuation cart,брошенная эвакуационная телега,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_evacuated_cart_empty,searched garrison supplies,осмотренные гарнизонные припасы,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_fallen_garrison,last stand of the garrison,место последнего боя гарнизона,mods/Berserk/00_grunbeld_stronghold_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_grunbeld_forge_store,smith's remaining tools,оставшиеся инструменты кузнеца,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_forge_store_empty,searched garrison supplies,осмотренные гарнизонные припасы,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_garrison_roll,garrison evacuation roll,список эвакуации гарнизона,mods/Berserk/00_grunbeld_stronghold_details.json,f_desk,,,vanilla fallback: f_desk
+furniture,f_berserk_grunbeld_heat_clothing,scorched work clothing,обгоревшая рабочая одежда,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_heat_clothing_empty,searched garrison supplies,осмотренные гарнизонные припасы,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_inner_warning,scarred evacuation orders,изуродованный приказ об эвакуации,mods/Berserk/00_grunbeld_stronghold_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_grunbeld_last_warning,melted shield beside the arena,оплавленный щит у арены,mods/Berserk/00_grunbeld_stronghold_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_grunbeld_quarry_hoist,abandoned timber hoist,брошенный деревянный подъёмник,mods/Berserk/furniture/grunbeld_siege_scenery.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_grunbeld_quarry_note,quarry escape marks,отметки беглецов в карьере,mods/Berserk/00_grunbeld_stronghold_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_grunbeld_quarry_rope,spare hoist rope and workman's chisel,запасная верёвка подъёмника и зубило рабочего,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_quarry_rope_empty,searched garrison supplies,осмотренные гарнизонные припасы,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_ration_store,gatehouse ration chest,сундук провианта у ворот,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_ration_store_empty,searched garrison supplies,осмотренные гарнизонные припасы,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_record,Grunbeld campaign tablet,Походная табличка Грюнбельда,mods/Berserk/furniture/grunbeld_hunt.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_grunbeld_repair_store,barrack repair bundle,ремонтная связка в казарме,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_repair_store_empty,searched garrison supplies,осмотренные гарнизонные припасы,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_scene,charred siege standard,обгоревшее осадное знамя,mods/Berserk/furniture/location_scenery.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_grunbeld_siege_orders,torn siege orders,разорванные осадные приказы,mods/Berserk/00_grunbeld_stronghold_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_grunbeld_smith_hearth,cold smithy hearth,остывший кузнечный очаг,mods/Berserk/00_grunbeld_stronghold_details.json,f_clay_oven,,,vanilla fallback: f_clay_oven
+furniture,f_berserk_grunbeld_smith_note,smith's heat notes,записки кузнеца о жаре,mods/Berserk/00_grunbeld_stronghold_details.json,f_desk,,,vanilla fallback: f_desk
+furniture,f_berserk_grunbeld_soldier_letter,unfinished soldier's letter,недописанное письмо солдата,mods/Berserk/00_grunbeld_stronghold_details.json,f_desk,,,vanilla fallback: f_desk
+furniture,f_berserk_grunbeld_split_spears,splintered spear shafts,расщеплённые древки копий,mods/Berserk/furniture/grunbeld_siege_scenery.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_grunbeld_standard_keepsake,fallen garrison standard,упавшее гарнизонное знамя,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_standard_keepsake_empty,searched garrison supplies,осмотренные гарнизонные припасы,mods/Berserk/00_grunbeld_stronghold_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_grunbeld_wagon_wreck,shattered siege wagon,разбитая осадная повозка,mods/Berserk/furniture/grunbeld_siege_scenery.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_hunt_arena_tracks,battle-scarred ground,земля со следами боя,mods/Berserk/furniture/hunt_arenas.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_hunt_obscured_trail,trampled ash beneath the prey,затоптанный пепел под добычей,mods/Berserk/furniture/hunt_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_hunt_revealed_trail,revealed ashen trail,раскрывшийся пепельный след,mods/Berserk/furniture/hunt_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_hunt_victims,belongings of different travelers,вещи разных путников,mods/Berserk/furniture/hunt_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_hunt_warning,gouged stone at the hollow edge,исцарапанный камень у края низины,mods/Berserk/furniture/hunt_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_breach_defenders,failed defenders' supply chest,ящик припасов погибших защитников,mods/Berserk/furniture/hunt_site_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_location_breach_defenders_empty,searched belongings,обысканные вещи,mods/Berserk/furniture/hunt_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_cave_lamp,empty lamp tied to a rope,пустой светильник на верёвке,mods/Berserk/furniture/location_site_details.json,f_rubble,f_berserk_location_medieval_bundle,,vanilla fallback: f_rubble
+furniture,f_berserk_location_cave_lamp_empty,bare lamp fastening,пустое крепление светильника,mods/Berserk/furniture/location_site_details.json,,f_berserk_location_cave_lamp,,f_berserk_location_cave_lamp -> vanilla fallback: f_rubble
+furniture,f_berserk_location_cave_scout,abandoned leather scout pack,брошенный кожаный рюкзак разведчика,mods/Berserk/furniture/location_site_details.json,f_rubble,f_berserk_location_medieval_bundle,,vanilla fallback: f_rubble
+furniture,f_berserk_location_cave_scout_empty,scout pack resting place,место рюкзака разведчика,mods/Berserk/furniture/location_site_details.json,,f_berserk_location_cave_scout,,f_berserk_location_cave_scout -> vanilla fallback: f_rubble
+furniture,f_berserk_location_chapel_aid,chapel relief cabinet,шкаф помощи в часовне,mods/Berserk/furniture/location_site_details.json,f_cupboard,f_berserk_location_medieval_bundle,,vanilla fallback: f_cupboard
+furniture,f_berserk_location_chapel_aid_empty,empty relief cabinet,пустой шкаф помощи,mods/Berserk/furniture/location_site_details.json,,f_berserk_location_chapel_aid,,f_berserk_location_chapel_aid -> vanilla fallback: f_cupboard
+furniture,f_berserk_location_chapel_pantry,chapel food cupboard,кладовая еды часовни,mods/Berserk/furniture/location_site_details.json,f_cupboard,f_berserk_location_medieval_bundle,,vanilla fallback: f_cupboard
+furniture,f_berserk_location_chapel_pantry_empty,empty chapel food cupboard,пустая кладовая еды часовни,mods/Berserk/furniture/location_site_details.json,,f_berserk_location_chapel_pantry,,f_berserk_location_chapel_pantry -> vanilla fallback: f_cupboard
+furniture,f_berserk_location_count_armory,residence armory chest,сундук арсенала резиденции,mods/Berserk/furniture/count_residence_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_location_count_armory_empty,searched residence chest,обысканный сундук резиденции,mods/Berserk/furniture/count_residence_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_location_count_clerk,prison clerk's chest,сундук тюремного писаря,mods/Berserk/furniture/count_residence_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_location_count_clerk_empty,searched residence chest,обысканный сундук резиденции,mods/Berserk/furniture/count_residence_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_location_count_family,untouched sewing box,нетронутая шкатулка для шитья,mods/Berserk/furniture/count_residence_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_location_count_family_empty,searched residence chest,обысканный сундук резиденции,mods/Berserk/furniture/count_residence_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_location_count_pantry,residence pantry chest,сундук кладовой резиденции,mods/Berserk/furniture/count_residence_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_location_count_pantry_empty,searched residence chest,обысканный сундук резиденции,mods/Berserk/furniture/count_residence_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_location_count_physician,physician's linen chest,сундук полотна лекаря,mods/Berserk/furniture/count_residence_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_location_count_physician_empty,searched residence chest,обысканный сундук резиденции,mods/Berserk/furniture/count_residence_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_location_count_property,confiscated belongings chest,сундук изъятых вещей,mods/Berserk/furniture/count_residence_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_location_count_property_empty,searched residence chest,обысканный сундук резиденции,mods/Berserk/furniture/count_residence_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_location_expedition_medical,expedition medical crate,медицинский ящик экспедиции,mods/Berserk/furniture/location_site_details.json,f_crate_o,f_berserk_location_medieval_bundle,,vanilla fallback: f_crate_o
+furniture,f_berserk_location_expedition_medical_empty,searched medical crate,осмотренный медицинский ящик,mods/Berserk/furniture/location_site_details.json,,f_berserk_location_expedition_medical,,f_berserk_location_expedition_medical -> vanilla fallback: f_crate_o
+furniture,f_berserk_location_expedition_tools,expedition repair crate,ремонтный ящик экспедиции,mods/Berserk/furniture/location_site_details.json,f_crate_o,f_berserk_location_medieval_bundle,,vanilla fallback: f_crate_o
+furniture,f_berserk_location_expedition_tools_empty,searched repair crate,осмотренный ремонтный ящик,mods/Berserk/furniture/location_site_details.json,,f_berserk_location_expedition_tools,,f_berserk_location_expedition_tools -> vanilla fallback: f_crate_o
+furniture,f_berserk_location_hunt_reward,predator's gathered belongings,"вещи, собранные хищником",mods/Berserk/furniture/hunt_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_hunt_reward_empty,searched belongings,обысканные вещи,mods/Berserk/furniture/hunt_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_hunt_shelter,tucked-away survivor bundle,укрытый узелок выжившего,mods/Berserk/furniture/hunt_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_hunt_shelter_empty,searched belongings,обысканные вещи,mods/Berserk/furniture/hunt_site_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_medieval_bundle,abandoned cloth provision bundle,брошенный свёрток с припасами,mods/Berserk/furniture/location_interactions.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_medieval_bundle_empty,searched bundle,обысканный свёрток,mods/Berserk/furniture/location_interactions.json,,f_berserk_location_medieval_bundle,,f_berserk_location_medieval_bundle -> vanilla fallback: f_rubble
+furniture,f_berserk_location_oak_camp,cold campfire bundle,свёрток у остывшего костра,mods/Berserk/furniture/location_interactions.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_oak_camp_empty,searched bundle,обысканный свёрток,mods/Berserk/furniture/location_interactions.json,,f_berserk_location_oak_camp,,f_berserk_location_oak_camp -> vanilla fallback: f_rubble
+furniture,f_berserk_location_oak_cart,abandoned cart bundle,свёрток у брошенной телеги,mods/Berserk/furniture/location_interactions.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_oak_cart_empty,searched bundle,обысканный свёрток,mods/Berserk/furniture/location_interactions.json,,f_berserk_location_oak_cart,,f_berserk_location_oak_cart -> vanilla fallback: f_rubble
+furniture,f_berserk_location_oak_ward,ward tied to a root,оберег на корне,mods/Berserk/furniture/location_interactions.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_oak_ward_empty,bare cord on a root,пустой шнурок на корне,mods/Berserk/furniture/location_interactions.json,,f_berserk_location_oak_ward,,f_berserk_location_oak_ward -> vanilla fallback: f_rubble
+furniture,f_berserk_location_rosine_keepsake,Mistvale abandoned keepsake,забытая памятная вещь Туманной долины,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_rosine_keepsake_empty,searched campaign belongings,обысканные походные вещи,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_rosine_travelers,Mistvale travelers' bundle,узелок путников Туманной долины,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_rosine_travelers_empty,searched campaign belongings,обысканные походные вещи,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_rosine_waycamp,searchers' last rest,последний привал искателей,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_rosine_waycamp_empty,searched campaign belongings,обысканные походные вещи,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_wyald_baggage,plundered baggage chest,сундук разграбленного обоза,mods/Berserk/00_hunt_location_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_location_wyald_baggage_empty,searched campaign belongings,обысканные походные вещи,mods/Berserk/00_hunt_location_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_location_wyald_command,Black Dogs command chest,сундук командного шатра,mods/Berserk/00_hunt_location_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_location_wyald_command_empty,searched campaign belongings,обысканные походные вещи,mods/Berserk/00_hunt_location_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_location_wyald_kitchen,Black Dogs mess stores,припасы кухни Чёрных Псов,mods/Berserk/00_hunt_location_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_location_wyald_kitchen_empty,searched campaign belongings,обысканные походные вещи,mods/Berserk/00_hunt_location_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_location_wyald_prisoners,prisoners' bundled belongings,связанные вещи пленников,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_wyald_prisoners_empty,searched campaign belongings,обысканные походные вещи,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_location_wyald_repair,stolen repair chest,сундук украденных ремонтных вещей,mods/Berserk/00_hunt_location_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_location_wyald_repair_empty,searched campaign belongings,обысканные походные вещи,mods/Berserk/00_hunt_location_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_oak_cart_tracks,old cart tracks,старые колеи телеги,mods/Berserk/furniture/location_interactions.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_oak_great_trunk,ancient oak trunk,ствол древнего дуба,mods/Berserk/furniture/location_interactions.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_oak_low_roots,exposed oak roots,обнажённые корни дуба,mods/Berserk/furniture/behelit_adventure_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_oak_noisemaker,hanging bone chimes,подвешенные костяные колокольчики,mods/Berserk/furniture/behelit_sites.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_oak_noisemaker_armed,hanging bone chimes,подвешенные костяные колокольчики,mods/Berserk/furniture/behelit_distractions.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_oak_relic,Behelit among the roots,Бехелит среди корней,mods/Berserk/furniture/behelit_sites.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_oak_relic_empty,empty oak roots,пустые корни дуба,mods/Berserk/furniture/behelit_sites.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_oak_root_wall,knotted oak roots,сплетённые корни дуба,mods/Berserk/furniture/location_interactions.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_oak_trunk_e,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/furniture/location_interactions.json,,f_berserk_oak_great_trunk,,f_berserk_oak_great_trunk -> vanilla fallback: f_rubble
+furniture,f_berserk_oak_trunk_n,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/furniture/location_interactions.json,,f_berserk_oak_great_trunk,,f_berserk_oak_great_trunk -> vanilla fallback: f_rubble
+furniture,f_berserk_oak_trunk_ne,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/furniture/location_interactions.json,,f_berserk_oak_great_trunk,,f_berserk_oak_great_trunk -> vanilla fallback: f_rubble
+furniture,f_berserk_oak_trunk_nw,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/furniture/location_interactions.json,,f_berserk_oak_great_trunk,,f_berserk_oak_great_trunk -> vanilla fallback: f_rubble
+furniture,f_berserk_oak_trunk_se,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/furniture/location_interactions.json,,f_berserk_oak_great_trunk,,f_berserk_oak_great_trunk -> vanilla fallback: f_rubble
+furniture,f_berserk_oak_trunk_sw,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/furniture/location_interactions.json,,f_berserk_oak_great_trunk,,f_berserk_oak_great_trunk -> vanilla fallback: f_rubble
+furniture,f_berserk_oak_trunk_w,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/furniture/location_interactions.json,,f_berserk_oak_great_trunk,,f_berserk_oak_great_trunk -> vanilla fallback: f_rubble
+furniture,f_berserk_oak_visitor_remains,traveler's remains among the roots,останки путника среди корней,mods/Berserk/furniture/behelit_adventure_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_open_breach,open breach,открытый прорыв,mods/Berserk/furniture/local_breach.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_rosine_breach,Rosine's exposed breach,Открытый прорыв Розины,mods/Berserk/furniture/wyald_rosine_hunts.json,f_berserk_open_breach,,,f_berserk_open_breach -> no explicit mod art reference in this definition
+furniture,f_berserk_rosine_breach_sealed,Rosine's sealed breach,Закрытый прорыв Розины,mods/Berserk/furniture/wyald_rosine_hunts.json,f_berserk_open_breach,,,f_berserk_open_breach -> no explicit mod art reference in this definition
+furniture,f_berserk_rosine_cocoon,empty Mistvale cocoon,пустой кокон Туманной долины,mods/Berserk/00_site_definitions.json,f_egg_sacke,,,vanilla fallback: f_egg_sacke
+furniture,f_berserk_rosine_cocoon_destroyed,shredded Mistvale cocoon,разорванный кокон Туманной долины,mods/Berserk/furniture/rosine_cocoons.json,f_egg_sacke,,,vanilla fallback: f_egg_sacke
+furniture,f_berserk_rosine_cocoon_inhabited,stirring Mistvale cocoon,шевелящийся кокон Туманной долины,mods/Berserk/furniture/rosine_cocoons.json,f_egg_sackws,,,vanilla fallback: f_egg_sackws
+furniture,f_berserk_rosine_cocoon_sealed,sealed Mistvale cocoon,запечатанный кокон Туманной долины,mods/Berserk/furniture/rosine_cocoons.json,f_egg_sackbw,,,vanilla fallback: f_egg_sackbw
+furniture,f_berserk_rosine_cocoon_waking,splitting Mistvale cocoon,раскрывающийся кокон Туманной долины,mods/Berserk/00_hunt_location_details.json,f_egg_sackws,,,vanilla fallback: f_egg_sackws
+furniture,f_berserk_rosine_cocoon_watchful,swelling Mistvale cocoon,набухающий кокон Туманной долины,mods/Berserk/00_hunt_location_details.json,f_egg_sackws,,,vanilla fallback: f_egg_sackws
+furniture,f_berserk_rosine_missing_trace,Mistvale trail of lost shoes,след брошенной обуви Туманной долины,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_rosine_nest_warning,silk-bound root threshold,"порог корней, опутанный шёлком",mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_rosine_record,Rosine trail record,Запись о пути к Розине,mods/Berserk/furniture/wyald_rosine_hunts.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_rosine_scene,discarded playthings,брошенные игрушки,mods/Berserk/furniture/location_scenery.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_rosine_shell_material,abandoned Mistvale silk shell,брошенная шёлковая оболочка Туманной долины,mods/Berserk/00_hunt_location_details.json,f_egg_sacke,,,vanilla fallback: f_egg_sacke
+furniture,f_berserk_rosine_shell_material_empty,stripped Mistvale silk shell,разобранная шёлковая оболочка Туманной долины,mods/Berserk/00_hunt_location_details.json,f_egg_sacke,,,vanilla fallback: f_egg_sacke
+furniture,f_berserk_rosine_story_cocoon,split cocoon with a tied marker,расколотый кокон с узелком-меткой,mods/Berserk/00_hunt_location_details.json,f_egg_sacke,,,vanilla fallback: f_egg_sacke
+furniture,f_berserk_sealed_breach,sealed breach,запечатанный прорыв,mods/Berserk/furniture/local_breach.json,,,,no explicit mod art reference in this definition
+furniture,f_berserk_shelter_ward,bone and stone ward,знак из костей и камня,mods/Berserk/furniture/shelter_ward.json,f_firering,,,vanilla fallback: f_firering
+furniture,f_berserk_wyald_breach,Wyald's exposed breach,Открытый прорыв Уайлда,mods/Berserk/furniture/wyald_rosine_hunts.json,f_berserk_open_breach,,,f_berserk_open_breach -> no explicit mod art reference in this definition
+furniture,f_berserk_wyald_breach_sealed,Wyald's sealed breach,Закрытый прорыв Уайлда,mods/Berserk/furniture/wyald_rosine_hunts.json,f_berserk_open_breach,,,f_berserk_open_breach -> no explicit mod art reference in this definition
+furniture,f_berserk_wyald_cage_gate,tied Black Dogs cage door,перевязанная дверца клетки Чёрных Псов,mods/Berserk/00_hunt_location_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_wyald_cage_gate_open,open Black Dogs cage door,открытая дверца клетки Чёрных Псов,mods/Berserk/00_hunt_location_details.json,f_crate_o,,,vanilla fallback: f_crate_o
+furniture,f_berserk_wyald_charge_obstacle,broken campaign barricade,разбитая походная баррикада,mods/Berserk/00_hunt_location_details.json,f_crate_c,,,vanilla fallback: f_crate_c
+furniture,f_berserk_wyald_prisoner_trace,cut bonds in the cage,разрезанные путы в клетке,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_wyald_punishment_post,Black Dogs punishment post,столб наказаний Чёрных Псов,mods/Berserk/00_hunt_location_details.json,f_rack,,,vanilla fallback: f_rack
+furniture,f_berserk_wyald_record,Wyald trail record,Запись о пути к Уайлду,mods/Berserk/furniture/wyald_rosine_hunts.json,f_counter,,,vanilla fallback: f_counter
+furniture,f_berserk_wyald_ring_warning,trampled Black Dogs battle approach,вытоптанный подход к боевой площадке,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_wyald_scene,Black Dogs trophy rack,стойка с трофеями Чёрных Псов,mods/Berserk/furniture/location_scenery.json,f_rack,,,vanilla fallback: f_rack
+furniture,f_berserk_wyald_wagon_chime,wagon harness bells,колокольчики упряжи обоза,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_wyald_wagon_chime_armed,wound wagon harness bells,заведённые колокольчики упряжи,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_wyald_wagon_chime_spent,spent wagon harness bells,отработавшие колокольчики упряжи,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+furniture,f_berserk_wyald_wagon_wreck,plundered wagon wreck,разграбленный остов обоза,mods/Berserk/00_hunt_location_details.json,f_rubble,,,vanilla fallback: f_rubble
+field_type,fd_berserk_committed_count_warning,marked apostle attack area,отмеченная область атаки апостола,mods/Berserk/fields/apostle_committed_attacks.json,fd_laser,,,vanilla fallback: fd_laser
+field_type,fd_berserk_committed_grunbeld_knight_warning,marked apostle attack area,отмеченная область атаки апостола,mods/Berserk/fields/apostle_committed_attacks.json,fd_laser,,,vanilla fallback: fd_laser
+field_type,fd_berserk_committed_oak_warning,earth lifting over a root sweep,вздыбившаяся земля над корнями,mods/Berserk/fields/oak_root_attack.json,fd_laser,,,vanilla fallback: fd_laser
+field_type,fd_berserk_committed_rosine_warning,marked apostle attack area,отмеченная область атаки апостола,mods/Berserk/fields/apostle_committed_attacks.json,fd_laser,,,vanilla fallback: fd_laser
+field_type,fd_berserk_committed_wyald_warning,marked apostle attack area,отмеченная область атаки апостола,mods/Berserk/fields/apostle_committed_attacks.json,fd_laser,,,vanilla fallback: fd_laser
+field_type,fd_berserk_grunbeld_breath_flash,dragonfire burst,вспышка драконьего пламени,mods/Berserk/fields/grunbeld_breath.json,fd_fire,,,vanilla fallback: fd_fire
+field_type,fd_berserk_grunbeld_breath_warning,marked dragonfire path,полоса готовящегося огненного дыхания,mods/Berserk/fields/grunbeld_breath.json,fd_laser,,,vanilla fallback: fd_laser
+ITEM,forged_guts_sword,Forged Guts' Sword,Выкованный меч Гатса,mods/Berserk/items/forged_guts_sword.json,,,"forged_guts_sword.png [32x32; offset 0,0]","forged_guts_sword.png [32x32; offset 0,0]"
+MONSTER,mon_beast_of_darkness_1,Beast of Darkness,Зверь Тьмы,mods/Berserk/monsters/beast_of_darkness_1.json,,,"tileset/demons_darkness.png [32x48; offset 0,-16]","tileset/demons_darkness.png [32x48; offset 0,-16]"
+MONSTER,mon_beast_of_darkness_2,Beast of Darkness,Зверь Тьмы,mods/Berserk/monsters/beast_of_darkness_2.json,,,"tileset/demons_darkness.png [32x48; offset 0,-16]","tileset/demons_darkness.png [32x48; offset 0,-16]"
+MONSTER,mon_beast_of_darkness_3,Beast of Darkness,Зверь Тьмы,mods/Berserk/monsters/beast_of_darkness_3.json,,,"tileset/demons_darkness.png [32x48; offset 0,-16]","tileset/demons_darkness.png [32x48; offset 0,-16]"
+MONSTER,mon_beast_of_darkness_4,Beast of Darkness,Зверь Тьмы,mods/Berserk/monsters/beast_of_darkness_4.json,,,"tileset/demons_darkness.png [32x48; offset 0,-16]","tileset/demons_darkness.png [32x48; offset 0,-16]"
+MONSTER,mon_beast_of_darkness_5,Beast of Darkness,Зверь Тьмы,mods/Berserk/monsters/beast_of_darkness_5.json,,,"tileset/demons_darkness.png [32x48; offset 0,-16]","tileset/demons_darkness.png [32x48; offset 0,-16]"
+MONSTER,mon_beast_of_darkness_6,Beast of Darkness,Зверь Тьмы,mods/Berserk/monsters/beast_of_darkness_6.json,,,"tileset/demons_darkness.png [32x48; offset 0,-16]","tileset/demons_darkness.png [32x48; offset 0,-16]"
+MONSTER,mon_berserk_apostle_count,the Count,Граф,mods/Berserk/monsters/apostle_count.json,mon_berserk_eclipse_butcher,mon_berserk_eclipse_butcher,,"mon_berserk_eclipse_butcher -> tileset/eclipse_butcher.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_apostle_rosine,Rosine,Розина,mods/Berserk/monsters/apostle_rosine.json,mon_berserk_eclipse_hunter,mon_berserk_eclipse_hunter,,"mon_berserk_eclipse_hunter -> tileset/eclipse_hunter.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_apostle_wyald,Wyald,Уайлд,mods/Berserk/monsters/apostle_wyald.json,mon_berserk_eclipse_butcher,mon_berserk_eclipse_butcher,,"mon_berserk_eclipse_butcher -> tileset/eclipse_butcher.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_black_dog_thrall,Black Dog thrall,слуга Чёрных Псов,mods/Berserk/monsters/apostle_wyald.json,mon_berserk_count_servant,mon_berserk_count_servant,,"mon_berserk_count_servant -> mon_berserk_eclipse_halfbreed -> tileset/eclipse_halfbreed.png [32x32; offset 0,0]"
+MONSTER,mon_berserk_brand_butcher,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/monsters/brand_night_demons.json,mon_berserk_eclipse_butcher,mon_berserk_eclipse_butcher,,"mon_berserk_eclipse_butcher -> tileset/eclipse_butcher.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_brand_halfbreed,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/monsters/brand_night_demons.json,mon_berserk_eclipse_halfbreed,mon_berserk_eclipse_halfbreed,,"mon_berserk_eclipse_halfbreed -> tileset/eclipse_halfbreed.png [32x32; offset 0,0]"
+MONSTER,mon_berserk_brand_hunter,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/monsters/brand_night_demons.json,mon_berserk_eclipse_hunter,mon_berserk_eclipse_hunter,,"mon_berserk_eclipse_hunter -> tileset/eclipse_hunter.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_brand_wretch,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/monsters/brand_night_demons.json,mon_berserk_eclipse_wretch,mon_berserk_eclipse_wretch,,"mon_berserk_eclipse_wretch -> tileset/eclipse_wretch.png [32x32; offset 0,0]"
+MONSTER,mon_berserk_breach_warden,breach warden,хранитель прорыва,mods/Berserk/monsters/breach_warden.json,mon_berserk_eclipse_butcher,mon_berserk_eclipse_butcher,,"mon_berserk_eclipse_butcher -> tileset/eclipse_butcher.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_chapel_guardian,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/monsters/behelit_site_guardians.json,mon_berserk_eclipse_butcher,mon_berserk_eclipse_butcher,,"mon_berserk_eclipse_butcher -> tileset/eclipse_butcher.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_cocoon_ravager,cocoon-born ravager,рождённый в коконе разоритель,mods/Berserk/monsters/apostle_rosine.json,mon_berserk_eclipse_wretch,mon_berserk_eclipse_wretch,,"mon_berserk_eclipse_wretch -> tileset/eclipse_wretch.png [32x32; offset 0,0]"
+MONSTER,mon_berserk_count_servant,the Count's twisted servant,искажённый слуга Графа,mods/Berserk/monsters/apostle_count.json,mon_berserk_eclipse_halfbreed,mon_berserk_eclipse_halfbreed,,"mon_berserk_eclipse_halfbreed -> tileset/eclipse_halfbreed.png [32x32; offset 0,0]"
+MONSTER,mon_berserk_count_witness,survivor of the Count's prison,выживший узник Графа,mods/Berserk/monsters/apostle_count.json,mon_human,mon_skull_knight_rescuer,,vanilla fallback: mon_human
+MONSTER,mon_berserk_cursed_oak_guardian,cursed oak demon,демон проклятого дуба,mods/Berserk/monsters/behelit_site_guardians.json,,,"tileset/cursed_oak_guardian.png [64x64; offset -16,-32]","tileset/cursed_oak_guardian.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_echo_cave_guardian,echo cave demon,демон пещеры отголосков,mods/Berserk/monsters/behelit_site_guardians.json,,,"tileset/echo_cave_guardian.png [64x64; offset -16,-32]","tileset/echo_cave_guardian.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_eclipse_butcher,Eclipse butcher,Мясник Затмения,mods/Berserk/monsters/eclipse_demons.json,,,"tileset/eclipse_butcher.png [64x64; offset -16,-32]","tileset/eclipse_butcher.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_eclipse_elite,Eclipse executioner,Палач Затмения,mods/Berserk/monsters/eclipse_demons.json,,,"tileset/eclipse_elite.png [64x64; offset -16,-32]","tileset/eclipse_elite.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_eclipse_griffith,Griffith of the Eclipse,Гриффит Затмения,mods/Berserk/monsters/griffith_eclipse.json,mon_griffith_reborn,mon_griffith_reborn,"tileset/griffith_reborn.png [64x64; offset -20,-32]","tileset/griffith_reborn.png [64x64; offset -20,-32]"
+MONSTER,mon_berserk_eclipse_griffith_active,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/monsters/griffith_eclipse_active.json,mon_griffith_reborn,mon_berserk_eclipse_griffith,"tileset/griffith_reborn.png [64x64; offset -20,-32]","tileset/griffith_reborn.png [64x64; offset -20,-32]"
+MONSTER,mon_berserk_eclipse_halfbreed,Eclipse half-demon,Полудемон Затмения,mods/Berserk/monsters/eclipse_demons.json,,,"tileset/eclipse_halfbreed.png [32x32; offset 0,0]","tileset/eclipse_halfbreed.png [32x32; offset 0,0]"
+MONSTER,mon_berserk_eclipse_hunter,Eclipse hunter,Охотник Затмения,mods/Berserk/monsters/eclipse_demons.json,,,"tileset/eclipse_hunter.png [64x64; offset -16,-32]","tileset/eclipse_hunter.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_eclipse_wretch,Eclipse wretch,Тварь Затмения,mods/Berserk/monsters/eclipse_demons.json,,,"tileset/eclipse_wretch.png [32x32; offset 0,0]","tileset/eclipse_wretch.png [32x32; offset 0,0]"
+MONSTER,mon_berserk_expedition_guardian,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/monsters/behelit_site_guardians.json,mon_berserk_eclipse_halfbreed,mon_berserk_eclipse_halfbreed,,"mon_berserk_eclipse_halfbreed -> tileset/eclipse_halfbreed.png [32x32; offset 0,0]"
+MONSTER,mon_berserk_flora,Flora,Флора,mods/Berserk/monsters/flora.json,mon_civilian_stationary,,,vanilla fallback: mon_civilian_stationary
+MONSTER,mon_berserk_flora_grunbeld,"Grunbeld, attacker of the grove","Грюнбельд, разрушитель рощи",mods/Berserk/monsters/flora_siege.json,mon_berserk_eclipse_butcher,mon_berserk_eclipse_butcher,,"mon_berserk_eclipse_butcher -> tileset/eclipse_butcher.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_flora_raider,demon raider,демон-налётчик,mods/Berserk/monsters/flora_siege.json,mon_berserk_eclipse_wretch,mon_berserk_eclipse_wretch,,"mon_berserk_eclipse_wretch -> tileset/eclipse_wretch.png [32x32; offset 0,0]"
+MONSTER,mon_berserk_flora_reaver,demon reaver,демон-разоритель,mods/Berserk/monsters/flora_siege.json,mon_berserk_eclipse_halfbreed,mon_berserk_eclipse_halfbreed,,"mon_berserk_eclipse_halfbreed -> tileset/eclipse_halfbreed.png [32x32; offset 0,0]"
+MONSTER,mon_berserk_flora_root_guard,Flora's root guardian,корневой страж Флоры,mods/Berserk/monsters/flora_siege.json,mon_berserk_cursed_oak_guardian,mon_berserk_cursed_oak_guardian,,"mon_berserk_cursed_oak_guardian -> tileset/cursed_oak_guardian.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_flora_zodd,"Nosferatu Zodd, attacker of the grove","Носферату Зодд, разрушитель рощи",mods/Berserk/monsters/flora_siege.json,mon_nosferatu_zodd,mon_nosferatu_zodd,,"mon_nosferatu_zodd -> tileset/zodd.png [64x96; offset -20,-64]"
+MONSTER,mon_berserk_grunbeld_dragon,"Grunbeld, flaming dragon","Грюнбельд, пламенный дракон",mods/Berserk/monsters/apostle_grunbeld.json,mon_berserk_eclipse_butcher,mon_berserk_eclipse_butcher,,"mon_berserk_eclipse_butcher -> tileset/eclipse_butcher.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_grunbeld_knight,"Grunbeld, armored apostle","Грюнбельд, рыцарский апостол",mods/Berserk/monsters/apostle_grunbeld.json,mon_berserk_eclipse_elite,mon_berserk_eclipse_butcher,,"mon_berserk_eclipse_elite -> tileset/eclipse_elite.png [64x64; offset -16,-32]"
+MONSTER,mon_berserk_hollow_apostle,apostle of the hollow,апостол из логова,mods/Berserk/monsters/first_hunt_apostle.json,mon_berserk_eclipse_halfbreed,mon_berserk_eclipse_halfbreed,,"mon_berserk_eclipse_halfbreed -> tileset/eclipse_halfbreed.png [32x32; offset 0,0]"
+MONSTER,mon_berserk_projection_griffith,Reflection of Griffith,Отражение Гриффита,mods/Berserk/monsters/apostle_projections.json,mon_griffith_reborn,mon_griffith_reborn,"tileset/griffith_reborn.png [64x64; offset -20,-32]","tileset/griffith_reborn.png [64x64; offset -20,-32]"
+MONSTER,mon_berserk_projection_void,Reflection of Void,Отражение Войда,mods/Berserk/monsters/apostle_projections.json,mon_void_apostle,mon_void_apostle,"tileset/void_apostol.png [64x96; offset -5,-68]","tileset/void_apostol.png [64x96; offset -5,-68]"
+MONSTER,mon_berserk_projection_zodd,Projection of Zodd,Проекция Зодда,mods/Berserk/monsters/apostle_projections.json,mon_nosferatu_zodd,mon_nosferatu_zodd,"tileset/zodd.png [64x96; offset -20,-64]","tileset/zodd.png [64x96; offset -20,-64]"
+MONSTER,mon_griffith_reborn,Reborn Griffith,Гриффит Возрождённый,mods/Berserk/monsters/griffith_reborn.json,,,"tileset/griffith_reborn.png [64x64; offset -20,-32]","tileset/griffith_reborn.png [64x64; offset -20,-32]"
+MONSTER,mon_nosferatu_zodd,Nosferatu Zodd,Носферату Зодд,mods/Berserk/monsters/nosferatu_zodd.json,,,"tileset/zodd.png [64x96; offset -20,-64]","tileset/zodd.png [64x96; offset -20,-64]"
+MONSTER,mon_skull_knight,Skull Knight,Рыцарь-Череп,mods/Berserk/monsters/mon_skull_knight.json,,,"tileset/skull_knight.png [64x96; offset -6,-65]","tileset/skull_knight.png [64x96; offset -6,-65]"
+MONSTER,mon_skull_knight_rescuer,Skull Knight,Рыцарь-Череп,mods/Berserk/monsters/skull_knight_rescuer.json,,,"tileset/skull_knight.png [64x96; offset -6,-65]","tileset/skull_knight.png [64x96; offset -6,-65]"
+MONSTER,mon_void_apostle,Apostle Void,Апостол Войд,mods/Berserk/monsters/mon_void_apostle.json,,,"tileset/void_apostol.png [64x96; offset -5,-68]","tileset/void_apostol.png [64x96; offset -5,-68]"
+ITEM,nosferatu_zodd_sword,Nosferatu Zodd's Sword,Меч Носферату Зодда,mods/Berserk/items/nosferatu_zodd_sword.json,,,"nosferatu_zodd_sword.png [32x32; offset 4,-7]","nosferatu_zodd_sword.png [32x32; offset 4,-7]"
+terrain,t_berserk_breach_ash,ash-stained verge,обочина в пепле,mods/Berserk/furniture/hunt_site_surfaces.json,t_dirt,t_dirt,,vanilla fallback: t_dirt
+terrain,t_berserk_breach_scar,cooled breach scar,остывший рубец прорыва,mods/Berserk/furniture/hunt_site_surfaces.json,t_rock_floor,t_rock_floor,,vanilla fallback: t_rock_floor
+terrain,t_berserk_breach_wound,living fissure,живой разлом,mods/Berserk/furniture/hunt_site_surfaces.json,t_pit_shallow,t_pit_shallow,,vanilla fallback: t_pit_shallow
+terrain,t_berserk_campaign_mat,woven campaign matting,походный тканый настил,mods/Berserk/00_hunt_location_details.json,t_carpet_yellow,,,vanilla fallback: t_carpet_yellow
+terrain,t_berserk_campaign_palisade,rough timber screen,грубая деревянная заслона,mods/Berserk/00_hunt_location_details.json,t_fence,,,vanilla fallback: t_fence
+terrain,t_berserk_cave_scree,loose cave scree,осыпь в пещере,mods/Berserk/furniture/behelit_site_surfaces.json,t_rock_floor,t_rock_floor,,vanilla fallback: t_rock_floor
+terrain,t_berserk_echo_cave_glow,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/00_site_definitions.json,t_rock_floor,t_rock_floor,,vanilla fallback: t_rock_floor
+terrain,t_berserk_eclipse_ashen_flesh,ash-covered ground,покрытая пеплом земля,mods/Berserk/mapgen/eclipse_palettes.json,t_dirt,t_berserk_eclipse_open_flesh,,vanilla fallback: t_dirt
+terrain,t_berserk_eclipse_body_boundary,entwined bodies,переплетённые тела,mods/Berserk/mapgen/eclipse_palettes.json,,t_berserk_eclipse_ridge,,t_berserk_eclipse_ridge -> vanilla fallback: t_concrete_wall_flesh
+terrain,t_berserk_eclipse_bruised_flesh,bruised living ground,земля в кровоподтёках,mods/Berserk/mapgen/eclipse_palettes.json,,t_berserk_eclipse_open_flesh,,t_berserk_eclipse_open_flesh -> vanilla fallback: t_thconc_floor_flesh
+terrain,t_berserk_eclipse_chasm_lip,ragged cleft edge,разорванный край расселины,mods/Berserk/mapgen/eclipse_palettes.json,t_thconc_floor_flesh,t_berserk_eclipse_trampled_flesh,,vanilla fallback: t_thconc_floor_flesh
+terrain,t_berserk_eclipse_dim_vein,dim vein,тусклая жила,mods/Berserk/mapgen/eclipse_palettes.json,t_thconc_floor_flesh,t_berserk_eclipse_open_flesh,,vanilla fallback: t_thconc_floor_flesh
+terrain,t_berserk_eclipse_face_boundary,wall of enormous faces,стена огромных лиц,mods/Berserk/mapgen/eclipse_palettes.json,,t_berserk_eclipse_ridge,,t_berserk_eclipse_ridge -> vanilla fallback: t_concrete_wall_flesh
+terrain,t_berserk_eclipse_godhand_presence,distant God Hand silhouette,далёкий силуэт Руки Бога,mods/Berserk/mapgen/eclipse_palettes.json,,t_berserk_eclipse_ridge,,t_berserk_eclipse_ridge -> vanilla fallback: t_concrete_wall_flesh
+terrain,t_berserk_eclipse_luminous_flesh,,"Project-Id-Version: Berserk-Cata-DDA
+PO-Revision-Date: 2026-09-21 00:00+0000
+Last-Translator: i0985
+Language-Team: Russian
+Language: ru
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);
+",mods/Berserk/mapgen/eclipse_palettes.json,t_thconc_floor_flesh,t_berserk_eclipse_open_flesh,,vanilla fallback: t_thconc_floor_flesh
+terrain,t_berserk_eclipse_open_chasm,open cleft in the living ground,открытая расселина в живой земле,mods/Berserk/mapgen/eclipse_palettes.json,t_pit,,,vanilla fallback: t_pit
+terrain,t_berserk_eclipse_open_flesh,living ground,живая земля,mods/Berserk/mapgen/eclipse_palettes.json,t_thconc_floor_flesh,,,vanilla fallback: t_thconc_floor_flesh
+terrain,t_berserk_eclipse_pulsing_vein,swelling luminous vein,набухшая светящаяся жила,mods/Berserk/mapgen/eclipse_palettes.json,,t_berserk_eclipse_dim_vein,,t_berserk_eclipse_dim_vein -> vanilla fallback: t_thconc_floor_flesh
+terrain,t_berserk_eclipse_ridge,flesh ridge,гребень плоти,mods/Berserk/mapgen/eclipse_palettes.json,t_concrete_wall_flesh,t_concrete_wall_flesh,,vanilla fallback: t_concrete_wall_flesh
+terrain,t_berserk_eclipse_sinew_ground,exposed sinews,обнажённые сухожилия,mods/Berserk/mapgen/eclipse_palettes.json,,t_berserk_eclipse_open_flesh,,t_berserk_eclipse_open_flesh -> vanilla fallback: t_thconc_floor_flesh
+terrain,t_berserk_eclipse_trampled_flesh,trampled flesh,истоптанная плоть,mods/Berserk/mapgen/eclipse_palettes.json,t_thconc_floor_flesh,t_berserk_eclipse_open_flesh,,vanilla fallback: t_thconc_floor_flesh
+terrain,t_berserk_expedition_groundsheet,expedition canvas groundsheet,брезентовый пол экспедиции,mods/Berserk/furniture/behelit_site_surfaces.json,f_canvas_floor,,,vanilla fallback: f_canvas_floor
+terrain,t_berserk_flora_ash_floor,charred sanctuary floor,обугленный пол убежища,mods/Berserk/mapgen/flora_siege_terrain.json,t_dirt,,,vanilla fallback: t_dirt
+terrain,t_berserk_flora_charred_roots,charred spiritual roots,обугленные духовные корни,mods/Berserk/00_flora_treehouse_details.json,t_tree,t_tree,,vanilla fallback: t_tree
+terrain,t_berserk_flora_charred_timber,charred tree-house wall,обугленная стена дома у дерева,mods/Berserk/00_flora_treehouse_details.json,t_wall_log,t_wall_log,,vanilla fallback: t_wall_log
+terrain,t_berserk_flora_charred_trunk,burned spiritual tree,сгоревшее духовное дерево,mods/Berserk/00_flora_treehouse_details.json,t_tree,t_tree,,vanilla fallback: t_tree
+terrain,t_berserk_flora_charred_wall,charred sanctuary wall,обугленная стена убежища,mods/Berserk/mapgen/flora_siege_terrain.json,t_wall,t_wall,,vanilla fallback: t_wall
+terrain,t_berserk_flora_escape_path,ash-marked escape path,отмеченная пеплом тропа отхода,mods/Berserk/mapgen/flora_siege_terrain.json,t_dirt,,,vanilla fallback: t_dirt
+terrain,t_berserk_flora_living_roots,spiritual tree roots,корни духовного дерева,mods/Berserk/00_flora_treehouse_details.json,t_tree,t_tree,,vanilla fallback: t_tree
+terrain,t_berserk_flora_living_wall,root-bound timber wall,"бревенчатая стена, оплетённая корнями",mods/Berserk/00_flora_treehouse_details.json,t_wall_log,t_wall_log,,vanilla fallback: t_wall_log
+terrain,t_berserk_flora_root_window,small root-framed window,небольшое окно в раме из корней,mods/Berserk/00_flora_treehouse_details.json,t_window_domestic,t_window_domestic,,vanilla fallback: t_window_domestic
+terrain,t_berserk_flora_scorched_root_path,broken outer roots,разбитые внешние корни,mods/Berserk/00_flora_treehouse_details.json,t_dirt,t_dirt,,vanilla fallback: t_dirt
+terrain,t_berserk_flora_spiritual_trunk,great spiritual tree,великое духовное дерево,mods/Berserk/00_flora_treehouse_details.json,t_tree,t_tree,,vanilla fallback: t_tree
+terrain,t_berserk_flora_wood_floor,worn sanctuary floorboards,потёртые половицы дома Флоры,mods/Berserk/00_flora_treehouse_details.json,t_floor,t_floor_primitive,,vanilla fallback: t_floor
+terrain,t_berserk_flora_woven_rug,woven hearth rug,тканый ковёр у очага,mods/Berserk/00_flora_treehouse_details.json,t_carpet_yellow,t_carpet_yellow,,vanilla fallback: t_carpet_yellow
+terrain,t_berserk_grunbeld_cover,broken stone bulwark,обломок каменного укрепления,mods/Berserk/00_grunbeld_stronghold_details.json,t_stone_masonry_wall_whitewashed,t_stone_masonry_wall_whitewashed,,vanilla fallback: t_stone_masonry_wall_whitewashed
+terrain,t_berserk_grunbeld_flagstones,garrison flagstones,плиты гарнизонного пола,mods/Berserk/00_grunbeld_stronghold_details.json,t_rock_floor,t_rock_floor,,vanilla fallback: t_rock_floor
+terrain,t_berserk_grunbeld_quarry_floor,uneven quarry bed,неровное дно карьера,mods/Berserk/00_grunbeld_stronghold_details.json,t_rock_floor,t_rock_floor,,vanilla fallback: t_rock_floor
+terrain,t_berserk_grunbeld_scorched_court,scorched inner courtyard,обгоревший внутренний двор,mods/Berserk/00_grunbeld_stronghold_details.json,t_rock_floor,t_rock_floor,,vanilla fallback: t_rock_floor
+terrain,t_berserk_grunbeld_scorched_inside,scorched smithy floor,обгоревший пол кузницы,mods/Berserk/00_grunbeld_stronghold_details.json,t_rock_floor,t_rock_floor,,vanilla fallback: t_rock_floor
+terrain,t_berserk_grunbeld_wall,breached fortress masonry,пробитая крепостная кладка,mods/Berserk/00_grunbeld_stronghold_details.json,t_stone_masonry_wall_whitewashed,t_stone_masonry_wall_whitewashed,,vanilla fallback: t_stone_masonry_wall_whitewashed
+terrain,t_berserk_hunt_hollow,trampled hollow soil,вытоптанная земля низины,mods/Berserk/furniture/hunt_site_surfaces.json,t_dirt,t_dirt,,vanilla fallback: t_dirt
+terrain,t_berserk_mistvale_gully,shallow forest gully,неглубокий лесной овраг,mods/Berserk/00_hunt_location_details.json,t_dirt,t_dirt,,vanilla fallback: t_dirt
+terrain,t_berserk_mistvale_petals,petal-strewn forest soil,лесная почва под лепестками,mods/Berserk/00_hunt_location_details.json,t_grass,t_dirt,,vanilla fallback: t_grass
+terrain,t_berserk_rosine_giant_trunk,Mistvale giant tree,гигантское дерево Туманной долины,mods/Berserk/00_hunt_location_details.json,t_tree,t_tree,,vanilla fallback: t_tree
+terrain,t_berserk_rosine_root_screen,interwoven Mistvale roots,переплетённые корни Туманной долины,mods/Berserk/00_hunt_location_details.json,t_tree,t_tree,,vanilla fallback: t_tree
+ITEM,tainted_flesh,Tainted Flesh,Загрязнённая плоть,mods/Berserk/monsterdrops/beast_drops.json,,,,no explicit mod art reference in this definition
+ITEM,true_guts_early_sword,Guts' Early True Sword,Ранний истинный меч Гатса,mods/Berserk/items/true_guts_early_sword.json,zweihander,mc_zweihander,,vanilla fallback: zweihander
+ITEM,true_guts_sword,Guts' True Sword,Истинный меч Гатса,mods/Berserk/items/true_guts_sword.json,,,"true_guts_sword.png [32x32; offset 0,0]","true_guts_sword.png [32x32; offset 0,0]"
+ITEM,void_crystal,Void Crystal,Кристалл Войда,mods/Berserk/items/void_crystal.json,,,,no explicit mod art reference in this definition

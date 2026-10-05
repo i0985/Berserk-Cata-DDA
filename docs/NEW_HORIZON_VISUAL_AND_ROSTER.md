@@ -1,21 +1,78 @@
-# New Horizon: Eclipse art and encounter roster
+# New Horizon 3.0 — визуал и реестр персонажей
 
-Target: CDDA `0.I-1` (`7b2efa5cea38e4d4d97dd0e63b28b9148623da59`). This is a design register, not a claim that the artwork or attacks below are already implemented.
+Целевая версия: CDDA `0.I-1`, тег `7b2efa5cea38e4d4d97dd0e63b28b9148623da59`.
+Рамка адаптации: [NEW_HORIZON_DESIGN.md](NEW_HORIZON_DESIGN.md).
+Реестр встреч: [NEW_HORIZON_ENCOUNTERS.md](NEW_HORIZON_ENCOUNTERS.md).
+Контрольная ветка: `codex/3.0-before-location-content`, коммит `e3e54b5`.
 
-## Roster before adding more bosses
+## Персонажи
 
-| Category | Characters and existing content | Intended role |
+| Категория | Содержание | Правило |
 | --- | --- | --- |
-| Manga story, present or represented at the Eclipse | Guts, Griffith/Femto, Skull Knight, Judeau, Pippin, Corkus, Gaston, sacrificial crowd; God Hand as distant presences | Dialogue, remains, ritual staging. God Hand are separate from apostles and are not ordinary enemies. |
-| Adaptation for this mod | The six-area trial, pre-Eclipse projections of Zodd/Griffith/Void, flesh terrain, named remains and memories | Establish a playable path without claiming that killing a projection kills the original. Existing `mon_void_apostle` ID stays for saved games despite its misleading historical name. |
-| Ordinary dungeon creatures | `mon_berserk_eclipse_wretch`, `halfbreed`, `hunter`, `butcher`, `elite` | Scalable encounters and navigation pressure. They are not named manga apostles. |
-| Potential later named encounters | Any additional manga apostle, one at a time after checking their appearance and role in the source | Separate design, art, weakness, drop and balance pass. Zodd is not automatically placed in this Eclipse. |
+| Сюжет Затмения | Гатс, Гриффит/Фемто, Рыцарь-Череп; останки Джудо, Пиппина, Коркуса и Гастона | Рикерта среди тел нет. Рука Бога отличается от апостолов. |
+| Проекции | Лабораторные Зодд, Гриффит и Войд | Разрушение проявления не убивает оригинал. Исторические ID сохранены, включая `mon_void_apostle`. |
+| Оригиналы в изменённой хронологии | Граф, Уайлд, Розина, Грюнбельд, Зодд | Столкновение миров изменило судьбы. Уайлд выжил; после Затмения встречается живой оригинал. Это адаптация, не хронология манги. |
+| Мирная фигура | Флора | Ведьма у духовного дерева. Жизнь, защита и знания должны читаться в её доме. |
+| Авторское содержание | Полудемоны, хранители, дуб, пещера, часовня, экспедиция, первая охота, прорывы, крепость, реликвии | Игровые конструкции мода. Будущая крепость может использовать геометрию замка CDDA со средневековым содержимым. |
 
-The prototype roles can use the existing wretch/halfbreed for a **pack devourer**, hunter for a **herder**, and butcher/elite for a **heavy executioner**. These are encounter roles, not a decision to rename existing IDs. First test one visible warning and a real player turn before a heavy strike. `0.I-1` documents targeting warnings and `targeting_cost` for *gun* monster attacks; that does not prove a generic melee windup. A log message alone is insufficient. Confirm the chosen special attack and effect timing in source and in a small encounter before extending it to all three roles. Evaluate zombies, NPCs, doorways, and whether the warning remains visible in UltiCa.
+Финальный противник Затмения называется проявлением Гриффита. Альтернативная победа разрушает проявление ритуала, а не убивает члена Руки Бога. В этом этапе изменены тексты; новый исход боя не создаётся.
 
-## Visual work in two stages
+## Карта и освещение
 
-1. Paint individual 32 px terrain sprites and multi-cell arrangements for living ground, boundaries, pits, distant silhouettes and sacrificial debris. Introduce several surface variants and deliberate light source positions, then check all six OMT joins and route readability at several zoom levels. Current `mapgen/eclipse_palettes.json` uses ordinary `light_emitted: 80` on `t_berserk_eclipse_luminous_flesh`; its `color: red` is an ASCII/tile appearance setting, not a colored light source.
-2. Isolate a colored-light experiment in a tiny test map. In the `0.I-1` tag, field types visibly separate `color` from `light_emitted`, and the inspected renderer's lighting tint code does not demonstrate a JSON-defined RGB source. Do not add an unverified light-color field to the release. Pin the exact game build with support, test UltiCa and save/load, and only then consider migrating a proven technique to the Eclipse. The 0.I-1 layout can still achieve contrast with ordinary illumination and sprites.
+Расширенная карта Затмения — **3 × 4 OMT (12 клеток глобальной карты)** на техническом подземном уровне. Шесть названий участков описывают прохождение, а не шесть отдельных OMT. Старая техническая карта и ID остаются для сохранений.
 
-Suggested order: layout readability → sprite sheet previews → six-area playthrough → single telegraphed enemy → colored-light experiment. Keep art and combat prototypes in a separate test build until visual checks are possible.
+Подземное пространство можно оформить как открытое жертвенное поле, но это не создаёт настоящее небо. Средства оформления: разные поверхности, складки земли, провалы, следы отряда, крупные композиции, тёмные края и читаемый маршрут. Формы пересекают стыки OMT.
+
+В `0.I-1` цвет символа/спрайта отличается от цвета света. `light_emitted` даёт обычное освещение. JSON-механизм RGB-источников здесь не подтверждён: непроверенные поля не добавляются. Цветной свет остаётся отдельным прототипом на установленной совместимой версии игры.
+
+Позже проверить UltiCa на нескольких масштабах: переходы между OMT, читаемость пути и угроз, контраст краёв, освещение. Новое содержимое сейчас в игре не проверено.
+
+## Проклятый дуб: первый визуальный участок
+
+Дуб остаётся 24 × 24. Бехелит — `(12,12)`, подвеска — `(1,22)`; координаты с нуля. Новые клетки ствола и корней закрывают обзор, оставляя проходы.
+
+Ствол занимает восемь клеток композиции 3 × 3; нижний центральный карман оставлен для реликвии:
+
+| Положение | Координата | ID мебели |
+| --- | --- | --- |
+| Северо-запад | 11,10 | `f_berserk_oak_trunk_nw` |
+| Север | 12,10 | `f_berserk_oak_trunk_n` |
+| Северо-восток | 13,10 | `f_berserk_oak_trunk_ne` |
+| Запад | 11,11 | `f_berserk_oak_trunk_w` |
+| Центр | 12,11 | `f_berserk_oak_great_trunk` |
+| Восток | 13,11 | `f_berserk_oak_trunk_e` |
+| Юго-запад | 11,12 | `f_berserk_oak_trunk_sw` |
+| Нижний центральный проход | 12,12 | Существующий тайник Бехелита |
+| Юго-восток | 13,12 | `f_berserk_oak_trunk_se` |
+
+Для UltiCa можно нарисовать композицию **96 × 96 пикселей**, затем экспортировать восемь частей по **32 × 32**. Не ужимать весь дуб до одной клетки; проход должен читаться. Новые PNG в этой итерации не добавлены: временно используются существующие изображения через `looks_like`.
+
+### Очередь спрайтов
+
+| Объект | ID / набор | Изображение |
+| --- | --- | --- |
+| Большой ствол | Восемь ID выше | Единый силуэт и согласованные края частей |
+| Плотные корни | `f_berserk_oak_root_wall` | Непроходимая преграда, отличимая от земли |
+| След телеги | `f_berserk_oak_cart_tracks` | Колеи и старые обломки |
+| Телега и свёрток | `f_berserk_location_oak_cart`, суффикс `_empty` | Полный свёрток и пустая обвязка |
+| Остатки костра | `f_berserk_location_oak_camp`, `_empty` | Костёр и вещи; изменение после обыска |
+| Привязанный оберег | `f_berserk_location_oak_ward`, `_empty` | Узел на корне; после снятия остаётся шнурок |
+| Общий дорожный свёрток | `f_berserk_location_medieval_bundle`, `_empty` | Ткань и верёвка; пока не расставлен на остальных картах |
+| Переносимые свидетельства | `berserk_oak_broken_rootcutter`, `berserk_oak_wayfarer_ward`, `berserk_oak_last_note` | Кованый сломанный инструмент, личный оберег, рукописная запись |
+| Тетрадь Флоры | `berserk_flora_herbal_folio` | Рукописные заметки об уходе за домом |
+
+Подвеска и тайник Бехелита сохраняют прежние ID и настройки. Записи не усиливают характеристики и не служат обязательными ключами. Пустой тайник означает конечный лут, а не исчезновение корней или хранителя.
+
+## Последующие участки
+
+Пещера — объём, укрытия и следы в глубине. Часовня — неф, алтарь, колокольня и боковой путь. Экспедиция — палатки и современное снаряжение. Первое логово и прорыв — различные силуэты. Граф — власть, казни, слуги и следы Терезии. Уайлд — лагерь Чёрных Псов. Розина — ложный рай и коконы. Флора — обжитой дом, дерево и два выхода. Грюнбельд — занятый замок и следы осады.
+
+Дуб, пещера, часовня и экспедиция получили первую переработку данных. Новые карты и очередь спрайтов последних трёх мест описаны в [BEHELIT_SITE_DETAIL.md](BEHELIT_SITE_DETAIL.md). Детальная переработка остальных мест остаётся дальнейшей работой. Сначала согласуются комнаты и конечные находки, затем мебель и изображения. Спрайты и цветной свет не считаются уже реализованными.
+
+
+## Поле Затмения, итерация 4.5 — 2026-10-02
+
+Единая геометрия 72 × 96, три одноразовые сцены, четыре памятные вещи,
+пульсирующие жилы и предупреждение перед финалом подготовлены для игровой
+проверки. Размер и ID сохранены; уже созданные карты не перестраиваются.
+Подробности, ограничения и список рисунков: [ECLIPSE_FIELD_DETAIL.md](ECLIPSE_FIELD_DETAIL.md).

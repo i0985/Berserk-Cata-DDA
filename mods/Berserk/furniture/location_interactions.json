@@ -1,0 +1,261 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_oak_cart",
+    "name": "abandoned cart bundle",
+    "description": "A road bundle lies among split wooden wheels. A broken root-cutting tool protrudes from the cloth.",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "looks_like": "f_rubble",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_OAK_CART"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_oak_cart_empty",
+    "copy-from": "f_berserk_location_oak_cart",
+    "name": "searched bundle",
+    "description": "The wrapping has been opened and the contents removed.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_oak_camp",
+    "name": "cold campfire bundle",
+    "description": "Cold ashes surround a small cloth bundle. A handwritten scrap is tucked inside.",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "looks_like": "f_rubble",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_OAK_CAMP"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_oak_camp_empty",
+    "copy-from": "f_berserk_location_oak_camp",
+    "name": "searched bundle",
+    "description": "The wrapping has been opened and the contents removed.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_oak_ward",
+    "name": "ward tied to a root",
+    "description": "A carved bone and two cloth knots were tied to this root by someone who hoped to return.",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "looks_like": "f_rubble",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_OAK_WARD"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_oak_ward_empty",
+    "copy-from": "f_berserk_location_oak_ward",
+    "name": "bare cord on a root",
+    "description": "The personal ward has been untied. Only its fastening cord remains.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_medieval_bundle",
+    "name": "abandoned cloth provision bundle",
+    "description": "A cloth bundle holding a few old-fashioned provisions. It contains no modern equipment.",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "looks_like": "f_rubble",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_MEDIEVAL_BUNDLE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_medieval_bundle_empty",
+    "copy-from": "f_berserk_location_medieval_bundle",
+    "name": "searched bundle",
+    "description": "The wrapping has been opened and the contents removed.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_great_trunk",
+    "name": "ancient oak trunk",
+    "description": "A massive section of the old oak. Its twisted trunk forms a solid screen around the root pocket.",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "looks_like": "f_rubble",
+    "flags": [
+      "FLAMMABLE_HARD"
+    ],
+    "bash": {
+      "str_min": 16,
+      "str_max": 48,
+      "sound": "crack!",
+      "sound_fail": "whump.",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        },
+        {
+          "item": "stick",
+          "count": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_root_wall",
+    "name": "knotted oak roots",
+    "description": "Thick roots rise into a barrier. Gaps between the clusters lead around the center.",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "looks_like": "f_rubble",
+    "flags": [
+      "FLAMMABLE_HARD"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 24,
+      "sound": "crack!",
+      "sound_fail": "whump.",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        },
+        {
+          "item": "stick",
+          "count": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_cart_tracks",
+    "name": "old cart tracks",
+    "description": "Deep wheel marks stop beside splintered wooden wheels. A cloth bundle rests nearby.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_OAK"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_trunk_nw",
+    "copy-from": "f_berserk_oak_great_trunk"
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_trunk_n",
+    "copy-from": "f_berserk_oak_great_trunk"
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_trunk_ne",
+    "copy-from": "f_berserk_oak_great_trunk"
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_trunk_w",
+    "copy-from": "f_berserk_oak_great_trunk"
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_trunk_e",
+    "copy-from": "f_berserk_oak_great_trunk"
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_trunk_sw",
+    "copy-from": "f_berserk_oak_great_trunk"
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_oak_trunk_se",
+    "copy-from": "f_berserk_oak_great_trunk"
+  }
+]

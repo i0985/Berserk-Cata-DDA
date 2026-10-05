@@ -1,0 +1,36 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ARMOR_SHADOW_ARRIVED",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_armor_spawned_total += 1"
+        ]
+      },
+      {
+        "set_string_var": "spawned",
+        "target_var": {
+          "u_val": "berserk_armor_spawn_status"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ARMOR_SHADOW_NO_CELL",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_armor_no_cell_total += 1"
+        ]
+      },
+      {
+        "set_string_var": "no_cell",
+        "target_var": {
+          "u_val": "berserk_armor_spawn_status"
+        }
+      }
+    ]
+  }
+]

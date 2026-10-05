@@ -8,7 +8,7 @@
       "str": "Flora's root guardian",
       "str_pl": "Flora's root guardians"
     },
-    "description": "A knot of living roots raised by Flora outside her sanctuary. It holds its ground to delay the attackers, buying you time to escape. It will not attack you or your companions.",
+    "description": "A knot of living roots raised by Flora outside her sanctuary. Its branches brace against the earth as it bars the attackers' advance. The guardian leaves you and your companions unharmed.",
     "default_faction": "berserk_flora_guardians",
     "hp": 280,
     "speed": 90,
@@ -35,7 +35,7 @@
     "name": {
       "str_sp": "Nosferatu Zodd, attacker of the grove"
     },
-    "description": "The real Zodd has come to destroy Flora's sanctuary. Root guardians delay him at the northern ward. You are meant to escape, but if you kill him his death is recorded for future stories.",
+    "description": "Nosferatu Zodd forces his way through the northern roots of Flora's sanctuary. Every blow shakes the living barrier. This is the apostle himself, bearing down on the defenders with the weight of centuries of battle.",
     "default_faction": "berserk_flora_attackers",
     "death_function": {
       "eoc": "EOC_BERSERK_FLORA_ZODD_DIES"
@@ -49,7 +49,7 @@
     "name": {
       "str_sp": "Grunbeld, attacker of the grove"
     },
-    "description": "A towering armored apostle whose advance crushes the eastern ward. This encounter shows Grunbeld in his armored form, not his later dragon battle. Slow movement gives you a chance to escape. Killing him is optional and is recorded as the death of the original, not a projection.",
+    "description": "A towering armored apostle whose measured advance crushes the eastern ward. Grunbeld's heavy steps grind roots into the earth; his hammer can shatter the protection they offer. The spaces between his blows may be your chance to get clear.",
     "default_faction": "berserk_flora_attackers",
     "hp": 850,
     "speed": 80,
@@ -82,9 +82,51 @@
       "ATTACKMON"
     ],
     "special_attacks": [],
-    "death_drops": "berserk_grunbeld_relic_drops",
+    "death_drops": "EMPTY_GROUP",
     "death_function": {
       "eoc": "EOC_BERSERK_FLORA_GRUNBELD_DIES"
     }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_flora_raider",
+    "copy-from": "mon_berserk_eclipse_wretch",
+    "looks_like": "mon_berserk_eclipse_wretch",
+    "name": {
+      "str": "demon raider",
+      "str_pl": "demon raiders"
+    },
+    "description": "A hunched demon forcing its way through the broken roots. It follows the attackers into the grove, tearing at the defenders before turning on anyone left behind.",
+    "default_faction": "berserk_flora_attackers",
+    "special_attacks": [],
+    "death_drops": "EMPTY_GROUP",
+    "flags": [
+      "SEES",
+      "HEARS",
+      "WARM",
+      "BASHES",
+      "ATTACKMON"
+    ]
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_flora_reaver",
+    "copy-from": "mon_berserk_eclipse_halfbreed",
+    "looks_like": "mon_berserk_eclipse_halfbreed",
+    "name": {
+      "str": "demon reaver",
+      "str_pl": "demon reavers"
+    },
+    "description": "A thick-limbed half-demon advancing behind the raiders. Ash clings to its hide as it drives the assault deeper into the grove.",
+    "default_faction": "berserk_flora_attackers",
+    "special_attacks": [],
+    "death_drops": "EMPTY_GROUP",
+    "flags": [
+      "SEES",
+      "HEARS",
+      "WARM",
+      "BASHES",
+      "ATTACKMON"
+    ]
   }
 ]

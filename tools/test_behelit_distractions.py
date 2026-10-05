@@ -78,7 +78,7 @@ def path(rows, start, goal):
             return True
         for dx,dy in ((0,1),(0,-1),(1,0),(-1,0)):
             nxt = x+dx,y+dy
-            if 0 <= nxt[0] < width and 0 <= nxt[1] < height and nxt not in seen and rows[nxt[1]][nxt[0]] not in '#T':
+            if 0 <= nxt[0] < width and 0 <= nxt[1] < height and nxt not in seen and rows[nxt[1]][nxt[0]] not in '#TKRB':
                 seen.add(nxt)
                 q.append(nxt)
     return False
@@ -155,7 +155,7 @@ class DistractionTests(unittest.TestCase):
             self.assertEqual(m.events,[])
 
     def test_json_uses_supported_queue_and_exact_cell_transform_contract(self):
-        defs = {o['id']:o for o in load('furniture/behelit_distractions.json')}
+        defs = {o['id']:o for file in ('furniture/behelit_sites.json','furniture/behelit_distractions.json') for o in load(file)}
         reset = defs['berserk_noisemakers_reset']['furniture']
         self.assertEqual(len(reset),4)
         for site in SITES:
@@ -177,7 +177,9 @@ class DistractionTests(unittest.TestCase):
             self.assertEqual(sound['type'],'alarm')
             self.assertFalse(sound['ambient'])
             self.assertGreaterEqual(sound['volume'],45)
-            self.assertEqual(defs[armed]['copy-from'],idle)
+            self.assertNotIn('copy-from',defs[armed])
+            self.assertEqual(defs[armed]['required_str'],defs[idle]['required_str'])
+            self.assertEqual(defs[armed]['move_cost_mod'],defs[idle]['move_cost_mod'])
             self.assertEqual(defs[armed]['examine_action']['effect_on_conditions'],['EOC_BERSERK_DISTRACTION_BUSY'])
             for rule in defs[f'berserk_{site}_noisemaker_arm']['furniture']:
                 self.assertEqual(rule,{'result':armed,'valid_furniture':[idle],'valid_flags':[]})
@@ -220,14 +222,14 @@ class DistractionTests(unittest.TestCase):
         for left,right in [('berserk_echo_cave_depth','berserk_echo_cave_gallery'),('berserk_echo_cave_passage','berserk_echo_cave_relic_chamber')]:
             cave.extend([a+b for a,b in zip(maps[left],maps[right])])
         chapel = maps['berserk_desecrated_chapel_reliquary'] + maps['berserk_desecrated_chapel_nave']
-        for rows,guard,approach in ((maps['berserk_cursed_oak'],(12,9),(12,11)),(cave,(36,34),(36,28)),(chapel,(12,9),(12,5)),(maps['berserk_lost_expedition'],(18,9),(18,7))):
+        for rows,guard,approach in ((maps['berserk_cursed_oak'],(12,9),(12,13)),(cave,(39,35),(36,28)),(chapel,(12,12),(12,5)),(maps['berserk_lost_expedition'],(20,8),(18,7))):
             sources = [(x,y) for y,row in enumerate(rows) for x,c in enumerate(row) if c=='N']
             relic = next((x,y) for y,row in enumerate(rows) for x,c in enumerate(row) if c=='A')
             self.assertTrue(sources)
             for x,y in sources:
                 self.assertGreater(max(abs(x-relic[0]),abs(y-relic[1])),8)
                 self.assertTrue(path(rows,guard,(x,y)))
-                self.assertTrue(any(rows[ly][lx]=='#' for lx,ly in line(guard,(x,y))),
+                self.assertTrue(any(rows[ly][lx] in '#TRK' for lx,ly in line(guard,(x,y))),
                                 f'missing opaque screen on initial guardian-to-device line: {(x,y)}')
                 neighbours = [(x+dx,y+dy) for dx,dy in ((1,0),(-1,0),(0,1),(0,-1)) if 0<=x+dx<len(rows[0]) and 0<=y+dy<len(rows) and rows[y+dy][x+dx] not in '#TN']
                 self.assertTrue(any(path(rows,guard,n) for n in neighbours))
@@ -238,14 +240,18 @@ class DistractionTests(unittest.TestCase):
         for site in SITES:
             self.assertEqual(furniture[f'f_berserk_{site}_noisemaker']['move_cost_mod'],0)
 
-    def test_camp_uses_canvas_not_house_walls_and_open_doors(self):
+    def test_camp_uses_canvas_terrain_under_furniture_and_tent_flaps(self):
         camp = next(o for o in load('mapgen/behelit_site_palettes.json') if o.get('id')=='berserk_expedition_site_palette')
         self.assertEqual(camp['furniture']['#'],'f_canvas_wall')
-        self.assertEqual(camp['furniture']['_'],'f_canvas_floor')
+        self.assertNotIn('_',camp['furniture'])
+        for key in ('_', '?', 'A', 'r'):
+            self.assertEqual(camp['terrain'][key],'t_berserk_expedition_groundsheet')
         self.assertEqual(camp['furniture']['+'],'f_canvas_door_o')
-        self.assertEqual(camp['terrain']['#'],'t_grass')
+        self.assertEqual(camp['terrain']['#'],'t_berserk_expedition_groundsheet')
+        self.assertEqual(camp['furniture']['D'],'f_canvas_door')
         rows = next(o['object']['rows'] for o in load('mapgen/behelit_sites.json') if o.get('om_terrain')==['berserk_lost_expedition'])
-        self.assertEqual(sum(row.count('+') for row in rows),4)
+        self.assertEqual(sum(row.count('+') for row in rows),3)
+        self.assertEqual(sum(row.count('D') for row in rows),1)
 
 
 if __name__ == '__main__':

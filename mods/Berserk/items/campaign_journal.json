@@ -1,0 +1,30 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_campaign_journal",
+    "name": {
+      "str": "journal of the road after the Eclipse"
+    },
+    "description": "A concise record of refuge, Flora and the independent hunts. Activate for current actions, remaining rewards and the limits of local quiet. Existing mission targets are preserved.",
+    "material": [
+      "paper"
+    ],
+    "weight": "25 g",
+    "volume": "50 ml",
+    "symbol": "?",
+    "color": "brown",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_CAMPAIGN_REPORT"
+      ]
+    }
+  }
+]

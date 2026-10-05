@@ -174,7 +174,8 @@ class FirstHuntMission(unittest.TestCase):
         search = g.eocs['EOC_BERSERK_FIRST_HUNT_LOCATE']['effect'][-1]['target_params']
         self.assertEqual((search['min_distance'], search['search_range']), (8, 16))
         self.assertTrue(search['cant_see'])
-        self.assertNotIn('om_special', search)
+        self.assertEqual(search['om_special'], 'berserk_first_hunt_special')
+        self.assertNotIn('om_terrain_replace',search)
 
     def test_new_text_is_translated_in_compiled_catalogs(self):
         sources = set()

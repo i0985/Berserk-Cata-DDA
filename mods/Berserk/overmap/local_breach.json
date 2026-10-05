@@ -7,14 +7,30 @@
     "color": "red",
     "see_cost": "high",
     "travel_cost_type": "forest",
-    "flags": [ "NO_ROTATE" ]
+    "flags": [
+      "NO_ROTATE"
+    ]
   },
   {
     "type": "overmap_special",
     "id": "berserk_local_breach_special",
-    "overmaps": [ { "point": [ 0, 0, 0 ], "overmap": "berserk_local_breach" } ],
-    "locations": [ "forest" ],
-    "occurrences": [ 0, 0 ],
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_local_breach"
+      }
+    ],
+    "locations": [
+      "wilderness"
+    ],
+    "occurrences": [
+      0,
+      0
+    ],
     "rotate": false
   }
 ]

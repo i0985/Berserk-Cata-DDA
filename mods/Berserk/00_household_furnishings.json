@@ -1,0 +1,365 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_linen_armchair",
+    "name": "linen-cushioned wooden armchair",
+    "description": "Linen cushions soften a pegged wooden frame beside the hearth or a reading desk.",
+    "looks_like": "f_armchair",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": 1,
+    "required_str": 8,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM",
+      "MOUNTABLE",
+      "CAN_SIT"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        },
+        {
+          "item": "scrap_cotton",
+          "count": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        },
+        {
+          "item": "scrap_cotton",
+          "count": [
+            2,
+            4
+          ]
+        }
+      ]
+    },
+    "comfort": 3,
+    "floor_bedding_warmth": 500
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_low_table",
+    "name": "low wooden tea table",
+    "description": "A low pegged table stands between the hearth chairs, clear of the doorway.",
+    "looks_like": "f_coffee_table",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": 2,
+    "required_str": 8,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM",
+      "MOUNTABLE",
+      "FLAT_SURF"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_pegged_table",
+    "name": "pegged wooden table",
+    "description": "Hand-cut boards and wooden joints form a plain dining or writing table.",
+    "looks_like": "f_table",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": 2,
+    "required_str": 8,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM",
+      "MOUNTABLE",
+      "FLAT_SURF"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    "examine_action": "workbench",
+    "crafting_pseudo_item": "medium_surface_pseudo",
+    "workbench": {
+      "multiplier": 1.1,
+      "mass": 200000,
+      "volume": "75 L"
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_wooden_worktop",
+    "name": "heavy wooden worktop",
+    "description": "A thick timber surface supports fitting, mending and hand tools.",
+    "looks_like": "f_counter",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": 2,
+    "required_str": 8,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM",
+      "MOUNTABLE",
+      "FLAT_SURF"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    },
+    "examine_action": "workbench",
+    "crafting_pseudo_item": "medium_surface_pseudo",
+    "workbench": {
+      "multiplier": 1.1,
+      "mass": 200000,
+      "volume": "75 L"
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_wooden_cupboard",
+    "name": "pegged clothes cupboard",
+    "description": "Wooden doors enclose shelves for linen and a guest's belongings.",
+    "looks_like": "f_dresser",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": 8,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM",
+      "CONTAINER"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_wooden_crate",
+    "name": "wooden work crate",
+    "description": "A rough box joined with wooden pegs holds materials beside a working place.",
+    "looks_like": "f_crate_o",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": 8,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH",
+      "PLACE_ITEM",
+      "CONTAINER"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_garden_arch",
+    "name": "open garden wicket",
+    "description": "The wicket is tied open beneath a low wooden arch. The garden path continues south.",
+    "looks_like": "f_sign",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": 8,
+    "flags": [
+      "TRANSPARENT",
+      "ORGANIC",
+      "FLAMMABLE_ASH"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 30,
+      "sound": "crack!",
+      "sound_fail": "thump!",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            6
+          ]
+        }
+      ]
+    },
+    "deconstruct": {
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            4,
+            8
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_stone_hearth",
+    "copy-from": "f_fireplace_stone",
+    "name": "sanctuary stone hearth",
+    "description": "A stone hearth warms the reception room. Its chimney follows the outer timber wall.",
+    "looks_like": "f_fireplace_stone",
+    "light_emitted": 6
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_flora_treehouse_threshold_v2",
+    "copy-from": "f_berserk_flora_treehouse_threshold",
+    "name": "woven threshold beside the roots",
+    "description": "The welcome mat lies on the reception-room rug. A corridor leads to the two guest rooms."
+  }
+]

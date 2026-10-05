@@ -40,7 +40,9 @@
     "effect": "attack",
     "shape": "line",
     "valid_targets": [
-      "ground"
+      "ground",
+      "hostile",
+      "ally"
     ],
     "min_damage": 0,
     "max_damage": 0,
@@ -71,7 +73,9 @@
     "effect": "attack",
     "shape": "line",
     "valid_targets": [
-      "ground"
+      "ground",
+      "hostile",
+      "ally"
     ],
     "min_damage": 36,
     "max_damage": 36,

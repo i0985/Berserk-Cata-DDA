@@ -30,7 +30,7 @@
     "type": "monster_attack",
     "id": "berserk_wyald_b_prepare",
     "attack_type": "spell",
-    "cooldown": 18,
+    "cooldown": 10,
     "spell_data": {
       "id": "berserk_committed_wyald_prepare",
       "min_level": 0
@@ -64,7 +64,7 @@
         }
       ]
     },
-    "monster_message": "Wyald lowers his body for a rush! Move sideways from the marked path; he charges in three seconds!"
+    "monster_message": "Wyald lowers his body for a rush! Move sideways from the marked path; he charges in two seconds!"
   },
   {
     "type": "monster_attack",
@@ -131,6 +131,6 @@
         }
       ]
     },
-    "monster_message": "Rosine folds her wings for a dive! Move sideways from the marked path before she dives in three seconds!"
+    "monster_message": "Rosine folds her wings for a dive! Leave the marked line now: she dives in one second!"
   }
 ]

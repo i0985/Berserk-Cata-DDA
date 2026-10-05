@@ -1,0 +1,288 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_feast_one",
+    "name": "blood-soaked feeding hollow",
+    "description": "Wet tearing sounds come from behind the fold. Approaching the victims may draw the feeders out.",
+    "looks_like": "f_rubble",
+    "symbol": "*",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_feast_one_spent",
+    "name": "abandoned feeding tracks",
+    "description": "Wet tracks lead out of the hollow. The abandoned remains no longer move.",
+    "looks_like": "f_rubble",
+    "symbol": "*",
+    "color": "dark_gray",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_feast_two",
+    "name": "blood-soaked feeding hollow",
+    "description": "Wet tearing sounds come from behind the fold. Approaching the victims may draw the feeders out.",
+    "looks_like": "f_rubble",
+    "symbol": "*",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_feast_two_spent",
+    "name": "abandoned feeding tracks",
+    "description": "Wet tracks lead out of the hollow. The abandoned remains no longer move.",
+    "looks_like": "f_rubble",
+    "symbol": "*",
+    "color": "dark_gray",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_feast_three",
+    "name": "blood-soaked feeding hollow",
+    "description": "Wet tearing sounds come from behind the fold. Approaching the victims may draw the feeders out.",
+    "looks_like": "f_rubble",
+    "symbol": "*",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_feast_three_spent",
+    "name": "abandoned feeding tracks",
+    "description": "Wet tracks lead out of the hollow. The abandoned remains no longer move.",
+    "looks_like": "f_rubble",
+    "symbol": "*",
+    "color": "dark_gray",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_side_hunter",
+    "name": "fresh tracks into a fold",
+    "description": "A lone hunter circles beyond the fold. The wide path bypasses its tracks.",
+    "looks_like": "f_rubble",
+    "symbol": "*",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_side_hunter_spent",
+    "name": "abandoned feeding tracks",
+    "description": "Wet tracks lead out of the hollow. The abandoned remains no longer move.",
+    "looks_like": "f_rubble",
+    "symbol": "*",
+    "color": "dark_gray",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_shortcut_block",
+    "name": "taut flesh diaphragm",
+    "description": "A thin sheet closes the short passage. Its loose edge can be pulled aside from the adjacent scar.",
+    "looks_like": "t_concrete_wall_flesh",
+    "symbol": "#",
+    "color": "red",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_shortcut_edge",
+    "name": "loose edge of the diaphragm",
+    "description": "Pull the loose tissue aside to connect this branch to the main trail.",
+    "looks_like": "f_rubble",
+    "symbol": "*",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_SHORTCUT_OPEN"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_shortcut_opened",
+    "name": "opened flesh passage",
+    "description": "The diaphragm has been pulled aside. This shortcut stays open.",
+    "looks_like": "f_rubble",
+    "symbol": "*",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_vein_north",
+    "name": "great luminous artery",
+    "description": "A slow heartbeat rises through this exposed artery. The nearby light swells and fades.",
+    "looks_like": "t_thconc_floor_flesh",
+    "symbol": "*",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_vein_feast",
+    "name": "great luminous artery",
+    "description": "A slow heartbeat rises through this exposed artery. The nearby light swells and fades.",
+    "looks_like": "t_thconc_floor_flesh",
+    "symbol": "*",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_vein_ceremony",
+    "name": "great luminous artery",
+    "description": "A slow heartbeat rises through this exposed artery. The nearby light swells and fades.",
+    "looks_like": "t_thconc_floor_flesh",
+    "symbol": "*",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_ceremony_warning",
+    "name": "last scar before the ceremony",
+    "description": "The ash trail ends at the silent center. Approach only when ready for the final confrontation.",
+    "looks_like": "f_rubble",
+    "symbol": "*",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_ceremony_warned",
+    "name": "crossed ceremony scar",
+    "description": "The final gathering lies beyond this scar.",
+    "looks_like": "f_rubble",
+    "symbol": "*",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_cache_one",
+    "name": "claw marks behind the baggage",
+    "description": "Claws have raked the ground behind the ruined cart. From the other side of the fold comes the scrape of something moving among the dead.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_cache_one_spent",
+    "name": "empty furrow behind the baggage",
+    "description": "A wet furrow leaves the hollow and curves around the fold. Torn cloth lies motionless in its wake.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_cache_two",
+    "name": "claw marks behind the baggage",
+    "description": "Claws have raked the ground behind the ruined cart. From the other side of the fold comes the scrape of something moving among the dead.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_cache_two_spent",
+    "name": "empty furrow behind the baggage",
+    "description": "A wet furrow leaves the hollow and curves around the fold. Torn cloth lies motionless in its wake.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  }
+]

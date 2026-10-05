@@ -6,38 +6,38 @@
     ],
     "object": {
       "rows": [
-        "TT.TT.TT.TT.TT.TT.TT.TTT",
-        "T......................T",
-        "T......................T",
-        "T....T.................T",
-        "T.......sssssssss......T",
-        "T......#sssTssss#s.pp..T",
-        "T...p.s#ssssssss#ss....T",
-        "T...p###ssssssss###s...T",
-        "T...sssssssssssssssss..T",
-        "T...sssssssssssssssss..T",
-        "T...TssssssssssssssTs..T",
-        "T..ssssssssssssssssss..T",
-        "T..ssssssssssssssssss..T",
-        "T..ssssssssssssssssss..T",
-        "T...TssssssssssssssTs..T",
-        "T...sssssssssssssssss..T",
-        "T...s###ssssssss###ss..T",
-        "T..p.ss#ssssssss#sss...T",
-        "T...p.s#ssssssss#ss....T",
-        "T......sssssTsssss..p..T",
-        "T.......sssssssss......T",
-        "T.................T....T",
-        "T......................T",
-        "TT.TT.TT.TT.TT.TT.TT.TTT"
+        "T..TTT..TTT..TTT..TTT..T",
+        ".u....................uT",
+        ".....................d.T",
+        "T....T.............T.d..",
+        "T.T..................d..",
+        "TudT...#........#....duT",
+        "..d...h#hhhhhhhh#h...d.T",
+        "..d..###hhhhhhhh###..d.T",
+        "T.d...hhhhhhhhhhhhh..d..",
+        "Tud..hhhhhhhhhhhhhhh.du.",
+        "T.d..hhhhhhhhhhhhhhh.d.T",
+        "..d..hhhhhhhhhhhhhhh.d.T",
+        "..d#.hhhhhhhhhhhhhhh#d.T",
+        "Tud#.hhhhhhhdhhhhhhh#du.",
+        "T.d###hhhhhhdhhhhhhh.d..",
+        "T.d..hhhhhhdhhhhhhhh.d.T",
+        "..d..###hhhdhhhh###..d.T",
+        ".uT...h#hhdhhhhh#h...duT",
+        "T.d....#hhdhhhhh#....d..",
+        "T.d.....dd...........d..",
+        "T.d..ddd.............d.T",
+        ".uddddddddddddddddddd.uT",
+        ".......................T",
+        "TTT..TTT..TTT..TTT..TTT."
       ],
       "terrain": {
-        ".": "t_dirt",
+        ".": "t_grass",
         "T": "t_tree",
         "#": "t_rock",
-        "s": "t_rock_floor",
-        "p": "t_pit_shallow",
-        "l": "t_dirt"
+        "u": "t_underbrush",
+        "h": "t_berserk_hunt_hollow",
+        "d": "t_dirt"
       },
       "place_monster": [
         {
@@ -58,55 +58,96 @@
           "y": 12
         },
         {
-          "furn": "f_rubble",
-          "x": 2,
-          "y": 13
-        },
-        {
-          "furn": "f_rubble",
-          "x": 3,
-          "y": 14
-        },
-        {
-          "furn": "f_rubble",
-          "x": 20,
-          "y": 10
-        },
-        {
-          "furn": "f_rubble",
-          "x": 21,
-          "y": 11
-        },
-        {
           "furn": "f_berserk_first_hunt_scene",
           "x": 4,
           "y": 11
         },
         {
-          "furn": "f_crate_o",
-          "x": 3,
+          "furn": "f_berserk_hunt_warning",
+          "x": 6,
+          "y": 10
+        },
+        {
+          "furn": "f_berserk_hunt_victims",
+          "x": 4,
           "y": 20
+        },
+        {
+          "furn": "f_berserk_location_hunt_shelter",
+          "x": 4,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_location_hunt_reward",
+          "x": 14,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_hunt_obscured_trail",
+          "x": 13,
+          "y": 14
+        },
+        {
+          "furn": "f_rubble",
+          "x": 3,
+          "y": 19
+        },
+        {
+          "furn": "f_rubble",
+          "x": 4,
+          "y": 19
+        },
+        {
+          "furn": "f_rubble",
+          "x": 5,
+          "y": 19
+        },
+        {
+          "furn": "f_rubble",
+          "x": 20,
+          "y": 4
+        },
+        {
+          "furn": "f_bench",
+          "x": 5,
+          "y": 21
+        }
+      ],
+      "place_item": [
+        {
+          "item": "scrap_leather",
+          "x": 4,
+          "y": 20,
+          "amount": 1
         }
       ],
       "place_loot": [
         {
-          "item": "bandages",
-          "x": 3,
-          "y": 20,
-          "chance": 100
-        },
-        {
-          "item": "water_clean",
-          "x": 3,
-          "y": 20,
+          "group": "berserk_location_worn_clothing",
+          "x": 5,
+          "y": 21,
           "chance": 100
         }
       ],
       "place_fields": [
         {
           "field": "fd_blood",
-          "x": 10,
+          "x": 5,
+          "y": 20,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 8,
           "y": 19,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 11,
+          "y": 16,
           "intensity": 1,
           "age": 0
         }

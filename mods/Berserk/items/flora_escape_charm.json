@@ -9,7 +9,7 @@
     "name": {
       "str_sp": "Flora's escape charm"
     },
-    "description": "Flora's token for a one-time escape. First speak to her in her manor and explicitly confirm readiness; receiving or wearing armor alone is not enough. An existing complete or packed suit has its own readiness response. Equip and pack before activating this charm in the registered manor. A confirmation starts the attack: guardians delay Zodd and Grunbeld while you escape through the western road or southern garden. It needs no power, does not teleport you and cannot restart a completed attack.",
+    "description": "A paper charm prepared by Flora for leaving her grove. Put on your armor and take what you need before activating it at her home. Awakening the charm is your decision to set out; there is no second confirmation. It needs no power and cannot repeat a journey already begun.",
     "weight": "1 g",
     "volume": "1 ml",
     "material": [
@@ -23,7 +23,7 @@
     ],
     "use_action": {
       "type": "effect_on_conditions",
-      "menu_text": "Begin the escape from Flora's manor",
+      "menu_text": "Awaken Flora's escape charm",
       "effect_on_conditions": [
         "EOC_BERSERK_FLORA_START_SIEGE"
       ]

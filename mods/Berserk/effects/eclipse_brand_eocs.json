@@ -94,19 +94,169 @@
           "not": {
             "test_eoc": "EOC_BERSERK_FLORA_NIGHT_QUIET"
           }
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_brand_night_next_attempt"
+          ]
         }
       ]
     },
-    "effect": {
-      "u_location_variable": {
-        "context_val": "berserk_near_shelter_ward"
+    "effect": [
+      {
+        "math": [
+          "u_berserk_brand_night_last_check = time('now')"
+        ]
       },
-      "furniture": "f_berserk_shelter_ward",
-      "target_max_radius": 8,
-      "false_eocs": [
-        "EOC_BERSERK_BRAND_NIGHT_HUNT_QUIET_CHECK"
-      ]
-    }
+      {
+        "math": [
+          "u_berserk_brand_night_requested = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_brand_night_attempted = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_brand_night_spawned = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_brand_night_next_attempt = time('now') + 3600"
+        ]
+      },
+      {
+        "set_string_var": "checking",
+        "target_var": {
+          "u_val": "berserk_brand_night_status"
+        }
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_near_shelter_ward"
+        },
+        "furniture": "f_berserk_shelter_ward",
+        "target_max_radius": 8,
+        "false_eocs": [
+          "EOC_BERSERK_BRAND_NIGHT_HUNT_QUIET_CHECK"
+        ],
+        "target_min_radius": -1,
+        "true_eocs": [
+          {
+            "id": "EOC_BERSERK_BRAND_NIGHT_WARD_QUIET",
+            "effect": {
+              "set_string_var": "shelter_ward",
+              "target_var": {
+                "u_val": "berserk_brand_night_status"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "false_effect": [
+      {
+        "math": [
+          "u_berserk_brand_night_last_check = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_brand_night_requested = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_brand_night_attempted = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_brand_night_spawned = 0"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+          }
+        },
+        "then": {
+          "set_string_var": "no_brand",
+          "target_var": {
+            "u_val": "berserk_brand_night_status"
+          }
+        },
+        "else": {
+          "if": {
+            "math": [
+              "berserk_eclipse_era != 1"
+            ]
+          },
+          "then": {
+            "set_string_var": "before_eclipse",
+            "target_var": {
+              "u_val": "berserk_brand_night_status"
+            }
+          },
+          "else": {
+            "if": {
+              "math": [
+                "u_val('pos_z') != 0"
+              ]
+            },
+            "then": {
+              "set_string_var": "underground",
+              "target_var": {
+                "u_val": "berserk_brand_night_status"
+              }
+            },
+            "else": {
+              "if": {
+                "math": [
+                  "u_berserk_eclipse_trial_active == 1"
+                ]
+              },
+              "then": {
+                "set_string_var": "eclipse_scene",
+                "target_var": {
+                  "u_val": "berserk_brand_night_status"
+                }
+              },
+              "else": {
+                "if": "is_day",
+                "then": {
+                  "set_string_var": "daylight",
+                  "target_var": {
+                    "u_val": "berserk_brand_night_status"
+                  }
+                },
+                "else": {
+                  "if": {
+                    "test_eoc": "EOC_BERSERK_FLORA_NIGHT_QUIET"
+                  },
+                  "then": {
+                    "set_string_var": "flora_ward",
+                    "target_var": {
+                      "u_val": "berserk_brand_night_status"
+                    }
+                  },
+                  "else": {
+                    "set_string_var": "hour_cooldown",
+                    "target_var": {
+                      "u_val": "berserk_brand_night_status"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -148,6 +298,12 @@
         },
         "then": {
           "run_eocs": "EOC_BERSERK_BRAND_NIGHT_HUNT_SPAWN"
+        },
+        "else": {
+          "set_string_var": "local_breach_quiet",
+          "target_var": {
+            "u_val": "berserk_brand_night_status"
+          }
         }
       },
       "else": {
@@ -163,25 +319,60 @@
         "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_COUNT_NEARBY"
       },
       {
+        "math": [
+          "u_berserk_brand_night_requested = min(3, max(0, 8 - berserk_era_nearby_count))"
+        ]
+      },
+      {
+        "set_string_var": "active_budget",
+        "target_var": {
+          "u_val": "berserk_brand_night_status"
+        }
+      },
+      {
         "if": {
           "math": [
-            "berserk_era_nearby_count < 8"
+            "u_berserk_brand_night_requested > 0"
           ]
         },
-        "then": {
-          "u_spawn_monster": "GROUP_BERSERK_ECLIPSE_ERA_CITY",
-          "group": true,
-          "single_target": true,
-          "real_count": 1,
-          "min_radius": 20,
-          "max_radius": 30,
-          "outdoor_only": true,
-          "true_eocs": [
-            "EOC_BERSERK_BRAND_DEMON_ARRIVAL"
-          ]
-        }
+        "then": [
+          {
+            "set_string_var": "no_outdoor_cell",
+            "target_var": {
+              "u_val": "berserk_brand_night_status"
+            }
+          },
+          {
+            "run_eocs": "EOC_BERSERK_BRAND_NIGHT_SPAWN_ONE"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_BRAND_NIGHT_SPAWN_ONE"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_BRAND_NIGHT_SPAWN_ONE"
+          },
+          {
+            "if": {
+              "math": [
+                "u_berserk_brand_night_spawned > 0"
+              ]
+            },
+            "then": [
+              {
+                "set_string_var": "spawned",
+                "target_var": {
+                  "u_val": "berserk_brand_night_status"
+                }
+              },
+              {
+                "run_eocs": "EOC_BERSERK_BRAND_DEMON_ARRIVAL"
+              }
+            ]
+          }
+        ]
       }
-    ]
+    ],
+    "//": "Three bounded one-monster requests permit exact success accounting. Count the entire 20-30 tile spawn ring, never refill inside the same hour. No forced target or sound from the hidden player."
   },
   {
     "type": "effect_on_condition",
@@ -212,7 +403,10 @@
         "mon_beast_of_darkness_4",
         "mon_beast_of_darkness_5",
         "mon_beast_of_darkness_6",
-        "mon_berserk_count_servant"
+        "mon_berserk_count_servant",
+        "mon_berserk_brand_wretch",
+        "mon_berserk_brand_halfbreed",
+        "mon_berserk_brand_hunter"
       ],
       "monster_range": 24
     }
@@ -293,7 +487,8 @@
         "mon_berserk_apostle_wyald",
         "mon_berserk_black_dog_thrall",
         "mon_berserk_apostle_rosine",
-        "mon_berserk_cocoon_ravager"
+        "mon_berserk_cocoon_ravager",
+        "mon_berserk_brand_butcher"
       ],
       "monster_range": 40
     }
@@ -353,6 +548,80 @@
       },
       {
         "run_eocs": "EOC_BERSERK_BRAND_NIGHT_HUNT_UNSHELTERED"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BRAND_NIGHT_SPAWN_ONE",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_brand_night_attempted < u_berserk_brand_night_requested"
+          ]
+        },
+        {
+          "math": [
+            "berserk_era_nearby_count < 8"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_brand_night_attempted += 1"
+        ]
+      },
+      {
+        "u_spawn_monster": "GROUP_BERSERK_BRAND_NIGHT",
+        "group": true,
+        "single_target": false,
+        "real_count": 1,
+        "min_radius": 20,
+        "max_radius": 30,
+        "outdoor_only": true,
+        "mon_variables": {
+          "berserk_spawn_source": "brand"
+        },
+        "true_eocs": [
+          {
+            "id": "EOC_BERSERK_BRAND_NIGHT_ONE_ARRIVED",
+            "effect": [
+              {
+                "math": [
+                  "u_berserk_brand_night_spawned += 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_brand_night_spawned_total += 1"
+                ]
+              },
+              {
+                "math": [
+                  "berserk_era_nearby_count += 1"
+                ]
+              },
+              {
+                "math": [
+                  "berserk_spawn_brand_nearby += 1"
+                ]
+              }
+            ]
+          }
+        ],
+        "false_eocs": [
+          {
+            "id": "EOC_BERSERK_BRAND_NIGHT_NO_CELL",
+            "effect": {
+              "math": [
+                "u_berserk_brand_night_no_cell_total += 1"
+              ]
+            }
+          }
+        ]
       }
     ]
   }

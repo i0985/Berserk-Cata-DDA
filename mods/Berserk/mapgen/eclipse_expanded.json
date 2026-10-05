@@ -6,30 +6,30 @@
     ],
     "object": {
       "rows": [
-        "########################",
-        "#..a.........a......a..#",
-        "#........a......a......#",
-        "#....a......a.........a#",
-        "#a..###.a.........a....#",
-        "#..#####......a......a.#",
-        "#..#####..a......a.....#",
-        "#..#####.....a.........#",
-        "#.a.###..a.........a...#",
-        "#....a.........a......a#",
-        "#a.........a......a.....",
-        "#......a....raaaaaaaaaaa",
-        "#..a......aSvraaaaaaaaaa",
-        "#.....a....rrraaaaaaaaaa",
-        "#.a........rrr....va..aa",
-        "#.......a..rrr.a.###....",
-        "#...a......rrr..#####a..",
-        "#......a...rrr..#####...",
-        "#..a.......rrr..#####...",
-        "#........a.rrr..a###...#",
-        "#....a.....rrr........a#",
-        "#a......a..rrr....a....#",
-        "#...a......rrra......a.#",
-        "########...rrr...#######"
+        "&&&&&%%%%%&&&&&%%%%%&&&&",
+        "&&&&%%%%%&&&&&%%%%%&&&&&",
+        "&&,,,,,,,,,,,,......#...",
+        "&&,,,,,,,,,,,......###..",
+        "&%,,,,,,,,,,......#####.",
+        "%%,,,,,,,,,.......#####.",
+        "%%,,,,,,,,........#####.",
+        "%%,,,,,,..........#####.",
+        "%%.,,,............#####.",
+        "%&................#####.",
+        "&&.........a......#####.",
+        "&&........aaa.....#####.",
+        "&&.......aaSaa.....#####",
+        "&&........aaaaaaaa.#aaaa",
+        "&%.........a.aaaaaaaaaaa",
+        "%%............aaaaaaaaaa",
+        "%%.............raaaa####",
+        "%%.............rra.#####",
+        "%%............rrr..#####",
+        "%&........###rrr...#####",
+        "&&....#######rrr########",
+        "&&.#########rrr########;",
+        "&&#########rrr##########",
+        "&&#########rrr##########"
       ],
       "palettes": [
         "berserk_eclipse_flesh_palette"
@@ -43,30 +43,30 @@
     ],
     "object": {
       "rows": [
-        "########################",
-        "#....a.........a......a#",
-        "#a.........a......a....#",
-        "#......a......a........#",
-        "#..a###...a.........a..#",
-        "#..#####........a.......",
-        "#.#######...a......a....",
-        "#.#######J.....a........",
-        "#.#######..a.........a..",
-        "#..#####.........a....rr",
-        "...a###......a......a.rr",
-        ".........a......a.....rr",
-        ".....a.....ava........rr",
-        "aaaaaaaaaaaaaarrrrrrrrrr",
-        "aaaaavaaaaaaaarrrrrrrrr#",
-        "aaaaaaaaaaaaaarrrrrrrrr#",
-        "......a....aaa..#####..#",
-        "..a......a.aaa..#####..#",
-        ".....a.....aaa.v.###..a#",
-        "#a.........aaa....a....#",
-        "#......a...aaaa........#",
-        "#..a......aaaa......a..#",
-        "#.....a....aaaaaa......#",
-        "###########aaaaa....####"
+        "&%%%%%&&&&&%%%%%&&&&&%%%",
+        "%%%%%&&&&&%%%%%&&&&&%%%%",
+        "........,,,,,,,,,,,,,;;;",
+        "........,,,,,,,,,,,,;;;#",
+        "........,,,,,,,,,,,;;;##",
+        "....rrr.,,,,,,,,,,;;;###",
+        ".......rrr,,,,,,,;;;;###",
+        "........rJr,,,,;;;;;####",
+        "........rrr,,;;;;;;;####",
+        ".........rrr;;;;;;;;####",
+        "........;rrr;;r;;;;;####",
+        "......a;;rrr;;r;rrrrrrrr",
+        "aaaaaaaaaaaarrrrrrrrrrrr",
+        "aaaaaaaaaaaaarrrrrrrrrrr",
+        "aaaaaaaaaaaaaarr;;;#####",
+        "aa.;;;a;;;aaaa;;;;#####;",
+        "a.;;;;r;;;;aaa;;;;#####.",
+        ".;;;;;r;;;;ava;;;;#####.",
+        ";;;;;;r;;;vvqaa;;;#####.",
+        ";;;;;;;;;;#aavv;;#####..",
+        ";;;;;;####aaaaa;;#####..",
+        ";;;########aaa;;;#####..",
+        "###########aaa;;;.#####.",
+        "##########aaa;;;..#####."
       ],
       "palettes": [
         "berserk_eclipse_flesh_palette"
@@ -74,18 +74,18 @@
       "place_monster": [
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 18,
-          "y": 5
+          "x": 14,
+          "y": 10
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
           "x": 6,
-          "y": 19
+          "y": 18
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 16,
-          "y": 18
+          "x": 4,
+          "y": 5
         }
       ],
       "place_item": [
@@ -109,6 +109,142 @@
           "y": 7,
           "chance": 100
         }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 4,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 6,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 7,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 6,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 8,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 5,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 9,
+          "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 10,
+          "y": 4
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 11,
+          "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 12,
+          "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 11,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 13,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 10,
+          "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 12,
+          "y": 4
+        },
+        {
+          "furn": "f_berserk_eclipse_torn_shield",
+          "x": 7,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_torn_shield",
+          "x": 11,
+          "y": 8
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 4,
+          "y": 9,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 6,
+          "y": 7,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 8,
+          "y": 8,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 9,
+          "y": 6,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 11,
+          "y": 4,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 13,
+          "y": 5,
+          "intensity": 1,
+          "age": 0
+        }
       ]
     }
   },
@@ -119,50 +255,33 @@
     ],
     "object": {
       "rows": [
-        "########################",
-        "#......a.........a.....#",
-        "#..a.........a......a..#",
-        "#........a......a......#",
-        "#...###.....a.........a#",
-        ".a.#####a.........a....#",
-        "...#####......a......a.#",
-        "...#####..a......a.....#",
-        "....###......a.........#",
-        "rra......a.........a...#",
-        "rr...a.........a.X....a#",
-        "rrrrrrrrrrrrr.....a....#",
-        "rrrrrrrrrrrrvra........#",
-        "rrrrrrrrrrrrrr......a..#",
-        "#.....a....rrr..a......#",
-        "#.a........rrr...###...#",
-        "#.......a..rrr.a#####..#",
-        "#...a......rrr..#####a.#",
-        "#......a...rrr..#####..#",
-        "#..a.......rrr...###a..#",
-        "#........a.rrr..a......#",
-        "#....a.....rrr........a#",
-        "#a......a..rrr....a....#",
-        "#########..rrr....######"
+        "%%&&&&&%%%%%&&&&&%%%%%&&",
+        "%&&&&&%%%%%&&&&&%%%%%&&&",
+        ";;;;;;;;;;;;;...,,,,,,&&",
+        ";;;;;;;;;;;;...,,,,,,,&&",
+        "#;;;;;;;;;;....,,,,,,,&%",
+        "##;;;;;;;;.....,,,,,,,%%",
+        "##;;;;;;;.......,,,,,,%%",
+        "#;;;;;;;...rrr...,,,,,%%",
+        "#;;;;;;....r#.....,,,.%%",
+        "#;;;;;.....r.####r....%&",
+        "#;;;;......r...rrXr...&&",
+        "rrrrr......rrrrr56r...&&",
+        "rrrrrrrrrrrrrrrrrrr...&&",
+        "rrrrrrrrrrrrrrr.rrr...&&",
+        ";....rrrrrrr....rrr...&%",
+        "................rrr...%%",
+        "................rrr...%%",
+        "................rrr...%%",
+        "....lllll.......rrr...%%",
+        "...lpppppl......rrr...%&",
+        "...lpppppl......rrr...&&",
+        "...lpppppl......rrr...&&",
+        "...lpppppl......rrr...&&",
+        "...lpppppl......rrr...&&"
       ],
       "palettes": [
         "berserk_eclipse_flesh_palette"
-      ],
-      "place_monster": [
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
-          "x": 18,
-          "y": 4
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 6,
-          "y": 19
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 15,
-          "y": 18
-        }
       ],
       "place_loot": [
         {
@@ -170,6 +289,267 @@
           "x": 17,
           "y": 10,
           "chance": 100
+        }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 7,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 8,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 9,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 10,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 9,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 11,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 8,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 10,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 14,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 15,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 16,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 17,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 16,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 18,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 15,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 17,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 16,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 17,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 18,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 19,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 18,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 20,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 17,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 19,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 19,
+          "y": 19
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 20,
+          "y": 18
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 21,
+          "y": 19
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 21,
+          "y": 20
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 20,
+          "y": 19
+        },
+        {
+          "furn": "f_berserk_eclipse_cart_wreck",
+          "x": 14,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_eclipse_cart_wreck",
+          "x": 14,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_cart_wreck",
+          "x": 15,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_cart_wreck",
+          "x": 18,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_braided_flesh",
+          "x": 19,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_eclipse_braided_flesh",
+          "x": 12,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_cart_tally",
+          "x": 18,
+          "y": 10
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 7,
+          "y": 16,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 9,
+          "y": 14,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 11,
+          "y": 15,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 14,
+          "y": 16,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 16,
+          "y": 14,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 18,
+          "y": 15,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 16,
+          "y": 8,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 18,
+          "y": 6,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 20,
+          "y": 7,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 19,
+          "y": 20,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 21,
+          "y": 18,
+          "intensity": 1,
+          "age": 0
         }
       ]
     }
@@ -181,30 +561,30 @@
     ],
     "object": {
       "rows": [
-        "########....rrrr.#######",
-        "#...a......arrrr.....a.#",
-        "#......a.....rrr.a.....#",
-        "#..a.........rrr....a..#",
-        "#....###.a...rrra......#",
-        "#...#####...arrrPPP...a.",
-        "#a..#####....rrrPPa.....",
-        "#...#####....rrr.....a..",
-        "#....###..a..rrr.a......",
-        "#.....a......rrr......rr",
-        "#.a......a...rrr...a..rr",
-        "#....a......rrrrrrrrrrrr",
-        "#a.........avrrrrrrrrrrr",
-        "#......a....rrrrrrrrrrrr",
-        "#..a......a..rrr###.a..#",
-        "#.....a......rrr####...#",
-        "#.a.........arrr#####..#",
-        "#.......a.I..rrr#####..#",
-        "#...a......a.rrr#####a.#",
-        "#......a.....rrr####...#",
-        "#..a.........rrr###.a..#",
-        "#........a...rrra......#",
-        "#....a......arrr......a#",
-        "#########....rrr..######"
+        "&%########rrr.##########",
+        "%%.###....rrr###.#######",
+        "%%........rrr###;#####;#",
+        "%%........rrr###;#####;;",
+        "%%........rrr.#######;;;",
+        "%&.......rrr.;#######;;;",
+        "&&.....,,rrr;;;######;;;",
+        "&&....,,,rrr,;;;;#####;;",
+        "&&....,rrrrr,,,;rrrrrrrr",
+        "&&....,,,rrrrrrrrrrrrrrr",
+        "&%...,,,,rrrrrrrrrrrrrrr",
+        "%%...,,,,rrrrrrr,,#####;",
+        "%%...,,,,rrr,,,,,,#####;",
+        "%%...;,,,rrr,,,,,,,#####",
+        "%%..;;,,,rrr,,,,,,,#####",
+        "%&.;;;,,,rrr,,,,,,,,####",
+        "&&;;;;rrrrrr,,,,,,,,####",
+        "&&;;;;;,,rIr,,,,,,,;####",
+        "&&;;;;;;,,rrr,,,,,,;;###",
+        "&&;;;;;;,,,rrrrrr,;;.###",
+        "&%;;;rrrrrrrrr,,,;;..###",
+        "%%;;;;;;;r##rrr#;;...###",
+        "%%;##########rrr##...###",
+        "%%############rrr###.###"
       ],
       "palettes": [
         "berserk_eclipse_flesh_palette"
@@ -212,23 +592,28 @@
       "place_monster": [
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 18,
-          "y": 4
+          "x": 7,
+          "y": 8
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_HALF",
-          "x": 6,
+          "x": 16,
           "y": 19
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 15,
-          "y": 18
+          "x": 9,
+          "y": 21
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
           "x": 5,
-          "y": 12
+          "y": 20
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
+          "x": 6,
+          "y": 16
         }
       ],
       "place_item": [
@@ -252,6 +637,147 @@
           "y": 17,
           "chance": 100
         }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 6,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 7,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 8,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 9,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 8,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 10,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 7,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 9,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 11,
+          "y": 19
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 12,
+          "y": 18
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 13,
+          "y": 19
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 14,
+          "y": 19
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 13,
+          "y": 20
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 15,
+          "y": 20
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 12,
+          "y": 19
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 14,
+          "y": 18
+        },
+        {
+          "furn": "f_berserk_eclipse_torn_shield",
+          "x": 9,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_torn_shield",
+          "x": 12,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_held_gap",
+          "x": 7,
+          "y": 17
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 6,
+          "y": 16,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 8,
+          "y": 14,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 10,
+          "y": 15,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 11,
+          "y": 20,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 13,
+          "y": 18,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 15,
+          "y": 19,
+          "intensity": 1,
+          "age": 0
+        }
       ]
     }
   },
@@ -262,30 +788,30 @@
     ],
     "object": {
       "rows": [
-        "###########..aaa....####",
-        "#.....a......aaa.......#",
-        "#.a......a...aaa...a...#",
-        "#....a.......aaa......a#",
-        "#a...###...a.aaa..a....#",
-        "....#####....aav.......#",
-        "...#######a..aaa....a..#",
-        "...#######...aaaa......#",
-        "..a#######..aaaa.H.a...#",
-        "rr..#####....aaa.......#",
-        "rr..a###...a.aaa.....a.#",
-        "rr.....a.....aaa.a.....#",
-        "rr.a.......avaaa....a..#",
-        "rrrrrrrrrrraaaaarrrrrrrr",
-        "#rrrrrrrrrraaaaarrrrrrrr",
-        "#rrrrrrrrrrrraaarrrrrrrr",
-        "#...a........aaa#####arr",
-        "#.........a..aaa#####.rr",
-        "#.....a...v..aaa####....",
-        "#.a......a...aaa###a....",
-        "#....a.......aaa......a.",
-        "#a.........a.aaa..a.....",
-        "#......a..aaaaaa.......#",
-        "######....aaaaa#########"
+        "#########aaa;;;....#####",
+        "######;;;aaa;;##########",
+        "###;;;;;aaaa;###########",
+        ";;;;;;;aaaaa############",
+        ";;;;;;;;aaa..######r####",
+        ";;;;;;;;;aaa..#####r####",
+        ";;;;;;;;;aaa...,,,,r.###",
+        ";;;;;;;;..aaa.,,,,,r,###",
+        "rrrr;;;...aaaa,,,,,r,,##",
+        "rrrrrrrrrraaaaarrr,r,,##",
+        "rrrrrrrrrrraaarrrrrrrrrr",
+        ";;;;rrrrrrraaarrrrrrrrrr",
+        ";;;....r..aaa,,,,,rrrrrr",
+        ";;.....r.aaa.lllll,,,,##",
+        ";........aaalpppppl,,,##",
+        "#.......aaaaappppppl,,##",
+        "#.......aaaappppppppl,##",
+        "#......aaaapppppppppl,##",
+        "##.....aaalpppppppppl###",
+        "##.....aaalpppppppppl###",
+        "##....aaaalpppppppppl###",
+        "##....aaaaalpppppppl,r##",
+        "##.....aaa#.lpppppl.r###",
+        "##...##aaa##.lllll.r####"
       ],
       "palettes": [
         "berserk_eclipse_flesh_palette"
@@ -293,23 +819,23 @@
       "place_monster": [
         {
           "group": "GROUP_BERSERK_ECLIPSE_HALF",
-          "x": 18,
-          "y": 5
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
-          "x": 6,
-          "y": 19
+          "x": 7,
+          "y": 13
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 17,
-          "y": 20
+          "x": 19,
+          "y": 4
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 19,
+          "y": 7
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_HALF",
-          "x": 5,
-          "y": 12
+          "x": 21,
+          "y": 21
         }
       ]
     }
@@ -321,69 +847,60 @@
     ],
     "object": {
       "rows": [
-        "#########....rrr..######",
-        "#.......a....rrr.......#",
-        "#...a......a.rrr.....a.#",
-        "#......a.....rrr.a.....#",
-        "#..a.###.....rrr....a..#",
-        "#...#####a...rrra......#",
-        "#...#####...arrr......a#",
-        "#a..#####....rrr..a....#",
-        "#...a###...F.rrr.....a.#",
-        "#.........a..rrr.a.....#",
-        "#.....a......rrr.......#",
-        "#rrrrrrrrrrrrrrr...a...#",
-        "#rrrrrrrrrrrvrrr......a#",
-        "rrrrrrrrrrrrrrrr..a....#",
-        "rr.....a.....rrr###....#",
-        "rr.a......a..rrr####a..#",
-        "rr....a......rrr#####..#",
-        "rra.........aKrC#####..#",
-        "........a....rrr#####..#",
-        "....a......a.rrr####.a.#",
-        ".......a.....rrr###....#",
-        "...a.........rrr....a..#",
-        "#.......rrrrrrrra......#",
-        "####....rrrrr###########"
+        "#####llll.......rrr...&%",
+        "#######.........rrr###%%",
+        "##########....##rrr###%%",
+        "################rrr###%%",
+        "#################rrr##%%",
+        "#....############rrr##%&",
+        "##.....###########rrr.&&",
+        "##........####....rrr,&&",
+        "###........##......rrr&&",
+        "###.......####.....rrr&&",
+        "rrrrrrrrrrr.######.rrr&%",
+        "rrrrrrrrrrrF..#####rrr%%",
+        "rrrrrrrrrrrr.....###rr%%",
+        "###...r...rr123...#rrr%%",
+        "###...r....rrr.....rrr%%",
+        "###........rrr.....rrr%&",
+        "###........rrr.....rrr&&",
+        "###.......r.rKr....rrr&&",
+        "##.......r...r..C..rrr&&",
+        "##......r........C.rrr&&",
+        "##.....v......C...rrr;&%",
+        "##...vvs.......C.rrr;;%%",
+        "##......vv......rrr;;;%%",
+        "#####..........rrr;;;;%%"
       ],
       "palettes": [
         "berserk_eclipse_flesh_palette"
       ],
       "place_monster": [
         {
+          "group": "GROUP_BERSERK_ECLIPSE_BUTCHER",
+          "x": 19,
+          "y": 21
+        },
+        {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 18,
-          "y": 5
+          "x": 8,
+          "y": 19
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
           "x": 6,
-          "y": 19
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_HALF",
-          "x": 15,
-          "y": 18
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_BUTCHER",
-          "x": 5,
-          "y": 12
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 19,
-          "y": 7
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 10,
-          "y": 20
+          "y": 14
         }
       ],
       "place_item": [
         {
           "item": "berserk_eclipse_corkus_body",
+          "x": 13,
+          "y": 17,
+          "amount": 1
+        },
+        {
+          "item": "berserk_corkus_scabbard_fragment",
           "x": 13,
           "y": 17,
           "amount": 1
@@ -396,6 +913,420 @@
           "y": 17,
           "chance": 100
         }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 8,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 9,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 10,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 11,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 10,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 12,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 9,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 11,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 13,
+          "y": 19
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 14,
+          "y": 18
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 15,
+          "y": 19
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 16,
+          "y": 19
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 15,
+          "y": 20
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 17,
+          "y": 20
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 14,
+          "y": 19
+        },
+        {
+          "furn": "f_berserk_eclipse_torn_shield",
+          "x": 11,
+          "y": 18
+        },
+        {
+          "furn": "f_berserk_eclipse_torn_shield",
+          "x": 16,
+          "y": 17
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 5,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 7,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 8,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 7,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 9,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 6,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 8,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 7,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 8,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 9,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 10,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 8,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 10,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 10,
+          "y": 21
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 11,
+          "y": 20
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 12,
+          "y": 21
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 13,
+          "y": 21
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 12,
+          "y": 22
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 14,
+          "y": 22
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 11,
+          "y": 21
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 13,
+          "y": 20
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 16,
+          "y": 22
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 17,
+          "y": 22
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 16,
+          "y": 23
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 18,
+          "y": 23
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 15,
+          "y": 22
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 17,
+          "y": 21
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 17,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 19,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 20,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 19,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 21,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 20,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_braided_flesh",
+          "x": 9,
+          "y": 10
+        },
+        {
+          "furn": "f_berserk_eclipse_braided_flesh",
+          "x": 17,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_braided_flesh",
+          "x": 18,
+          "y": 16
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 8,
+          "y": 16,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 10,
+          "y": 14,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 12,
+          "y": 15,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 13,
+          "y": 20,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 15,
+          "y": 18,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 17,
+          "y": 19,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 5,
+          "y": 9,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 7,
+          "y": 7,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 9,
+          "y": 8,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 7,
+          "y": 14,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 9,
+          "y": 12,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 11,
+          "y": 13,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 10,
+          "y": 22,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 12,
+          "y": 20,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 14,
+          "y": 21,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 14,
+          "y": 23,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 16,
+          "y": 21,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 18,
+          "y": 22,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 17,
+          "y": 14,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 21,
+          "y": 13,
+          "intensity": 1,
+          "age": 0
+        }
       ]
     }
   },
@@ -406,54 +1337,255 @@
     ],
     "object": {
       "rows": [
-        "#########..rrr....######",
-        "#.a........rrr.....a...#",
-        "#.......a..rrr.a.......#",
-        "#...a......rrr.......a.#",
-        "#...###a...rrr...a.....#",
-        "#..#####...rrr...PP.a..#",
-        "#..#####.a.rrr..aP.....#",
-        "#..#####...rrr........a#",
-        "#a..###.a..rrr....a....#",
-        "#...a......rrra......a.#",
-        "#.........arrr...a.....#",
-        "#.....a....rrrrrrrrrrrr#",
-        "#.a......a.rvrrrrrrrrrrr",
-        "#....a.....rrrrrrrrrrrrr",
-        "#a.........rrr....a...rr",
-        "#......a...rrra..###..rr",
-        "#..a......arrr..#####.rr",
-        "#.....a....rrr..#####...",
-        "#.a........rrr..#####...",
-        "#.......a..rrr.a.###....",
-        "#...a......rrr.......a..",
-        "#......a...rrr...a.....#",
-        "#..a.......rrr......a..#",
-        "#######....rrr..########"
+        "%%############rrr#######",
+        "%&###########rrr########",
+        "&&;#######;;;rrr########",
+        "&&;;;;;;;;;;.rr#####rr##",
+        "&&;;;;;;;;;.rrr###.rrrrr",
+        "&&;;;rrrrrrrrrr###.rrrrr",
+        "&%;;;;;;;...rrr.##rrr#rr",
+        "%%;;;;;;...rrr..###r###r",
+        "%%;;;;;....rrr...#####rr",
+        "%%;;;;.....rrrH...####rr",
+        "%%;;;...lllrrr4....##rr#",
+        "%&;;...lppplrrr...rrrr##",
+        "&&;...lppppprrr..rrrr###",
+        "&&....lppppprrr.rrrr####",
+        "&&....lppppplrrrrr.#####",
+        "&&....lppppplrrrr..#####",
+        "&%....lppppplrrr...#####",
+        "%%.....lpppl.rrr....####",
+        "%%......lll.rrr.....####",
+        "%%..........rrr.....####",
+        "%%,,,,......rrrr....####",
+        "%&,,,,,....rrr..r...####",
+        "&&,,,,,,...rrr##########",
+        "&&,,,,#####rrr##########"
       ],
       "palettes": [
         "berserk_eclipse_flesh_palette"
       ],
       "place_monster": [
         {
-          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
-          "x": 18,
-          "y": 4
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
-          "x": 6,
-          "y": 19
-        },
-        {
           "group": "GROUP_BERSERK_ECLIPSE_HALF",
-          "x": 15,
-          "y": 18
+          "x": 12,
+          "y": 19
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
           "x": 5,
+          "y": 5
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 16,
+          "y": 21
+        }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 6,
+          "y": 3
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 8,
+          "y": 3
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 15,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 16,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 17,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 18,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 17,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 16,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 18,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 7,
+          "y": 21
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 8,
+          "y": 20
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 9,
+          "y": 21
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 10,
+          "y": 21
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 9,
+          "y": 22
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 11,
+          "y": 22
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 8,
+          "y": 21
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 10,
+          "y": 20
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 22,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 23,
+          "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 23,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_bone_spur",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_bone_spur",
+          "x": 7,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_bone_spur",
+          "x": 16,
           "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_bone_spur",
+          "x": 17,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_bone_spur",
+          "x": 22,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_braided_flesh",
+          "x": 11,
+          "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_braided_flesh",
+          "x": 12,
+          "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_braided_flesh",
+          "x": 13,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_braided_flesh",
+          "x": 17,
+          "y": 17
+        },
+        {
+          "furn": "f_berserk_eclipse_braided_flesh",
+          "x": 18,
+          "y": 17
+        },
+        {
+          "furn": "f_berserk_eclipse_congealed_vein",
+          "x": 12,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_congealed_vein",
+          "x": 14,
+          "y": 14
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 4,
+          "y": 3,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 15,
+          "y": 15,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 17,
+          "y": 13,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 7,
+          "y": 22,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 9,
+          "y": 20,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 11,
+          "y": 21,
+          "intensity": 1,
+          "age": 0
         }
       ]
     }
@@ -465,30 +1597,30 @@
     ],
     "object": {
       "rows": [
-        "######....aaaa.#########",
-        "#...a.....aaaaa......a.#",
-        "#.........aaaa...a.....#",
-        "#.....a....aaa.........#",
-        "#.a.###..a.aaa.....a...#",
-        "#..#####..vaaa.a......a#",
-        "#a#######..aaa....a.....",
-        "#.#######..aaaa.........",
-        "#.#######.aaaa......a...",
-        "#..#####...aaa..a.......",
-        "#.a.###....aaa.....a..rr",
-        "#.......a..aaa.a......rr",
-        "....a......ava.......arr",
-        "rrrrrrrrrrraaarrrrrrrrrr",
-        "rrrrrrrrrrraaarrrrrrrrrr",
-        "rrrrrrrrrrraaarrrrrrrrr#",
-        "rr...aPP...aaa..#####.a#",
-        ".a...PPPa..aaa..#####..#",
-        "....a......aaav..###.a.#",
-        "..........aaaa...a.....#",
-        "......a....aaa.........#",
-        "#.a......a.aaa.....a...#",
-        "#....a.....aaaaa......a#",
-        "##########.aaaa....#####"
+        "########aaa##....rr#####",
+        "#########aaa...#r#######",
+        "#########aaa..#r########",
+        "########.aaaa#r#########",
+        "#####.rrraaaaa######.###",
+        "r.rrrrrrrraaa..##.....##",
+        "rrrrrrrrrr.aaarrrr....##",
+        "rrrrrr.r...aaa........##",
+        "rr.....r....aaa.#..lll##",
+        "#..llllr....aaaa#llppp##",
+        "..lppppr....aaaa#ppppp##",
+        "..lpppppl....aaa#pppppl#",
+        ".lpppppppl...aaa#rrrrrrr",
+        ".lpppppppl...aaOBrrrrrrr",
+        ".lpppppppl..aaa.#rrrrrrr",
+        ".lpppppppl..aaa.#rrrrprr",
+        ".lpppppppl.aaaaa#r.rrrrr",
+        "#lpppppppl..aaa..r..rrrr",
+        "#lpppppppl.aaa...r...r;;",
+        "#.lpppppl..aaa...r..;;;;",
+        "#.lpppppl,,aaa.....;;;;;",
+        "#..lllll,,,aaa,...;;;;;;",
+        "#.....,,,,aaaaa,.;;;;;;#",
+        "##...,,,,,#aaa,,;;;;####"
       ],
       "palettes": [
         "berserk_eclipse_flesh_palette"
@@ -496,23 +1628,130 @@
       "place_monster": [
         {
           "group": "GROUP_BERSERK_ECLIPSE_HALF",
-          "x": 18,
-          "y": 5
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
-          "x": 6,
+          "x": 17,
           "y": 19
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_BUTCHER",
-          "x": 16,
-          "y": 18
+          "x": 7,
+          "y": 10
         },
         {
-          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 5,
-          "y": 12
+          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
+          "x": 17,
+          "y": 6
+        }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 0,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 1,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 0,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 2,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 1,
+          "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 0,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 1,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 2,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 3,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 2,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 4,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 1,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 3,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_bone_spur",
+          "x": 1,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_congealed_vein",
+          "x": 2,
+          "y": 10
+        },
+        {
+          "furn": "f_berserk_eclipse_congealed_vein",
+          "x": 18,
+          "y": 15
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 0,
+          "y": 5,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 2,
+          "y": 6,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 2,
+          "y": 7,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 4,
+          "y": 8,
+          "intensity": 1,
+          "age": 0
         }
       ]
     }
@@ -524,59 +1763,70 @@
     ],
     "object": {
       "rows": [
-        "####....rrrrr###########",
-        "#.....a.rrrrrr..a......#",
-        "#.a........rrr.....a...#",
-        "#.......a..rrr.a.......#",
-        "#...###....rrr.......a.#",
-        "#..#####...rrr...a.....#",
-        "...#####...rrr......a..#",
-        "...#####.a.rrr..a......#",
-        "....###....rrr...G....a#",
-        ".a......a..rrr....a....#",
-        "rr..a......rrra......a.#",
-        "rrrrrrrrrrrrrr...a.....#",
-        "rrrrrrrrrrrrvr.........#",
-        "rrrrrrrrrrrrrr.....a...#",
-        ".....a.....rrr.a......a#",
-        "#a.........rrr...###...#",
-        "#......a...rrra.#####..#",
-        "#..a......arrr..#####..#",
-        "#.....a....rrr..#####..#",
-        "#.a........rrr...###...#",
-        "#.......a..rrr.a.......#",
-        "#...a......rrr.......a.#",
-        "#......a...rrrrrrr.....#",
-        "#############rrrrr....##"
+        "#########.....rrr#####%%",
+        "#############rrr######%&",
+        "############rrr#######&&",
+        "###########rrr########&&",
+        "##...#######rrr#######&&",
+        "###......####rrr;;;;;;&&",
+        "###......;;;;;rrr;;;;;&%",
+        "###.....;;;;;;;rrr;;;;%%",
+        "###....;;;;;;;rrrGr;;;%%",
+        "###...;;;;;rrrrrrrr;;;%%",
+        "###..;;;;rrrrrrrrr;;;;%%",
+        "####;;;rrrrrrr;rrrrr;;%&",
+        "rrrrrrrrrrr;;;rrr;;;;;&&",
+        "rrrrrrrrr;;;;;rrr;;;;;&&",
+        "rrrrrrr;;;;;;rrr;;;;;;&&",
+        "rrrrr;;;;;;;;rrr;;;;;.&&",
+        "rr###;;;;;;;rrr;;;;;..&%",
+        "r####;;;;;;;rrr;;;;...%%",
+        "#####;;;;;;;rrr;;;....%%",
+        "#####;;;;;;rrr;;;.....%%",
+        "#####;;;;;;rrr;;,,,,,.%%",
+        "#######rrrrrrr,,,,,,,,%&",
+        "##########rrr,,,,,,,,,&&",
+        "##########rrr####,,,,,&&"
       ],
       "palettes": [
         "berserk_eclipse_flesh_palette"
       ],
       "place_monster": [
         {
-          "group": "GROUP_BERSERK_ECLIPSE_HALF",
-          "x": 18,
-          "y": 5
+          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
+          "x": 9,
+          "y": 10
         },
         {
-          "group": "GROUP_BERSERK_ECLIPSE_BUTCHER",
-          "x": 6,
+          "group": "GROUP_BERSERK_ECLIPSE_HALF",
+          "x": 12,
           "y": 19
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
-          "x": 15,
-          "y": 18
+          "x": 19,
+          "y": 11
         },
         {
-          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 5,
-          "y": 12
+          "group": "GROUP_BERSERK_ECLIPSE_HALF",
+          "x": 8,
+          "y": 13
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
+          "x": 7,
+          "y": 21
         }
       ],
       "place_item": [
         {
           "item": "berserk_eclipse_gaston_body",
+          "x": 17,
+          "y": 8,
+          "amount": 1
+        },
+        {
+          "item": "berserk_gaston_sewing_roll",
           "x": 17,
           "y": 8,
           "amount": 1
@@ -589,6 +1839,247 @@
           "y": 8,
           "chance": 100
         }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 12,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 13,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 14,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 15,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 14,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 16,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 13,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 15,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 17,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 18,
+          "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 19,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 20,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 19,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 21,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 18,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 20,
+          "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_torn_shield",
+          "x": 16,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_torn_shield",
+          "x": 19,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 3,
+          "y": 10
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 4,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 5,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 4,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 6,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 5,
+          "y": 10
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 5,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 6,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 7,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 6,
+          "y": 17
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 8,
+          "y": 17
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 5,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 7,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_congealed_vein",
+          "x": 0,
+          "y": 15
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 12,
+          "y": 8,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 14,
+          "y": 6,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 16,
+          "y": 7,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 17,
+          "y": 7,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 19,
+          "y": 5,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 21,
+          "y": 6,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 2,
+          "y": 12,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 4,
+          "y": 10,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 6,
+          "y": 11,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 6,
+          "y": 15,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 8,
+          "y": 16,
+          "intensity": 1,
+          "age": 0
+        }
       ]
     }
   },
@@ -599,30 +2090,30 @@
     ],
     "object": {
       "rows": [
-        "#######....rrrrr########",
-        "#..a......arrrrr....a..#",
-        "#.....a......rrra......#",
-        "#.a.........arrr...a...#",
-        "#....###a....rrr.......#",
-        "#...#####..a.rrr.....a.#",
-        "#...#####....rrr.a.....#",
-        "#..a#####....rrr....a..#",
-        "#....###.a...rrra......#",
-        "#....a......arrr......a#",
-        "#a......a....rrr..a....#",
-        "#...a.......rrrrrrrrrrrr",
-        "#.........a.vrrrrrrrrrrr",
-        "#.....a.....rrrrrrrrrrrr",
-        "#.a......a......###a..rr",
-        "#....a.........#####..rr",
-        "#a.........a..#######...",
-        "#......a......#######...",
-        "#..a......a...#######...",
-        "#.....a........#####....",
-        "#.a.........a...###a...#",
-        "#.......a......a.......#",
-        "#...a......a.........a.#",
-        "########################"
+        "&&,,,######rrr##########",
+        "&&,,######rrr###########",
+        "&%,,,#####rrr###########",
+        "%%,,,,####rrr........###",
+        "%%,,,,,,,,rrr........###",
+        "%%,,,,,,,,rrr.........##",
+        "%%,,,,rrrrrrr.........##",
+        "%&,,,,,,,,rrr.........##",
+        "&&,,,,,,,,rrr..........#",
+        "&&,,,,,,,,rrr...........",
+        "&&.,,,,,,rrrr...........",
+        "&&...,,,,,rrrrr.........",
+        "&%........rrrrrrrrrrr...",
+        "%%.........rrrrrrrrrrrrr",
+        "%%...........r.rrrrrrrrr",
+        "%%...........r.......rrr",
+        "%%...........r.........;",
+        "%&...........r........;;",
+        "&&...................;;;",
+        "&&..................;;;;",
+        "&&.................;;;;;",
+        "&&................;;;;;;",
+        "&%%%%%&&&&&%%%%%&&&&&%%%",
+        "%%%%%&&&&&%%%%%&&&&&%%%%"
       ],
       "palettes": [
         "berserk_eclipse_flesh_palette"
@@ -630,23 +2121,304 @@
       "place_monster": [
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 18,
-          "y": 5
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_HALF",
-          "x": 6,
-          "y": 18
+          "x": 9,
+          "y": 10
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_BUTCHER",
-          "x": 13,
-          "y": 18
+          "x": 17,
+          "y": 14
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 13,
+          "y": 17
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_BUTCHER",
+          "x": 6,
+          "y": 6
+        }
+      ],
+      "place_loot": [
+        {
+          "group": "berserk_location_cloth_dressings",
+          "x": 11,
+          "y": 12,
+          "chance": 100
+        },
+        {
+          "group": "berserk_eclipse_last_retreat_gear",
+          "x": 21,
+          "y": 10,
+          "chance": 100
+        }
+      ],
+      "place_item": [
+        {
+          "item": "berserk_eclipse_last_stand_note",
+          "x": 11,
+          "y": 12,
+          "amount": 1
+        }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 4,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
           "x": 5,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 6,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 6,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 8,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 5,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 7,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 12,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 13,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 14,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 15,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 14,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 16,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 13,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 15,
+          "y": 7
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 18,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 19,
           "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 20,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 21,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 20,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 22,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 19,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 21,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 23,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_shield_barricade",
+          "x": 7,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_eclipse_shield_barricade",
+          "x": 8,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_eclipse_shield_barricade",
+          "x": 9,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_shield_barricade",
+          "x": 14,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_eclipse_shield_barricade",
+          "x": 15,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_eclipse_shield_barricade",
+          "x": 17,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_torn_shield",
+          "x": 8,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_torn_shield",
+          "x": 11,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_torn_shield",
+          "x": 16,
+          "y": 10
+        },
+        {
+          "furn": "f_berserk_eclipse_torn_shield",
+          "x": 21,
+          "y": 10
+        },
+        {
+          "furn": "f_berserk_eclipse_torn_shield",
+          "x": 23,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_last_retreat",
+          "x": 12,
+          "y": 10
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 4,
+          "y": 8,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 6,
+          "y": 6,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 8,
+          "y": 7,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 12,
+          "y": 9,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 14,
+          "y": 7,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 16,
+          "y": 8,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 18,
+          "y": 14,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 20,
+          "y": 12,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 22,
+          "y": 13,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 23,
+          "y": 15,
+          "intensity": 1,
+          "age": 0
         }
       ]
     }
@@ -658,49 +2430,253 @@
     ],
     "object": {
       "rows": [
-        "##########...aaa...#####",
-        "#....a......aaaa......a#",
-        "#a......a....aaa..a....#",
-        "#...a........aaa.....a.#",
-        "#....###..a..aaa.a.....#",
-        "#...#####....ava.......#",
-        "#.a#######...aaa..Pa...#",
-        "#..#######...aaa..P...a.",
-        "#a.#######Wa.aaa..a.....",
-        "#...#####....aaa........",
-        "#..a.###..a..aaa....a...",
-        "......a......aaaa.v...aa",
-        "..a........avaaa...a..aa",
-        "rrrrrrrrrrraaaaaaaaaaaaa",
-        "rrrrrrrrrrraaaaaaaaaaaaa",
-        "rrrrrrrrrrrrrraaaaaaaaaa",
-        "...a.........a#######..#",
-        ".........a....#######..#",
-        ".....a......a..#####..a#",
-        ".a......a.......###....#",
-        "#...a.........a......a.#",
-        "#.........a......a.....#",
-        "#.....a......a.........#",
-        "########################"
+        "##...,#####aaa,,,;;#####",
+        "##########aaa##,,;######",
+        "##########aaa#,,,,;#####",
+        "##########aaa,,,,,;;####",
+        "##########aaa,,,,,;;;;##",
+        "######,,,aaaaa,,,,,;;;##",
+        "###...,,,,aaa,,,,,,;;;##",
+        "###....,,,aaa,,,,,,;;;##",
+        "##.....;,rWaa,,,,,,;;;;#",
+        "#.....;;;aaa,,,,,,;;;;;;",
+        ".....;;;;aaa,,,,,,;;;;;;",
+        "....;;;;aaaaa,,a,;;;;aaa",
+        "...rrrrrraaaaaaaa;;;aaaa",
+        "rrrrrrrrrraaaaaaaaaaaaaa",
+        "rrrrrrrr;;r;;aaaaaaaaaa.",
+        "rrr;;;;;;;r;;;;a;aaaaa..",
+        ";;;;;;;;;;r;;;;;;;;;....",
+        ";;;;;;;;;;r;;;;;;;;.....",
+        ";;;;;;;;;;;;;;;;;;......",
+        ";;;;;;;;;;;;;;;;;.......",
+        ";;;;;;;;;;;;;;;;........",
+        ";;;;;;;;;;;;;;;.........",
+        "%%&&&&&%%%%%&&&&&%%%%%&&",
+        "%&&&&&%%%%%&&&&&%%%%%&&&"
       ],
       "palettes": [
         "berserk_eclipse_flesh_palette"
       ],
       "place_monster": [
         {
+          "group": "GROUP_BERSERK_ECLIPSE_HALF",
+          "x": 10,
+          "y": 17
+        },
+        {
           "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
-          "x": 18,
+          "x": 7,
+          "y": 12
+        }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 0,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 1,
+          "y": 10
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 2,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 3,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 2,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 4,
+          "y": 12
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 1,
+          "y": 11
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 3,
+          "y": 10
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 0,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 1,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 2,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 1,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 3,
+          "y": 15
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 0,
+          "y": 14
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 2,
+          "y": 13
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 13,
+          "y": 4
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 14,
           "y": 5
         },
         {
-          "group": "GROUP_BERSERK_ECLIPSE_ELITE",
-          "x": 6,
-          "y": 19
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 15,
+          "y": 5
         },
         {
-          "group": "GROUP_BERSERK_ECLIPSE_HALF",
-          "x": 17,
-          "y": 20
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 14,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 16,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 15,
+          "y": 4
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 20,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 21,
+          "y": 8
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 22,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 23,
+          "y": 9
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 22,
+          "y": 10
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 21,
+          "y": 9
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 0,
+          "y": 12,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 2,
+          "y": 10,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 4,
+          "y": 11,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 1,
+          "y": 13,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 3,
+          "y": 14,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 12,
+          "y": 6,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 14,
+          "y": 4,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 16,
+          "y": 5,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 20,
+          "y": 10,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 22,
+          "y": 8,
+          "intensity": 1,
+          "age": 0
         }
       ]
     }
@@ -712,30 +2688,30 @@
     ],
     "object": {
       "rows": [
-        "#############rrrrr....##",
-        "#......a.....rrrrr.....#",
-        "#..a......a..rrr....a..#",
-        "#.....a......rrra......#",
-        "#.a..###....arrr...a...#",
-        "#...#####....rrr.......#",
-        "#...#####..a.rrr.....a.#",
-        "....#####....rrr.a.....#",
-        "...a.###.....rrr....a..#",
-        ".........a...rrra......#",
-        ".....a......arrr......a#",
-        "aaaaavaaaaaarrrr..a....#",
-        "aaaaaaaaaaaavrrr.....a.#",
-        "aaaaaaaaaaaarrr..a.....#",
-        "......a......a..###....#",
-        "..a......a.....#####...#",
-        "#....a...........####.a#",
-        "#a.........a.....####..#",
-        "#......a.........####..#",
-        "#..a......a....#####a..#",
-        "#.....a.....R...###....#",
-        "#.a.........a......a...#",
-        "#.......a......a.......#",
-        "########################"
+        "##########rrr######,,,&&",
+        "#########rrr########,,&&",
+        "#####;;;;rrr#########,&%",
+        "####;;;;;rrr,#######,,%%",
+        "###;;;;;.rrr,,,,,##,,,%%",
+        "###;;;;..rrr.,,,,,,,,,%%",
+        "###;;;....arr,,,,,,,,,%%",
+        "###;;....aaar.,,,,,,#,@&",
+        "##;a..aaaaa!a..,,,,###&&",
+        "#;aaaaaaaaaaa....,,###&&",
+        ";aaaaaaaa.aaa.....,###&&",
+        "aaaaar....aaa......###&&",
+        "aa.a#r#...aaa......###&%",
+        "a..##r...aaaaa.....###@%",
+        "...##r....aaa......###%%",
+        "..###r.....avaa....###%%",
+        ".###.r....vvtaaarrrr##%%",
+        ".###.........vvaa..###%&",
+        "..###..........a..###.@&",
+        "...###............###.&&",
+        "...###......R.....###.&&",
+        "....#..............#..&&",
+        "&&&%%%%%&&&&&%%%%%&&&@&%",
+        "&&%%%%%&&&&&%%%%%&&&&&%%"
       ],
       "palettes": [
         "berserk_eclipse_flesh_palette"
@@ -743,8 +2719,93 @@
       "place_monster": [
         {
           "group": "GROUP_BERSERK_ECLIPSE_ELITE",
-          "x": 18,
+          "x": 5,
+          "y": 16
+        },
+        {
+          "group": "GROUP_BERSERK_ECLIPSE_ELITE",
+          "x": 19,
+          "y": 16
+        }
+      ],
+      "place_furniture": [
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 0,
+          "y": 10
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 5,
           "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 6,
+          "y": 4
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 7,
+          "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 8,
+          "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 7,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_low",
+          "x": 9,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 6,
+          "y": 5
+        },
+        {
+          "furn": "f_berserk_eclipse_body_heap_high",
+          "x": 8,
+          "y": 4
+        },
+        {
+          "furn": "f_berserk_eclipse_congealed_vein",
+          "x": 12,
+          "y": 6
+        },
+        {
+          "furn": "f_berserk_eclipse_congealed_vein",
+          "x": 14,
+          "y": 10
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_blood",
+          "x": 5,
+          "y": 6,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 7,
+          "y": 4,
+          "intensity": 1,
+          "age": 0
+        },
+        {
+          "field": "fd_blood",
+          "x": 9,
+          "y": 5,
+          "intensity": 1,
+          "age": 0
         }
       ]
     }

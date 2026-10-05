@@ -1,0 +1,675 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_BERSERK_WYALD_MUSTER_ROLL",
+    "effect": {
+      "u_message": "The lists separate soldiers, prisoners and those taken to the leader. Human boot sizes and ration counts fill the early pages. Later marks describe warped guards wearing the same uniforms. This was an army before its cruelty took a monstrous shape. The broken wagon lies west of the tents; the quarry leaves a southern way around the cages.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_BERSERK_WYALD_PRISONER_ACCOUNT",
+    "effect": {
+      "u_message": "I hid this before they counted us. The cage doors are tied, not locked with iron keys. Untie them from either side and pass through; the quarry is longer but stays open. The bells in the wagon can ring after you leave. Do not stand there waiting, and do not believe the leader will stop hunting because he hears them. One name at the bottom is followed by a small word: escaped.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_BERSERK_WYALD_COMMAND_ORDERS",
+    "effect": {
+      "u_message": "Wyald ordered the stolen stores counted and the fighting ground cleared. Timber screens were dragged to its edges; three wrecked barriers remain on the open earth. Leave space beside them for a sidestep when he braces to charge. The last order names a world broken open: his old fate was diverted by the crossing, and the being leading this camp is alive, not an echo.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_BERSERK_ROSINE_WITNESS_NOTE",
+    "effect": {
+      "u_message": "They called the winged things fairies because the flowers were beautiful. I followed their lost shoes past the games to the silk. The still shells were empty of hope; the moving ones held something already changed. Break a swelling cocoon before it opens and no creature will fly out of that shell. I cannot bring the transformed back. The shallow western gully bends around the grove toward the great roots.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_BERSERK_ROSINE_FADED_RIBBON",
+    "effect": {
+      "u_message": "The ribbon was tied around a twig as a marker in a game. Another knot is clenched inside a split shell farther along. The flowers kept growing when the games stopped. This little thing records a person, not a treasure hidden in a creature.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_wyald_baggage_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_wyald_baggage"
+        ],
+        "result": "f_berserk_location_wyald_baggage_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_WYALD_BAGGAGE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_wyald_baggage",
+        "berserk_location_empty": "f_berserk_location_wyald_baggage_empty",
+        "berserk_location_transform": "berserk_location_wyald_baggage_searched",
+        "berserk_location_loot": "berserk_location_wyald_baggage"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_wyald_kitchen_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_wyald_kitchen"
+        ],
+        "result": "f_berserk_location_wyald_kitchen_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_WYALD_KITCHEN",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_wyald_kitchen",
+        "berserk_location_empty": "f_berserk_location_wyald_kitchen_empty",
+        "berserk_location_transform": "berserk_location_wyald_kitchen_searched",
+        "berserk_location_loot": "berserk_location_wyald_kitchen"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_wyald_repair_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_wyald_repair"
+        ],
+        "result": "f_berserk_location_wyald_repair_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_WYALD_REPAIR",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_wyald_repair",
+        "berserk_location_empty": "f_berserk_location_wyald_repair_empty",
+        "berserk_location_transform": "berserk_location_wyald_repair_searched",
+        "berserk_location_loot": "berserk_location_wyald_repair"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_wyald_command_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_wyald_command"
+        ],
+        "result": "f_berserk_location_wyald_command_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_WYALD_COMMAND",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_wyald_command",
+        "berserk_location_empty": "f_berserk_location_wyald_command_empty",
+        "berserk_location_transform": "berserk_location_wyald_command_searched",
+        "berserk_location_loot": "berserk_location_wyald_command"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_wyald_prisoners_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_wyald_prisoners"
+        ],
+        "result": "f_berserk_location_wyald_prisoners_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_WYALD_PRISONERS",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_wyald_prisoners",
+        "berserk_location_empty": "f_berserk_location_wyald_prisoners_empty",
+        "berserk_location_transform": "berserk_location_wyald_prisoners_searched",
+        "berserk_location_loot": "berserk_location_wyald_prisoners"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_rosine_travelers_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_rosine_travelers"
+        ],
+        "result": "f_berserk_location_rosine_travelers_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_ROSINE_TRAVELERS",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_rosine_travelers",
+        "berserk_location_empty": "f_berserk_location_rosine_travelers_empty",
+        "berserk_location_transform": "berserk_location_rosine_travelers_searched",
+        "berserk_location_loot": "berserk_location_rosine_travelers"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_rosine_keepsake_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_rosine_keepsake"
+        ],
+        "result": "f_berserk_location_rosine_keepsake_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_ROSINE_KEEPSAKE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_rosine_keepsake",
+        "berserk_location_empty": "f_berserk_location_rosine_keepsake_empty",
+        "berserk_location_transform": "berserk_location_rosine_keepsake_searched",
+        "berserk_location_loot": "berserk_location_rosine_keepsake"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_rosine_waycamp_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_rosine_waycamp"
+        ],
+        "result": "f_berserk_location_rosine_waycamp_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_ROSINE_WAYCAMP",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_rosine_waycamp",
+        "berserk_location_empty": "f_berserk_location_rosine_waycamp_empty",
+        "berserk_location_transform": "berserk_location_rosine_waycamp_searched",
+        "berserk_location_loot": "berserk_location_rosine_waycamp"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_F_BERSERK_WYALD_PRISONER_TRACE",
+    "effect": {
+      "u_message": "The cord was cut patiently, strand by strand. Muddy human footprints lead through the western cage door toward the quarry. There is no prisoner left to escort, only a route someone paid dearly to find.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_F_BERSERK_WYALD_RING_WARNING",
+    "effect": {
+      "u_message": "The leader's ground lies beyond the timber. Three wrecked barriers break the open earth, with space to sidestep and strike back. The quarry on the west remains a way out; crossing the inner clearing may bring Wyald into the fight.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_F_BERSERK_ROSINE_MISSING_TRACE",
+    "effect": {
+      "u_message": "The tracks enter a bright clearing and do not return. A searcher's bundle lies behind you. Ahead, the games give way to silk. The western gully is slower, but avoids the heart of the cocoon grove.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_F_BERSERK_ROSINE_STORY_COCOON",
+    "effect": {
+      "u_message": "Someone marked this shell before cutting it open. The cloth inside is torn through the middle, not worn out. The searcher scratched: I was too late; I can only warn the next traveler. This shell cannot be used to reverse a transformation. Around the roots, other cocoons still swell.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_F_BERSERK_ROSINE_NEST_WARNING",
+    "effect": {
+      "u_message": "The great tree hides Rosine's nest. Its roots and stones interrupt a straight dive, but neither route is a sealed shelter. There are only a few winged sentries. Swelling cocoons can add more; destroy a shell before it opens or keep to the gully. Beyond the threshold, Rosine may join the battle.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_wyald_cage_untied",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_wyald_cage_gate"
+        ],
+        "result": "f_berserk_wyald_cage_gate_open"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_CAGE_OPEN",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_wyald_cage_gate",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "u_query": "Untie this cage door? The quarry route stays open without it.",
+        "default": false
+      },
+      "then": [
+        {
+          "u_transform_radius": 0,
+          "ter_furn_transform": "berserk_wyald_cage_untied",
+          "target_var": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "u_message": "You loosen the cord. This cage door is open; the other door can be untied from either side.",
+          "type": "info",
+          "popup": false
+        },
+        {
+          "turn_cost": "5 seconds"
+        }
+      ]
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_wyald_bell_arm",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_wyald_wagon_chime"
+        ],
+        "result": "f_berserk_wyald_wagon_chime_armed"
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_wyald_bell_spent",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_wyald_wagon_chime_armed"
+        ],
+        "result": "f_berserk_wyald_wagon_chime_spent"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_WAGON_BELL",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_wyald_wagon_chime",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "u_query": "Wind the wagon bells? They ring in 15 seconds, then twice more. Get behind cover before they sound.",
+        "default": false
+      },
+      "then": [
+        {
+          "u_transform_radius": 0,
+          "ter_furn_transform": "berserk_wyald_bell_arm",
+          "target_var": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "math": [
+            "_berserk_wagon_noise_z = u_val('pos_z')"
+          ]
+        },
+        {
+          "u_message": "The bells are wound. The sound will come from the wagon, not from you. A guard who sees you may ignore it.",
+          "type": "info",
+          "popup": false
+        },
+        {
+          "run_eocs": "EOC_BERSERK_WYALD_WAGON_PULSE",
+          "time_in_future": "15 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_WYALD_WAGON_PULSE",
+          "time_in_future": "25 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_WYALD_WAGON_PULSE",
+          "time_in_future": "35 seconds"
+        },
+        {
+          "u_transform_radius": 0,
+          "ter_furn_transform": "berserk_wyald_bell_spent",
+          "target_var": {
+            "context_val": "pos"
+          },
+          "time_in_future": "44 seconds"
+        },
+        {
+          "turn_cost": "1 second"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_WAGON_PULSE",
+    "eoc_type": "ACTIVATION",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "u_val('pos_z') == _berserk_wagon_noise_z"
+            ]
+          },
+          {
+            "math": [
+              "distance('u', _pos) <= 48"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "if": {
+          "map_furniture_id": "f_berserk_wyald_wagon_chime_armed",
+          "loc": {
+            "context_val": "pos"
+          }
+        },
+        "then": {
+          "u_make_sound": "Harness bells clatter at the broken wagon!",
+          "volume": 45,
+          "type": "alarm",
+          "ambient": false,
+          "target_var": {
+            "context_val": "pos"
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_rosine_shell_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_rosine_shell_material"
+        ],
+        "result": "f_berserk_rosine_shell_material_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_ROSINE_SHELL",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_rosine_shell_material",
+        "berserk_location_empty": "f_berserk_rosine_shell_material_empty",
+        "berserk_location_transform": "berserk_rosine_shell_searched",
+        "berserk_location_loot": "berserk_location_rosine_shell"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_rosine_cocoon_wake",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_rosine_cocoon_watchful"
+        ],
+        "result": "f_berserk_rosine_cocoon_waking"
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_rosine_cocoon_settle",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_rosine_cocoon_waking"
+        ],
+        "result": "f_berserk_rosine_cocoon_watchful"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COCOON_APPROACH",
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": {
+      "or": [
+        {
+          "u_at_om_location": "berserk_rosine_trail"
+        },
+        {
+          "u_at_om_location": "berserk_rosine_cocoons"
+        },
+        {
+          "u_at_om_location": "berserk_rosine_gully"
+        },
+        {
+          "u_at_om_location": "berserk_rosine_nest"
+        }
+      ]
+    },
+    "effect": {
+      "u_location_variable": {
+        "context_val": "pos"
+      },
+      "furniture": "f_berserk_rosine_cocoon_watchful",
+      "target_min_radius": -1,
+      "target_max_radius": 3,
+      "true_eocs": [
+        "EOC_BERSERK_ROSINE_COCOON_WAKE"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COCOON_WAKE",
+    "condition": {
+      "and": [
+        {
+          "map_furniture_id": "f_berserk_rosine_cocoon_watchful",
+          "loc": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "u_can_see_location": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_rosine_cocoon_wake",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "math": [
+          "_berserk_cocoon_z = u_val('pos_z')"
+        ]
+      },
+      {
+        "u_message": "A nearby cocoon bulges and starts to split! Its shell can still be smashed before the creature emerges.",
+        "type": "warning",
+        "popup": false
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_COCOON_HATCH",
+        "time_in_future": "6 seconds"
+      },
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_rosine_cocoon_settle",
+        "target_var": {
+          "context_val": "pos"
+        },
+        "time_in_future": "9 seconds"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COCOON_HATCH",
+    "eoc_type": "ACTIVATION",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "u_val('pos_z') == _berserk_cocoon_z"
+            ]
+          },
+          {
+            "math": [
+              "distance('u', _pos) <= 24"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "if": {
+          "map_furniture_id": "f_berserk_rosine_cocoon_waking",
+          "loc": {
+            "context_val": "pos"
+          }
+        },
+        "then": {
+          "u_spawn_monster": "mon_berserk_cocoon_ravager",
+          "target_var": {
+            "context_val": "pos"
+          },
+          "real_count": 1,
+          "min_radius": 1,
+          "max_radius": 2,
+          "true_eocs": [
+            "EOC_BERSERK_COCOON_EMPTIED"
+          ],
+          "false_eocs": [
+            "EOC_BERSERK_COCOON_BLOCKED"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_wyald_seal_at_site",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_wyald_breach"
+        ],
+        "result": "f_berserk_wyald_breach_sealed"
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_rosine_seal_at_site",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_rosine_breach"
+        ],
+        "result": "f_berserk_rosine_breach_sealed"
+      }
+    ]
+  }
+]

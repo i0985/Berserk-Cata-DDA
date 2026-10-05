@@ -1,0 +1,373 @@
+[
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_hunt_shelter_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_hunt_shelter"
+        ],
+        "result": "f_berserk_location_hunt_shelter_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_HUNT_SHELTER",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_hunt_shelter",
+        "berserk_location_empty": "f_berserk_location_hunt_shelter_empty",
+        "berserk_location_transform": "berserk_location_hunt_shelter_searched",
+        "berserk_location_loot": "berserk_location_hunt_shelter"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_hunt_reward_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_hunt_reward"
+        ],
+        "result": "f_berserk_location_hunt_reward_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_HUNT_REWARD",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_hunt_reward",
+        "berserk_location_empty": "f_berserk_location_hunt_reward_empty",
+        "berserk_location_transform": "berserk_location_hunt_reward_searched",
+        "berserk_location_loot": "berserk_location_hunt_reward"
+      }
+    },
+    "condition": {
+      "and": [
+        {
+          "u_at_om_location": "berserk_first_hunt_lair"
+        },
+        {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        }
+      ]
+    },
+    "false_effect": {
+      "u_message": "The predator still holds this exposed patch. Defeat the apostle, then recover what its victims left.",
+      "type": "info",
+      "popup": false
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_breach_defenders_searched",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_breach_defenders"
+        ],
+        "result": "f_berserk_location_breach_defenders_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_BREACH_DEFENDERS",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_breach_defenders",
+        "berserk_location_empty": "f_berserk_location_breach_defenders_empty",
+        "berserk_location_transform": "berserk_location_breach_defenders_searched",
+        "berserk_location_loot": "berserk_location_breach_defenders"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_HUNT_WARNING",
+    "effect": {
+      "u_message": "Its lunges cross only a short gap. The wounded prey escaped by widening the distance; the apostle could not restore its torn flesh. Clear the two scavengers, keep the return track open, and draw it around the stone screens. You need preparation, not Flora's armor or perfect health.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_HUNT_VICTIMS",
+    "effect": {
+      "u_message": "The belongings do not match: a carter's knot, a traveler's patched shirt, a little cord tied as a charm. This predator took people one by one, not as part of a ceremony. Drag marks lead from the ruined stopping place into the hollow.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_BREACH_FAILED_LINE",
+    "effect": {
+      "u_message": "The old road ran past a small watch post. Someone ringed the crack with stakes and cloth wards; the ground tore through the foundations instead. Three firm patches remain. The open middle is short, while the western remains of the wall provide a covered approach.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_hunt_trace_revealed",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_hunt_obscured_trail"
+        ],
+        "result": "f_berserk_hunt_revealed_trail"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HUNT_REVEAL_TRAIL",
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_hunt_trace_revealed",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HUNT_REVEALED_TRAIL"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_hunt_obscured_trail",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    },
+    "false_effect": {
+      "u_message": "The living predator leaves you no time to sort these tracks. Clear the hollow first.",
+      "type": "info",
+      "popup": false
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HUNT_REVEALED_TRAIL",
+    "effect": [
+      {
+        "u_message": "The burned scrap carried by the apostle matches the ashen route here. Search its remains and activate the scrap to locate the separate breach. The gathered belongings can now be recovered.",
+        "type": "info",
+        "popup": true
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HUNT_TRACE_AFTER_VICTORY",
+    "effect": {
+      "u_transform_radius": 18,
+      "ter_furn_transform": "berserk_hunt_trace_revealed"
+    },
+    "condition": {
+      "u_at_om_location": "berserk_first_hunt_lair"
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_breach_beam_cleared",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_breach_fallen_beam"
+        ],
+        "result": "f_null"
+      },
+      {
+        "valid_furniture": [
+          "f_berserk_breach_beam_end"
+        ],
+        "result": "f_berserk_breach_beam_moved"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BREACH_MOVE_BEAM",
+    "effect": {
+      "if": {
+        "u_query": "Shift the loose beam to open the covered gap? This takes five seconds.",
+        "default": false
+      },
+      "then": [
+        {
+          "u_transform_radius": 1,
+          "ter_furn_transform": "berserk_breach_beam_cleared",
+          "target_var": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "turn_cost": "5 seconds"
+        },
+        {
+          "u_message": "The beam slides aside. You can reach the seal behind the broken wall.",
+          "type": "info",
+          "popup": false
+        }
+      ]
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_breach_beam_end",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_first_breach_ground_cooled",
+    "terrain": [
+      {
+        "valid_terrain": [
+          "t_berserk_breach_wound"
+        ],
+        "result": "t_berserk_breach_scar"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIRST_BREACH_COOL",
+    "effect": [
+      {
+        "u_transform_radius": 7,
+        "ter_furn_transform": "berserk_first_breach_ground_cooled",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "u_make_sound": "The pulse breaks with a dry crack, then falls silent.",
+        "volume": 8,
+        "type": "background",
+        "ambient": true,
+        "target_var": {
+          "context_val": "pos"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIRST_BREACH_SOUND",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_first_breach_sound"
+        },
+        "x_adjust": {
+          "math": [
+            "floor(u_val('pos_x') / 24) * 24 - u_val('pos_x') + 11"
+          ]
+        },
+        "y_adjust": {
+          "math": [
+            "floor(u_val('pos_y') / 24) * 24 - u_val('pos_y') + 11"
+          ]
+        }
+      },
+      {
+        "if": {
+          "map_furniture_id": "f_berserk_open_breach",
+          "loc": {
+            "context_val": "berserk_first_breach_sound"
+          }
+        },
+        "then": {
+          "u_make_sound": "A slow, hollow heartbeat rises from the split ground.",
+          "volume": 4,
+          "type": "background",
+          "ambient": true,
+          "target_var": {
+            "context_val": "berserk_first_breach_sound"
+          }
+        }
+      }
+    ],
+    "global": true,
+    "recurrence": "30 seconds",
+    "condition": {
+      "and": [
+        {
+          "u_at_om_location": "berserk_local_breach"
+        },
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIRST_BREACH_REPORT",
+    "effect": [
+      {
+        "reveal_map": {
+          "global_val": "berserk_hunt_first_breach_location"
+        },
+        "radius": 2
+      },
+      {
+        "u_message": "The journal marks the first sealed breach and its surroundings, about two overmap tiles from that site. Only new demonic incursions in this recorded region are suppressed. Existing demons remain. The Brand is still yours, and the Count, Wyald, Rosine and Grunbeld each have independent breaches. Your chosen next trail is unchanged.",
+        "type": "info",
+        "popup": true
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_hunt_first_breach_state >= 4"
+          ]
+        },
+        {
+          "math": [
+            "has_var(berserk_hunt_first_breach_location)"
+          ]
+        }
+      ]
+    },
+    "false_effect": {
+      "u_message": "The first breach has not yet been recorded as sealed. Defeat its guardian, then examine the wound.",
+      "type": "info",
+      "popup": false
+    }
+  }
+]

@@ -8,12 +8,6 @@
       ],
       "set": [
         {
-          "point": "terrain",
-          "id": "t_door_o",
-          "x": 10,
-          "y": 14
-        },
-        {
           "square": "terrain",
           "id": "t_berserk_flora_escape_path",
           "x": 0,
@@ -40,14 +34,7 @@
       "flags": [
         "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ],
-      "set": [
-        {
-          "point": "terrain",
-          "id": "t_dirt",
-          "x": 0,
-          "y": 5
-        }
-      ],
+      "set": [],
       "place_fields": [
         {
           "field": "fd_smoke",
@@ -68,12 +55,6 @@
       ],
       "set": [
         {
-          "point": "terrain",
-          "id": "t_dirt",
-          "x": 23,
-          "y": 23
-        },
-        {
           "square": "terrain",
           "id": "t_berserk_flora_escape_path",
           "x": 22,
@@ -93,12 +74,6 @@
       ],
       "set": [
         {
-          "point": "terrain",
-          "id": "t_door_o",
-          "x": 0,
-          "y": 4
-        },
-        {
           "square": "terrain",
           "id": "t_berserk_flora_escape_path",
           "x": 0,
@@ -116,24 +91,20 @@
       "flags": [
         "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ],
-      "set": [
+      "place_fields": [
         {
-          "point": "terrain",
-          "id": "t_door_o",
-          "x": 10,
-          "y": 14
+          "field": "fd_fire",
+          "x": 18,
+          "y": 7,
+          "intensity": 2,
+          "age": -300
         },
         {
-          "point": "furniture",
-          "id": "f_berserk_flora_held_embers",
-          "x": 21,
-          "y": 7
-        },
-        {
-          "point": "furniture",
-          "id": "f_berserk_flora_held_embers",
-          "x": 22,
-          "y": 8
+          "field": "fd_fire",
+          "x": 15,
+          "y": 20,
+          "intensity": 2,
+          "age": -300
         }
       ]
     }
@@ -145,18 +116,21 @@
       "flags": [
         "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ],
-      "set": [
+      "set": [],
+      "place_fields": [
         {
-          "point": "terrain",
-          "id": "t_berserk_flora_ash_floor",
-          "x": 16,
-          "y": 18
+          "field": "fd_fire",
+          "x": 13,
+          "y": 9,
+          "intensity": 2,
+          "age": -300
         },
         {
-          "point": "furniture",
-          "id": "f_berserk_flora_held_embers",
-          "x": 14,
-          "y": 7
+          "field": "fd_fire",
+          "x": 11,
+          "y": 20,
+          "intensity": 2,
+          "age": -300
         }
       ]
     }
@@ -168,12 +142,14 @@
       "flags": [
         "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ],
-      "set": [
+      "set": [],
+      "place_fields": [
         {
-          "point": "terrain",
-          "id": "t_dirt",
-          "x": 23,
-          "y": 23
+          "field": "fd_fire",
+          "x": 14,
+          "y": 1,
+          "intensity": 2,
+          "age": -300
         }
       ]
     }
@@ -185,12 +161,13 @@
       "flags": [
         "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ],
-      "set": [
+      "place_fields": [
         {
-          "point": "terrain",
-          "id": "t_door_o",
-          "x": 0,
-          "y": 4
+          "field": "fd_fire",
+          "x": 11,
+          "y": 1,
+          "intensity": 2,
+          "age": -300
         }
       ]
     }
@@ -204,210 +181,10 @@
       ],
       "set": [
         {
-          "point": "terrain",
-          "id": "t_door_o",
-          "x": 10,
-          "y": 14
-        },
-        {
-          "square": "terrain",
-          "id": "t_berserk_flora_ash_floor",
-          "x": 11,
-          "y": 6,
-          "x2": 23,
-          "y2": 23
-        },
-        {
           "point": "furniture",
           "id": "f_berserk_flora_ruined_ward",
           "x": 16,
           "y": 12
-        },
-        {
-          "point": "furniture",
-          "id": "f_null",
-          "x": 21,
-          "y": 7
-        },
-        {
-          "point": "furniture",
-          "id": "f_null",
-          "x": 22,
-          "y": 8
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 11,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 12,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 13,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 14,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 15,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 17,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 19,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 20,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 21,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 22,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 23,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 6
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 7
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 8
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 10
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 11
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 12
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 13
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 15
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 16
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 17
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 18
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 19
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 20
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 21
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 22
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 23
         }
       ]
     }
@@ -418,304 +195,6 @@
     "object": {
       "flags": [
         "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
-      "set": [
-        {
-          "square": "terrain",
-          "id": "t_berserk_flora_ash_floor",
-          "x": 2,
-          "y": 6,
-          "x2": 15,
-          "y2": 23
-        },
-        {
-          "point": "furniture",
-          "id": "f_null",
-          "x": 14,
-          "y": 7
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 0,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 2,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 3,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 4,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 5,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 6,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 7,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 8,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 11,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 12,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 13,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 14,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 15,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 5
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 6
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 6
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 7
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 7
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 8
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 8
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 9
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 9
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 10
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 11
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 11
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 12
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 12
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 13
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 13
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 14
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 15
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 15
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 16
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 16
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 17
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 17
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 18
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 19
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 19
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 20
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 21
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 22
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 22
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 23
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 23
-        }
       ]
     }
   },
@@ -725,124 +204,6 @@
     "object": {
       "flags": [
         "ALLOW_TERRAIN_UNDER_OTHER_DATA"
-      ],
-      "set": [
-        {
-          "square": "terrain",
-          "id": "t_berserk_flora_ash_floor",
-          "x": 11,
-          "y": 0,
-          "x2": 23,
-          "y2": 3
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 0
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 1
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 2
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 3
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 11,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 12,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 13,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 14,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 15,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 17,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 18,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 19,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 20,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 21,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 22,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 23,
-          "y": 4
-        }
       ]
     }
   },
@@ -852,160 +213,74 @@
     "object": {
       "flags": [
         "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_assault_west",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ],
-      "set": [
+      "place_fields": [
         {
-          "point": "terrain",
-          "id": "t_door_o",
-          "x": 0,
-          "y": 4
+          "field": "fd_fire",
+          "x": 17,
+          "y": 5,
+          "intensity": 2,
+          "age": -300
         },
         {
-          "square": "terrain",
-          "id": "t_berserk_flora_ash_floor",
-          "x": 2,
-          "y": 0,
-          "x2": 15,
-          "y2": 3
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 0
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 0
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 1
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 1
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 2
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 2
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 3
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 3
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 1,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 2,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 3,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 4,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 5,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 6,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 7,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 9,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 10,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 11,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 12,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 13,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 14,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 15,
-          "y": 4
-        },
-        {
-          "point": "terrain",
-          "id": "t_berserk_flora_charred_wall",
-          "x": 16,
-          "y": 4
+          "field": "fd_fire",
+          "x": 23,
+          "y": 11,
+          "intensity": 2,
+          "age": -300
         }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_assault_east",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ],
+      "place_fields": [
+        {
+          "field": "fd_fire",
+          "x": 16,
+          "y": 12,
+          "intensity": 2,
+          "age": -300
+        },
+        {
+          "field": "fd_fire",
+          "x": 1,
+          "y": 13,
+          "intensity": 2,
+          "age": -300
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_assault_garden_west",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_assault_garden_east",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
       ]
     }
   }

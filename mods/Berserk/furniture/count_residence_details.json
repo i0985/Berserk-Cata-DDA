@@ -1,0 +1,316 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_count_pantry",
+    "name": "residence pantry chest",
+    "description": "Bread, dried meat and a sealed waterskin were put aside for the household.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_F_BERSERK_LOCATION_COUNT_PANTRY"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_count_pantry_empty",
+    "name": "searched residence chest",
+    "description": "The useful contents have been recovered. No new supplies will appear here.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_count_armory",
+    "name": "residence armory chest",
+    "description": "Worn weapons, damaged armor and a little repair material remain in the armory.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_F_BERSERK_LOCATION_COUNT_ARMORY"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_count_armory_empty",
+    "name": "searched residence chest",
+    "description": "The useful contents have been recovered. No new supplies will appear here.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_count_property",
+    "name": "confiscated belongings chest",
+    "description": "Different prisoners' clothing was sorted beside a roll of names.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_F_BERSERK_LOCATION_COUNT_PROPERTY"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_count_property_empty",
+    "name": "searched residence chest",
+    "description": "The useful contents have been recovered. No new supplies will appear here.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_count_physician",
+    "name": "physician's linen chest",
+    "description": "Clean linen and one portion of thyme oil in a separate skin lie beside handwritten observations.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_F_BERSERK_LOCATION_COUNT_PHYSICIAN"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_count_physician_empty",
+    "name": "searched residence chest",
+    "description": "The useful contents have been recovered. No new supplies will appear here.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_count_clerk",
+    "name": "prison clerk's chest",
+    "description": "A service key and annotated routes lie in the records chest.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_F_BERSERK_LOCATION_COUNT_CLERK"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_count_clerk_empty",
+    "name": "searched residence chest",
+    "description": "The useful contents have been recovered. No new supplies will appear here.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_count_family",
+    "name": "untouched sewing box",
+    "description": "This small sewing box was spared the violence elsewhere in the house.",
+    "looks_like": "f_crate_c",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_F_BERSERK_LOCATION_COUNT_FAMILY"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_count_family_empty",
+    "name": "searched residence chest",
+    "description": "The useful contents have been recovered. No new supplies will appear here.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_count_notice",
+    "name": "execution notices",
+    "description": "Names, sentences and orders to surrender personal belongings.",
+    "looks_like": "f_counter",
+    "symbol": "?",
+    "color": "white",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COUNT_NOTICE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_count_family_door",
+    "name": "door of an untouched room",
+    "description": "A quiet family room beyond the execution hall.",
+    "looks_like": "f_counter",
+    "symbol": "?",
+    "color": "white",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COUNT_FAMILY_DOOR"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_count_service_grate",
+    "name": "barred service shortcut",
+    "description": "A key opens the latch. A long or short sledgehammer can break it. The courtyard route is not locked.",
+    "looks_like": "f_rack",
+    "symbol": "#",
+    "color": "dark_gray",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COUNT_OPEN_GRATE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_count_service_grate_open",
+    "name": "opened service shortcut",
+    "description": "The displaced grille leaves a short passage between the prison offices and the execution hall.",
+    "looks_like": "f_rack",
+    "symbol": ".",
+    "color": "dark_gray",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  }
+]

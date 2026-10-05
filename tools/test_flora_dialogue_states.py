@@ -8,9 +8,10 @@ data interpreter, not a native UI/save/load/AI test.
 import copy
 import unittest
 
-from test_flora import ARMOR
+from test_flora import ARMOR, native_om_location
 from test_flora_siege import SiegeGraph, ready
 from test_behelit_rewards import MOD, objects
+from validate_mod_assets import ValidationError, validate_om_location_conditions
 
 
 class FloraDialogueStates(unittest.TestCase):
@@ -36,8 +37,10 @@ class FloraDialogueStates(unittest.TestCase):
     def test_first_manual_meeting_registers_before_gift_and_readiness_menu(self):
         g = self.post_eclipse()
         menu = self.open_conversation(g)
-        self.assertTrue(any(r['topic']=='TALK_BERSERK_FLORA_OFFER' for r in menu))
-        self.assertTrue(any(r['topic']=='TALK_BERSERK_FLORA_SIEGE_CONFIRM' for r in menu))
+        self.assertEqual(sum(r['topic']=='TALK_BERSERK_FLORA_ARMOR' for r in menu),1)
+        self.assertTrue(any(r['topic']=='TALK_BERSERK_FLORA_OFFER'
+                            for r in self.available(g,'TALK_BERSERK_FLORA_ARMOR')))
+        self.assertTrue(any(r['topic']=='TALK_BERSERK_FLORA_PREPARATION' for r in menu))
         self.assertEqual(g.flags['berserk_flora_location'],(-96,48,0))
         self.assertEqual(g.flags['berserk_flora_center'],(-72,72,0))
         self.assertEqual(g.flags['u_berserk_flora_met'],1)
@@ -96,8 +99,8 @@ class FloraDialogueStates(unittest.TestCase):
                                     'berserk_flora_armor_claimed':1})]:
             g=self.post_eclipse();g.worn=set(owned);g.flags.update(flags)
             menu=self.open_conversation(g)
-            self.assertTrue(any(r['topic']=='TALK_BERSERK_FLORA_SIEGE_OWNER_CONFIRM' for r in menu))
-            self.assertFalse(any(r['topic']=='TALK_BERSERK_FLORA_SIEGE_CONFIRM' for r in menu))
+            self.assertEqual(sum(r['topic']=='TALK_BERSERK_FLORA_PREPARATION' for r in menu),1)
+            self.assertFalse(any('SIEGE_' in r['topic'] for r in menu))
             g.run('EOC_BERSERK_FLORA_PREPARE_SIEGE')
             self.assertEqual(g.inventory,['berserk_flora_escape_charm'])
             self.assertEqual(g.flags['u_berserk_flora_armor_resolved'],1)
@@ -110,7 +113,7 @@ class FloraDialogueStates(unittest.TestCase):
         self.assertEqual(set(g.inventory),ARMOR)
         g.inventory=['berserk_flora_escape_charm'];g.worn=set(ARMOR)
         g.run('EOC_BERSERK_FLORA_START_SIEGE')
-        self.assertIn('Readiness has not been confirmed',g.messages[-1])
+        self.assertIn('charm is not prepared yet',g.messages[-1])
         self.assertEqual(g.inventory,['berserk_flora_escape_charm'])
         self.assertFalse(g.spawns);self.assertFalse(g.siege_updates)
         g.run('EOC_BERSERK_FLORA_PREPARE_SIEGE')
@@ -133,8 +136,8 @@ class FloraDialogueStates(unittest.TestCase):
         self.assertEqual(g.flags['berserk_flora_location'],(-96,48,0))
 
     def test_specific_refusals_do_not_start_or_consume_anything(self):
-        cases=[({'berserk_eclipse_era':0},None,None,'survive the Eclipse'),
-               ({'berserk_flora_siege_state':0},None,None,'Readiness has not'),
+        cases=[({'berserk_eclipse_era':0},None,None,'survivor of the Eclipse'),
+               ({'berserk_flora_siege_state':0},None,None,'charm is not prepared'),
                ({'berserk_flora_siege_state':2,'berserk_flora_stage':2},None,None,'already begun'),
                ({'berserk_flora_siege_state':5,'berserk_flora_stage':3},None,None,'already complete'),
                ({},'field',None,'outside the registered manor'),
@@ -156,22 +159,100 @@ class FloraDialogueStates(unittest.TestCase):
         self.assertIn('not been registered',g.messages[-1])
         self.assertEqual(g.flags['berserk_flora_siege_state'],1)
 
-    def test_cancel_then_confirm_and_escape_updates_the_journal_once(self):
+    def test_one_preparation_then_activation_and_escape_updates_the_journal_once(self):
         g=ready();g.run('EOC_BERSERK_FLORA_PREPARE_SIEGE')
-        g.confirm=False;g.run('EOC_BERSERK_FLORA_START_SIEGE')
-        self.assertIn('postpone the attack',g.messages[-1])
         self.assertFalse(g.spawns);self.assertFalse(g.siege_updates)
         g=copy.deepcopy(g)  # persistence of abstract state, not a native save
-        g.confirm=True;g.run('EOC_BERSERK_FLORA_START_SIEGE')
+        g.confirm=False;g.run('EOC_BERSERK_FLORA_START_SIEGE')
         self.assertEqual(g.flags['berserk_flora_siege_state'],2)
         g.avatar=(-105,62,0);g.run('EOC_BERSERK_FLORA_SIEGE_TICK')
         self.assertEqual(g.flags['berserk_flora_siege_state'],5)
         self.assertEqual(g.inventory.count('berserk_apostle_hunt_journal'),1)
-        self.assertIn('escape is complete',g.messages[-1])
+        self.assertTrue(any('You have escaped' in m for m in g.messages))
+        messages=list(g.messages)
         g.run('EOC_BERSERK_FLORA_ESCAPED')
         self.assertEqual(g.inventory.count('berserk_apostle_hunt_journal'),1)
-        self.assertTrue(any(r['topic']=='TALK_BERSERK_FLORA_STATUS'
-                            for r in self.available(g,'TALK_BERSERK_FLORA')))
+        self.assertEqual(g.messages,messages)
+
+    def test_native_normalization_rejects_full_directional_condition_names(self):
+        g = self.post_eclipse()
+        for raw, expected in [('berserk_flora_manor_west','berserk_flora_manor'),
+                              ('berserk_flora_manor_east','berserk_flora_manor'),
+                              ('berserk_flora_garden_west','berserk_flora_garden'),
+                              ('berserk_flora_garden_east','berserk_flora_garden')]:
+            g.beta_omt = raw
+            self.assertEqual(native_om_location(raw), expected)
+            self.assertFalse(g.condition({'npc_at_om_location':raw}))
+            self.assertTrue(g.condition({'npc_at_om_location':expected}))
+
+    def test_validator_distinguishes_condition_names_from_mission_target_ids(self):
+        path = MOD/'effects/flora_eocs.json'
+        for field in ('overmap_at_point','u_at_om_location','npc_at_om_location',
+                      'u_near_om_location','npc_near_om_location'):
+            with self.subTest(field=field):
+                with self.assertRaises(ValidationError):
+                    validate_om_location_conditions(path,[{field:'berserk_flora_manor_west'}])
+                validate_om_location_conditions(path,[{field:'berserk_flora_manor'}])
+        validate_om_location_conditions(path,[{'target_params':{
+            'om_terrain':'berserk_flora_manor_west','search_range':48,'random':True}}])
+
+    def test_previously_exhausted_locator_recovers_and_binds_the_same_mission(self):
+        g = self.post_eclipse()
+        g.flags.update(u_berserk_first_hunt_done=1,
+                       u_berserk_site_flora_placement_v2=1,
+                       u_berserk_site_flora_tries=2,
+                       u_berserk_site_flora_search_origin=g.avatar)
+        g.run('EOC_BERSERK_FLORA_SEEK')
+        target = (-96,48,0)
+        self.assertEqual(g.location_calls,1)
+        self.assertEqual(g.flags['berserk_flora_location'],target)
+        self.assertEqual(g.active_missions['MISSION_BERSERK_FLORA'],target)
+        saved = copy.deepcopy(g)
+        saved.run('EOC_BERSERK_FLORA_SEEK')
+        self.assertEqual(saved.location_calls,1)
+        self.assertEqual(saved.active_missions['MISSION_BERSERK_FLORA'],target)
+        self.assertFalse(saved.inventory)
+
+    def test_manual_meeting_repairs_unconfirmed_field_coordinate(self):
+        g = self.post_eclipse()
+        g.flags.update(berserk_flora_location=(600,600,0),berserk_flora_stage=1,
+                       berserk_flora_armor_claimed=1,u_berserk_flora_armor_resolved=1)
+        menu = self.open_conversation(g)
+        self.assertEqual(g.flags['berserk_flora_location'],(-96,48,0))
+        self.assertTrue(any(r['topic']=='TALK_BERSERK_FLORA_PREPARATION' for r in menu))
+        g.run('EOC_BERSERK_FLORA_PREPARE_SIEGE')
+        self.assertEqual(g.inventory,['berserk_flora_escape_charm'])
+
+    def test_incomplete_manor_cannot_be_registered_from_one_named_tile(self):
+        g = self.post_eclipse()
+        del g.terrain_locations[(-72,72,0)]
+        self.open_conversation(g)
+        self.assertNotIn('berserk_flora_location',g.flags)
+        self.assertFalse(g.active_missions)
+        g.run('EOC_BERSERK_FLORA_PREPARE_SIEGE')
+        self.assertIn("Flora's home",g.messages[-1])
+        self.assertFalse(g.inventory)
+
+    def test_new_preparation_branch_explains_an_outside_meeting(self):
+        g = self.post_eclipse();g.omt = g.beta_omt = 'field'
+        menu = self.open_conversation(g)
+        self.assertTrue(any(r['topic']=='TALK_BERSERK_FLORA_PREPARATION' for r in menu))
+        g.run('EOC_BERSERK_FLORA_PREPARATION_REFUSAL')
+        self.assertIn('meeting her elsewhere is not enough',g.messages[-1])
+        self.assertFalse(g.spawns);self.assertFalse(g.siege_updates)
+
+    def test_prepared_save_can_resume_without_second_gift_or_charm(self):
+        g = self.post_eclipse();self.open_conversation(g)
+        g.run('EOC_BERSERK_FLORA_GIVE_ARMOR')
+        self.open_conversation(g)
+        g.run('EOC_BERSERK_FLORA_PREPARE_SIEGE')
+        saved = copy.deepcopy(g)
+        self.open_conversation(saved)
+        saved.run('EOC_BERSERK_FLORA_PREPARATION_REFUSAL')
+        self.assertIn('already confirmed',saved.messages[-1])
+        saved.run('EOC_BERSERK_FLORA_PREPARE_SIEGE')
+        self.assertEqual(saved.inventory,g.inventory)
+        self.assertFalse(saved.spawns);self.assertFalse(saved.siege_updates)
 
 
 if __name__=='__main__':unittest.main()

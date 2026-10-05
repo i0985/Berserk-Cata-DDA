@@ -56,7 +56,7 @@ class HuntMissionTests(unittest.TestCase):
         self.assertNotIn('berserk_hunt_wyald_location',g.flags)
         g.avatar=(24,0,0);g.run('EOC_BERSERK_WYALD_SEEK');self.assertEqual(len(g.locator_calls),5)
         fallback=next(e for e in objects(MOD/'effects/hunt_site_placement_eocs.json') if e['id']=='EOC_BERSERK_SITE_WYALD_FAILED')['effect']['then']['target_params']
-        self.assertFalse(fallback['create_if_necessary']);self.assertEqual(fallback['min_distance'],0)
+        self.assertNotIn('create_if_necessary',fallback);self.assertTrue(fallback['must_see']);self.assertNotIn('cant_see',fallback);self.assertEqual(fallback['min_distance'],0)
     def test_spacing_rejects_unregistered_close_candidate_then_keeps_existing_unique_site(self):
         g=NamedHuntGraph();g.origins['wyald']=(24,0,0)
         for _ in range(2):g.run('EOC_BERSERK_WYALD_SEEK')
@@ -65,12 +65,16 @@ class HuntMissionTests(unittest.TestCase):
         self.assertEqual(g.flags['berserk_hunt_wyald_location'],(24,0,0))
         self.assertEqual(g.active_missions['MISSION_BERSERK_WYALD'],(24,0,0))
         before=list(g.locator_calls);g.run('EOC_BERSERK_WYALD_SEEK');self.assertEqual(g.locator_calls,before)
-    def test_desired_native_rings_and_hunt_separation_are_explicit(self):
+    def test_native_creation_does_not_reject_nearby_site_and_script_rings_remain_explicit(self):
         config=[('local_breach_eocs','BREACH',6,12),('flora_eocs','FLORA',15,30),('apostle_hunt_eocs','COUNT',15,35),('wyald_rosine_hunt_eocs','WYALD',15,35),('wyald_rosine_hunt_eocs','ROSINE',15,35),('grunbeld_hunt_eocs','GRUNBELD',25,45)]
         for file,key,minimum,maximum in config:
             finder=next(e for e in objects(MOD/f'effects/{file}.json') if e['id']==f'EOC_BERSERK_{key}_FIND')
-            p=finder['effect'][-1]['then'][-1]['target_params'];self.assertEqual((p['min_distance'],p['search_range']),(minimum,maximum))
+            p=finder['effect'][-1]['then'][-1]['target_params'];self.assertEqual((p['min_distance'],p['search_range']),(0,maximum))
         validators={e['id']:e for e in objects(MOD/'effects/hunt_site_placement_eocs.json')}
+        for _,key,minimum,maximum in config:
+            text=json.dumps(validators[f'EOC_BERSERK_SITE_{key}_VALIDATE'])
+            self.assertIn(f'>= {minimum * 24}',text)
+            self.assertIn(f'<= {maximum * 24}',text)
         text=json.dumps(validators['EOC_BERSERK_SITE_WYALD_VALIDATE'])
         self.assertIn('>= 8',text);self.assertIn('floor(_berserk_site_anchor.x / 24)',text)
     def test_count_last_seal_immediately_finds_stronghold_without_minute_tick(self):

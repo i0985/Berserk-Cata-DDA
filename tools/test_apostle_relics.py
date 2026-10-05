@@ -156,8 +156,8 @@ class ApostleRelics(unittest.TestCase):
         self.assertIn('mon_berserk_projection_griffith', whitelist)
         self.assertNotIn('GROUP_NETHER', text)
 
-    def test_knot_snapshots_duration_and_does_not_reset_an_existing_rage(self):
-        for knot, expected in ((False, 150), (True, 210)):
+    def test_knot_no_longer_extends_new_rage_and_existing_countdown_remains(self):
+        for knot, expected in ((False, 150), (True, 150)):
             g = RelicGraph()
             if knot:
                 g.worn.add('berserk_wyald_beast_knot')
@@ -229,7 +229,9 @@ class ApostleRelics(unittest.TestCase):
             self.assertIn(group, groups)
             self.assertNotIn(group, all_monsters)
         grunbeld = next(e for e in objects(MOD/'monsters/flora_siege.json') if e['id']=='mon_berserk_flora_grunbeld')
-        self.assertEqual(grunbeld['death_drops'],'berserk_grunbeld_relic_drops')
+        self.assertEqual(grunbeld['death_drops'],'EMPTY_GROUP')
+        # The death EOC now emits the one body reward only before withdrawal.
+        # Its real-death / retired-actor regressions live in test_new_horizon_31.
 
     def test_new_player_strings_have_compiled_russian_and_chinese_translations(self):
         items = objects(MOD/'items/apostle_relics.json')

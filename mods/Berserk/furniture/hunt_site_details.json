@@ -1,0 +1,270 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_hunt_shelter",
+    "name": "tucked-away survivor bundle",
+    "description": "A fur blanket and a few belongings were hidden under the roots, away from the drag marks.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_HUNT_SHELTER"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_hunt_shelter_empty",
+    "name": "searched belongings",
+    "description": "Only torn wrapping and marks in the earth remain.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_hunt_reward",
+    "name": "predator's gathered belongings",
+    "description": "The apostle piled the useful belongings of its prey here. Defeat it before searching this exposed stash.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_HUNT_REWARD"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_hunt_reward_empty",
+    "name": "searched belongings",
+    "description": "Only torn wrapping and marks in the earth remain.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_breach_defenders",
+    "name": "failed defenders' supply chest",
+    "description": "Dressings and water remain behind a broken wall. These people tried to hold the old post.",
+    "looks_like": "f_crate_o",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_BREACH_DEFENDERS"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_breach_defenders_empty",
+    "name": "searched belongings",
+    "description": "Only torn wrapping and marks in the earth remain.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_hunt_warning",
+    "name": "gouged stone at the hollow edge",
+    "description": "Hooked scratches stop short of a root-covered retreat. Examine them before entering the depression.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_HUNT_WARNING"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_hunt_victims",
+    "name": "belongings of different travelers",
+    "description": "A patched shirt, broken clasp and child-sized cord lie far from their owners.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_HUNT_VICTIMS"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_breach_failed_line",
+    "name": "broken line of ward stakes",
+    "description": "Snapped stakes and ash mark an attempt to contain the wound.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_BREACH_FAILED_LINE"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_hunt_obscured_trail",
+    "name": "trampled ash beneath the prey",
+    "description": "The predator's tracks have churned the ash beyond recognition.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_HUNT_REVEAL_TRAIL"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_hunt_revealed_trail",
+    "name": "revealed ashen trail",
+    "description": "After the predator's fall, a scorched route can be traced among the prey's belongings.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_HUNT_REVEALED_TRAIL"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_breach_fallen_beam",
+    "name": "fallen post beam",
+    "description": "A collapsed timber blocks a sheltered gap. Move it from the adjacent loose end.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_breach_beam_end",
+    "name": "loose end of the beam",
+    "description": "The damaged timber can be shifted without a special tool.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_BREACH_MOVE_BEAM"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_breach_beam_moved",
+    "name": "cleared covered gap",
+    "description": "The collapsed beam has been shifted. This sheltered passage remains open.",
+    "looks_like": "f_rubble",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ]
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "type": "terrain",
+    "id": "t_berserk_expedition_groundsheet",
+    "name": "expedition canvas groundsheet",
+    "description": "A stretched waterproof groundsheet covers the soil inside the tent. Furniture and belongings rest on it.",
+    "symbol": ".",
+    "color": "light_gray",
+    "move_cost": 2,
+    "flags": [
+      "TRANSPARENT",
+      "FLAT",
+      "FLAMMABLE"
+    ],
+    "looks_like": "f_canvas_floor",
+    "//": "0.I-1 tile lookup resolves a concrete sprite ID before category-specific looks_like recursion. Reuse the vanilla canvas-floor tile as a terrain background; no furniture occupies the empty floor.",
+    "bash": {
+      "str_min": 1,
+      "str_max": 5,
+      "sound": "rrrip!",
+      "sound_fail": "slap!",
+      "ter_set": "t_dirt"
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_cave_scree",
+    "copy-from": "t_rock_floor",
+    "name": "loose cave scree",
+    "description": "Loose fragments cover the broad gallery. The uneven footing slows movement; crouch around the bends and keep out of the keeper's sight.",
+    "move_cost": 3,
+    "looks_like": "t_rock_floor",
+    "flags": [
+      "TRANSPARENT",
+      "FLAT"
+    ]
+  }
+]

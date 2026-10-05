@@ -15,7 +15,7 @@ FILES = ['behelit_sites.json','first_hunt.json','local_breach.json',
          'apostle_wyald.json','apostle_rosine.json','flora_manor.json','apostle_grunbeld.json']
 PALETTES = {o['id']:o for p in (MOD/'mapgen').glob('*.json') for o in objects(p)
             if o['type']=='palette'}
-FURNITURE = {o['id']:o for folder in ('mapgen','furniture') for p in (MOD/folder).glob('*.json')
+FURNITURE = {o['id']:o for p in MOD.rglob('*.json')
              for o in objects(p) if o['type']=='furniture'}
 
 def surfaces(obj):
@@ -48,7 +48,7 @@ class CocoonGraph:
     def __init__(self, free=True, consent=True):
         self.pos=(-231,66,0);self.avatar=(-230,66,0)
         self.furniture={self.pos:'f_berserk_rosine_cocoon_inhabited'}
-        self.free=free;self.consent=consent;self.spawned=[];self.messages=[]
+        self.free=free;self.consent=consent;self.spawned=[];self.messages=[];self.loot=[]
         self.eocs={o['id']:o for o in objects(MOD/'effects/rosine_cocoon_eocs.json') if o['type']=='effect_on_condition'}
         self.transform=next(o for o in objects(MOD/'effects/rosine_cocoon_eocs.json') if o['type']=='ter_furn_transform')
     def condition(self,v):
@@ -73,6 +73,9 @@ class CocoonGraph:
             assert v['u_transform_radius']==0 and v['target_var']=={'context_val':'pos'}
             for t in self.transform['furniture']:
                 if self.furniture[self.pos] in t['valid_furniture']:self.furniture[self.pos]=t['result']
+        elif 'map_spawn_item' in v:
+            assert v['loc']=={'context_val':'pos'}
+            self.loot.append((v['map_spawn_item'],v['count'],self.pos))
         elif 'u_message' in v:self.messages.append(v['u_message'])
         else:raise AssertionError(v)
 
@@ -96,6 +99,7 @@ class LocationSceneryTests(unittest.TestCase):
             saved=copy.deepcopy(g);saved.consent=True
             for _ in range(5):saved.run('EOC_BERSERK_COCOON_OPEN')
             self.assertEqual(len(saved.spawned),1)
+            self.assertEqual(saved.loot,[('rag',2,saved.pos)])
             self.assertEqual(saved.furniture[saved.pos],'f_berserk_rosine_cocoon')
         g=CocoonGraph(free=False)
         for _ in range(3):g.run('EOC_BERSERK_COCOON_OPEN')
@@ -126,7 +130,10 @@ class LocationSceneryTests(unittest.TestCase):
         self.assertNotIn('t_wall',ts.values());self.assertIn('f_canvas_wall',fs.values())
         self.assertTrue(any(p in seen for p in ((17,6),(19,6),(18,5),(18,7))))
         self.assertGreaterEqual(sum(x['item']=='sleeping_bag_roll' for x in m['place_loot']),4)
-        self.assertIn((4,20),seen)  # Alarm cell retained.
+        self.assertIn((2,20),seen)  # Alarm outside the medical tent.
+        self.assertEqual(fs[(2,20)],'f_berserk_expedition_noisemaker')
+        for pos in ((5,6),(18,6),(8,17),(19,18)):
+            self.assertEqual(ts[pos],'t_berserk_expedition_groundsheet')
 
     def test_eight_story_features_are_reachable_from_the_site_approach(self):
         expected={o['id'] for o in objects(MOD/'furniture/location_scenery.json')}

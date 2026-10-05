@@ -1,0 +1,264 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_cave_scout",
+    "copy-from": "f_berserk_location_medieval_bundle",
+    "name": "abandoned leather scout pack",
+    "description": "A worn leather pack rests in the entrance pocket, above the wet stone. Its owner drew a route before descending farther.",
+    "looks_like": "f_rubble",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_CAVE_SCOUT"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_cave_scout_empty",
+    "copy-from": "f_berserk_location_cave_scout",
+    "name": "scout pack resting place",
+    "description": "The pack and its belongings have been recovered. Only their outline remains on the dry stone.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_cave_lamp",
+    "copy-from": "f_berserk_location_medieval_bundle",
+    "name": "empty lamp tied to a rope",
+    "description": "A clay lamp hangs from a rope beside the return passage. Its wick is dry; examine it to recover the lamp and cord.",
+    "looks_like": "f_rubble",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_CAVE_LAMP"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_cave_lamp_empty",
+    "copy-from": "f_berserk_location_cave_lamp",
+    "name": "bare lamp fastening",
+    "description": "The empty lamp and rope are gone. A small knot remains caught in the rock.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_chapel_aid",
+    "copy-from": "f_berserk_location_medieval_bundle",
+    "name": "chapel relief cabinet",
+    "description": "Blankets, dressings and a list of sheltered people remain in this sacristy cabinet.",
+    "looks_like": "f_cupboard",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_CHAPEL_AID"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_chapel_aid_empty",
+    "copy-from": "f_berserk_location_chapel_aid",
+    "name": "empty relief cabinet",
+    "description": "The aid cabinet has been searched; the remaining supplies are gone.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_chapel_pantry",
+    "copy-from": "f_berserk_location_medieval_bundle",
+    "name": "chapel food cupboard",
+    "description": "The congregation stored drinking water, food and an escape note here before the rituals began.",
+    "looks_like": "f_cupboard",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_CHAPEL_PANTRY"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_chapel_pantry_empty",
+    "copy-from": "f_berserk_location_chapel_pantry",
+    "name": "empty chapel food cupboard",
+    "description": "The food cupboard has been searched. The congregation left nothing else here.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_expedition_medical",
+    "copy-from": "f_berserk_location_medieval_bundle",
+    "name": "expedition medical crate",
+    "description": "Field medicines remain beside the sleeping place of the expedition medic.",
+    "looks_like": "f_crate_o",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_EXPEDITION_MEDICAL"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_expedition_medical_empty",
+    "copy-from": "f_berserk_location_expedition_medical",
+    "name": "searched medical crate",
+    "description": "The finite medical stock has been recovered. Only dividers remain in the crate.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_expedition_tools",
+    "copy-from": "f_berserk_location_medieval_bundle",
+    "name": "expedition repair crate",
+    "description": "A finite stock of tools, spare batteries and a district road map survived under the torn tent.",
+    "looks_like": "f_crate_o",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_EXPEDITION_TOOLS"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_location_expedition_tools_empty",
+    "copy-from": "f_berserk_location_expedition_tools",
+    "name": "searched repair crate",
+    "description": "The tools, spare batteries and map have been recovered. The crate holds no further supplies.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_LOCATION_SEARCHED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_cave_claw_marks",
+    "name": "claw-scored cave stone",
+    "description": "Deep parallel scratches cross an older hand-cut arrow on the gallery stone.",
+    "symbol": "?",
+    "color": "light_gray",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "looks_like": "f_rubble",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_CAVE_CLAW_MARKS"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_cave_return_marks",
+    "name": "layered return marks",
+    "description": "Arrows made by different hands overlap beside a small drawing of a wooden peg.",
+    "symbol": "?",
+    "color": "light_gray",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "looks_like": "f_rubble",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_CAVE_RETURN_MARKS"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_expedition_sample_diagram",
+    "name": "specimen measurement board",
+    "description": "String, marks and an unfinished diagram remain beside the sample tent.",
+    "symbol": "?",
+    "color": "light_gray",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "looks_like": "f_table",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_EXPEDITION_SAMPLE_DIAGRAM"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_cave_return_brace",
+    "name": "braced cave passage",
+    "description": "A fallen slab is held across the narrow passage by a wooden brace. The release is farther inside the cave.",
+    "symbol": "#",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [],
+    "looks_like": "f_barricade_road"
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_cave_return_release",
+    "name": "inner cave brace release",
+    "description": "A wooden peg holds the shortcut shut. Examine it from this inner passage to clear the way back.",
+    "symbol": "!",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "looks_like": "f_rubble",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_CAVE_OPEN_RETURN"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_cave_return_release_opened",
+    "copy-from": "f_berserk_cave_return_release",
+    "name": "released cave brace fastening",
+    "description": "The return passage has been cleared.",
+    "examine_action": "none"
+  }
+]

@@ -1,0 +1,127 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_EARLY_HUNTS_CLOSED",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_hunt_count_state >= 4"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_state >= 4"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_state >= 4"
+          ]
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE",
+    "condition": {
+      "or": [
+        {
+          "test_eoc": "EOC_BERSERK_EARLY_HUNTS_CLOSED"
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_stage >= 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FLORA_KNOWN_MANOR_VALID"
+            }
+          ]
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LATE_FLORA_CHECK",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_EARLY_HUNTS_CLOSED"
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage < 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_flora_late_clue_given != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_flora_late_clue_given = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_flora_directions_repaired = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LATE_FLORA_RECOVER",
+    "global": true,
+    "recurrence": "1 minute",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_EARLY_HUNTS_CLOSED"
+        },
+        {
+          "math": [
+            "u_berserk_flora_late_clue_given != 1"
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LATE_FLORA_CHECK"
+    }
+  }
+]

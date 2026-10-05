@@ -10,6 +10,13 @@
     "required_str": -1,
     "flags": [
       "TRANSPARENT"
-    ]
+    ],
+    "looks_like": "f_sign",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_SANCTUARY_WARD"
+      ]
+    }
   }
 ]

@@ -69,6 +69,8 @@ class BehelitSiteTests(unittest.TestCase):
                                  ("monster_special_attacks", "behelit_site_attacks.json"),
                                  ("effects", "behelit_site_eocs.json"),
                                  ("effects", "behelit_distraction_eocs.json"),
+                                 ("effects", "behelit_adventure_eocs.json"),
+                                 ("furniture", "behelit_adventure_details.json"),
                                  ("furniture", "behelit_distractions.json"),
                                  ("effects", "behelit_reward_eocs.json"),
                                  ("monsters", "apostle_projections.json")):
@@ -122,12 +124,27 @@ class BehelitSiteTests(unittest.TestCase):
         maps = objects(MOD / "mapgen" / "behelit_sites.json")
         placed = {entry["monster"] for m in maps if "om_terrain" in m for entry in m["object"].get("place_monster", [])}
         self.assertEqual(guardians, placed & guardians)
+
+        def spawned_ids(value):
+            if isinstance(value, dict):
+                # A nearby-monster census (mtype_ids) is not a spawn table.
+                for key in ("monster", "u_spawn_monster", "npc_spawn_monster"):
+                    if isinstance(value.get(key), str):
+                        yield value[key]
+                if value.get("type") == "monstergroup" and isinstance(value.get("default"), str):
+                    yield value["default"]
+                for child in value.values():
+                    yield from spawned_ids(child)
+            elif isinstance(value, list):
+                for child in value:
+                    yield from spawned_ids(child)
+
         for folder in ("monstergroups", "effects"):
             for path in (MOD / folder).glob("*.json"):
                 if path.name == "behelit_site_eocs.json":
                     continue
-                self.assertTrue(guardians.isdisjoint(path.read_text(encoding="utf-8").split('"')),
-                                f"guardian appears in {path}")
+                self.assertTrue(guardians.isdisjoint(spawned_ids(objects(path))),
+                                f"guardian spawned outside its site in {path}")
 
     def test_claim_requires_guardian_absence_and_empties_local_relic(self):
         eocs = {e["id"]: e for e in objects(MOD / "effects" / "behelit_site_eocs.json")}
@@ -156,17 +173,17 @@ class BehelitSiteTests(unittest.TestCase):
         south = maps["berserk_desecrated_chapel_nave"]
         self.assertEqual(north[6][12], "A")
         self.assertEqual(south[15][6], "N")
-        for x in (7, 8, 11, 12, 13):
+        for x in (6, 7, 11, 12, 13):
             self.assertNotIn(north[-1][x], "#T")
             self.assertNotIn(south[0][x], "#T")
         self.assertTrue(reachable(north, (12, 23), (12, 6)))
-        self.assertTrue(reachable(north, (3, 18), (12, 6)))
+        self.assertTrue(reachable(north, (6, 23), (12, 6)))
         self.assertTrue(reachable(south, (12, 23), (12, 0)))
         camp = maps["berserk_lost_expedition"]
         self.assertEqual(camp[6][18], "A")
-        self.assertEqual(camp[20][4], "N")
+        self.assertEqual(camp[20][2], "N")
         self.assertTrue(reachable(camp, (11, 23), (18, 6)))
-        self.assertTrue(reachable(camp, (23, 6), (18, 6)))
+        self.assertTrue(reachable(camp, (23, 11), (18, 6)))
 
     def test_new_specials_are_placeable_and_use_existing_monster_sprites(self):
         definitions = objects(MOD / "overmap" / "behelit_sites.json")

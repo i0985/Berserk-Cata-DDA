@@ -1,0 +1,30 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_grunbeld_scorched_badge",
+    "name": {
+      "str": "scorched garrison clasp"
+    },
+    "description": "A plain iron clasp saved from a burned standard. Activate to read the names. It grants no bonus.",
+    "material": [
+      "iron"
+    ],
+    "weight": "30 g",
+    "volume": "50 ml",
+    "symbol": "?",
+    "color": "dark_gray",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_GRUNBELD_READ_BADGE"
+      ]
+    }
+  }
+]

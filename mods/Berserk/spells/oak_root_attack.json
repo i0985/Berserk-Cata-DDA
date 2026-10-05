@@ -1,0 +1,96 @@
+[
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 2,
+    "max_range": 2,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "id": "berserk_committed_oak_prepare",
+    "name": "Oak guardian: lift roots",
+    "description": "The guardian fixes a direction and lifts its roots for a two-second sweep.",
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_BERSERK_OAK_COMMITTED_BEGIN",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NO_PROJECTILE"
+    ]
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 2,
+    "max_range": 2,
+    "min_aoe": 75,
+    "max_aoe": 75,
+    "id": "berserk_committed_oak_warning",
+    "name": "Oak guardian: disturbed ground",
+    "description": "Splitting earth marks the sector where the roots will strike.",
+    "effect": "attack",
+    "shape": "cone",
+    "valid_targets": [
+      "ground",
+      "hostile",
+      "ally"
+    ],
+    "min_damage": 0,
+    "max_damage": 0,
+    "min_accuracy": 10,
+    "max_accuracy": 10,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "field_id": "fd_berserk_committed_oak_warning",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "field_chance": 1,
+    "min_duration": 300,
+    "max_duration": 300
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 2,
+    "max_range": 2,
+    "min_aoe": 75,
+    "max_aoe": 75,
+    "id": "berserk_committed_oak_release",
+    "name": "Oak guardian: root sweep",
+    "description": "Roots strike the marked sector and briefly tangle anyone who stayed there.",
+    "effect": "attack",
+    "shape": "cone",
+    "valid_targets": [
+      "ground",
+      "hostile",
+      "ally"
+    ],
+    "min_damage": 22,
+    "max_damage": 22,
+    "min_accuracy": 10,
+    "max_accuracy": 10,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NON_MAGICAL"
+    ],
+    "damage_type": "bash",
+    "effect_str": "berserk_oak_root_tangle",
+    "min_duration": 200,
+    "max_duration": 200
+  }
+]

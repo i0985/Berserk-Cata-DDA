@@ -144,12 +144,12 @@ class HuntArenas(unittest.TestCase):
             g.run(g.prefix+'_RETRY')
             self.assertEqual(g.flags[g.site[3]],1);self.assertFalse(g.spawn_attempts)
 
-    def test_visible_points_delay_without_consuming_retries_or_creating_a_boss(self):
+    def test_visible_points_announce_one_boss_instead_of_blocking_encounter(self):
         for kind in SITES:
             g=ArenaGraph(kind);g.visible_override=True
             for _ in range(8):g.move_to(12,12)
-            self.assertFalse(g.spawn_attempts)
-            self.assertFalse(g.flags.get(g.site[4]));self.assertEqual(len(g.messages),1)
+            self.assertEqual(len(g.spawned),1)
+            self.assertEqual(g.flags[g.site[3]],1);self.assertEqual(len(g.messages),1)
             g.visible_override=None;g.move_to(12,12)
             self.assertEqual(len(g.spawned),1)
 

@@ -51,14 +51,14 @@
     "type": "overmap_special",
     "id": "berserk_flora_manor_special",
     "occurrences": [
-      0,
-      100
+      1,
+      1
     ],
     "flags": [
       "GLOBALLY_UNIQUE"
     ],
     "rotate": false,
-    "//": "Created only by the quest locator; global coordinates prevent repeat creation. No spontaneous mansion copies in each overmap.",
+    "//": "One globally unique site requested during normal overmap generation. Quest clues find existing terrain; they never force-place a nearby copy. Existing saved sites keep their coordinates. Distances are soft design targets.",
     "overmaps": [
       {
         "point": [
@@ -79,7 +79,7 @@
         ],
         "overmap": "berserk_flora_manor_east",
         "locations": [
-          "forest"
+          "wilderness"
         ]
       },
       {
@@ -90,7 +90,7 @@
         ],
         "overmap": "berserk_flora_garden_west",
         "locations": [
-          "forest"
+          "wilderness"
         ]
       },
       {
@@ -101,7 +101,7 @@
         ],
         "overmap": "berserk_flora_garden_east",
         "locations": [
-          "forest"
+          "wilderness"
         ]
       }
     ]

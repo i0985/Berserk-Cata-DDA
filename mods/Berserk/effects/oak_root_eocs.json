@@ -1,0 +1,300 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_OAK_COMMITTED_BEGIN",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "n_hp('ALL') > 0"
+          ]
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_oak_root_ready"
+          }
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_apostle_attack_recovery"
+          }
+        },
+        {
+          "math": [
+            "time('now') >= n_berserk_committed_oak_cooldown"
+          ]
+        },
+        {
+          "math": [
+            "n_berserk_committed_oak_phase != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_location_variable": {
+          "npc_val": "berserk_committed_oak_target"
+        }
+      },
+      {
+        "npc_location_variable": {
+          "npc_val": "berserk_committed_oak_origin"
+        }
+      },
+      {
+        "math": [
+          "n_berserk_committed_oak_last_result = 1"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_committed_oak_phase = 1"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_committed_oak_due = time('now') + 2"
+        ]
+      },
+      {
+        "npc_add_effect": "berserk_oak_root_ready",
+        "duration": "3 seconds",
+        "intensity": 1
+      },
+      {
+        "npc_cast_spell": {
+          "id": "berserk_committed_oak_warning",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "npc_val": "berserk_committed_oak_target"
+        }
+      }
+    ],
+    "//": "Spell EOC: alpha=victim, beta=caster. Snapshot all direction/cells onto the caster before warning."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_OAK_COMMITTED_CLEAR_WARNING",
+    "condition": {
+      "math": [
+        "has_var(u_berserk_committed_oak_origin)"
+      ]
+    },
+    "effect": {
+      "u_transform_radius": 2,
+      "ter_furn_transform": "berserk_committed_oak_clear_warning",
+      "target_var": {
+        "u_val": "berserk_committed_oak_origin"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_OAK_COMMITTED_RECOVER",
+    "effect": [
+      {
+        "u_lose_effect": "berserk_oak_root_ready"
+      },
+      {
+        "u_add_effect": "berserk_apostle_attack_recovery",
+        "duration": "2 seconds",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "u_berserk_committed_oak_cooldown = time('now') + 10"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_OAK_COMMITTED_RELEASE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_committed_oak_phase = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_committed_oak_last_result = 2"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_OAK_COMMITTED_CLEAR_WARNING"
+      },
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_oak_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_oak_target"
+        }
+      },
+      {
+        "u_make_sound": "Thick roots lash across the disturbed earth!",
+        "type": "combat",
+        "volume": 24
+      },
+      {
+        "run_eocs": "EOC_BERSERK_OAK_COMMITTED_RECOVER"
+      }
+    ],
+    "//": "Commit once before damage. Fixed saved geometry; no reacquisition of the avatar."
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_OAK_COMMITTED_CANCEL",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_committed_oak_phase = 0"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "u_hp('ALL') <= 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_oak_last_result = 5"
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "time('now') > u_berserk_committed_oak_due + 1"
+            ]
+          },
+          "then": {
+            "math": [
+              "u_berserk_committed_oak_last_result = 3"
+            ]
+          },
+          "else": {
+            "math": [
+              "u_berserk_committed_oak_last_result = 4"
+            ]
+          }
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_OAK_COMMITTED_CLEAR_WARNING"
+      },
+      {
+        "u_lose_effect": "berserk_oak_root_ready"
+      },
+      {
+        "u_add_effect": "berserk_apostle_attack_recovery",
+        "duration": "1 second",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "u_berserk_committed_oak_cooldown = time('now') + 4"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_OAK_COMMITTED_TICK",
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_committed_oak_phase == 1"
+          ]
+        },
+        {
+          "u_has_effect": "berserk_oak_root_ready"
+        }
+      ]
+    },
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "u_berserk_committed_oak_phase == 1"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('ALL') > 0"
+            ]
+          },
+          {
+            "math": [
+              "has_var(u_berserk_committed_oak_origin)"
+            ]
+          },
+          {
+            "math": [
+              "has_var(u_berserk_committed_oak_target)"
+            ]
+          },
+          {
+            "u_has_effect": "berserk_oak_root_ready"
+          },
+          {
+            "math": [
+              "distance('u', u_berserk_committed_oak_origin) == 0"
+            ]
+          },
+          {
+            "math": [
+              "time('now') <= u_berserk_committed_oak_due + 1"
+            ]
+          },
+          {
+            "not": {
+              "u_has_effect": "stunned"
+            }
+          },
+          {
+            "not": {
+              "u_has_effect": "downed"
+            }
+          }
+        ]
+      },
+      "then": {
+        "if": {
+          "math": [
+            "time('now') >= u_berserk_committed_oak_due"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_OAK_COMMITTED_RELEASE"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_OAK_COMMITTED_CANCEL"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_OAK_COMMITTED_WATCH",
+    "recurrence": "1 second",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_OAK_COMMITTED_TICK"
+      ],
+      "mtype_ids": [
+        "mon_berserk_cursed_oak_guardian"
+      ],
+      "monster_range": 48
+    },
+    "global": true
+  }
+]

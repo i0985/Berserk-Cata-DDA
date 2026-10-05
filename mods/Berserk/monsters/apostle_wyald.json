@@ -7,7 +7,7 @@
     "name": {
       "str_sp": "Wyald"
     },
-    "description": "Leader of the Black Dogs, swollen into a hulking apostle. He presses the attack and braces before a crushing long-reach blow. Stone cover breaks its line. His wounds do not regenerate. This is the original Wyald; defeating him exposes the camp's breach.",
+    "description": "Leader of the Black Dogs, swollen into a hulking apostle. He braces before a charge along a fixed line. Cover or a sidestep can break the rush. The collision of worlds diverted his former fate: this is the living Wyald, not a projection. Defeating him exposes the camp's breach.",
     "hp": 640,
     "speed": 110,
     "melee_skill": 7,
@@ -37,7 +37,7 @@
     "special_attacks": [
       {
         "id": "berserk_wyald_b_prepare",
-        "cooldown": 18
+        "cooldown": 10
       },
       {
         "type": "leap",
@@ -45,9 +45,18 @@
         "cooldown": 20,
         "max_range": 2,
         "condition": {
-          "not": {
-            "u_has_effect": "berserk_wyald_ready"
-          }
+          "and": [
+            {
+              "not": {
+                "u_has_effect": "berserk_wyald_ready"
+              }
+            },
+            {
+              "not": {
+                "u_has_effect": "berserk_apostle_attack_recovery"
+              }
+            }
+          ]
         }
       }
     ],

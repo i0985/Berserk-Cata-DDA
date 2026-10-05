@@ -1,0 +1,37 @@
+[
+  {
+    "type": "field_type",
+    "id": "fd_berserk_committed_oak_warning",
+    "looks_like": "fd_laser",
+    "priority": 7,
+    "half_life": "1 second",
+    "linear_half_life": true,
+    "percent_spread": 0,
+    "display_field": true,
+    "display_items": false,
+    "phase": "plasma",
+    "intensity_levels": [
+      {
+        "name": "earth lifting over a root sweep",
+        "sym": "*",
+        "color": "brown",
+        "transparent": true,
+        "dangerous": false,
+        "move_cost": 0,
+        "light_emitted": 2
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_committed_oak_clear_warning",
+    "field": [
+      {
+        "result": "fd_null",
+        "valid_field": [
+          "fd_berserk_committed_oak_warning"
+        ]
+      }
+    ]
+  }
+]

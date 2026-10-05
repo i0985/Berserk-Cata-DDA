@@ -8,8 +8,16 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ZODD_PURSUER",
-    "condition": { "math": [ "berserk_apostle_zodd_dead != 1" ] },
-    "false_effect": { "u_message": "Zodd has already fallen in this world. His old challenge will not resurrect him.", "type": "info", "popup": true },
+    "condition": {
+      "math": [
+        "berserk_apostle_zodd_dead != 1"
+      ]
+    },
+    "false_effect": {
+      "u_message": "Zodd has already fallen in this world. His old challenge will not resurrect him.",
+      "type": "info",
+      "popup": true
+    },
     "effect": [
       {
         "u_spawn_monster": "mon_nosferatu_zodd",
@@ -18,19 +26,31 @@
         "max_radius": 10,
         "outdoor_only": true
       },
-      { "u_message": "Heavy footsteps draw near...", "type": "warning", "popup": true }
+      {
+        "u_message": "Heavy footsteps draw near...",
+        "type": "warning",
+        "popup": true
+      }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ARMOR_ACTIVE",
     "recurrence": "1 turn",
-    "condition": { "u_is_wearing": "berserk_chestplate" },
+    "condition": {
+      "u_is_wearing": "berserk_chestplate"
+    },
     "effect": [
-      { "u_add_effect": "berserk_armor_active", "intensity": 1, "duration": "2 turns" }
+      {
+        "u_add_effect": "berserk_armor_active",
+        "intensity": 1,
+        "duration": "2 turns"
+      }
     ],
     "false_effect": [
-      { "u_lose_effect": "berserk_armor_active" }
+      {
+        "u_lose_effect": "berserk_armor_active"
+      }
     ]
   },
   {
@@ -39,42 +59,164 @@
     "recurrence": "600 turns",
     "condition": {
       "and": [
-        { "u_has_effect": "berserk_armor_active" },
-        { "not": { "or": [ { "u_has_effect": "berserk_curse_visions" }, { "u_has_effect": "berserk_curse_brink" } ] } }
+        {
+          "u_has_effect": "berserk_armor_active"
+        },
+        {
+          "not": {
+            "or": [
+              {
+                "u_has_effect": "berserk_curse_visions"
+              },
+              {
+                "u_has_effect": "berserk_curse_brink"
+              }
+            ]
+          }
+        }
       ]
     },
     "effect": [
-      { "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_COUNT_NEARBY" },
       {
-        "if": { "or": [ { "math": [ "berserk_eclipse_era != 1" ] }, { "math": [ "berserk_era_nearby_count < 4" ] } ] },
+        "run_eocs": "EOC_BERSERK_ECLIPSE_ERA_COUNT_NEARBY"
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "math": [
+                "berserk_eclipse_era != 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_era_nearby_count < 4"
+              ]
+            }
+          ]
+        },
         "then": {
-          "switch": { "math": [ "rand(5)" ] },
-        "cases": [
-          {
-            "case": 0,
-            "effect": { "u_spawn_monster": "mon_beast_of_darkness_1", "real_count": 1, "min_radius": 7, "max_radius": 12 }
+          "switch": {
+            "math": [
+              "rand(5)"
+            ]
           },
-          {
-            "case": 1,
-            "effect": { "u_spawn_monster": "mon_beast_of_darkness_2", "real_count": 1, "min_radius": 7, "max_radius": 12 }
-          },
-          {
-            "case": 2,
-            "effect": { "u_spawn_monster": "mon_beast_of_darkness_3", "real_count": 1, "min_radius": 7, "max_radius": 12 }
-          },
-          {
-            "case": 3,
-            "effect": { "u_spawn_monster": "mon_beast_of_darkness_4", "real_count": 1, "min_radius": 7, "max_radius": 12 }
-          },
-          {
-            "case": 4,
-            "effect": { "u_spawn_monster": "mon_beast_of_darkness_5", "real_count": 1, "min_radius": 7, "max_radius": 12 }
-          },
-          {
-            "case": 5,
-            "effect": { "u_spawn_monster": "mon_beast_of_darkness_6", "real_count": 1, "min_radius": 7, "max_radius": 12 }
+          "cases": [
+            {
+              "case": 0,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_1",
+                "real_count": 1,
+                "min_radius": 7,
+                "max_radius": 12,
+                "mon_variables": {
+                  "berserk_spawn_source": "armor"
+                },
+                "true_eocs": [
+                  "EOC_BERSERK_ARMOR_SHADOW_ARRIVED"
+                ],
+                "false_eocs": [
+                  "EOC_BERSERK_ARMOR_SHADOW_NO_CELL"
+                ]
+              }
+            },
+            {
+              "case": 1,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_2",
+                "real_count": 1,
+                "min_radius": 7,
+                "max_radius": 12,
+                "mon_variables": {
+                  "berserk_spawn_source": "armor"
+                },
+                "true_eocs": [
+                  "EOC_BERSERK_ARMOR_SHADOW_ARRIVED"
+                ],
+                "false_eocs": [
+                  "EOC_BERSERK_ARMOR_SHADOW_NO_CELL"
+                ]
+              }
+            },
+            {
+              "case": 2,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_3",
+                "real_count": 1,
+                "min_radius": 7,
+                "max_radius": 12,
+                "mon_variables": {
+                  "berserk_spawn_source": "armor"
+                },
+                "true_eocs": [
+                  "EOC_BERSERK_ARMOR_SHADOW_ARRIVED"
+                ],
+                "false_eocs": [
+                  "EOC_BERSERK_ARMOR_SHADOW_NO_CELL"
+                ]
+              }
+            },
+            {
+              "case": 3,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_4",
+                "real_count": 1,
+                "min_radius": 7,
+                "max_radius": 12,
+                "mon_variables": {
+                  "berserk_spawn_source": "armor"
+                },
+                "true_eocs": [
+                  "EOC_BERSERK_ARMOR_SHADOW_ARRIVED"
+                ],
+                "false_eocs": [
+                  "EOC_BERSERK_ARMOR_SHADOW_NO_CELL"
+                ]
+              }
+            },
+            {
+              "case": 4,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_5",
+                "real_count": 1,
+                "min_radius": 7,
+                "max_radius": 12,
+                "mon_variables": {
+                  "berserk_spawn_source": "armor"
+                },
+                "true_eocs": [
+                  "EOC_BERSERK_ARMOR_SHADOW_ARRIVED"
+                ],
+                "false_eocs": [
+                  "EOC_BERSERK_ARMOR_SHADOW_NO_CELL"
+                ]
+              }
+            },
+            {
+              "case": 5,
+              "effect": {
+                "u_spawn_monster": "mon_beast_of_darkness_6",
+                "real_count": 1,
+                "min_radius": 7,
+                "max_radius": 12,
+                "mon_variables": {
+                  "berserk_spawn_source": "armor"
+                },
+                "true_eocs": [
+                  "EOC_BERSERK_ARMOR_SHADOW_ARRIVED"
+                ],
+                "false_eocs": [
+                  "EOC_BERSERK_ARMOR_SHADOW_NO_CELL"
+                ]
+              }
+            }
+          ]
+        },
+        "else": {
+          "set_string_var": "active_budget",
+          "target_var": {
+            "u_val": "berserk_armor_spawn_status"
           }
-        ]
         }
       }
     ]
@@ -83,10 +225,17 @@
     "type": "effect_on_condition",
     "id": "EOC_GRIFFITH_REBORN",
     "recurrence": "1 d",
-    "condition": { "u_has_effect": "berserk_armor_active" },
+    "condition": {
+      "u_has_effect": "berserk_armor_active"
+    },
     "effect": [
       {
-        "if": { "x_in_y_chance": { "x": 1, "y": 100 } },
+        "if": {
+          "x_in_y_chance": {
+            "x": 1,
+            "y": 100
+          }
+        },
         "then": [
           {
             "u_spawn_monster": "mon_berserk_projection_griffith",
@@ -127,7 +276,14 @@
     "id": "EOC_TAINTED_FLESH_POISON",
     "eoc_type": "EVENT",
     "required_event": "character_consumes_item",
-    "condition": { "compare_string": [ "tainted_flesh", { "context_val": "itype" } ] },
+    "condition": {
+      "compare_string": [
+        "tainted_flesh",
+        {
+          "context_val": "itype"
+        }
+      ]
+    },
     "effect": [
       {
         "u_add_effect": "poison",

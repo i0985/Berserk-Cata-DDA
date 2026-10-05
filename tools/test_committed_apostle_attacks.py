@@ -12,11 +12,13 @@ import unittest
 from test_grunbeld_breath import Actor, BreathGraph, load, MOD
 
 KINDS=('count','wyald','rosine','grunbeld_knight')
+DUE={'count':103,'wyald':102,'rosine':101,'grunbeld_knight':103,'oak':102}
 
 class CommittedGraph(BreathGraph):
     def __init__(self,kind):
         super().__init__();self.kind=kind
-        self.eocs={o['id']:o for o in load('effects/apostle_committed_attacks.json')}
+        path='effects/oak_root_eocs.json' if kind=='oak' else 'effects/apostle_committed_attacks.json'
+        self.eocs={o['id']:o for o in load(path)}
         self.blocked=set();self.teleports=[]
     def evaluate(self,s):
         s=re.sub(r'has_var\((u_|n_)(\w+)\)',lambda m:str(m[2] in self.actor(m[1][:-1]).values),s)
@@ -50,8 +52,9 @@ class CommittedAttackTests(unittest.TestCase):
             with self.subTest(kind=kind):
                 g=CommittedGraph(kind);a=Actor((0,0,0));b=Actor((2,0,0));g.begin(a,b)
                 self.assertFalse(b.values);marked=[c['target'] for c in g.casts]
-                b.pos=(2,3,0);g.tick(a,102.9);self.assertFalse(g.shots())
-                g.tick(a,103);self.assertTrue(g.shots());self.assertTrue(all(c['phase']==0 for c in g.shots()))
+                due=DUE[kind]
+                b.pos=(2,3,0);g.tick(a,due-.1);self.assertFalse(g.shots())
+                g.tick(a,due);self.assertTrue(g.shots());self.assertTrue(all(c['phase']==0 for c in g.shots()))
                 self.assertTrue(all(c['target'] in marked for c in g.shots()))
                 count=len(g.shots());g.tick(a,103);g.tick(a,104);self.assertEqual(len(g.shots()),count)
                 self.assertIn('berserk_apostle_attack_recovery',a.effects)
@@ -63,36 +66,37 @@ class CommittedAttackTests(unittest.TestCase):
                     if mode=='move':a.pos=(1,0,0)
                     elif mode=='death':a.hp=0
                     elif mode=='expire':a.effects.clear()
-                    g.tick(a,105 if mode=='late' else 103)
+                    g.tick(a,105 if mode=='late' else DUE[kind])
                     self.assertFalse(g.shots());self.assertTrue(g.clears)
     def test_saved_actor_state_preserves_aim_and_only_one_resolution(self):
         for kind in KINDS:
             g=CommittedGraph(kind);a=Actor((-48,-48,-1));b=Actor((-46,-48,-1));g.begin(a,b)
             a.values=json.loads(json.dumps(a.values));a.effects=json.loads(json.dumps(a.effects))
-            replacement=CommittedGraph(kind);replacement.tick(a,103)
+            replacement=CommittedGraph(kind);replacement.tick(a,DUE[kind])
             self.assertTrue(replacement.shots());before=len(replacement.shots());replacement.tick(a,104)
             self.assertEqual(len(replacement.shots()),before)
     def test_rush_stops_at_first_fixture_obstacle_and_never_forces_teleport(self):
         for kind in ('wyald','rosine'):
             g=CommittedGraph(kind);a=Actor((0,0,0));b=Actor((4,0,0));g.blocked={(2,0,0)}
-            g.begin(a,b);b.pos=(4,1,0);g.tick(a,103)
+            g.begin(a,b);b.pos=(4,1,0);g.tick(a,DUE[kind])
             self.assertEqual([c['target'] for c in g.shots()],[(1,0,0),(2,0,0)])
             self.assertEqual(a.pos,(1,0,0));self.assertNotIn((3,0,0),g.teleports)
         for e in load('effects/apostle_committed_attacks.json'):
             if '_STEP_' in e['id']:
                 teleport=next(v for v in e['effect'] if 'u_teleport' in v)
                 self.assertIs(teleport['force'],False);self.assertNotIn('force_safe',teleport)
-    def test_rush_does_not_overshoot_near_target_or_turn_after_snapshot(self):
+    def test_rush_keeps_snapshot_and_rosine_finishes_the_marked_eight_cell_dive(self):
         for kind in ('wyald','rosine'):
-            g=CommittedGraph(kind);a=Actor((0,0,0));b=Actor((1,0,0));g.begin(a,b);b.pos=(0,1,0);g.tick(a,103)
-            self.assertEqual([c['target'] for c in g.shots()],[(1,0,0)])
-            self.assertEqual(a.pos,(1,0,0))
+            g=CommittedGraph(kind);a=Actor((0,0,0));b=Actor((1,0,0));g.begin(a,b);b.pos=(0,1,0);g.tick(a,DUE[kind])
+            expected=[(i,0,0) for i in range(1,9)] if kind=='rosine' else [(1,0,0)]
+            self.assertEqual([c['target'] for c in g.shots()],expected)
+            self.assertEqual(a.pos,expected[-1])
     def test_diagonal_negative_coordinate_steps_are_unique_adjacent_and_fixed(self):
         g=CommittedGraph('rosine');a=Actor((-48,-48,0));b=Actor((-52,-50,0));g.begin(a,b)
-        marked=[c['target'] for c in g.casts];self.assertEqual(len(marked),4)
+        marked=[c['target'] for c in g.casts];self.assertEqual(len(marked),8)
         p=a.pos
         for q in marked:self.assertEqual(max(abs(x-y) for x,y in zip(p,q)),1);p=q
-        g.tick(a,103);self.assertEqual([c['target'] for c in g.shots()],marked)
+        g.tick(a,101);self.assertEqual([c['target'] for c in g.shots()],marked)
     def test_prepare_has_zero_aoe_cone_marker_matches_strike_and_fields_are_safe(self):
         spells={s['id']:s for s in load('spells/apostle_committed_attacks.json')}
         for kind in KINDS:
@@ -106,5 +110,33 @@ class CommittedAttackTests(unittest.TestCase):
     def test_warning_cleanup_keeps_unrelated_fields(self):
         for obj in load('fields/apostle_committed_attacks.json'):
             if obj['type']=='ter_furn_transform':self.assertEqual(len(obj['field'][0]['valid_field']),1)
+
+    def test_wyald_six_cell_rush_repeats_after_recovery_without_shared_state(self):
+        g=CommittedGraph('wyald');a=Actor((0,0,0));b=Actor((6,0,0));g.begin(a,b)
+        marked=[c['target'] for c in g.casts]
+        self.assertEqual(marked,[(i,0,0) for i in range(1,7)])
+        b.pos=(6,1,0);g.tick(a,102);self.assertEqual(a.pos,(6,0,0))
+        self.assertEqual([c['target'] for c in g.shots()],marked)
+        # A premature attempt fails; after the cooldown a different line is saved.
+        count=len(g.casts);g.now=104;g.begin(a,b);self.assertEqual(len(g.casts),count)
+        g.now=110;b.pos=(6,6,0);g.begin(a,b);g.tick(a,112)
+        self.assertEqual([c['target'] for c in g.shots()][-6:],[(6,i,0) for i in range(1,7)])
+
+    def test_oak_snapshots_sector_short_hold_and_can_be_interrupted(self):
+        g=CommittedGraph('oak');a=Actor((0,0,0));b=Actor((2,0,0));g.begin(a,b)
+        b.pos=(0,2,0);g.tick(a,101);self.assertFalse(g.shots())
+        g.tick(a,102);self.assertEqual(g.shots()[0]['target'],(2,0,0))
+        self.assertEqual(a.values['berserk_committed_oak_last_result'],2)
+        spells={s['id']:s for s in load('spells/oak_root_attack.json')}
+        hit=spells['berserk_committed_oak_release'];warning=spells['berserk_committed_oak_warning']
+        for key in ('shape','min_range','max_range','min_aoe','max_aoe'):self.assertEqual(hit[key],warning[key])
+        self.assertEqual(hit['effect_str'],'berserk_oak_root_tangle');self.assertEqual(hit['min_duration'],200)
+        tangle=load('effects/oak_combat_effects.json')[1]
+        self.assertNotIn('CANNOT_MOVE',tangle.get('flags',[]));self.assertNotIn('CANNOT_ATTACK',tangle.get('flags',[]))
+        for kind in (*KINDS,'oak'):
+            g=CommittedGraph(kind);a=Actor((0,0,0));b=Actor((2,0,0));g.begin(a,b)
+            a.effects['stunned']=110;g.tick(a,DUE[kind]);self.assertFalse(g.shots())
+            self.assertEqual(a.values['berserk_committed_'+kind+'_last_result'],4)
+            self.assertEqual(a.effects['berserk_apostle_attack_recovery'],DUE[kind]+1)
 
 if __name__=='__main__':unittest.main()

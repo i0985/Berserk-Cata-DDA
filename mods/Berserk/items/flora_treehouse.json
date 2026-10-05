@@ -1,0 +1,86 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_flora_travel_folio",
+    "name": {
+      "str": "Flora's travel folio"
+    },
+    "description": "Flora's handwritten advice for the road, with careful sketches of a waterskin and instructions for boiling cloth for dressings. Activate it to read and learn the recipes for boiled makeshift bandages and a waterskin.",
+    "material": [
+      "paper"
+    ],
+    "weight": "30 g",
+    "volume": "100 ml",
+    "symbol": "?",
+    "color": "brown",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_TRAVEL_FOLIO"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_flora_rescued_manuscript",
+    "name": {
+      "str": "Flora's rescued manuscript"
+    },
+    "description": "Incomplete handwritten studies saved from the burning library. Smoke has darkened the margins, but Flora's patient handwriting survives between them. Activate it to read what could be saved.",
+    "material": [
+      "paper"
+    ],
+    "weight": "30 g",
+    "volume": "100 ml",
+    "symbol": "?",
+    "color": "brown",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_RESCUED_MANUSCRIPT"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_flora_scorched_bookmark",
+    "name": {
+      "str": "Flora's scorched leaf bookmark"
+    },
+    "description": "A small wooden leaf from the roots of the lost house, its edges blackened by fire. It recalls a quiet room and the kindness offered there. Activate it to examine the keepsake and review the leads you already know.",
+    "material": [
+      "wood"
+    ],
+    "weight": "30 g",
+    "volume": "100 ml",
+    "symbol": "?",
+    "color": "brown",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_BOOKMARK"
+      ]
+    }
+  }
+]

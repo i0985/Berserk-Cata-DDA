@@ -44,6 +44,11 @@
       },
       {
         "math": [
+          "n_berserk_committed_count_last_result = 1"
+        ]
+      },
+      {
+        "math": [
           "n_berserk_committed_count_phase = 1"
         ]
       },
@@ -115,6 +120,11 @@
         ]
       },
       {
+        "math": [
+          "u_berserk_committed_count_last_result = 2"
+        ]
+      },
+      {
         "run_eocs": "EOC_BERSERK_COUNT_COMMITTED_CLEAR_WARNING"
       },
       {
@@ -148,10 +158,49 @@
         ]
       },
       {
+        "if": {
+          "math": [
+            "u_hp('ALL') <= 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_count_last_result = 5"
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "time('now') > u_berserk_committed_count_due + 1"
+            ]
+          },
+          "then": {
+            "math": [
+              "u_berserk_committed_count_last_result = 3"
+            ]
+          },
+          "else": {
+            "math": [
+              "u_berserk_committed_count_last_result = 4"
+            ]
+          }
+        }
+      },
+      {
         "run_eocs": "EOC_BERSERK_COUNT_COMMITTED_CLEAR_WARNING"
       },
       {
-        "run_eocs": "EOC_BERSERK_COUNT_COMMITTED_RECOVER"
+        "u_lose_effect": "berserk_count_heavy_ready"
+      },
+      {
+        "u_add_effect": "berserk_apostle_attack_recovery",
+        "duration": "1 second",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "u_berserk_committed_count_cooldown = time('now') + 5"
+        ]
       }
     ]
   },
@@ -205,6 +254,16 @@
             "math": [
               "time('now') <= u_berserk_committed_count_due + 1"
             ]
+          },
+          {
+            "not": {
+              "u_has_effect": "stunned"
+            }
+          },
+          {
+            "not": {
+              "u_has_effect": "downed"
+            }
           }
         ]
       },
@@ -283,17 +342,22 @@
       },
       {
         "math": [
+          "n_berserk_committed_wyald_last_result = 1"
+        ]
+      },
+      {
+        "math": [
           "n_berserk_committed_wyald_phase = 1"
         ]
       },
       {
         "math": [
-          "n_berserk_committed_wyald_due = time('now') + 3"
+          "n_berserk_committed_wyald_due = time('now') + 2"
         ]
       },
       {
         "npc_add_effect": "berserk_wyald_ready",
-        "duration": "4 seconds",
+        "duration": "3 seconds",
         "intensity": 1
       },
       {
@@ -412,6 +476,108 @@
             }
           }
         ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_wyald_length >= 4"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_wyald_step_4"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_wyald_dx * 4 / n_berserk_committed_wyald_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_wyald_dy * 4 / n_berserk_committed_wyald_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_wyald_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_wyald_step_4"
+            }
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_wyald_length >= 5"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_wyald_step_5"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_wyald_dx * 5 / n_berserk_committed_wyald_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_wyald_dy * 5 / n_berserk_committed_wyald_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_wyald_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_wyald_step_5"
+            }
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_wyald_length >= 6"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_wyald_step_6"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_wyald_dx * 6 / n_berserk_committed_wyald_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_wyald_dy * 6 / n_berserk_committed_wyald_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_wyald_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_wyald_step_6"
+            }
+          }
+        ]
       }
     ],
     "//": "Spell EOC: alpha=victim, beta=caster. Snapshot all direction/cells onto the caster before warning."
@@ -446,7 +612,7 @@
       },
       {
         "math": [
-          "u_berserk_committed_wyald_cooldown = time('now') + 14"
+          "u_berserk_committed_wyald_cooldown = time('now') + 8"
         ]
       }
     ]
@@ -458,6 +624,11 @@
       {
         "math": [
           "u_berserk_committed_wyald_phase = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_committed_wyald_last_result = 2"
         ]
       },
       {
@@ -481,6 +652,15 @@
         "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_STEP_3"
       },
       {
+        "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_STEP_4"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_STEP_5"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_STEP_6"
+      },
+      {
         "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_RECOVER"
       }
     ],
@@ -496,10 +676,49 @@
         ]
       },
       {
+        "if": {
+          "math": [
+            "u_hp('ALL') <= 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_wyald_last_result = 5"
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "time('now') > u_berserk_committed_wyald_due + 1"
+            ]
+          },
+          "then": {
+            "math": [
+              "u_berserk_committed_wyald_last_result = 3"
+            ]
+          },
+          "else": {
+            "math": [
+              "u_berserk_committed_wyald_last_result = 4"
+            ]
+          }
+        }
+      },
+      {
         "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_CLEAR_WARNING"
       },
       {
-        "run_eocs": "EOC_BERSERK_WYALD_COMMITTED_RECOVER"
+        "u_lose_effect": "berserk_wyald_ready"
+      },
+      {
+        "u_add_effect": "berserk_apostle_attack_recovery",
+        "duration": "1 second",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "u_berserk_committed_wyald_cooldown = time('now') + 4"
+        ]
       }
     ]
   },
@@ -553,6 +772,16 @@
             "math": [
               "time('now') <= u_berserk_committed_wyald_due + 1"
             ]
+          },
+          {
+            "not": {
+              "u_has_effect": "stunned"
+            }
+          },
+          {
+            "not": {
+              "u_has_effect": "downed"
+            }
           }
         ]
       },
@@ -805,17 +1034,22 @@
       },
       {
         "math": [
+          "n_berserk_committed_rosine_last_result = 1"
+        ]
+      },
+      {
+        "math": [
           "n_berserk_committed_rosine_phase = 1"
         ]
       },
       {
         "math": [
-          "n_berserk_committed_rosine_due = time('now') + 3"
+          "n_berserk_committed_rosine_due = time('now') + 1"
         ]
       },
       {
         "npc_add_effect": "berserk_rosine_ready",
-        "duration": "4 seconds",
+        "duration": "2 seconds",
         "intensity": 1
       },
       {
@@ -830,7 +1064,12 @@
       },
       {
         "math": [
-          "n_berserk_committed_rosine_length = max(1, max(abs(n_berserk_committed_rosine_dx), abs(n_berserk_committed_rosine_dy)))"
+          "n_berserk_committed_rosine_direction_length = max(1, max(abs(n_berserk_committed_rosine_dx), abs(n_berserk_committed_rosine_dy)))"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_committed_rosine_length = 8"
         ]
       },
       {
@@ -846,12 +1085,12 @@
             },
             "x_adjust": {
               "math": [
-                "round(n_berserk_committed_rosine_dx * 1 / n_berserk_committed_rosine_length)"
+                "round(n_berserk_committed_rosine_dx * 1 / n_berserk_committed_rosine_direction_length)"
               ]
             },
             "y_adjust": {
               "math": [
-                "round(n_berserk_committed_rosine_dy * 1 / n_berserk_committed_rosine_length)"
+                "round(n_berserk_committed_rosine_dy * 1 / n_berserk_committed_rosine_direction_length)"
               ]
             }
           },
@@ -880,12 +1119,12 @@
             },
             "x_adjust": {
               "math": [
-                "round(n_berserk_committed_rosine_dx * 2 / n_berserk_committed_rosine_length)"
+                "round(n_berserk_committed_rosine_dx * 2 / n_berserk_committed_rosine_direction_length)"
               ]
             },
             "y_adjust": {
               "math": [
-                "round(n_berserk_committed_rosine_dy * 2 / n_berserk_committed_rosine_length)"
+                "round(n_berserk_committed_rosine_dy * 2 / n_berserk_committed_rosine_direction_length)"
               ]
             }
           },
@@ -914,12 +1153,12 @@
             },
             "x_adjust": {
               "math": [
-                "round(n_berserk_committed_rosine_dx * 3 / n_berserk_committed_rosine_length)"
+                "round(n_berserk_committed_rosine_dx * 3 / n_berserk_committed_rosine_direction_length)"
               ]
             },
             "y_adjust": {
               "math": [
-                "round(n_berserk_committed_rosine_dy * 3 / n_berserk_committed_rosine_length)"
+                "round(n_berserk_committed_rosine_dy * 3 / n_berserk_committed_rosine_direction_length)"
               ]
             }
           },
@@ -948,12 +1187,12 @@
             },
             "x_adjust": {
               "math": [
-                "round(n_berserk_committed_rosine_dx * 4 / n_berserk_committed_rosine_length)"
+                "round(n_berserk_committed_rosine_dx * 4 / n_berserk_committed_rosine_direction_length)"
               ]
             },
             "y_adjust": {
               "math": [
-                "round(n_berserk_committed_rosine_dy * 4 / n_berserk_committed_rosine_length)"
+                "round(n_berserk_committed_rosine_dy * 4 / n_berserk_committed_rosine_direction_length)"
               ]
             }
           },
@@ -965,6 +1204,142 @@
             "targeted": false,
             "loc": {
               "npc_val": "berserk_committed_rosine_step_4"
+            }
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_rosine_length >= 5"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_rosine_step_5"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dx * 5 / n_berserk_committed_rosine_direction_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dy * 5 / n_berserk_committed_rosine_direction_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_rosine_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_rosine_step_5"
+            }
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_rosine_length >= 6"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_rosine_step_6"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dx * 6 / n_berserk_committed_rosine_direction_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dy * 6 / n_berserk_committed_rosine_direction_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_rosine_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_rosine_step_6"
+            }
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_rosine_length >= 7"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_rosine_step_7"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dx * 7 / n_berserk_committed_rosine_direction_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dy * 7 / n_berserk_committed_rosine_direction_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_rosine_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_rosine_step_7"
+            }
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_committed_rosine_length >= 8"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "npc_val": "berserk_committed_rosine_step_8"
+            },
+            "x_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dx * 8 / n_berserk_committed_rosine_direction_length)"
+              ]
+            },
+            "y_adjust": {
+              "math": [
+                "round(n_berserk_committed_rosine_dy * 8 / n_berserk_committed_rosine_direction_length)"
+              ]
+            }
+          },
+          {
+            "npc_cast_spell": {
+              "id": "berserk_committed_rosine_warning",
+              "min_level": 0
+            },
+            "targeted": false,
+            "loc": {
+              "npc_val": "berserk_committed_rosine_step_8"
             }
           }
         ]
@@ -981,7 +1356,7 @@
       ]
     },
     "effect": {
-      "u_transform_radius": 4,
+      "u_transform_radius": 8,
       "ter_furn_transform": "berserk_committed_rosine_clear_warning",
       "target_var": {
         "u_val": "berserk_committed_rosine_origin"
@@ -1017,6 +1392,11 @@
         ]
       },
       {
+        "math": [
+          "u_berserk_committed_rosine_last_result = 2"
+        ]
+      },
+      {
         "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_CLEAR_WARNING"
       },
       {
@@ -1040,6 +1420,18 @@
         "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_STEP_4"
       },
       {
+        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_STEP_5"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_STEP_6"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_STEP_7"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_STEP_8"
+      },
+      {
         "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_RECOVER"
       }
     ],
@@ -1055,10 +1447,49 @@
         ]
       },
       {
+        "if": {
+          "math": [
+            "u_hp('ALL') <= 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_rosine_last_result = 5"
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "time('now') > u_berserk_committed_rosine_due + 1"
+            ]
+          },
+          "then": {
+            "math": [
+              "u_berserk_committed_rosine_last_result = 3"
+            ]
+          },
+          "else": {
+            "math": [
+              "u_berserk_committed_rosine_last_result = 4"
+            ]
+          }
+        }
+      },
+      {
         "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_CLEAR_WARNING"
       },
       {
-        "run_eocs": "EOC_BERSERK_ROSINE_COMMITTED_RECOVER"
+        "u_lose_effect": "berserk_rosine_ready"
+      },
+      {
+        "u_add_effect": "berserk_apostle_attack_recovery",
+        "duration": "1 second",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "u_berserk_committed_rosine_cooldown = time('now') + 4"
+        ]
       }
     ]
   },
@@ -1112,6 +1543,16 @@
             "math": [
               "time('now') <= u_berserk_committed_rosine_due + 1"
             ]
+          },
+          {
+            "not": {
+              "u_has_effect": "stunned"
+            }
+          },
+          {
+            "not": {
+              "u_has_effect": "downed"
+            }
           }
         ]
       },
@@ -1422,6 +1863,11 @@
       },
       {
         "math": [
+          "n_berserk_committed_grunbeld_knight_last_result = 1"
+        ]
+      },
+      {
+        "math": [
           "n_berserk_committed_grunbeld_knight_phase = 1"
         ]
       },
@@ -1493,6 +1939,11 @@
         ]
       },
       {
+        "math": [
+          "u_berserk_committed_grunbeld_knight_last_result = 2"
+        ]
+      },
+      {
         "run_eocs": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_CLEAR_WARNING"
       },
       {
@@ -1526,10 +1977,49 @@
         ]
       },
       {
+        "if": {
+          "math": [
+            "u_hp('ALL') <= 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_grunbeld_knight_last_result = 5"
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "time('now') > u_berserk_committed_grunbeld_knight_due + 1"
+            ]
+          },
+          "then": {
+            "math": [
+              "u_berserk_committed_grunbeld_knight_last_result = 3"
+            ]
+          },
+          "else": {
+            "math": [
+              "u_berserk_committed_grunbeld_knight_last_result = 4"
+            ]
+          }
+        }
+      },
+      {
         "run_eocs": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_CLEAR_WARNING"
       },
       {
-        "run_eocs": "EOC_BERSERK_GRUNBELD_KNIGHT_COMMITTED_RECOVER"
+        "u_lose_effect": "berserk_grunbeld_hammer_ready"
+      },
+      {
+        "u_add_effect": "berserk_apostle_attack_recovery",
+        "duration": "1 second",
+        "intensity": 1
+      },
+      {
+        "math": [
+          "u_berserk_committed_grunbeld_knight_cooldown = time('now') + 6"
+        ]
       }
     ]
   },
@@ -1583,6 +2073,16 @@
             "math": [
               "time('now') <= u_berserk_committed_grunbeld_knight_due + 1"
             ]
+          },
+          {
+            "not": {
+              "u_has_effect": "stunned"
+            }
+          },
+          {
+            "not": {
+              "u_has_effect": "downed"
+            }
           }
         ]
       },
@@ -1615,5 +2115,411 @@
       "monster_range": 48
     },
     "global": true
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_STEP_5",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_rosine_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_rosine_length >= 5"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_rosine_step_5)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_rosine_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_rosine_step_5"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_rosine_step_5"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_rosine_step_5) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_rosine_moving = 0"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_STEP_6",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_rosine_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_rosine_length >= 6"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_rosine_step_6)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_rosine_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_rosine_step_6"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_rosine_step_6"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_rosine_step_6) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_rosine_moving = 0"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_STEP_7",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_rosine_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_rosine_length >= 7"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_rosine_step_7)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_rosine_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_rosine_step_7"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_rosine_step_7"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_rosine_step_7) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_rosine_moving = 0"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROSINE_COMMITTED_STEP_8",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_rosine_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_rosine_length >= 8"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_rosine_step_8)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_rosine_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_rosine_step_8"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_rosine_step_8"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_rosine_step_8) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_rosine_moving = 0"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_COMMITTED_STEP_4",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_wyald_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_wyald_length >= 4"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_wyald_step_4)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_wyald_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_wyald_step_4"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_wyald_step_4"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_wyald_step_4) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_wyald_moving = 0"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_COMMITTED_STEP_5",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_wyald_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_wyald_length >= 5"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_wyald_step_5)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_wyald_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_wyald_step_5"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_wyald_step_5"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_wyald_step_5) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_wyald_moving = 0"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_WYALD_COMMITTED_STEP_6",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_committed_wyald_moving == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_wyald_length >= 6"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('ALL') > 0"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_committed_wyald_step_6)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_committed_wyald_release",
+          "min_level": 0
+        },
+        "targeted": false,
+        "loc": {
+          "u_val": "berserk_committed_wyald_step_6"
+        }
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_committed_wyald_step_6"
+        },
+        "force": false
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', u_berserk_committed_wyald_step_6) != 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_committed_wyald_moving = 0"
+          ]
+        }
+      }
+    ]
   }
 ]

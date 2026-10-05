@@ -1,5 +1,11 @@
 # Berserk translations
 
+Current development version: **3.0.0-dev** (4 October 2026).
+The new descriptions and mod summary are included in both locale catalogs.
+The stage G package compiles catalogs without running catalog checks or CDDA.
+Russian and Chinese runtime display and an editorial review of Chinese remain
+part of the later manual acceptance; compilation does not confirm gameplay.
+
 English is the base language used by the mod's JSON source files. Runtime translations are provided for:
 
 - Russian (`ru`)
@@ -30,3 +36,12 @@ Restart the game after adding or replacing translation catalogs.
 4. Test the mod with that language selected in CDDA.
 
 CDDA translation lookup uses contexts for professions, scenarios, and start locations. Preserve every `msgctxt` entry when editing or regenerating catalogs.
+
+To compile after editing, from `mods/Berserk`:
+
+```bash
+msgfmt lang/po/ru.po -o lang/mo/ru/LC_MESSAGES/Berserk.mo
+msgfmt lang/po/zh_CN.po -o lang/mo/zh_CN/LC_MESSAGES/Berserk.mo
+```
+
+This is the build step only. It does not execute the mod validator or the game.

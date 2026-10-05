@@ -1,0 +1,853 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_CAMPAIGN_REPORT",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_hunt_first_breach_state == 3"
+          ]
+        },
+        "then": {
+          "set_string_var": "The keeper is defeated. Examine the local breach and seal it.",
+          "target_var": {
+            "context_val": "campaign_first"
+          },
+          "i18n": true
+        },
+        "else": {
+          "if": {
+            "math": [
+              "berserk_hunt_first_breach_state >= 4"
+            ]
+          },
+          "then": {
+            "set_string_var": "First hunt and Ashen Breach complete. Their local quiet does not remove the Brand.",
+            "target_var": {
+              "context_val": "campaign_first"
+            },
+            "i18n": true
+          },
+          "else": {
+            "if": {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            "then": {
+              "set_string_var": "The first hunt is complete. Follow the recovered trail to the Ashen Breach.",
+              "target_var": {
+                "context_val": "campaign_first"
+              },
+              "i18n": true
+            },
+            "else": {
+              "set_string_var": "Prepare for the first hunt; select its existing mission in the mission journal.",
+              "target_var": {
+                "context_val": "campaign_first"
+              },
+              "i18n": true
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_refuge_ready == 1"
+          ]
+        },
+        "then": {
+          "set_string_var": "Refuge readiness recorded. Check water, light, bedding and an escape yourself.",
+          "target_var": {
+            "context_val": "campaign_refuge"
+          },
+          "i18n": true
+        },
+        "else": {
+          "set_string_var": "Choose a defensible shelter and build a ward. Refuge and dawn observations are optional, not gates for hunting.",
+          "target_var": {
+            "context_val": "campaign_refuge"
+          },
+          "i18n": true
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_refuge_dawn_recorded == 1"
+          ]
+        },
+        "then": {
+          "set_string_var": "A dawn observation at the chosen ward is recorded. This is not a promise that every night is safe.",
+          "target_var": {
+            "context_val": "campaign_night"
+          },
+          "i18n": true
+        },
+        "else": {
+          "set_string_var": "No dawn observation recorded yet. The refuge journal explains the optional criteria.",
+          "target_var": {
+            "context_val": "campaign_night"
+          },
+          "i18n": true
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_flora_stage >= 1"
+          ]
+        },
+        "then": {
+          "if": {
+            "or": [
+              {
+                "math": [
+                  "berserk_flora_siege_state >= 5"
+                ]
+              },
+              {
+                "math": [
+                  "berserk_flora_stage == 3"
+                ]
+              }
+            ]
+          },
+          "then": {
+            "set_string_var": "Flora's grove has fallen. You escaped with what you could carry. Recover at your refuge, then follow a trail you have not completed.",
+            "target_var": {
+              "context_val": "campaign_flora"
+            },
+            "i18n": true
+          },
+          "else": {
+            "if": {
+              "math": [
+                "berserk_flora_siege_state >= 2"
+              ]
+            },
+            "then": {
+              "set_string_var": "Flora: The sanctuary is under attack. Escape beyond the grove by the west road or south garden.",
+              "target_var": {
+                "context_val": "campaign_flora"
+              },
+              "i18n": true
+            },
+            "else": {
+              "if": {
+                "math": [
+                  "berserk_flora_stage >= 1"
+                ]
+              },
+              "then": {
+                "set_string_var": "The road to Flora's grove is known. Ask her about the Brand and the armor, rest, and prepare for the journey when you are ready.",
+                "target_var": {
+                  "context_val": "campaign_flora"
+                },
+                "i18n": true
+              },
+              "else": {
+                "set_string_var": "Flora: Follow the Count, Black Dogs and misty valley trails. The records from their sealed breaches will reveal the road to the witch's grove.",
+                "target_var": {
+                  "context_val": "campaign_flora"
+                },
+                "i18n": true
+              }
+            }
+          }
+        },
+        "else": {
+          "set_string_var": "",
+          "target_var": {
+            "context_val": "campaign_flora"
+          }
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_hunt_count_state >= 1"
+          ]
+        },
+        "then": {
+          "if": {
+            "math": [
+              "berserk_hunt_count_state >= 5"
+            ]
+          },
+          "then": {
+            "set_string_var": "Count: The breach is closed and the reward was already received.",
+            "target_var": {
+              "context_val": "campaign_count"
+            },
+            "i18n": true
+          },
+          "else": {
+            "if": {
+              "math": [
+                "berserk_hunt_count_state >= 4"
+              ]
+            },
+            "then": {
+              "set_string_var": "Count: The breach is closed. Return to its seal to collect the remaining relic.",
+              "target_var": {
+                "context_val": "campaign_count"
+              },
+              "i18n": true
+            },
+            "else": {
+              "if": {
+                "math": [
+                  "berserk_hunt_count_state >= 3"
+                ]
+              },
+              "then": {
+                "set_string_var": "Count: The keeper is defeated. Examine the local breach and seal it.",
+                "target_var": {
+                  "context_val": "campaign_count"
+                },
+                "i18n": true
+              },
+              "else": {
+                "if": {
+                  "math": [
+                    "berserk_hunt_count_state >= 2"
+                  ]
+                },
+                "then": {
+                  "set_string_var": "Count: The encounter has begun. Defeat the keeper or retreat to prepare.",
+                  "target_var": {
+                    "context_val": "campaign_count"
+                  },
+                  "i18n": true
+                },
+                "else": {
+                  "if": {
+                    "math": [
+                      "berserk_hunt_count_state >= 1"
+                    ]
+                  },
+                  "then": {
+                    "set_string_var": "Count: Explore the marked lair and enter its inner arena.",
+                    "target_var": {
+                      "context_val": "campaign_count"
+                    },
+                    "i18n": true
+                  },
+                  "else": {
+                    "set_string_var": "Count: Consult the recovered trail to locate the lair.",
+                    "target_var": {
+                      "context_val": "campaign_count"
+                    },
+                    "i18n": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "else": {
+          "set_string_var": "",
+          "target_var": {
+            "context_val": "campaign_count"
+          }
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_hunt_wyald_state >= 1"
+          ]
+        },
+        "then": {
+          "if": {
+            "math": [
+              "berserk_hunt_wyald_state >= 5"
+            ]
+          },
+          "then": {
+            "set_string_var": "Wyald: The breach is closed and the reward was already received.",
+            "target_var": {
+              "context_val": "campaign_wyald"
+            },
+            "i18n": true
+          },
+          "else": {
+            "if": {
+              "math": [
+                "berserk_hunt_wyald_state >= 4"
+              ]
+            },
+            "then": {
+              "set_string_var": "Wyald: The breach is closed. Return to its seal to collect the remaining relic.",
+              "target_var": {
+                "context_val": "campaign_wyald"
+              },
+              "i18n": true
+            },
+            "else": {
+              "if": {
+                "math": [
+                  "berserk_hunt_wyald_state >= 3"
+                ]
+              },
+              "then": {
+                "set_string_var": "Wyald: The keeper is defeated. Examine the local breach and seal it.",
+                "target_var": {
+                  "context_val": "campaign_wyald"
+                },
+                "i18n": true
+              },
+              "else": {
+                "if": {
+                  "math": [
+                    "berserk_hunt_wyald_state >= 2"
+                  ]
+                },
+                "then": {
+                  "set_string_var": "Wyald: The encounter has begun. Defeat the keeper or retreat to prepare.",
+                  "target_var": {
+                    "context_val": "campaign_wyald"
+                  },
+                  "i18n": true
+                },
+                "else": {
+                  "if": {
+                    "math": [
+                      "berserk_hunt_wyald_state >= 1"
+                    ]
+                  },
+                  "then": {
+                    "set_string_var": "Wyald: Explore the marked lair and enter its inner arena.",
+                    "target_var": {
+                      "context_val": "campaign_wyald"
+                    },
+                    "i18n": true
+                  },
+                  "else": {
+                    "set_string_var": "Wyald: Consult the recovered trail to locate the lair.",
+                    "target_var": {
+                      "context_val": "campaign_wyald"
+                    },
+                    "i18n": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "else": {
+          "set_string_var": "",
+          "target_var": {
+            "context_val": "campaign_wyald"
+          }
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_hunt_rosine_state >= 1"
+          ]
+        },
+        "then": {
+          "if": {
+            "math": [
+              "berserk_hunt_rosine_state >= 5"
+            ]
+          },
+          "then": {
+            "set_string_var": "Rosine: The breach is closed and the reward was already received.",
+            "target_var": {
+              "context_val": "campaign_rosine"
+            },
+            "i18n": true
+          },
+          "else": {
+            "if": {
+              "math": [
+                "berserk_hunt_rosine_state >= 4"
+              ]
+            },
+            "then": {
+              "set_string_var": "Rosine: The breach is closed. Return to its seal to collect the remaining relic.",
+              "target_var": {
+                "context_val": "campaign_rosine"
+              },
+              "i18n": true
+            },
+            "else": {
+              "if": {
+                "math": [
+                  "berserk_hunt_rosine_state >= 3"
+                ]
+              },
+              "then": {
+                "set_string_var": "Rosine: The keeper is defeated. Examine the local breach and seal it.",
+                "target_var": {
+                  "context_val": "campaign_rosine"
+                },
+                "i18n": true
+              },
+              "else": {
+                "if": {
+                  "math": [
+                    "berserk_hunt_rosine_state >= 2"
+                  ]
+                },
+                "then": {
+                  "set_string_var": "Rosine: The encounter has begun. Defeat the keeper or retreat to prepare.",
+                  "target_var": {
+                    "context_val": "campaign_rosine"
+                  },
+                  "i18n": true
+                },
+                "else": {
+                  "if": {
+                    "math": [
+                      "berserk_hunt_rosine_state >= 1"
+                    ]
+                  },
+                  "then": {
+                    "set_string_var": "Rosine: Explore the marked lair and enter its inner arena.",
+                    "target_var": {
+                      "context_val": "campaign_rosine"
+                    },
+                    "i18n": true
+                  },
+                  "else": {
+                    "set_string_var": "Rosine: Consult the recovered trail to locate the lair.",
+                    "target_var": {
+                      "context_val": "campaign_rosine"
+                    },
+                    "i18n": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "else": {
+          "set_string_var": "",
+          "target_var": {
+            "context_val": "campaign_rosine"
+          }
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_hunt_grunbeld_state >= 1"
+          ]
+        },
+        "then": {
+          "if": {
+            "and": [
+              {
+                "math": [
+                  "berserk_hunt_grunbeld_state < 1"
+                ]
+              },
+              {
+                "math": [
+                  "berserk_apostle_grunbeld_dead != 1"
+                ]
+              },
+              {
+                "or": [
+                  {
+                    "math": [
+                      "berserk_hunt_count_state < 4"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "berserk_hunt_wyald_state < 4"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "berserk_hunt_rosine_state < 4"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "then": {
+            "set_string_var": "Grunbeld: Follow the marked road to the fortress.",
+            "target_var": {
+              "context_val": "campaign_grunbeld"
+            },
+            "i18n": true
+          },
+          "else": {
+            "if": {
+              "and": [
+                {
+                  "math": [
+                    "berserk_apostle_grunbeld_dead == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_grunbeld_defeated_in_lair != 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_grunbeld_state < 4"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "set_string_var": "Grunbeld: Grunbeld is dead. The wound beneath his fortress still needs to be examined.",
+              "target_var": {
+                "context_val": "campaign_grunbeld"
+              },
+              "i18n": true
+            },
+            "else": {
+              "if": {
+                "math": [
+                  "berserk_hunt_grunbeld_state >= 5"
+                ]
+              },
+              "then": {
+                "set_string_var": "Grunbeld: The breach is closed and the reward was already received.",
+                "target_var": {
+                  "context_val": "campaign_grunbeld"
+                },
+                "i18n": true
+              },
+              "else": {
+                "if": {
+                  "math": [
+                    "berserk_hunt_grunbeld_state >= 4"
+                  ]
+                },
+                "then": {
+                  "set_string_var": "Grunbeld: The breach is closed. Return to its seal to collect the remaining relic.",
+                  "target_var": {
+                    "context_val": "campaign_grunbeld"
+                  },
+                  "i18n": true
+                },
+                "else": {
+                  "if": {
+                    "math": [
+                      "berserk_hunt_grunbeld_state >= 3"
+                    ]
+                  },
+                  "then": {
+                    "set_string_var": "Grunbeld: The keeper is defeated. Examine the local breach and seal it.",
+                    "target_var": {
+                      "context_val": "campaign_grunbeld"
+                    },
+                    "i18n": true
+                  },
+                  "else": {
+                    "if": {
+                      "math": [
+                        "berserk_hunt_grunbeld_state >= 2"
+                      ]
+                    },
+                    "then": {
+                      "set_string_var": "Grunbeld: The encounter has begun. Defeat the keeper or retreat to prepare.",
+                      "target_var": {
+                        "context_val": "campaign_grunbeld"
+                      },
+                      "i18n": true
+                    },
+                    "else": {
+                      "if": {
+                        "math": [
+                          "berserk_hunt_grunbeld_state >= 1"
+                        ]
+                      },
+                      "then": {
+                        "set_string_var": "Grunbeld: Explore the marked lair and enter its inner arena.",
+                        "target_var": {
+                          "context_val": "campaign_grunbeld"
+                        },
+                        "i18n": true
+                      },
+                      "else": {
+                        "set_string_var": "Grunbeld: Consult the recovered trail to locate the lair.",
+                        "target_var": {
+                          "context_val": "campaign_grunbeld"
+                        },
+                        "i18n": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "else": {
+          "set_string_var": "",
+          "target_var": {
+            "context_val": "campaign_grunbeld"
+          }
+        }
+      },
+      {
+        "set_string_var": "Each sealed breach quiets NEW world manifestations near its stored site (about two overmap tiles / 48 local tiles). Existing enemies stay. The Brand remains; its night summons and armor shadows follow separate rules.",
+        "target_var": {
+          "context_val": "campaign_quiet"
+        },
+        "i18n": true
+      },
+      {
+        "u_message": "THE ROAD AFTER THE ECLIPSE\n\nFirst steps: <context_val:campaign_first>\nRefuge: <context_val:campaign_refuge>\nNight: <context_val:campaign_night>\n\n<context_val:campaign_flora>\n<context_val:campaign_count>\n<context_val:campaign_wyald>\n<context_val:campaign_rosine>\n<context_val:campaign_grunbeld>\n\n<context_val:campaign_quiet>\n\nChoose your next known destination in the mission journal.",
+        "popup": true,
+        "type": "info"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_CHAPTER_CHECK"
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_eclipse_era == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_CAMPAIGN_CHAPTER_CHECK",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_campaign_chapter_closed = 1"
+        ]
+      },
+      {
+        "u_message": "The named breaches of this chapter are closed. You won breathing room, not an end to the darkness. The Brand endures; distant wounds remain open. Collect any unclaimed relics, tend your refuge and keep the surviving records. The next road has not yet been written.",
+        "popup": true,
+        "type": "info"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_campaign_chapter_closed != 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_count_state >= 4"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_wyald_state >= 4"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_rosine_state >= 4"
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_grunbeld_state >= 4"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "berserk_flora_siege_state >= 5"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage == 3"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_hunt_first_breach_state >= 4"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL",
+    "effect": {
+      "u_spawn_item": "berserk_campaign_journal",
+      "count": 1,
+      "suppress_message": true
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "not": {
+            "u_has_item": "berserk_campaign_journal"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_CAMPAIGN_POST_FIRE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_flora_fire_summary_seen = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_grunbeld_state >= 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_grunbeld_state < 4"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "set_string_var": "The road to Grunbeld's stronghold remains in your journal. Follow it when you are ready.",
+          "target_var": {
+            "context_val": "flora_next"
+          },
+          "i18n": true
+        },
+        "else": {
+          "if": {
+            "and": [
+              {
+                "math": [
+                  "berserk_hunt_count_state >= 1"
+                ]
+              },
+              {
+                "math": [
+                  "berserk_hunt_count_state < 4"
+                ]
+              }
+            ]
+          },
+          "then": {
+            "set_string_var": "The Count's unfinished trail remains in your journal.",
+            "target_var": {
+              "context_val": "flora_next"
+            },
+            "i18n": true
+          },
+          "else": {
+            "if": {
+              "and": [
+                {
+                  "math": [
+                    "berserk_hunt_wyald_state >= 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_wyald_state < 4"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "set_string_var": "The Black Dogs' unfinished trail remains in your journal.",
+              "target_var": {
+                "context_val": "flora_next"
+              },
+              "i18n": true
+            },
+            "else": {
+              "if": {
+                "and": [
+                  {
+                    "math": [
+                      "berserk_hunt_rosine_state >= 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "berserk_hunt_rosine_state < 4"
+                    ]
+                  }
+                ]
+              },
+              "then": {
+                "set_string_var": "The unfinished trail to the misty valley remains in your journal.",
+                "target_var": {
+                  "context_val": "flora_next"
+                },
+                "i18n": true
+              },
+              "else": {
+                "if": {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_breach_sealed != 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "has_var(u_berserk_local_breach_location)"
+                      ]
+                    }
+                  ]
+                },
+                "then": {
+                  "set_string_var": "The ashen breach is still open. Its location remains in your journal.",
+                  "target_var": {
+                    "context_val": "flora_next"
+                  },
+                  "i18n": true
+                },
+                "else": {
+                  "set_string_var": "Recover at your refuge. Consult your journal for wounds still open and trails you have not completed.",
+                  "target_var": {
+                    "context_val": "flora_next"
+                  },
+                  "i18n": true
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        "u_message": "Behind you, fire spreads through Flora's home. You have escaped, but a shelter is being lost. Darkness is taking deeper root in the world of Cataclysm; closing every rift will demand far more than the battles won so far.\n\n<context_val:flora_next>",
+        "type": "warning",
+        "popup": true
+      }
+    ],
+    "condition": {
+      "math": [
+        "u_berserk_flora_fire_summary_seen != 1"
+      ]
+    }
+  }
+]

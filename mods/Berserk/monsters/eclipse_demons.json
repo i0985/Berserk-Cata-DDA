@@ -2,16 +2,23 @@
   {
     "type": "MONSTER",
     "id": "mon_berserk_eclipse_wretch",
-    "name": { "str": "Eclipse wretch" },
+    "name": {
+      "str": "Eclipse wretch"
+    },
     "description": "A gaunt shape of torn skin and exposed teeth, the first creature to crawl out after the Eclipse. It rushes its prey in a pack, relying on numbers rather than strength.",
     "default_faction": "berserk_eclipse_demons",
     "bodytype": "humanoid",
-    "species": [ "NETHER" ],
+    "species": [
+      "NETHER"
+    ],
     "volume": "45000 ml",
     "weight": "55000 g",
     "hp": 80,
     "speed": 82,
-    "material": [ "flesh", "bone" ],
+    "material": [
+      "flesh",
+      "bone"
+    ],
     "symbol": "w",
     "color": "brown",
     "aggression": 100,
@@ -19,27 +26,43 @@
     "melee_skill": 3,
     "melee_dice": 1,
     "melee_dice_sides": 4,
-    "melee_damage": [ { "damage_type": "cut", "amount": 7 } ],
+    "melee_damage": [
+      {
+        "damage_type": "cut",
+        "amount": 7
+      }
+    ],
     "dodge": 0,
     "vision_day": 20,
     "vision_night": 20,
     "harvest": "exempt",
     "death_drops": "berserk_eclipse_demon_drops",
-    "flags": [ "SEES", "HEARS", "WARM" ]
+    "flags": [
+      "SEES",
+      "HEARS",
+      "WARM"
+    ]
   },
   {
     "type": "MONSTER",
     "id": "mon_berserk_eclipse_halfbreed",
-    "name": { "str": "Eclipse half-demon" },
+    "name": {
+      "str": "Eclipse half-demon"
+    },
     "description": "Human proportions remain beneath swollen flesh and a crooked jaw. This half-demon lunges across the last few steps before its victim can retreat.",
     "default_faction": "berserk_eclipse_demons",
     "bodytype": "humanoid",
-    "species": [ "NETHER" ],
+    "species": [
+      "NETHER"
+    ],
     "volume": "75000 ml",
     "weight": "85000 g",
-    "hp": 180,
-    "speed": 100,
-    "material": [ "flesh", "bone" ],
+    "hp": 162,
+    "speed": 90,
+    "material": [
+      "flesh",
+      "bone"
+    ],
     "symbol": "h",
     "color": "light_red",
     "aggression": 100,
@@ -47,28 +70,50 @@
     "melee_skill": 5,
     "melee_dice": 1,
     "melee_dice_sides": 6,
-    "melee_damage": [ { "damage_type": "bash", "amount": 15 } ],
+    "melee_damage": [
+      {
+        "damage_type": "bash",
+        "amount": 13.5
+      }
+    ],
     "dodge": 1,
     "vision_day": 25,
     "vision_night": 25,
     "harvest": "exempt",
     "death_drops": "berserk_eclipse_demon_drops",
-    "flags": [ "SEES", "HEARS", "WARM" ],
-    "special_attacks": [ { "type": "leap", "cooldown": 15, "max_range": 2 } ]
+    "flags": [
+      "SEES",
+      "HEARS",
+      "WARM"
+    ],
+    "special_attacks": [
+      {
+        "type": "leap",
+        "cooldown": 15,
+        "max_range": 2
+      }
+    ]
   },
   {
     "type": "MONSTER",
     "id": "mon_berserk_eclipse_hunter",
-    "name": { "str": "Eclipse hunter" },
+    "name": {
+      "str": "Eclipse hunter"
+    },
     "description": "Too thin for its height, with long limbs and sharpened nails. It moves faster than its kin and darts at anyone who leaves a gap in their guard.",
     "default_faction": "berserk_eclipse_demons",
     "bodytype": "humanoid",
-    "species": [ "NETHER" ],
+    "species": [
+      "NETHER"
+    ],
     "volume": "65000 ml",
     "weight": "65000 g",
-    "hp": 140,
-    "speed": 130,
-    "material": [ "flesh", "bone" ],
+    "hp": 126,
+    "speed": 117,
+    "material": [
+      "flesh",
+      "bone"
+    ],
     "symbol": "H",
     "color": "red",
     "aggression": 100,
@@ -76,27 +121,43 @@
     "melee_skill": 6,
     "melee_dice": 1,
     "melee_dice_sides": 5,
-    "melee_damage": [ { "damage_type": "cut", "amount": 16 } ],
+    "melee_damage": [
+      {
+        "damage_type": "cut",
+        "amount": 14.4
+      }
+    ],
     "dodge": 3,
     "vision_day": 30,
     "vision_night": 30,
     "harvest": "exempt",
     "death_drops": "berserk_eclipse_demon_drops",
-    "flags": [ "SEES", "HEARS", "WARM" ]
+    "flags": [
+      "SEES",
+      "HEARS",
+      "WARM"
+    ]
   },
   {
     "type": "MONSTER",
     "id": "mon_berserk_eclipse_butcher",
-    "name": { "str": "Eclipse butcher" },
+    "name": {
+      "str": "Eclipse butcher"
+    },
     "description": "A hulking mass of knotted muscle drags its heavy arms through the ruins. It is slow and easy to evade, but a direct blow can break through light armor.",
     "default_faction": "berserk_eclipse_demons",
     "bodytype": "humanoid",
-    "species": [ "NETHER" ],
+    "species": [
+      "NETHER"
+    ],
     "volume": "250 L",
     "weight": "300 kg",
     "hp": 450,
     "speed": 80,
-    "material": [ "flesh", "bone" ],
+    "material": [
+      "flesh",
+      "bone"
+    ],
     "symbol": "B",
     "color": "red",
     "aggression": 100,
@@ -104,28 +165,47 @@
     "melee_skill": 6,
     "melee_dice": 2,
     "melee_dice_sides": 6,
-    "melee_damage": [ { "damage_type": "bash", "amount": 27 } ],
+    "melee_damage": [
+      {
+        "damage_type": "bash",
+        "amount": 27
+      }
+    ],
     "dodge": 0,
-    "armor": { "bash": 8, "cut": 8 },
+    "armor": {
+      "bash": 8,
+      "cut": 8
+    },
     "vision_day": 22,
     "vision_night": 22,
     "harvest": "exempt",
     "death_drops": "berserk_eclipse_demon_drops",
-    "flags": [ "SEES", "HEARS", "WARM" ]
+    "flags": [
+      "SEES",
+      "HEARS",
+      "WARM"
+    ]
   },
   {
     "type": "MONSTER",
     "id": "mon_berserk_eclipse_elite",
-    "name": { "str": "Eclipse executioner" },
+    "name": {
+      "str": "Eclipse executioner"
+    },
     "description": "An executioner from the depths of the Eclipse, armored in hardened flesh. It raises its blade before a devastating cleave; that brief warning is the last chance to step away.",
     "default_faction": "berserk_eclipse_demons",
     "bodytype": "humanoid",
-    "species": [ "NETHER" ],
+    "species": [
+      "NETHER"
+    ],
     "volume": "150 L",
     "weight": "190 kg",
     "hp": 600,
-    "speed": 115,
-    "material": [ "flesh", "bone" ],
+    "speed": 75,
+    "material": [
+      "flesh",
+      "bone"
+    ],
     "symbol": "E",
     "color": "magenta",
     "aggression": 100,
@@ -133,14 +213,26 @@
     "melee_skill": 8,
     "melee_dice": 2,
     "melee_dice_sides": 8,
-    "melee_damage": [ { "damage_type": "cut", "amount": 28 } ],
+    "melee_damage": [
+      {
+        "damage_type": "cut",
+        "amount": 28
+      }
+    ],
     "dodge": 2,
-    "armor": { "bash": 9, "cut": 9 },
+    "armor": {
+      "bash": 9,
+      "cut": 9
+    },
     "vision_day": 30,
     "vision_night": 30,
     "harvest": "exempt",
     "death_drops": "berserk_eclipse_demon_drops",
-    "flags": [ "SEES", "HEARS", "WARM" ],
+    "flags": [
+      "SEES",
+      "HEARS",
+      "WARM"
+    ],
     "special_attacks": [
       {
         "type": "monster_attack",
@@ -148,8 +240,15 @@
         "id": "berserk_eclipse_elite_cleave",
         "cooldown": 12,
         "move_cost": 130,
-        "condition": { "u_has_effect": "berserk_eclipse_elite_ready" },
-        "damage_max_instance": [ { "damage_type": "cut", "amount": 42 } ],
+        "condition": {
+          "u_has_effect": "berserk_eclipse_elite_ready"
+        },
+        "damage_max_instance": [
+          {
+            "damage_type": "cut",
+            "amount": 42
+          }
+        ],
         "hit_dmg_u": "The executioner brings its blade down on you!",
         "hit_dmg_npc": "The executioner brings its blade down on %s!",
         "miss_msg_u": "You slip away from the executioner's heavy strike!",
@@ -161,9 +260,23 @@
         "id": "berserk_eclipse_elite_windup",
         "cooldown": 15,
         "move_cost": 150,
-        "condition": { "not": { "u_has_effect": "berserk_eclipse_elite_ready" } },
-        "damage_max_instance": [ { "damage_type": "bash", "amount": 0 } ],
-        "self_effects_always": [ { "id": "berserk_eclipse_elite_ready", "duration": 4 } ],
+        "condition": {
+          "not": {
+            "u_has_effect": "berserk_eclipse_elite_ready"
+          }
+        },
+        "damage_max_instance": [
+          {
+            "damage_type": "bash",
+            "amount": 0
+          }
+        ],
+        "self_effects_always": [
+          {
+            "id": "berserk_eclipse_elite_ready",
+            "duration": 4
+          }
+        ],
         "dodgeable": false,
         "blockable": false,
         "no_dmg_msg_u": "The executioner raises its blade for a crushing strike!",

@@ -1,0 +1,563 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_oak_broken_rootcutter",
+    "name": {
+      "str": "broken root-cutter"
+    },
+    "description": "A hand-forged blade with a split wooden haft. Dark sap fills the break. Activate it to examine the marks left by its owner.",
+    "material": [
+      "wood",
+      "steel"
+    ],
+    "weight": "200 g",
+    "volume": "250 ml",
+    "symbol": "?",
+    "color": "brown",
+    "looks_like": "billet_wood",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_OAK_BROKEN_ROOTCUTTER"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_oak_wayfarer_ward",
+    "name": {
+      "str": "wayfarer's tied ward"
+    },
+    "description": "A cloth knot and a small carved bone, carefully tied around a cord. This personal keepsake grants no protection. Activate it to examine the inscription.",
+    "material": [
+      "cotton",
+      "bone"
+    ],
+    "weight": "20 g",
+    "volume": "50 ml",
+    "symbol": "?",
+    "color": "brown",
+    "looks_like": "scrap_cotton",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_OAK_WAYFARER_WARD"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_oak_last_note",
+    "name": {
+      "str": "oak traveler's last note"
+    },
+    "description": "A handwritten scrap protected inside folded cloth. Activate it to read the last account of a search beneath the oak.",
+    "material": [
+      "paper"
+    ],
+    "weight": "5 g",
+    "volume": "10 ml",
+    "symbol": "?",
+    "color": "brown",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_OAK_LAST_NOTE"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_flora_herbal_folio",
+    "name": {
+      "str": "Flora's herbal folio"
+    },
+    "description": "A handwritten folio with pressed leaves, small household sketches and corrections in the margins. Activate it to read.",
+    "material": [
+      "paper"
+    ],
+    "weight": "30 g",
+    "volume": "100 ml",
+    "symbol": "?",
+    "color": "brown",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_FLORA_HERBAL_FOLIO"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_cave_scout_note",
+    "copy-from": "berserk_oak_last_note",
+    "name": {
+      "str": "cave scout's route sketch"
+    },
+    "description": "A hand-drawn route on folded cloth. Activate it to read the marks.",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_CAVE_SCOUT_NOTE"
+      ]
+    },
+    "material": [
+      "cotton"
+    ]
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_chapel_relief_roster",
+    "copy-from": "berserk_oak_last_note",
+    "name": {
+      "str": "chapel relief roster"
+    },
+    "description": "Names, meal portions and blanket assignments fill these pages. Activate to read.",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_CHAPEL_RELIEF_ROSTER"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_chapel_ritual_note",
+    "copy-from": "berserk_oak_last_note",
+    "name": {
+      "str": "reliquary keeper's confession"
+    },
+    "description": "Black wax stains the margin of a prayer sheet. Activate to read.",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_CHAPEL_RITUAL_NOTE"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_chapel_forest_route",
+    "copy-from": "berserk_oak_last_note",
+    "name": {
+      "str": "refugee's forest directions"
+    },
+    "description": "A folded note describes another place where a red face was seen. Activate to read.",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_CHAPEL_FOREST_ROUTE"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_expedition_transfer_note",
+    "copy-from": "berserk_oak_last_note",
+    "name": {
+      "str": "expedition transport order"
+    },
+    "description": "A transport checklist lists the specimen, missing sleep and a cancelled departure. Activate to read.",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_EXPEDITION_TRANSFER_NOTE"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "id": "berserk_eclipse_last_stand_note",
+    "copy-from": "berserk_oak_last_note",
+    "name": {
+      "str": "last stand scratched on cloth"
+    },
+    "description": "A blood-stiffened scrap records an attempted retreat. Activate it to read the marks.",
+    "material": [
+      "cotton"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_LAST_STAND_READ"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_count_prison_list",
+    "name": {
+      "str": "the Count's prison roll"
+    },
+    "description": "A scratched list of prisoners, confiscated belongings and dates. Activate to read.",
+    "material": [
+      "paper"
+    ],
+    "weight": "10 g",
+    "volume": "10 ml",
+    "symbol": "?",
+    "color": "brown",
+    "looks_like": "scrap_cotton",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COUNT_PRISON_LIST_READ"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_count_physician_ledger",
+    "name": {
+      "str": "the Count's physician ledger"
+    },
+    "description": "Linen-bound observations beside incomplete attempts to treat transformed servants. Activate to read.",
+    "material": [
+      "paper"
+    ],
+    "weight": "10 g",
+    "volume": "10 ml",
+    "symbol": "?",
+    "color": "brown",
+    "looks_like": "scrap_cotton",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COUNT_PHYSICIAN_LEDGER_READ"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_count_family_ribbon",
+    "name": {
+      "str": "Theresia's folded ribbon"
+    },
+    "description": "A carefully folded cloth ribbon from the daughter's untouched room. Activate to examine. It grants no protection.",
+    "material": [
+      "cotton"
+    ],
+    "weight": "10 g",
+    "volume": "10 ml",
+    "symbol": "?",
+    "color": "brown",
+    "looks_like": "scrap_cotton",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COUNT_FAMILY_RIBBON_READ"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_count_next_trace",
+    "name": {
+      "str": "annotated routes from the residence"
+    },
+    "description": "A clerk marked movements beyond the residence. Activate after defeating the Count to consult the independent hunts.",
+    "material": [
+      "paper"
+    ],
+    "weight": "10 g",
+    "volume": "10 ml",
+    "symbol": "?",
+    "color": "brown",
+    "looks_like": "scrap_cotton",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COUNT_NEXT_TRACE_READ"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "id": "berserk_count_service_key",
+    "name": {
+      "str": "residence service key"
+    },
+    "description": "A plain iron key for the barred passage between the prison offices and execution hall. Other routes stay open without it.",
+    "material": [
+      "iron"
+    ],
+    "weight": "30 g",
+    "volume": "10 ml",
+    "symbol": ",",
+    "color": "dark_gray",
+    "looks_like": "scrap"
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_wyald_muster_roll",
+    "name": {
+      "str": "Black Dogs stolen muster roll"
+    },
+    "description": "A campaign roll marked with confiscated tools and missing prisoners. Activate to read.",
+    "material": [
+      "paper"
+    ],
+    "weight": "10 g",
+    "volume": "10 ml",
+    "symbol": "?",
+    "color": "brown",
+    "looks_like": "scrap_cotton",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_BERSERK_WYALD_MUSTER_ROLL"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_wyald_prisoner_account",
+    "name": {
+      "str": "Black Dogs escape testimony"
+    },
+    "description": "A captive left directions scratched on a folded scrap. Activate to read; no escort is required.",
+    "material": [
+      "paper"
+    ],
+    "weight": "10 g",
+    "volume": "10 ml",
+    "symbol": "?",
+    "color": "brown",
+    "looks_like": "scrap_cotton",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_BERSERK_WYALD_PRISONER_ACCOUNT"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_wyald_command_orders",
+    "name": {
+      "str": "Black Dogs command orders"
+    },
+    "description": "Mud-stained orders from the command tent. Activate to read.",
+    "material": [
+      "paper"
+    ],
+    "weight": "10 g",
+    "volume": "10 ml",
+    "symbol": "?",
+    "color": "brown",
+    "looks_like": "scrap_cotton",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_BERSERK_WYALD_COMMAND_ORDERS"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_rosine_witness_note",
+    "name": {
+      "str": "Mistvale searcher's testimony"
+    },
+    "description": "A searcher wrote down the trail of people drawn to a promise of paradise. Activate to read.",
+    "material": [
+      "paper"
+    ],
+    "weight": "10 g",
+    "volume": "10 ml",
+    "symbol": "?",
+    "color": "brown",
+    "looks_like": "scrap_cotton",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_BERSERK_ROSINE_WITNESS_NOTE"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_rosine_faded_ribbon",
+    "name": {
+      "str": "Mistvale faded ribbon"
+    },
+    "description": "A small ribbon caught where the games ended and the cocoons began. Activate to examine. It grants no combat bonus.",
+    "material": [
+      "cotton"
+    ],
+    "weight": "10 g",
+    "volume": "10 ml",
+    "symbol": "?",
+    "color": "brown",
+    "looks_like": "scrap_cotton",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_BERSERK_ROSINE_FADED_RIBBON"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_expedition_alarm_note",
+    "copy-from": "berserk_oak_last_note",
+    "name": {
+      "str_sp": "message from the expedition's lookout"
+    },
+    "description": "A rain-marked warning left for a late-arriving member of the survey team. Activate it to read the account of the alarm test.",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_EXPEDITION_ALARM_NOTE"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_chapel_last_vigil",
+    "copy-from": "berserk_oak_last_note",
+    "name": {
+      "str_sp": "last vigil's prayer sheet"
+    },
+    "description": "A prayer crossed out by someone who stayed beside the altar after the others left. Activate it to read.",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_CHAPEL_LAST_VIGIL"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_cave_last_scrap",
+    "copy-from": "berserk_oak_last_note",
+    "name": {
+      "str_sp": "cave traveler's torn sleeve note"
+    },
+    "description": "A few words written on cloth and wedged beneath a broken wooden prop. Activate it to read.",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_CAVE_LAST_SCRAP"
+      ]
+    },
+    "material": [
+      "cotton"
+    ]
+  }
+]

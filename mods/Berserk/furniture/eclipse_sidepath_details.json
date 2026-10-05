@@ -1,0 +1,323 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_body_heap_low",
+    "name": "low heap of the fallen",
+    "description": "Bodies lie tangled in a shallow hollow. Torn sleeves and broken straps trail across the ground; there is room to step around them.",
+    "looks_like": "t_pit_corpsed",
+    "symbol": "%",
+    "color": "red",
+    "move_cost_mod": 2,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT",
+      "SHORT"
+    ],
+    "bash": {
+      "str_min": 5,
+      "str_max": 16,
+      "sound": "crunch!",
+      "sound_fail": "thud.",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "bone",
+          "count": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_body_heap_high",
+    "name": "heaped bodies against the fold",
+    "description": "The dead are packed against the raised flesh. Their piled weight hides the field beyond; the heap can be forced apart, but neither side is sealed.",
+    "looks_like": "t_nm_wall_flesh",
+    "symbol": "%",
+    "color": "red",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [],
+    "bash": {
+      "str_min": 12,
+      "str_max": 32,
+      "sound": "crunch!",
+      "sound_fail": "thud.",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "bone",
+          "count": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_braided_flesh",
+    "name": "tangle of flesh and harness",
+    "description": "Pale cords have wound through abandoned harness and clothing. The low tangle catches at the feet without closing the surrounding ground.",
+    "looks_like": "t_nm_floor_flesh",
+    "symbol": ":",
+    "color": "red",
+    "move_cost_mod": 3,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT",
+      "SHORT"
+    ],
+    "bash": {
+      "str_min": 6,
+      "str_max": 18,
+      "sound": "crunch!",
+      "sound_fail": "thud.",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "scrap_leather",
+          "count": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_bone_spur",
+    "name": "great bone outcrop",
+    "description": "A thick white spur rises from the living ground. Its solid flank hides a crouching figure; both ends leave a way around.",
+    "looks_like": "t_nm_wall_bone",
+    "symbol": ":",
+    "color": "red",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [],
+    "bash": {
+      "str_min": 18,
+      "str_max": 42,
+      "sound": "crunch!",
+      "sound_fail": "thud.",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "bone",
+          "count": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_torn_shield",
+    "name": "split shield and straps",
+    "description": "A wooden shield has split along its grain. Cut straps and flakes of hammered metal are scattered beside it.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "brown",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT",
+      "SHORT"
+    ],
+    "bash": {
+      "str_min": 3,
+      "str_max": 12,
+      "sound": "crunch!",
+      "sound_fail": "thud.",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            4
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_congealed_vein",
+    "name": "exposed clot-dark vein",
+    "description": "A thick, hardened vein lifts above the ground. Dried blood darkens its surface; the ash trail bends around it.",
+    "looks_like": "t_thconc_floor_flesh",
+    "symbol": ":",
+    "color": "red",
+    "move_cost_mod": 2,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT",
+      "SHORT"
+    ],
+    "bash": {
+      "str_min": 8,
+      "str_max": 20,
+      "sound": "crunch!",
+      "sound_fail": "thud.",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "bone",
+          "count": [
+            1,
+            2
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_cart_wreck",
+    "name": "remains of a supply cart",
+    "description": "A snapped wheel and a broken wooden frame lie under a torn cover. Cloth and harness have caught on the living ground.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "brown",
+    "move_cost_mod": 2,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT",
+      "SHORT"
+    ],
+    "bash": {
+      "str_min": 4,
+      "str_max": 18,
+      "sound": "crunch!",
+      "sound_fail": "thud.",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            4
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_shield_barricade",
+    "name": "broken shield line",
+    "description": "Splintered shields and snapped shafts were wedged together for one last defense. Gaps at either end show where the survivors retreated.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "brown",
+    "move_cost_mod": -1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "bash": {
+      "str_min": 6,
+      "str_max": 18,
+      "sound": "crunch!",
+      "sound_fail": "thud.",
+      "furn_set": "f_null",
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            2,
+            4
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_cart_tally",
+    "name": "blood-stained baggage tally",
+    "description": "Marks have been scratched into a strip of wood among the ruined baggage. A few words survive beneath the blood.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_CART_TALLY"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_held_gap",
+    "name": "hammer scars beside the fallen",
+    "description": "Repeated blows have cut through the pale ridge beside Pippin. Deep heel marks face the oncoming creatures, away from the fleeing men.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_HELD_GAP"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_broken_crossing",
+    "name": "sheared crossing above a cleft",
+    "description": "A strip of firm ground has torn away above the dark opening. The surviving edge bends toward a loose sheet of flesh.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_BROKEN_CROSSING"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_eclipse_last_retreat",
+    "name": "tracks behind the shield line",
+    "description": "Footprints and dropped shafts pass between broken shields. Beyond the gaps, the prints separate and disappear into ash.",
+    "looks_like": "f_rubble",
+    "symbol": ":",
+    "color": "red",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_LAST_RETREAT"
+      ]
+    }
+  }
+]

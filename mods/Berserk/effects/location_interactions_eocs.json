@@ -1,0 +1,460 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_OAK_BROKEN_ROOTCUTTER",
+    "effect": {
+      "u_message": "Fresh cuts stop halfway through the roots. Two sets of tally marks were scratched into the haft; one ends abruptly. They meant to cut a path to the stone face, not to fight what lived beneath it.",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_OAK_WAYFARER_WARD",
+    "effect": {
+      "u_message": "The inscription names two travelers and asks that both return home. A second knot was added with a shaking hand. Beyond it, the bark bears the same dark stain as the abandoned cutting tool.",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_OAK_LAST_NOTE",
+    "effect": {
+      "u_message": "We left the cart on the old track. The face is caught in the roots, just as he said. At the eastern edge, the bones rang and the thing beneath the trunk turned toward them. I waited behind the thick roots until it passed. We will return by the old western track. If only one of us reaches the cart, leave the other name on the cord.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_SEARCHED",
+    "effect": {
+      "u_message": "Only scraps of the old wrapping remain.",
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_CLAIM",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": {
+            "context_val": "berserk_location_full"
+          },
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    },
+    "false_effect": {
+      "u_message": "Nothing could be recovered here.",
+      "type": "info"
+    },
+    "effect": {
+      "if": {
+        "u_query": "Collect the abandoned belongings?",
+        "default": false
+      },
+      "then": [
+        {
+          "u_transform_radius": 0,
+          "ter_furn_transform": {
+            "context_val": "berserk_location_transform"
+          },
+          "target_var": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "if": {
+            "map_furniture_id": {
+              "context_val": "berserk_location_empty"
+            },
+            "loc": {
+              "context_val": "pos"
+            }
+          },
+          "then": [
+            {
+              "map_spawn_item": {
+                "context_val": "berserk_location_loot"
+              },
+              "use_item_group": true,
+              "loc": {
+                "context_val": "pos"
+              }
+            },
+            {
+              "u_message": "You lay the recovered belongings here. Pick them up before leaving.",
+              "type": "info"
+            }
+          ],
+          "else": {
+            "u_message": "Nothing could be recovered here.",
+            "type": "info"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_oak_cart_opened",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_oak_cart"
+        ],
+        "result": "f_berserk_location_oak_cart_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_OAK_CART",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_oak_cart",
+        "berserk_location_empty": "f_berserk_location_oak_cart_empty",
+        "berserk_location_transform": "berserk_location_oak_cart_opened",
+        "berserk_location_loot": "berserk_location_oak_cart"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_oak_camp_opened",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_oak_camp"
+        ],
+        "result": "f_berserk_location_oak_camp_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_OAK_CAMP",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_oak_camp",
+        "berserk_location_empty": "f_berserk_location_oak_camp_empty",
+        "berserk_location_transform": "berserk_location_oak_camp_opened",
+        "berserk_location_loot": "berserk_location_oak_camp"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_oak_ward_opened",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_oak_ward"
+        ],
+        "result": "f_berserk_location_oak_ward_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_OAK_WARD",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_oak_ward",
+        "berserk_location_empty": "f_berserk_location_oak_ward_empty",
+        "berserk_location_transform": "berserk_location_oak_ward_opened",
+        "berserk_location_loot": "berserk_location_oak_ward"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_medieval_bundle_opened",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_medieval_bundle"
+        ],
+        "result": "f_berserk_location_medieval_bundle_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_MEDIEVAL_BUNDLE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_medieval_bundle",
+        "berserk_location_empty": "f_berserk_location_medieval_bundle_empty",
+        "berserk_location_transform": "berserk_location_medieval_bundle_opened",
+        "berserk_location_loot": "berserk_location_medieval_supplies"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_FLORA_HERBAL_FOLIO",
+    "effect": {
+      "u_message": "Dry the herbs separately. Boil clean cloth for wounds. Mend the old sleeves before another journey. Keep both paths around the spiritual tree clear. The last line reads: a refuge remains a refuge because someone cares for it.",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_CAVE_SCOUT_NOTE",
+    "effect": {
+      "u_message": "I marked the wide gallery to the east. Below it, the smaller passage winds around the stone mass and meets the gallery twice. We heard the chime in the western chamber before we saw what followed it. The turns hid us from its eyes. There is a braced chute near the ladder, but its peg faces deeper into the cave. I will leave another mark by the broken prop if we reach it.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_CHAPEL_RELIEF_ROSTER",
+    "effect": {
+      "u_message": "First week: water in the east store, blankets and dressings in the southern sacristy, names of the dead beside the western graves. Later entries replace meal counts with hours spent beside the red stone. The last volunteer underlined: This was meant to be a shelter.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_CHAPEL_RITUAL_NOTE",
+    "effect": {
+      "u_message": "We called the stone a miracle because we needed one. We moved it behind the altar and stopped opening the door to strangers. When the bell rang by itself, we thought we had been answered. The handprints on the altar were not made in prayer.",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_CHAPEL_FOREST_ROUTE",
+    "effect": {
+      "u_message": "If the chapel is lost, leave through the broken west wall. An old cart track farther into the forest ends at a huge oak with knotted roots. Travelers spoke of another stone face there. This is a lead, not a surveyed map; do not mistake the tree for safety.",
+      "popup": true
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_READ_EXPEDITION_TRANSFER_NOTE",
+    "effect": {
+      "u_message": "The transport order is crossed out. Below it: Three of us described the same red face after sleeping here. When we moved the specimen, the scratching began outside its new tent. Pavel is hurt; the alarm test drew the creature away until he stepped out from behind the canvas. Cancel collection of the sample. Send transport for the wounded. We are leaving the equipment.",
+      "type": "info",
+      "popup": true
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_cave_scout_opened",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_cave_scout"
+        ],
+        "result": "f_berserk_location_cave_scout_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_CAVE_SCOUT",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_cave_scout",
+        "berserk_location_empty": "f_berserk_location_cave_scout_empty",
+        "berserk_location_transform": "berserk_location_cave_scout_opened",
+        "berserk_location_loot": "berserk_location_cave_scout"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_cave_lamp_opened",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_cave_lamp"
+        ],
+        "result": "f_berserk_location_cave_lamp_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_CAVE_LAMP",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_cave_lamp",
+        "berserk_location_empty": "f_berserk_location_cave_lamp_empty",
+        "berserk_location_transform": "berserk_location_cave_lamp_opened",
+        "berserk_location_loot": "berserk_location_cave_lamp"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_chapel_aid_opened",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_chapel_aid"
+        ],
+        "result": "f_berserk_location_chapel_aid_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_CHAPEL_AID",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_chapel_aid",
+        "berserk_location_empty": "f_berserk_location_chapel_aid_empty",
+        "berserk_location_transform": "berserk_location_chapel_aid_opened",
+        "berserk_location_loot": "berserk_location_chapel_aid"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_chapel_pantry_opened",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_chapel_pantry"
+        ],
+        "result": "f_berserk_location_chapel_pantry_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_CHAPEL_PANTRY",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_chapel_pantry",
+        "berserk_location_empty": "f_berserk_location_chapel_pantry_empty",
+        "berserk_location_transform": "berserk_location_chapel_pantry_opened",
+        "berserk_location_loot": "berserk_location_chapel_pantry"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_expedition_medical_opened",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_expedition_medical"
+        ],
+        "result": "f_berserk_location_expedition_medical_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_EXPEDITION_MEDICAL",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_expedition_medical",
+        "berserk_location_empty": "f_berserk_location_expedition_medical_empty",
+        "berserk_location_transform": "berserk_location_expedition_medical_opened",
+        "berserk_location_loot": "berserk_location_expedition_medical"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_location_expedition_tools_opened",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_location_expedition_tools"
+        ],
+        "result": "f_berserk_location_expedition_tools_empty"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_LOCATION_EXPEDITION_TOOLS",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_LOCATION_CLAIM",
+      "variables": {
+        "berserk_location_full": "f_berserk_location_expedition_tools",
+        "berserk_location_empty": "f_berserk_location_expedition_tools_empty",
+        "berserk_location_transform": "berserk_location_expedition_tools_opened",
+        "berserk_location_loot": "berserk_location_expedition_tools"
+      }
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_cave_open_return",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_cave_return_brace"
+        ],
+        "result": "f_null"
+      },
+      {
+        "valid_furniture": [
+          "f_berserk_cave_return_release"
+        ],
+        "result": "f_berserk_cave_return_release_opened"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_CAVE_OPEN_RETURN",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_cave_return_release",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_transform_radius": 2,
+        "ter_furn_transform": "berserk_cave_open_return",
+        "target_var": {
+          "context_val": "pos"
+        }
+      },
+      {
+        "u_message": "You release the brace. The slab settles aside and the short route to the entrance is open.",
+        "type": "info"
+      },
+      {
+        "turn_cost": "1 second"
+      }
+    ]
+  }
+]

@@ -2,128 +2,30 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_BREACH_VALIDATE",
-    "effect": [
-      {
-        "if": {
-          "math": [
-            "has_var(u_berserk_first_hunt_location)"
-          ]
-        },
-        "then": {
+    "effect": {
+      "if": {
+        "overmap_at_point": "berserk_local_breach",
+        "point": {
+          "context_val": "berserk_site_breach_candidate"
+        }
+      },
+      "then": [
+        {
           "copy_var": {
-            "u_val": "berserk_first_hunt_location"
+            "context_val": "berserk_site_breach_candidate"
           },
           "target_var": {
-            "context_val": "berserk_site_anchor"
+            "u_val": "berserk_local_breach_location"
           }
         },
-        "else": {
-          "u_location_variable": {
-            "context_val": "berserk_site_anchor"
-          }
+        {
+          "run_eocs": "EOC_BERSERK_BREACH_FOUND"
         }
-      },
-      {
-        "copy_var": {
-          "context_val": "berserk_site_breach_candidate"
-        },
-        "target_var": {
-          "context_val": "berserk_site_candidate_omt"
-        }
-      },
-      {
-        "math": [
-          "_berserk_site_anchor.x = floor(_berserk_site_anchor.x / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_anchor.y = floor(_berserk_site_anchor.y / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_candidate_omt.x = floor(_berserk_site_candidate_omt.x / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_candidate_omt.y = floor(_berserk_site_candidate_omt.y / 24) * 24"
-        ]
-      },
-      {
-        "if": {
-          "and": [
-            {
-              "overmap_at_point": "berserk_local_breach",
-              "point": {
-                "context_val": "berserk_site_breach_candidate"
-              }
-            },
-            {
-              "math": [
-                "distance(_berserk_site_anchor, _berserk_site_candidate_omt) >= 144"
-              ]
-            },
-            {
-              "math": [
-                "distance(_berserk_site_anchor, _berserk_site_candidate_omt) <= 288"
-              ]
-            }
-          ]
-        },
-        "then": [
-          {
-            "copy_var": {
-              "context_val": "berserk_site_breach_candidate"
-            },
-            "target_var": {
-              "u_val": "berserk_local_breach_location"
-            }
-          },
-          {
-            "run_eocs": "EOC_BERSERK_BREACH_FOUND"
-          }
-        ],
-        "else": {
-          "if": {
-            "and": [
-              {
-                "math": [
-                  "u_berserk_site_breach_tries >= 3"
-                ]
-              },
-              {
-                "overmap_at_point": "berserk_local_breach",
-                "point": {
-                  "context_val": "berserk_site_breach_candidate"
-                }
-              }
-            ]
-          },
-          "then": [
-            {
-              "u_message": "An existing unique site lies outside the preferred spacing. Its position is preserved and the objective is registered there.",
-              "type": "warning"
-            },
-            {
-              "copy_var": {
-                "context_val": "berserk_site_breach_candidate"
-              },
-              "target_var": {
-                "u_val": "berserk_local_breach_location"
-              }
-            },
-            {
-              "run_eocs": "EOC_BERSERK_BREACH_FOUND"
-            }
-          ],
-          "else": {
-            "run_eocs": "EOC_BERSERK_SITE_BREACH_MESSAGE"
-          }
-        }
+      ],
+      "else": {
+        "run_eocs": "EOC_BERSERK_SITE_BREACH_FAILED"
       }
-    ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -131,28 +33,11 @@
     "effect": {
       "if": {
         "math": [
-          "u_berserk_site_breach_tries == 3"
+          "u_berserk_site_breach_tries < 2"
         ]
       },
       "then": {
-        "u_location_variable": {
-          "context_val": "berserk_site_breach_candidate"
-        },
-        "target_params": {
-          "om_terrain": "berserk_local_breach",
-          "om_special": "berserk_local_breach_special",
-          "random": true,
-          "search_range": 12,
-          "z": 0,
-          "min_distance": 0,
-          "create_if_necessary": false
-        },
-        "true_eocs": [
-          "EOC_BERSERK_SITE_BREACH_VALIDATE"
-        ],
-        "false_eocs": [
-          "EOC_BERSERK_SITE_BREACH_MESSAGE"
-        ]
+        "run_eocs": "EOC_BERSERK_BREACH_FIND"
       },
       "else": {
         "run_eocs": "EOC_BERSERK_SITE_BREACH_MESSAGE"
@@ -162,128 +47,30 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_FLORA_VALIDATE",
-    "effect": [
-      {
-        "if": {
-          "math": [
-            "has_var(u_berserk_first_hunt_location)"
-          ]
-        },
-        "then": {
+    "effect": {
+      "if": {
+        "overmap_at_point": "berserk_flora_manor",
+        "point": {
+          "context_val": "berserk_site_flora_candidate"
+        }
+      },
+      "then": [
+        {
           "copy_var": {
-            "u_val": "berserk_first_hunt_location"
+            "context_val": "berserk_site_flora_candidate"
           },
           "target_var": {
-            "context_val": "berserk_site_anchor"
+            "global_val": "berserk_flora_location"
           }
         },
-        "else": {
-          "u_location_variable": {
-            "context_val": "berserk_site_anchor"
-          }
+        {
+          "run_eocs": "EOC_BERSERK_FLORA_FOUND"
         }
-      },
-      {
-        "copy_var": {
-          "context_val": "berserk_site_flora_candidate"
-        },
-        "target_var": {
-          "context_val": "berserk_site_candidate_omt"
-        }
-      },
-      {
-        "math": [
-          "_berserk_site_anchor.x = floor(_berserk_site_anchor.x / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_anchor.y = floor(_berserk_site_anchor.y / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_candidate_omt.x = floor(_berserk_site_candidate_omt.x / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_candidate_omt.y = floor(_berserk_site_candidate_omt.y / 24) * 24"
-        ]
-      },
-      {
-        "if": {
-          "and": [
-            {
-              "overmap_at_point": "berserk_flora_manor_west",
-              "point": {
-                "context_val": "berserk_site_flora_candidate"
-              }
-            },
-            {
-              "math": [
-                "distance(_berserk_site_anchor, _berserk_site_candidate_omt) >= 360"
-              ]
-            },
-            {
-              "math": [
-                "distance(_berserk_site_anchor, _berserk_site_candidate_omt) <= 720"
-              ]
-            }
-          ]
-        },
-        "then": [
-          {
-            "copy_var": {
-              "context_val": "berserk_site_flora_candidate"
-            },
-            "target_var": {
-              "global_val": "berserk_flora_location"
-            }
-          },
-          {
-            "run_eocs": "EOC_BERSERK_FLORA_FOUND"
-          }
-        ],
-        "else": {
-          "if": {
-            "and": [
-              {
-                "math": [
-                  "u_berserk_site_flora_tries >= 3"
-                ]
-              },
-              {
-                "overmap_at_point": "berserk_flora_manor_west",
-                "point": {
-                  "context_val": "berserk_site_flora_candidate"
-                }
-              }
-            ]
-          },
-          "then": [
-            {
-              "u_message": "An existing unique site lies outside the preferred spacing. Its position is preserved and the objective is registered there.",
-              "type": "warning"
-            },
-            {
-              "copy_var": {
-                "context_val": "berserk_site_flora_candidate"
-              },
-              "target_var": {
-                "global_val": "berserk_flora_location"
-              }
-            },
-            {
-              "run_eocs": "EOC_BERSERK_FLORA_FOUND"
-            }
-          ],
-          "else": {
-            "run_eocs": "EOC_BERSERK_SITE_FLORA_MESSAGE"
-          }
-        }
+      ],
+      "else": {
+        "run_eocs": "EOC_BERSERK_SITE_FLORA_FAILED"
       }
-    ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -291,30 +78,11 @@
     "effect": {
       "if": {
         "math": [
-          "u_berserk_site_flora_tries == 3"
+          "u_berserk_site_flora_tries < 2"
         ]
       },
       "then": {
-        "u_location_variable": {
-          "context_val": "berserk_site_flora_candidate"
-        },
-        "target_params": {
-          "om_terrain": "berserk_flora_manor_west",
-          "om_special": "berserk_flora_manor_special",
-          "random": true,
-          "search_range": 30,
-          "z": 0,
-          "min_distance": 0,
-          "create_if_necessary": false
-        },
-        "furniture": "f_berserk_flora_ward",
-        "target_max_radius": 23,
-        "true_eocs": [
-          "EOC_BERSERK_SITE_FLORA_VALIDATE"
-        ],
-        "false_eocs": [
-          "EOC_BERSERK_SITE_FLORA_MESSAGE"
-        ]
+        "run_eocs": "EOC_BERSERK_FLORA_FIND"
       },
       "else": {
         "run_eocs": "EOC_BERSERK_SITE_FLORA_MESSAGE"
@@ -324,170 +92,30 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_COUNT_VALIDATE",
-    "effect": [
-      {
-        "if": {
-          "math": [
-            "has_var(u_berserk_first_hunt_location)"
-          ]
-        },
-        "then": {
+    "effect": {
+      "if": {
+        "overmap_at_point": "berserk_count_hall",
+        "point": {
+          "context_val": "berserk_site_count_candidate"
+        }
+      },
+      "then": [
+        {
           "copy_var": {
-            "u_val": "berserk_first_hunt_location"
+            "context_val": "berserk_site_count_candidate"
           },
           "target_var": {
-            "context_val": "berserk_site_anchor"
+            "global_val": "berserk_hunt_count_location"
           }
         },
-        "else": {
-          "u_location_variable": {
-            "context_val": "berserk_site_anchor"
-          }
+        {
+          "run_eocs": "EOC_BERSERK_COUNT_FOUND"
         }
-      },
-      {
-        "copy_var": {
-          "context_val": "berserk_site_count_candidate"
-        },
-        "target_var": {
-          "context_val": "berserk_site_candidate_omt"
-        }
-      },
-      {
-        "math": [
-          "_berserk_site_anchor.x = floor(_berserk_site_anchor.x / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_anchor.y = floor(_berserk_site_anchor.y / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_candidate_omt.x = floor(_berserk_site_candidate_omt.x / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_candidate_omt.y = floor(_berserk_site_candidate_omt.y / 24) * 24"
-        ]
-      },
-      {
-        "if": {
-          "and": [
-            {
-              "overmap_at_point": "berserk_count_hall",
-              "point": {
-                "context_val": "berserk_site_count_candidate"
-              }
-            },
-            {
-              "math": [
-                "distance(_berserk_site_anchor, _berserk_site_candidate_omt) >= 360"
-              ]
-            },
-            {
-              "math": [
-                "distance(_berserk_site_anchor, _berserk_site_candidate_omt) <= 840"
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "has_var(berserk_hunt_wyald_location) == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "max(abs(floor(_berserk_site_candidate_omt.x / 24) - floor(berserk_hunt_wyald_location.x / 24)), abs(floor(_berserk_site_candidate_omt.y / 24) - floor(berserk_hunt_wyald_location.y / 24))) >= 8"
-                  ]
-                }
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "has_var(berserk_hunt_rosine_location) == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "max(abs(floor(_berserk_site_candidate_omt.x / 24) - floor(berserk_hunt_rosine_location.x / 24)), abs(floor(_berserk_site_candidate_omt.y / 24) - floor(berserk_hunt_rosine_location.y / 24))) >= 8"
-                  ]
-                }
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "has_var(berserk_hunt_grunbeld_location) == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "max(abs(floor(_berserk_site_candidate_omt.x / 24) - floor(berserk_hunt_grunbeld_location.x / 24)), abs(floor(_berserk_site_candidate_omt.y / 24) - floor(berserk_hunt_grunbeld_location.y / 24))) >= 8"
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "then": [
-          {
-            "copy_var": {
-              "context_val": "berserk_site_count_candidate"
-            },
-            "target_var": {
-              "global_val": "berserk_hunt_count_location"
-            }
-          },
-          {
-            "run_eocs": "EOC_BERSERK_COUNT_FOUND"
-          }
-        ],
-        "else": {
-          "if": {
-            "and": [
-              {
-                "math": [
-                  "u_berserk_site_count_tries >= 3"
-                ]
-              },
-              {
-                "overmap_at_point": "berserk_count_hall",
-                "point": {
-                  "context_val": "berserk_site_count_candidate"
-                }
-              }
-            ]
-          },
-          "then": [
-            {
-              "u_message": "An existing unique site lies outside the preferred spacing. Its position is preserved and the objective is registered there.",
-              "type": "warning"
-            },
-            {
-              "copy_var": {
-                "context_val": "berserk_site_count_candidate"
-              },
-              "target_var": {
-                "global_val": "berserk_hunt_count_location"
-              }
-            },
-            {
-              "run_eocs": "EOC_BERSERK_COUNT_FOUND"
-            }
-          ],
-          "else": {
-            "run_eocs": "EOC_BERSERK_SITE_COUNT_MESSAGE"
-          }
-        }
+      ],
+      "else": {
+        "run_eocs": "EOC_BERSERK_SITE_COUNT_FAILED"
       }
-    ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -495,30 +123,11 @@
     "effect": {
       "if": {
         "math": [
-          "u_berserk_site_count_tries == 3"
+          "u_berserk_site_count_tries < 2"
         ]
       },
       "then": {
-        "u_location_variable": {
-          "context_val": "berserk_site_count_candidate"
-        },
-        "target_params": {
-          "om_terrain": "berserk_count_hall",
-          "om_special": "berserk_count_residence_special",
-          "random": true,
-          "search_range": 35,
-          "z": 0,
-          "min_distance": 0,
-          "create_if_necessary": false
-        },
-        "true_eocs": [
-          "EOC_BERSERK_SITE_COUNT_VALIDATE"
-        ],
-        "false_eocs": [
-          "EOC_BERSERK_SITE_COUNT_MESSAGE"
-        ],
-        "furniture": "f_berserk_count_execution_record",
-        "target_max_radius": 23
+        "run_eocs": "EOC_BERSERK_COUNT_FIND"
       },
       "else": {
         "run_eocs": "EOC_BERSERK_SITE_COUNT_MESSAGE"
@@ -528,170 +137,37 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_WYALD_VALIDATE",
-    "effect": [
-      {
-        "if": {
-          "math": [
-            "has_var(u_berserk_first_hunt_location)"
-          ]
-        },
-        "then": {
+    "effect": {
+      "if": {
+        "overmap_at_point": "berserk_wyald_ring",
+        "point": {
+          "context_val": "berserk_site_wyald_candidate"
+        }
+      },
+      "then": [
+        {
           "copy_var": {
-            "u_val": "berserk_first_hunt_location"
+            "context_val": "berserk_site_wyald_candidate"
           },
           "target_var": {
-            "context_val": "berserk_site_anchor"
+            "global_val": "berserk_hunt_wyald_location"
           }
         },
-        "else": {
-          "u_location_variable": {
-            "context_val": "berserk_site_anchor"
-          }
-        }
-      },
-      {
-        "copy_var": {
-          "context_val": "berserk_site_wyald_candidate"
-        },
-        "target_var": {
-          "context_val": "berserk_site_candidate_omt"
-        }
-      },
-      {
-        "math": [
-          "_berserk_site_anchor.x = floor(_berserk_site_anchor.x / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_anchor.y = floor(_berserk_site_anchor.y / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_candidate_omt.x = floor(_berserk_site_candidate_omt.x / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_candidate_omt.y = floor(_berserk_site_candidate_omt.y / 24) * 24"
-        ]
-      },
-      {
-        "if": {
-          "and": [
-            {
-              "overmap_at_point": "berserk_wyald_ring",
-              "point": {
-                "context_val": "berserk_site_wyald_candidate"
-              }
-            },
-            {
-              "math": [
-                "distance(_berserk_site_anchor, _berserk_site_candidate_omt) >= 360"
-              ]
-            },
-            {
-              "math": [
-                "distance(_berserk_site_anchor, _berserk_site_candidate_omt) <= 840"
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "has_var(berserk_hunt_count_location) == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "max(abs(floor(_berserk_site_candidate_omt.x / 24) - floor(berserk_hunt_count_location.x / 24)), abs(floor(_berserk_site_candidate_omt.y / 24) - floor(berserk_hunt_count_location.y / 24))) >= 8"
-                  ]
-                }
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "has_var(berserk_hunt_rosine_location) == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "max(abs(floor(_berserk_site_candidate_omt.x / 24) - floor(berserk_hunt_rosine_location.x / 24)), abs(floor(_berserk_site_candidate_omt.y / 24) - floor(berserk_hunt_rosine_location.y / 24))) >= 8"
-                  ]
-                }
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "has_var(berserk_hunt_grunbeld_location) == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "max(abs(floor(_berserk_site_candidate_omt.x / 24) - floor(berserk_hunt_grunbeld_location.x / 24)), abs(floor(_berserk_site_candidate_omt.y / 24) - floor(berserk_hunt_grunbeld_location.y / 24))) >= 8"
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "then": [
-          {
-            "copy_var": {
-              "context_val": "berserk_site_wyald_candidate"
-            },
-            "target_var": {
-              "global_val": "berserk_hunt_wyald_location"
-            }
+        {
+          "location_variable_adjust": {
+            "global_val": "berserk_hunt_wyald_location"
           },
-          {
-            "run_eocs": "EOC_BERSERK_WYALD_FOUND"
-          }
-        ],
-        "else": {
-          "if": {
-            "and": [
-              {
-                "math": [
-                  "u_berserk_site_wyald_tries >= 3"
-                ]
-              },
-              {
-                "overmap_at_point": "berserk_wyald_ring",
-                "point": {
-                  "context_val": "berserk_site_wyald_candidate"
-                }
-              }
-            ]
-          },
-          "then": [
-            {
-              "u_message": "An existing unique site lies outside the preferred spacing. Its position is preserved and the objective is registered there.",
-              "type": "warning"
-            },
-            {
-              "copy_var": {
-                "context_val": "berserk_site_wyald_candidate"
-              },
-              "target_var": {
-                "global_val": "berserk_hunt_wyald_location"
-              }
-            },
-            {
-              "run_eocs": "EOC_BERSERK_WYALD_FOUND"
-            }
-          ],
-          "else": {
-            "run_eocs": "EOC_BERSERK_SITE_WYALD_MESSAGE"
-          }
+          "x_adjust": 12,
+          "y_adjust": 7
+        },
+        {
+          "run_eocs": "EOC_BERSERK_WYALD_FOUND"
         }
+      ],
+      "else": {
+        "run_eocs": "EOC_BERSERK_SITE_WYALD_FAILED"
       }
-    ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -699,30 +175,11 @@
     "effect": {
       "if": {
         "math": [
-          "u_berserk_site_wyald_tries == 3"
+          "u_berserk_site_wyald_tries < 2"
         ]
       },
       "then": {
-        "u_location_variable": {
-          "context_val": "berserk_site_wyald_candidate"
-        },
-        "target_params": {
-          "om_terrain": "berserk_wyald_ring",
-          "om_special": "berserk_wyald_camp_special",
-          "search_range": 35,
-          "random": true,
-          "z": 0,
-          "min_distance": 0,
-          "create_if_necessary": false
-        },
-        "furniture": "f_berserk_wyald_breach",
-        "target_max_radius": 23,
-        "true_eocs": [
-          "EOC_BERSERK_SITE_WYALD_VALIDATE"
-        ],
-        "false_eocs": [
-          "EOC_BERSERK_SITE_WYALD_MESSAGE"
-        ]
+        "run_eocs": "EOC_BERSERK_WYALD_FIND"
       },
       "else": {
         "run_eocs": "EOC_BERSERK_SITE_WYALD_MESSAGE"
@@ -732,170 +189,37 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_ROSINE_VALIDATE",
-    "effect": [
-      {
-        "if": {
-          "math": [
-            "has_var(u_berserk_first_hunt_location)"
-          ]
-        },
-        "then": {
+    "effect": {
+      "if": {
+        "overmap_at_point": "berserk_rosine_nest",
+        "point": {
+          "context_val": "berserk_site_rosine_candidate"
+        }
+      },
+      "then": [
+        {
           "copy_var": {
-            "u_val": "berserk_first_hunt_location"
+            "context_val": "berserk_site_rosine_candidate"
           },
           "target_var": {
-            "context_val": "berserk_site_anchor"
+            "global_val": "berserk_hunt_rosine_location"
           }
         },
-        "else": {
-          "u_location_variable": {
-            "context_val": "berserk_site_anchor"
-          }
-        }
-      },
-      {
-        "copy_var": {
-          "context_val": "berserk_site_rosine_candidate"
-        },
-        "target_var": {
-          "context_val": "berserk_site_candidate_omt"
-        }
-      },
-      {
-        "math": [
-          "_berserk_site_anchor.x = floor(_berserk_site_anchor.x / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_anchor.y = floor(_berserk_site_anchor.y / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_candidate_omt.x = floor(_berserk_site_candidate_omt.x / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_candidate_omt.y = floor(_berserk_site_candidate_omt.y / 24) * 24"
-        ]
-      },
-      {
-        "if": {
-          "and": [
-            {
-              "overmap_at_point": "berserk_rosine_nest",
-              "point": {
-                "context_val": "berserk_site_rosine_candidate"
-              }
-            },
-            {
-              "math": [
-                "distance(_berserk_site_anchor, _berserk_site_candidate_omt) >= 360"
-              ]
-            },
-            {
-              "math": [
-                "distance(_berserk_site_anchor, _berserk_site_candidate_omt) <= 840"
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "has_var(berserk_hunt_count_location) == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "max(abs(floor(_berserk_site_candidate_omt.x / 24) - floor(berserk_hunt_count_location.x / 24)), abs(floor(_berserk_site_candidate_omt.y / 24) - floor(berserk_hunt_count_location.y / 24))) >= 8"
-                  ]
-                }
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "has_var(berserk_hunt_wyald_location) == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "max(abs(floor(_berserk_site_candidate_omt.x / 24) - floor(berserk_hunt_wyald_location.x / 24)), abs(floor(_berserk_site_candidate_omt.y / 24) - floor(berserk_hunt_wyald_location.y / 24))) >= 8"
-                  ]
-                }
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "has_var(berserk_hunt_grunbeld_location) == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "max(abs(floor(_berserk_site_candidate_omt.x / 24) - floor(berserk_hunt_grunbeld_location.x / 24)), abs(floor(_berserk_site_candidate_omt.y / 24) - floor(berserk_hunt_grunbeld_location.y / 24))) >= 8"
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "then": [
-          {
-            "copy_var": {
-              "context_val": "berserk_site_rosine_candidate"
-            },
-            "target_var": {
-              "global_val": "berserk_hunt_rosine_location"
-            }
+        {
+          "location_variable_adjust": {
+            "global_val": "berserk_hunt_rosine_location"
           },
-          {
-            "run_eocs": "EOC_BERSERK_ROSINE_FOUND"
-          }
-        ],
-        "else": {
-          "if": {
-            "and": [
-              {
-                "math": [
-                  "u_berserk_site_rosine_tries >= 3"
-                ]
-              },
-              {
-                "overmap_at_point": "berserk_rosine_nest",
-                "point": {
-                  "context_val": "berserk_site_rosine_candidate"
-                }
-              }
-            ]
-          },
-          "then": [
-            {
-              "u_message": "An existing unique site lies outside the preferred spacing. Its position is preserved and the objective is registered there.",
-              "type": "warning"
-            },
-            {
-              "copy_var": {
-                "context_val": "berserk_site_rosine_candidate"
-              },
-              "target_var": {
-                "global_val": "berserk_hunt_rosine_location"
-              }
-            },
-            {
-              "run_eocs": "EOC_BERSERK_ROSINE_FOUND"
-            }
-          ],
-          "else": {
-            "run_eocs": "EOC_BERSERK_SITE_ROSINE_MESSAGE"
-          }
+          "x_adjust": 12,
+          "y_adjust": 7
+        },
+        {
+          "run_eocs": "EOC_BERSERK_ROSINE_FOUND"
         }
+      ],
+      "else": {
+        "run_eocs": "EOC_BERSERK_SITE_ROSINE_FAILED"
       }
-    ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -903,30 +227,11 @@
     "effect": {
       "if": {
         "math": [
-          "u_berserk_site_rosine_tries == 3"
+          "u_berserk_site_rosine_tries < 2"
         ]
       },
       "then": {
-        "u_location_variable": {
-          "context_val": "berserk_site_rosine_candidate"
-        },
-        "target_params": {
-          "om_terrain": "berserk_rosine_nest",
-          "om_special": "berserk_rosine_valley_special",
-          "search_range": 35,
-          "random": true,
-          "z": 0,
-          "min_distance": 0,
-          "create_if_necessary": false
-        },
-        "furniture": "f_berserk_rosine_breach",
-        "target_max_radius": 23,
-        "true_eocs": [
-          "EOC_BERSERK_SITE_ROSINE_VALIDATE"
-        ],
-        "false_eocs": [
-          "EOC_BERSERK_SITE_ROSINE_MESSAGE"
-        ]
+        "run_eocs": "EOC_BERSERK_ROSINE_FIND"
       },
       "else": {
         "run_eocs": "EOC_BERSERK_SITE_ROSINE_MESSAGE"
@@ -936,170 +241,37 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_GRUNBELD_VALIDATE",
-    "effect": [
-      {
-        "if": {
-          "math": [
-            "has_var(berserk_flora_location)"
-          ]
-        },
-        "then": {
+    "effect": {
+      "if": {
+        "overmap_at_point": "berserk_grunbeld_crucible",
+        "point": {
+          "context_val": "berserk_site_grunbeld_candidate"
+        }
+      },
+      "then": [
+        {
           "copy_var": {
-            "global_val": "berserk_flora_location"
+            "context_val": "berserk_site_grunbeld_candidate"
           },
           "target_var": {
-            "context_val": "berserk_site_anchor"
+            "global_val": "berserk_hunt_grunbeld_location"
           }
         },
-        "else": {
-          "u_location_variable": {
-            "context_val": "berserk_site_anchor"
-          }
-        }
-      },
-      {
-        "copy_var": {
-          "context_val": "berserk_site_grunbeld_candidate"
-        },
-        "target_var": {
-          "context_val": "berserk_site_candidate_omt"
-        }
-      },
-      {
-        "math": [
-          "_berserk_site_anchor.x = floor(_berserk_site_anchor.x / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_anchor.y = floor(_berserk_site_anchor.y / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_candidate_omt.x = floor(_berserk_site_candidate_omt.x / 24) * 24"
-        ]
-      },
-      {
-        "math": [
-          "_berserk_site_candidate_omt.y = floor(_berserk_site_candidate_omt.y / 24) * 24"
-        ]
-      },
-      {
-        "if": {
-          "and": [
-            {
-              "overmap_at_point": "berserk_grunbeld_crucible",
-              "point": {
-                "context_val": "berserk_site_grunbeld_candidate"
-              }
-            },
-            {
-              "math": [
-                "distance(_berserk_site_anchor, _berserk_site_candidate_omt) >= 600"
-              ]
-            },
-            {
-              "math": [
-                "distance(_berserk_site_anchor, _berserk_site_candidate_omt) <= 1080"
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "has_var(berserk_hunt_count_location) == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "max(abs(floor(_berserk_site_candidate_omt.x / 24) - floor(berserk_hunt_count_location.x / 24)), abs(floor(_berserk_site_candidate_omt.y / 24) - floor(berserk_hunt_count_location.y / 24))) >= 8"
-                  ]
-                }
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "has_var(berserk_hunt_wyald_location) == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "max(abs(floor(_berserk_site_candidate_omt.x / 24) - floor(berserk_hunt_wyald_location.x / 24)), abs(floor(_berserk_site_candidate_omt.y / 24) - floor(berserk_hunt_wyald_location.y / 24))) >= 8"
-                  ]
-                }
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "has_var(berserk_hunt_rosine_location) == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "max(abs(floor(_berserk_site_candidate_omt.x / 24) - floor(berserk_hunt_rosine_location.x / 24)), abs(floor(_berserk_site_candidate_omt.y / 24) - floor(berserk_hunt_rosine_location.y / 24))) >= 8"
-                  ]
-                }
-              ]
-            }
-          ]
-        },
-        "then": [
-          {
-            "copy_var": {
-              "context_val": "berserk_site_grunbeld_candidate"
-            },
-            "target_var": {
-              "global_val": "berserk_hunt_grunbeld_location"
-            }
+        {
+          "location_variable_adjust": {
+            "global_val": "berserk_hunt_grunbeld_location"
           },
-          {
-            "run_eocs": "EOC_BERSERK_GRUNBELD_FOUND"
-          }
-        ],
-        "else": {
-          "if": {
-            "and": [
-              {
-                "math": [
-                  "u_berserk_site_grunbeld_tries >= 3"
-                ]
-              },
-              {
-                "overmap_at_point": "berserk_grunbeld_crucible",
-                "point": {
-                  "context_val": "berserk_site_grunbeld_candidate"
-                }
-              }
-            ]
-          },
-          "then": [
-            {
-              "u_message": "An existing unique site lies outside the preferred spacing. Its position is preserved and the objective is registered there.",
-              "type": "warning"
-            },
-            {
-              "copy_var": {
-                "context_val": "berserk_site_grunbeld_candidate"
-              },
-              "target_var": {
-                "global_val": "berserk_hunt_grunbeld_location"
-              }
-            },
-            {
-              "run_eocs": "EOC_BERSERK_GRUNBELD_FOUND"
-            }
-          ],
-          "else": {
-            "run_eocs": "EOC_BERSERK_SITE_GRUNBELD_MESSAGE"
-          }
+          "x_adjust": 12,
+          "y_adjust": 7
+        },
+        {
+          "run_eocs": "EOC_BERSERK_GRUNBELD_FOUND"
         }
+      ],
+      "else": {
+        "run_eocs": "EOC_BERSERK_SITE_GRUNBELD_FAILED"
       }
-    ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -1107,30 +279,11 @@
     "effect": {
       "if": {
         "math": [
-          "u_berserk_site_grunbeld_tries == 3"
+          "u_berserk_site_grunbeld_tries < 2"
         ]
       },
       "then": {
-        "u_location_variable": {
-          "context_val": "berserk_site_grunbeld_candidate"
-        },
-        "target_params": {
-          "om_terrain": "berserk_grunbeld_crucible",
-          "om_special": "berserk_grunbeld_stronghold_special",
-          "search_range": 45,
-          "random": true,
-          "z": 0,
-          "min_distance": 0,
-          "create_if_necessary": false
-        },
-        "furniture": "f_berserk_grunbeld_breach",
-        "target_max_radius": 23,
-        "true_eocs": [
-          "EOC_BERSERK_SITE_GRUNBELD_VALIDATE"
-        ],
-        "false_eocs": [
-          "EOC_BERSERK_SITE_GRUNBELD_MESSAGE"
-        ]
+        "run_eocs": "EOC_BERSERK_GRUNBELD_FIND"
       },
       "else": {
         "run_eocs": "EOC_BERSERK_SITE_GRUNBELD_MESSAGE"
@@ -1141,7 +294,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_BREACH_MESSAGE",
     "effect": {
-      "u_message": "No suitable separated site was registered. Search is limited to three attempts from this position. Consult the trail near the previous story site, or move at least one overmap tile and try again. Known locations are kept unchanged.",
+      "u_message": "The trail cannot be followed from here yet. Keep the recovered directions; try again after traveling beyond this area. Your completed hunts and known destinations remain recorded.",
       "type": "warning"
     }
   },
@@ -1149,7 +302,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_FLORA_MESSAGE",
     "effect": {
-      "u_message": "No suitable separated site was registered. Search is limited to three attempts from this position. Consult the trail near the previous story site, or move at least one overmap tile and try again. Known locations are kept unchanged.",
+      "u_message": "The trail cannot be followed from here yet. Keep the recovered directions; try again after traveling beyond this area. Your completed hunts and known destinations remain recorded.",
       "type": "warning"
     }
   },
@@ -1157,7 +310,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_COUNT_MESSAGE",
     "effect": {
-      "u_message": "No suitable separated site was registered. Search is limited to three attempts from this position. Consult the trail near the previous story site, or move at least one overmap tile and try again. Known locations are kept unchanged.",
+      "u_message": "The trail cannot be followed from here yet. Keep the recovered directions; try again after traveling beyond this area. Your completed hunts and known destinations remain recorded.",
       "type": "warning"
     }
   },
@@ -1165,7 +318,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_WYALD_MESSAGE",
     "effect": {
-      "u_message": "No suitable separated site was registered. Search is limited to three attempts from this position. Consult the trail near the previous story site, or move at least one overmap tile and try again. Known locations are kept unchanged.",
+      "u_message": "The trail cannot be followed from here yet. Keep the recovered directions; try again after traveling beyond this area. Your completed hunts and known destinations remain recorded.",
       "type": "warning"
     }
   },
@@ -1173,7 +326,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_ROSINE_MESSAGE",
     "effect": {
-      "u_message": "No suitable separated site was registered. Search is limited to three attempts from this position. Consult the trail near the previous story site, or move at least one overmap tile and try again. Known locations are kept unchanged.",
+      "u_message": "The trail cannot be followed from here yet. Keep the recovered directions; try again after traveling beyond this area. Your completed hunts and known destinations remain recorded.",
       "type": "warning"
     }
   },
@@ -1181,7 +334,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_GRUNBELD_MESSAGE",
     "effect": {
-      "u_message": "No suitable separated site was registered. Search is limited to three attempts from this position. Consult the trail near the previous story site, or move at least one overmap tile and try again. Known locations are kept unchanged.",
+      "u_message": "The trail cannot be followed from here yet. Keep the recovered directions; try again after traveling beyond this area. Your completed hunts and known destinations remain recorded.",
       "type": "warning"
     }
   }

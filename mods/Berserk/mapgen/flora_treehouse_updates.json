@@ -1,0 +1,270 @@
+[
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_warning_west",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ],
+      "place_fields": [
+        {
+          "field": "fd_smoke",
+          "x": 14,
+          "y": 3,
+          "intensity": 1,
+          "age": 30
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_warning_east",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ],
+      "place_fields": [
+        {
+          "field": "fd_smoke",
+          "x": 20,
+          "y": 18,
+          "intensity": 1,
+          "age": 30
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_warning_garden_west",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_warning_garden_east",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_assault_west",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ],
+      "place_fields": [
+        {
+          "field": "fd_fire",
+          "x": 17,
+          "y": 5,
+          "intensity": 2,
+          "age": -300
+        },
+        {
+          "field": "fd_fire",
+          "x": 23,
+          "y": 11,
+          "intensity": 2,
+          "age": -300
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_assault_east",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ],
+      "place_fields": [
+        {
+          "field": "fd_fire",
+          "x": 16,
+          "y": 12,
+          "intensity": 2,
+          "age": -300
+        },
+        {
+          "field": "fd_fire",
+          "x": 1,
+          "y": 13,
+          "intensity": 2,
+          "age": -300
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_assault_garden_west",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_assault_garden_east",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_collapse_west",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ],
+      "place_fields": [
+        {
+          "field": "fd_fire",
+          "x": 18,
+          "y": 7,
+          "intensity": 2,
+          "age": -300
+        },
+        {
+          "field": "fd_fire",
+          "x": 15,
+          "y": 20,
+          "intensity": 2,
+          "age": -300
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_collapse_east",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ],
+      "set": [
+        {
+          "point": "furniture",
+          "id": "f_berserk_flora_fallen_bough",
+          "x": 4,
+          "y": 6
+        }
+      ],
+      "place_fields": [
+        {
+          "field": "fd_fire",
+          "x": 13,
+          "y": 9,
+          "intensity": 2,
+          "age": -300
+        },
+        {
+          "field": "fd_fire",
+          "x": 11,
+          "y": 20,
+          "intensity": 2,
+          "age": -300
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_collapse_garden_west",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ],
+      "place_fields": [
+        {
+          "field": "fd_fire",
+          "x": 14,
+          "y": 1,
+          "intensity": 2,
+          "age": -300
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_collapse_garden_east",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ],
+      "place_fields": [
+        {
+          "field": "fd_fire",
+          "x": 11,
+          "y": 1,
+          "intensity": 2,
+          "age": -300
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_ruins_west",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ],
+      "set": [
+        {
+          "point": "furniture",
+          "id": "f_berserk_flora_ruined_ward",
+          "x": 16,
+          "y": 12
+        }
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_ruins_east",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_ruins_garden_west",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ]
+    }
+  },
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_flora_treehouse_ruins_garden_east",
+    "object": {
+      "flags": [
+        "ALLOW_TERRAIN_UNDER_OTHER_DATA"
+      ],
+      "set": [
+        {
+          "point": "furniture",
+          "id": "f_berserk_flora_ruin_keepsake",
+          "x": 2,
+          "y": 6
+        }
+      ]
+    }
+  }
+]
