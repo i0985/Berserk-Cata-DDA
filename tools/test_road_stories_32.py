@@ -67,13 +67,22 @@ class RoadStories(unittest.TestCase):
             self.assertEqual(len(obj['rows']),24);self.assertTrue(all(len(row)==24 for row in obj['rows']))
         text=json.dumps(rows('effects/road_stories_eocs.json'))
         self.assertNotIn('u_spawn_monster',text);self.assertNotIn('berserk_eclipse_era',text)
-    def test_godo_is_global_unique_natural_and_search_never_rejects_known_site(self):
+    def test_godo_is_global_unique_and_bootstrapped_without_revealing_it(self):
         special=next(r for r in rows('overmap/godo_workshop.json') if r['type']=='overmap_special')
-        self.assertIn('GLOBALLY_UNIQUE',special['flags']);self.assertEqual(special['occurrences'],[20,100])
+        self.assertIn('GLOBALLY_UNIQUE',special['flags']);self.assertEqual(special['occurrences'],[0,1])
         self.assertEqual(special['overmaps'][0]['locations'],['forest'])
-        seek=next(r for r in rows('effects/godo_eocs.json') if r['id']=='EOC_BERSERK_GODO_SEEK')
-        lookup=seek['effect'][0]['else']['target_params']
-        self.assertNotIn('om_special',lookup);self.assertEqual(lookup['min_distance'],0)
+        eocs={r['id']:r for r in rows('effects/godo_eocs.json')}
+        seek=eocs['EOC_BERSERK_GODO_SEEK']
+        self.assertEqual(seek['effect'][0],{'run_eocs':'EOC_BERSERK_GODO_LOCATE'})
+        for radius in [60,80,100]:
+            locate=eocs['EOC_BERSERK_GODO_LOCATE_'+str(radius)]
+            lookup=locate['effect']['target_params']
+            self.assertEqual(lookup['om_special'],'berserk_godo_workshop_special')
+            self.assertTrue(lookup['random']);self.assertEqual(lookup['search_range'],radius)
+            self.assertEqual(lookup['min_distance'],0)
+            self.assertEqual(locate['condition'],{'not':{'test_eoc':'EOC_BERSERK_GODO_KNOWN'}})
+        self.assertNotIn('reveal_map',json.dumps(eocs['EOC_BERSERK_GODO_STORE_CANDIDATE']))
+        self.assertEqual(eocs['EOC_BERSERK_GODO_BOOTSTRAP_START']['required_event'],'game_start')
         self.assertNotIn('berserk_eclipse_era',json.dumps(seek))
 
 if __name__=='__main__':unittest.main()

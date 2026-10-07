@@ -64,6 +64,16 @@ def validate_mapgen_update_effects(path: Path, objects: list[dict[str, Any]]) ->
             visit(entry)
 
 
+def validate_mapgen_method(path: Path, objects: list[dict[str, Any]]) -> None:
+    """The 0.I mapgen loader selects object/builtin directly, without method."""
+    for entry in objects:
+        if entry.get("type") == "mapgen" and "method" in entry:
+            raise ValidationError(
+                f"{path.relative_to(ROOT)}: mapgen {entry.get('om_terrain', entry.get('update_mapgen_id'))!r} "
+                "has obsolete top-level method; use object or builtin directly"
+            )
+
+
 def validate_furniture_required_fields(path: Path, objects: list[dict[str, Any]]) -> None:
     """CDDA 0.I-1 requires both movement fields on standalone furniture."""
     for entry in objects:
@@ -543,6 +553,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
         package_objects: dict[Path, list[dict[str, Any]]] = {}
         for path in sorted(package.rglob("*.json"), key=lambda p: (len(p.relative_to(package).parts), p.as_posix())):
             objects = top_level_objects(path)
+            validate_mapgen_method(path, objects)
             validate_mapgen_update_effects(path, objects)
             validate_furniture_required_fields(path, objects)
             validate_monster_attacks(path, objects)

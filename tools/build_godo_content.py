@@ -68,16 +68,13 @@ effects=[
    ]}
  ],{'overmap_at_point':'berserk_godo_workshop','point':{'context_val':'godo_candidate'}}),
  eoc('SEEK',[
+   run('EOC_BERSERK_GODO_LOCATE'),
    {'if':call('EOC_BERSERK_GODO_KNOWN'),'then':[
-      {'reveal_map':{'global_val':'berserk_godo_location'},'radius':1},run('EOC_BERSERK_GODO_ROUTE_MISSION')
-    ],'else':{
-      'u_location_variable':{'context_val':'godo_candidate'},
-      'target_params':{'om_terrain':'berserk_godo_workshop','random':False,'min_distance':0,'z':0},
-      'true_eocs':['EOC_BERSERK_GODO_FOUND'],
-      'false_eocs':[{'id':'EOC_BERSERK_GODO_SEARCH_FAILED','effect':[
-        msg('The old directions do not yet show the forge. Keep the notes and return to them after exploring farther.','По старым указаниям пока не удалось найти кузницу. Сохраните запись и вернитесь к ней после дальнейшей разведки.')
-      ]}]
-    }},
+      {'reveal_map':{'global_val':'berserk_godo_location'},'radius':1},run('EOC_BERSERK_GODO_ROUTE_MISSION'),
+      {'if':m('u_berserk_godo_route_announced != 1'),'then':[
+        m('u_berserk_godo_route_announced = 1'),
+        msg("Godot's woodland forge is marked on your map.",'Лесная кузница Годо отмечена на карте.')]}],
+    'else':msg('The old directions do not yet show the forge. Keep the notes and return to them after exploring farther.','По старым указаниям пока не удалось найти кузницу. Сохраните запись и вернитесь к ней после дальнейшей разведки.')},
    {'if':neg(has('berserk_godo_order_book')),'then':spawn('berserk_godo_order_book')}
  ]),
  eoc('BEGIN',[
@@ -85,6 +82,32 @@ effects=[
    {'if':neg(has('berserk_godo_order_book')),'then':spawn('berserk_godo_order_book')},
    run('EOC_BERSERK_GODO_ROUTE_MISSION'),run('EOC_BERSERK_GODO_ORDER_SYNC')
  ]),
+]
+
+# Provision the one forge near the starting region without giving a mission,
+# revealing its position, or relying on a global random rarity roll.
+# mission_util places the whole special only on unexplored compatible terrain.
+effects.append(eoc('STORE_CANDIDATE',[
+ {'copy_var':{'context_val':'godo_candidate'},'target_var':{'global_val':'berserk_godo_location'}},
+ m('berserk_godo_location.x = floor(berserk_godo_location.x / 24) * 24'),
+ m('berserk_godo_location.y = floor(berserk_godo_location.y / 24) * 24'),
+ m('berserk_godo_location.z = 0')
+],{'overmap_at_point':'berserk_godo_workshop','point':{'context_val':'godo_candidate'}}))
+for radius in [60,80,100]:
+ effects.append(eoc('LOCATE_'+str(radius),{
+   'u_location_variable':{'context_val':'godo_candidate'},
+   'target_params':{'om_terrain':'berserk_godo_workshop','om_special':'berserk_godo_workshop_special',
+                    'random':True,'search_range':radius,'min_distance':0,'z':0},
+   'true_eocs':['EOC_BERSERK_GODO_STORE_CANDIDATE']
+ },neg(call('EOC_BERSERK_GODO_KNOWN'))))
+effects.append(eoc('LOCATE',[run('EOC_BERSERK_GODO_LOCATE_'+str(radius)) for radius in [60,80,100]]))
+bootstrap_guard=allof(neg(call('EOC_BERSERK_GODO_KNOWN')),
+                     m('berserk_godo_auto_attempts < 2'),m("u_val('pos_z') == 0"),
+                     m('u_berserk_eclipse_trial_active != 1'))
+effects += [
+ eoc('BOOTSTRAP',[m('berserk_godo_auto_attempts = berserk_godo_auto_attempts + 1'),run('EOC_BERSERK_GODO_LOCATE')],bootstrap_guard),
+ eoc('BOOTSTRAP_START',run('EOC_BERSERK_GODO_BOOTSTRAP'),eoc_type='EVENT',required_event='game_start'),
+ eoc('BOOTSTRAP_RETRY',run('EOC_BERSERK_GODO_BOOTSTRAP'),bootstrap_guard,**{'global':True,'recurrence':'1 minute'})
 ]
 
 missions=[]
@@ -303,7 +326,7 @@ save('monsters/godo.json',monsters)
 overmap=[]
 for id,en,ru in [('berserk_godo_workshop',"Godot's woodland forge",'лесная кузница Годо'),('berserk_godo_loft',"Godot's sleeping loft",'спальный чердак Годо'),('berserk_godo_roof',"Godot's roof",'крыша дома Годо')]:
  overmap.append({'type':'overmap_terrain','id':id,'name':t(en,ru),'sym':'G','color':'brown','see_cost':'high','travel_cost_type':'forest','flags':['NO_ROTATE']})
-overmap.append({'type':'overmap_special','id':'berserk_godo_workshop_special','occurrences':[20,100],
+overmap.append({'type':'overmap_special','id':'berserk_godo_workshop_special','occurrences':[0,1],
  'flags':['GLOBALLY_UNIQUE'],'rotate':False,'overmaps':[
  {'point':[0,0,0],'overmap':'berserk_godo_workshop','locations':['forest']},
  {'point':[0,0,1],'overmap':'berserk_godo_loft','locations':['open_air']},
@@ -312,25 +335,27 @@ save('overmap/godo_workshop.json',overmap)
 
 # Exact project rows are saved; changes to architecture must change this project too.
 grid=[['.']*24 for _ in range(24)]
-for y in range(4,21):
- for x in range(4,20):grid[y][x]='#' if x in (4,19) or y in (4,20) else ','
-for x,y in [(4,15),(4,16),(19,15),(19,16)]:grid[y][x]='D'
-for x,y in [(8,4),(9,4),(16,4),(17,4),(4,7),(4,8),(19,7),(19,8)]:grid[y][x]='w'
+for y in range(7,21):
+ for x in range(8,18):grid[y][x]='#' if x in (8,17) or y in (7,20) else ','
+for x,y in [(8,15),(8,16),(17,15),(17,16)]:grid[y][x]='D'
+for x,y in [(10,7),(11,7),(15,7),(16,7),(8,10),(8,11),(17,10),(17,11)]:grid[y][x]='w'
 for y in range(3,22):
  for x in range(0,24):
   if grid[y][x]=='.' and (y in (15,16) or (x in (2,3,20,21) and y>=12)):grid[y][x]='p'
-for x,y in [(1,2),(2,3),(21,2),(22,4),(1,8),(22,10),(0,20),(2,22),(21,22),(23,18)]:grid[y][x]='T'
+for x,y in [(1,2),(2,3),(5,4),(7,5),(18,4),(21,2),(22,4),(1,8),(4,9),(6,11),
+            (20,9),(22,10),(0,20),(5,19),(2,22),(7,22),(19,21),(21,22),(23,18)]:grid[y][x]='T'
 furniture={'F':'f_forge','A':'f_anvil','b':'f_workbench','r':'f_rack_wood','c':'f_crate_c','s':'f_straw_bed','t':'f_table','h':'f_chair','k':'f_fireplace_stone'}
-for x,y,char in [(17,6,'F'),(14,8,'A'),(16,11,'b'),(17,11,'b'),(6,6,'r'),(7,6,'r'),(6,18,'c'),(7,18,'c'),(16,18,'c')]:grid[y][x]=char
+for x,y,char in [(14,8,'F'),(13,9,'A'),(14,10,'b'),(15,10,'b'),(9,8,'r'),(10,8,'r'),(16,9,'c'),(16,11,'c'),(9,19,'c')]:grid[y][x]=char
 grid[18][11]='<'
 ground=[''.join(row) for row in grid]
 loft=[['.']*24 for _ in range(24)]
-for y in range(4,21):
- for x in range(4,20):loft[y][x]='#' if x in (4,19) or y in (4,20) else ','
-for y in range(5,20):loft[y][12]='#'
-loft[13][12]='D'
-for x,y in [(8,4),(9,4),(16,4),(17,4),(4,8),(19,8)]:loft[y][x]='w'
-for x,y,char in [(6,7,'s'),(7,7,'s'),(15,7,'s'),(16,7,'s'),(6,10,'r'),(15,10,'r'),(6,17,'c'),(16,17,'c'),(8,13,'t'),(8,14,'h'),(17,18,'k')]:loft[y][x]=char
+for y in range(7,21):
+ for x in range(8,18):loft[y][x]='#' if x in (8,17) or y in (7,20) else ','
+for y in range(8,20):loft[y][13]='#'
+loft[14][13]='D'
+for x,y in [(10,7),(11,7),(15,7),(16,7),(8,11),(17,11)]:loft[y][x]='w'
+for x,y,char in [(9,9,'s'),(10,9,'s'),(15,9,'s'),(16,9,'s'),(9,12,'r'),(16,12,'r'),
+                 (9,19,'c'),(16,19,'c'),(9,15,'t'),(10,15,'h'),(16,18,'k')]:loft[y][x]=char
 loft[18][11]='>'
 upper=[''.join(row) for row in loft]
 terrain={'.':'t_grass','p':'t_dirt','#':'t_wall_wood','D':'t_door_c','w':'t_window','T':'t_tree',',':'t_floor','<':'t_stairs_up','>':'t_stairs_down'}
@@ -343,24 +368,28 @@ for id,rows,is_ground in [('berserk_godo_workshop',ground,True),('berserk_godo_l
  if is_ground:
   obj['place_monster']=[{'monster':'mon_berserk_godo','x':12,'y':9,'chance':100}]
   obj['place_npcs']=[{'class':'berserk_rickert','x':15,'y':12,'unique_id':'BERSERK_RICKERT'}]
-  obj['place_item']=[{'item':id,'x':x,'y':y,'amount':1} for id,x,y in [('hammer',16,11),('metalworking_tongs',17,11),('swage',16,11),('hotcut',17,11),('metal_file',17,11),('clay_pot',6,18),('waterskin',7,18)]]
-  obj['place_item'] += [{'item':'charcoal','x':16,'y':18,'amount':150}]
+  obj['place_item']=[{'item':id,'x':x,'y':y,'amount':1} for id,x,y in [('hammer',14,10),('metalworking_tongs',15,10),('swage',14,10),('hotcut',15,10),('metal_file',15,10),('clay_pot',9,19),('waterskin',9,19)]]
+  obj['place_item'] += [{'item':'charcoal','x':16,'y':9,'amount':150}]
  else:
-  obj['place_item']=[{'item':id,'x':x,'y':y,'amount':1} for id,x,y in [('fur_blanket',6,7),('fur_blanket',15,7),('pillow',7,7),('pillow',16,7),('clay_pot',8,13)]]
- mapgen.append({'type':'mapgen','om_terrain':id,'method':'json','object':obj})
+  obj['place_item']=[{'item':id,'x':x,'y':y,'amount':1} for id,x,y in [('fur_blanket',9,9),('fur_blanket',15,9),('pillow',10,9),('pillow',16,9),('clay_pot',9,15)]]
+ mapgen.append({'type':'mapgen','om_terrain':id,'object':obj})
 roof=[['.']*24 for _ in range(24)]
-for y in range(4,21):
- for x in range(4,20):roof[y][x]='^'
-mapgen.append({'type':'mapgen','om_terrain':'berserk_godo_roof','method':'json',
+for y in range(7,21):
+ for x in range(8,18):roof[y][x]='^'
+mapgen.append({'type':'mapgen','om_terrain':'berserk_godo_roof',
  'object':{'fill_ter':'t_open_air','rows':[''.join(row) for row in roof],
            'terrain':{'.':'t_open_air','^':'t_wood_roof'}}})
 save('mapgen/godo_workshop.json',mapgen)
-project={'format':'berserk-location-design','version':'godo-3.2-01','size':[24,24],
+project={'format':'berserk-location-design','version':'godo-3.2-02','size':[24,24],
  'floors':{'ground':ground,'loft':upper},'terrain':terrain,'furniture':furniture,
- 'anchors':{'godo':[12,9,0],'rickert':[15,12,0],'stairs':[11,18,0],'west_exit':[4,15,0],'east_exit':[19,15,0],
+ 'anchors':{'godo':[12,9,0],'rickert':[15,12,0],'stairs':[11,18,0],'west_exit':[8,15,0],'east_exit':[17,15,0],
             'rescue_arrival':[9,14,0],'knight_wait':[2,15,0]},
  'note':'This is the saved workshop project, not an import format for an unspecified map editor. Ground plan and loft share continuous orthogonal walls; no diagonally joined wall outlines.'}
 (ROOT/'docs/location_projects').mkdir(exist_ok=True)
-(ROOT/'docs/location_projects/godo-3.2-01.json').write_text(json.dumps(project,ensure_ascii=False,indent=2)+'\n')
+(ROOT/'docs/location_projects/godo-3.2-02.json').write_text(json.dumps(project,ensure_ascii=False,indent=2)+'\n')
+early=json.loads((MOD/'items/true_guts_early_sword.json').read_text())
+early[0]['description']=t("Guts' long battle sword from before the Eclipse. Its broad, unadorned blade bears the wear of years of campaigning.",
+                         'Длинный боевой меч Гатса времён до Затмения. Широкий клинок без украшений носит следы многолетних походов.')
+save('items/true_guts_early_sword.json',early)
 (ROOT/'tools/godo_32_ru.json').write_text(json.dumps(RU,ensure_ascii=False,indent=2)+'\n')
 print('Built Godot orders, dialogue, missions, forge and loft.')

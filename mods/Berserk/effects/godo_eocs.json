@@ -169,6 +169,9 @@
     "id": "EOC_BERSERK_GODO_SEEK",
     "effect": [
       {
+        "run_eocs": "EOC_BERSERK_GODO_LOCATE"
+      },
+      {
         "if": {
           "test_eoc": "EOC_BERSERK_GODO_KNOWN"
         },
@@ -181,33 +184,31 @@
           },
           {
             "run_eocs": "EOC_BERSERK_GODO_ROUTE_MISSION"
+          },
+          {
+            "if": {
+              "math": [
+                "u_berserk_godo_route_announced != 1"
+              ]
+            },
+            "then": [
+              {
+                "math": [
+                  "u_berserk_godo_route_announced = 1"
+                ]
+              },
+              {
+                "u_message": "Godot's woodland forge is marked on your map.",
+                "type": "info",
+                "popup": false
+              }
+            ]
           }
         ],
         "else": {
-          "u_location_variable": {
-            "context_val": "godo_candidate"
-          },
-          "target_params": {
-            "om_terrain": "berserk_godo_workshop",
-            "random": false,
-            "min_distance": 0,
-            "z": 0
-          },
-          "true_eocs": [
-            "EOC_BERSERK_GODO_FOUND"
-          ],
-          "false_eocs": [
-            {
-              "id": "EOC_BERSERK_GODO_SEARCH_FAILED",
-              "effect": [
-                {
-                  "u_message": "The old directions do not yet show the forge. Keep the notes and return to them after exploring farther.",
-                  "type": "info",
-                  "popup": false
-                }
-              ]
-            }
-          ]
+          "u_message": "The old directions do not yet show the forge. Keep the notes and return to them after exploring farther.",
+          "type": "info",
+          "popup": false
         }
       },
       {
@@ -267,6 +268,211 @@
         "run_eocs": "EOC_BERSERK_GODO_ORDER_SYNC"
       }
     ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_STORE_CANDIDATE",
+    "effect": [
+      {
+        "copy_var": {
+          "context_val": "godo_candidate"
+        },
+        "target_var": {
+          "global_val": "berserk_godo_location"
+        }
+      },
+      {
+        "math": [
+          "berserk_godo_location.x = floor(berserk_godo_location.x / 24) * 24"
+        ]
+      },
+      {
+        "math": [
+          "berserk_godo_location.y = floor(berserk_godo_location.y / 24) * 24"
+        ]
+      },
+      {
+        "math": [
+          "berserk_godo_location.z = 0"
+        ]
+      }
+    ],
+    "condition": {
+      "overmap_at_point": "berserk_godo_workshop",
+      "point": {
+        "context_val": "godo_candidate"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_LOCATE_60",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "godo_candidate"
+      },
+      "target_params": {
+        "om_terrain": "berserk_godo_workshop",
+        "om_special": "berserk_godo_workshop_special",
+        "random": true,
+        "search_range": 60,
+        "min_distance": 0,
+        "z": 0
+      },
+      "true_eocs": [
+        "EOC_BERSERK_GODO_STORE_CANDIDATE"
+      ]
+    },
+    "condition": {
+      "not": {
+        "test_eoc": "EOC_BERSERK_GODO_KNOWN"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_LOCATE_80",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "godo_candidate"
+      },
+      "target_params": {
+        "om_terrain": "berserk_godo_workshop",
+        "om_special": "berserk_godo_workshop_special",
+        "random": true,
+        "search_range": 80,
+        "min_distance": 0,
+        "z": 0
+      },
+      "true_eocs": [
+        "EOC_BERSERK_GODO_STORE_CANDIDATE"
+      ]
+    },
+    "condition": {
+      "not": {
+        "test_eoc": "EOC_BERSERK_GODO_KNOWN"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_LOCATE_100",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "godo_candidate"
+      },
+      "target_params": {
+        "om_terrain": "berserk_godo_workshop",
+        "om_special": "berserk_godo_workshop_special",
+        "random": true,
+        "search_range": 100,
+        "min_distance": 0,
+        "z": 0
+      },
+      "true_eocs": [
+        "EOC_BERSERK_GODO_STORE_CANDIDATE"
+      ]
+    },
+    "condition": {
+      "not": {
+        "test_eoc": "EOC_BERSERK_GODO_KNOWN"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_LOCATE",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_GODO_LOCATE_60"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GODO_LOCATE_80"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GODO_LOCATE_100"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_BOOTSTRAP",
+    "effect": [
+      {
+        "math": [
+          "berserk_godo_auto_attempts = berserk_godo_auto_attempts + 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GODO_LOCATE"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_GODO_KNOWN"
+          }
+        },
+        {
+          "math": [
+            "berserk_godo_auto_attempts < 2"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_BOOTSTRAP_START",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_GODO_BOOTSTRAP"
+    },
+    "eoc_type": "EVENT",
+    "required_event": "game_start"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_BOOTSTRAP_RETRY",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_GODO_BOOTSTRAP"
+    },
+    "global": true,
+    "recurrence": "1 minute",
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_GODO_KNOWN"
+          }
+        },
+        {
+          "math": [
+            "berserk_godo_auto_attempts < 2"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active != 1"
+          ]
+        }
+      ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -1795,26 +2001,14 @@
         ]
       },
       {
+        "run_eocs": "EOC_BERSERK_GODO_LOCATE"
+      },
+      {
         "if": {
           "test_eoc": "EOC_BERSERK_GODO_KNOWN"
         },
         "then": {
           "run_eocs": "EOC_BERSERK_GODO_RESCUE_TELEPORT"
-        },
-        "else": {
-          "u_location_variable": {
-            "context_val": "godo_rescue_candidate"
-          },
-          "target_params": {
-            "om_terrain": "berserk_godo_workshop",
-            "om_special": "berserk_godo_workshop_special",
-            "random": false,
-            "min_distance": 0,
-            "z": 0
-          },
-          "true_eocs": [
-            "EOC_BERSERK_GODO_RESCUE_FOUND"
-          ]
         }
       }
     ],

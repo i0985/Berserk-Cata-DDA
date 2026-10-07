@@ -167,11 +167,8 @@ def apply_forge_story(effects, topics, t):
         {'test_eoc': 'EOC_BERSERK_GODO_KNOWN'})
     eoc('EOC_BERSERK_GODO_RESCUE_TRANSFER', [
         m('u_berserk_godo_rescue_attempted = 1'),
-        {'if': {'test_eoc': 'EOC_BERSERK_GODO_KNOWN'}, 'then': run('EOC_BERSERK_GODO_RESCUE_TELEPORT'),
-         'else': {'u_location_variable': {'context_val': 'godo_rescue_candidate'},
-                  'target_params': {'om_terrain': 'berserk_godo_workshop', 'om_special': 'berserk_godo_workshop_special',
-                                    'random': False, 'min_distance': 0, 'z': 0},
-                  'true_eocs': ['EOC_BERSERK_GODO_RESCUE_FOUND']}}],
+        run('EOC_BERSERK_GODO_LOCATE'),
+        {'if': {'test_eoc': 'EOC_BERSERK_GODO_KNOWN'}, 'then': run('EOC_BERSERK_GODO_RESCUE_TELEPORT')}],
         allof(m('u_berserk_eclipse_rescue_state == 1'), m('u_berserk_godo_rescue_attempted != 1')))
 
 
@@ -193,18 +190,34 @@ def apply_story_world(t, save):
     A = {row['id']: row for row in aftermath}
     steps = A['EOC_BERSERK_ECLIPSE_AFTERMATH']['effect']
     for i, part in enumerate(steps):
-        if 'u_message' in part and part.get('popup'):
-            part['u_message'] = t(
+        fallback_guard = m('u_berserk_godo_rescue_relocated != 1')
+        popup = part.get('then', {}) if part.get('if') == fallback_guard else part
+        if isinstance(popup, dict) and 'u_message' in popup and popup.get('popup'):
+            popup['u_message'] = t(
                 'The Skull Knight carried you out of the Eclipse. The wounds have been tended, but your left hand and an eye are lost, and the Brand remains. Rickert can build a prosthesis; you can also make and fit it yourself. Speak with the Knight before he leaves.',
                 'Рыцарь-Череп вынес тебя из Затмения. Раны перевязаны, но левая кисть и глаз потеряны, а Клеймо осталось. Рикерт поможет с протезом; его также можно изготовить и установить самостоятельно. Поговори с Рыцарем, прежде чем он уйдёт.')
+            steps[i] = {'if': fallback_guard, 'then': popup}
         if part.get('u_spawn_monster') == 'mon_skull_knight_rescuer':
             steps[i] = run('EOC_BERSERK_ECLIPSE_PLACE_KNIGHT')
+    A['EOC_BERSERK_ECLIPSE_KNIGHT_ARRIVED']['effect'] = [
+        {'u_add_var': 'berserk_knight_waiting', 'value': 'placed'},
+        run('EOC_BERSERK_KNIGHT_FORGE_NOTICE')]
     A['EOC_BERSERK_ECLIPSE_KNIGHT_RETRY']['effect'] = run('EOC_BERSERK_ECLIPSE_PLACE_KNIGHT')
     restore = A['EOC_BERSERK_RESTORE_DISMISSED_KNIGHT']
     guard = m('u_berserk_knight_farewell_confirmed != 1')
     if guard not in restore['condition']['and']: restore['condition']['and'].append(guard)
     # Fixed anchor survives loading; fallback exits retain a nearby interlocutor.
     extra = [
+        {'type': 'effect_on_condition', 'id': 'EOC_BERSERK_KNIGHT_FORGE_NOTICE',
+         'condition': {'and': [m('u_berserk_eclipse_rescue_state == 2'),
+             m('u_berserk_godo_rescue_relocated == 1'), m('u_berserk_knight_forge_notice_shown != 1'),
+             m('u_berserk_knight_farewell_confirmed != 1'),
+             {'or': [{'u_at_om_location': 'berserk_godo_workshop'}, {'u_at_om_location': 'berserk_godo_loft'}]}]},
+         'effect': [m('u_berserk_knight_forge_notice_shown = 1'),
+             {'u_message': t(
+                 "You awaken in Godot's forge. Your wounds have been dressed, but the lost hand and eye are gone, and the Brand remains. The Skull Knight waits outside the western door. He wishes to speak with you before continuing his journey.",
+                 'Ты очнулся в кузнице Годо. Раны перевязаны, но потерянные кисть и глаз уже не вернуть, а Клеймо осталось. Рыцарь-Череп ждёт за западной дверью. Он хочет сказать тебе несколько слов, прежде чем продолжит свой путь.'),
+              'type': 'warning', 'popup': True}]},
         {'type': 'effect_on_condition', 'id': 'EOC_BERSERK_ECLIPSE_PLACE_KNIGHT',
          'condition': {'and': [m('u_berserk_knight_farewell_confirmed != 1'),
               {'compare_string': ['yes', {'u_val': 'berserk_knight_waiting'}]}]},
@@ -235,7 +248,7 @@ def apply_story_world(t, save):
                     'effect': {'u_die': {'remove_from_creature_tracker': True}}}],
                     'mtype_ids': ['mon_skull_knight_rescuer'], 'monster_range': 60}}
     ]
-    place = extra[0]
+    place = next(row for row in extra if row['id'] == 'EOC_BERSERK_ECLIPSE_PLACE_KNIGHT')
     decision = place['effect']
     decision['if'] = m('berserk_knight_local_present == 1')
     place['effect'] = [

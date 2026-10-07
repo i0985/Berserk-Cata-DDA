@@ -8,7 +8,7 @@ from test_godo_32 import Forge, MOD, objects
 
 
 class Scene:
-    def __init__(self, known=False, find=True, teleport=True):
+    def __init__(self, known=False, find=True, teleport=True, spawn=True):
         self.eocs = {r['id']: r for p in (MOD / 'effects').glob('*.json')
                      for r in objects(p.relative_to(MOD)) if r.get('type') == 'effect_on_condition'}
         self.vars = collections.defaultdict(int)
@@ -19,6 +19,7 @@ class Scene:
         self.pos = [100, 100, -1]
         self.find = find; self.teleport = teleport; self.searches = 0
         self.knights = []; self.queue = []; self.calls = []; self.items = collections.Counter()
+        self.spawn = spawn; self.messages = []
 
     def terrain(self, point):
         if point[2] < 0: return 'berserk_eclipse_expanded_ceremony'
@@ -38,7 +39,7 @@ class Scene:
             key = match[0]
             if key.endswith(('.x', '.y', '.z')): return str(self.vars[key[:-2]]['xyz'.index(key[-1])])
             return repr(self.vars[key])
-        expression = re.sub(r'\b(?:u_berserk_|berserk_|_godo_rescue_candidate)\w*(?:\.[xyz])?\b', sub, expression)
+        expression = re.sub(r'\b(?:u_berserk_|berserk_|_godo_)\w*(?:\.[xyz])?\b', sub, expression)
         return eval(expression, {'__builtins__': {}}, {'floor': lambda n: n // 1})
 
     def condition(self, c):
@@ -88,8 +89,9 @@ class Scene:
             if self.teleport or self.terrain(dest) != 'berserk_godo_workshop': self.pos = dest.copy()
         elif 'u_add_var' in value: self.vars['u_' + value['u_add_var']] = value['value']
         elif 'u_spawn_monster' in value:
-            self.knights.append(self.vars[self.var(value['target_var'])].copy() if 'target_var' in value else self.pos.copy())
-            for id in value.get('true_eocs', []): self.run(id)
+            if self.spawn:
+                self.knights.append(self.vars[self.var(value['target_var'])].copy() if 'target_var' in value else self.pos.copy())
+                for id in value.get('true_eocs', []): self.run(id)
         elif 'u_run_monster_eocs' in value:
             for actor in self.knights.copy():
                 low = self.vars[self.var(value['z_min'])] if 'z_min' in value else self.pos[2]
@@ -99,7 +101,8 @@ class Scene:
                 if any('u_die' in row['effect'] for row in value['u_run_monster_eocs']): self.knights.remove(actor)
         elif 'u_die' in value: pass  # Removal is scoped to the selected actor above.
         elif 'u_spawn_item' in value: self.items[value['u_spawn_item']] += value.get('count', 1)
-        elif 'u_message' in value or 'reveal_map' in value: pass
+        elif 'u_message' in value: self.messages.append(value)
+        elif 'reveal_map' in value: pass
         else: raise AssertionError(value)
 
 
@@ -151,7 +154,7 @@ class RescueAndFarewell(unittest.TestCase):
         self.assertEqual(confirm[1]['topic'], 'TALK_DONE')
 
     def test_new_anchors_are_passable_and_existing_health_policy_retained(self):
-        p = json.loads((MOD.parents[1] / 'docs/location_projects/godo-3.2-01.json').read_text())
+        p = json.loads((MOD.parents[1] / 'docs/location_projects/godo-3.2-02.json').read_text())
         for id in ['rescue_arrival', 'knight_wait']:
             x, y, z = p['anchors'][id]; self.assertEqual(z, 0)
             self.assertIn(p['floors']['ground'][y][x], ',p')
@@ -165,6 +168,33 @@ class RescueAndFarewell(unittest.TestCase):
         s.vars['u_berserk_knight_waiting'] = 'yes'
         s.run('EOC_BERSERK_ECLIPSE_PLACE_KNIGHT')
         self.assertEqual(s.knights, [[2409, 4814, -10], [2402, 4815, 0]])
+
+    def test_forge_notice_waits_for_successful_spawn_then_shows_once(self):
+        s = Scene(known=True, spawn=False); s.run('EOC_BERSERK_ECLIPSE_RESCUE_RETURN')
+        s.vars['u_berserk_knight_waiting'] = 'yes'
+        s.run('EOC_BERSERK_ECLIPSE_PLACE_KNIGHT')
+        self.assertFalse(s.messages); self.assertFalse(s.knights)
+        s.spawn = True
+        for _ in range(3): s.run('EOC_BERSERK_ECLIPSE_PLACE_KNIGHT')
+        self.assertEqual(len(s.messages),1); self.assertTrue(s.messages[0]['popup'])
+        self.assertIn('western door',s.messages[0]['u_message'])
+        self.assertEqual(len(s.knights),1)
+
+    def test_fallback_rescue_does_not_claim_player_is_inside_forge(self):
+        s = Scene(find=False); s.run('EOC_BERSERK_ECLIPSE_RESCUE_RETURN')
+        s.vars['u_berserk_knight_waiting'] = 'yes'; s.run('EOC_BERSERK_ECLIPSE_PLACE_KNIGHT')
+        self.assertFalse(s.messages)
+        self.assertEqual(s.vars['u_berserk_knight_forge_notice_shown'],0)
+
+    def test_bootstrap_is_silent_reuses_known_place_and_has_limited_retries(self):
+        s = Scene(); s.pos = [100,100,0]
+        s.run('EOC_BERSERK_GODO_BOOTSTRAP'); s.run('EOC_BERSERK_GODO_BOOTSTRAP')
+        self.assertEqual(s.searches,1); self.assertFalse(s.messages)
+        self.assertEqual(s.vars['berserk_godo_location'],s.forge)
+        s = Scene(find=False); s.pos = [100,100,0]
+        for _ in range(3): s.run('EOC_BERSERK_GODO_BOOTSTRAP')
+        self.assertEqual(s.searches,6);self.assertEqual(s.vars['berserk_godo_auto_attempts'],2)
+        self.assertNotIn('berserk_godo_location',s.vars)
 
 
 class StoryChoices(unittest.TestCase):

@@ -223,8 +223,8 @@ class Data(unittest.TestCase):
                 self.assertEqual(len(names),len(set(names)),row['id'])
                 for r in row['responses']:
                     if r['topic'].startswith('TALK_BERSERK_'):self.assertIn(r['topic'],ids)
-    def test_four_way_routes_and_matching_stairs(self):
-        data=json.loads((ROOT/'docs/location_projects/godo-3.2-01.json').read_text())
+    def test_routes_and_matching_stairs(self):
+        data=json.loads((ROOT/'docs/location_projects/godo-3.2-02.json').read_text())
         for rows in data['floors'].values():
             self.assertEqual(len(rows),24);self.assertTrue(all(len(row)==24 for row in rows))
             seen={(11,18)};queue=collections.deque(seen)
@@ -235,9 +235,13 @@ class Data(unittest.TestCase):
                     if 0<=p[0]<24 and 0<=p[1]<24 and p not in seen and rows[p[1]][p[0]] not in '#wTFAbrcstk':
                         seen.add(p);queue.append(p)
             if rows[18][11]=='<':
-                for x,y in [(12,9),(15,12),(4,15),(19,15)]:self.assertIn((x,y),seen)
+                for key in ['godo','rickert','rescue_arrival','knight_wait','west_exit','east_exit']:
+                    x,y,z=data['anchors'][key];self.assertIn((x,y),seen,key)
         self.assertEqual(data['floors']['ground'][18][11],'<')
         self.assertEqual(data['floors']['loft'][18][11],'>')
+        old=json.loads((ROOT/'docs/location_projects/godo-3.2-01.json').read_text())
+        for key in ['godo','rickert','stairs','rescue_arrival','knight_wait']:
+            self.assertEqual(data['anchors'][key],old['anchors'][key],key)
     def test_native_menu_no_yes_no_chain(self):
         e=next(r for r in objects('effects/wyald_rosine_hunt_eocs.json') if r['id']=='EOC_BERSERK_HUNT_JOURNAL_USE')
         self.assertEqual(e['effect']['open_dialogue']['topic'],'TALK_BERSERK_ROAD_JOURNAL')

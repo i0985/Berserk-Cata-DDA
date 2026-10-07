@@ -198,7 +198,7 @@ for key, en, ru, rarity, desc, rudesc, text, rutext in stories:
             {'furn':'f_bench_wooden','x':16,'y':14}]
         obj['place_item']=[{'item':'stick','x':15,'y':12,'amount':2}]
     obj['rows']=[''.join(row) for row in grid]
-    maps.append({'type':'mapgen','om_terrain':omt,'method':'json','object':obj})
+    maps.append({'type':'mapgen','om_terrain':omt,'object':obj})
 
 save('effects/road_stories_eocs.json', effects)
 save('furniture/road_stories.json', furniture)
