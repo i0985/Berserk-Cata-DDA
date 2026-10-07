@@ -119,7 +119,13 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_AFTER",
-    "dynamic_line": "'You escaped, but the Eclipse has marked you. Your hand is gone. What comes next is yours to decide.'",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_godo_rescue_relocated == 1"
+      ],
+      "yes": "You are under the smith's roof now. The life you brought out of the sacrifice is still yours. Ask what you need to know before I ride on.",
+      "no": "'You escaped, but the Eclipse has marked you. Your hand is gone. What comes next is yours to decide.'"
+    },
     "speaker_effect": {
       "sentinel": "berserk_knight_first_conversation",
       "effect": {
@@ -187,8 +193,8 @@
         }
       },
       {
-        "text": "I need to go. Wait here.",
-        "topic": "TALK_DONE"
+        "text": "I need to go.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_FAREWELL"
       }
     ]
   },
@@ -199,7 +205,11 @@
       "math": [
         "u_berserk_first_hunt_done != 1"
       ],
-      "yes": "Find shelter and tend your wounds before following the marked hollow. If replacing your hand is the greater need, seek Godot first; the hunt can wait.",
+      "yes": {
+        "u_at_om_location": "berserk_godo_workshop",
+        "yes": "Tend your wounds here. Ask Rickert about replacing the hand, and Godot about a blade. The marked hollow can wait until you have armor, dressings and a way to retreat.",
+        "no": "Find shelter and tend your wounds before following the marked hollow. If replacing your hand is the greater need, seek Godot first; the hunt can wait."
+      },
       "no": {
         "math": [
           "u_berserk_breach_sealed != 1"
@@ -864,7 +874,11 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_GODO",
-    "dynamic_line": "There is a great master who can help with your hand and a new blade. Godot keeps a forge deep in the woods, with Rickert beside him. The road may be long. Bring useful metal rather than promises. If you already carry his work, ask him to mend it. These directions will remain in your notes after we part.",
+    "dynamic_line": {
+      "u_at_om_location": "berserk_godo_workshop",
+      "yes": "I brought you to Godot's forge. The old master works on blades; Rickert builds mechanisms. Speak with them inside. Neither can remove the Brand, but they can help you face what follows.",
+      "no": "There is a great master who can help with your hand and a new blade. Godot keeps a forge deep in the woods, with Rickert beside him. The road may be long. Bring useful metal rather than promises. If you already carry his work, ask him to mend it. These directions will remain in your notes after we part."
+    },
     "responses": [
       {
         "text": "Mark the road to the forge.",
@@ -880,6 +894,24 @@
       {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_FAREWELL",
+    "dynamic_line": "I ride on when we part. My own road does not wait. If you still have questions, ask them now. The directions you have learned will remain in your notes.",
+    "responses": [
+      {
+        "text": "I still have questions.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      },
+      {
+        "text": "I understand. Farewell, Skull Knight.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_KNIGHT_FAREWELL"
+        }
       }
     ]
   }

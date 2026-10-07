@@ -266,6 +266,8 @@ topic('TALK_BERSERK_RICKERT_HOME',line('The stair leads to the sleeping loft. Th
 effects.append(eoc('BOOK',{'open_dialogue':{'topic':'TALK_BERSERK_ROAD_JOURNAL'}}))
 from rickert_content import apply_rickert
 apply_rickert(effects, topics, missions, t, save)
+from forge_story_content import apply_forge_story
+apply_forge_story(effects, topics, t)
 for row in effects:
  if row['id'].removeprefix('EOC_BERSERK_GODO_') in {
    'START_ARM','START_SWORD','ARM_METAL','ARM_FITTINGS','SWORD_IRON','SWORD_TEMPER',
@@ -353,7 +355,8 @@ mapgen.append({'type':'mapgen','om_terrain':'berserk_godo_roof','method':'json',
 save('mapgen/godo_workshop.json',mapgen)
 project={'format':'berserk-location-design','version':'godo-3.2-01','size':[24,24],
  'floors':{'ground':ground,'loft':upper},'terrain':terrain,'furniture':furniture,
- 'anchors':{'godo':[12,9,0],'rickert':[15,12,0],'stairs':[11,18,0],'west_exit':[4,15,0],'east_exit':[19,15,0]},
+ 'anchors':{'godo':[12,9,0],'rickert':[15,12,0],'stairs':[11,18,0],'west_exit':[4,15,0],'east_exit':[19,15,0],
+            'rescue_arrival':[9,14,0],'knight_wait':[2,15,0]},
  'note':'This is the saved workshop project, not an import format for an unspecified map editor. Ground plan and loft share continuous orthogonal walls; no diagonally joined wall outlines.'}
 (ROOT/'docs/location_projects').mkdir(exist_ok=True)
 (ROOT/'docs/location_projects/godo-3.2-01.json').write_text(json.dumps(project,ensure_ascii=False,indent=2)+'\n')

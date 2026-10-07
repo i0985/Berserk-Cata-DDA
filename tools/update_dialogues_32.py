@@ -196,5 +196,7 @@ rows[0]['description']=t('Your left hand is gone. This permanent interface ancho
 rows[1]['description']=t('A mechanical cannon mounted on the left arm after activating a finished prosthetic in your inventory. Activate this bionic to wield and reload its single chamber, then retract it to take up your sword again. It burns powder charges instead of bionic power.','Механическая пушка на левой руке, установленная активацией готового протеза из инвентаря. Активируйте бионику, чтобы выдвинуть оружие и зарядить единственный ствол, затем уберите его, чтобы снова взять меч. Пушка использует пороховые заряды вместо энергии бионики.')
 write('bionics/arm_cannon.json',rows)
 rows=read('modinfo.json');rows[0]['version']='3.2.0-dev';write('modinfo.json',rows)
+from forge_story_content import apply_story_world
+apply_story_world(t, write)
 (ROOT/'tools/godo_32_ru.json').write_text(json.dumps(RU,ensure_ascii=False,indent=2)+'\n')
 print('Updated dialogue trees, known-road menu and fabrication requirement.')

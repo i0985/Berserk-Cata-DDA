@@ -1584,5 +1584,173 @@
       ]
     },
     "eoc_type": "NPC_DEATH"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_CLOSE_SPARKS",
+    "effect": {
+      "math": [
+        "u_berserk_godo_sparks_closed = 1"
+      ]
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_REUNION_UNTOLD",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_rescue_relocated == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_RESCUE_FOUND",
+    "effect": [
+      {
+        "copy_var": {
+          "context_val": "godo_rescue_candidate"
+        },
+        "target_var": {
+          "global_val": "berserk_godo_location"
+        }
+      },
+      {
+        "math": [
+          "berserk_godo_location.x = floor(berserk_godo_location.x / 24) * 24"
+        ]
+      },
+      {
+        "math": [
+          "berserk_godo_location.y = floor(berserk_godo_location.y / 24) * 24"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GODO_RESCUE_TELEPORT"
+      }
+    ],
+    "condition": {
+      "overmap_at_point": "berserk_godo_workshop",
+      "point": {
+        "context_val": "godo_rescue_candidate"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_RESCUE_TELEPORT",
+    "effect": [
+      {
+        "copy_var": {
+          "global_val": "berserk_godo_location"
+        },
+        "target_var": {
+          "u_val": "berserk_godo_rescue_point"
+        }
+      },
+      {
+        "math": [
+          "u_berserk_godo_rescue_point.x = u_berserk_godo_rescue_point.x + 9"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_godo_rescue_point.y = u_berserk_godo_rescue_point.y + 14"
+        ]
+      },
+      {
+        "u_teleport": {
+          "u_val": "berserk_godo_rescue_point"
+        },
+        "force_safe": true
+      },
+      {
+        "if": {
+          "u_at_om_location": "berserk_godo_workshop"
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_godo_rescue_relocated = 1"
+            ]
+          },
+          {
+            "reveal_map": {
+              "global_val": "berserk_godo_location"
+            },
+            "radius": 1
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_GODO_KNOWN"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_RESCUE_TRANSFER",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_godo_rescue_attempted = 1"
+        ]
+      },
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_GODO_KNOWN"
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_GODO_RESCUE_TELEPORT"
+        },
+        "else": {
+          "u_location_variable": {
+            "context_val": "godo_rescue_candidate"
+          },
+          "target_params": {
+            "om_terrain": "berserk_godo_workshop",
+            "om_special": "berserk_godo_workshop_special",
+            "random": false,
+            "min_distance": 0,
+            "z": 0
+          },
+          "true_eocs": [
+            "EOC_BERSERK_GODO_RESCUE_FOUND"
+          ]
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_rescue_attempted != 1"
+          ]
+        }
+      ]
+    }
   }
 ]
