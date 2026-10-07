@@ -1,0 +1,245 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_ROAD_JOURNAL",
+    "dynamic_line": "*The notes preserve roads you have learned and work you have not finished. Choose an entry.",
+    "responses": [
+      {
+        "text": "Review the journey so far.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL",
+        "condition": {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_CAMPAIGN_REPORT"
+        }
+      },
+      {
+        "text": "Find Godot and Rickert.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_SEEK"
+        }
+      },
+      {
+        "text": "Review forge orders.",
+        "topic": "TALK_BERSERK_JOURNAL_ORDERS"
+      },
+      {
+        "text": "Recall the first hunt.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL",
+        "condition": {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FIRST_HUNT_RECALL"
+        }
+      },
+      {
+        "text": "Recall the ashen breach.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL",
+        "condition": {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_BREACH_READ_CLUE"
+        }
+      },
+      {
+        "text": "Recall the Count's trail.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "berserk_hunt_count_state >= 1"
+              ]
+            },
+            {
+              "u_has_item": "berserk_apostle_hunt_journal"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_COUNT_SEEK"
+        }
+      },
+      {
+        "text": "Recall the Black Dogs' camp.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "berserk_hunt_wyald_state >= 1"
+              ]
+            },
+            {
+              "u_has_item": "berserk_apostle_hunt_journal"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_WYALD_SEEK"
+        }
+      },
+      {
+        "text": "Recall the misty valley.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "berserk_hunt_rosine_state >= 1"
+              ]
+            },
+            {
+              "u_has_item": "berserk_apostle_hunt_journal"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_ROSINE_SEEK"
+        }
+      },
+      {
+        "text": "Recall Flora's grove.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE"
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FLORA_SEEK"
+        }
+      },
+      {
+        "text": "Recall Grunbeld's stronghold.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_flora_escaped == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_grunbeld_site_registered == 1"
+              ]
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
+        }
+      },
+      {
+        "text": "Close the notes.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_ORDERS",
+    "dynamic_line": "*Orders at the woodland forge. Deliver materials to Godot himself; reading these notes does not hand them over.",
+    "responses": [
+      {
+        "text": "Arm cannon order.",
+        "topic": "TALK_BERSERK_JOURNAL_ARM"
+      },
+      {
+        "text": "Dragonslayer order.",
+        "topic": "TALK_BERSERK_JOURNAL_SWORD"
+      },
+      {
+        "text": "Return to the roads.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_ARM",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_godo_arm_state == 0"
+      ],
+      "yes": "Order it at the forge or make it yourself with fabrication 8 and mechanics 4.",
+      "no": {
+        "math": [
+          "u_berserk_godo_arm_state == 1"
+        ],
+        "yes": "Deliver 8 steel lumps and 2 pipes.",
+        "no": {
+          "math": [
+            "u_berserk_godo_arm_state == 2"
+          ],
+          "yes": "Deliver 2 springs, 4 leather patches and 200 charcoal.",
+          "no": {
+            "math": [
+              "u_berserk_godo_arm_state == 3"
+            ],
+            "yes": "Return six hours after the last delivery to collect the cannon.",
+            "no": "This order is settled. Install the cannon you received or maintain the prosthetic you already own."
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Review the other order.",
+        "topic": "TALK_BERSERK_JOURNAL_ORDERS"
+      },
+      {
+        "text": "Return to the roads.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_SWORD",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_godo_sword_state == 0"
+      ],
+      "yes": "Order the blade at the forge. Godot does not duplicate one you already own.",
+      "no": {
+        "math": [
+          "u_berserk_godo_sword_state == 1"
+        ],
+        "yes": "Steel delivered: <u_val:berserk_godo_sword_iron_given>/32. Bring loads of eight.",
+        "no": {
+          "math": [
+            "u_berserk_godo_sword_state == 2"
+          ],
+          "yes": "Deliver 8 high-steel lumps, 600 charcoal and 4 leather patches.",
+          "no": {
+            "math": [
+              "u_berserk_godo_sword_state == 3"
+            ],
+            "yes": "Return two days after the last delivery to collect the blade.",
+            "no": "This order is settled. Godot can repair the blade you own."
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Review the other order.",
+        "topic": "TALK_BERSERK_JOURNAL_ORDERS"
+      },
+      {
+        "text": "Return to the roads.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL"
+      }
+    ]
+  }
+]

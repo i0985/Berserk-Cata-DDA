@@ -1,0 +1,85 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_godo_workshop",
+    "name": "Godot's woodland forge",
+    "sym": "G",
+    "color": "brown",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_godo_loft",
+    "name": "Godot's sleeping loft",
+    "sym": "G",
+    "color": "brown",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_godo_roof",
+    "name": "Godot's roof",
+    "sym": "G",
+    "color": "brown",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_godo_workshop_special",
+    "occurrences": [
+      1,
+      1
+    ],
+    "flags": [
+      "GLOBALLY_UNIQUE"
+    ],
+    "rotate": false,
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_godo_workshop",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          0,
+          0,
+          1
+        ],
+        "overmap": "berserk_godo_loft",
+        "locations": [
+          "open_air"
+        ]
+      },
+      {
+        "point": [
+          0,
+          0,
+          2
+        ],
+        "overmap": "berserk_godo_roof",
+        "locations": [
+          "open_air"
+        ]
+      }
+    ]
+  }
+]

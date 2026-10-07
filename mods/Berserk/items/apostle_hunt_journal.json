@@ -9,7 +9,7 @@
     "name": {
       "str_sp": "apostle hunt journal"
     },
-    "description": "Trails to the Count, Wyald, Rosine and Grunbeld. Activate to review the trails one at a time: Yes selects the displayed trail; No continues to the next. Grunbeld opens after the other three breaches are sealed. Each hunt keeps its own progress and one-time reward.",
+    "description": "Known roads, current tasks and completed hunts. Activate to choose an entry; the notes keep the same destinations when you return.",
     "weight": "25 g",
     "volume": "50 ml",
     "material": [
@@ -21,8 +21,9 @@
       "type": "effect_on_conditions",
       "menu_text": "Recall an apostle trail",
       "effect_on_conditions": [
-        "EOC_BERSERK_HUNT_JOURNAL_USE"
-      ]
+        "EOC_BERSERK_GODO_BOOK"
+      ],
+      "need_wielding": false
     }
   }
 ]

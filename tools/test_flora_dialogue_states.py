@@ -50,6 +50,8 @@ class FloraDialogueStates(unittest.TestCase):
 
     def test_story_discovery_is_reused_when_another_flora_is_debug_placed(self):
         g=self.post_eclipse();g.flags['u_berserk_first_hunt_done']=1
+        # Since 3.1, a story search for Flora requires the three early breaches.
+        g.flags.update({'berserk_hunt_'+k+'_state':4 for k in ('count','wyald','rosine')})
         g.flags['u_berserk_first_hunt_location']=(-576,48,0)
         g.run('EOC_BERSERK_FLORA_SEEK')
         self.assertEqual(g.location_calls,1)
@@ -198,6 +200,7 @@ class FloraDialogueStates(unittest.TestCase):
 
     def test_previously_exhausted_locator_recovers_and_binds_the_same_mission(self):
         g = self.post_eclipse()
+        g.flags.update({'berserk_hunt_'+k+'_state':4 for k in ('count','wyald','rosine')})
         g.flags.update(u_berserk_first_hunt_done=1,
                        u_berserk_site_flora_placement_v2=1,
                        u_berserk_site_flora_tries=2,

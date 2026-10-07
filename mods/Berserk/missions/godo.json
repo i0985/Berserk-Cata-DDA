@@ -1,0 +1,198 @@
+[
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_GODO",
+    "name": "Seek Godot and Rickert",
+    "description": "Visit the woodland forge. Godot can build an arm cannon, forge a Dragonslayer and repair your existing equipment. Rickert can explain the fitting.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "u_berserk_godo_met == 1"
+      ]
+    },
+    "difficulty": 3,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_godo_workshop",
+        "var": {
+          "global_val": "berserk_godo_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  },
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_GODO_ARM_METAL",
+    "name": "Metal for an arm cannon",
+    "description": "Bring Godot 8 lumps of steel and 2 pipes. He accepts them together.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "u_berserk_godo_arm_state >= 2"
+      ]
+    },
+    "difficulty": 3,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_godo_workshop",
+        "var": {
+          "global_val": "berserk_godo_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  },
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_GODO_ARM_FITTINGS",
+    "name": "Fit the prosthetic",
+    "description": "Bring 2 springs, 4 leather patches and 200 charcoal. Godot needs six hours after this delivery.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "u_berserk_godo_arm_state >= 3"
+      ]
+    },
+    "difficulty": 3,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_godo_workshop",
+        "var": {
+          "global_val": "berserk_godo_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  },
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_GODO_ARM_COLLECT",
+    "name": "Collect the arm cannon",
+    "description": "Return to Godot six hours after the fittings were delivered. Activate the finished prosthetic in your inventory to fit it yourself.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "u_berserk_godo_arm_state >= 4"
+      ]
+    },
+    "difficulty": 3,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_godo_workshop",
+        "var": {
+          "global_val": "berserk_godo_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  },
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_GODO_SWORD_IRON",
+    "name": "Steel for a Dragonslayer",
+    "description": "Bring 32 lumps of steel. Deliver eight at a time if the full load is too heavy.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "u_berserk_godo_sword_state >= 2"
+      ]
+    },
+    "difficulty": 3,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_godo_workshop",
+        "var": {
+          "global_val": "berserk_godo_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  },
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_GODO_SWORD_TEMPER",
+    "name": "Steel that will hold an edge",
+    "description": "Bring 8 lumps of high steel, 600 charcoal and 4 leather patches. High steel can be recovered or smelted using ordinary metalworking recipes; no unique defeated boss is required.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "u_berserk_godo_sword_state >= 3"
+      ]
+    },
+    "difficulty": 3,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_godo_workshop",
+        "var": {
+          "global_val": "berserk_godo_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  },
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_GODO_SWORD_COLLECT",
+    "name": "Collect the Dragonslayer",
+    "description": "Give Godot two days to forge and temper the blade, then return. A sword you already own is repaired, not duplicated.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "u_berserk_godo_sword_state >= 4"
+      ]
+    },
+    "difficulty": 3,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_godo_workshop",
+        "var": {
+          "global_val": "berserk_godo_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  }
+]

@@ -4,11 +4,12 @@
     "subtypes": [
       "TOOL"
     ],
-    "id": "berserk_campaign_journal",
+    "id": "berserk_godo_order_book",
+    "category": "tools",
     "name": {
-      "str": "journal of the road after the Eclipse"
+      "str": "Godot's order notes"
     },
-    "description": "Known roads, current tasks and completed hunts. Activate to choose an entry; the notes keep the same destinations when you return.",
+    "description": "Directions to the woodland forge and the materials Godot needs. Read to choose a known road or review an order.",
     "material": [
       "paper"
     ],
@@ -22,10 +23,10 @@
     ],
     "use_action": {
       "type": "effect_on_conditions",
+      "need_wielding": false,
       "effect_on_conditions": [
         "EOC_BERSERK_GODO_BOOK"
-      ],
-      "need_wielding": false
+      ]
     }
   }
 ]

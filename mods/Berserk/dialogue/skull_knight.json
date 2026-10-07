@@ -133,23 +133,19 @@
         "topic": "TALK_BERSERK_SKULL_KNIGHT_NOW"
       },
       {
-        "text": "What happened, and why did you save me?",
+        "text": "Tell me what happened.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
       },
       {
-        "text": "What is the Brand, and why are nights dangerous?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
+        "text": "Tell me about the Brand and this world.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_WORLD"
       },
       {
-        "text": "How do apostles differ from the God Hand?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_APOSTLES"
+        "text": "I need practical help.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PRACTICAL"
       },
       {
-        "text": "What happened to my hand and eye?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_INJURIES"
-      },
-      {
-        "text": "Help me choose the next road.",
+        "text": "Help me choose a known road.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_NEXT"
       },
       {
@@ -203,23 +199,45 @@
       "math": [
         "u_berserk_first_hunt_done != 1"
       ],
-      "yes": "Find a defensible building and leave yourself a way out. Prepare water, light and a sleeping place; a bone-and-stone ward will quiet the Brand near your bed. Replace the missing hand when you can, then follow the marked hollow. Do not seek a greater enemy while you are still recovering.",
+      "yes": "Find shelter and tend your wounds before following the marked hollow. If replacing your hand is the greater need, seek Godot first; the hunt can wait.",
       "no": {
         "math": [
-          "u_berserk_flora_met != 1"
+          "u_berserk_breach_sealed != 1"
         ],
-        "yes": {
-          "test_eoc": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE",
-          "yes": "The records now lead to Flora, a witch who tends a protected spiritual tree. Follow her directions and seek counsel before the next great journey.",
-          "no": "Follow the recovered trail to the ashen wound, then choose among the Count, the Black Dogs and the misty valley. Close their local breaches and keep the records you find; together they may show a road I cannot yet name for you."
-        },
-        "no": "Keep a refuge to return to. Prepare the equipment you can use with your remaining hand, and choose one unfinished trail from your journal. The wounds will not all close in a single hunt."
+        "yes": "Follow the recovered trail to the ashen wound. Examine what remains after its keeper falls. You can also prepare your equipment at the forge before going.",
+        "no": {
+          "yes": {
+            "math": [
+              "u_berserk_flora_met != 1"
+            ],
+            "yes": "The recovered records now lead to Flora. Seek her counsel at the spiritual tree and learn what help she can offer.",
+            "no": {
+              "math": [
+                "berserk_flora_stage <= 1"
+              ],
+              "yes": "Rest in the grove while you can. Understand the armor and prepare your supplies before choosing to continue.",
+              "no": {
+                "math": [
+                  "berserk_flora_stage == 2"
+                ],
+                "yes": "Leave the threatened grove by the western path or the southern garden. Keep moving until you are clear of the trees.",
+                "no": "Recover, then follow one known trail that remains unfinished. Your notes keep both the roads and the wounds already quieted."
+              }
+            }
+          },
+          "no": "Choose one unfinished trail from the records you recovered. Study its signs before entering; a quieter wound here will not silence another far away.",
+          "test_eoc": "EOC_BERSERK_EARLY_HUNTS_CLOSED"
+        }
       }
     },
     "responses": [
       {
         "text": "How do I make that shelter useful?",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD"
+      },
+      {
+        "text": "Tell me about the forge.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_GODO"
       },
       {
         "text": "Show me the next road.",
@@ -314,8 +332,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_HAND",
-    "dynamic_line": "'Craft the prosthetic arm cannon and its charge. Once the cannon is made, activate it from your inventory. The mount where your left hand used to be will hold it.'",
+    "dynamic_line": "A skilled metalworker can make the cannon: fabrication 8, mechanics 4 and the proper tools. Godot can do that work if you bring the materials. Either way, fit the finished cannon by activating it in your inventory.",
     "responses": [
+      {
+        "text": "Show me the craftsman.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_GODO"
+      },
       {
         "text": "Must I hold the cannon to attach it?",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_HAND_MOUNT"
@@ -412,6 +434,10 @@
         }
       },
       {
+        "text": "Show me the road to Godot.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_GODO"
+      },
+      {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
@@ -423,8 +449,12 @@
     "dynamic_line": "'He bought a few breaths for those who followed him. Do not let this place turn that choice into nothing.' The Skull Knight glances at the ruined hilt.",
     "responses": [
       {
-        "text": "I will remember.",
-        "topic": "TALK_DONE"
+        "text": "There is another memory I want to ask about.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
   },
@@ -434,8 +464,12 @@
     "dynamic_line": "'He stood where others would have fled. I cannot undo his death, but you can carry the memory of it beyond this field.'",
     "responses": [
       {
-        "text": "I will remember.",
-        "topic": "TALK_DONE"
+        "text": "There is another memory I want to ask about.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
   },
@@ -471,18 +505,25 @@
     "dynamic_line": "Each trail leads to its own creature and its own wound. Finding one does not erase the others. Read the signs before choosing an enemy; the journal keeps the roads you have learned, and records which breaches remain open.",
     "responses": [
       {
+        "text": "Mark the Count's residence.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NAMED_HUNTS",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_COUNT_SEEK"
+        }
+      },
+      {
         "text": "Mark Wyald's camp.",
         "effect": {
           "run_eocs": "EOC_BERSERK_WYALD_SEEK"
         },
-        "topic": "TALK_DONE"
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NAMED_HUNTS"
       },
       {
         "text": "Mark Rosine's valley.",
         "effect": {
           "run_eocs": "EOC_BERSERK_ROSINE_SEEK"
         },
-        "topic": "TALK_DONE"
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NAMED_HUNTS"
       },
       {
         "text": "Mark Grunbeld's stronghold.",
@@ -550,7 +591,7 @@
             "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
           }
         ],
-        "topic": "TALK_DONE"
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NAMED_HUNTS"
       },
       {
         "text": "Ask something else.",
@@ -566,7 +607,7 @@
         "u_berserk_first_hunt_done == 1"
       ],
       "yes": "The first hunt is complete. Read the directions you recovered and inspect the marked ashen breach. The remaining records point toward the independent hunts.",
-      "no": "The first hunt leads to a forest hollow held by a lesser apostle. Select the first hunt in your mission journal to see its target. Prepare armor, medical supplies and a way to retreat before entering the hollow."
+      "no": "A lesser apostle holds the marked forest hollow. Prepare armor, dressings and a way to retreat before entering the low ground. The directions in your notes lead to the same place."
     },
     "responses": [
       {
@@ -603,8 +644,12 @@
     "dynamic_line": "'The ceremony used hope as another snare. Remember him as a man who wanted to live, not merely as another body in the feast.'",
     "responses": [
       {
-        "text": "I will remember.",
-        "topic": "TALK_DONE"
+        "text": "There is another memory I want to ask about.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
   },
@@ -614,8 +659,12 @@
     "dynamic_line": "'He carried the tools of a life beyond war. Taking them out of this darkness does not mend what was lost, but it denies the feast the last word.'",
     "responses": [
       {
-        "text": "I will remember.",
-        "topic": "TALK_DONE"
+        "text": "There is another memory I want to ask about.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
   },
@@ -759,6 +808,74 @@
       {
         "text": "And the local breach?",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_FIRST_HUNT"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_WORLD",
+    "dynamic_line": "Ask about the wound you carry, or about the beings that cross it. One answer will not explain every creature in this changed world.",
+    "responses": [
+      {
+        "text": "Why does the Brand call to them?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
+      },
+      {
+        "text": "Who are the apostles and the God Hand?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_APOSTLES"
+      },
+      {
+        "text": "What changed when the worlds collided?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_WORLD_COLLISION"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_PRACTICAL",
+    "dynamic_line": "First protect the life that escaped. We can speak of shelter, your injuries, or a craftsman who can help replace what was lost.",
+    "responses": [
+      {
+        "text": "How do I prepare a refuge?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD"
+      },
+      {
+        "text": "What did the Eclipse do to my body?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_INJURIES"
+      },
+      {
+        "text": "Who can make a prosthetic and a weapon?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_GODO"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_GODO",
+    "dynamic_line": "Godot keeps a forge in the woods. Rickert works beside him. Bring useful metal rather than promises; the smith can make the cannon and a great blade. If you already carry his work, ask him to mend it. These directions will remain in your notes after we part.",
+    "responses": [
+      {
+        "text": "Mark the road to the forge.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_GODO",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_SEEK"
+        }
+      },
+      {
+        "text": "Can I still make the cannon myself?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_HAND"
       },
       {
         "text": "Ask something else.",

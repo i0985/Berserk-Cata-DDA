@@ -1,0 +1,725 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_ENTER",
+    "dynamic_line": "*The old smith rests his hammer against the anvil. Rickert glances up from a leather strap.",
+    "responses": [
+      {
+        "text": "May we talk?",
+        "topic": "TALK_BERSERK_GODO"
+      },
+      {
+        "text": "I will come back later.",
+        "topic": "TALK_DONE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "run_eocs": "EOC_BERSERK_GODO_BEGIN"
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO",
+    "dynamic_line": "If you came for a miracle, you've taken the wrong road. If you need honest iron, tell me what it has to do.",
+    "responses": [
+      {
+        "text": "I need a prosthetic for my missing hand.",
+        "topic": "TALK_BERSERK_GODO_ARM"
+      },
+      {
+        "text": "Can you forge a weapon for fighting demons?",
+        "topic": "TALK_BERSERK_GODO_SWORD"
+      },
+      {
+        "text": "Can you repair what I already have?",
+        "topic": "TALK_BERSERK_GODO_REPAIR"
+      },
+      {
+        "text": "Why do you keep forging?",
+        "topic": "TALK_BERSERK_GODO_SPARKS"
+      },
+      {
+        "text": "May I rest here? And who is Rickert?",
+        "topic": "TALK_BERSERK_GODO_HOME"
+      },
+      {
+        "text": "I will leave you to your work.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS",
+    "dynamic_line": "For years I thought about nothing but the next piece of iron. Heat it, strike it, watch the sparks die. Then I began to notice how much those brief lights resemble a life: bright for a moment, gone before your hand can catch them. I still forge. It's the work I know how to give to the living.",
+    "responses": [
+      {
+        "text": "Does a weapon give a life meaning?",
+        "topic": "TALK_BERSERK_GODO_PRICE"
+      },
+      {
+        "text": "Were you always a smith?",
+        "topic": "TALK_BERSERK_GODO_LIFE"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_PRICE",
+    "dynamic_line": "A blade doesn't decide why you live. Keep swinging only to fill the silence, and you'll lose whatever waited beyond the battle. I can make the iron endure. The reason to come home is your own work.",
+    "responses": [
+      {
+        "text": "Then make something I can return with.",
+        "topic": "TALK_BERSERK_GODO_SWORD"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_LIFE",
+    "dynamic_line": "I've served men who wanted a beautiful blade and men who wanted an impossible one. Iron is more honest than either. Out here Rickert and I can make something useful without a lord counting every blow of the hammer.",
+    "responses": [
+      {
+        "text": "Tell me more about the sparks.",
+        "topic": "TALK_BERSERK_GODO_SPARKS"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_HOME",
+    "dynamic_line": "The forge is downstairs; sleep upstairs if you need to. Keep the stair and doors clear. Rickert helps with the small moving parts and straps. We can offer a roof and a quiet corner, but walls alone will not silence that mark.",
+    "responses": [
+      {
+        "text": "Can Rickert help me fit the cannon?",
+        "topic": "TALK_BERSERK_GODO_FITTING"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_FITTING",
+    "dynamic_line": "He will show you the fastenings. Once you have the finished cannon and the mount on your missing left hand, activate the cannon in your inventory. You do not have to wield it, use electricity or seek a surgeon.",
+    "responses": [
+      {
+        "text": "What if I want to make it myself?",
+        "topic": "TALK_BERSERK_GODO_SELF"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SELF",
+    "dynamic_line": "Making that mechanism is advanced work: fabrication 8 and mechanics 4, with the proper metalworking tools. Bring the materials and I can do it without requiring you to master the craft. Fitting a finished cannon remains something you can do yourself.",
+    "responses": [
+      {
+        "text": "Return to the arm cannon order.",
+        "topic": "TALK_BERSERK_GODO_ARM"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_ARM",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_GODO_HAS_ARM",
+      "yes": "That mechanism is already made. Let me see how it was put together. You need not pay for a second one.",
+      "no": {
+        "math": [
+          "u_berserk_godo_arm_state == 4"
+        ],
+        "yes": "Your order is settled. Look after the cannon I gave you; Rickert can explain its fitting.",
+        "no": {
+          "math": [
+            "u_berserk_godo_arm_state == 3"
+          ],
+          "yes": "The metal and fittings are here. Give me six hours from the last delivery; then come back for the finished cannon.",
+          "no": "I can make a cannon and a grip to fit the stump. First bring 8 lumps of steel and 2 pipes; then 2 springs, 4 leather patches and 200 charcoal. Rickert will prepare the straps."
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "I made this prosthetic myself.",
+        "topic": "TALK_BERSERK_GODO_PRAISE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+        }
+      },
+      {
+        "text": "I want to order the arm cannon.",
+        "topic": "TALK_BERSERK_GODO_ARM",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_arm_state == 0"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+              }
+            },
+            {
+              "u_has_bionics": "bio_berserk_hand_stump"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_START_ARM"
+        }
+      },
+      {
+        "text": "Deliver 8 steel lumps and 2 pipes.",
+        "topic": "TALK_BERSERK_GODO_ARM",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_arm_state == 1"
+              ]
+            },
+            {
+              "u_has_items": {
+                "item": "steel_lump",
+                "count": 8
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "pipe",
+                "count": 2
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_ARM_METAL"
+        }
+      },
+      {
+        "text": "Deliver the springs, leather and charcoal.",
+        "topic": "TALK_BERSERK_GODO_ARM",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_arm_state == 2"
+              ]
+            },
+            {
+              "u_has_items": {
+                "item": "spring",
+                "count": 2
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "leather",
+                "count": 4
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "charcoal",
+                "count": 200
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_ARM_FITTINGS"
+        }
+      },
+      {
+        "text": "Collect the finished arm cannon.",
+        "topic": "TALK_BERSERK_GODO_FITTING",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_arm_state == 3"
+              ]
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_godo_arm_ready_at"
+              ]
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_ARM_CLAIM"
+        }
+      },
+      {
+        "text": "I already have one. Return my unused materials.",
+        "topic": "TALK_BERSERK_GODO_ARM",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state < 4"
+              ]
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_ARM_REFUND"
+        }
+      },
+      {
+        "text": "Remind me what I still owe.",
+        "topic": "TALK_BERSERK_GODO_ARM_STATUS"
+      },
+      {
+        "text": "Can I make it myself?",
+        "topic": "TALK_BERSERK_GODO_SELF"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_PRAISE",
+    "dynamic_line": {
+      "u_has_bionics": "bio_berserk_hand_stump",
+      "yes": "You made this with one hand? Hah! That isn't luck; those joints took skill. Keep watching the fit and don't let that skill die with the first thing you've built.",
+      "no": "Clean work. The fitting matters more than a fine polish; keep it in good order."
+    },
+    "responses": [
+      {
+        "text": "Return to the arm cannon order.",
+        "topic": "TALK_BERSERK_GODO_ARM"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_ARM_STATUS",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_godo_arm_state == 4"
+      ],
+      "yes": "There is nothing left to deliver for this order. Ask about fitting or repairs if you need help.",
+      "no": {
+        "math": [
+          "u_berserk_godo_arm_state == 2"
+        ],
+        "yes": "The metal is paid for. Bring 2 springs, 4 leather patches and 200 charcoal.",
+        "no": {
+          "math": [
+            "u_berserk_godo_arm_state >= 3"
+          ],
+          "yes": "The supplies are complete. If the cannon is not yet finished, wait until six hours have passed from your last delivery.",
+          "no": "The first delivery is 8 lumps of steel and 2 pipes. After that I need springs, leather and charcoal. Keep the order notes; you need not remember the list."
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Return to the arm cannon order.",
+        "topic": "TALK_BERSERK_GODO_ARM"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SWORD",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD",
+      "yes": "You already carry that great blade. I will not forge another to lie beside it. We can restore its edge and keep you supplied for the next journey.",
+      "no": "A Dragonslayer is a great piece of work, not an ordinary sword recipe. Bring 32 lumps of steel in loads of eight, then 8 lumps of high steel, 600 charcoal and 4 leather patches. After that I need two days to forge and temper it."
+    },
+    "responses": [
+      {
+        "text": "Accept my order for a Dragonslayer.",
+        "topic": "TALK_BERSERK_GODO_SWORD",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_sword_state == 0"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_START_SWORD"
+        }
+      },
+      {
+        "text": "Deliver a load of 8 steel lumps.",
+        "topic": "TALK_BERSERK_GODO_SWORD_STATUS",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_sword_state == 1"
+              ]
+            },
+            {
+              "u_has_items": {
+                "item": "steel_lump",
+                "count": 8
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_SWORD_IRON"
+        }
+      },
+      {
+        "text": "Deliver the high steel, charcoal and leather.",
+        "topic": "TALK_BERSERK_GODO_SWORD_STATUS",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_sword_state == 2"
+              ]
+            },
+            {
+              "u_has_items": {
+                "item": "hc_steel_lump",
+                "count": 8
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "charcoal",
+                "count": 600
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "leather",
+                "count": 4
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_SWORD_TEMPER"
+        }
+      },
+      {
+        "text": "Collect the Dragonslayer.",
+        "topic": "TALK_BERSERK_GODO_PRICE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_sword_state == 3"
+              ]
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_godo_sword_ready_at"
+              ]
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_SWORD_CLAIM"
+        }
+      },
+      {
+        "text": "I found a blade already. Return my unused materials.",
+        "topic": "TALK_BERSERK_GODO_SWORD",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state < 4"
+              ]
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_SWORD_REFUND"
+        }
+      },
+      {
+        "text": "What remains to be delivered?",
+        "topic": "TALK_BERSERK_GODO_SWORD_STATUS"
+      },
+      {
+        "text": "Where can I find the right steel?",
+        "topic": "TALK_BERSERK_GODO_STEEL"
+      },
+      {
+        "text": "Can you repair my existing blade?",
+        "topic": "TALK_BERSERK_GODO_REPAIR",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+        }
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SWORD_STATUS",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_godo_sword_state == 1"
+      ],
+      "yes": "I have received <u_val:berserk_godo_sword_iron_given> of the 32 steel lumps. Bring the next load of eight.",
+      "no": {
+        "math": [
+          "u_berserk_godo_sword_state == 2"
+        ],
+        "yes": "The ordinary steel is here. Bring 8 lumps of high steel, 600 charcoal and 4 leather patches.",
+        "no": {
+          "math": [
+            "u_berserk_godo_sword_state == 3"
+          ],
+          "yes": "The material is ready. I need two days from the last delivery before you can collect the blade.",
+          "no": "If you want a new blade, place the order first. A blade I already made for you is work to maintain, not a reason to begin a second copy."
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Return to the sword order.",
+        "topic": "TALK_BERSERK_GODO_SWORD"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_STEEL",
+    "dynamic_line": "Separate ordinary steel from high-carbon steel. Look in metal stores and working smithies, or smelt high steel with the ordinary metalworking recipes. I do not need a magic stone or the head of an apostle. Eight good lumps matter more than a pile of poor metal.",
+    "responses": [
+      {
+        "text": "Return to the sword order.",
+        "topic": "TALK_BERSERK_GODO_SWORD"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_REPAIR",
+    "dynamic_line": "Bring one steel lump and 50 charcoal for a damaged blade or an uninstalled cannon. Show me the piece you want repaired. I do not replace it with a copy, and choosing nothing costs you nothing. Rickert will help maintain an installed prosthetic with the right tools.",
+    "responses": [
+      {
+        "text": "Show you a damaged piece.",
+        "topic": "TALK_BERSERK_GODO_REPAIR",
+        "condition": {
+          "and": [
+            {
+              "u_has_items": {
+                "item": "steel_lump",
+                "count": 1
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "charcoal",
+                "count": 50
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_REPAIR_PICK"
+        }
+      },
+      {
+        "text": "What can you offer if I already own your sword?",
+        "topic": "TALK_BERSERK_GODO_OWNER"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_OWNER",
+    "dynamic_line": "Use the bench and anvil. I can restore the blade you brought; Rickert can explain its fittings and the cannon. Upstairs there is room to rest. Keeping a weapon usable is worth more than collecting a second one.",
+    "responses": [
+      {
+        "text": "Return to repairs.",
+        "topic": "TALK_BERSERK_GODO_REPAIR"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT",
+    "dynamic_line": "Godot handles the great pieces. I work on the joints, straps and things that have to move without catching. What do you need?",
+    "responses": [
+      {
+        "text": "How do I fit the arm cannon?",
+        "topic": "TALK_BERSERK_RICKERT_ARM"
+      },
+      {
+        "text": "How do I keep the mechanism working?",
+        "topic": "TALK_BERSERK_RICKERT_CARE"
+      },
+      {
+        "text": "What is it like working with Godot?",
+        "topic": "TALK_BERSERK_RICKERT_GODO"
+      },
+      {
+        "text": "Where may I leave supplies and rest?",
+        "topic": "TALK_BERSERK_RICKERT_HOME"
+      },
+      {
+        "text": "Thank you.",
+        "topic": "TALK_DONE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "run_eocs": "EOC_BERSERK_GODO_BEGIN"
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_ARM",
+    "dynamic_line": "Keep the finished cannon in your pack and activate it there. The left-hand stump mount must be empty. You can fasten it with your remaining hand; no electricity is involved. Bring the metal to Godot if you cannot make the mechanism yourself.",
+    "responses": [
+      {
+        "text": "What if I already have a cannon?",
+        "topic": "TALK_BERSERK_RICKERT_CARE"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_RICKERT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_CARE",
+    "dynamic_line": "Keep grit out of the hinge and replace straps before they split. Godot can repair a loose cannon or blade you carry. An installed cannon is a different job; I will not ask you to tear it off just to collect another one.",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_RICKERT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_GODO",
+    "dynamic_line": "He says little until the iron is ready. Then one bad joint can earn more words than a whole day at the fire. Listen when he talks about coming home. The things we make are for people who still have somewhere to return.",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_RICKERT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_HOME",
+    "dynamic_line": "The stair leads to the sleeping loft. The forge and working tools stay below. Do not pile supplies across the stair, and keep a way to the door if your Brand wakes you at night.",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_RICKERT"
+      }
+    ]
+  }
+]

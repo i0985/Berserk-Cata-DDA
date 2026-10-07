@@ -37,8 +37,8 @@
     },
     "responses": [
       {
-        "text": "Tell me about the Brand.",
-        "topic": "TALK_BERSERK_FLORA_BRAND",
+        "text": "What should I do now?",
+        "topic": "TALK_BERSERK_FLORA_NEXT",
         "condition": {
           "math": [
             "berserk_flora_stage <= 1"
@@ -46,7 +46,16 @@
         }
       },
       {
-        "text": "Tell me about the Berserker armor.",
+        "text": "Tell me about the Brand and the crossing.",
+        "topic": "TALK_BERSERK_FLORA_WORLD",
+        "condition": {
+          "math": [
+            "berserk_flora_stage <= 1"
+          ]
+        }
+      },
+      {
+        "text": "Tell me about the armor and its price.",
         "topic": "TALK_BERSERK_FLORA_ARMOR",
         "condition": {
           "math": [
@@ -55,25 +64,7 @@
         }
       },
       {
-        "text": "Who are the apostles and the God Hand?",
-        "topic": "TALK_BERSERK_FLORA_APOSTLES",
-        "condition": {
-          "math": [
-            "berserk_flora_stage <= 1"
-          ]
-        }
-      },
-      {
-        "text": "Can an apostle's relic help me?",
-        "topic": "TALK_BERSERK_FLORA_RELICS",
-        "condition": {
-          "math": [
-            "berserk_flora_stage <= 1"
-          ]
-        }
-      },
-      {
-        "text": "May I rest here and look around?",
+        "text": "May I rest here and ask for help?",
         "topic": "TALK_BERSERK_FLORA_HOME",
         "condition": {
           "math": [
@@ -82,8 +73,8 @@
         }
       },
       {
-        "text": "What road should I take next?",
-        "topic": "TALK_BERSERK_FLORA_NEXT",
+        "text": "I have questions about the things I found.",
+        "topic": "TALK_BERSERK_FLORA_RELICS",
         "condition": {
           "math": [
             "berserk_flora_stage <= 1"
@@ -175,24 +166,6 @@
         }
       },
       {
-        "text": "You have already entrusted the armor to me.",
-        "topic": "TALK_BERSERK_FLORA_RECEIVED",
-        "condition": {
-          "and": [
-            {
-              "math": [
-                "u_berserk_flora_armor_resolved == 1"
-              ]
-            },
-            {
-              "math": [
-                "berserk_flora_armor_claimed == 1"
-              ]
-            }
-          ]
-        }
-      },
-      {
         "text": "Is there any armor left here?",
         "topic": "TALK_BERSERK_FLORA_UNAVAILABLE",
         "condition": {
@@ -224,7 +197,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_COST",
-    "dynamic_line": "\"The rage lasts 150 seconds. The Beast Knot sharpens sight in darkness; it does not lengthen the armor's frenzy. When the rage ends, stamina is emptied, blood volume falls and a three-day recovery follows. Taking off the armor ends the rush, not its price. Prepare your retreat before losing control.\"",
+    "dynamic_line": "The frenzy can drive you for about two and a half minutes. Afterwards your strength and blood must recover; the price lasts much longer than the rush. The armor conceals pain, not the wound. Plan where to retreat before relying on it.",
     "responses": [
       {
         "text": "Can I learn to stop before the armor takes over?",
@@ -254,7 +227,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_RELICS",
-    "dynamic_line": "Some trophies retain a little of the power that shaped their former master. They may help you strike a demon, keep the armor's rage longer, or endure a danger you could not bear before. Wear them for their purpose, not as a promise of safety.",
+    "dynamic_line": "Some trophies keep a little of the power that shaped their former master. One may help you strike a demon, another see through darkness or endure heat. Ask about a relic you actually carry; none promises safety on every road.",
     "responses": [
       {
         "text": "Can one of them free me from the Brand?",
@@ -394,6 +367,10 @@
         "topic": "TALK_BERSERK_FLORA_NEXT"
       },
       {
+        "text": "Can a smith help prepare my equipment?",
+        "topic": "TALK_BERSERK_FLORA_SMITH"
+      },
+      {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
@@ -473,10 +450,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_SIEGE_CONFIRM",
-    "dynamic_line": "Something is pressing against the outer roots. I can prepare a charm to open a way out when the grove can no longer hold it back. Put on your armor and gather your supplies first. Awakening the charm means you have chosen to leave; the western path and southern garden are your ways out.",
+    "dynamic_line": "Take the time you need to prepare. Once you understand the armor, I can ready a charm for the road. Keep your supplies close and notice the western path and the southern garden before you set out.",
     "responses": [
       {
-        "text": "Prepare the charm. I understand the danger.",
+        "text": "I have prepared. Ready the charm.",
         "topic": "TALK_DONE",
         "condition": {
           "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
@@ -506,10 +483,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_SIEGE_OWNER_CONFIRM",
-    "dynamic_line": "Something is pressing against the outer roots. I can prepare a charm to open a way out when the grove can no longer hold it back. Put on your armor and gather your supplies first. Awakening the charm means you have chosen to leave; the western path and southern garden are your ways out.",
+    "dynamic_line": "Take the time you need to prepare. Once you understand the armor, I can ready a charm for the road. Keep your supplies close and notice the western path and the southern garden before you set out.",
     "responses": [
       {
-        "text": "Prepare the charm. I understand the danger.",
+        "text": "I have prepared. Ready the charm.",
         "topic": "TALK_DONE",
         "condition": {
           "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
@@ -568,7 +545,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WORLD_COLLISION",
-    "dynamic_line": "\"I am a witch, not a fairy, and this house stands beside a spiritual tree. The first collision joined wounds in your world to paths in ours. Your Eclipse deepened those openings, drawing more creatures across. Quieting one breach helps the land nearby; it cannot mend every wound or erase your Brand.\"",
+    "dynamic_line": "This house stands beside a spiritual tree. The crossing joined wounds in your world to paths in ours; the Eclipse deepened them. Quieting one wound helps those nearby, but cannot mend the whole boundary. That is why I guard this place and share what I can.",
     "responses": [
       {
         "text": "Does that make the apostles projections?",
@@ -666,10 +643,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PREPARATION",
-    "dynamic_line": "Something is pressing against the outer roots. I can prepare a charm to open a way out when the grove can no longer hold it back. Put on your armor and gather your supplies first. Awakening the charm means you have chosen to leave; the western path and southern garden are your ways out.",
+    "dynamic_line": "Take the time you need to prepare. Once you understand the armor, I can ready a charm for the road. Keep your supplies close and notice the western path and the southern garden before you set out.",
     "responses": [
       {
-        "text": "Prepare the charm. I understand the danger.",
+        "text": "I have prepared. Ready the charm.",
         "topic": "TALK_DONE",
         "condition": {
           "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
@@ -699,7 +676,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PREPARED",
-    "dynamic_line": "The charm is ready. Keep it with you while you finish gathering what you need. When you awaken it here, set out at once by the western path or the southern garden. You may still rest and speak with me until then.",
+    "dynamic_line": "The charm is ready. Keep it while you finish preparing. Awaken it here when you choose to set out; until then you can rest or ask more questions.",
     "responses": [
       {
         "text": "I lost the charm. May I have another?",
@@ -742,6 +719,47 @@
       {
         "text": "And the armor has a price too?",
         "topic": "TALK_BERSERK_FLORA_COST"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_WORLD",
+    "dynamic_line": "We can begin with the wound you carry or with the paths between these worlds. Ask what you need to understand first.",
+    "responses": [
+      {
+        "text": "What does the Brand feel?",
+        "topic": "TALK_BERSERK_FLORA_BRAND"
+      },
+      {
+        "text": "Who crosses the wounds?",
+        "topic": "TALK_BERSERK_FLORA_APOSTLES"
+      },
+      {
+        "text": "Why did the worlds collide?",
+        "topic": "TALK_BERSERK_FLORA_WORLD_COLLISION"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_SMITH",
+    "dynamic_line": "Godot and Rickert work at a woodland forge. They can help with a mechanical hand and a blade that must endure great strain. If you already own their work, ask for repairs rather than a second weapon.",
+    "responses": [
+      {
+        "text": "Mark the road to the forge.",
+        "topic": "TALK_BERSERK_FLORA_SMITH",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_SEEK"
+        }
       },
       {
         "text": "Ask something else.",

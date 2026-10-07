@@ -1911,104 +1911,11 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_HUNT_JOURNAL_USE",
-    "effect": [
-      {
-        "if": {
-          "u_query": "Trace Wyald and the Black Dogs? Yes selects this trail. No shows the next trail or the hunt summary.",
-          "default": false
-        },
-        "then": {
-          "run_eocs": "EOC_BERSERK_WYALD_SEEK"
-        },
-        "else": {
-          "if": {
-            "u_query": "Trace Rosine's Mistvale? Yes selects this trail. No shows the next trail or the hunt summary.",
-            "default": false
-          },
-          "then": {
-            "run_eocs": "EOC_BERSERK_ROSINE_SEEK"
-          },
-          "else": {
-            "if": {
-              "u_query": "Trace the Count's residence? Yes selects this trail. No shows the next trail or the hunt summary.",
-              "default": false
-            },
-            "then": {
-              "run_eocs": "EOC_BERSERK_COUNT_SEEK"
-            },
-            "else": {
-              "if": {
-                "and": [
-                  {
-                    "or": [
-                      {
-                        "math": [
-                          "u_berserk_flora_escaped == 1"
-                        ]
-                      },
-                      {
-                        "math": [
-                          "berserk_flora_stage == 3"
-                        ]
-                      },
-                      {
-                        "math": [
-                          "berserk_hunt_grunbeld_site_registered == 1"
-                        ]
-                      }
-                    ]
-                  },
-                  {
-                    "u_query": "Trace Grunbeld's scarred stronghold? Yes selects this trail. No shows the next trail or the hunt summary.",
-                    "default": false
-                  }
-                ]
-              },
-              "then": {
-                "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
-              },
-              "else": [
-                {
-                  "if": {
-                    "and": [
-                      {
-                        "math": [
-                          "berserk_hunt_count_state >= 4"
-                        ]
-                      },
-                      {
-                        "math": [
-                          "berserk_hunt_wyald_state >= 4"
-                        ]
-                      },
-                      {
-                        "math": [
-                          "berserk_hunt_rosine_state >= 4"
-                        ]
-                      },
-                      {
-                        "math": [
-                          "berserk_hunt_grunbeld_state >= 4"
-                        ]
-                      }
-                    ]
-                  },
-                  "then": {
-                    "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
-                  },
-                  "else": {
-                    "run_eocs": "EOC_BERSERK_HUNT_STATUS"
-                  }
-                }
-              ]
-            }
-          }
-        }
-      },
-      {
-        "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+    "effect": {
+      "open_dialogue": {
+        "topic": "TALK_BERSERK_ROAD_JOURNAL"
       }
-    ],
+    },
     "false_effect": {
       "u_message": "These trails belong to the road after the Eclipse and the first hunt.",
       "type": "info",

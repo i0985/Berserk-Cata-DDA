@@ -43,7 +43,7 @@
               "i18n": true
             },
             "else": {
-              "set_string_var": "Prepare for the first hunt; select its existing mission in the mission journal.",
+              "set_string_var": "Prepare armor, dressings and a retreat before following the first hunt.",
               "target_var": {
                 "context_val": "campaign_first"
               },
@@ -59,14 +59,14 @@
           ]
         },
         "then": {
-          "set_string_var": "Refuge readiness recorded. Check water, light, bedding and an escape yourself.",
+          "set_string_var": "Your refuge is prepared. Check your supplies and leave a clear route out.",
           "target_var": {
             "context_val": "campaign_refuge"
           },
           "i18n": true
         },
         "else": {
-          "set_string_var": "Choose a defensible shelter and build a ward. Refuge and dawn observations are optional, not gates for hunting.",
+          "set_string_var": "Choose a defensible shelter and build a ward. Preparing a refuge helps you recover between hunts.",
           "target_var": {
             "context_val": "campaign_refuge"
           },
@@ -87,7 +87,7 @@
           "i18n": true
         },
         "else": {
-          "set_string_var": "No dawn observation recorded yet. The refuge journal explains the optional criteria.",
+          "set_string_var": "You have not yet recorded a night at your refuge. Keep water, light and an escape ready.",
           "target_var": {
             "context_val": "campaign_night"
           },

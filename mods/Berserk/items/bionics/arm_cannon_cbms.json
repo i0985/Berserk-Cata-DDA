@@ -2,10 +2,14 @@
   {
     "id": "bio_berserk_hand_stump",
     "type": "ITEM",
-    "subtypes": [ "BIONIC_ITEM" ],
+    "subtypes": [
+      "BIONIC_ITEM"
+    ],
     "copy-from": "bionic_general",
     "looks_like": "bio_shotgun",
-    "name": { "str": "lost left hand interface CBM" },
+    "name": {
+      "str": "lost left hand interface CBM"
+    },
     "description": "An interface left behind after the hand is lost. It cannot restore your grip, but provides a mount for a prosthetic cannon. Installing it teaches the recipes for 'prosthetic arm cannon CBM' and 'arm cannon charge'. Activate the crafted cannon from your inventory to attach it yourself, without power or surgery.",
     "weight": "250 g",
     "volume": "250 ml",
@@ -14,24 +18,37 @@
   {
     "id": "bio_berserk_arm_cannon",
     "type": "ITEM",
-    "subtypes": [ "TOOL" ],
+    "subtypes": [
+      "TOOL"
+    ],
     "category": "bionics",
-    "material": [ "steel", "plastic" ],
+    "material": [
+      "steel",
+      "leather"
+    ],
     "symbol": ":",
     "color": "yellow",
     "price_postapoc": "10 USD",
-    "flags": [ "CBM", "ALLOWS_REMOTE_USE", "FRAGILE_MELEE" ],
+    "flags": [
+      "CBM",
+      "ALLOWS_REMOTE_USE",
+      "FRAGILE_MELEE"
+    ],
     "charges_per_use": 0,
     "looks_like": "bio_shotgun",
-    "name": { "str": "prosthetic arm cannon CBM" },
-    "description": "A handmade mechanical arm cannon. With the lost left-hand interface installed, activate this item directly in your inventory to attach it yourself, even with your remaining hand occupied. Do not wield it to install it. No power, surgical equipment, or other materials are required. The item is consumed only after the prosthetic arm cannon bionic is successfully installed.",
+    "name": {
+      "str": "prosthetic arm cannon CBM"
+    },
+    "description": "A mechanical arm cannon made by hand or at Godot's forge. With your left hand missing, activate it directly in your inventory to attach it yourself. No electricity or surgical equipment is required. Making one yourself requires fabrication 8 and mechanics 4.",
     "weight": "3500 g",
     "volume": "3000 ml",
     "use_action": {
       "type": "effect_on_conditions",
       "need_wielding": false,
       "menu_text": "Attach arm cannon",
-      "effect_on_conditions": [ "EOC_BERSERK_ARM_CANNON_SELF_INSTALL" ]
+      "effect_on_conditions": [
+        "EOC_BERSERK_ARM_CANNON_SELF_INSTALL"
+      ]
     }
   }
 ]
