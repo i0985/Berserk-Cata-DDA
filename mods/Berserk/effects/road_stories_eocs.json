@@ -1,0 +1,559 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_READ_CARAVAN",
+    "effect": {
+      "u_message": "We lost the wheel before sunset. The others carried the grain north, leaving the iron here. I heard something following the wheels, but the track behind us was empty. If we return, we will look beneath the bound box first.",
+      "popup": true,
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_READ_SCOUT",
+    "effect": {
+      "u_message": "The open clearing is watched. I saw the trees move while the air was still. I tied the pack above the washout and took the lower path to see whether the other bank was clear. If I fail to return, keep to stone and leave room to turn back.",
+      "popup": true,
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_READ_CAMP",
+    "effect": {
+      "u_message": "We leave before the next dusk. The children slept beneath the branches, and the water is still clean. Whoever follows us may need the blanket more than we do. There were cries beyond the track last night. We did not go to look.",
+      "popup": true,
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_USED",
+    "effect": {
+      "u_message": "Only the traces of your earlier visit remain.",
+      "type": "info"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_ENTER_CARAVAN",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_road_caravan",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    },
+    "effect": [
+      {
+        "copy_var": {
+          "context_val": "pos"
+        },
+        "target_var": {
+          "u_val": "berserk_road_story_pos"
+        }
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_ROAD_CARAVAN"
+        }
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_road_caravan_provisions",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_road_caravan"
+        ],
+        "result": "f_berserk_road_caravan_provisions"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_CARAVAN_PROVISIONS",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "distance('u', u_berserk_road_story_pos) <= 1"
+              ]
+            },
+            {
+              "map_furniture_id": "f_berserk_road_caravan",
+              "loc": {
+                "u_val": "berserk_road_story_pos"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_road_caravan_provisions",
+        "target_var": {
+          "u_val": "berserk_road_story_pos"
+        }
+      },
+      {
+        "if": {
+          "map_furniture_id": "f_berserk_road_caravan_provisions",
+          "loc": {
+            "u_val": "berserk_road_story_pos"
+          }
+        },
+        "then": [
+          {
+            "map_spawn_item": "berserk_road_caravan_provisions",
+            "use_item_group": true,
+            "loc": {
+              "u_val": "berserk_road_story_pos"
+            }
+          },
+          {
+            "turn_cost": "1 minute"
+          },
+          {
+            "u_message": "You finish sorting the belongings. The recovered pieces are beside you.",
+            "type": "info",
+            "popup": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_road_caravan_iron",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_road_caravan"
+        ],
+        "result": "f_berserk_road_caravan_iron"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_CARAVAN_IRON",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "distance('u', u_berserk_road_story_pos) <= 1"
+              ]
+            },
+            {
+              "map_furniture_id": "f_berserk_road_caravan",
+              "loc": {
+                "u_val": "berserk_road_story_pos"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_road_caravan_iron",
+        "target_var": {
+          "u_val": "berserk_road_story_pos"
+        }
+      },
+      {
+        "if": {
+          "map_furniture_id": "f_berserk_road_caravan_iron",
+          "loc": {
+            "u_val": "berserk_road_story_pos"
+          }
+        },
+        "then": [
+          {
+            "map_spawn_item": "berserk_road_caravan_iron",
+            "use_item_group": true,
+            "loc": {
+              "u_val": "berserk_road_story_pos"
+            }
+          },
+          {
+            "turn_cost": "3 minutes"
+          },
+          {
+            "u_message": "You finish sorting the belongings. The recovered pieces are beside you.",
+            "type": "info",
+            "popup": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_ENTER_SCOUT",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_road_scout",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    },
+    "effect": [
+      {
+        "copy_var": {
+          "context_val": "pos"
+        },
+        "target_var": {
+          "u_val": "berserk_road_story_pos"
+        }
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_ROAD_SCOUT"
+        }
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_road_scout_pack",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_road_scout"
+        ],
+        "result": "f_berserk_road_scout_pack"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_SCOUT_PACK",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "distance('u', u_berserk_road_story_pos) <= 1"
+              ]
+            },
+            {
+              "map_furniture_id": "f_berserk_road_scout",
+              "loc": {
+                "u_val": "berserk_road_story_pos"
+              }
+            }
+          ]
+        },
+        {
+          "u_has_items": {
+            "item": "rope_6",
+            "count": 1
+          }
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_road_scout_pack",
+        "target_var": {
+          "u_val": "berserk_road_story_pos"
+        }
+      },
+      {
+        "if": {
+          "map_furniture_id": "f_berserk_road_scout_pack",
+          "loc": {
+            "u_val": "berserk_road_story_pos"
+          }
+        },
+        "then": [
+          {
+            "map_spawn_item": "berserk_road_scout_pack",
+            "use_item_group": true,
+            "loc": {
+              "u_val": "berserk_road_story_pos"
+            }
+          },
+          {
+            "turn_cost": "2 minutes"
+          },
+          {
+            "u_message": "You finish sorting the belongings. The recovered pieces are beside you.",
+            "type": "info",
+            "popup": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_road_scout_bundle",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_road_scout"
+        ],
+        "result": "f_berserk_road_scout_bundle"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_SCOUT_BUNDLE",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "distance('u', u_berserk_road_story_pos) <= 1"
+              ]
+            },
+            {
+              "map_furniture_id": "f_berserk_road_scout",
+              "loc": {
+                "u_val": "berserk_road_story_pos"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_road_scout_bundle",
+        "target_var": {
+          "u_val": "berserk_road_story_pos"
+        }
+      },
+      {
+        "if": {
+          "map_furniture_id": "f_berserk_road_scout_bundle",
+          "loc": {
+            "u_val": "berserk_road_story_pos"
+          }
+        },
+        "then": [
+          {
+            "map_spawn_item": "berserk_road_scout_bundle",
+            "use_item_group": true,
+            "loc": {
+              "u_val": "berserk_road_story_pos"
+            }
+          },
+          {
+            "turn_cost": "15 seconds"
+          },
+          {
+            "u_message": "You finish sorting the belongings. The recovered pieces are beside you.",
+            "type": "info",
+            "popup": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_ENTER_CAMP",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_road_camp",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    },
+    "effect": [
+      {
+        "copy_var": {
+          "context_val": "pos"
+        },
+        "target_var": {
+          "u_val": "berserk_road_story_pos"
+        }
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_ROAD_CAMP"
+        }
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_road_camp_bed",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_road_camp"
+        ],
+        "result": "f_berserk_road_camp_bed"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_CAMP_BED",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "distance('u', u_berserk_road_story_pos) <= 1"
+              ]
+            },
+            {
+              "map_furniture_id": "f_berserk_road_camp",
+              "loc": {
+                "u_val": "berserk_road_story_pos"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_road_camp_bed",
+        "target_var": {
+          "u_val": "berserk_road_story_pos"
+        }
+      },
+      {
+        "if": {
+          "map_furniture_id": "f_berserk_road_camp_bed",
+          "loc": {
+            "u_val": "berserk_road_story_pos"
+          }
+        },
+        "then": [
+          {
+            "map_spawn_item": "berserk_road_camp_bed",
+            "use_item_group": true,
+            "loc": {
+              "u_val": "berserk_road_story_pos"
+            }
+          },
+          {
+            "turn_cost": "1 minute"
+          },
+          {
+            "u_message": "You finish sorting the belongings. The recovered pieces are beside you.",
+            "type": "info",
+            "popup": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_road_camp_blanket",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_road_camp"
+        ],
+        "result": "f_berserk_road_camp_blanket"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_CAMP_BLANKET",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "distance('u', u_berserk_road_story_pos) <= 1"
+              ]
+            },
+            {
+              "map_furniture_id": "f_berserk_road_camp",
+              "loc": {
+                "u_val": "berserk_road_story_pos"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "u_transform_radius": 0,
+        "ter_furn_transform": "berserk_road_camp_blanket",
+        "target_var": {
+          "u_val": "berserk_road_story_pos"
+        }
+      },
+      {
+        "if": {
+          "map_furniture_id": "f_berserk_road_camp_blanket",
+          "loc": {
+            "u_val": "berserk_road_story_pos"
+          }
+        },
+        "then": [
+          {
+            "map_spawn_item": "berserk_road_camp_blanket",
+            "use_item_group": true,
+            "loc": {
+              "u_val": "berserk_road_story_pos"
+            }
+          },
+          {
+            "turn_cost": "15 seconds"
+          },
+          {
+            "u_message": "You finish sorting the belongings. The recovered pieces are beside you.",
+            "type": "info",
+            "popup": false
+          }
+        ]
+      }
+    ]
+  }
+]

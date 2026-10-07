@@ -19,6 +19,8 @@ def ids(path):
     if current is not None:found.add(current)
     return found
 strings=json.loads((ROOT/'tools/godo_32_ru.json').read_text())
+road_strings=ROOT/'tools/road_stories_32_ru.json'
+if road_strings.exists():strings.update(json.loads(road_strings.read_text()))
 for name in ['ru.po','Berserk.pot']:
     path=MOD/'lang/po'/name
     existing=ids(path)

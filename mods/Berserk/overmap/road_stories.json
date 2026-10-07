@@ -1,0 +1,113 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_road_caravan",
+    "name": "plundered wagon stop",
+    "sym": "?",
+    "color": "brown",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_road_caravan_special",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_road_caravan"
+      }
+    ],
+    "locations": [
+      "forest_edge"
+    ],
+    "rotate": false,
+    "occurrences": [
+      15,
+      100
+    ],
+    "flags": [
+      "OVERMAP_UNIQUE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_road_scout",
+    "name": "scout trail",
+    "sym": "?",
+    "color": "brown",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_road_scout_special",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_road_scout"
+      }
+    ],
+    "locations": [
+      "forest_edge"
+    ],
+    "rotate": false,
+    "occurrences": [
+      12,
+      100
+    ],
+    "flags": [
+      "OVERMAP_UNIQUE"
+    ]
+  },
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_road_camp",
+    "name": "abandoned waycamp",
+    "sym": "?",
+    "color": "brown",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_road_camp_special",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_road_camp"
+      }
+    ],
+    "locations": [
+      "forest_edge"
+    ],
+    "rotate": false,
+    "occurrences": [
+      10,
+      100
+    ],
+    "flags": [
+      "OVERMAP_UNIQUE"
+    ]
+  }
+]

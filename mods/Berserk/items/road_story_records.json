@@ -1,0 +1,92 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_road_caravan_note",
+    "name": {
+      "str": "wagon tally"
+    },
+    "description": "A list of grain, straps and iron fittings. The last line was written after the load had been counted.",
+    "material": [
+      "paper"
+    ],
+    "category": "tools",
+    "weight": "5 g",
+    "volume": "10 ml",
+    "symbol": "?",
+    "color": "brown",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "need_wielding": false,
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROAD_READ_CARAVAN"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_road_scout_note",
+    "name": {
+      "str": "scout's field scrap"
+    },
+    "description": "A folded scrap with charcoal marks recording a forest crossing.",
+    "material": [
+      "paper"
+    ],
+    "category": "tools",
+    "weight": "5 g",
+    "volume": "10 ml",
+    "symbol": "?",
+    "color": "brown",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "need_wielding": false,
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROAD_READ_SCOUT"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_road_camp_note",
+    "name": {
+      "str": "message from the waycamp"
+    },
+    "description": "The corner of a letter left beneath a folded blanket.",
+    "material": [
+      "paper"
+    ],
+    "category": "tools",
+    "weight": "5 g",
+    "volume": "10 ml",
+    "symbol": "?",
+    "color": "brown",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "need_wielding": false,
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROAD_READ_CAMP"
+      ]
+    }
+  }
+]

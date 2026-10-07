@@ -1,0 +1,132 @@
+[
+  {
+    "type": "item_group",
+    "id": "berserk_road_caravan_provisions",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_medieval_food",
+        "prob": 100
+      },
+      {
+        "group": "berserk_location_cloth_dressings",
+        "prob": 100
+      },
+      {
+        "item": "berserk_road_caravan_note",
+        "prob": 100,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_road_caravan_iron",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "steel_lump",
+        "prob": 100,
+        "charges": 2
+      },
+      {
+        "item": "leather",
+        "prob": 100,
+        "count": 2
+      },
+      {
+        "item": "berserk_road_caravan_note",
+        "prob": 100,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_road_scout_pack",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "backpack_leather",
+        "prob": 100,
+        "count": 1,
+        "damage": 2
+      },
+      {
+        "item": "flint_steel",
+        "prob": 100,
+        "count": 1
+      },
+      {
+        "item": "bandages_makeshift",
+        "prob": 100,
+        "count": 2
+      },
+      {
+        "item": "berserk_road_scout_note",
+        "prob": 100,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_road_scout_bundle",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "needle_bone",
+        "prob": 100,
+        "count": 1
+      },
+      {
+        "item": "scrap_cotton",
+        "prob": 100,
+        "count": 2
+      },
+      {
+        "item": "berserk_road_scout_note",
+        "prob": 100,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_road_camp_bed",
+    "subtype": "collection",
+    "entries": [
+      {
+        "group": "berserk_location_medieval_water",
+        "prob": 100
+      },
+      {
+        "item": "berserk_road_camp_note",
+        "prob": 100,
+        "count": 1
+      }
+    ]
+  },
+  {
+    "type": "item_group",
+    "id": "berserk_road_camp_blanket",
+    "subtype": "collection",
+    "entries": [
+      {
+        "item": "fur_blanket",
+        "prob": 100,
+        "count": 1,
+        "damage": 1
+      },
+      {
+        "group": "berserk_location_medieval_water",
+        "prob": 100
+      },
+      {
+        "item": "berserk_road_camp_note",
+        "prob": 100,
+        "count": 1
+      }
+    ]
+  }
+]

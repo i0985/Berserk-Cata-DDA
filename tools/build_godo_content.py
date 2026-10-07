@@ -293,7 +293,7 @@ save('monsters/godo.json',monsters)
 overmap=[]
 for id,en,ru in [('berserk_godo_workshop',"Godot's woodland forge",'лесная кузница Годо'),('berserk_godo_loft',"Godot's sleeping loft",'спальный чердак Годо'),('berserk_godo_roof',"Godot's roof",'крыша дома Годо')]:
  overmap.append({'type':'overmap_terrain','id':id,'name':t(en,ru),'sym':'G','color':'brown','see_cost':'high','travel_cost_type':'forest','flags':['NO_ROTATE']})
-overmap.append({'type':'overmap_special','id':'berserk_godo_workshop_special','occurrences':[1,1],
+overmap.append({'type':'overmap_special','id':'berserk_godo_workshop_special','occurrences':[20,100],
  'flags':['GLOBALLY_UNIQUE'],'rotate':False,'overmaps':[
  {'point':[0,0,0],'overmap':'berserk_godo_workshop','locations':['forest']},
  {'point':[0,0,1],'overmap':'berserk_godo_loft','locations':['open_air']},

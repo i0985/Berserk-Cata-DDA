@@ -1,0 +1,161 @@
+[
+  {
+    "type": "furniture",
+    "id": "f_berserk_road_caravan",
+    "name": "plundered wagon stop",
+    "description": "A broken wagon has been pulled off an old track. Straps hold one dry bundle beneath the iron-bound box.",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "looks_like": "f_crate_o",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROAD_ENTER_CARAVAN"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_road_caravan_provisions",
+    "copy-from": "f_berserk_road_caravan",
+    "name": "opened wagon box",
+    "description": "The belongings have been recovered or put to use. There is no fresh supply waiting here.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROAD_USED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_road_caravan_iron",
+    "copy-from": "f_berserk_road_caravan",
+    "name": "stripped wagon box",
+    "description": "The belongings have been recovered or put to use. There is no fresh supply waiting here.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROAD_USED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_road_scout",
+    "name": "scout trail",
+    "description": "A leather pack hangs from a root above a shallow gully. A small cloth bundle can be reached from the path.",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "looks_like": "f_rubble",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROAD_ENTER_SCOUT"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_road_scout_pack",
+    "copy-from": "f_berserk_road_scout",
+    "name": "bare root above the gully",
+    "description": "The belongings have been recovered or put to use. There is no fresh supply waiting here.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROAD_USED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_road_scout_bundle",
+    "copy-from": "f_berserk_road_scout",
+    "name": "pack with its outer bundle removed",
+    "description": "The belongings have been recovered or put to use. There is no fresh supply waiting here.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROAD_USED"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_road_camp",
+    "name": "abandoned waycamp",
+    "description": "A folded fur blanket and a small water skin lie beneath a low windbreak beside cold ashes.",
+    "symbol": "?",
+    "color": "brown",
+    "move_cost_mod": 0,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "looks_like": "f_rubble",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROAD_ENTER_CAMP"
+      ]
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_road_camp_bed",
+    "copy-from": "f_berserk_road_camp",
+    "name": "prepared waycamp bed",
+    "description": "The belongings have been recovered or put to use. There is no fresh supply waiting here.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROAD_USED"
+      ]
+    },
+    "looks_like": "f_straw_bed",
+    "comfort": 2,
+    "floor_bedding_warmth": 300,
+    "move_cost_mod": 1,
+    "flags": [
+      "TRANSPARENT",
+      "FLAMMABLE_ASH",
+      "ORGANIC",
+      "CAN_SIT"
+    ],
+    "deconstruct": {
+      "items": [
+        {
+          "item": "fur_blanket",
+          "prob": 100,
+          "count": 1,
+          "damage": 1
+        }
+      ],
+      "furn_set": "f_berserk_road_camp_blanket"
+    }
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_road_camp_blanket",
+    "copy-from": "f_berserk_road_camp",
+    "name": "empty waycamp windbreak",
+    "description": "The belongings have been recovered or put to use. There is no fresh supply waiting here.",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_ROAD_USED"
+      ]
+    }
+  }
+]

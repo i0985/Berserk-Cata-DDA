@@ -1,0 +1,197 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_ROAD_CARAVAN",
+    "dynamic_line": "*Most of the wagon has been stripped. One dry bundle remains wedged under the box. Lifting it gently preserves the provisions; taking the iron fittings requires breaking the box and its contents.",
+    "responses": [
+      {
+        "text": "Recover the dry provisions.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_ROAD_CARAVAN_PROVISIONS"
+        },
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "distance('u', u_berserk_road_story_pos) <= 1"
+                  ]
+                },
+                {
+                  "map_furniture_id": "f_berserk_road_caravan",
+                  "loc": {
+                    "u_val": "berserk_road_story_pos"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Break the box and salvage its iron fittings.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_ROAD_CARAVAN_IRON"
+        },
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "distance('u', u_berserk_road_story_pos) <= 1"
+                  ]
+                },
+                {
+                  "map_furniture_id": "f_berserk_road_caravan",
+                  "loc": {
+                    "u_val": "berserk_road_story_pos"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Leave it for now.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_ROAD_SCOUT",
+    "dynamic_line": "*Boot prints end beside a slippery slope. The scout tied his pack to a root before descending, but never returned. A rope would let you recover the whole pack; without it, you can reach only the outer bundle.",
+    "responses": [
+      {
+        "text": "Use a rope to recover the pack. Keep the rope.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_ROAD_SCOUT_PACK"
+        },
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "distance('u', u_berserk_road_story_pos) <= 1"
+                  ]
+                },
+                {
+                  "map_furniture_id": "f_berserk_road_scout",
+                  "loc": {
+                    "u_val": "berserk_road_story_pos"
+                  }
+                }
+              ]
+            },
+            {
+              "u_has_items": {
+                "item": "rope_6",
+                "count": 1
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Take only the reachable bundle.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_ROAD_SCOUT_BUNDLE"
+        },
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "distance('u', u_berserk_road_story_pos) <= 1"
+                  ]
+                },
+                {
+                  "map_furniture_id": "f_berserk_road_scout",
+                  "loc": {
+                    "u_val": "berserk_road_story_pos"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Leave it for now.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_ROAD_CAMP",
+    "dynamic_line": "*The travelers left a dry windbreak and their last blanket. You can make a usable bed here or carry the blanket onward. A water skin and a scrap of their last message remain beside it. Neither branches nor bedding can silence the Brand.",
+    "responses": [
+      {
+        "text": "Spread the blanket and prepare a bed here.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_ROAD_CAMP_BED"
+        },
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "distance('u', u_berserk_road_story_pos) <= 1"
+                  ]
+                },
+                {
+                  "map_furniture_id": "f_berserk_road_camp",
+                  "loc": {
+                    "u_val": "berserk_road_story_pos"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Take the blanket for the road.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_ROAD_CAMP_BLANKET"
+        },
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "distance('u', u_berserk_road_story_pos) <= 1"
+                  ]
+                },
+                {
+                  "map_furniture_id": "f_berserk_road_camp",
+                  "loc": {
+                    "u_val": "berserk_road_story_pos"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Leave it for now.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  }
+]
