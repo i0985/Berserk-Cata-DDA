@@ -702,7 +702,25 @@
         "text": "Could we travel together?",
         "topic": "TALK_BERSERK_RICKERT_ROAD",
         "condition": {
-          "not": "npc_following"
+          "and": [
+            {
+              "not": "npc_following"
+            },
+            {
+              "math": [
+                "n_berserk_rickert_recruit_refused != 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "About your decision to stay here.",
+        "topic": "TALK_BERSERK_RICKERT_REFUSE",
+        "condition": {
+          "math": [
+            "n_berserk_rickert_recruit_refused == 1"
+          ]
         }
       },
       {
@@ -834,7 +852,16 @@
         "text": "Then let us talk about traveling together.",
         "topic": "TALK_BERSERK_RICKERT_ROAD",
         "condition": {
-          "not": "npc_following"
+          "and": [
+            {
+              "not": "npc_following"
+            },
+            {
+              "math": [
+                "n_berserk_rickert_recruit_refused != 1"
+              ]
+            }
+          ]
         }
       },
       {
@@ -848,18 +875,33 @@
     "id": "TALK_BERSERK_RICKERT_ROAD",
     "dynamic_line": {
       "math": [
-        "n_berserk_rickert_recruited == 1"
+        "n_berserk_rickert_recruit_refused == 1"
       ],
-      "yes": "Ready to move again? Check the bolts and leave us a way back. If the hand still needs forge work, we return here for it.",
-      "no": "I can travel, but I will not be someone sent ahead to die. Godot has his forge; I want the things we make to help people beyond this house. What do you expect from me?"
+      "yes": "I will stay with Godot. I will not travel with you. You can still bring work to the forge, but my answer about the road will not change.",
+      "no": {
+        "math": [
+          "n_berserk_rickert_recruited == 1"
+        ],
+        "yes": "Ready to move again? Check the bolts and leave us a way back. If the hand still needs forge work, we return here for it.",
+        "no": "I can travel, but I will not be someone sent ahead to die. Godot has his forge; I want the things we make to help people beyond this house. What do you expect from me?"
+      }
     },
     "responses": [
       {
         "text": "I need a craftsman and a companion. We choose the route and retreat together.",
         "topic": "TALK_BERSERK_RICKERT_ROAD_PLAN",
         "condition": {
-          "math": [
-            "n_berserk_rickert_recruited != 1"
+          "and": [
+            {
+              "math": [
+                "n_berserk_rickert_recruit_refused != 1"
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_rickert_recruited != 1"
+              ]
+            }
           ]
         },
         "effect": {
@@ -872,22 +914,38 @@
         "text": "I need another fighter. You can take the first blows.",
         "topic": "TALK_BERSERK_RICKERT_REFUSE",
         "condition": {
-          "math": [
-            "n_berserk_rickert_recruited != 1"
+          "and": [
+            {
+              "math": [
+                "n_berserk_rickert_recruit_refused != 1"
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_rickert_recruited != 1"
+              ]
+            }
           ]
         },
         "effect": {
-          "math": [
-            "n_berserk_rickert_respect = 0"
-          ]
+          "run_eocs": "EOC_BERSERK_RICKERT_REFUSE_RECRUITMENT"
         }
       },
       {
         "text": "Let us set out again.",
         "topic": "TALK_BERSERK_RICKERT",
         "condition": {
-          "math": [
-            "n_berserk_rickert_recruited == 1"
+          "and": [
+            {
+              "math": [
+                "n_berserk_rickert_recruit_refused != 1"
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_rickert_recruited == 1"
+              ]
+            }
           ]
         },
         "effect": {
@@ -903,11 +961,40 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_ROAD_PLAN",
-    "dynamic_line": "Then give me room to shoot, and do not count on me holding a monster in place. We can return for forge work when we need it. Will you listen when I say a road is too dangerous?",
+    "dynamic_line": {
+      "math": [
+        "n_berserk_rickert_recruit_refused == 1"
+      ],
+      "yes": "I will stay with Godot. I will not travel with you. You can still bring work to the forge, but my answer about the road will not change.",
+      "no": "Then give me room to shoot, and do not count on me holding a monster in place. We can return for forge work when we need it. Will you listen when I say a road is too dangerous?"
+    },
     "responses": [
       {
         "text": "We protect each other. You have a say in where we go.",
         "topic": "TALK_BERSERK_RICKERT_JOINED",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_rickert_recruit_refused != 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "n_berserk_rickert_recruited != 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_rickert_respect == 1"
+              ]
+            }
+          ]
+        },
         "effect": {
           "run_eocs": "EOC_BERSERK_RICKERT_JOIN"
         }
@@ -915,10 +1002,31 @@
       {
         "text": "I give the orders. You follow them.",
         "topic": "TALK_BERSERK_RICKERT_REFUSE",
-        "effect": {
-          "math": [
-            "n_berserk_rickert_respect = 0"
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_rickert_recruit_refused != 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "n_berserk_rickert_recruited != 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_rickert_respect == 1"
+              ]
+            }
           ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_RICKERT_REFUSE_RECRUITMENT"
         }
       },
       {
@@ -930,7 +1038,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_REFUSE",
-    "dynamic_line": "Then I stay here. You can still bring work to the forge, but traveling together takes more than another pair of hands.",
+    "dynamic_line": "I will stay with Godot. I will not travel with you. You can still bring work to the forge, but my answer about the road will not change.",
     "responses": [
       {
         "text": "Ask something else.",

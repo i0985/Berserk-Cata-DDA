@@ -1365,6 +1365,11 @@
           ]
         },
         {
+          "math": [
+            "n_berserk_rickert_recruit_refused != 1"
+          ]
+        },
+        {
           "or": [
             {
               "math": [
@@ -1374,6 +1379,49 @@
             {
               "math": [
                 "n_berserk_rickert_recruited == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_REFUSE_RECRUITMENT",
+    "effect": [
+      {
+        "math": [
+          "n_berserk_rickert_recruit_refused = 1"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_rickert_respect = 0"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "has_beta",
+            "npc_is_npc",
+            {
+              "npc_has_class": "NC_BERSERK_RICKERT"
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "n_berserk_rickert_recruit_refused != 1"
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_rickert_recruited != 1"
               ]
             }
           ]

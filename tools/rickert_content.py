@@ -24,6 +24,12 @@ def apply_rickert(effects, topics, missions, t, save):
     E = {row['id']: row for row in effects}
     T = {row['id']: row for row in topics}
     identity = allof('has_beta', 'npc_is_npc', {'npc_has_class': 'NC_BERSERK_RICKERT'})
+    recruitment_open = m('n_berserk_rickert_recruit_refused != 1')
+    first_invitation = allof(recruitment_open, m('n_berserk_rickert_recruited != 1'))
+    invitation = allof(neg('npc_following'), recruitment_open)
+    refusal_line = t(
+        'I will stay with Godot. I will not travel with you. You can still bring work to the forge, but my answer about the road will not change.',
+        'Я останусь у Годо. С тобой в путь не пойду. За работой можешь приходить в кузницу, но моего решения о совместном пути это не изменит.')
     forge = allof({'u_at_om_location': 'berserk_godo_workshop'},
                   {'npc_at_om_location': 'berserk_godo_workshop'})
     eoc('EOC_BERSERK_GODO_AT_RICKERT', [], identity)
@@ -104,7 +110,8 @@ def apply_rickert(effects, topics, missions, t, save):
         r('What do you build, and how do you fight?', 'Что ты умеешь делать и как сражаешься?', 'TALK_BERSERK_RICKERT_CRAFT'),
         r('Can you repair the mechanism?', 'Починишь механизм?', 'TALK_BERSERK_RICKERT_CARE'),
         r('What is it like working with Godot?', 'Каково работать рядом с Годо?', 'TALK_BERSERK_RICKERT_GODO'),
-        r('Could we travel together?', 'Пойдёшь со мной?', 'TALK_BERSERK_RICKERT_ROAD', neg('npc_following')),
+        r('Could we travel together?', 'Пойдёшь со мной?', 'TALK_BERSERK_RICKERT_ROAD', invitation),
+        r('About your decision to stay here.', 'О твоём решении остаться здесь.', 'TALK_BERSERK_RICKERT_REFUSE', m('n_berserk_rickert_recruit_refused == 1')),
         r('Let us discuss equipment and our travel arrangements.', 'Обсудим снаряжение и порядок в пути.', 'TALK_FRIEND', m('n_berserk_rickert_recruited == 1')),
         r('Where may I leave supplies and rest?', 'Где оставить припасы и отдохнуть?', 'TALK_BERSERK_RICKERT_HOME'),
         r('Thank you.', 'Спасибо.', 'TALK_DONE')]
@@ -128,36 +135,41 @@ def apply_rickert(effects, topics, missions, t, save):
         'A blade needs strength; a mechanism needs each small part to fit the next. Godot taught me to respect the metal. I work on hinges, locks and the cannon hidden in the prosthesis. In a fight I prefer a small crossbow and a clear shot. I am useful at your side, but I am not an apostle-killer with a magic sword.',
         'Для клинка нужна сила, для механизма — чтобы каждая мелкая деталь подходила к соседней. Годо научил меня уважать металл. Я работаю с шарнирами, замками и пушкой, скрытой в протезе. В бою предпочитаю небольшой арбалет и хороший обзор. Рядом со мной будет польза, но я не охотник на апостолов с волшебным мечом.'), [
             r('Can you build my prosthesis?', 'Сделаешь мой протез?', 'TALK_BERSERK_GODO_ARM'),
-            r('Then let us talk about traveling together.', 'Тогда поговорим о совместном пути.', 'TALK_BERSERK_RICKERT_ROAD', neg('npc_following')), back()])
-    topic('TALK_BERSERK_RICKERT_ROAD', {'math': ['n_berserk_rickert_recruited == 1'],
+            r('Then let us talk about traveling together.', 'Тогда поговорим о совместном пути.', 'TALK_BERSERK_RICKERT_ROAD', invitation), back()])
+    topic('TALK_BERSERK_RICKERT_ROAD', {'math': ['n_berserk_rickert_recruit_refused == 1'],
+        'yes': refusal_line,
+        'no': {'math': ['n_berserk_rickert_recruited == 1'],
         'yes': t('Ready to move again? Check the bolts and leave us a way back. If the hand still needs forge work, we return here for it.',
                  'Снова пора в путь? Проверь болты и оставь нам дорогу назад. Если руке ещё нужна работа у горна, вернёмся за ней сюда.'),
         'no': t('I can travel, but I will not be someone sent ahead to die. Godot has his forge; I want the things we make to help people beyond this house. What do you expect from me?',
-                'Я могу пойти, но не стану тем, кого посылают вперёд умирать. У Годо есть кузница; мне хочется, чтобы наша работа помогала людям за пределами этого дома. Чего ты ждёшь от меня?')}, [
+                'Я могу пойти, но не стану тем, кого посылают вперёд умирать. У Годо есть кузница; мне хочется, чтобы наша работа помогала людям за пределами этого дома. Чего ты ждёшь от меня?')}}, [
         r('I need a craftsman and a companion. We choose the route and retreat together.',
           'Мне нужен мастер и товарищ. Путь и отступление будем выбирать вместе.', 'TALK_BERSERK_RICKERT_ROAD_PLAN',
-          m('n_berserk_rickert_recruited != 1'), m('n_berserk_rickert_respect = 1')),
+          first_invitation, m('n_berserk_rickert_respect = 1')),
         r('I need another fighter. You can take the first blows.', 'Нужен ещё один боец. Первые удары примешь ты.',
-          'TALK_BERSERK_RICKERT_REFUSE', m('n_berserk_rickert_recruited != 1'), m('n_berserk_rickert_respect = 0')),
+          'TALK_BERSERK_RICKERT_REFUSE', first_invitation, run('EOC_BERSERK_RICKERT_REFUSE_RECRUITMENT')),
         r('Let us set out again.', 'Снова отправимся вместе.', 'TALK_BERSERK_RICKERT',
-          m('n_berserk_rickert_recruited == 1'), run('EOC_BERSERK_RICKERT_JOIN')),
+          allof(recruitment_open, m('n_berserk_rickert_recruited == 1')), run('EOC_BERSERK_RICKERT_JOIN')),
         back()])
-    topic('TALK_BERSERK_RICKERT_ROAD_PLAN', t(
+    plan_choice = allof(first_invitation, m('n_berserk_rickert_respect == 1'))
+    topic('TALK_BERSERK_RICKERT_ROAD_PLAN', {'math': ['n_berserk_rickert_recruit_refused == 1'],
+        'yes': refusal_line, 'no': t(
         'Then give me room to shoot, and do not count on me holding a monster in place. We can return for forge work when we need it. Will you listen when I say a road is too dangerous?',
-        'Тогда оставляй мне место для выстрела и не рассчитывай, что я удержу чудовище в ближнем бою. Когда понадобится горн, вернёмся. Ты послушаешь, если я скажу, что дорога слишком опасна?'), [
+        'Тогда оставляй мне место для выстрела и не рассчитывай, что я удержу чудовище в ближнем бою. Когда понадобится горн, вернёмся. Ты послушаешь, если я скажу, что дорога слишком опасна?')}, [
         r('We protect each other. You have a say in where we go.', 'Будем защищать друг друга. Ты тоже решаешь, куда идти.',
-          'TALK_BERSERK_RICKERT_JOINED', effect=run('EOC_BERSERK_RICKERT_JOIN')),
+          'TALK_BERSERK_RICKERT_JOINED', plan_choice, run('EOC_BERSERK_RICKERT_JOIN')),
         r('I give the orders. You follow them.', 'Я приказываю, ты выполняешь.',
-          'TALK_BERSERK_RICKERT_REFUSE', effect=m('n_berserk_rickert_respect = 0')), back()])
-    topic('TALK_BERSERK_RICKERT_REFUSE', t(
-        'Then I stay here. You can still bring work to the forge, but traveling together takes more than another pair of hands.',
-        'Тогда я останусь здесь. Работа в кузнице по-прежнему доступна, но для совместного пути мало ещё одной пары рук.'), [back()])
+          'TALK_BERSERK_RICKERT_REFUSE', plan_choice, run('EOC_BERSERK_RICKERT_REFUSE_RECRUITMENT')), back()])
+    topic('TALK_BERSERK_RICKERT_REFUSE', refusal_line, [back()])
     topic('TALK_BERSERK_RICKERT_JOINED', t(
         'All right. I will bring the crossbow and my tools. Keep a way back; we still have a forge to return to.',
         'Хорошо. Возьму арбалет и инструменты. Оставим дорогу назад: нам ещё есть куда вернуться.'), [back(),
         r('Let us discuss our equipment.', 'Обсудим снаряжение.', 'TALK_FRIEND')])
     eoc('EOC_BERSERK_RICKERT_JOIN', [m('n_berserk_rickert_recruited = 1'), 'follow'],
-        allof(identity, {'or': [m('n_berserk_rickert_respect == 1'), m('n_berserk_rickert_recruited == 1')]}))
+        allof(identity, recruitment_open, {'or': [m('n_berserk_rickert_respect == 1'), m('n_berserk_rickert_recruited == 1')]}))
+    eoc('EOC_BERSERK_RICKERT_REFUSE_RECRUITMENT',
+        [m('n_berserk_rickert_recruit_refused = 1'), m('n_berserk_rickert_respect = 0')],
+        allof(identity, first_invitation))
 
     # Migrate a living old talking monster. Spawn confirmation precedes its removal.
     # Do not delete the current beta monster while its conversation is running.

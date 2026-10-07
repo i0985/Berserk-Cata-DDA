@@ -12,10 +12,18 @@ def objects(path):
 class Forge:
     def __init__(self):
         self.eocs={r['id']:r for r in objects('effects/godo_eocs.json')}
+        self.topics={r['id']:r for r in objects('dialogue/godo.json')}
         self.vars=collections.defaultdict(int);self.items=collections.Counter()
         self.bionics={'bio_berserk_hand_stump'};self.now=1000;self.at_smith=True
         self.actor='rickert';self.at_forge=True;self.following=False
         self.missions=set();self.repair_item=None;self.item_hp=1000;self.item_max=4000
+    def available(self,topic):
+        return [r for r in self.topics[topic]['responses']
+                if 'condition' not in r or self.condition(r['condition'])]
+    def choose(self,topic,text):
+        response=next(r for r in self.available(topic) if r['text']==text)
+        if 'effect' in response:self.effect(response['effect'])
+        return response['topic']
     def value(self,s):
         s=s.replace("time('now')",str(self.now))
         s=s.replace("n_hp('ALL')",str(self.item_hp)).replace("n_hp_max('torso')",str(self.item_max))
@@ -147,13 +155,52 @@ class Orders(unittest.TestCase):
         self.assertEqual(f.items['bio_berserk_arm_cannon'],0)
         f.actor='rickert';self.run_eoc(f,'ARM_CLAIM');self.run_eoc(f,'ARM_CLAIM')
         self.assertEqual(f.items['bio_berserk_arm_cannon'],1)
-    def test_recruitment_requires_respect_and_allows_retry(self):
+    def test_recruitment_requires_respect_and_allows_rejoining(self):
         f=Forge();f.run('EOC_BERSERK_RICKERT_JOIN');self.assertFalse(f.following)
         f.vars['n_berserk_rickert_respect']=1;f.actor='book'
         f.run('EOC_BERSERK_RICKERT_JOIN');self.assertFalse(f.following)
         f.actor='rickert';f.run('EOC_BERSERK_RICKERT_JOIN');self.assertTrue(f.following)
         f.following=False;f.vars['n_berserk_rickert_respect']=0
         f.run('EOC_BERSERK_RICKERT_JOIN');self.assertTrue(f.following)
+    def test_both_bad_replies_permanently_close_all_recruitment_entries(self):
+        for bad in ['I need another fighter. You can take the first blows.',
+                    'I give the orders. You follow them.']:
+            with self.subTest(reply=bad):
+                f=Forge();topic=f.choose('TALK_BERSERK_RICKERT','Could we travel together?')
+                if bad.startswith('I give'):
+                    topic=f.choose(topic,'I need a craftsman and a companion. We choose the route and retreat together.')
+                self.assertEqual(f.choose(topic,bad),'TALK_BERSERK_RICKERT_REFUSE')
+                self.assertEqual(f.vars['n_berserk_rickert_recruit_refused'],1)
+                # Stored NPC variables still close the branch in a fresh dialogue context.
+                loaded=Forge();loaded.vars.update(json.loads(json.dumps(f.vars)))
+                for id in ['TALK_BERSERK_RICKERT','TALK_BERSERK_RICKERT_CRAFT']:
+                    self.assertFalse(any(r['topic']=='TALK_BERSERK_RICKERT_ROAD' for r in loaded.available(id)))
+                for id in ['TALK_BERSERK_RICKERT_ROAD','TALK_BERSERK_RICKERT_ROAD_PLAN']:
+                    self.assertEqual([r['topic'] for r in loaded.available(id)],['TALK_BERSERK_RICKERT'])
+                loaded.vars['n_berserk_rickert_respect']=1
+                loaded.run('EOC_BERSERK_RICKERT_JOIN');self.assertFalse(loaded.following)
+    def test_neutral_departure_and_previous_default_respect_do_not_refuse(self):
+        f=Forge();topic=f.choose('TALK_BERSERK_RICKERT','Could we travel together?')
+        f.choose(topic,'Ask something else.')
+        self.assertEqual(f.vars['n_berserk_rickert_recruit_refused'],0)
+        topic=f.choose('TALK_BERSERK_RICKERT','Could we travel together?')
+        topic=f.choose(topic,'I need a craftsman and a companion. We choose the route and retreat together.')
+        f.choose(topic,'Ask something else.')
+        self.assertEqual(f.vars['n_berserk_rickert_recruit_refused'],0)
+        f.choose(topic,'We protect each other. You have a say in where we go.')
+        self.assertTrue(f.following)
+        f.run('EOC_BERSERK_RICKERT_REFUSE_RECRUITMENT')
+        self.assertEqual(f.vars['n_berserk_rickert_recruit_refused'],0)
+    def test_refusal_preserves_prepaid_order_and_forge_services(self):
+        f=Forge();self.arm(f)
+        topic=f.choose('TALK_BERSERK_RICKERT','Could we travel together?')
+        f.choose(topic,'I need another fighter. You can take the first blows.')
+        self.assertEqual(f.vars['u_berserk_godo_arm_state'],3)
+        self.assertTrue(any(r['topic']=='TALK_BERSERK_GODO_ARM' for r in f.available('TALK_BERSERK_RICKERT')))
+        f.now+=21600;self.run_eoc(f,'ARM_CLAIM')
+        self.assertEqual(f.items['bio_berserk_arm_cannon'],1)
+        self.sword(f);f.now+=172800;self.run_eoc(f,'SWORD_CLAIM')
+        self.assertEqual(f.items['true_guts_sword'],1)
     def test_companion_orders_require_return_to_forge(self):
         f=Forge();self.arm(f);f.now+=21600;f.at_forge=False
         self.run_eoc(f,'ARM_CLAIM');self.assertEqual(f.items['bio_berserk_arm_cannon'],0)
