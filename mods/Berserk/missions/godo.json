@@ -194,5 +194,61 @@
         "reveal_radius": 0
       }
     }
+  },
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_GODO_EARLY_MATERIALS",
+    "name": "Steel for a long battle sword",
+    "description": "Bring Godot 4 steel lumps, 1 high-steel lump, 200 charcoal and 2 leather patches. Deliver the full set at the forge.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "u_berserk_godo_early_state >= 2"
+      ]
+    },
+    "difficulty": 3,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_godo_workshop",
+        "var": {
+          "global_val": "berserk_godo_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  },
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_GODO_EARLY_COLLECT",
+    "name": "Collect the long battle sword",
+    "description": "Return to Godot twelve hours after delivering the materials. He repairs an early sword you already own rather than duplicating it.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "u_berserk_godo_early_state >= 3"
+      ]
+    },
+    "difficulty": 3,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_godo_workshop",
+        "var": {
+          "global_val": "berserk_godo_location"
+        },
+        "reveal_radius": 0
+      }
+    }
   }
 ]

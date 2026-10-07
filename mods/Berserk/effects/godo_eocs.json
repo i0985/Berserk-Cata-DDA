@@ -232,6 +232,9 @@
     "id": "EOC_BERSERK_GODO_BEGIN",
     "effect": [
       {
+        "run_eocs": "EOC_BERSERK_FORGE_GUTS_IDENTITY"
+      },
+      {
         "run_eocs": "EOC_BERSERK_GODO_REGISTER"
       },
       {
@@ -511,6 +514,76 @@
             "assign_mission": "MISSION_BERSERK_GODO_SWORD_COLLECT"
           }
         }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_godo_early_state >= 2"
+          ]
+        },
+        "then": {
+          "if": {
+            "u_has_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS"
+          },
+          "then": {
+            "finish_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS",
+            "success": true
+          }
+        },
+        "else": {
+          "if": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_godo_early_state == 1"
+                ]
+              },
+              {
+                "not": {
+                  "u_has_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS"
+                }
+              }
+            ]
+          },
+          "then": {
+            "assign_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS"
+          }
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_godo_early_state >= 3"
+          ]
+        },
+        "then": {
+          "if": {
+            "u_has_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT"
+          },
+          "then": {
+            "finish_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT",
+            "success": true
+          }
+        },
+        "else": {
+          "if": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_godo_early_state == 2"
+                ]
+              },
+              {
+                "not": {
+                  "u_has_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT"
+                }
+              }
+            ]
+          },
+          "then": {
+            "assign_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT"
+          }
+        }
       }
     ],
     "condition": {
@@ -581,14 +654,21 @@
         {
           "and": [
             {
-              "math": [
-                "u_berserk_godo_sword_state == 0"
-              ]
+              "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
             },
             {
-              "not": {
-                "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
-              }
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state == 0"
+                  ]
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+                  }
+                }
+              ]
             }
           ]
         }
@@ -1748,6 +1828,434 @@
         {
           "math": [
             "u_berserk_godo_rescue_attempted != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FORGE_GUTS_IDENTITY",
+    "effect": {
+      "math": [
+        "u_berserk_is_guts = 1"
+      ]
+    },
+    "condition": {
+      "or": [
+        {
+          "u_profession": "berserk"
+        },
+        {
+          "u_profession": "berserk_before_eclipse"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FORGE_GUTS",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_is_guts == 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "u_profession": "berserk"
+            },
+            {
+              "u_profession": "berserk_before_eclipse"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FORGE_AFTER_ECLIPSE",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE",
+    "effect": [],
+    "condition": {
+      "not": {
+        "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_START_EARLY_SWORD",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_godo_early_state = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GODO_ORDER_SYNC"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+        },
+        {
+          "math": [
+            "u_berserk_godo_early_state == 0"
+          ]
+        },
+        {
+          "not": {
+            "u_has_items": {
+              "item": "true_guts_early_sword",
+              "count": 1
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_EARLY_MATERIALS",
+    "effect": [
+      {
+        "u_consume_item": "steel_lump",
+        "charges": 4
+      },
+      {
+        "u_consume_item": "hc_steel_lump",
+        "charges": 1
+      },
+      {
+        "u_consume_item": "charcoal",
+        "charges": 200
+      },
+      {
+        "u_consume_item": "leather",
+        "count": 2
+      },
+      {
+        "math": [
+          "u_berserk_godo_early_ready_at = time('now') + 43200"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_godo_early_state = 2"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GODO_ORDER_SYNC"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        {
+          "math": [
+            "u_berserk_godo_early_state == 1"
+          ]
+        },
+        {
+          "not": {
+            "u_has_items": {
+              "item": "true_guts_early_sword",
+              "count": 1
+            }
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "steel_lump",
+            "count": 4
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "hc_steel_lump",
+            "count": 1
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "charcoal",
+            "count": 200
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "leather",
+            "count": 2
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_EARLY_REFUND",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "u_berserk_godo_early_state == 2"
+          ]
+        },
+        "then": [
+          {
+            "u_spawn_item": "steel_lump",
+            "count": 4,
+            "suppress_message": true
+          },
+          {
+            "u_spawn_item": "hc_steel_lump",
+            "count": 1,
+            "suppress_message": true
+          },
+          {
+            "u_spawn_item": "charcoal",
+            "count": 200,
+            "suppress_message": true
+          },
+          {
+            "u_spawn_item": "leather",
+            "count": 2,
+            "suppress_message": true
+          }
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_godo_early_state = 3"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GODO_ORDER_SYNC"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        {
+          "u_has_items": {
+            "item": "true_guts_early_sword",
+            "count": 1
+          }
+        },
+        {
+          "math": [
+            "u_berserk_godo_early_state > 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_early_state < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_EARLY_CLAIM",
+    "effect": [
+      {
+        "if": {
+          "u_has_items": {
+            "item": "true_guts_early_sword",
+            "count": 1
+          }
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_GODO_EARLY_REFUND"
+        },
+        "else": [
+          {
+            "u_spawn_item": "true_guts_early_sword",
+            "count": 1,
+            "suppress_message": true
+          },
+          {
+            "math": [
+              "u_berserk_godo_early_state = 3"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_GODO_ORDER_SYNC"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        {
+          "math": [
+            "u_berserk_godo_early_state == 2"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_godo_early_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FORGE_WITNESS",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_eclipse_rescue_state == 2"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_ORDER_BOLTS",
+    "effect": [
+      {
+        "u_consume_item": "steel_chunk",
+        "charges": 1
+      },
+      {
+        "u_consume_item": "stick",
+        "count": 1
+      },
+      {
+        "u_consume_item": "thread",
+        "charges": 20
+      },
+      {
+        "u_consume_item": "feather",
+        "charges": 10
+      },
+      {
+        "u_consume_item": "charcoal",
+        "charges": 50
+      },
+      {
+        "math": [
+          "u_berserk_rickert_bolts_pending = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_rickert_bolts_ready_at = time('now') + 1800"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE"
+        },
+        {
+          "math": [
+            "u_berserk_rickert_bolts_pending != 1"
+          ]
+        },
+        {
+          "u_has_items": {
+            "item": "steel_chunk",
+            "count": 1
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "stick",
+            "count": 1
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "thread",
+            "count": 20
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "feather",
+            "count": 10
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "charcoal",
+            "count": 50
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_COLLECT_BOLTS",
+    "effect": [
+      {
+        "u_spawn_item": "bolt_wood_bodkin",
+        "count": 10,
+        "suppress_message": true
+      },
+      {
+        "math": [
+          "u_berserk_rickert_bolts_pending = 0"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE"
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_rickert_bolts_pending == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_rickert_bolts_ready_at"
+              ]
+            }
           ]
         }
       ]

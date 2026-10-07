@@ -151,12 +151,47 @@
     "dynamic_line": "*Orders at the woodland forge. Deliver materials to Godot himself; reading these notes does not hand them over.",
     "responses": [
       {
+        "text": "Long battle sword order.",
+        "topic": "TALK_BERSERK_JOURNAL_EARLY"
+      },
+      {
         "text": "Arm cannon order.",
-        "topic": "TALK_BERSERK_JOURNAL_ARM"
+        "topic": "TALK_BERSERK_JOURNAL_ARM",
+        "condition": {
+          "or": [
+            {
+              "u_has_bionics": "bio_berserk_hand_stump"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state > 0"
+              ]
+            }
+          ]
+        }
       },
       {
         "text": "Dragonslayer order.",
-        "topic": "TALK_BERSERK_JOURNAL_SWORD"
+        "topic": "TALK_BERSERK_JOURNAL_SWORD",
+        "condition": {
+          "or": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state > 0"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Crossbow bolt batch.",
+        "topic": "TALK_BERSERK_JOURNAL_BOLTS"
       },
       {
         "text": "Return to the roads.",
@@ -234,6 +269,66 @@
     "responses": [
       {
         "text": "Review the other order.",
+        "topic": "TALK_BERSERK_JOURNAL_ORDERS"
+      },
+      {
+        "text": "Return to the roads.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_EARLY",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_godo_early_state == 0"
+      ],
+      "yes": "Before the Eclipse, speak with Godot about a long battle sword. If you already have the early sword, ask about repairs.",
+      "no": {
+        "math": [
+          "u_berserk_godo_early_state == 1"
+        ],
+        "yes": "Deliver 4 steel lumps, 1 high-steel lump, 200 charcoal and 2 leather patches to Godot at the forge.",
+        "no": {
+          "math": [
+            "u_berserk_godo_early_state == 2"
+          ],
+          "yes": "Return twelve hours after the delivery to collect the long blade. An order started before the Eclipse can still be completed afterward.",
+          "no": "The long sword order is settled. Godot can repair your existing blade."
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Review forge orders.",
+        "topic": "TALK_BERSERK_JOURNAL_ORDERS"
+      },
+      {
+        "text": "Return to the roads.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_BOLTS",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_rickert_bolts_pending == 1"
+      ],
+      "yes": {
+        "math": [
+          "time('now') >= u_berserk_rickert_bolts_ready_at"
+        ],
+        "yes": "Ten bolts are ready. Collect them from Rickert at the forge.",
+        "no": "Rickert needs half an hour from delivery to finish the batch."
+      },
+      "no": "Rickert can make ten bodkin bolts at the forge: 1 steel chunk, 1 stick, 20 thread, 10 feathers and 50 charcoal."
+    },
+    "responses": [
+      {
+        "text": "Review forge orders.",
         "topic": "TALK_BERSERK_JOURNAL_ORDERS"
       },
       {

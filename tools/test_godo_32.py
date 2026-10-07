@@ -13,7 +13,8 @@ class Forge:
     def __init__(self):
         self.eocs={r['id']:r for r in objects('effects/godo_eocs.json')}
         self.topics={r['id']:r for r in objects('dialogue/godo.json')}
-        self.vars=collections.defaultdict(int);self.items=collections.Counter()
+        self.vars=collections.defaultdict(int, {'berserk_eclipse_era':1});self.items=collections.Counter()
+        self.profession='unemployed'
         self.bionics={'bio_berserk_hand_stump'};self.now=1000;self.at_smith=True
         self.actor='rickert';self.at_forge=True;self.following=False
         self.missions=set();self.repair_item=None;self.item_hp=1000;self.item_max=4000
@@ -28,7 +29,7 @@ class Forge:
         s=s.replace("time('now')",str(self.now))
         s=s.replace("n_hp('ALL')",str(self.item_hp)).replace("n_hp_max('torso')",str(self.item_max))
         s=s.replace("n_monsters_nearby('mon_berserk_godo', 'radius': 0, 'attitude': 'both')",str(int(self.at_smith and self.actor=='godo')))
-        s=re.sub(r'\b[un]_berserk_\w+\b',lambda match:str(self.vars[match[0]]),s)
+        s=re.sub(r'\b(?:[un]_)?berserk_\w+\b',lambda match:str(self.vars[match[0]]),s)
         return eval(s,{'__builtins__':{}},{})
     def condition(self,c):
         if isinstance(c,str):
@@ -45,6 +46,7 @@ class Forge:
             v=c['u_has_items'];return self.items[v['item']]>=v.get('count',v.get('charges',0))
         if 'u_has_bionics' in c:return c['u_has_bionics'] in self.bionics
         if 'u_has_mission' in c:return c['u_has_mission'] in self.missions
+        if 'u_profession' in c:return self.profession==c['u_profession']
         if 'npc_has_class' in c:return self.actor=='rickert' and c['npc_has_class']=='NC_BERSERK_RICKERT'
         if 'u_at_om_location' in c or 'npc_at_om_location' in c:return self.at_forge
         raise AssertionError(c)

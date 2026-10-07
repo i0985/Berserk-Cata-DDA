@@ -268,6 +268,8 @@ from rickert_content import apply_rickert
 apply_rickert(effects, topics, missions, t, save)
 from forge_story_content import apply_forge_story
 apply_forge_story(effects, topics, t)
+from forge_before_eclipse_content import apply_forge_before_eclipse
+apply_forge_before_eclipse(effects, topics, missions, t, save)
 for row in effects:
  if row['id'].removeprefix('EOC_BERSERK_GODO_') in {
    'START_ARM','START_SWORD','ARM_METAL','ARM_FITTINGS','SWORD_IRON','SWORD_TEMPER',
