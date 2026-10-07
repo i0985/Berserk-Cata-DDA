@@ -1,0 +1,118 @@
+[
+  {
+    "type": "npc_class",
+    "id": "NC_BERSERK_RICKERT",
+    "name": {
+      "str": "young engineer and smith"
+    },
+    "job_description": "I build mechanisms and keep them working. Godot handles the great blades.",
+    "common": false,
+    "sells_belongings": false,
+    "skills": [
+      {
+        "skill": "ALL",
+        "level": {
+          "constant": 0
+        }
+      },
+      {
+        "skill": "fabrication",
+        "level": {
+          "constant": 8
+        }
+      },
+      {
+        "skill": "mechanics",
+        "level": {
+          "constant": 6
+        }
+      },
+      {
+        "skill": "tailor",
+        "level": {
+          "constant": 4
+        }
+      },
+      {
+        "skill": "gun",
+        "level": {
+          "constant": 4
+        }
+      },
+      {
+        "skill": "pistol",
+        "level": {
+          "constant": 5
+        }
+      },
+      {
+        "skill": "melee",
+        "level": {
+          "constant": 2
+        }
+      },
+      {
+        "skill": "dodge",
+        "level": {
+          "constant": 3
+        }
+      },
+      {
+        "skill": "survival",
+        "level": {
+          "constant": 3
+        }
+      },
+      {
+        "skill": "firstaid",
+        "level": {
+          "constant": 2
+        }
+      },
+      {
+        "skill": "speech",
+        "level": {
+          "constant": 2
+        }
+      }
+    ],
+    "proficiencies": [
+      "prof_metalworking",
+      "prof_blacksmithing",
+      "prof_gunsmithing_antique",
+      "prof_carving",
+      "prof_bowyery"
+    ],
+    "worn_override": "BERSERK_RICKERT_WORN",
+    "carry_override": "BERSERK_RICKERT_CARRY",
+    "weapon_override": "BERSERK_RICKERT_WEAPON"
+  },
+  {
+    "type": "npc",
+    "id": "berserk_rickert",
+    "class": "NC_BERSERK_RICKERT",
+    "name_unique": "Rickert",
+    "gender": "male",
+    "age": 19,
+    "height": 170,
+    "str": 8,
+    "dex": 10,
+    "int": 11,
+    "per": 10,
+    "attitude": 0,
+    "mission": 7,
+    "faction": "no_faction",
+    "personality": {
+      "aggression": -2,
+      "bravery": 1,
+      "collector": 0,
+      "altruism": 5
+    },
+    "chat": "TALK_BERSERK_RICKERT",
+    "talk_friend": "TALK_BERSERK_RICKERT",
+    "talk_friend_guard": "TALK_BERSERK_RICKERT",
+    "death_eocs": [
+      "EOC_BERSERK_RICKERT_DEATH"
+    ]
+  }
+]

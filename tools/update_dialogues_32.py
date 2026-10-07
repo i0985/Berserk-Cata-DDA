@@ -51,7 +51,8 @@ knight.extend([
   response('Mark the road to the forge.','Отметь дорогу к кузнице.','TALK_BERSERK_SKULL_KNIGHT_GODO',effect=run('EOC_BERSERK_GODO_SEEK')),
   response('Can I still make the cannon myself?','Могу я по-прежнему изготовить пушку сам?','TALK_BERSERK_SKULL_KNIGHT_HAND'),back(root['id'])])
 ])
-K['TALK_BERSERK_SKULL_KNIGHT_HAND']['dynamic_line']=t('A skilled metalworker can make the cannon: fabrication 8, mechanics 4 and the proper tools. Godot can do that work if you bring the materials. Either way, fit the finished cannon by activating it in your inventory.','Опытный мастер может изготовить пушку: нужны производство 8, механика 4 и подходящие инструменты. Годо сделает эту работу, если принести материалы. В обоих случаях готовая пушка устанавливается активацией из инвентаря.')
+K['TALK_BERSERK_SKULL_KNIGHT_HAND']['dynamic_line']=t('A skilled metalworker can make the cannon: fabrication 8, mechanics 4 and the proper tools. Rickert builds that mechanism at Godot\'s forge if you bring the materials. Either way, fit the finished cannon by activating it in your inventory.','Опытный мастер может изготовить пушку: нужны производство 8, механика 4 и подходящие инструменты. Рикерт соберёт механизм в кузнице Годо, если принести материалы. В обоих случаях готовая пушка устанавливается активацией из инвентаря.')
+K['TALK_BERSERK_SKULL_KNIGHT_HAND']['responses']=[r for r in K['TALK_BERSERK_SKULL_KNIGHT_HAND']['responses'] if r['topic']!='TALK_BERSERK_SKULL_KNIGHT_GODO']
 K['TALK_BERSERK_SKULL_KNIGHT_HAND']['responses'].insert(0,response('Show me the craftsman.','Укажи дорогу к мастеру.','TALK_BERSERK_SKULL_KNIGHT_GODO'))
 for id in ['JUDEAU','PIPPIN','CORKUS','GASTON']:
  K['TALK_BERSERK_SKULL_KNIGHT_'+id]['responses']=[
@@ -75,9 +76,12 @@ closed_branch['test_eoc']='EOC_BERSERK_EARLY_HUNTS_CLOSED'
 closed_branch.pop('not')
 closed_branch['yes'],closed_branch['no']=closed_branch['no'],closed_branch['yes']
 K['TALK_BERSERK_SKULL_KNIGHT_NOW']['dynamic_line']=now
+K['TALK_BERSERK_SKULL_KNIGHT_NOW']['responses']=[r for r in K['TALK_BERSERK_SKULL_KNIGHT_NOW']['responses'] if r['topic']!='TALK_BERSERK_SKULL_KNIGHT_GODO']
 K['TALK_BERSERK_SKULL_KNIGHT_NOW']['responses'].insert(1,response('Tell me about the forge.','Расскажи о кузнице.','TALK_BERSERK_SKULL_KNIGHT_GODO'))
+K['TALK_BERSERK_SKULL_KNIGHT_NEXT']['responses']=[r for r in K['TALK_BERSERK_SKULL_KNIGHT_NEXT']['responses'] if r['topic']!='TALK_BERSERK_SKULL_KNIGHT_GODO']
 K['TALK_BERSERK_SKULL_KNIGHT_NEXT']['responses'].insert(-1,response('Show me the road to Godot.','Покажи дорогу к Годо.','TALK_BERSERK_SKULL_KNIGHT_GODO'))
 named=K['TALK_BERSERK_SKULL_KNIGHT_NAMED_HUNTS']
+named['responses']=[r for r in named['responses'] if r['text']!="Mark the Count's residence."]
 named['responses'].insert(0,response("Mark the Count's residence.",'Отметь резиденцию Графа.',named['id'],effect=run('EOC_BERSERK_COUNT_SEEK')))
 for r in named['responses']:
  if r.get('topic')=='TALK_DONE':r['topic']=named['id']
@@ -112,6 +116,7 @@ F['TALK_BERSERK_FLORA_PREPARED']['dynamic_line']=t('The charm is ready. Keep it 
 F['TALK_BERSERK_FLORA_WORLD_COLLISION']['dynamic_line']=t('This house stands beside a spiritual tree. The crossing joined wounds in your world to paths in ours; the Eclipse deepened them. Quieting one wound helps those nearby, but cannot mend the whole boundary. That is why I guard this place and share what I can.','Этот дом стоит рядом с духовным деревом. Столкновение связало раны твоего мира с путями нашего; Затмение углубило их. Закрыв одну рану, можно помочь живущим рядом, но не восстановить всю границу. Поэтому я защищаю это место и делюсь тем, чем могу.')
 F['TALK_BERSERK_FLORA_ARMOR']['responses']=[r for r in F['TALK_BERSERK_FLORA_ARMOR']['responses'] if r.get('topic')!='TALK_BERSERK_FLORA_RECEIVED']
 # Previously receiving aid does not need another acquisition button.
+F['TALK_BERSERK_FLORA_NEXT']['responses']=[r for r in F['TALK_BERSERK_FLORA_NEXT']['responses'] if r['topic']!='TALK_BERSERK_FLORA_SMITH']
 F['TALK_BERSERK_FLORA_NEXT']['responses'].insert(-1,response('Can a smith help prepare my equipment?','Кузнец поможет подготовить снаряжение?','TALK_BERSERK_FLORA_SMITH'))
 flora.append(topic('TALK_BERSERK_FLORA_SMITH',t('Godot and Rickert work at a woodland forge. They can help with a mechanical hand and a blade that must endure great strain. If you already own their work, ask for repairs rather than a second weapon.','Годо и Рикерт работают в лесной кузнице. Они помогут с механической рукой и клинком, которому предстоит выдержать большие нагрузки. Если их работа уже у тебя, проси о ремонте, а не о втором оружии.'),[
  response('Mark the road to the forge.','Отметь дорогу к кузнице.','TALK_BERSERK_FLORA_SMITH',effect=run('EOC_BERSERK_GODO_SEEK')),back(root['id'])]))
@@ -135,10 +140,10 @@ menus.append(topic('TALK_BERSERK_JOURNAL_ORDERS',t('*Orders at the woodland forg
  response('Return to the roads.','Вернуться к дорогам.','TALK_BERSERK_ROAD_JOURNAL')]))
 for order,en,ru in [('arm','Arm cannon','Рука-пушка'),('sword','Dragonslayer','Драконоборец')]:
  if order=='arm':stages=[
-  ('Order it at the forge or make it yourself with fabrication 8 and mechanics 4.','Закажите в кузнице или изготовьте самостоятельно с производством 8 и механикой 4.'),
-  ('Deliver 8 steel lumps and 2 pipes.','Передайте 8 кусков стали и 2 трубы.'),
+  ('Order the cannon from Rickert at the forge, or make it yourself with fabrication 8 and mechanics 4.','Закажите пушку у Рикерта в кузнице или изготовьте самостоятельно с производством 8 и механикой 4.'),
+  ('Deliver 8 steel lumps and 2 pipes to Rickert at the forge.','Передайте Рикерту в кузнице 8 кусков стали и 2 трубы.'),
   ('Deliver 2 springs, 4 leather patches and 200 charcoal.','Передайте 2 пружины, 4 лоскутка кожи и 200 единиц древесного угля.'),
-  ('Return six hours after the last delivery to collect the cannon.','Вернитесь через шесть часов после последней поставки и заберите пушку.'),
+  ('Meet Rickert at the forge six hours after the last delivery to collect the cannon.','Встретьтесь с Рикертом в кузнице через шесть часов после последней поставки и заберите пушку.'),
   ('This order is settled. Install the cannon you received or maintain the prosthetic you already own.','Заказ завершён. Установите полученную пушку или следите за уже имеющимся протезом.')]
  else:stages=[
   ('Order the blade at the forge. Godot does not duplicate one you already own.','Закажите клинок в кузнице. Годо не выдаёт второй меч, если он уже есть.'),

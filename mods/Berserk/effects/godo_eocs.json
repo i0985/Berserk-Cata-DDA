@@ -235,6 +235,9 @@
         "run_eocs": "EOC_BERSERK_GODO_REGISTER"
       },
       {
+        "run_eocs": "EOC_BERSERK_RICKERT_MIGRATE"
+      },
+      {
         "math": [
           "u_berserk_godo_met = 1"
         ]
@@ -530,7 +533,7 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE"
         },
         {
           "and": [
@@ -616,7 +619,7 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE"
         },
         {
           "and": [
@@ -680,7 +683,7 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE"
         },
         {
           "and": [
@@ -908,7 +911,7 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE"
         },
         {
           "and": [
@@ -961,7 +964,7 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE"
         },
         {
           "and": [
@@ -1117,8 +1120,7 @@
           "id": [
             "true_guts_sword",
             "true_guts_early_sword",
-            "forged_guts_sword",
-            "bio_berserk_arm_cannon"
+            "forged_guts_sword"
           ],
           "condition": {
             "math": [
@@ -1191,5 +1193,348 @@
         "topic": "TALK_BERSERK_ROAD_JOURNAL"
       }
     }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_AT_RICKERT",
+    "effect": [],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_npc",
+        {
+          "npc_has_class": "NC_BERSERK_RICKERT"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_AT_RICKERT_FORGE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "has_beta",
+            "npc_is_npc",
+            {
+              "npc_has_class": "NC_BERSERK_RICKERT"
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "u_at_om_location": "berserk_godo_workshop"
+            },
+            {
+              "npc_at_om_location": "berserk_godo_workshop"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_REPAIR_PICK",
+    "effect": {
+      "u_run_inv_eocs": "manual",
+      "title": "Choose a cannon for Rickert to repair",
+      "search_data": [
+        {
+          "id": [
+            "bio_berserk_arm_cannon"
+          ],
+          "condition": {
+            "math": [
+              "n_hp('ALL') < n_hp_max('torso')"
+            ]
+          }
+        }
+      ],
+      "true_eocs": [
+        "EOC_BERSERK_RICKERT_REPAIR_ITEM"
+      ]
+    },
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "has_beta",
+            "npc_is_npc",
+            {
+              "npc_has_class": "NC_BERSERK_RICKERT"
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "u_at_om_location": "berserk_godo_workshop"
+            },
+            {
+              "npc_at_om_location": "berserk_godo_workshop"
+            }
+          ]
+        },
+        {
+          "u_has_items": {
+            "item": "steel_lump",
+            "count": 1
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "charcoal",
+            "count": 50
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_REPAIR_ITEM",
+    "effect": [
+      {
+        "u_consume_item": "steel_lump",
+        "charges": 1
+      },
+      {
+        "u_consume_item": "charcoal",
+        "charges": 50
+      },
+      {
+        "math": [
+          "n_hp('ALL') = n_hp_max('torso')"
+        ]
+      },
+      {
+        "turn_cost": "1 minute"
+      },
+      {
+        "u_message": "Rickert straightens the mechanism and checks its joints.",
+        "type": "good",
+        "popup": false
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "u_has_items": {
+            "item": "steel_lump",
+            "count": 1
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "charcoal",
+            "count": 50
+          }
+        },
+        {
+          "math": [
+            "n_hp('ALL') < n_hp_max('torso')"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_JOIN",
+    "effect": [
+      {
+        "math": [
+          "n_berserk_rickert_recruited = 1"
+        ]
+      },
+      "follow"
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "has_beta",
+            "npc_is_npc",
+            {
+              "npc_has_class": "NC_BERSERK_RICKERT"
+            }
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "n_berserk_rickert_respect == 1"
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_rickert_recruited == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_MARK_PRESENT",
+    "effect": {
+      "math": [
+        "berserk_rickert_npc_present = 1"
+      ]
+    },
+    "condition": {
+      "u_has_class": "NC_BERSERK_RICKERT"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_REMOVE_LEGACY",
+    "effect": {
+      "u_run_monster_eocs": [
+        {
+          "id": "EOC_BERSERK_RICKERT_RETIRE_OLD_ACTOR",
+          "effect": {
+            "u_die": {
+              "remove_from_creature_tracker": true
+            }
+          }
+        }
+      ],
+      "mtype_ids": [
+        "mon_berserk_rickert"
+      ],
+      "monster_range": 32
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_MIGRATE",
+    "effect": [
+      {
+        "math": [
+          "berserk_rickert_npc_present = 0"
+        ]
+      },
+      {
+        "u_run_npc_eocs": [
+          "EOC_BERSERK_RICKERT_MARK_PRESENT"
+        ],
+        "unique_ids": [
+          "BERSERK_RICKERT"
+        ],
+        "local": false
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_rickert_npc_present == 1"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_RICKERT_REMOVE_LEGACY"
+        },
+        "else": [
+          {
+            "copy_var": {
+              "global_val": "berserk_godo_location"
+            },
+            "target_var": {
+              "context_val": "rickert_spawn"
+            }
+          },
+          {
+            "math": [
+              "_rickert_spawn.x = _rickert_spawn.x + 15"
+            ]
+          },
+          {
+            "math": [
+              "_rickert_spawn.y = _rickert_spawn.y + 12"
+            ]
+          },
+          {
+            "u_spawn_npc": "berserk_rickert",
+            "unique_id": "BERSERK_RICKERT",
+            "real_count": 1,
+            "target_var": {
+              "context_val": "rickert_spawn"
+            },
+            "min_radius": 1,
+            "max_radius": 3,
+            "true_eocs": [
+              "EOC_BERSERK_RICKERT_REMOVE_LEGACY"
+            ]
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "u_at_om_location": "berserk_godo_workshop"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_GODO_KNOWN"
+        },
+        {
+          "math": [
+            "berserk_rickert_dead != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_monsters_nearby('mon_berserk_rickert', 'radius': 32, 'attitude': 'both') > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_MIGRATE_TICK",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_GODO_REGISTER"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_RICKERT_MIGRATE"
+      }
+    ],
+    "eoc_type": "RECURRING",
+    "recurrence": "30 seconds",
+    "condition": {
+      "and": [
+        {
+          "u_at_om_location": "berserk_godo_workshop"
+        },
+        {
+          "math": [
+            "berserk_rickert_dead != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_monsters_nearby('mon_berserk_rickert', 'radius': 32, 'attitude': 'both') > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_DEATH",
+    "effect": {
+      "math": [
+        "berserk_rickert_dead = 1"
+      ]
+    },
+    "eoc_type": "NPC_DEATH"
   }
 ]

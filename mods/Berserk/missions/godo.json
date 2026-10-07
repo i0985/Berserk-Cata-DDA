@@ -3,7 +3,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_GODO",
     "name": "Seek Godot and Rickert",
-    "description": "Visit the woodland forge. Godot can build an arm cannon, forge a Dragonslayer and repair your existing equipment. Rickert can explain the fitting.",
+    "description": "Visit the woodland forge. Godot forges and repairs blades; Rickert builds the arm cannon and can become a traveling companion.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [
@@ -31,7 +31,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_GODO_ARM_METAL",
     "name": "Metal for an arm cannon",
-    "description": "Bring Godot 8 lumps of steel and 2 pipes. He accepts them together.",
+    "description": "Bring Rickert 8 lumps of steel and 2 pipes at the woodland forge. He accepts them together.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [
@@ -59,7 +59,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_GODO_ARM_FITTINGS",
     "name": "Fit the prosthetic",
-    "description": "Bring 2 springs, 4 leather patches and 200 charcoal. Godot needs six hours after this delivery.",
+    "description": "Bring Rickert 2 springs, 4 leather patches and 200 charcoal at the forge. Allow six hours after this delivery.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [
@@ -87,7 +87,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_GODO_ARM_COLLECT",
     "name": "Collect the arm cannon",
-    "description": "Return to Godot six hours after the fittings were delivered. Activate the finished prosthetic in your inventory to fit it yourself.",
+    "description": "Meet Rickert at the woodland forge six hours after the last delivery. Activate the finished cannon in your inventory to install it yourself.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [

@@ -14,15 +14,18 @@ class Forge:
         self.eocs={r['id']:r for r in objects('effects/godo_eocs.json')}
         self.vars=collections.defaultdict(int);self.items=collections.Counter()
         self.bionics={'bio_berserk_hand_stump'};self.now=1000;self.at_smith=True
+        self.actor='rickert';self.at_forge=True;self.following=False
         self.missions=set();self.repair_item=None;self.item_hp=1000;self.item_max=4000
     def value(self,s):
         s=s.replace("time('now')",str(self.now))
         s=s.replace("n_hp('ALL')",str(self.item_hp)).replace("n_hp_max('torso')",str(self.item_max))
-        s=s.replace("n_monsters_nearby('mon_berserk_godo', 'radius': 0, 'attitude': 'both')",str(int(self.at_smith)))
-        s=re.sub(r'\bu_berserk_\w+\b',lambda match:str(self.vars[match[0]]),s)
+        s=s.replace("n_monsters_nearby('mon_berserk_godo', 'radius': 0, 'attitude': 'both')",str(int(self.at_smith and self.actor=='godo')))
+        s=re.sub(r'\b[un]_berserk_\w+\b',lambda match:str(self.vars[match[0]]),s)
         return eval(s,{'__builtins__':{}},{})
     def condition(self,c):
-        if isinstance(c,str):return self.at_smith
+        if isinstance(c,str):
+            return {'has_beta':self.actor!='book','npc_is_monster':self.actor=='godo',
+                    'npc_is_npc':self.actor=='rickert','npc_following':self.following}[c]
         if 'and' in c:return all(self.condition(v) for v in c['and'])
         if 'or' in c:return any(self.condition(v) for v in c['or'])
         if 'not' in c:return not self.condition(c['not'])
@@ -34,12 +37,15 @@ class Forge:
             v=c['u_has_items'];return self.items[v['item']]>=v.get('count',v.get('charges',0))
         if 'u_has_bionics' in c:return c['u_has_bionics'] in self.bionics
         if 'u_has_mission' in c:return c['u_has_mission'] in self.missions
+        if 'npc_has_class' in c:return self.actor=='rickert' and c['npc_has_class']=='NC_BERSERK_RICKERT'
+        if 'u_at_om_location' in c or 'npc_at_om_location' in c:return self.at_forge
         raise AssertionError(c)
     def run(self,id):
         row=self.eocs[id]
         if 'condition' not in row or self.condition(row['condition']):self.effect(row['effect'])
     def effect(self,v):
-        if isinstance(v,list):
+        if v=='follow':self.following=True
+        elif isinstance(v,list):
             for part in v:self.effect(part)
         elif 'if' in v:
             branch='then' if self.condition(v['if']) else 'else'
@@ -69,9 +75,11 @@ class Forge:
 class Orders(unittest.TestCase):
     def run_eoc(self,f,id):f.run('EOC_BERSERK_GODO_'+id)
     def arm(self,f):
+        f.actor='rickert'
         f.items.update({'steel_lump':8,'pipe':2,'spring':2,'leather':4,'charcoal':200})
         for id in ['START_ARM','ARM_METAL','ARM_FITTINGS']:self.run_eoc(f,id)
     def sword(self,f):
+        f.actor='godo'
         f.items.update({'steel_lump':32,'hc_steel_lump':8,'charcoal':600,'leather':4})
         self.run_eoc(f,'START_SWORD')
         for _ in range(4):self.run_eoc(f,'SWORD_IRON')
@@ -84,7 +92,7 @@ class Orders(unittest.TestCase):
         self.assertEqual(f.items['bio_berserk_arm_cannon'],1)
         self.assertEqual(f.vars['u_berserk_godo_arm_state'],4)
     def test_sword_partial_delivery_wait_and_repeat(self):
-        f=Forge();f.items['steel_lump']=16;self.run_eoc(f,'START_SWORD')
+        f=Forge();f.actor='godo';f.items['steel_lump']=16;self.run_eoc(f,'START_SWORD')
         self.run_eoc(f,'SWORD_IRON');self.run_eoc(f,'SWORD_IRON')
         self.assertEqual(f.vars['u_berserk_godo_sword_iron_given'],16)
         self.assertEqual(f.vars['u_berserk_godo_sword_state'],1)
@@ -101,14 +109,14 @@ class Orders(unittest.TestCase):
         f=Forge();self.arm(f);self.sword(f)
         self.assertEqual(f.vars['u_berserk_godo_arm_state'],3)
         self.assertEqual(f.vars['u_berserk_godo_sword_state'],3)
-        f.now+=172800;self.run_eoc(f,'ARM_CLAIM');self.run_eoc(f,'SWORD_CLAIM')
+        f.now+=172800;f.actor='rickert';self.run_eoc(f,'ARM_CLAIM');f.actor='godo';self.run_eoc(f,'SWORD_CLAIM')
         self.assertEqual(f.items['bio_berserk_arm_cannon'],1);self.assertEqual(f.items['true_guts_sword'],1)
     def test_existing_start_equipment_cannot_start_duplicate_order(self):
         f=Forge();f.items['true_guts_sword']=1;f.bionics.add('bio_berserk_arm_cannon')
-        self.run_eoc(f,'START_ARM');self.run_eoc(f,'START_SWORD')
+        self.run_eoc(f,'START_ARM');f.actor='godo';self.run_eoc(f,'START_SWORD')
         self.assertEqual(f.vars['u_berserk_godo_arm_state'],0);self.assertEqual(f.vars['u_berserk_godo_sword_state'],0)
     def test_partial_sword_deposit_refunded_once(self):
-        f=Forge();f.items['steel_lump']=16;self.run_eoc(f,'START_SWORD')
+        f=Forge();f.actor='godo';f.items['steel_lump']=16;self.run_eoc(f,'START_SWORD')
         for _ in range(2):self.run_eoc(f,'SWORD_IRON')
         f.items['true_guts_sword']=1
         for _ in range(2):self.run_eoc(f,'SWORD_REFUND')
@@ -119,18 +127,42 @@ class Orders(unittest.TestCase):
         self.assertEqual(f.items['bio_berserk_arm_cannon'],0)
         self.assertEqual(f.items['steel_lump'],8);self.assertEqual(f.items['charcoal'],200)
     def test_remote_order_actions_do_not_consume_or_award(self):
-        f=Forge();self.arm(f);f.now+=21600;f.at_smith=False
+        f=Forge();self.arm(f);f.now+=21600;f.actor='book'
         self.run_eoc(f,'ARM_CLAIM');self.assertEqual(f.items['bio_berserk_arm_cannon'],0)
     def test_repair_cancel_and_healthy_piece_are_free(self):
-        f=Forge();f.items.update({'steel_lump':1,'charcoal':50})
+        f=Forge();f.actor='godo';f.items.update({'steel_lump':1,'charcoal':50})
         self.run_eoc(f,'REPAIR_PICK');self.assertEqual(f.items['steel_lump'],1)
         f.repair_item='true_guts_sword';f.item_hp=f.item_max
         self.run_eoc(f,'REPAIR_PICK');self.assertEqual(f.items['charcoal'],50)
     def test_repair_preserves_existing_piece_and_costs_once(self):
-        f=Forge();f.items.update({'steel_lump':2,'charcoal':100,'true_guts_sword':1});f.repair_item='true_guts_sword'
+        f=Forge();f.actor='godo';f.items.update({'steel_lump':2,'charcoal':100,'true_guts_sword':1});f.repair_item='true_guts_sword'
         self.run_eoc(f,'REPAIR_PICK');self.run_eoc(f,'REPAIR_PICK')
         self.assertEqual(f.item_hp,f.item_max);self.assertEqual(f.items['true_guts_sword'],1)
         self.assertEqual(f.items['steel_lump'],1);self.assertEqual(f.items['charcoal'],50)
+    def test_prepaid_arm_order_transfers_without_reset(self):
+        f=Forge();f.vars['u_berserk_godo_arm_state']=2
+        f.items.update({'spring':2,'leather':4,'charcoal':200})
+        self.run_eoc(f,'START_ARM');self.run_eoc(f,'ARM_FITTINGS');f.now+=21600
+        f.actor='godo';self.run_eoc(f,'ARM_CLAIM')
+        self.assertEqual(f.items['bio_berserk_arm_cannon'],0)
+        f.actor='rickert';self.run_eoc(f,'ARM_CLAIM');self.run_eoc(f,'ARM_CLAIM')
+        self.assertEqual(f.items['bio_berserk_arm_cannon'],1)
+    def test_recruitment_requires_respect_and_allows_retry(self):
+        f=Forge();f.run('EOC_BERSERK_RICKERT_JOIN');self.assertFalse(f.following)
+        f.vars['n_berserk_rickert_respect']=1;f.actor='book'
+        f.run('EOC_BERSERK_RICKERT_JOIN');self.assertFalse(f.following)
+        f.actor='rickert';f.run('EOC_BERSERK_RICKERT_JOIN');self.assertTrue(f.following)
+        f.following=False;f.vars['n_berserk_rickert_respect']=0
+        f.run('EOC_BERSERK_RICKERT_JOIN');self.assertTrue(f.following)
+    def test_companion_orders_require_return_to_forge(self):
+        f=Forge();self.arm(f);f.now+=21600;f.at_forge=False
+        self.run_eoc(f,'ARM_CLAIM');self.assertEqual(f.items['bio_berserk_arm_cannon'],0)
+        f.at_forge=True;self.run_eoc(f,'ARM_CLAIM');self.assertEqual(f.items['bio_berserk_arm_cannon'],1)
+    def test_cannon_repair_is_rickerts_work(self):
+        f=Forge();f.items.update({'steel_lump':1,'charcoal':50});f.repair_item='bio_berserk_arm_cannon'
+        f.actor='godo';self.run_eoc(f,'REPAIR_PICK');self.assertLess(f.item_hp,f.item_max)
+        f.actor='rickert';f.run('EOC_BERSERK_RICKERT_REPAIR_PICK');self.assertEqual(f.item_hp,f.item_max)
+        self.assertEqual(f.items['steel_lump'],0)
 
 class Data(unittest.TestCase):
     def test_topic_references_and_no_duplicate_questions(self):

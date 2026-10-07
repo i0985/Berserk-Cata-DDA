@@ -10,6 +10,7 @@ def t(en, ru):
     RU[en] = ru
     return en
 def save(path, data):
+    (MOD / path).parent.mkdir(parents=True, exist_ok=True)
     (MOD / path).write_text(json.dumps(data, ensure_ascii=False, indent=2) + '\n')
 def m(expr): return {'math': [expr]}
 def allof(*c): return {'and': list(c)}
@@ -263,19 +264,24 @@ topic('TALK_BERSERK_RICKERT_HOME',line('The stair leads to the sleeping loft. Th
 
 # A player-held book uses native topic menus, never a chain of Yes/No windows.
 effects.append(eoc('BOOK',{'open_dialogue':{'topic':'TALK_BERSERK_ROAD_JOURNAL'}}))
+from rickert_content import apply_rickert
+apply_rickert(effects, topics, missions, t, save)
 for row in effects:
  if row['id'].removeprefix('EOC_BERSERK_GODO_') in {
    'START_ARM','START_SWORD','ARM_METAL','ARM_FITTINGS','SWORD_IRON','SWORD_TEMPER',
    'ARM_CLAIM','SWORD_CLAIM','ARM_REFUND','SWORD_REFUND','REPAIR_PICK'
  }:
-  row['condition']=allof(call('EOC_BERSERK_GODO_AT_SMITH'),row['condition']) if 'condition' in row else call('EOC_BERSERK_GODO_AT_SMITH')
+  owner = 'EOC_BERSERK_GODO_AT_RICKERT_FORGE' if row['id'].removeprefix('EOC_BERSERK_GODO_') in {
+    'START_ARM','ARM_METAL','ARM_FITTINGS','ARM_CLAIM','ARM_REFUND'
+  } else 'EOC_BERSERK_GODO_AT_SMITH'
+  row['condition']=allof(call(owner),row['condition']) if 'condition' in row else call(owner)
 save('effects/godo_eocs.json',effects)
 save('dialogue/godo.json',topics)
 save('missions/godo.json',missions)
 save('items/godo_orders.json',[{
  'type':'ITEM','subtypes':['TOOL'],'id':'berserk_godo_order_book','category':'tools',
  'name':{'str':t("Godot's order notes",'записи о заказах у Годо')},
- 'description':t('Directions to the woodland forge and the materials Godot needs. Read to choose a known road or review an order.','Дорога к лесной кузнице и материалы, необходимые Годо. Прочитайте, чтобы выбрать известный путь или проверить заказ.'),
+ 'description':t('Directions to the woodland forge and materials for Rickert and Godot: a prosthesis from the engineer, a blade from the smith. Read to choose a road or review an order.','Дорога к лесной кузнице и материалы для Рикерта и Годо: протез у механика, клинок у кузнеца. Прочитайте, чтобы выбрать путь или проверить заказ.'),
  'material':['paper'],'weight':'25 g','volume':'50 ml','symbol':'?','color':'brown','charges_per_use':0,
  'flags':['ALLOWS_REMOTE_USE'],'use_action':{'type':'effect_on_conditions','need_wielding':False,'effect_on_conditions':['EOC_BERSERK_GODO_BOOK']}
 }])
@@ -287,7 +293,7 @@ for id,name,ru_name,symbol,desc,ru_desc,chat in [
       'default_faction':'player','bodytype':'human','species':['HUMAN'],'material':['hflesh'],
       'volume':'70 L','weight':'70 kg','hp':150,'speed':100,'symbol':symbol,'color':'brown',
       'aggression':-100,'aggro_character':False,'morale':100,'melee_dice':0,'melee_dice_sides':0,
-      'vision_day':30,'vision_night':12,'chat_topics':[chat],
+      'vision_day':30,'vision_night':12,'chat_topics':['TALK_BERSERK_RICKERT_LEGACY' if id=='mon_berserk_rickert' else chat],
       'flags':['SEES','HEARS','WARM','CONVERSATION','IMMOBILE','PACIFIST'],'looks_like':'mon_civilian_stationary'})
 save('monsters/godo.json',monsters)
 overmap=[]
@@ -331,8 +337,9 @@ for id,rows,is_ground in [('berserk_godo_workshop',ground,True),('berserk_godo_l
  if not is_ground:mapping['.']='t_open_air'
  obj={'fill_ter':'t_grass' if is_ground else 't_open_air','rows':rows,'terrain':mapping,'furniture':furniture}
  if is_ground:
-  obj['place_monster']=[{'monster':'mon_berserk_godo','x':12,'y':9,'chance':100},{'monster':'mon_berserk_rickert','x':15,'y':12,'chance':100}]
-  obj['place_item']=[{'item':id,'x':x,'y':y,'amount':1} for id,x,y in [('hammer',16,11),('tongs',17,11),('swage',16,11),('hotcut',17,11),('metal_file',17,11),('clay_pot',6,18),('waterskin',7,18)]]
+  obj['place_monster']=[{'monster':'mon_berserk_godo','x':12,'y':9,'chance':100}]
+  obj['place_npcs']=[{'class':'berserk_rickert','x':15,'y':12,'unique_id':'BERSERK_RICKERT'}]
+  obj['place_item']=[{'item':id,'x':x,'y':y,'amount':1} for id,x,y in [('hammer',16,11),('metalworking_tongs',17,11),('swage',16,11),('hotcut',17,11),('metal_file',17,11),('clay_pot',6,18),('waterskin',7,18)]]
   obj['place_item'] += [{'item':'charcoal','x':16,'y':18,'amount':150}]
  else:
   obj['place_item']=[{'item':id,'x':x,'y':y,'amount':1} for id,x,y in [('fur_blanket',6,7),('fur_blanket',15,7),('pillow',7,7),('pillow',16,7),('clay_pot',8,13)]]

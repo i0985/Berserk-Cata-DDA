@@ -171,12 +171,12 @@
       "math": [
         "u_berserk_godo_arm_state == 0"
       ],
-      "yes": "Order it at the forge or make it yourself with fabrication 8 and mechanics 4.",
+      "yes": "Order the cannon from Rickert at the forge, or make it yourself with fabrication 8 and mechanics 4.",
       "no": {
         "math": [
           "u_berserk_godo_arm_state == 1"
         ],
-        "yes": "Deliver 8 steel lumps and 2 pipes.",
+        "yes": "Deliver 8 steel lumps and 2 pipes to Rickert at the forge.",
         "no": {
           "math": [
             "u_berserk_godo_arm_state == 2"
@@ -186,7 +186,7 @@
             "math": [
               "u_berserk_godo_arm_state == 3"
             ],
-            "yes": "Return six hours after the last delivery to collect the cannon.",
+            "yes": "Meet Rickert at the forge six hours after the last delivery to collect the cannon.",
             "no": "This order is settled. Install the cannon you received or maintain the prosthetic you already own."
           }
         }

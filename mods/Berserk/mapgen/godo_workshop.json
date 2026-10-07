@@ -68,12 +68,14 @@
           "x": 12,
           "y": 9,
           "chance": 100
-        },
+        }
+      ],
+      "place_npcs": [
         {
-          "monster": "mon_berserk_rickert",
+          "class": "berserk_rickert",
           "x": 15,
           "y": 12,
-          "chance": 100
+          "unique_id": "BERSERK_RICKERT"
         }
       ],
       "place_item": [
@@ -84,7 +86,7 @@
           "amount": 1
         },
         {
-          "item": "tongs",
+          "item": "metalworking_tongs",
           "x": 17,
           "y": 11,
           "amount": 1

@@ -2,7 +2,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_ENTER",
-    "dynamic_line": "*The old smith rests his hammer against the anvil. Rickert glances up from a leather strap.",
+    "dynamic_line": "*The old smith rests his hammer against the anvil and looks up from the metal.",
     "responses": [
       {
         "text": "May we talk?",
@@ -25,8 +25,8 @@
     "dynamic_line": "If you came for a miracle, you've taken the wrong road. If you need honest iron, tell me what it has to do.",
     "responses": [
       {
-        "text": "I need a prosthetic for my missing hand.",
-        "topic": "TALK_BERSERK_GODO_ARM"
+        "text": "Who can build a prosthetic for my hand?",
+        "topic": "TALK_BERSERK_GODO_RICKERT"
       },
       {
         "text": "Can you forge a weapon for fighting demons?",
@@ -132,12 +132,8 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_SELF",
-    "dynamic_line": "Making that mechanism is advanced work: fabrication 8 and mechanics 4, with the proper metalworking tools. Bring the materials and I can do it without requiring you to master the craft. Fitting a finished cannon remains something you can do yourself.",
+    "dynamic_line": "Making the cannon yourself requires fabrication 8, mechanics 4 and proper tools. Rickert can build it from your materials if you have not learned that craft. You can install the finished mechanism yourself.",
     "responses": [
-      {
-        "text": "Return to the arm cannon order.",
-        "topic": "TALK_BERSERK_GODO_ARM"
-      },
       {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_GODO"
@@ -154,20 +150,20 @@
         "math": [
           "u_berserk_godo_arm_state == 4"
         ],
-        "yes": "Your order is settled. Look after the cannon I gave you; Rickert can explain its fitting.",
+        "yes": "That order is settled. If the mechanism you received needs attention, show it to me.",
         "no": {
           "math": [
             "u_berserk_godo_arm_state == 3"
           ],
           "yes": "The metal and fittings are here. Give me six hours from the last delivery; then come back for the finished cannon.",
-          "no": "I can make a cannon and a grip to fit the stump. First bring 8 lumps of steel and 2 pipes; then 2 springs, 4 leather patches and 200 charcoal. Rickert will prepare the straps."
+          "no": "I build the arm cannon here, using Godot's forge for the heavy work. Bring 8 steel lumps and 2 pipes, then 2 springs, 4 leather patches and 200 charcoal. Give me six hours after the last delivery. If we travel together, return here with me to deliver the materials and collect it."
         }
       }
     },
     "responses": [
       {
-        "text": "I made this prosthetic myself.",
-        "topic": "TALK_BERSERK_GODO_PRAISE",
+        "text": "I assembled this prosthetic myself.",
+        "topic": "TALK_BERSERK_RICKERT_PRAISE",
         "condition": {
           "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
         }
@@ -178,17 +174,24 @@
         "condition": {
           "and": [
             {
-              "math": [
-                "u_berserk_godo_arm_state == 0"
+              "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE"
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_arm_state == 0"
+                  ]
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+                  }
+                },
+                {
+                  "u_has_bionics": "bio_berserk_hand_stump"
+                }
               ]
-            },
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
-              }
-            },
-            {
-              "u_has_bionics": "bio_berserk_hand_stump"
             }
           ]
         },
@@ -202,26 +205,33 @@
         "condition": {
           "and": [
             {
-              "math": [
-                "u_berserk_godo_arm_state == 1"
+              "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE"
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_arm_state == 1"
+                  ]
+                },
+                {
+                  "u_has_items": {
+                    "item": "steel_lump",
+                    "count": 8
+                  }
+                },
+                {
+                  "u_has_items": {
+                    "item": "pipe",
+                    "count": 2
+                  }
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+                  }
+                }
               ]
-            },
-            {
-              "u_has_items": {
-                "item": "steel_lump",
-                "count": 8
-              }
-            },
-            {
-              "u_has_items": {
-                "item": "pipe",
-                "count": 2
-              }
-            },
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
-              }
             }
           ]
         },
@@ -235,32 +245,39 @@
         "condition": {
           "and": [
             {
-              "math": [
-                "u_berserk_godo_arm_state == 2"
+              "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE"
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_arm_state == 2"
+                  ]
+                },
+                {
+                  "u_has_items": {
+                    "item": "spring",
+                    "count": 2
+                  }
+                },
+                {
+                  "u_has_items": {
+                    "item": "leather",
+                    "count": 4
+                  }
+                },
+                {
+                  "u_has_items": {
+                    "item": "charcoal",
+                    "count": 200
+                  }
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+                  }
+                }
               ]
-            },
-            {
-              "u_has_items": {
-                "item": "spring",
-                "count": 2
-              }
-            },
-            {
-              "u_has_items": {
-                "item": "leather",
-                "count": 4
-              }
-            },
-            {
-              "u_has_items": {
-                "item": "charcoal",
-                "count": 200
-              }
-            },
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
-              }
             }
           ]
         },
@@ -270,17 +287,24 @@
       },
       {
         "text": "Collect the finished arm cannon.",
-        "topic": "TALK_BERSERK_GODO_FITTING",
+        "topic": "TALK_BERSERK_RICKERT_ARM",
         "condition": {
           "and": [
             {
-              "math": [
-                "u_berserk_godo_arm_state == 3"
-              ]
+              "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE"
             },
             {
-              "math": [
-                "time('now') >= u_berserk_godo_arm_ready_at"
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_arm_state == 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "time('now') >= u_berserk_godo_arm_ready_at"
+                  ]
+                }
               ]
             }
           ]
@@ -295,16 +319,23 @@
         "condition": {
           "and": [
             {
-              "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+              "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE"
             },
             {
-              "math": [
-                "u_berserk_godo_arm_state > 0"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_godo_arm_state < 4"
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_arm_state > 0"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_arm_state < 4"
+                  ]
+                }
               ]
             }
           ]
@@ -323,7 +354,7 @@
       },
       {
         "text": "Ask something else.",
-        "topic": "TALK_BERSERK_GODO"
+        "topic": "TALK_BERSERK_RICKERT"
       }
     ]
   },
@@ -375,7 +406,7 @@
       },
       {
         "text": "Ask something else.",
-        "topic": "TALK_BERSERK_GODO"
+        "topic": "TALK_BERSERK_RICKERT"
       }
     ]
   },
@@ -592,7 +623,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_REPAIR",
-    "dynamic_line": "Bring one steel lump and 50 charcoal for a damaged blade or an uninstalled cannon. Show me the piece you want repaired. I do not replace it with a copy, and choosing nothing costs you nothing. Rickert will help maintain an installed prosthetic with the right tools.",
+    "dynamic_line": "For a damaged blade, bring one steel lump and 50 charcoal. Show me the piece; I repair the blade you carry. For the cannon and its moving parts, speak to Rickert.",
     "responses": [
       {
         "text": "Show you a damaged piece.",
@@ -645,19 +676,43 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT",
-    "dynamic_line": "Godot handles the great pieces. I work on the joints, straps and things that have to move without catching. What do you need?",
+    "dynamic_line": "Godot makes the blades. I build mechanisms: the arm cannon, joints, fastenings, things that have to work when your life depends on them. What do you need?",
     "responses": [
       {
-        "text": "How do I fit the arm cannon?",
+        "text": "Can you build an arm cannon?",
+        "topic": "TALK_BERSERK_GODO_ARM"
+      },
+      {
+        "text": "How do I install the finished cannon?",
         "topic": "TALK_BERSERK_RICKERT_ARM"
       },
       {
-        "text": "How do I keep the mechanism working?",
+        "text": "What do you build, and how do you fight?",
+        "topic": "TALK_BERSERK_RICKERT_CRAFT"
+      },
+      {
+        "text": "Can you repair the mechanism?",
         "topic": "TALK_BERSERK_RICKERT_CARE"
       },
       {
         "text": "What is it like working with Godot?",
         "topic": "TALK_BERSERK_RICKERT_GODO"
+      },
+      {
+        "text": "Could we travel together?",
+        "topic": "TALK_BERSERK_RICKERT_ROAD",
+        "condition": {
+          "not": "npc_following"
+        }
+      },
+      {
+        "text": "Let us discuss equipment and our travel arrangements.",
+        "topic": "TALK_FRIEND",
+        "condition": {
+          "math": [
+            "n_berserk_rickert_recruited == 1"
+          ]
+        }
       },
       {
         "text": "Where may I leave supplies and rest?",
@@ -677,8 +732,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_ARM",
-    "dynamic_line": "Keep the finished cannon in your pack and activate it there. The left-hand stump mount must be empty. You can fasten it with your remaining hand; no electricity is involved. Bring the metal to Godot if you cannot make the mechanism yourself.",
+    "dynamic_line": "Keep the finished cannon in your pack and activate it there. The mount on your missing left hand must be free. You can fasten it with your remaining hand. I will build the mechanism if you bring the materials to this forge.",
     "responses": [
+      {
+        "text": "Return to the arm cannon order.",
+        "topic": "TALK_BERSERK_GODO_ARM"
+      },
       {
         "text": "What if I already have a cannon?",
         "topic": "TALK_BERSERK_RICKERT_CARE"
@@ -692,8 +751,18 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_CARE",
-    "dynamic_line": "Keep grit out of the hinge and replace straps before they split. Godot can repair a loose cannon or blade you carry. An installed cannon is a different job; I will not ask you to tear it off just to collect another one.",
+    "dynamic_line": "Keep grit out of the hinge and change straps before they split. Here at the forge I can repair a damaged cannon that has not been installed: one steel lump and 50 charcoal. I will not ask you to tear an installed hand off; those fittings need ordinary care, not another copy.",
     "responses": [
+      {
+        "text": "Show you an uninstalled damaged cannon.",
+        "topic": "TALK_BERSERK_RICKERT_CARE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE"
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_RICKERT_REPAIR_PICK"
+        }
+      },
       {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_RICKERT"
@@ -719,6 +788,188 @@
       {
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_RICKERT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_RICKERT",
+    "dynamic_line": "Speak with Rickert. He builds the moving joints, grip and hidden cannon himself. I forge blades. If you already paid me for the prosthetic, your materials are still in the workshop; he will finish that same order.",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_PRAISE",
+    "dynamic_line": {
+      "u_has_bionics": "bio_berserk_hand_stump",
+      "yes": "You assembled this with one hand? Those joints are not easy to fit with two. That is good work. Let us keep it working instead of making another.",
+      "no": "You built the mechanism yourself? Good work. The joints tell me more than a boast would. Show it to me if it ever starts catching."
+    },
+    "responses": [
+      {
+        "text": "Return to the arm cannon order.",
+        "topic": "TALK_BERSERK_GODO_ARM"
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_RICKERT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_CRAFT",
+    "dynamic_line": "A blade needs strength; a mechanism needs each small part to fit the next. Godot taught me to respect the metal. I work on hinges, locks and the cannon hidden in the prosthesis. In a fight I prefer a small crossbow and a clear shot. I am useful at your side, but I am not an apostle-killer with a magic sword.",
+    "responses": [
+      {
+        "text": "Can you build my prosthesis?",
+        "topic": "TALK_BERSERK_GODO_ARM"
+      },
+      {
+        "text": "Then let us talk about traveling together.",
+        "topic": "TALK_BERSERK_RICKERT_ROAD",
+        "condition": {
+          "not": "npc_following"
+        }
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_RICKERT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_ROAD",
+    "dynamic_line": {
+      "math": [
+        "n_berserk_rickert_recruited == 1"
+      ],
+      "yes": "Ready to move again? Check the bolts and leave us a way back. If the hand still needs forge work, we return here for it.",
+      "no": "I can travel, but I will not be someone sent ahead to die. Godot has his forge; I want the things we make to help people beyond this house. What do you expect from me?"
+    },
+    "responses": [
+      {
+        "text": "I need a craftsman and a companion. We choose the route and retreat together.",
+        "topic": "TALK_BERSERK_RICKERT_ROAD_PLAN",
+        "condition": {
+          "math": [
+            "n_berserk_rickert_recruited != 1"
+          ]
+        },
+        "effect": {
+          "math": [
+            "n_berserk_rickert_respect = 1"
+          ]
+        }
+      },
+      {
+        "text": "I need another fighter. You can take the first blows.",
+        "topic": "TALK_BERSERK_RICKERT_REFUSE",
+        "condition": {
+          "math": [
+            "n_berserk_rickert_recruited != 1"
+          ]
+        },
+        "effect": {
+          "math": [
+            "n_berserk_rickert_respect = 0"
+          ]
+        }
+      },
+      {
+        "text": "Let us set out again.",
+        "topic": "TALK_BERSERK_RICKERT",
+        "condition": {
+          "math": [
+            "n_berserk_rickert_recruited == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_RICKERT_JOIN"
+        }
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_RICKERT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_ROAD_PLAN",
+    "dynamic_line": "Then give me room to shoot, and do not count on me holding a monster in place. We can return for forge work when we need it. Will you listen when I say a road is too dangerous?",
+    "responses": [
+      {
+        "text": "We protect each other. You have a say in where we go.",
+        "topic": "TALK_BERSERK_RICKERT_JOINED",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_RICKERT_JOIN"
+        }
+      },
+      {
+        "text": "I give the orders. You follow them.",
+        "topic": "TALK_BERSERK_RICKERT_REFUSE",
+        "effect": {
+          "math": [
+            "n_berserk_rickert_respect = 0"
+          ]
+        }
+      },
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_RICKERT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_REFUSE",
+    "dynamic_line": "Then I stay here. You can still bring work to the forge, but traveling together takes more than another pair of hands.",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_RICKERT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_JOINED",
+    "dynamic_line": "All right. I will bring the crossbow and my tools. Keep a way back; we still have a forge to return to.",
+    "responses": [
+      {
+        "text": "Ask something else.",
+        "topic": "TALK_BERSERK_RICKERT"
+      },
+      {
+        "text": "Let us discuss our equipment.",
+        "topic": "TALK_FRIEND"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_LEGACY",
+    "dynamic_line": "*Rickert puts his work aside and reaches for his tool bag. \"Give me a moment. We can talk beside the bench.\"",
+    "responses": [
+      {
+        "text": "I will wait.",
+        "topic": "TALK_DONE",
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_GODO_REGISTER"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_RICKERT_MIGRATE",
+            "time_in_future": "1 second"
+          }
+        ]
       }
     ]
   }

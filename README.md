@@ -7,6 +7,7 @@
 
 - [Кузница Годо, диалоги, заказы и плейтест 3.2](docs/NEW_HORIZON_32_GODO.md)
 - [Дорожные истории и редкая уникальная кузница](docs/NEW_HORIZON_32_ROAD_STORIES.md)
+- [Редкость мест Бехелита, Рикерт-спутник и перенос заказа протеза](docs/NEW_HORIZON_32_RICKERT.md)
 - [Изменения и ограничения 3.1](docs/3.1_GEOGRAPHY_AND_PROGRESSION.md)
 - [Установка 3.1](docs/INSTALL_3.1.md)
 - [Изменения 3.0: English / Русский / 中文](docs/RELEASE_3.0_DEV.md)
