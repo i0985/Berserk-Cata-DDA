@@ -3,7 +3,7 @@
     "type": "MONSTER",
     "id": "mon_berserk_apostle_count",
     "copy-from": "mon_berserk_eclipse_butcher",
-    "looks_like": "mon_berserk_eclipse_butcher",
+    "looks_like": "",
     "name": {
       "str": "the Count",
       "str_pl": "Counts"
@@ -36,14 +36,26 @@
     ],
     "death_drops": "berserk_count_trophy_drops",
     "death_function": {
-      "eoc": "EOC_BERSERK_COUNT_DIES"
-    }
+      "eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_DEATH_COUNT_DIES"
+    },
+    "extend": {
+      "species": [
+        "BERSERK_COUNT_PAWN_HOUSEHOLD",
+        "BERSERK_COUNT_PAWN_MASTER"
+      ],
+      "flags": [
+        "CONVERSATION"
+      ]
+    },
+    "chat_topics": [
+      "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
+    ]
   },
   {
     "type": "MONSTER",
     "id": "mon_berserk_count_servant",
     "copy-from": "mon_berserk_eclipse_halfbreed",
-    "looks_like": "mon_berserk_eclipse_halfbreed",
+    "looks_like": "",
     "name": {
       "str": "the Count's twisted servant",
       "str_pl": "the Count's twisted servants"
@@ -65,7 +77,12 @@
       "cut": 3
     },
     "regenerates": 0,
-    "special_attacks": []
+    "special_attacks": [],
+    "extend": {
+      "species": [
+        "BERSERK_COUNT_PAWN_HOUSEHOLD"
+      ]
+    }
   },
   {
     "type": "MONSTER",

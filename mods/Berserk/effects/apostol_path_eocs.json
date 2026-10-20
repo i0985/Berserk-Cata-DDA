@@ -1,0 +1,1014 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ORDINARY_SURVIVOR",
+    "effect": [],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+          }
+        },
+        {
+          "not": {
+            "u_profession": "berserk_prosthesis"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UNCOMMITTED",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_apostol_path == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 0"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_apostol_schema == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_schema == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CAN_ACCEPT",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ORDINARY_SURVIVOR"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_UNCOMMITTED"
+        },
+        {
+          "not": {
+            "u_has_flag": "MUTATION_THRESHOLD"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CAN_DISTORT_BEHELIT",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CAN_ACCEPT"
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_route == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_behelit_spent == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_SYNC_RECIPE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_CAN_DISTORT_BEHELIT"
+      },
+      "then": {
+        "u_learn_recipe": "berserk_behelit_distorted"
+      },
+      "else": {
+        "u_forget_recipe": "berserk_behelit_distorted"
+      }
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "or": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CAN_DISTORT_BEHELIT"
+                },
+                {
+                  "not": {
+                    "u_know_recipe": "berserk_behelit_distorted"
+                  }
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_CAN_DISTORT_BEHELIT"
+                  }
+                },
+                {
+                  "u_know_recipe": "berserk_behelit_distorted"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_START",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_SYNC_RECIPE"
+    },
+    "condition": "u_is_avatar",
+    "eoc_type": "EVENT",
+    "required_event": "game_start"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_RECIPE_MIGRATION",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_SYNC_RECIPE"
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "or": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CAN_DISTORT_BEHELIT"
+                },
+                {
+                  "not": {
+                    "u_know_recipe": "berserk_behelit_distorted"
+                  }
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_CAN_DISTORT_BEHELIT"
+                  }
+                },
+                {
+                  "u_know_recipe": "berserk_behelit_distorted"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "eoc_type": "RECURRING",
+    "recurrence": "1 minute",
+    "global": true
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CRAFT_DISTORTED_BEHELIT",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_CAN_DISTORT_BEHELIT"
+      },
+      "then": {
+        "u_spawn_item": "berserk_behelit_distorted",
+        "count": 1
+      },
+      "else": [
+        {
+          "u_spawn_item": "berserk_behelit",
+          "count": 1
+        },
+        {
+          "u_spawn_item": "blood",
+          "count": 1
+        },
+        {
+          "u_message": "The face does not change. You recover the stone and the blood.",
+          "type": "neutral"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_DISTORTED_BEHELIT_USE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_CAN_DISTORT_BEHELIT"
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ENTER"
+      },
+      "else": {
+        "u_message": "The blood-darkened face remains silent.",
+        "type": "neutral"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VALID_REQUEST",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(_berserk_apostol_requested_path)"
+          ]
+        },
+        {
+          "math": [
+            "has_var(_berserk_apostol_requested_lineage)"
+          ]
+        },
+        {
+          "or": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 2"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 3"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 4"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 5"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 6"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 7"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 8"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 9"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 10"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 11"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 12"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 13"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 4"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_lineage == 14"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_REQUEST_SCENE_ALLOWED",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "and": [
+            {
+              "math": [
+                "_berserk_apostol_requested_path == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_route == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_behelit_spent == 1"
+              ]
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "or": [
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "_berserk_apostol_requested_path == 4"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state != 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_path = _berserk_apostol_requested_path"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_lineage = _berserk_apostol_requested_lineage"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_stage = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_schema = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_SYNC_RECIPE"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CAN_ACCEPT"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_VALID_REQUEST"
+        },
+        {
+          "math": [
+            "has_var(_berserk_apostol_accept_confirmed)"
+          ]
+        },
+        {
+          "math": [
+            "_berserk_apostol_accept_confirmed == 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_REQUEST_SCENE_ALLOWED"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_VOID",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "1",
+        "berserk_apostol_requested_lineage": "1"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_SLAN",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "1",
+        "berserk_apostol_requested_lineage": "2"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_UBIK",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "1",
+        "berserk_apostol_requested_lineage": "3"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_CONRAD",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "1",
+        "berserk_apostol_requested_lineage": "4"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_FEMTO",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "1",
+        "berserk_apostol_requested_lineage": "5"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_COUNT_FLESH",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "2",
+        "berserk_apostol_requested_lineage": "6"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_WYALD_FLESH",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "2",
+        "berserk_apostol_requested_lineage": "7"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_ROSINE_FLESH",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "2",
+        "berserk_apostol_requested_lineage": "8"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_GRUNBELD_FLESH",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "2",
+        "berserk_apostol_requested_lineage": "9"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_COUNT_PAWN",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "3",
+        "berserk_apostol_requested_lineage": "10"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_WYALD_PAWN",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "3",
+        "berserk_apostol_requested_lineage": "11"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_ROSINE_PAWN",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "3",
+        "berserk_apostol_requested_lineage": "12"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_GRUNBELD_PAWN",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "3",
+        "berserk_apostol_requested_lineage": "13"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ACCEPT_RITUAL",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_REQUEST",
+      "variables": {
+        "berserk_apostol_requested_path": "4",
+        "berserk_apostol_requested_lineage": "14"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_STATE_CONSISTENT",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_UNCOMMITTED"
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_schema == 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_apostol_stage == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_stage == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_stage == 3"
+                  ]
+                }
+              ]
+            },
+            {
+              "or": [
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 2"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 3"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 4"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 5"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 2"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 6"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 2"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 7"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 2"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 8"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 2"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 9"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 3"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 10"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 3"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 11"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 3"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 12"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 3"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 13"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 4"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 14"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_NORMAL_ECLIPSE_ALLOWED",
+    "effect": [],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_UNCOMMITTED"
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_eclipse_route == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_route == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

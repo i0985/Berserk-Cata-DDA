@@ -2,13 +2,11 @@
   {
     "type": "mission_definition",
     "id": "MISSION_BERSERK_GODO",
-    "name": "Seek Godot and Rickert",
-    "description": "Visit the woodland forge. Godot forges and repairs blades; Rickert builds the arm cannon and can become a traveling companion.",
+    "name": "Find the woodland forge",
+    "description": "Find the woodland forge and speak with one of its masters. The smith repairs weapons and forges heavy blades; his young companion works on crossbows. Their help may make the next journey easier.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
-      "math": [
-        "u_berserk_godo_met == 1"
-      ]
+      "test_eoc": "EOC_BERSERK_GODO_VISIT_GOAL"
     },
     "difficulty": 3,
     "value": 0,

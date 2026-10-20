@@ -1,0 +1,417 @@
+[
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_godhand_void",
+    "name": {
+      "str_sp": "Void"
+    },
+    "description": "An immense, motionless figure with an exposed brain. The space around its fingers seems folded into itself.",
+    "default_faction": "berserk_godhand",
+    "bodytype": "humanoid",
+    "species": [
+      "NETHER",
+      "BERSERK_GODHAND"
+    ],
+    "material": [
+      "flesh"
+    ],
+    "volume": "200 L",
+    "weight": "200 kg",
+    "hp": 10000,
+    "speed": 200,
+    "symbol": "V",
+    "color": "magenta",
+    "aggression": 0,
+    "aggro_character": true,
+    "morale": 100,
+    "melee_skill": 15,
+    "melee_dice": 10,
+    "melee_dice_sides": 12,
+    "dodge": 10,
+    "armor": {
+      "bash": 50,
+      "cut": 60,
+      "stab": 60,
+      "bullet": 80
+    },
+    "vision_day": 50,
+    "vision_night": 50,
+    "anger_triggers": [
+      "HURT",
+      "FRIEND_ATTACKED",
+      "FRIEND_DIED"
+    ],
+    "chat_topics": [
+      "TALK_BERSERK_APOSTOL_VOID"
+    ],
+    "flags": [
+      "SEES",
+      "HEARS",
+      "CONVERSATION",
+      "IMMOBILE",
+      "NOGIB",
+      "NO_BREATHE"
+    ],
+    "looks_like": "mon_void_apostle",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "id": "judgment",
+        "cooldown": 1,
+        "spell_data": {
+          "id": "berserk_godhand_void_judgment",
+          "hit_self": false
+        },
+        "monster_message": "Space closes across the attacker.",
+        "condition": {
+          "math": [
+            "u_val('anger') >= 10"
+          ]
+        }
+      }
+    ],
+    "death_function": {
+      "eoc": "EOC_BERSERK_APOSTOL_HAND_VOID_DIED"
+    }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_godhand_slan",
+    "name": {
+      "str_sp": "Slan"
+    },
+    "description": "A winged figure stands amid living flesh. Her smile holds neither sympathy nor haste.",
+    "default_faction": "berserk_godhand",
+    "bodytype": "humanoid",
+    "species": [
+      "NETHER",
+      "BERSERK_GODHAND"
+    ],
+    "material": [
+      "flesh"
+    ],
+    "volume": "200 L",
+    "weight": "200 kg",
+    "hp": 10000,
+    "speed": 200,
+    "symbol": "S",
+    "color": "magenta",
+    "aggression": 0,
+    "aggro_character": true,
+    "morale": 100,
+    "melee_skill": 15,
+    "melee_dice": 10,
+    "melee_dice_sides": 12,
+    "dodge": 10,
+    "armor": {
+      "bash": 50,
+      "cut": 60,
+      "stab": 60,
+      "bullet": 80
+    },
+    "vision_day": 50,
+    "vision_night": 50,
+    "anger_triggers": [
+      "HURT",
+      "FRIEND_ATTACKED",
+      "FRIEND_DIED"
+    ],
+    "chat_topics": [
+      "TALK_BERSERK_APOSTOL_SLAN"
+    ],
+    "flags": [
+      "SEES",
+      "HEARS",
+      "CONVERSATION",
+      "IMMOBILE",
+      "NOGIB",
+      "NO_BREATHE",
+      "FLIES"
+    ],
+    "looks_like": "",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "id": "judgment",
+        "cooldown": 1,
+        "spell_data": {
+          "id": "berserk_godhand_slan_judgment",
+          "hit_self": false
+        },
+        "monster_message": "Living cords close around the attacker.",
+        "condition": {
+          "math": [
+            "u_val('anger') >= 10"
+          ]
+        }
+      }
+    ],
+    "death_function": {
+      "eoc": "EOC_BERSERK_APOSTOL_HAND_SLAN_DIED"
+    }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_godhand_ubik",
+    "name": {
+      "str_sp": "Ubik"
+    },
+    "description": "A small floating figure peers through round lenses. Its quiet amusement makes every memory feel uncertain.",
+    "default_faction": "berserk_godhand",
+    "bodytype": "humanoid",
+    "species": [
+      "NETHER",
+      "BERSERK_GODHAND"
+    ],
+    "material": [
+      "flesh"
+    ],
+    "volume": "200 L",
+    "weight": "200 kg",
+    "hp": 10000,
+    "speed": 200,
+    "symbol": "U",
+    "color": "magenta",
+    "aggression": 0,
+    "aggro_character": true,
+    "morale": 100,
+    "melee_skill": 15,
+    "melee_dice": 10,
+    "melee_dice_sides": 12,
+    "dodge": 10,
+    "armor": {
+      "bash": 50,
+      "cut": 60,
+      "stab": 60,
+      "bullet": 80
+    },
+    "vision_day": 50,
+    "vision_night": 50,
+    "anger_triggers": [
+      "HURT",
+      "FRIEND_ATTACKED",
+      "FRIEND_DIED"
+    ],
+    "chat_topics": [
+      "TALK_BERSERK_APOSTOL_UBIK"
+    ],
+    "flags": [
+      "SEES",
+      "HEARS",
+      "CONVERSATION",
+      "IMMOBILE",
+      "NOGIB",
+      "NO_BREATHE",
+      "FLIES"
+    ],
+    "looks_like": "",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "id": "judgment",
+        "cooldown": 1,
+        "spell_data": {
+          "id": "berserk_godhand_ubik_judgment",
+          "hit_self": false
+        },
+        "monster_message": "The attacker’s senses collapse beneath incompatible memories.",
+        "condition": {
+          "math": [
+            "u_val('anger') >= 10"
+          ]
+        }
+      }
+    ],
+    "death_function": {
+      "eoc": "EOC_BERSERK_APOSTOL_HAND_UBIK_DIED"
+    }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_godhand_conrad",
+    "name": {
+      "str_sp": "Conrad"
+    },
+    "description": "A squat, silent figure waits in the folds of the ceremony. The air around it smells of decay.",
+    "default_faction": "berserk_godhand",
+    "bodytype": "humanoid",
+    "species": [
+      "NETHER",
+      "BERSERK_GODHAND"
+    ],
+    "material": [
+      "flesh"
+    ],
+    "volume": "200 L",
+    "weight": "200 kg",
+    "hp": 10000,
+    "speed": 200,
+    "symbol": "C",
+    "color": "magenta",
+    "aggression": 0,
+    "aggro_character": true,
+    "morale": 100,
+    "melee_skill": 15,
+    "melee_dice": 10,
+    "melee_dice_sides": 12,
+    "dodge": 10,
+    "armor": {
+      "bash": 50,
+      "cut": 60,
+      "stab": 60,
+      "bullet": 80
+    },
+    "vision_day": 50,
+    "vision_night": 50,
+    "anger_triggers": [
+      "HURT",
+      "FRIEND_ATTACKED",
+      "FRIEND_DIED"
+    ],
+    "chat_topics": [
+      "TALK_BERSERK_APOSTOL_CONRAD"
+    ],
+    "flags": [
+      "SEES",
+      "HEARS",
+      "CONVERSATION",
+      "IMMOBILE",
+      "NOGIB",
+      "NO_BREATHE"
+    ],
+    "looks_like": "",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "id": "judgment",
+        "cooldown": 1,
+        "spell_data": {
+          "id": "berserk_godhand_conrad_judgment",
+          "hit_self": false
+        },
+        "monster_message": "Rot overwhelms the attacker’s living tissue.",
+        "condition": {
+          "math": [
+            "u_val('anger') >= 10"
+          ]
+        }
+      }
+    ],
+    "death_function": {
+      "eoc": "EOC_BERSERK_APOSTOL_HAND_CONRAD_DIED"
+    }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_godhand_femto",
+    "name": {
+      "str_sp": "Femto"
+    },
+    "description": "A black, falcon-shaped figure stands apart. Even near him, the distance seems impossible to cross.",
+    "default_faction": "berserk_godhand",
+    "bodytype": "humanoid",
+    "species": [
+      "NETHER",
+      "BERSERK_GODHAND"
+    ],
+    "material": [
+      "flesh"
+    ],
+    "volume": "200 L",
+    "weight": "200 kg",
+    "hp": 10000,
+    "speed": 200,
+    "symbol": "F",
+    "color": "magenta",
+    "aggression": 0,
+    "aggro_character": true,
+    "morale": 100,
+    "melee_skill": 15,
+    "melee_dice": 10,
+    "melee_dice_sides": 12,
+    "dodge": 10,
+    "armor": {
+      "bash": 50,
+      "cut": 60,
+      "stab": 60,
+      "bullet": 80
+    },
+    "vision_day": 50,
+    "vision_night": 50,
+    "anger_triggers": [
+      "HURT",
+      "FRIEND_ATTACKED",
+      "FRIEND_DIED"
+    ],
+    "chat_topics": [
+      "TALK_BERSERK_APOSTOL_FEMTO"
+    ],
+    "flags": [
+      "SEES",
+      "HEARS",
+      "CONVERSATION",
+      "IMMOBILE",
+      "NOGIB",
+      "NO_BREATHE",
+      "FLIES"
+    ],
+    "looks_like": "mon_berserk_eclipse_griffith",
+    "special_attacks": [
+      {
+        "type": "spell",
+        "id": "judgment",
+        "cooldown": 1,
+        "spell_data": {
+          "id": "berserk_godhand_femto_judgment",
+          "hit_self": false
+        },
+        "monster_message": "An immense pressure crushes the attacker.",
+        "condition": {
+          "math": [
+            "u_val('anger') >= 10"
+          ]
+        }
+      }
+    ],
+    "death_function": {
+      "eoc": "EOC_BERSERK_APOSTOL_HAND_FEMTO_DIED"
+    }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_ubik_image",
+    "name": {
+      "str": "empty likeness",
+      "str_pl": "empty likenesses"
+    },
+    "description": "A fragile borrowed outline. It has no substance once struck.",
+    "default_faction": "player",
+    "bodytype": "human",
+    "species": [
+      "NETHER"
+    ],
+    "material": [
+      "flesh"
+    ],
+    "volume": "70 L",
+    "weight": "1 kg",
+    "hp": 1,
+    "speed": 100,
+    "symbol": "@",
+    "color": "light_gray",
+    "aggression": 0,
+    "morale": 100,
+    "melee_dice": 0,
+    "melee_dice_sides": 0,
+    "vision_day": 1,
+    "vision_night": 1,
+    "flags": [
+      "SEES",
+      "IMMOBILE",
+      "PACIFIST",
+      "NO_BREATHE",
+      "NOGIB"
+    ],
+    "looks_like": ""
+  }
+]

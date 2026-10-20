@@ -2,41 +2,47 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_WYALD_SEEK",
-    "effect": {
-      "if": {
-        "and": [
-          {
-            "math": [
-              "has_var(berserk_hunt_wyald_location)"
-            ]
-          },
-          {
-            "math": [
-              "berserk_hunt_wyald_state >= 1"
-            ]
-          }
-        ]
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_WYALD"
       },
-      "then": [
-        {
-          "reveal_map": {
-            "global_val": "berserk_hunt_wyald_location"
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "has_var(berserk_hunt_wyald_location)"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_wyald_state >= 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "reveal_map": {
+              "global_val": "berserk_hunt_wyald_location"
+            },
+            "radius": 1
           },
-          "radius": 1
-        },
-        {
-          "u_message": "Wyald's Black Dog encampment is marked on your map. Follow the broken cart tracks east or circle through the western quarry. The killing ring lies in the southeast; Wyald appears when you enter it.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+          {
+            "run_eocs": "EOC_BERSERK_DIALOGUE_NOTICE_WYALD"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+          }
+        ],
+        "else": {
+          "run_eocs": "EOC_BERSERK_WYALD_FIND"
         }
-      ],
-      "else": {
-        "run_eocs": "EOC_BERSERK_WYALD_FIND"
       }
-    },
+    ],
     "false_effect": {
       "u_message": "Follow named apostle trails above ground after the Eclipse and the first hunt.",
       "type": "info",
@@ -57,15 +63,29 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
         },
         {
-          "math": [
-            "u_berserk_first_hunt_done == 1"
+          "or": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+            }
           ]
         },
         {
@@ -80,6 +100,25 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_WYALD_FIND",
     "effect": [
+      {
+        "if": {
+          "math": [
+            "u_berserk_site_wyald_locator_schema != 2"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_site_wyald_tries = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_site_wyald_locator_schema = 2"
+            ]
+          }
+        ]
+      },
       {
         "if": {
           "or": [
@@ -142,9 +181,11 @@
               },
               "target_params": {
                 "om_terrain": "berserk_wyald_ring",
-                "random": false,
+                "random": true,
                 "min_distance": 0,
-                "z": 0
+                "z": 0,
+                "om_special": "berserk_wyald_camp_special",
+                "search_range": 80
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_WYALD_VALIDATE"
@@ -159,9 +200,11 @@
               },
               "target_params": {
                 "om_terrain": "berserk_wyald_ring",
-                "random": false,
+                "random": true,
                 "min_distance": 0,
-                "z": 0
+                "z": 0,
+                "om_special": "berserk_wyald_camp_special",
+                "search_range": 120
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_WYALD_VALIDATE"
@@ -201,9 +244,7 @@
         "radius": 1
       },
       {
-        "u_message": "Wyald's Black Dog encampment is marked on your map. Follow the broken cart tracks east or circle through the western quarry. The killing ring lies in the southeast; Wyald appears when you enter it.",
-        "type": "info",
-        "popup": true
+        "run_eocs": "EOC_BERSERK_DIALOGUE_NOTICE_WYALD"
       },
       {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
@@ -228,8 +269,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -362,8 +410,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -462,8 +517,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -559,9 +621,19 @@
         ]
       },
       {
-        "u_message": "Wyald emerges in the final clearing. Read the preparation effect when a heavy attack is winding up; break the line or leave its reach. Retreat is still possible.",
-        "type": "warning",
-        "popup": true
+        "if": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+          }
+        },
+        "then": {
+          "u_message": "Wyald emerges in the final clearing. Read the preparation effect when a heavy attack is winding up; break the line or leave its reach. Retreat is still possible.",
+          "type": "warning",
+          "popup": true
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_CHECK"
       }
     ]
   },
@@ -697,8 +769,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -839,8 +918,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -884,41 +970,47 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ROSINE_SEEK",
-    "effect": {
-      "if": {
-        "and": [
-          {
-            "math": [
-              "has_var(berserk_hunt_rosine_location)"
-            ]
-          },
-          {
-            "math": [
-              "berserk_hunt_rosine_state >= 1"
-            ]
-          }
-        ]
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_ROSINE"
       },
-      "then": [
-        {
-          "reveal_map": {
-            "global_val": "berserk_hunt_rosine_location"
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "has_var(berserk_hunt_rosine_location)"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_rosine_state >= 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "reveal_map": {
+              "global_val": "berserk_hunt_rosine_location"
+            },
+            "radius": 1
           },
-          "radius": 1
-        },
-        {
-          "u_message": "Rosine's Mistvale is marked on your map. Follow the pale trail east through the cocoons or loop south along the stony gully. The nest lies in the southeast; Rosine appears when you enter it.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+          {
+            "run_eocs": "EOC_BERSERK_DIALOGUE_NOTICE_ROSINE"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+          }
+        ],
+        "else": {
+          "run_eocs": "EOC_BERSERK_ROSINE_FIND"
         }
-      ],
-      "else": {
-        "run_eocs": "EOC_BERSERK_ROSINE_FIND"
       }
-    },
+    ],
     "false_effect": {
       "u_message": "Follow named apostle trails above ground after the Eclipse and the first hunt.",
       "type": "info",
@@ -939,15 +1031,29 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
         },
         {
-          "math": [
-            "u_berserk_first_hunt_done == 1"
+          "or": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+            }
           ]
         },
         {
@@ -962,6 +1068,25 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ROSINE_FIND",
     "effect": [
+      {
+        "if": {
+          "math": [
+            "u_berserk_site_rosine_locator_schema != 2"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_site_rosine_tries = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_site_rosine_locator_schema = 2"
+            ]
+          }
+        ]
+      },
       {
         "if": {
           "or": [
@@ -1024,9 +1149,11 @@
               },
               "target_params": {
                 "om_terrain": "berserk_rosine_nest",
-                "random": false,
+                "random": true,
                 "min_distance": 0,
-                "z": 0
+                "z": 0,
+                "om_special": "berserk_rosine_valley_special",
+                "search_range": 80
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_ROSINE_VALIDATE"
@@ -1041,9 +1168,11 @@
               },
               "target_params": {
                 "om_terrain": "berserk_rosine_nest",
-                "random": false,
+                "random": true,
                 "min_distance": 0,
-                "z": 0
+                "z": 0,
+                "om_special": "berserk_rosine_valley_special",
+                "search_range": 120
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_ROSINE_VALIDATE"
@@ -1083,9 +1212,7 @@
         "radius": 1
       },
       {
-        "u_message": "Rosine's Mistvale is marked on your map. Follow the pale trail east through the cocoons or loop south along the stony gully. The nest lies in the southeast; Rosine appears when you enter it.",
-        "type": "info",
-        "popup": true
+        "run_eocs": "EOC_BERSERK_DIALOGUE_NOTICE_ROSINE"
       },
       {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
@@ -1110,8 +1237,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -1244,8 +1378,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -1344,8 +1485,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -1441,9 +1589,19 @@
         ]
       },
       {
-        "u_message": "Rosine emerges in the final clearing. Read the preparation effect when a heavy attack is winding up; break the line or leave its reach. Retreat is still possible.",
-        "type": "warning",
-        "popup": true
+        "if": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+          }
+        },
+        "then": {
+          "u_message": "Rosine emerges in the final clearing. Read the preparation effect when a heavy attack is winding up; break the line or leave its reach. Retreat is still possible.",
+          "type": "warning",
+          "popup": true
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_CHECK"
       }
     ]
   },
@@ -1579,8 +1737,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -1721,8 +1886,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -1767,9 +1939,9 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_HUNT_NOT_FOUND",
     "effect": {
-      "u_message": "No suitable forest site was found nearby. Travel to another region and consult the hunt journal again; no encounter or reward was consumed.",
+      "u_message": "These directions do not yet reveal the road. The record has been kept.",
       "type": "info",
-      "popup": true
+      "popup": false
     }
   },
   {
@@ -1784,96 +1956,22 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_HUNT_GIVE_JOURNAL",
-    "effect": [
-      {
-        "if": {
-          "not": {
-            "u_has_item": "berserk_apostle_hunt_journal"
-          }
-        },
-        "then": {
-          "u_spawn_item": "berserk_apostle_hunt_journal",
-          "count": 1,
-          "suppress_message": true
-        }
-      },
-      {
-        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-      }
-    ]
+    "effect": {
+      "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+    }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_WYALD_NEXT",
     "effect": {
-      "if": {
-        "math": [
-          "berserk_hunt_rosine_state < 4"
-        ]
-      },
-      "then": {
-        "run_eocs": "EOC_BERSERK_ROSINE_SEEK"
-      },
-      "else": {
-        "if": {
-          "math": [
-            "berserk_hunt_count_state < 4"
-          ]
-        },
-        "then": {
-          "run_eocs": "EOC_BERSERK_COUNT_SEEK"
-        },
-        "else": {
-          "if": {
-            "math": [
-              "berserk_hunt_grunbeld_state < 4"
-            ]
-          },
-          "then": {
-            "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
-          },
-          "else": {
-            "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
-          }
-        }
-      }
+      "run_eocs": "EOC_BERSERK_JOURNAL_CHOOSE_CURRENT"
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ROSINE_NEXT",
     "effect": {
-      "if": {
-        "math": [
-          "berserk_hunt_wyald_state < 4"
-        ]
-      },
-      "then": {
-        "run_eocs": "EOC_BERSERK_WYALD_SEEK"
-      },
-      "else": {
-        "if": {
-          "math": [
-            "berserk_hunt_count_state < 4"
-          ]
-        },
-        "then": {
-          "run_eocs": "EOC_BERSERK_COUNT_SEEK"
-        },
-        "else": {
-          "if": {
-            "math": [
-              "berserk_hunt_grunbeld_state < 4"
-            ]
-          },
-          "then": {
-            "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
-          },
-          "else": {
-            "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
-          }
-        }
-      }
+      "run_eocs": "EOC_BERSERK_JOURNAL_CHOOSE_CURRENT"
     }
   },
   {
@@ -1912,9 +2010,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_HUNT_JOURNAL_USE",
     "effect": {
-      "open_dialogue": {
-        "topic": "TALK_BERSERK_ROAD_JOURNAL"
-      }
+      "run_eocs": "EOC_BERSERK_JOURNAL_OPEN_HUNTS"
     },
     "false_effect": {
       "u_message": "These trails belong to the road after the Eclipse and the first hunt.",
@@ -1936,15 +2032,29 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
         },
         {
-          "math": [
-            "u_berserk_first_hunt_done == 1"
+          "or": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+            }
           ]
         }
       ]

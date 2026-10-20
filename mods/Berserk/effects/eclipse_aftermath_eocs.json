@@ -4,6 +4,11 @@
     "id": "EOC_BERSERK_ECLIPSE_AFTERMATH",
     "effect": [
       {
+        "math": [
+          "u_berserk_rescue_retry_pending = 0"
+        ]
+      },
+      {
         "run_eocs": "EOC_BERSERK_ECLIPSE_RETURN_RECOVER"
       },
       {
@@ -29,18 +34,6 @@
         ]
       },
       {
-        "if": {
-          "math": [
-            "u_berserk_godo_rescue_relocated != 1"
-          ]
-        },
-        "then": {
-          "u_message": "The Skull Knight carried you out of the Eclipse. The wounds have been tended, but your left hand and an eye are lost, and the Brand remains. Rickert can build a prosthesis; you can also make and fit it yourself. Speak with the Knight before he leaves.",
-          "type": "warning",
-          "popup": true
-        }
-      },
-      {
         "u_add_var": "berserk_knight_waiting",
         "value": "yes"
       },
@@ -53,7 +46,10 @@
       {
         "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
       }
-    ]
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+    }
   },
   {
     "type": "effect_on_condition",
@@ -66,7 +62,10 @@
       {
         "run_eocs": "EOC_BERSERK_KNIGHT_FORGE_NOTICE"
       }
-    ]
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+    }
   },
   {
     "type": "effect_on_condition",
@@ -87,6 +86,9 @@
               "u_val": "berserk_knight_waiting"
             }
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -108,6 +110,9 @@
           "math": [
             "u_berserk_eclipse_return_recovered != 1"
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -223,6 +228,9 @@
         },
         {
           "test_eoc": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -266,6 +274,9 @@
           "math": [
             "u_berserk_knight_farewell_confirmed != 1"
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -313,11 +324,6 @@
         },
         {
           "math": [
-            "u_berserk_godo_rescue_relocated == 1"
-          ]
-        },
-        {
-          "math": [
             "u_berserk_knight_forge_notice_shown != 1"
           ]
         },
@@ -327,14 +333,15 @@
           ]
         },
         {
-          "or": [
+          "compare_string": [
+            "placed",
             {
-              "u_at_om_location": "berserk_godo_workshop"
-            },
-            {
-              "u_at_om_location": "berserk_godo_loft"
+              "u_val": "berserk_knight_waiting"
             }
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -345,9 +352,28 @@
         ]
       },
       {
-        "u_message": "You awaken in Godot's forge. Your wounds have been dressed, but the lost hand and eye are gone, and the Brand remains. The Skull Knight waits outside the western door. He wishes to speak with you before continuing his journey.",
-        "type": "warning",
-        "popup": true
+        "if": {
+          "math": [
+            "u_berserk_godo_rescue_relocated == 1"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_forge_rest_allowed = 1"
+            ]
+          },
+          {
+            "u_message": "The Skull Knight waits outside the door. He wanted to speak with you before leaving.",
+            "type": "info",
+            "popup": true
+          }
+        ],
+        "else": {
+          "u_message": "The Skull Knight waits nearby. He wanted to speak with you before leaving.",
+          "type": "info",
+          "popup": true
+        }
       }
     ]
   },
@@ -368,6 +394,9 @@
               "u_val": "berserk_knight_waiting"
             }
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -518,6 +547,9 @@
           "math": [
             "n_monsters_nearby('mon_skull_knight_rescuer', 'radius': 0, 'attitude': 'both') > 0"
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },

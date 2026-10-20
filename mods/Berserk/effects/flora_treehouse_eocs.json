@@ -151,16 +151,25 @@
     ],
     "condition": {
       "and": [
-        "has_beta",
-        "npc_is_monster",
         {
-          "math": [
-            "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+          "and": [
+            "has_beta",
+            "npc_is_monster",
+            {
+              "math": [
+                "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage == 1"
+              ]
+            }
           ]
         },
         {
           "math": [
-            "berserk_flora_stage == 1"
+            "berserk_flora_aid_authorized != 1"
           ]
         }
       ]
@@ -169,19 +178,45 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_READ_TRAVEL_FOLIO",
-    "effect": [
-      {
-        "u_learn_recipe": "bandages_makeshift_boiled"
+    "effect": {
+      "if": {
+        "math": [
+          "u_berserk_journal_read_berserk_flora_travel_folio == 1"
+        ]
       },
-      {
-        "u_learn_recipe": "waterskin"
+      "then": {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_TRAVEL_FOLIO"
+        }
       },
-      {
-        "u_message": "Flora's notes: boil clean cloth for dressings; sew a waterskin before a long journey. A defensible room, drinking water, a bed and a small stone-and-bone ward make a refuge. The ward quiets new Brand summons within eight tiles, not existing enemies. Neither the missing hand nor eye will grow back through rest.",
-        "type": "info",
-        "popup": true
-      }
-    ]
+      "else": [
+        {
+          "u_learn_recipe": "bandages_makeshift_boiled"
+        },
+        {
+          "u_learn_recipe": "waterskin"
+        },
+        {
+          "u_message": "Flora's notes: boil clean cloth for dressings; sew a waterskin before a long journey. A defensible room, drinking water, a bed and a small stone-and-bone ward make a refuge. The ward quiets new Brand summons within eight tiles, not existing enemies. Neither the missing hand nor eye will grow back through rest.",
+          "type": "info",
+          "popup": true
+        },
+        {
+          "math": [
+            "u_berserk_journal_read_berserk_flora_travel_folio = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+        },
+        {
+          "u_message": "A new entry has been added to your road journal.",
+          "type": "info",
+          "popup": false
+        }
+      ]
+    },
+    "//": "Road journal archive: berserk_flora_travel_folio"
   },
   {
     "type": "ter_furn_transform",
@@ -225,9 +260,9 @@
       ]
     },
     "false_effect": {
-      "u_message": "These are Flora's prepared stores. Ask her for help while the house is peaceful before taking them. After the sanctuary is lost, no new aid can be given.",
+      "u_message": "Small bundles of supplies have been prepared on the shelves. Ask Flora before taking them.",
       "type": "info",
-      "popup": true
+      "popup": false
     }
   },
   {
@@ -272,9 +307,9 @@
       ]
     },
     "false_effect": {
-      "u_message": "These are Flora's prepared stores. Ask her for help while the house is peaceful before taking them. After the sanctuary is lost, no new aid can be given.",
+      "u_message": "Small bundles of supplies have been prepared on the shelves. Ask Flora before taking them.",
       "type": "info",
-      "popup": true
+      "popup": false
     }
   },
   {
@@ -319,16 +354,16 @@
       ]
     },
     "false_effect": {
-      "u_message": "These are Flora's prepared stores. Ask her for help while the house is peaceful before taking them. After the sanctuary is lost, no new aid can be given.",
+      "u_message": "Small bundles of supplies have been prepared on the shelves. Ask Flora before taking them.",
       "type": "info",
-      "popup": true
+      "popup": false
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_READ_CHARRED_ARCHIVE",
     "effect": {
-      "u_message": "The unfinished pages burned with the house. Your escape was still a success; the remaining hunts can be followed through your journal.",
+      "u_message": "Only charred edges remain of the unfinished notes. A few lines are still legible, but the fire took most of the knowledge they held.",
       "type": "info",
       "popup": true
     }
@@ -407,7 +442,7 @@
               {
                 "u_message": "The manuscript lies here ready to be picked up. Leave by the western road or southern garden; do not wait for a victory.",
                 "type": "info",
-                "popup": true
+                "popup": false
               },
               {
                 "turn_cost": "2 seconds"
@@ -445,24 +480,75 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_READ_RESCUED_MANUSCRIPT",
     "effect": {
-      "u_message": "The pages survived because someone chose to carry them. Flora compares the joined worlds to roots grafted across a wound. A quiet place can shelter a traveler; no single refuge can mend the whole world. These notes grant no combat power.",
-      "type": "info",
-      "popup": true
-    }
+      "if": {
+        "math": [
+          "u_berserk_journal_read_berserk_flora_rescued_manuscript == 1"
+        ]
+      },
+      "then": {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_RESCUED_MANUSCRIPT"
+        }
+      },
+      "else": [
+        {
+          "u_message": "The pages survived because someone chose to carry them. Flora compares the joined worlds to roots grafted across a wound. A quiet place can shelter a traveler; no single refuge can mend the whole world. These notes grant no combat power.",
+          "type": "info",
+          "popup": true
+        },
+        {
+          "math": [
+            "u_berserk_journal_read_berserk_flora_rescued_manuscript = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+        },
+        {
+          "u_message": "A new entry has been added to your road journal.",
+          "type": "info",
+          "popup": false
+        }
+      ]
+    },
+    "//": "Road journal archive: berserk_flora_rescued_manuscript"
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_READ_BOOKMARK",
-    "effect": [
-      {
-        "u_message": "A leaf-shaped wooden bookmark survived inside the stone-lined root niche. Its little inscription reads: leave a light for the next traveler. The house will not return, and its attack cannot be repeated. Your hunt journal still gives the next roads.",
-        "type": "info",
-        "popup": true
+    "effect": {
+      "if": {
+        "math": [
+          "u_berserk_journal_read_berserk_flora_scorched_bookmark == 1"
+        ]
       },
-      {
-        "run_eocs": "EOC_BERSERK_FLORA_PROGRESS_REPORT"
-      }
-    ]
+      "then": {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_SCORCHED_BOOKMARK"
+        }
+      },
+      "else": [
+        {
+          "u_message": "A leaf-shaped wooden bookmark survived inside the stone-lined root niche. Its little inscription reads: leave a light for the next traveler.",
+          "type": "info",
+          "popup": true
+        },
+        {
+          "math": [
+            "u_berserk_journal_read_berserk_flora_scorched_bookmark = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+        },
+        {
+          "u_message": "A new entry has been added to your road journal.",
+          "type": "info",
+          "popup": false
+        }
+      ]
+    },
+    "//": "Road journal archive: berserk_flora_scorched_bookmark"
   },
   {
     "type": "ter_furn_transform",

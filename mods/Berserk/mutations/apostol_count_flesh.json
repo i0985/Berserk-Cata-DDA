@@ -1,0 +1,146 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_COUNT_FLESH_SEED",
+    "name": {
+      "str": "Seed: pliant flesh"
+    },
+    "description": "Your steps become heavier. Movement is 10 points slower, throughout the transformation.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_COUNT_FLESH"
+    ],
+    "threshold": true,
+    "flags": [
+      "MUTATION_THRESHOLD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "SPEED",
+            "add": -10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_COUNT_FLESH_SENSES",
+    "name": {
+      "str": "Senses: pliant flesh"
+    },
+    "description": "The flesh sharpens your perception in darkness. Its lasting weakness remains throughout the transformation.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_COUNT_FLESH"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "NIGHT_VIS",
+            "add": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_COUNT_FLESH_FORM",
+    "name": {
+      "str": "Body: pliant flesh"
+    },
+    "description": "Your heavy, pliant body grants +3 strength and 3 points of natural protection. Your slower movement remains. This body is permanent; returning to human shape is impossible. It does not heal wounds.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_COUNT_FLESH"
+    ],
+    "flags": [
+      "BERSERK_COUNT_FLESH_FORM_ACTIVE"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STRENGTH",
+            "add": 3
+          },
+          {
+            "value": "ARMOR_ALL",
+            "add": -3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_COUNT_FLESH_APOSTLE",
+    "name": {
+      "str": "Apostle: pliant flesh"
+    },
+    "description": "Your independent transformation is complete. You are a weaker likeness of the fallen apostle, not its rebirth or servant. No further portion is needed; the weakness remains.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_COUNT_FLESH"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_COUNT_FLESH_STRIKE",
+    "name": {
+      "str": "Pliant tendril"
+    },
+    "description": "Strike an enemy within 2 tiles for 20 bash damage. Costs 900 stamina and 2 seconds; recovers in 16 seconds. Dodge is reduced by 2 for 3 seconds afterward.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_COUNT_FLESH"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_COUNT_FLESH_STRIKE_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_COUNT_FLESH_MEND",
+    "name": {
+      "str": "Draw flesh together"
+    },
+    "description": "Heal 3 HP on each injured major body part. Costs 1000 stamina, 80 kcal and 3 seconds; recovers in 2 minutes. It cannot regrow a lost hand or eye. No cost when you are uninjured.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_COUNT_FLESH"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_COUNT_FLESH_MEND_USE"
+    ]
+  }
+]

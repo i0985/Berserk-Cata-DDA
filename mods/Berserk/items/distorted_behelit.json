@@ -1,0 +1,23 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "copy-from": "berserk_behelit",
+    "id": "berserk_behelit_distorted",
+    "name": {
+      "str": "distorted Behelit"
+    },
+    "color": "dark_gray",
+    "looks_like": "",
+    "description": "Blood has soaked into the stone without leaving a stain. Its face whispers: \"How long will you let others choose your fate?\" Answering leads to a ceremony from which you cannot return untouched. Its gift has permanent weaknesses; a final refusal also leaves lasting wounds.",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Listen to the call",
+      "effect_on_conditions": [
+        "EOC_BERSERK_APOSTOL_DISTORTED_BEHELIT_USE"
+      ]
+    }
+  }
+]

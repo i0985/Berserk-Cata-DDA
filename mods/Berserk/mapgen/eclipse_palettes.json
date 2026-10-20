@@ -3,7 +3,7 @@
     "type": "terrain",
     "id": "t_berserk_eclipse_open_flesh",
     "name": "living ground",
-    "description": "A vast expanse of yielding, scarred flesh stretches beneath the Eclipse.",
+    "description": "Scarred living ground stretches beneath the Eclipse. A dull glow seeps through it, outlining the field between brighter veins.",
     "looks_like": "t_thconc_floor_flesh",
     "symbol": ".",
     "color": "red",
@@ -12,7 +12,8 @@
       "TRANSPARENT",
       "SUPPORTS_ROOF",
       "FLAT"
-    ]
+    ],
+    "light_emitted": 6
   },
   {
     "type": "terrain",
@@ -115,7 +116,8 @@
     "move_cost": 0,
     "flags": [
       "TRANSPARENT"
-    ]
+    ],
+    "light_emitted": 4
   },
   {
     "type": "terrain",

@@ -610,8 +610,8 @@
   {
     "type": "furniture",
     "id": "f_berserk_wyald_wagon_chime",
-    "name": "wagon harness bells",
-    "description": "A wound cord can shake the harness bells after a delay. The mechanism can be used once.",
+    "name": "broken fitting",
+    "description": "Only a worn fastening remains.",
     "looks_like": "f_rubble",
     "symbol": "?",
     "color": "brown",
@@ -620,18 +620,13 @@
     "flags": [
       "TRANSPARENT"
     ],
-    "examine_action": {
-      "type": "effect_on_condition",
-      "effect_on_conditions": [
-        "EOC_BERSERK_WYALD_WAGON_BELL"
-      ]
-    }
+    "examine_action": "none"
   },
   {
     "type": "furniture",
     "id": "f_berserk_wyald_wagon_chime_armed",
-    "name": "wound wagon harness bells",
-    "description": "The wound cord is running down. Three short bursts will come from this wagon.",
+    "name": "broken fitting",
+    "description": "Only a worn fastening remains.",
     "looks_like": "f_rubble",
     "symbol": "?",
     "color": "brown",
@@ -639,13 +634,14 @@
     "required_str": -1,
     "flags": [
       "TRANSPARENT"
-    ]
+    ],
+    "examine_action": "none"
   },
   {
     "type": "furniture",
     "id": "f_berserk_wyald_wagon_chime_spent",
-    "name": "spent wagon harness bells",
-    "description": "The frayed cord has broken. These bells cannot be wound again.",
+    "name": "broken fitting",
+    "description": "Only a worn fastening remains.",
     "looks_like": "f_rubble",
     "symbol": "?",
     "color": "brown",
@@ -653,7 +649,8 @@
     "required_str": -1,
     "flags": [
       "TRANSPARENT"
-    ]
+    ],
+    "examine_action": "none"
   },
   {
     "type": "furniture",

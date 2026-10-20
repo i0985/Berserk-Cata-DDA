@@ -2,200 +2,1848 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_ROAD_JOURNAL",
-    "dynamic_line": "*The notes preserve roads you have learned and work you have not finished. Choose an entry.",
+    "dynamic_line": "*Roads you know, work in progress and accounts you have read. Choose a section.",
     "responses": [
       {
-        "text": "Review the journey so far.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL",
-        "condition": {
-          "math": [
-            "berserk_eclipse_era == 1"
-          ]
-        },
+        "text": "Current objective.",
+        "topic": "TALK_BERSERK_JOURNAL_CURRENT",
         "effect": {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_REPORT"
+          "run_eocs": "EOC_BERSERK_JOURNAL_REFRESH"
         }
       },
       {
-        "text": "Find Godot and Rickert.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL",
-        "effect": {
-          "run_eocs": "EOC_BERSERK_GODO_SEEK"
-        }
+        "text": "Known places and hunts.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACES"
       },
       {
-        "text": "Review forge orders.",
+        "text": "Forge orders.",
         "topic": "TALK_BERSERK_JOURNAL_ORDERS"
       },
       {
-        "text": "Recall the first hunt.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL",
+        "text": "Shelter and the Brand.",
+        "topic": "TALK_BERSERK_JOURNAL_REFUGE"
+      },
+      {
+        "text": "Read records.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS"
+      },
+      {
+        "text": "Close the journal.",
+        "topic": "TALK_DONE",
         "condition": {
-          "math": [
-            "u_berserk_eclipse_rescue_state == 2"
-          ]
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_FIRST_HUNT_RECALL"
+          "not": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_KNIGHT_SPEAKER"
+          }
         }
       },
       {
-        "text": "Recall the ashen breach.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL",
+        "text": "Return to the Skull Knight.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER",
         "condition": {
-          "math": [
-            "u_berserk_first_hunt_done == 1"
-          ]
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_BREACH_READ_CLUE"
+          "test_eoc": "EOC_BERSERK_JOURNAL_KNIGHT_SPEAKER"
         }
-      },
-      {
-        "text": "Recall the Count's trail.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL",
-        "condition": {
-          "or": [
-            {
-              "math": [
-                "berserk_hunt_count_state >= 1"
-              ]
-            },
-            {
-              "u_has_item": "berserk_apostle_hunt_journal"
-            }
-          ]
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_COUNT_SEEK"
-        }
-      },
-      {
-        "text": "Recall the Black Dogs' camp.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL",
-        "condition": {
-          "or": [
-            {
-              "math": [
-                "berserk_hunt_wyald_state >= 1"
-              ]
-            },
-            {
-              "u_has_item": "berserk_apostle_hunt_journal"
-            }
-          ]
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_WYALD_SEEK"
-        }
-      },
-      {
-        "text": "Recall the misty valley.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL",
-        "condition": {
-          "or": [
-            {
-              "math": [
-                "berserk_hunt_rosine_state >= 1"
-              ]
-            },
-            {
-              "u_has_item": "berserk_apostle_hunt_journal"
-            }
-          ]
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_ROSINE_SEEK"
-        }
-      },
-      {
-        "text": "Recall Flora's grove.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE"
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_FLORA_SEEK"
-        }
-      },
-      {
-        "text": "Recall Grunbeld's stronghold.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL",
-        "condition": {
-          "or": [
-            {
-              "math": [
-                "u_berserk_flora_escaped == 1"
-              ]
-            },
-            {
-              "math": [
-                "berserk_hunt_grunbeld_site_registered == 1"
-              ]
-            }
-          ]
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
-        }
-      },
-      {
-        "text": "Close the notes.",
-        "topic": "TALK_DONE"
       }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "TALK_BERSERK_JOURNAL_ORDERS",
-    "dynamic_line": "*Orders at the woodland forge. Deliver materials to Godot himself; reading these notes does not hand them over.",
+    "id": "TALK_BERSERK_JOURNAL_PLACE_FIRST",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_JOURNAL_DONE_FIRST",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FIRST",
+        "yes": "First hunt: the apostle’s hollow\n\nThe trail of missing travelers leads into a forest hollow.\n\nCompleted: the apostle is defeated and the recovered trail is recorded.\n\nPlace: marked on the map.",
+        "no": "First hunt: the apostle’s hollow\n\nThe trail of missing travelers leads into a forest hollow.\n\nCompleted: the apostle is defeated and the recovered trail is recorded.\n\nPlace: not yet located. The trail is preserved above."
+      },
+      "no": {
+        "math": [
+          "u_berserk_first_hunt_done == 1"
+        ],
+        "yes": {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FIRST",
+          "yes": "First hunt: the apostle’s hollow\n\nThe trail of missing travelers leads into a forest hollow.\n\nNow: search the apostle’s remains and read the burned scrap.\n\nPlace: marked on the map.",
+          "no": "First hunt: the apostle’s hollow\n\nThe trail of missing travelers leads into a forest hollow.\n\nNow: search the apostle’s remains and read the burned scrap.\n\nPlace: not yet located. The trail is preserved above."
+        },
+        "no": {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FIRST",
+          "yes": "First hunt: the apostle’s hollow\n\nThe trail of missing travelers leads into a forest hollow.\n\nNow: find the place and inspect its approaches.\n\nPlace: marked on the map.",
+          "no": "First hunt: the apostle’s hollow\n\nThe trail of missing travelers leads into a forest hollow.\n\nNow: find the place and inspect its approaches.\n\nPlace: not yet located. The trail is preserved above."
+        }
+      }
+    },
     "responses": [
       {
-        "text": "Long battle sword order.",
-        "topic": "TALK_BERSERK_JOURNAL_EARLY"
+        "text": "Show the place on the map.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_FIRST",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_first == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FIRST"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_SHOW_FIRST"
+        }
       },
       {
-        "text": "Arm cannon order.",
-        "topic": "TALK_BERSERK_JOURNAL_ARM",
+        "text": "Clarify the route from the record.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_FIRST",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_first == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FIRST"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LOCATE_FIRST"
+        }
+      },
+      {
+        "text": "Read the information.",
+        "topic": "TALK_BERSERK_JOURNAL_INFO_FIRST"
+      },
+      {
+        "text": "Mark as my next objective in the journal.",
+        "topic": "TALK_BERSERK_JOURNAL_CURRENT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_first == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_FIRST"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "math": [
+            "u_berserk_journal_goal = 1"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_INFO_FIRST",
+    "dynamic_line": "The trail of missing travelers leads into a forest hollow.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_FIRST"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_PLACE_BREACH",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_breach_sealed == 1"
+      ],
+      "yes": {
+        "test_eoc": "EOC_BERSERK_JOURNAL_VALID_BREACH",
+        "yes": "The Ashen Breach\n\nRecovered marks lead to a wound in the earth.\n\nCompleted: this breach is sealed. The surrounding area has grown quieter.\n\nPlace: marked on the map.",
+        "no": "The Ashen Breach\n\nRecovered marks lead to a wound in the earth.\n\nCompleted: this breach is sealed. The surrounding area has grown quieter.\n\nPlace: not yet located. The trail is preserved above."
+      },
+      "no": {
+        "math": [
+          "u_berserk_breach_guardian_defeated == 1"
+        ],
+        "yes": {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_BREACH",
+          "yes": "The Ashen Breach\n\nRecovered marks lead to a wound in the earth.\n\nNow: examine the exposed wound and seal the breach.\n\nPlace: marked on the map.",
+          "no": "The Ashen Breach\n\nRecovered marks lead to a wound in the earth.\n\nNow: examine the exposed wound and seal the breach.\n\nPlace: not yet located. The trail is preserved above."
+        },
+        "no": {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_BREACH",
+          "yes": "The Ashen Breach\n\nRecovered marks lead to a wound in the earth.\n\nNow: defeat the keeper; keep a route for retreat.\n\nPlace: marked on the map.",
+          "no": "The Ashen Breach\n\nRecovered marks lead to a wound in the earth.\n\nNow: defeat the keeper; keep a route for retreat.\n\nPlace: not yet located. The trail is preserved above."
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Show the place on the map.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_BREACH",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_breach == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_BREACH"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_SHOW_BREACH"
+        }
+      },
+      {
+        "text": "Clarify the route from the record.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_BREACH",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_breach == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_BREACH"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LOCATE_BREACH"
+        }
+      },
+      {
+        "text": "Read the information.",
+        "topic": "TALK_BERSERK_JOURNAL_INFO_BREACH"
+      },
+      {
+        "text": "Mark as my next objective in the journal.",
+        "topic": "TALK_BERSERK_JOURNAL_CURRENT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_breach == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_BREACH"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "math": [
+            "u_berserk_journal_goal = 2"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_INFO_BREACH",
+    "dynamic_line": "Recovered marks lead to a wound in the earth.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_BREACH"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_PLACE_COUNT",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL",
+      "yes": "Bring two pieces of leather for the household stores. In return I will nourish the strength I gave you.",
+      "no": {
+        "test_eoc": "EOC_BERSERK_JOURNAL_DONE_COUNT",
+        "yes": {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_COUNT",
+          "yes": "The Count’s residence\n\nA fortified residence stands at the end of this trail.\n\nCompleted: the local breach is sealed and its reward has been claimed.\n\nPlace: marked on the map.",
+          "no": "The Count’s residence\n\nA fortified residence stands at the end of this trail.\n\nCompleted: the local breach is sealed and its reward has been claimed.\n\nPlace: not yet located. The trail is preserved above."
+        },
+        "no": {
+          "math": [
+            "berserk_hunt_count_state >= 4"
+          ],
+          "yes": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_VALID_COUNT",
+            "yes": "The Count’s residence\n\nA fortified residence stands at the end of this trail.\n\nNow: return to the Count’s remains if you have not collected the Seal of Severed Flesh.\n\nPlace: marked on the map.",
+            "no": "The Count’s residence\n\nA fortified residence stands at the end of this trail.\n\nNow: return to the Count’s remains if you have not collected the Seal of Severed Flesh.\n\nPlace: not yet located. The trail is preserved above."
+          },
+          "no": {
+            "math": [
+              "berserk_hunt_count_state >= 3"
+            ],
+            "yes": {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_COUNT",
+              "yes": "The Count’s residence\n\nA fortified residence stands at the end of this trail.\n\nNow: examine the exposed wound and seal the breach.\n\nPlace: marked on the map.",
+              "no": "The Count’s residence\n\nA fortified residence stands at the end of this trail.\n\nNow: examine the exposed wound and seal the breach.\n\nPlace: not yet located. The trail is preserved above."
+            },
+            "no": {
+              "math": [
+                "berserk_hunt_count_state >= 2"
+              ],
+              "yes": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_COUNT",
+                "yes": "The Count’s residence\n\nA fortified residence stands at the end of this trail.\n\nNow: defeat the keeper; keep a route for retreat.\n\nPlace: marked on the map.",
+                "no": "The Count’s residence\n\nA fortified residence stands at the end of this trail.\n\nNow: defeat the keeper; keep a route for retreat.\n\nPlace: not yet located. The trail is preserved above."
+              },
+              "no": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_COUNT",
+                "yes": "The Count’s residence\n\nA fortified residence stands at the end of this trail.\n\nNow: find the place and inspect its approaches.\n\nPlace: marked on the map.",
+                "no": "The Count’s residence\n\nA fortified residence stands at the end of this trail.\n\nNow: find the place and inspect its approaches.\n\nPlace: not yet located. The trail is preserved above."
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Show the place on the map.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_COUNT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_count == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_COUNT"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_SHOW_COUNT"
+        }
+      },
+      {
+        "text": "Clarify the route from the record.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_COUNT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_count == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_COUNT"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LOCATE_COUNT"
+        }
+      },
+      {
+        "text": "Read the information.",
+        "topic": "TALK_BERSERK_JOURNAL_INFO_COUNT"
+      },
+      {
+        "text": "Mark as my next objective in the journal.",
+        "topic": "TALK_BERSERK_JOURNAL_CURRENT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_count == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_COUNT"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "math": [
+            "u_berserk_journal_goal = 3"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACES"
+      },
+      {
+        "text": "Review my pact.",
+        "topic": "TALK_BERSERK_APOSTOL_PAWN_PROGRESS",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_INFO_COUNT",
+    "dynamic_line": "A fortified residence stands at the end of this trail.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_COUNT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_PLACE_WYALD",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL",
+      "yes": "Bring twelve scraps of metal for my men’s gear. Earn your next burst of strength.",
+      "no": {
+        "test_eoc": "EOC_BERSERK_JOURNAL_DONE_WYALD",
+        "yes": {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_WYALD",
+          "yes": "Wyald and the Black Dogs\n\nThe Black Dogs have occupied a camp beyond the forest roads.\n\nCompleted: the local breach is sealed and its reward has been claimed.\n\nPlace: marked on the map.",
+          "no": "Wyald and the Black Dogs\n\nThe Black Dogs have occupied a camp beyond the forest roads.\n\nCompleted: the local breach is sealed and its reward has been claimed.\n\nPlace: not yet located. The trail is preserved above."
+        },
+        "no": {
+          "math": [
+            "berserk_hunt_wyald_state >= 4"
+          ],
+          "yes": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_VALID_WYALD",
+            "yes": "Wyald and the Black Dogs\n\nThe Black Dogs have occupied a camp beyond the forest roads.\n\nNow: examine the sealed mark and take the relic.\n\nPlace: marked on the map.",
+            "no": "Wyald and the Black Dogs\n\nThe Black Dogs have occupied a camp beyond the forest roads.\n\nNow: examine the sealed mark and take the relic.\n\nPlace: not yet located. The trail is preserved above."
+          },
+          "no": {
+            "math": [
+              "berserk_hunt_wyald_state >= 3"
+            ],
+            "yes": {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_WYALD",
+              "yes": "Wyald and the Black Dogs\n\nThe Black Dogs have occupied a camp beyond the forest roads.\n\nNow: examine the exposed wound and seal the breach.\n\nPlace: marked on the map.",
+              "no": "Wyald and the Black Dogs\n\nThe Black Dogs have occupied a camp beyond the forest roads.\n\nNow: examine the exposed wound and seal the breach.\n\nPlace: not yet located. The trail is preserved above."
+            },
+            "no": {
+              "math": [
+                "berserk_hunt_wyald_state >= 2"
+              ],
+              "yes": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_WYALD",
+                "yes": "Wyald and the Black Dogs\n\nThe Black Dogs have occupied a camp beyond the forest roads.\n\nNow: defeat the keeper; keep a route for retreat.\n\nPlace: marked on the map.",
+                "no": "Wyald and the Black Dogs\n\nThe Black Dogs have occupied a camp beyond the forest roads.\n\nNow: defeat the keeper; keep a route for retreat.\n\nPlace: not yet located. The trail is preserved above."
+              },
+              "no": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_WYALD",
+                "yes": "Wyald and the Black Dogs\n\nThe Black Dogs have occupied a camp beyond the forest roads.\n\nNow: find the place and inspect its approaches.\n\nPlace: marked on the map.",
+                "no": "Wyald and the Black Dogs\n\nThe Black Dogs have occupied a camp beyond the forest roads.\n\nNow: find the place and inspect its approaches.\n\nPlace: not yet located. The trail is preserved above."
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Show the place on the map.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_WYALD",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_wyald == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_WYALD"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_SHOW_WYALD"
+        }
+      },
+      {
+        "text": "Clarify the route from the record.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_WYALD",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_wyald == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_WYALD"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LOCATE_WYALD"
+        }
+      },
+      {
+        "text": "Read the information.",
+        "topic": "TALK_BERSERK_JOURNAL_INFO_WYALD"
+      },
+      {
+        "text": "Mark as my next objective in the journal.",
+        "topic": "TALK_BERSERK_JOURNAL_CURRENT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_wyald == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_WYALD"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "math": [
+            "u_berserk_journal_goal = 4"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACES"
+      },
+      {
+        "text": "Review my pact.",
+        "topic": "TALK_BERSERK_APOSTOL_PAWN_PROGRESS",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_INFO_WYALD",
+    "dynamic_line": "The Black Dogs have occupied a camp beyond the forest roads.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_WYALD"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_PLACE_ROSINE",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL",
+      "yes": "Bring four pieces of animal meat to feed the nest. Then you may use the gift again.",
+      "no": {
+        "test_eoc": "EOC_BERSERK_JOURNAL_DONE_ROSINE",
+        "yes": {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_ROSINE",
+          "yes": "Rosine’s misty valley\n\nPeople vanished along the road to a flowering valley.\n\nCompleted: the local breach is sealed and its reward has been claimed.\n\nPlace: marked on the map.",
+          "no": "Rosine’s misty valley\n\nPeople vanished along the road to a flowering valley.\n\nCompleted: the local breach is sealed and its reward has been claimed.\n\nPlace: not yet located. The trail is preserved above."
+        },
+        "no": {
+          "math": [
+            "berserk_hunt_rosine_state >= 4"
+          ],
+          "yes": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_VALID_ROSINE",
+            "yes": "Rosine’s misty valley\n\nPeople vanished along the road to a flowering valley.\n\nNow: examine the sealed mark and take the relic.\n\nPlace: marked on the map.",
+            "no": "Rosine’s misty valley\n\nPeople vanished along the road to a flowering valley.\n\nNow: examine the sealed mark and take the relic.\n\nPlace: not yet located. The trail is preserved above."
+          },
+          "no": {
+            "math": [
+              "berserk_hunt_rosine_state >= 3"
+            ],
+            "yes": {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_ROSINE",
+              "yes": "Rosine’s misty valley\n\nPeople vanished along the road to a flowering valley.\n\nNow: examine the exposed wound and seal the breach.\n\nPlace: marked on the map.",
+              "no": "Rosine’s misty valley\n\nPeople vanished along the road to a flowering valley.\n\nNow: examine the exposed wound and seal the breach.\n\nPlace: not yet located. The trail is preserved above."
+            },
+            "no": {
+              "math": [
+                "berserk_hunt_rosine_state >= 2"
+              ],
+              "yes": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_ROSINE",
+                "yes": "Rosine’s misty valley\n\nPeople vanished along the road to a flowering valley.\n\nNow: defeat the keeper; keep a route for retreat.\n\nPlace: marked on the map.",
+                "no": "Rosine’s misty valley\n\nPeople vanished along the road to a flowering valley.\n\nNow: defeat the keeper; keep a route for retreat.\n\nPlace: not yet located. The trail is preserved above."
+              },
+              "no": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_ROSINE",
+                "yes": "Rosine’s misty valley\n\nPeople vanished along the road to a flowering valley.\n\nNow: find the place and inspect its approaches.\n\nPlace: marked on the map.",
+                "no": "Rosine’s misty valley\n\nPeople vanished along the road to a flowering valley.\n\nNow: find the place and inspect its approaches.\n\nPlace: not yet located. The trail is preserved above."
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Show the place on the map.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_ROSINE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_rosine == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_ROSINE"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_SHOW_ROSINE"
+        }
+      },
+      {
+        "text": "Clarify the route from the record.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_ROSINE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_rosine == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_ROSINE"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LOCATE_ROSINE"
+        }
+      },
+      {
+        "text": "Read the information.",
+        "topic": "TALK_BERSERK_JOURNAL_INFO_ROSINE"
+      },
+      {
+        "text": "Mark as my next objective in the journal.",
+        "topic": "TALK_BERSERK_JOURNAL_CURRENT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_rosine == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_ROSINE"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "math": [
+            "u_berserk_journal_goal = 5"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACES"
+      },
+      {
+        "text": "Review my pact.",
+        "topic": "TALK_BERSERK_APOSTOL_PAWN_PROGRESS",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_INFO_ROSINE",
+    "dynamic_line": "People vanished along the road to a flowering valley.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_ROSINE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_PLACE_FLORA",
+    "dynamic_line": {
+      "math": [
+        "berserk_flora_stage >= 3"
+      ],
+      "yes": {
+        "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FLORA",
+        "yes": "Flora’s grove\n\nThe directions lead to a witch’s home beside a spiritual tree.\n\nThe home is lost. Follow an unfinished known trail when you have recovered.\n\nPlace: marked on the map.",
+        "no": "Flora’s grove\n\nThe directions lead to a witch’s home beside a spiritual tree.\n\nThe home is lost. Follow an unfinished known trail when you have recovered.\n\nPlace: not yet located. The trail is preserved above."
+      },
+      "no": {
+        "math": [
+          "berserk_flora_stage == 2"
+        ],
+        "yes": {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FLORA",
+          "yes": "Flora’s grove\n\nThe directions lead to a witch’s home beside a spiritual tree.\n\nNow: escape through the western path or the southern garden.\n\nPlace: marked on the map.",
+          "no": "Flora’s grove\n\nThe directions lead to a witch’s home beside a spiritual tree.\n\nNow: escape through the western path or the southern garden.\n\nPlace: not yet located. The trail is preserved above."
+        },
+        "no": {
+          "math": [
+            "berserk_flora_siege_state == 1"
+          ],
+          "yes": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FLORA",
+            "yes": "Flora’s grove\n\nThe directions lead to a witch’s home beside a spiritual tree.\n\nNow: finish preparing. Activate the charm in the grove when you decide to leave.\n\nPlace: marked on the map.",
+            "no": "Flora’s grove\n\nThe directions lead to a witch’s home beside a spiritual tree.\n\nNow: finish preparing. Activate the charm in the grove when you decide to leave.\n\nPlace: not yet located. The trail is preserved above."
+          },
+          "no": {
+            "math": [
+              "u_berserk_flora_met == 1"
+            ],
+            "yes": {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FLORA",
+              "yes": "Flora’s grove\n\nThe directions lead to a witch’s home beside a spiritual tree.\n\nNow: speak with Flora, learn about the armor and ask what help she can offer.\n\nPlace: marked on the map.",
+              "no": "Flora’s grove\n\nThe directions lead to a witch’s home beside a spiritual tree.\n\nNow: speak with Flora, learn about the armor and ask what help she can offer.\n\nPlace: not yet located. The trail is preserved above."
+            },
+            "no": {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FLORA",
+              "yes": "Flora’s grove\n\nThe directions lead to a witch’s home beside a spiritual tree.\n\nNow: find the spiritual tree and speak with Flora.\n\nPlace: marked on the map.",
+              "no": "Flora’s grove\n\nThe directions lead to a witch’s home beside a spiritual tree.\n\nNow: find the spiritual tree and speak with Flora.\n\nPlace: not yet located. The trail is preserved above."
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Show the place on the map.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_FLORA",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_flora == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FLORA"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_SHOW_FLORA"
+        }
+      },
+      {
+        "text": "Clarify the route from the record.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_FLORA",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_flora == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FLORA"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LOCATE_FLORA"
+        }
+      },
+      {
+        "text": "Read the information.",
+        "topic": "TALK_BERSERK_JOURNAL_INFO_FLORA"
+      },
+      {
+        "text": "Mark as my next objective in the journal.",
+        "topic": "TALK_BERSERK_JOURNAL_CURRENT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_flora == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_FLORA"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "math": [
+            "u_berserk_journal_goal = 6"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_INFO_FLORA",
+    "dynamic_line": "The directions lead to a witch’s home beside a spiritual tree.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_PLACE_GRUNBELD",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL",
+      "yes": "Bring four steel lumps for the damaged armor. Service earns strength; the shell alone does not.",
+      "no": {
+        "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GRUNBELD",
+        "yes": {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GRUNBELD",
+          "yes": "Grunbeld’s stronghold\n\nA burned military stronghold remains at the end of this road.\n\nCompleted: the local breach is sealed and its reward has been claimed.\n\nPlace: marked on the map.",
+          "no": "Grunbeld’s stronghold\n\nA burned military stronghold remains at the end of this road.\n\nCompleted: the local breach is sealed and its reward has been claimed.\n\nPlace: not yet located. The trail is preserved above."
+        },
+        "no": {
+          "math": [
+            "berserk_hunt_grunbeld_state >= 4"
+          ],
+          "yes": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GRUNBELD",
+            "yes": "Grunbeld’s stronghold\n\nA burned military stronghold remains at the end of this road.\n\nNow: examine the sealed mark and take the relic.\n\nPlace: marked on the map.",
+            "no": "Grunbeld’s stronghold\n\nA burned military stronghold remains at the end of this road.\n\nNow: examine the sealed mark and take the relic.\n\nPlace: not yet located. The trail is preserved above."
+          },
+          "no": {
+            "math": [
+              "berserk_hunt_grunbeld_state >= 3"
+            ],
+            "yes": {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GRUNBELD",
+              "yes": "Grunbeld’s stronghold\n\nA burned military stronghold remains at the end of this road.\n\nNow: examine the exposed wound and seal the breach.\n\nPlace: marked on the map.",
+              "no": "Grunbeld’s stronghold\n\nA burned military stronghold remains at the end of this road.\n\nNow: examine the exposed wound and seal the breach.\n\nPlace: not yet located. The trail is preserved above."
+            },
+            "no": {
+              "math": [
+                "berserk_hunt_grunbeld_state >= 2"
+              ],
+              "yes": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GRUNBELD",
+                "yes": "Grunbeld’s stronghold\n\nA burned military stronghold remains at the end of this road.\n\nNow: defeat the keeper; keep a route for retreat.\n\nPlace: marked on the map.",
+                "no": "Grunbeld’s stronghold\n\nA burned military stronghold remains at the end of this road.\n\nNow: defeat the keeper; keep a route for retreat.\n\nPlace: not yet located. The trail is preserved above."
+              },
+              "no": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GRUNBELD",
+                "yes": "Grunbeld’s stronghold\n\nA burned military stronghold remains at the end of this road.\n\nNow: find the place and inspect its approaches.\n\nPlace: marked on the map.",
+                "no": "Grunbeld’s stronghold\n\nA burned military stronghold remains at the end of this road.\n\nNow: find the place and inspect its approaches.\n\nPlace: not yet located. The trail is preserved above."
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Show the place on the map.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_GRUNBELD",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_grunbeld == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GRUNBELD"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_SHOW_GRUNBELD"
+        }
+      },
+      {
+        "text": "Clarify the route from the record.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_GRUNBELD",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_grunbeld == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GRUNBELD"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LOCATE_GRUNBELD"
+        }
+      },
+      {
+        "text": "Read the information.",
+        "topic": "TALK_BERSERK_JOURNAL_INFO_GRUNBELD"
+      },
+      {
+        "text": "Mark as my next objective in the journal.",
+        "topic": "TALK_BERSERK_JOURNAL_CURRENT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_grunbeld == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GRUNBELD"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "math": [
+            "u_berserk_journal_goal = 7"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACES"
+      },
+      {
+        "text": "Review my pact.",
+        "topic": "TALK_BERSERK_APOSTOL_PAWN_PROGRESS",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_INFO_GRUNBELD",
+    "dynamic_line": "A burned military stronghold remains at the end of this road.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_GRUNBELD"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_PLACE_GODO",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_forge_visited == 1"
+      ],
+      "yes": {
+        "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED",
+        "yes": {
+          "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED",
+          "yes": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GODO",
+            "yes": "The woodland forge\n\nKnown: a woodland smith repairs weapons and makes heavy blades. A young crossbow maker works with him.\n\nNow: review your orders, ask about repairs or prepare for another journey.\n\nWhy: prepare your equipment for further journeys.\n\nPlace: marked on the map.",
+            "no": "The woodland forge\n\nKnown: a woodland smith repairs weapons and makes heavy blades. A young crossbow maker works with him.\n\nNow: review your orders, ask about repairs or prepare for another journey.\n\nWhy: prepare your equipment for further journeys.\n\nPlace: not yet located. The account is kept in the journal."
+          },
+          "no": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GODO",
+            "yes": "The woodland forge\n\nKnown: a woodland smith repairs weapons and makes heavy blades. A young crossbow maker works with him.\n\nNow: meet Rickert, the young craftsman working beside Godot.\n\nWhy: prepare your equipment for further journeys.\n\nPlace: marked on the map.",
+            "no": "The woodland forge\n\nKnown: a woodland smith repairs weapons and makes heavy blades. A young crossbow maker works with him.\n\nNow: meet Rickert, the young craftsman working beside Godot.\n\nWhy: prepare your equipment for further journeys.\n\nPlace: not yet located. The account is kept in the journal."
+          }
+        },
+        "no": {
+          "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED",
+          "yes": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GODO",
+            "yes": "The woodland forge\n\nKnown: a woodland smith repairs weapons and makes heavy blades. A young crossbow maker works with him.\n\nNow: speak with Godot, the master of the forge.\n\nWhy: prepare your equipment for further journeys.\n\nPlace: marked on the map.",
+            "no": "The woodland forge\n\nKnown: a woodland smith repairs weapons and makes heavy blades. A young crossbow maker works with him.\n\nNow: speak with Godot, the master of the forge.\n\nWhy: prepare your equipment for further journeys.\n\nPlace: not yet located. The account is kept in the journal."
+          },
+          "no": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GODO",
+            "yes": "The woodland forge\n\nKnown: a woodland smith repairs weapons and makes heavy blades. A young crossbow maker works with him.\n\nNow: introduce yourself to the people who live here.\n\nWhy: prepare your equipment for further journeys.\n\nPlace: marked on the map.",
+            "no": "The woodland forge\n\nKnown: a woodland smith repairs weapons and makes heavy blades. A young crossbow maker works with him.\n\nNow: introduce yourself to the people who live here.\n\nWhy: prepare your equipment for further journeys.\n\nPlace: not yet located. The account is kept in the journal."
+          }
+        }
+      },
+      "no": {
+        "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GODO",
+        "yes": "The woodland forge\n\nKnown: a woodland smith repairs weapons and makes heavy blades. A young crossbow maker works with him.\n\nNow: reach the woodland forge and meet its masters.\n\nWhy: prepare your equipment for further journeys.\n\nPlace: marked on the map.",
+        "no": "The woodland forge\n\nKnown: a woodland smith repairs weapons and makes heavy blades. A young crossbow maker works with him.\n\nNow: reach the woodland forge and meet its masters.\n\nWhy: prepare your equipment for further journeys.\n\nPlace: not yet located. The account is kept in the journal."
+      }
+    },
+    "responses": [
+      {
+        "text": "Show the place on the map.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_GODO",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_godo == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GODO"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_SHOW_GODO"
+        }
+      },
+      {
+        "text": "Clarify the route from the record.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_GODO",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_godo == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GODO"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LOCATE_GODO"
+        }
+      },
+      {
+        "text": "Read the information.",
+        "topic": "TALK_BERSERK_JOURNAL_INFO_GODO"
+      },
+      {
+        "text": "Mark as my next objective in the journal.",
+        "topic": "TALK_BERSERK_JOURNAL_CURRENT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_godo == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GODO"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "math": [
+            "u_berserk_journal_goal = 8"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_INFO_GODO",
+    "dynamic_line": "A woodland smith takes on damaged weapons that other craftsmen abandon. A young crossbow maker works beside him. The road may be long, but their help could prepare you for what lies ahead.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_CURRENT",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_FOLLOW_OTHER",
+        "yes": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE",
+          "yes": {
+            "math": [
+              "u_berserk_journal_goal >= 3"
+            ],
+            "yes": {
+              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY",
+              "yes": {
+                "math": [
+                  "u_berserk_journal_goal >= 3"
+                ],
+                "yes": {
+                  "math": [
+                    "u_berserk_journal_goal == 8"
+                  ],
+                  "yes": "Godot and Rickert’s forge",
+                  "no": {
+                    "math": [
+                      "u_berserk_journal_goal == 7"
+                    ],
+                    "yes": "Grunbeld’s stronghold",
+                    "no": {
+                      "math": [
+                        "u_berserk_journal_goal == 6"
+                      ],
+                      "yes": "Flora’s grove",
+                      "no": {
+                        "math": [
+                          "u_berserk_journal_goal == 5"
+                        ],
+                        "yes": "Rosine’s misty valley",
+                        "no": {
+                          "math": [
+                            "u_berserk_journal_goal == 4"
+                          ],
+                          "yes": "Wyald and the Black Dogs",
+                          "no": {
+                            "math": [
+                              "u_berserk_journal_goal == 3"
+                            ],
+                            "yes": "The Count’s residence",
+                            "no": {
+                              "math": [
+                                "u_berserk_journal_goal == 2"
+                              ],
+                              "yes": "The Ashen Breach",
+                              "no": {
+                                "math": [
+                                  "u_berserk_journal_goal == 1"
+                                ],
+                                "yes": "First hunt: the apostle’s hollow",
+                                "no": "*No unfinished objective has been chosen. Review the places and work you already know."
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "no": {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_DEMON_SURVIVOR",
+                  "yes": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_COMPLETE",
+                    "yes": "*Your new flesh has settled. Follow the ashen trail when prepared, or choose another road you already know. The gift does not choose your enemies for you.",
+                    "no": "*Now: find food, water and a place to recover while your body changes. The ashen trail is preserved in your journal; it can wait until you are ready."
+                  },
+                  "no": "*You kept your human body. Recover and learn to live with the wounds of the ceremony. A remembered ashen trail gives you a road onward."
+                }
+              },
+              "no": {
+                "math": [
+                  "u_berserk_journal_goal == 8"
+                ],
+                "yes": "Godot and Rickert’s forge",
+                "no": {
+                  "math": [
+                    "u_berserk_journal_goal == 7"
+                  ],
+                  "yes": "Grunbeld’s stronghold",
+                  "no": {
+                    "math": [
+                      "u_berserk_journal_goal == 6"
+                    ],
+                    "yes": "Flora’s grove",
+                    "no": {
+                      "math": [
+                        "u_berserk_journal_goal == 5"
+                      ],
+                      "yes": "Rosine’s misty valley",
+                      "no": {
+                        "math": [
+                          "u_berserk_journal_goal == 4"
+                        ],
+                        "yes": "Wyald and the Black Dogs",
+                        "no": {
+                          "math": [
+                            "u_berserk_journal_goal == 3"
+                          ],
+                          "yes": "The Count’s residence",
+                          "no": {
+                            "math": [
+                              "u_berserk_journal_goal == 2"
+                            ],
+                            "yes": "The Ashen Breach",
+                            "no": {
+                              "math": [
+                                "u_berserk_journal_goal == 1"
+                              ],
+                              "yes": "First hunt: the apostle’s hollow",
+                              "no": "*No unfinished objective has been chosen. Review the places and work you already know."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "no": "*The absorbed flesh is changing you on its own. Secure food, water and a resting place. Its weakness remains throughout the transformation. Continue the roads you already know when prepared; no new dose is needed."
+          },
+          "no": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY",
+            "yes": {
+              "math": [
+                "u_berserk_journal_goal >= 3"
+              ],
+              "yes": {
+                "math": [
+                  "u_berserk_journal_goal == 8"
+                ],
+                "yes": "Godot and Rickert’s forge",
+                "no": {
+                  "math": [
+                    "u_berserk_journal_goal == 7"
+                  ],
+                  "yes": "Grunbeld’s stronghold",
+                  "no": {
+                    "math": [
+                      "u_berserk_journal_goal == 6"
+                    ],
+                    "yes": "Flora’s grove",
+                    "no": {
+                      "math": [
+                        "u_berserk_journal_goal == 5"
+                      ],
+                      "yes": "Rosine’s misty valley",
+                      "no": {
+                        "math": [
+                          "u_berserk_journal_goal == 4"
+                        ],
+                        "yes": "Wyald and the Black Dogs",
+                        "no": {
+                          "math": [
+                            "u_berserk_journal_goal == 3"
+                          ],
+                          "yes": "The Count’s residence",
+                          "no": {
+                            "math": [
+                              "u_berserk_journal_goal == 2"
+                            ],
+                            "yes": "The Ashen Breach",
+                            "no": {
+                              "math": [
+                                "u_berserk_journal_goal == 1"
+                              ],
+                              "yes": "First hunt: the apostle’s hollow",
+                              "no": "*No unfinished objective has been chosen. Review the places and work you already know."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "no": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_DEMON_SURVIVOR",
+                "yes": {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_COMPLETE",
+                  "yes": "*Your new flesh has settled. Follow the ashen trail when prepared, or choose another road you already know. The gift does not choose your enemies for you.",
+                  "no": "*Now: find food, water and a place to recover while your body changes. The ashen trail is preserved in your journal; it can wait until you are ready."
+                },
+                "no": "*You kept your human body. Recover and learn to live with the wounds of the ceremony. A remembered ashen trail gives you a road onward."
+              }
+            },
+            "no": {
+              "math": [
+                "u_berserk_journal_goal == 8"
+              ],
+              "yes": "Godot and Rickert’s forge",
+              "no": {
+                "math": [
+                  "u_berserk_journal_goal == 7"
+                ],
+                "yes": "Grunbeld’s stronghold",
+                "no": {
+                  "math": [
+                    "u_berserk_journal_goal == 6"
+                  ],
+                  "yes": "Flora’s grove",
+                  "no": {
+                    "math": [
+                      "u_berserk_journal_goal == 5"
+                    ],
+                    "yes": "Rosine’s misty valley",
+                    "no": {
+                      "math": [
+                        "u_berserk_journal_goal == 4"
+                      ],
+                      "yes": "Wyald and the Black Dogs",
+                      "no": {
+                        "math": [
+                          "u_berserk_journal_goal == 3"
+                        ],
+                        "yes": "The Count’s residence",
+                        "no": {
+                          "math": [
+                            "u_berserk_journal_goal == 2"
+                          ],
+                          "yes": "The Ashen Breach",
+                          "no": {
+                            "math": [
+                              "u_berserk_journal_goal == 1"
+                            ],
+                            "yes": "First hunt: the apostle’s hollow",
+                            "no": "*No unfinished objective has been chosen. Review the places and work you already know."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "no": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_OATH_LOST",
+          "yes": "*You broke the pact. Its protection and strongest impulse are gone; the lesser body and its weaknesses remain. No second main transformation can replace it.",
+          "no": {
+            "math": [
+              "u_berserk_apostol_pawn_master_dead == 1"
+            ],
+            "yes": "*The master is dead. Your servant’s body and weaknesses remain. Their favor cannot be renewed, and no stronger form has replaced yours. Continue the roads you already know.",
+            "no": {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE",
+              "yes": "*Your pact is changing you into a lesser servant. Prepare food and rest. To use the strongest impulse, deliver the agreed supplies to your master: their favor lasts six hours. Attacking the master or their transformed servants breaks the pact. Your body will stay limited even if the master dies. Bring four steel lumps for the damaged armor. Service earns strength; the shell alone does not.",
+              "no": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE",
+                "yes": "*Your pact is changing you into a lesser servant. Prepare food and rest. To use the strongest impulse, deliver the agreed supplies to your master: their favor lasts six hours. Attacking the master or their transformed servants breaks the pact. Your body will stay limited even if the master dies. Bring four pieces of animal meat to feed the nest. Then you may use the gift again.",
+                "no": {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE",
+                  "yes": "*Your pact is changing you into a lesser servant. Prepare food and rest. To use the strongest impulse, deliver the agreed supplies to your master: their favor lasts six hours. Attacking the master or their transformed servants breaks the pact. Your body will stay limited even if the master dies. Bring twelve scraps of metal for my men’s gear. Earn your next burst of strength.",
+                  "no": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE",
+                    "yes": "*Your pact is changing you into a lesser servant. Prepare food and rest. To use the strongest impulse, deliver the agreed supplies to your master: their favor lasts six hours. Attacking the master or their transformed servants breaks the pact. Your body will stay limited even if the master dies. Bring two pieces of leather for the household stores. In return I will nourish the strength I gave you.",
+                    "no": "*Your pact is changing you into a lesser servant. Prepare food and rest. To use the strongest impulse, deliver the agreed supplies to your master: their favor lasts six hours. Attacking the master or their transformed servants breaks the pact. Your body will stay limited even if the master dies."
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "no": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE",
+        "yes": {
+          "math": [
+            "u_berserk_journal_goal >= 3"
+          ],
+          "yes": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY",
+            "yes": {
+              "math": [
+                "u_berserk_journal_goal >= 3"
+              ],
+              "yes": {
+                "math": [
+                  "u_berserk_journal_goal == 8"
+                ],
+                "yes": "Godot and Rickert’s forge",
+                "no": {
+                  "math": [
+                    "u_berserk_journal_goal == 7"
+                  ],
+                  "yes": "Grunbeld’s stronghold",
+                  "no": {
+                    "math": [
+                      "u_berserk_journal_goal == 6"
+                    ],
+                    "yes": "Flora’s grove",
+                    "no": {
+                      "math": [
+                        "u_berserk_journal_goal == 5"
+                      ],
+                      "yes": "Rosine’s misty valley",
+                      "no": {
+                        "math": [
+                          "u_berserk_journal_goal == 4"
+                        ],
+                        "yes": "Wyald and the Black Dogs",
+                        "no": {
+                          "math": [
+                            "u_berserk_journal_goal == 3"
+                          ],
+                          "yes": "The Count’s residence",
+                          "no": {
+                            "math": [
+                              "u_berserk_journal_goal == 2"
+                            ],
+                            "yes": "The Ashen Breach",
+                            "no": {
+                              "math": [
+                                "u_berserk_journal_goal == 1"
+                              ],
+                              "yes": "First hunt: the apostle’s hollow",
+                              "no": "*No unfinished objective has been chosen. Review the places and work you already know."
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              "no": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_DEMON_SURVIVOR",
+                "yes": {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_COMPLETE",
+                  "yes": "*Your new flesh has settled. Follow the ashen trail when prepared, or choose another road you already know. The gift does not choose your enemies for you.",
+                  "no": "*Now: find food, water and a place to recover while your body changes. The ashen trail is preserved in your journal; it can wait until you are ready."
+                },
+                "no": "*You kept your human body. Recover and learn to live with the wounds of the ceremony. A remembered ashen trail gives you a road onward."
+              }
+            },
+            "no": {
+              "math": [
+                "u_berserk_journal_goal == 8"
+              ],
+              "yes": "Godot and Rickert’s forge",
+              "no": {
+                "math": [
+                  "u_berserk_journal_goal == 7"
+                ],
+                "yes": "Grunbeld’s stronghold",
+                "no": {
+                  "math": [
+                    "u_berserk_journal_goal == 6"
+                  ],
+                  "yes": "Flora’s grove",
+                  "no": {
+                    "math": [
+                      "u_berserk_journal_goal == 5"
+                    ],
+                    "yes": "Rosine’s misty valley",
+                    "no": {
+                      "math": [
+                        "u_berserk_journal_goal == 4"
+                      ],
+                      "yes": "Wyald and the Black Dogs",
+                      "no": {
+                        "math": [
+                          "u_berserk_journal_goal == 3"
+                        ],
+                        "yes": "The Count’s residence",
+                        "no": {
+                          "math": [
+                            "u_berserk_journal_goal == 2"
+                          ],
+                          "yes": "The Ashen Breach",
+                          "no": {
+                            "math": [
+                              "u_berserk_journal_goal == 1"
+                            ],
+                            "yes": "First hunt: the apostle’s hollow",
+                            "no": "*No unfinished objective has been chosen. Review the places and work you already know."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "no": "*The absorbed flesh is changing you on its own. Secure food, water and a resting place. Its weakness remains throughout the transformation. Continue the roads you already know when prepared; no new dose is needed."
+        },
+        "no": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY",
+          "yes": {
+            "math": [
+              "u_berserk_journal_goal >= 3"
+            ],
+            "yes": {
+              "math": [
+                "u_berserk_journal_goal == 8"
+              ],
+              "yes": "Godot and Rickert’s forge",
+              "no": {
+                "math": [
+                  "u_berserk_journal_goal == 7"
+                ],
+                "yes": "Grunbeld’s stronghold",
+                "no": {
+                  "math": [
+                    "u_berserk_journal_goal == 6"
+                  ],
+                  "yes": "Flora’s grove",
+                  "no": {
+                    "math": [
+                      "u_berserk_journal_goal == 5"
+                    ],
+                    "yes": "Rosine’s misty valley",
+                    "no": {
+                      "math": [
+                        "u_berserk_journal_goal == 4"
+                      ],
+                      "yes": "Wyald and the Black Dogs",
+                      "no": {
+                        "math": [
+                          "u_berserk_journal_goal == 3"
+                        ],
+                        "yes": "The Count’s residence",
+                        "no": {
+                          "math": [
+                            "u_berserk_journal_goal == 2"
+                          ],
+                          "yes": "The Ashen Breach",
+                          "no": {
+                            "math": [
+                              "u_berserk_journal_goal == 1"
+                            ],
+                            "yes": "First hunt: the apostle’s hollow",
+                            "no": "*No unfinished objective has been chosen. Review the places and work you already know."
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "no": {
+              "test_eoc": "EOC_BERSERK_APOSTOL_DEMON_SURVIVOR",
+              "yes": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_COMPLETE",
+                "yes": "*Your new flesh has settled. Follow the ashen trail when prepared, or choose another road you already know. The gift does not choose your enemies for you.",
+                "no": "*Now: find food, water and a place to recover while your body changes. The ashen trail is preserved in your journal; it can wait until you are ready."
+              },
+              "no": "*You kept your human body. Recover and learn to live with the wounds of the ceremony. A remembered ashen trail gives you a road onward."
+            }
+          },
+          "no": {
+            "math": [
+              "u_berserk_journal_goal == 8"
+            ],
+            "yes": "Godot and Rickert’s forge",
+            "no": {
+              "math": [
+                "u_berserk_journal_goal == 7"
+              ],
+              "yes": "Grunbeld’s stronghold",
+              "no": {
+                "math": [
+                  "u_berserk_journal_goal == 6"
+                ],
+                "yes": "Flora’s grove",
+                "no": {
+                  "math": [
+                    "u_berserk_journal_goal == 5"
+                  ],
+                  "yes": "Rosine’s misty valley",
+                  "no": {
+                    "math": [
+                      "u_berserk_journal_goal == 4"
+                    ],
+                    "yes": "Wyald and the Black Dogs",
+                    "no": {
+                      "math": [
+                        "u_berserk_journal_goal == 3"
+                      ],
+                      "yes": "The Count’s residence",
+                      "no": {
+                        "math": [
+                          "u_berserk_journal_goal == 2"
+                        ],
+                        "yes": "The Ashen Breach",
+                        "no": {
+                          "math": [
+                            "u_berserk_journal_goal == 1"
+                          ],
+                          "yes": "First hunt: the apostle’s hollow",
+                          "no": "*No unfinished objective has been chosen. Review the places and work you already know."
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "The trail I brought back from the ceremony.",
+        "topic": "TALK_BERSERK_APOSTOL_ROAD",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+        }
+      },
+      {
+        "text": "What has changed in me?",
+        "topic": "TALK_BERSERK_APOSTOL_PROGRESS",
         "condition": {
           "or": [
             {
-              "u_has_bionics": "bio_berserk_hand_stump"
-            },
-            {
-              "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+              "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_LINE"
             },
             {
               "math": [
-                "u_berserk_godo_arm_state > 0"
+                "u_berserk_apostol_outcome == 2"
               ]
             }
           ]
         }
       },
       {
-        "text": "Dragonslayer order.",
-        "topic": "TALK_BERSERK_JOURNAL_SWORD",
+        "text": "First hunt: the apostle’s hollow",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_FIRST",
         "condition": {
-          "or": [
-            {
-              "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
-            },
-            {
-              "math": [
-                "u_berserk_godo_sword_state > 0"
-              ]
-            }
+          "math": [
+            "u_berserk_journal_goal == 1"
           ]
         }
       },
       {
-        "text": "Crossbow bolt batch.",
-        "topic": "TALK_BERSERK_JOURNAL_BOLTS"
+        "text": "The Ashen Breach",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_BREACH",
+        "condition": {
+          "math": [
+            "u_berserk_journal_goal == 2"
+          ]
+        }
       },
       {
-        "text": "Return to the roads.",
+        "text": "The Count’s residence",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_COUNT",
+        "condition": {
+          "math": [
+            "u_berserk_journal_goal == 3"
+          ]
+        }
+      },
+      {
+        "text": "Wyald and the Black Dogs",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_WYALD",
+        "condition": {
+          "math": [
+            "u_berserk_journal_goal == 4"
+          ]
+        }
+      },
+      {
+        "text": "Rosine’s misty valley",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_ROSINE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_goal == 5"
+          ]
+        }
+      },
+      {
+        "text": "Flora’s grove",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_FLORA",
+        "condition": {
+          "math": [
+            "u_berserk_journal_goal == 6"
+          ]
+        }
+      },
+      {
+        "text": "Grunbeld’s stronghold",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_GRUNBELD",
+        "condition": {
+          "math": [
+            "u_berserk_journal_goal == 7"
+          ]
+        }
+      },
+      {
+        "text": "Godot and Rickert’s forge",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_GODO",
+        "condition": {
+          "math": [
+            "u_berserk_journal_goal == 8"
+          ]
+        }
+      },
+      {
+        "text": "Known places and hunts.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACES"
+      },
+      {
+        "text": "Forge orders.",
+        "topic": "TALK_BERSERK_JOURNAL_ORDERS"
+      },
+      {
+        "text": "Back.",
         "topic": "TALK_BERSERK_ROAD_JOURNAL"
+      },
+      {
+        "text": "The flesh I absorbed.",
+        "topic": "TALK_BERSERK_APOSTOL_FLESH_PROGRESS",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
+        }
+      },
+      {
+        "text": "My pact and service.",
+        "topic": "TALK_BERSERK_APOSTOL_PAWN_PROGRESS",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_PLACES",
+    "dynamic_line": "*Choose a place you know. Each hunt keeps its own progress.",
+    "responses": [
+      {
+        "text": "First hunt: the apostle’s hollow",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_FIRST",
+        "condition": {
+          "math": [
+            "u_berserk_journal_knows_first == 1"
+          ]
+        }
+      },
+      {
+        "text": "The Ashen Breach",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_BREACH",
+        "condition": {
+          "math": [
+            "u_berserk_journal_knows_breach == 1"
+          ]
+        }
+      },
+      {
+        "text": "The Count’s residence",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_COUNT",
+        "condition": {
+          "math": [
+            "u_berserk_journal_knows_count == 1"
+          ]
+        }
+      },
+      {
+        "text": "Wyald and the Black Dogs",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_WYALD",
+        "condition": {
+          "math": [
+            "u_berserk_journal_knows_wyald == 1"
+          ]
+        }
+      },
+      {
+        "text": "Rosine’s misty valley",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_ROSINE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_knows_rosine == 1"
+          ]
+        }
+      },
+      {
+        "text": "Flora’s grove",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_FLORA",
+        "condition": {
+          "math": [
+            "u_berserk_journal_knows_flora == 1"
+          ]
+        }
+      },
+      {
+        "text": "Grunbeld’s stronghold",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_GRUNBELD",
+        "condition": {
+          "math": [
+            "u_berserk_journal_knows_grunbeld == 1"
+          ]
+        }
+      },
+      {
+        "text": "Godot and Rickert’s forge",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_GODO",
+        "condition": {
+          "math": [
+            "u_berserk_journal_knows_godo == 1"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_EARLY",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_godo_early_state == 0"
+      ],
+      "yes": "Before the Eclipse, speak with Godot about a long battle sword. If you already have the early sword, ask about repairs.",
+      "no": {
+        "math": [
+          "u_berserk_godo_early_state == 1"
+        ],
+        "yes": "Deliver 4 steel lumps, 1 high-steel lump, 200 charcoal and 2 leather patches to Godot at the forge.",
+        "no": {
+          "math": [
+            "u_berserk_godo_early_state == 2"
+          ],
+          "yes": "Return twelve hours after the delivery to collect the long blade. An order started before the Eclipse can still be completed afterward.",
+          "no": "The long sword order is settled. Godot can repair your existing blade."
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_ORDERS"
       }
     ]
   },
@@ -229,12 +1877,8 @@
     },
     "responses": [
       {
-        "text": "Review the other order.",
+        "text": "Back.",
         "topic": "TALK_BERSERK_JOURNAL_ORDERS"
-      },
-      {
-        "text": "Return to the roads.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL"
       }
     ]
   },
@@ -245,7 +1889,7 @@
       "math": [
         "u_berserk_godo_sword_state == 0"
       ],
-      "yes": "Order the blade at the forge. Godot does not duplicate one you already own.",
+      "yes": "Ask Godot about the blade and the metal he needs.",
       "no": {
         "math": [
           "u_berserk_godo_sword_state == 1"
@@ -268,45 +1912,8 @@
     },
     "responses": [
       {
-        "text": "Review the other order.",
+        "text": "Back.",
         "topic": "TALK_BERSERK_JOURNAL_ORDERS"
-      },
-      {
-        "text": "Return to the roads.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL"
-      }
-    ]
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_BERSERK_JOURNAL_EARLY",
-    "dynamic_line": {
-      "math": [
-        "u_berserk_godo_early_state == 0"
-      ],
-      "yes": "Before the Eclipse, speak with Godot about a long battle sword. If you already have the early sword, ask about repairs.",
-      "no": {
-        "math": [
-          "u_berserk_godo_early_state == 1"
-        ],
-        "yes": "Deliver 4 steel lumps, 1 high-steel lump, 200 charcoal and 2 leather patches to Godot at the forge.",
-        "no": {
-          "math": [
-            "u_berserk_godo_early_state == 2"
-          ],
-          "yes": "Return twelve hours after the delivery to collect the long blade. An order started before the Eclipse can still be completed afterward.",
-          "no": "The long sword order is settled. Godot can repair your existing blade."
-        }
-      }
-    },
-    "responses": [
-      {
-        "text": "Review forge orders.",
-        "topic": "TALK_BERSERK_JOURNAL_ORDERS"
-      },
-      {
-        "text": "Return to the roads.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL"
       }
     ]
   },
@@ -328,12 +1935,2277 @@
     },
     "responses": [
       {
-        "text": "Review forge orders.",
+        "text": "Back.",
         "topic": "TALK_BERSERK_JOURNAL_ORDERS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_ORDERS",
+    "dynamic_line": "*Orders at the woodland forge. Godot works on blades; Rickert makes prostheses and crossbow bolts. These notes list the materials needed and the progress of each order.",
+    "responses": [
+      {
+        "text": "Godot: battle sword.",
+        "topic": "TALK_BERSERK_JOURNAL_EARLY",
+        "condition": {
+          "math": [
+            "u_berserk_journal_order_early == 1"
+          ]
+        }
       },
       {
-        "text": "Return to the roads.",
+        "text": "Rickert: arm cannon.",
+        "topic": "TALK_BERSERK_JOURNAL_ARM",
+        "condition": {
+          "math": [
+            "u_berserk_journal_order_arm == 1"
+          ]
+        }
+      },
+      {
+        "text": "Godot: Dragonslayer.",
+        "topic": "TALK_BERSERK_JOURNAL_SWORD",
+        "condition": {
+          "math": [
+            "u_berserk_journal_order_sword == 1"
+          ]
+        }
+      },
+      {
+        "text": "Rickert: crossbow bolts.",
+        "topic": "TALK_BERSERK_JOURNAL_BOLTS",
+        "condition": {
+          "math": [
+            "u_berserk_journal_order_bolts == 1"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
         "topic": "TALK_BERSERK_ROAD_JOURNAL"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_REFUGE",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_refuge_ready == 1"
+      ],
+      "yes": "Your shelter preparations are recorded. Check your supplies before resting.",
+      "no": "No shelter preparations have been recorded yet."
+    },
+    "responses": [
+      {
+        "text": "Preparing a place to rest.",
+        "topic": "TALK_BERSERK_JOURNAL_REFUGE_HELP"
+      },
+      {
+        "text": "What can a protective sign do?",
+        "topic": "TALK_BERSERK_JOURNAL_BRAND_HELP",
+        "condition": {
+          "math": [
+            "u_berserk_journal_brand_known == 1"
+          ]
+        }
+      },
+      {
+        "text": "Show my shelter on the map.",
+        "topic": "TALK_BERSERK_JOURNAL_REFUGE",
+        "condition": {
+          "math": [
+            "has_var(u_berserk_refuge_ward_location)"
+          ]
+        },
+        "effect": {
+          "reveal_map": {
+            "u_val": "berserk_refuge_ward_location"
+          },
+          "radius": 0
+        }
+      },
+      {
+        "text": "My first night.",
+        "topic": "TALK_BERSERK_JOURNAL_NIGHT",
+        "condition": {
+          "math": [
+            "u_berserk_journal_brand_known == 1"
+          ]
+        }
+      },
+      {
+        "text": "Quieted areas.",
+        "topic": "TALK_BERSERK_JOURNAL_QUIET",
+        "condition": {
+          "or": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_journal_knows_breach == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_breach_sealed == 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_journal_knows_count == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_count_state >= 4"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_journal_knows_wyald == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_wyald_state >= 4"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_journal_knows_rosine == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_rosine_state >= 4"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_journal_knows_grunbeld == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_grunbeld_state >= 4"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL"
+      },
+      {
+        "text": "The flesh I absorbed.",
+        "topic": "TALK_BERSERK_APOSTOL_FLESH_PROGRESS",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
+        }
+      },
+      {
+        "text": "My pact and service.",
+        "topic": "TALK_BERSERK_APOSTOL_PAWN_PROGRESS",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_REFUGE_HELP",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_journal_brand_known == 1"
+      ],
+      "yes": "*Choose a defensible place, prepare water, light and bedding, and keep an escape route. Record readiness by inspecting the protective sign at your shelter.",
+      "no": "Choose a defensible place, prepare water, light and bedding, and keep an escape route. Check your supplies before resting."
+    },
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_REFUGE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_BRAND_HELP",
+    "dynamic_line": "A bone and stone sign limits the Brand’s new nighttime summons within 8 local tiles on the same level. It does not stop existing demons, zombies or the armor’s shadows. Keep your sleeping place within its reach. The sign needs no fuel.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_REFUGE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_NIGHT",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_refuge_dawn_recorded == 1"
+      ],
+      "yes": "A dawn at your shelter is recorded. Rest and prepare for the next road.",
+      "no": "No dawn at the shelter has been recorded yet. You can still follow your known trails."
+    },
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_REFUGE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_QUIET",
+    "dynamic_line": "Sealed breaches quiet new world incursions for roughly two overmap tiles around each site. Demons already present remain, and the Brand and armor follow their own rules. Choose an area to show.",
+    "responses": [
+      {
+        "text": "The Ashen Breach",
+        "topic": "TALK_BERSERK_JOURNAL_QUIET",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_breach == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_breach_sealed == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_BREACH"
+            }
+          ]
+        },
+        "effect": {
+          "reveal_map": {
+            "u_val": "berserk_local_breach_location"
+          },
+          "radius": 2
+        }
+      },
+      {
+        "text": "The Count’s residence",
+        "topic": "TALK_BERSERK_JOURNAL_QUIET",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_count == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_count_state >= 4"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_COUNT"
+            }
+          ]
+        },
+        "effect": {
+          "reveal_map": {
+            "global_val": "berserk_hunt_count_location"
+          },
+          "radius": 2
+        }
+      },
+      {
+        "text": "Wyald and the Black Dogs",
+        "topic": "TALK_BERSERK_JOURNAL_QUIET",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_wyald == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_wyald_state >= 4"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_WYALD"
+            }
+          ]
+        },
+        "effect": {
+          "reveal_map": {
+            "global_val": "berserk_hunt_wyald_location"
+          },
+          "radius": 2
+        }
+      },
+      {
+        "text": "Rosine’s misty valley",
+        "topic": "TALK_BERSERK_JOURNAL_QUIET",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_rosine == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_rosine_state >= 4"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_ROSINE"
+            }
+          ]
+        },
+        "effect": {
+          "reveal_map": {
+            "global_val": "berserk_hunt_rosine_location"
+          },
+          "radius": 2
+        }
+      },
+      {
+        "text": "Grunbeld’s stronghold",
+        "topic": "TALK_BERSERK_JOURNAL_QUIET",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_grunbeld == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_grunbeld_state >= 4"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GRUNBELD"
+            }
+          ]
+        },
+        "effect": {
+          "reveal_map": {
+            "global_val": "berserk_hunt_grunbeld_location"
+          },
+          "radius": 2
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_REFUGE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROAD_CARAVAN_NOTE",
+    "dynamic_line": "The wheel broke before dusk. We left the iron fittings under the bound box and carried the grain away. A repair order is tucked between the pages: \"Take the bent blades to Godot’s woodland forge. He works with a young crossbow maker. Keep to the old cart tracks through the woods.\" The margins record bends and stream crossings.",
+    "responses": [
+      {
+        "text": "Look up the woodland forge in my journal.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_GODO"
+      },
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_ROAD"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GODO"
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROAD_SCOUT_NOTE",
+    "dynamic_line": "The open clearing is watched. I saw the trees move while the air was still. I tied the pack above the washout and took the lower path to see whether the other bank was clear. If I fail to return, keep to stone and leave room to turn back.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_ROAD"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROAD_CAMP_NOTE",
+    "dynamic_line": "We leave before the next dusk. The water is clean; whoever follows may need the blanket more than we do. The smith Godot repaired our broken blade at his woodland forge. His young helper makes crossbow bolts. We copied the way back here: the old track, the stream crossing, then the charcoal burners’ path. It is a long walk, but there is a master at its end.",
+    "responses": [
+      {
+        "text": "Look up the woodland forge in my journal.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_GODO"
+      },
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_ROAD"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GODO"
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_TRAVEL_FOLIO",
+    "dynamic_line": "Flora's notes: boil clean cloth for dressings; sew a waterskin before a long journey. A defensible room, drinking water, a bed and a small stone-and-bone ward make a refuge. The ward quiets new Brand summons within eight tiles, not existing enemies. Neither the missing hand nor eye will grow back through rest.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_RESCUED_MANUSCRIPT",
+    "dynamic_line": "The pages survived because someone chose to carry them. Flora compares the joined worlds to roots grafted across a wound. A quiet place can shelter a traveler; no single refuge can mend the whole world. These notes grant no combat power.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_SCORCHED_BOOKMARK",
+    "dynamic_line": "A leaf-shaped wooden bookmark survived inside the stone-lined root niche. Its little inscription reads: leave a light for the next traveler.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_APOSTLE_BURNED_CLUE",
+    "dynamic_line": "Between the burned edges are a broken road, a ruined foundation and marks around a split in the ground. The hollow’s keeper carried this route to another breach.",
+    "responses": [
+      {
+        "text": "View the trail to the Ashen Breach.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_BREACH"
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_OAK_BROKEN_ROOTCUTTER",
+    "dynamic_line": "Fresh cuts stop halfway through the roots. Two sets of tally marks were scratched into the haft; one ends abruptly. They meant to cut a path to the stone face, not to fight what lived beneath it.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_OAK_WAYFARER_WARD",
+    "dynamic_line": "The inscription names two travelers and asks that both return home. A second knot was added with a shaking hand. Beyond it, the bark bears the same dark stain as the abandoned cutting tool.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_OAK_LAST_NOTE",
+    "dynamic_line": "We left the cart on the old track. The face is caught in the roots, just as he said. At the eastern edge, the bones rang and the thing beneath the trunk turned toward them. I waited behind the thick roots until it passed. We will return by the old western track. If only one of us reaches the cart, leave the other name on the cord.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_HERBAL_FOLIO",
+    "dynamic_line": "Dry the herbs separately. Boil clean cloth for wounds. Mend the old sleeves before another journey. Keep both paths around the spiritual tree clear. The last line reads: a refuge remains a refuge because someone cares for it.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CAVE_SCOUT_NOTE",
+    "dynamic_line": "I marked the wide gallery to the east. Below it, the smaller passage winds around the stone mass and meets the gallery twice. We heard the chime in the western chamber before we saw what followed it. The turns hid us from its eyes. There is a braced chute near the ladder, but its peg faces deeper into the cave. I will leave another mark by the broken prop if we reach it.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CHAPEL_RELIEF_ROSTER",
+    "dynamic_line": "Water was stored in the east room; blankets and dressings in the sacristy. An earlier entry records a traveler who brought a repaired sword and bolts: \"Godot’s forge is still working in the woods. The old man and his young helper take useful metal for their work.\" He drew the road on the back of the page. Later entries stop counting meals and count hours beside the red stone. The last volunteer wrote: \"This was meant to be a shelter.\"",
+    "responses": [
+      {
+        "text": "Look up the woodland forge in my journal.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_GODO"
+      },
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GODO"
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CHAPEL_RITUAL_NOTE",
+    "dynamic_line": "We called the stone a miracle because we needed one. We moved it behind the altar and stopped opening the door to strangers. When the whispers began, we thought we had been answered. The handprints on the altar were not made in prayer.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CHAPEL_FOREST_ROUTE",
+    "dynamic_line": "If the chapel is lost, leave through the broken west wall. An old cart track farther into the forest ends at a huge oak with knotted roots. Travelers spoke of another stone face there. This is a lead, not a surveyed map; do not mistake the tree for safety.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_EXPEDITION_TRANSFER_NOTE",
+    "dynamic_line": "The transport order is crossed out. Below it: Three of us described the same red face after sleeping here. When we moved the specimen, the scratching began outside its new tent. Pavel is hurt; the creature caught him when he stepped into the open. Cancel collection of the sample. Send transport for the wounded. We are leaving the equipment.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ECLIPSE_LAST_STAND_NOTE",
+    "dynamic_line": "We broke the shields to make a wall. Held the gap until the wounded had passed. There is no road back. Keep the pale trail in sight. The great ribs bend toward the gathering.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_ECLIPSE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_PRISON_LIST",
+    "dynamic_line": "Names repeat on the execution notices. Shoes and cloaks were sorted before the sentence, as though the owner had already ceased to be a person. One entry was crossed out and replaced by 'sent below'. There is no altar here: terror was an ordinary office routine.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_APOSTLES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_PHYSICIAN_LEDGER",
+    "dynamic_line": "The early pages discuss boiled linen and ordinary wounds. Later sketches show an extra mouth growing through a servant's chest. The writer stopped calling it an illness: fragments of the master's flesh were forcing a second life into the victim. His treatment could not reverse it. The servants are finite, not a renewing garrison.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_APOSTLES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_FAMILY_RIBBON",
+    "dynamic_line": "The ribbon lay beside sewing and a book kept clear of dust. A note calls the room Theresia's and orders the servants not to disturb it. The same ruler who signed the prison lists protected this little island of ordinary life. Her whereabouts are not recorded; the servants kept this door closed as the rest of the house fell apart.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_APOSTLES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_NEXT_TRACE",
+    "dynamic_line": "Two roads are marked on the map. One bears the Black Dogs’ camp and Wyald’s name; the other, a mist-filled valley and Rosine’s name. Notes along the edges describe missing wagons and roads that have been closed.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_APOSTLES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_WYALD_MUSTER_ROLL",
+    "dynamic_line": "The lists separate soldiers, prisoners and those taken to the leader. Human boot sizes and ration counts fill the early pages. Later marks describe warped guards wearing the same uniforms. This was an army before its cruelty took a monstrous shape. The broken wagon lies west of the tents; the quarry leaves a southern way around the cages.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_APOSTLES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_WYALD_PRISONER_ACCOUNT",
+    "dynamic_line": "I hid this before they counted us. The cage doors are tied, not locked with iron keys. Untie them from either side and pass through; the quarry is longer but stays open. One name at the bottom is followed by a small word: escaped.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_APOSTLES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_WYALD_COMMAND_ORDERS",
+    "dynamic_line": "Wyald ordered the stolen stores counted and the fighting ground cleared. Timber screens were dragged to its edges; three wrecked barriers remain on the open earth. Leave space beside them for a sidestep when he braces to charge. The last order names a world broken open: his old fate was diverted by the crossing, and the being leading this camp is alive, not an echo.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_APOSTLES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROSINE_WITNESS_NOTE",
+    "dynamic_line": "They called the winged things fairies because the flowers were beautiful. I followed their lost shoes past the games to the silk. The still shells were empty of hope; the moving ones held something already changed. Break a swelling cocoon before it opens and no creature will fly out of that shell. I cannot bring the transformed back. The shallow western gully bends around the grove toward the great roots.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_APOSTLES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROSINE_FADED_RIBBON",
+    "dynamic_line": "The ribbon was tied around a twig as a marker in a game. Another knot is clenched inside a split shell farther along. The flowers kept growing when the games stopped. This little thing records a person, not a treasure hidden in a creature.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_APOSTLES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_EXPEDITION_ALARM_NOTE",
+    "dynamic_line": "Mikhail, if you reach the camp first: we moved the wounded into the southwestern tent. The creature came out of the northern tent and caught Pavel in the open. Keep behind the canvas and use the gap in the eastern cordon. We are leaving before dusk. — Lena",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CHAPEL_LAST_VIGIL",
+    "dynamic_line": "The last prayer has been crossed out. Beneath it: We barred the front doors to keep the strangers away. Now the footsteps are inside. Irina took the remaining blankets through the sacristy; I could not persuade her to come back for the stone. The western wall is broken. Follow the living while there is still time.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CAVE_LAST_SCRAP",
+    "dynamic_line": "The letters were written on a strip torn from a sleeve: The eastern way is wide enough to carry him, but the scratches there are fresh. I left the iron bar where the prop broke. We came back around the stone chime and reached the brace from below. The peg can be pulled from that side. If he wakes, we will try the ladder before we try the red face again.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_GRUNBELD_SCORCHED_BADGE",
+    "dynamic_line": "A burned clasp is all that remains of the garrison standard. No magic lives in it. Names scratched into the back remember those who held the southern road open. Keep it as testimony; the Carapace Shard belongs to the apostle, not to these fallen soldiers.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_APOSTLES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_IRON_SEAL",
+    "dynamic_line": "Wear the Seal of Severed Flesh to add 20% of each damaging hit against the listed demons, apostles and projections; the extra damage is rounded down after their defenses. Zombies and people receive no extra damage. Closing the Count's exposed breach quiets future incursions near his residence, but does not erase the Brand. Other apostles must be hunted separately.",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_APOSTLES"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORDS_ROAD",
+    "dynamic_line": "*Choose an account you have read.",
+    "responses": [
+      {
+        "text": "wagon tally",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROAD_CARAVAN_NOTE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_road_caravan_note == 1"
+          ]
+        }
+      },
+      {
+        "text": "scout's field scrap",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROAD_SCOUT_NOTE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_road_scout_note == 1"
+          ]
+        }
+      },
+      {
+        "text": "message from the waycamp",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROAD_CAMP_NOTE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_road_camp_note == 1"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT",
+    "dynamic_line": "*Choose an account you have read.",
+    "responses": [
+      {
+        "text": "apostle's burned scrap",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_APOSTLE_BURNED_CLUE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_apostle_burned_clue == 1"
+          ]
+        }
+      },
+      {
+        "text": "broken root-cutter",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_OAK_BROKEN_ROOTCUTTER",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_oak_broken_rootcutter == 1"
+          ]
+        }
+      },
+      {
+        "text": "wayfarer's tied ward",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_OAK_WAYFARER_WARD",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_oak_wayfarer_ward == 1"
+          ]
+        }
+      },
+      {
+        "text": "oak traveler's last note",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_OAK_LAST_NOTE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_oak_last_note == 1"
+          ]
+        }
+      },
+      {
+        "text": "cave scout's route sketch",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CAVE_SCOUT_NOTE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_cave_scout_note == 1"
+          ]
+        }
+      },
+      {
+        "text": "chapel relief roster",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CHAPEL_RELIEF_ROSTER",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_chapel_relief_roster == 1"
+          ]
+        }
+      },
+      {
+        "text": "reliquary keeper's confession",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CHAPEL_RITUAL_NOTE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_chapel_ritual_note == 1"
+          ]
+        }
+      },
+      {
+        "text": "refugee's forest directions",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CHAPEL_FOREST_ROUTE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_chapel_forest_route == 1"
+          ]
+        }
+      },
+      {
+        "text": "expedition transport order",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_EXPEDITION_TRANSFER_NOTE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_expedition_transfer_note == 1"
+          ]
+        }
+      },
+      {
+        "text": "message from the expedition's lookout",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_EXPEDITION_ALARM_NOTE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_expedition_alarm_note == 1"
+          ]
+        }
+      },
+      {
+        "text": "last vigil's prayer sheet",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CHAPEL_LAST_VIGIL",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_chapel_last_vigil == 1"
+          ]
+        }
+      },
+      {
+        "text": "cave traveler's torn sleeve note",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CAVE_LAST_SCRAP",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_cave_last_scrap == 1"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORDS_ECLIPSE",
+    "dynamic_line": "*Choose an account you have read.",
+    "responses": [
+      {
+        "text": "last stand scratched on cloth",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ECLIPSE_LAST_STAND_NOTE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_eclipse_last_stand_note == 1"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORDS_APOSTLES",
+    "dynamic_line": "*Choose an account you have read.",
+    "responses": [
+      {
+        "text": "the Count's prison roll",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_PRISON_LIST",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_count_prison_list == 1"
+          ]
+        }
+      },
+      {
+        "text": "the Count's physician ledger",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_PHYSICIAN_LEDGER",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_count_physician_ledger == 1"
+          ]
+        }
+      },
+      {
+        "text": "Theresia's folded ribbon",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_FAMILY_RIBBON",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_count_family_ribbon == 1"
+          ]
+        }
+      },
+      {
+        "text": "annotated routes from the residence",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_NEXT_TRACE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_count_next_trace == 1"
+          ]
+        }
+      },
+      {
+        "text": "Black Dogs stolen muster roll",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_WYALD_MUSTER_ROLL",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_wyald_muster_roll == 1"
+          ]
+        }
+      },
+      {
+        "text": "Black Dogs escape testimony",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_WYALD_PRISONER_ACCOUNT",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_wyald_prisoner_account == 1"
+          ]
+        }
+      },
+      {
+        "text": "Black Dogs command orders",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_WYALD_COMMAND_ORDERS",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_wyald_command_orders == 1"
+          ]
+        }
+      },
+      {
+        "text": "Mistvale searcher's testimony",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROSINE_WITNESS_NOTE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_rosine_witness_note == 1"
+          ]
+        }
+      },
+      {
+        "text": "Mistvale faded ribbon",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROSINE_FADED_RIBBON",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_rosine_faded_ribbon == 1"
+          ]
+        }
+      },
+      {
+        "text": "scorched garrison clasp",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_GRUNBELD_SCORCHED_BADGE",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_grunbeld_scorched_badge == 1"
+          ]
+        }
+      },
+      {
+        "text": "Seal of Severed Flesh",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_IRON_SEAL",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_count_iron_seal == 1"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORDS_FLORA",
+    "dynamic_line": "*Choose an account you have read.",
+    "responses": [
+      {
+        "text": "Flora's travel folio",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_TRAVEL_FOLIO",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_flora_travel_folio == 1"
+          ]
+        }
+      },
+      {
+        "text": "Flora's rescued manuscript",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_RESCUED_MANUSCRIPT",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_flora_rescued_manuscript == 1"
+          ]
+        }
+      },
+      {
+        "text": "Flora's scorched leaf bookmark",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_SCORCHED_BOOKMARK",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_flora_scorched_bookmark == 1"
+          ]
+        }
+      },
+      {
+        "text": "Flora's herbal folio",
+        "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_HERBAL_FOLIO",
+        "condition": {
+          "math": [
+            "u_berserk_journal_read_berserk_flora_herbal_folio == 1"
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_RECORDS",
+    "dynamic_line": "*Accounts appear here after you read them. The paper itself can be kept as a memory or left behind.",
+    "responses": [
+      {
+        "text": "Roadside accounts.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_ROAD",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_road_caravan_note == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_road_scout_note == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_road_camp_note == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "The search for the Behelit.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_BEHELIT",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_apostle_burned_clue == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_oak_broken_rootcutter == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_oak_wayfarer_ward == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_oak_last_note == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_cave_scout_note == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_chapel_relief_roster == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_chapel_ritual_note == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_chapel_forest_route == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_expedition_transfer_note == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_expedition_alarm_note == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_chapel_last_vigil == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_cave_last_scrap == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Accounts of the Eclipse.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_ECLIPSE",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_eclipse_last_stand_note == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Accounts from the hunts.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_APOSTLES",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_count_prison_list == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_count_physician_ledger == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_count_family_ribbon == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_count_next_trace == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_wyald_muster_roll == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_wyald_prisoner_account == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_wyald_command_orders == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_rosine_witness_note == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_rosine_faded_ribbon == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_grunbeld_scorched_badge == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_count_iron_seal == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Flora’s writings and keepsakes.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS_FLORA",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_flora_travel_folio == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_flora_rescued_manuscript == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_flora_scorched_bookmark == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_read_berserk_flora_herbal_folio == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "What the closed breaches changed.",
+        "topic": "TALK_BERSERK_JOURNAL_CHAPTER_END",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_campaign_chapter_closed == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_flora_escaped == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_knows_count == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_knows_wyald == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_knows_rosine == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_knows_grunbeld == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Words of the Skull Knight.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_knight_advice_eclipse == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_behelit == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_brand == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_sources == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_ward == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_ward_build == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_prepare == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_hunt_approach == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_local_wounds == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_world_collision == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_apostles == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_projections == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_hand == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_hand_mount == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_journal_help == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_knight_advice_purpose == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_ROAD_JOURNAL"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_CHAPTER_END",
+    "dynamic_line": "The breaches recorded here are closed. Their surroundings have gained a respite, but the Brand endures and distant wounds remain open. Collect any relics left behind, tend your refuge and keep the surviving records. Beyond these quieted places lies country you have yet to explore.",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_ECLIPSE",
+    "dynamic_line": "'The Behelit opened a place of sacrifice along the boundary where our worlds collided. Your Eclipse widened those wounds; it did not create this world's first catastrophe. I could not undo the sacrifice. I cut a way out while someone remained to save.'",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_BEHELIT",
+    "dynamic_line": "The Behelit was a key to a place of sacrifice. The lives offered there were not a toll that bought your safety. You escaped because a way out was cut while you still lived. Do not seek another ceremony as a cure for what it left you.",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_BRAND",
+    "dynamic_line": "'The Brand marks a survivor of the sacrifice. Its pain warns you when demons draw near; a stronger presence hurts more. At night, expect them to seek you out. Find cover and leave yourself a way to flee.'",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_SOURCES",
+    "dynamic_line": "Not every demon follows your Brand. Some have crossed the wounds between worlds and roam on their own; the Brand draws another hunt toward you at night. Quieting its call does not remove creatures already near your bed. A closed wound does not silence the Brand.",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_WARD",
+    "dynamic_line": "A sign of stone and bone quiets the Brand’s new night summons within eight tiles on the same level. It does not stop roaming demons, zombies or attacks. Place your bed within its reach; prepare water, light and an escape route. The sign needs no fuel, but its protection ends when you leave its reach.",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_WARD_BUILD",
+    "dynamic_line": "Set eight stones and four bones into a protective sign on clear ground. A little wilderness knowledge is enough to arrange it; allow about twenty minutes. Keep your bed within eight steps on the same level. Walls and a clear escape route must do what the sign cannot: shelter you from creatures already here.",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_PREPARE",
+    "dynamic_line": "Choose a place you can leave as well as defend. Dress your wounds, keep drinking water and bandages near your bed, and leave room to reach the door. Light helps you see what is coming; it is not a ward. Rest before testing your strength against an apostle. A weapon cannot give you back the breath spent running.",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_HUNT_APPROACH",
+    "dynamic_line": "Walk the outer ground first. Look for cover, lesser creatures and a way back before entering the keeper’s ground. Watch a heavy attack begin; move aside rather than trade blows through it. A retreat is not a broken oath. Return when your wounds and your equipment allow it, then examine what the fight uncovered.",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_LOCAL_WOUNDS",
+    "dynamic_line": "A keeper holds a particular wound open. When it falls, examine that wound; a victory alone may leave the opening behind. Closing it restrains new crossings nearby. Creatures that have already crossed remain, and distant wounds still feed the dark. Take the evidence with you and read it before choosing another road.",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_WORLD_COLLISION",
+    "dynamic_line": "The collision broke more than the ground. Some lives were drawn away from the deaths that awaited them. That does not make every being here a projection. Kill a living original and that life ends; breaking a reflection leaves its source untouched.",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_APOSTLES",
+    "dynamic_line": "'Apostles are monstrous beings with wills and bodies of their own. The God Hand stand apart: they preside over the sacrifice. Void and Griffith are not ordinary apostles. Do not mistake surviving an encounter for defeating them.'",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_PROJECTIONS",
+    "dynamic_line": "'Some things you met before were projections: an echo formed around a Behelit. Breaking the echo leaves the true being untouched. The Behelit itself was real.'",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_HAND",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND",
+      "yes": "A skilled metalworker can make the cannon: fabrication 8, mechanics 4 and the proper tools. Rickert builds that mechanism at Godot's forge if you bring the materials. Either way, fit the finished cannon by activating it in your inventory.",
+      "no": "The smiths can help you prepare a blade and mend your equipment."
+    },
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_HAND_MOUNT",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND",
+      "yes": "Carry the finished prosthetic arm cannon in your inventory and activate it there. The mount where your left hand used to be must still be empty. You need not wield the cannon or find an autodoc to attach it.",
+      "no": "The smiths can help you prepare a blade and mend your equipment."
+    },
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_JOURNAL_HELP",
+    "dynamic_line": "Keep one road journal for the directions you have learned, the smiths’ orders and the accounts you have read. Read a recovered letter before setting it aside; a sealed page has told you nothing. If a road is uncertain, keep its entry and return to the evidence. When we part, those notes will remain with you.",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_PURPOSE",
+    "dynamic_line": "I follow a war older than your wounds. When I can deny the sacrifice another life, I do. That does not make your road mine to command. Keep the life I carried out of the dark; decide what is worth protecting with it.",
+    "responses": [
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE",
+    "dynamic_line": "Advice you wrote down while speaking with the Skull Knight.",
+    "responses": [
+      {
+        "text": "The Eclipse and escape.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ECLIPSE",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_eclipse == 1"
+          ]
+        }
+      },
+      {
+        "text": "What the Behelit opened.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_BEHELIT",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_behelit == 1"
+          ]
+        }
+      },
+      {
+        "text": "The Brand and night summons.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_BRAND",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_brand == 1"
+          ]
+        }
+      },
+      {
+        "text": "The different dangers.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_SOURCES",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_sources == 1"
+          ]
+        }
+      },
+      {
+        "text": "Protection and its limits.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_WARD",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_ward == 1"
+          ]
+        }
+      },
+      {
+        "text": "Building a protective sign.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_WARD_BUILD",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_ward_build == 1"
+          ]
+        }
+      },
+      {
+        "text": "Preparing for the road.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_PREPARE",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_prepare == 1"
+          ]
+        }
+      },
+      {
+        "text": "Approaching a lair.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_HUNT_APPROACH",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_hunt_approach == 1"
+          ]
+        }
+      },
+      {
+        "text": "What a closed wound changes.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_LOCAL_WOUNDS",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_local_wounds == 1"
+          ]
+        }
+      },
+      {
+        "text": "The collision of worlds.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_WORLD_COLLISION",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_world_collision == 1"
+          ]
+        }
+      },
+      {
+        "text": "Apostles and the God Hand.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_APOSTLES",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_apostles == 1"
+          ]
+        }
+      },
+      {
+        "text": "The defeated reflection.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_PROJECTIONS",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_projections == 1"
+          ]
+        }
+      },
+      {
+        "text": "Help with the missing hand.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_HAND",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_knight_advice_hand == 1"
+              ]
+            },
+            {
+              "u_has_bionics": "bio_berserk_hand_stump"
+            }
+          ]
+        }
+      },
+      {
+        "text": "Fitting the arm cannon.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_HAND_MOUNT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_knight_advice_hand_mount == 1"
+              ]
+            },
+            {
+              "u_has_bionics": "bio_berserk_hand_stump"
+            }
+          ]
+        }
+      },
+      {
+        "text": "Keeping the roads together.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_JOURNAL_HELP",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_journal_help == 1"
+          ]
+        }
+      },
+      {
+        "text": "The Knight’s own road.",
+        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_PURPOSE",
+        "condition": {
+          "math": [
+            "u_berserk_knight_advice_purpose == 1"
+          ]
+        }
+      },
+      {
+        "text": "Back to the topics.",
+        "topic": "TALK_BERSERK_JOURNAL_RECORDS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_ROAD",
+    "dynamic_line": "*A broken road, a ruined foundation, ash around a wound in the earth. The vision stayed with you when the voices fell silent. It may lead to another opening between the worlds. The journey is yours to choose; prepare a way to retreat.",
+    "responses": [
+      {
+        "text": "Open the entry for the ashen trail.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACE_BREACH"
+      },
+      {
+        "text": "Review only the roads I already know.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACES"
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_CURRENT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_FLESH_PROGRESS",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+        "yes": "*Cinder carapace: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+        "no": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE",
+          "yes": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+            "yes": "*Winged hunter: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+            "no": {
+              "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE",
+              "yes": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+                "yes": "*Hunting beast: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+                "no": {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE",
+                  "yes": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+                    "yes": "*Pliant flesh: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+                    "no": {
+                      "math": [
+                        "u_berserk_apostol_growth_step >= 3"
+                      ],
+                      "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                      "no": {
+                        "math": [
+                          "u_berserk_apostol_growth_step >= 2"
+                        ],
+                        "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                        "no": {
+                          "math": [
+                            "u_berserk_apostol_growth_step >= 1"
+                          ],
+                          "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                          "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                        }
+                      }
+                    }
+                  },
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 3"
+                    ],
+                    "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                    "no": {
+                      "math": [
+                        "u_berserk_apostol_growth_step >= 2"
+                      ],
+                      "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                      "no": {
+                        "math": [
+                          "u_berserk_apostol_growth_step >= 1"
+                        ],
+                        "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                        "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                      }
+                    }
+                  }
+                }
+              },
+              "no": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE",
+                "yes": {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+                  "yes": "*Pliant flesh: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 3"
+                    ],
+                    "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                    "no": {
+                      "math": [
+                        "u_berserk_apostol_growth_step >= 2"
+                      ],
+                      "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                      "no": {
+                        "math": [
+                          "u_berserk_apostol_growth_step >= 1"
+                        ],
+                        "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                        "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                      }
+                    }
+                  }
+                },
+                "no": {
+                  "math": [
+                    "u_berserk_apostol_growth_step >= 3"
+                  ],
+                  "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 2"
+                    ],
+                    "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                    "no": {
+                      "math": [
+                        "u_berserk_apostol_growth_step >= 1"
+                      ],
+                      "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                      "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "no": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE",
+            "yes": {
+              "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+              "yes": "*Hunting beast: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+              "no": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE",
+                "yes": {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+                  "yes": "*Pliant flesh: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 3"
+                    ],
+                    "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                    "no": {
+                      "math": [
+                        "u_berserk_apostol_growth_step >= 2"
+                      ],
+                      "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                      "no": {
+                        "math": [
+                          "u_berserk_apostol_growth_step >= 1"
+                        ],
+                        "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                        "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                      }
+                    }
+                  }
+                },
+                "no": {
+                  "math": [
+                    "u_berserk_apostol_growth_step >= 3"
+                  ],
+                  "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 2"
+                    ],
+                    "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                    "no": {
+                      "math": [
+                        "u_berserk_apostol_growth_step >= 1"
+                      ],
+                      "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                      "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                    }
+                  }
+                }
+              }
+            },
+            "no": {
+              "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE",
+              "yes": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+                "yes": "*Pliant flesh: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+                "no": {
+                  "math": [
+                    "u_berserk_apostol_growth_step >= 3"
+                  ],
+                  "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 2"
+                    ],
+                    "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                    "no": {
+                      "math": [
+                        "u_berserk_apostol_growth_step >= 1"
+                      ],
+                      "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                      "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                    }
+                  }
+                }
+              },
+              "no": {
+                "math": [
+                  "u_berserk_apostol_growth_step >= 3"
+                ],
+                "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                "no": {
+                  "math": [
+                    "u_berserk_apostol_growth_step >= 2"
+                  ],
+                  "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 1"
+                    ],
+                    "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                    "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "no": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE",
+        "yes": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+          "yes": "*Winged hunter: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+          "no": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE",
+            "yes": {
+              "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+              "yes": "*Hunting beast: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+              "no": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE",
+                "yes": {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+                  "yes": "*Pliant flesh: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 3"
+                    ],
+                    "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                    "no": {
+                      "math": [
+                        "u_berserk_apostol_growth_step >= 2"
+                      ],
+                      "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                      "no": {
+                        "math": [
+                          "u_berserk_apostol_growth_step >= 1"
+                        ],
+                        "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                        "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                      }
+                    }
+                  }
+                },
+                "no": {
+                  "math": [
+                    "u_berserk_apostol_growth_step >= 3"
+                  ],
+                  "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 2"
+                    ],
+                    "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                    "no": {
+                      "math": [
+                        "u_berserk_apostol_growth_step >= 1"
+                      ],
+                      "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                      "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                    }
+                  }
+                }
+              }
+            },
+            "no": {
+              "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE",
+              "yes": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+                "yes": "*Pliant flesh: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+                "no": {
+                  "math": [
+                    "u_berserk_apostol_growth_step >= 3"
+                  ],
+                  "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 2"
+                    ],
+                    "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                    "no": {
+                      "math": [
+                        "u_berserk_apostol_growth_step >= 1"
+                      ],
+                      "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                      "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                    }
+                  }
+                }
+              },
+              "no": {
+                "math": [
+                  "u_berserk_apostol_growth_step >= 3"
+                ],
+                "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                "no": {
+                  "math": [
+                    "u_berserk_apostol_growth_step >= 2"
+                  ],
+                  "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 1"
+                    ],
+                    "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                    "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "no": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE",
+          "yes": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+            "yes": "*Hunting beast: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+            "no": {
+              "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE",
+              "yes": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+                "yes": "*Pliant flesh: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+                "no": {
+                  "math": [
+                    "u_berserk_apostol_growth_step >= 3"
+                  ],
+                  "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 2"
+                    ],
+                    "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                    "no": {
+                      "math": [
+                        "u_berserk_apostol_growth_step >= 1"
+                      ],
+                      "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                      "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                    }
+                  }
+                }
+              },
+              "no": {
+                "math": [
+                  "u_berserk_apostol_growth_step >= 3"
+                ],
+                "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                "no": {
+                  "math": [
+                    "u_berserk_apostol_growth_step >= 2"
+                  ],
+                  "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 1"
+                    ],
+                    "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                    "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                  }
+                }
+              }
+            }
+          },
+          "no": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE",
+            "yes": {
+              "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+              "yes": "*Pliant flesh: the transformation is complete. No further portions or growth are needed. Continue an already known road; your abilities and their cost remain.",
+              "no": {
+                "math": [
+                  "u_berserk_apostol_growth_step >= 3"
+                ],
+                "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+                "no": {
+                  "math": [
+                    "u_berserk_apostol_growth_step >= 2"
+                  ],
+                  "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                  "no": {
+                    "math": [
+                      "u_berserk_apostol_growth_step >= 1"
+                    ],
+                    "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                    "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                  }
+                }
+              }
+            },
+            "no": {
+              "math": [
+                "u_berserk_apostol_growth_step >= 3"
+              ],
+              "yes": "*The first fighting ability is ready. Learn its cost and recovery; another ability will follow when the flesh settles.",
+              "no": {
+                "math": [
+                  "u_berserk_apostol_growth_step >= 2"
+                ],
+                "yes": "*Your body has changed permanently. Learn its strengths and limitations before risking another hunt. The fighting abilities are still developing.",
+                "no": {
+                  "math": [
+                    "u_berserk_apostol_growth_step >= 1"
+                  ],
+                  "yes": "*Your senses have changed. The weakness of the absorbed flesh remains throughout the transformation; prepare food and rest while the body continues to change.",
+                  "no": "*Your independent transformation is growing from a single absorbed remain. The weakness is permanent. Early senses appear first; the permanent body and its abilities follow."
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Review the roads I already know.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACES"
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_CURRENT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_PAWN_PROGRESS",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_OATH_LOST",
+      "yes": "*You broke the pact. Its protection and strongest impulse are gone; the lesser body and its weaknesses remain. No second main transformation can replace it.",
+      "no": {
+        "math": [
+          "u_berserk_apostol_pawn_master_dead == 1"
+        ],
+        "yes": "*The master is dead. Your servant’s body and weaknesses remain. Their favor cannot be renewed, and no stronger form has replaced yours. Continue the roads you already know.",
+        "no": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE",
+          "yes": "*Your pact is changing you into a lesser servant. Prepare food and rest. To use the strongest impulse, deliver the agreed supplies to your master: their favor lasts six hours. Attacking the master or their transformed servants breaks the pact. Your body will stay limited even if the master dies. Bring four steel lumps for the damaged armor. Service earns strength; the shell alone does not.",
+          "no": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE",
+            "yes": "*Your pact is changing you into a lesser servant. Prepare food and rest. To use the strongest impulse, deliver the agreed supplies to your master: their favor lasts six hours. Attacking the master or their transformed servants breaks the pact. Your body will stay limited even if the master dies. Bring four pieces of animal meat to feed the nest. Then you may use the gift again.",
+            "no": {
+              "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE",
+              "yes": "*Your pact is changing you into a lesser servant. Prepare food and rest. To use the strongest impulse, deliver the agreed supplies to your master: their favor lasts six hours. Attacking the master or their transformed servants breaks the pact. Your body will stay limited even if the master dies. Bring twelve scraps of metal for my men’s gear. Earn your next burst of strength.",
+              "no": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE",
+                "yes": "*Your pact is changing you into a lesser servant. Prepare food and rest. To use the strongest impulse, deliver the agreed supplies to your master: their favor lasts six hours. Attacking the master or their transformed servants breaks the pact. Your body will stay limited even if the master dies. Bring two pieces of leather for the household stores. In return I will nourish the strength I gave you.",
+                "no": "*Your pact is changing you into a lesser servant. Prepare food and rest. To use the strongest impulse, deliver the agreed supplies to your master: their favor lasts six hours. Attacking the master or their transformed servants breaks the pact. Your body will stay limited even if the master dies."
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Review the roads I already know.",
+        "topic": "TALK_BERSERK_JOURNAL_PLACES"
+      },
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_CURRENT"
       }
     ]
   }

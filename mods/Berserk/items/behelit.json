@@ -1,20 +1,29 @@
 [
   {
     "type": "ITEM",
-    "subtypes": [ "TOOL" ],
+    "subtypes": [
+      "TOOL"
+    ],
     "id": "berserk_behelit",
     "category": "tools",
-    "name": { "str": "Behelit" },
+    "name": {
+      "str": "Behelit"
+    },
     "description": "A small, unsettling stone with features that never seem to stay in place. A successful activation opens the Eclipse and consumes one Behelit. The way back closes; surviving the final confrontation is the only escape.",
     "weight": "100 g",
     "volume": "250 ml",
-    "material": [ "stone" ],
+    "material": [
+      "stone"
+    ],
     "symbol": "*",
     "color": "red",
     "use_action": {
       "type": "effect_on_conditions",
       "menu_text": "Activate Behelit",
-      "effect_on_conditions": [ "EOC_BERSERK_ECLIPSE_TRIAL_USE" ]
-    }
+      "effect_on_conditions": [
+        "EOC_BERSERK_ECLIPSE_TRIAL_USE"
+      ]
+    },
+    "looks_like": ""
   }
 ]

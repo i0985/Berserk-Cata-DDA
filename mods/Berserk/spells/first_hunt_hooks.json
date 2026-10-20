@@ -1,0 +1,93 @@
+[
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 2,
+    "max_range": 2,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "id": "berserk_committed_hollow_prepare",
+    "name": "Hollow apostle: raise hooks",
+    "description": "The apostle raises its hooked arms before sweeping the ground.",
+    "effect": "effect_on_condition",
+    "effect_str": "EOC_BERSERK_HOLLOW_COMMITTED_BEGIN",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NO_PROJECTILE"
+    ]
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 2,
+    "max_range": 2,
+    "min_aoe": 75,
+    "max_aoe": 75,
+    "id": "berserk_committed_hollow_warning",
+    "name": "Ground beneath raised hooks",
+    "description": "The threatened ground shows where the apostle’s hooks will sweep.",
+    "effect": "attack",
+    "shape": "cone",
+    "valid_targets": [
+      "ground",
+      "hostile",
+      "ally"
+    ],
+    "min_damage": 0,
+    "max_damage": 0,
+    "min_accuracy": 10,
+    "max_accuracy": 10,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "field_id": "fd_berserk_committed_hollow_warning",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "field_chance": 1,
+    "min_duration": 300,
+    "max_duration": 300
+  },
+  {
+    "type": "SPELL",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 0,
+    "min_range": 2,
+    "max_range": 2,
+    "min_aoe": 75,
+    "max_aoe": 75,
+    "id": "berserk_committed_hollow_release",
+    "name": "Hollow apostle: hook sweep",
+    "description": "Hooked arms strike the ground in front of the apostle.",
+    "effect": "attack",
+    "shape": "cone",
+    "valid_targets": [
+      "ground",
+      "hostile",
+      "ally"
+    ],
+    "min_damage": 20,
+    "max_damage": 20,
+    "min_accuracy": 10,
+    "max_accuracy": 10,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX",
+      "NON_MAGICAL"
+    ],
+    "damage_type": "bash"
+  }
+]

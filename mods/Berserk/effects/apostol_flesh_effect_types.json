@@ -1,0 +1,109 @@
+[
+  {
+    "type": "effect_type",
+    "id": "berserk_apostol_flesh_exposed",
+    "name": [
+      "Exposed flesh"
+    ],
+    "desc": [
+      "Your heavy strike leaves you exposed for a moment."
+    ],
+    "max_intensity": 1,
+    "dur_add_perc": 0,
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "DODGE_CHANCE",
+            "add": -2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_apostol_flesh_grip",
+    "name": [
+      "Crushing grip"
+    ],
+    "desc": [
+      "A crushing grip slows movement."
+    ],
+    "max_intensity": 1,
+    "dur_add_perc": 0,
+    "base_mods": {
+      "speed_mod": [
+        -25
+      ]
+    }
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_apostol_flesh_flutter",
+    "name": [
+      "Restless wings"
+    ],
+    "desc": [
+      "Swift wingbeats help you avoid an attack."
+    ],
+    "max_intensity": 1,
+    "dur_add_perc": 0,
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "DODGE_CHANCE",
+            "add": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_apostol_flesh_overheated",
+    "name": [
+      "Overheated carapace"
+    ],
+    "desc": [
+      "Heat trapped in your flesh slows you and prevents another fiery breath."
+    ],
+    "max_intensity": 1,
+    "dur_add_perc": 0,
+    "base_mods": {
+      "speed_mod": [
+        -15
+      ]
+    }
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_apostol_flesh_braced",
+    "name": [
+      "Braced carapace"
+    ],
+    "desc": [
+      "Your braced shell offers extra protection at the cost of movement."
+    ],
+    "max_intensity": 1,
+    "dur_add_perc": 0,
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "ARMOR_ALL",
+            "add": -3
+          },
+          {
+            "value": "SPEED",
+            "add": -20
+          }
+        ]
+      }
+    ]
+  }
+]

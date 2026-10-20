@@ -1,0 +1,3821 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FLESH_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_apostol_path == 2"
+          ]
+        },
+        "u_is_avatar",
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ORDINARY_SURVIVOR"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_STATE_CONSISTENT"
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 6"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 7"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 8"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 9"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FLESH_CAN_ABSORB",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CAN_ACCEPT"
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 6"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_BEGIN",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_started_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_step = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_running = 1"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_trait": "BERSERK_COUNT_FLESH_SEED"
+          }
+        },
+        "then": {
+          "u_add_trait": "BERSERK_COUNT_FLESH_SEED"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_GROW",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 0"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('6 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_COUNT_FLESH_SENSES"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_COUNT_FLESH_SENSES"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 2"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh sharpens your senses. Its weakness has taken root too.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('18 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_COUNT_FLESH_FORM"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_COUNT_FLESH_FORM"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 2"
+            ]
+          },
+          {
+            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('36 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_COUNT_FLESH_STRIKE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_COUNT_FLESH_STRIKE"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 3"
+            ]
+          },
+          {
+            "u_message": "A fighting instinct wakes in the flesh. Your first new ability is ready.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 3"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('60 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_COUNT_FLESH_MEND"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_COUNT_FLESH_MEND"
+            }
+          },
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_COUNT_FLESH_APOSTLE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_COUNT_FLESH_APOSTLE"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 4"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_running = 0"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh has settled. This transformation is complete; its strength and its weakness remain.",
+            "type": "warning"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+        },
+        {
+          "math": [
+            "has_var(u_berserk_apostol_started_at)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_FORM_ON",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_FORM_OFF",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 7"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_BEGIN",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_started_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_step = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_running = 1"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_trait": "BERSERK_WYALD_FLESH_SEED"
+          }
+        },
+        "then": {
+          "u_add_trait": "BERSERK_WYALD_FLESH_SEED"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_GROW",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 0"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('6 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_WYALD_FLESH_SENSES"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_WYALD_FLESH_SENSES"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 2"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh sharpens your senses. Its weakness has taken root too.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('18 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_WYALD_FLESH_FORM"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_WYALD_FLESH_FORM"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 2"
+            ]
+          },
+          {
+            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('36 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_WYALD_FLESH_DASH"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_WYALD_FLESH_DASH"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 3"
+            ]
+          },
+          {
+            "u_message": "A fighting instinct wakes in the flesh. Your first new ability is ready.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 3"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('60 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_WYALD_FLESH_GRIP"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_WYALD_FLESH_GRIP"
+            }
+          },
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_WYALD_FLESH_APOSTLE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_WYALD_FLESH_APOSTLE"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 4"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_running = 0"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh has settled. This transformation is complete; its strength and its weakness remain.",
+            "type": "warning"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+        },
+        {
+          "math": [
+            "has_var(u_berserk_apostol_started_at)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_FORM_ON",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_FORM_OFF",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 8"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_BEGIN",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_started_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_step = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_running = 1"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_trait": "BERSERK_ROSINE_FLESH_SEED"
+          }
+        },
+        "then": {
+          "u_add_trait": "BERSERK_ROSINE_FLESH_SEED"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_GROW",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 0"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('6 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_ROSINE_FLESH_SENSES"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_ROSINE_FLESH_SENSES"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 2"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh sharpens your senses. Its weakness has taken root too.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('18 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_ROSINE_FLESH_FORM"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_ROSINE_FLESH_FORM"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 2"
+            ]
+          },
+          {
+            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('36 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_ROSINE_FLESH_DIVE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_ROSINE_FLESH_DIVE"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 3"
+            ]
+          },
+          {
+            "u_message": "A fighting instinct wakes in the flesh. Your first new ability is ready.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 3"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('60 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_ROSINE_FLESH_FLUTTER"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_ROSINE_FLESH_FLUTTER"
+            }
+          },
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_ROSINE_FLESH_APOSTLE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_ROSINE_FLESH_APOSTLE"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 4"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_running = 0"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh has settled. This transformation is complete; its strength and its weakness remain.",
+            "type": "warning"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+        },
+        {
+          "math": [
+            "has_var(u_berserk_apostol_started_at)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_FORM_ON",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_FORM_OFF",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 9"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_BEGIN",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_started_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_step = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_running = 1"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_trait": "BERSERK_GRUNBELD_FLESH_SEED"
+          }
+        },
+        "then": {
+          "u_add_trait": "BERSERK_GRUNBELD_FLESH_SEED"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_GROW",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 0"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('6 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_GRUNBELD_FLESH_SENSES"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_GRUNBELD_FLESH_SENSES"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 2"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh sharpens your senses. Its weakness has taken root too.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('18 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_GRUNBELD_FLESH_FORM"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_GRUNBELD_FLESH_FORM"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 2"
+            ]
+          },
+          {
+            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('36 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_GRUNBELD_FLESH_BREATH"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_GRUNBELD_FLESH_BREATH"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 3"
+            ]
+          },
+          {
+            "u_message": "A fighting instinct wakes in the flesh. Your first new ability is ready.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 3"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('60 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_GRUNBELD_FLESH_BRACE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_GRUNBELD_FLESH_BRACE"
+            }
+          },
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_GRUNBELD_FLESH_APOSTLE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_GRUNBELD_FLESH_APOSTLE"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 4"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_running = 0"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh has settled. This transformation is complete; its strength and its weakness remain.",
+            "type": "warning"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+        },
+        {
+          "math": [
+            "has_var(u_berserk_apostol_started_at)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_FORM_ON",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_FORM_OFF",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FLESH_GROW",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_FLESH_GROW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_FLESH_GROW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_GROW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_GROW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_FLESH_CONTINUATION_SYNC"
+      }
+    ],
+    "eoc_type": "RECURRING",
+    "recurrence": "1 minute",
+    "global": true,
+    "deactivate_condition": {
+      "math": [
+        "u_berserk_apostol_stage >= 3"
+      ]
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_ABSORB",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_CAN_ABSORB"
+      },
+      "then": {
+        "if": {
+          "u_query": "Absorb the Count’s flesh? You will slowly become a heavy, pliant apostle. Your movement will remain slower, throughout the transformation. This is permanent: no other main line can take root afterward. You cannot undo the choice by closing a breach.",
+          "default": false
+        },
+        "then": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_COUNT_FLESH",
+            "variables": {
+              "berserk_apostol_accept_confirmed": "1"
+            }
+          },
+          {
+            "if": {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_stage == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "math": [
+                      "has_var(u_berserk_apostol_started_at)"
+                    ]
+                  }
+                }
+              ]
+            },
+            "then": [
+              {
+                "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_FLESH_BEGIN"
+              },
+              {
+                "run_eocs": "EOC_BERSERK_APOSTOL_FLESH_CONTINUATION_BEGIN"
+              },
+              {
+                "u_message": "The flesh dissolves beneath your skin. The change has begun and will finish without another portion. Find food, water and somewhere to rest; your road journal records its progress.",
+                "type": "warning",
+                "popup": true
+              },
+              "npc_die"
+            ]
+          }
+        ]
+      },
+      "else": {
+        "u_message": "The flesh remains in your hands. Your body cannot accept this path, or another change has already taken root.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        "has_beta",
+        "npc_is_item",
+        {
+          "u_has_item": "berserk_apostol_count_flesh"
+        },
+        {
+          "compare_string": [
+            {
+              "context_val": "id"
+            },
+            "berserk_apostol_count_flesh"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_ABSORB",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_CAN_ABSORB"
+      },
+      "then": {
+        "if": {
+          "u_query": "Absorb Wyald’s flesh? You will slowly become a beastlike apostle. Your stamina will recover more slowly; your altered hands will hinder precise work. This is permanent: no other main line can take root afterward.",
+          "default": false
+        },
+        "then": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_WYALD_FLESH",
+            "variables": {
+              "berserk_apostol_accept_confirmed": "1"
+            }
+          },
+          {
+            "if": {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_stage == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "math": [
+                      "has_var(u_berserk_apostol_started_at)"
+                    ]
+                  }
+                }
+              ]
+            },
+            "then": [
+              {
+                "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_FLESH_BEGIN"
+              },
+              {
+                "run_eocs": "EOC_BERSERK_APOSTOL_FLESH_CONTINUATION_BEGIN"
+              },
+              {
+                "u_message": "The flesh dissolves beneath your skin. The change has begun and will finish without another portion. Find food, water and somewhere to rest; your road journal records its progress.",
+                "type": "warning",
+                "popup": true
+              },
+              "npc_die"
+            ]
+          }
+        ]
+      },
+      "else": {
+        "u_message": "The flesh remains in your hands. Your body cannot accept this path, or another change has already taken root.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        "has_beta",
+        "npc_is_item",
+        {
+          "u_has_item": "berserk_apostol_wyald_flesh"
+        },
+        {
+          "compare_string": [
+            {
+              "context_val": "id"
+            },
+            "berserk_apostol_wyald_flesh"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_ABSORB",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_CAN_ABSORB"
+      },
+      "then": {
+        "if": {
+          "u_query": "Absorb Rosine’s flesh? You will slowly become a winged insectlike apostle. Your flesh will take more physical damage, throughout the transformation. Heavy equipment restricts your winged movements. This is permanent: no other main line can take root afterward.",
+          "default": false
+        },
+        "then": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_ROSINE_FLESH",
+            "variables": {
+              "berserk_apostol_accept_confirmed": "1"
+            }
+          },
+          {
+            "if": {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_stage == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "math": [
+                      "has_var(u_berserk_apostol_started_at)"
+                    ]
+                  }
+                }
+              ]
+            },
+            "then": [
+              {
+                "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_BEGIN"
+              },
+              {
+                "run_eocs": "EOC_BERSERK_APOSTOL_FLESH_CONTINUATION_BEGIN"
+              },
+              {
+                "u_message": "The flesh dissolves beneath your skin. The change has begun and will finish without another portion. Find food, water and somewhere to rest; your road journal records its progress.",
+                "type": "warning",
+                "popup": true
+              },
+              "npc_die"
+            ]
+          }
+        ]
+      },
+      "else": {
+        "u_message": "The flesh remains in your hands. Your body cannot accept this path, or another change has already taken root.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        "has_beta",
+        "npc_is_item",
+        {
+          "u_has_item": "berserk_apostol_rosine_flesh"
+        },
+        {
+          "compare_string": [
+            {
+              "context_val": "id"
+            },
+            "berserk_apostol_rosine_flesh"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_ABSORB",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_CAN_ABSORB"
+      },
+      "then": {
+        "if": {
+          "u_query": "Absorb Grunbeld’s flesh? You will slowly grow an armored, fiery shape. Hunger and slow stamina recovery remain throughout the transformation; breathing fire overheats your body. This is permanent: no other main line can take root afterward.",
+          "default": false
+        },
+        "then": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_GRUNBELD_FLESH",
+            "variables": {
+              "berserk_apostol_accept_confirmed": "1"
+            }
+          },
+          {
+            "if": {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_stage == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "math": [
+                      "has_var(u_berserk_apostol_started_at)"
+                    ]
+                  }
+                }
+              ]
+            },
+            "then": [
+              {
+                "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_BEGIN"
+              },
+              {
+                "run_eocs": "EOC_BERSERK_APOSTOL_FLESH_CONTINUATION_BEGIN"
+              },
+              {
+                "u_message": "The flesh dissolves beneath your skin. The change has begun and will finish without another portion. Find food, water and somewhere to rest; your road journal records its progress.",
+                "type": "warning",
+                "popup": true
+              },
+              "npc_die"
+            ]
+          }
+        ]
+      },
+      "else": {
+        "u_message": "The flesh remains in your hands. Your body cannot accept this path, or another change has already taken root.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        "has_beta",
+        "npc_is_item",
+        {
+          "u_has_item": "berserk_apostol_grunbeld_flesh"
+        },
+        {
+          "compare_string": [
+            {
+              "context_val": "id"
+            },
+            "berserk_apostol_grunbeld_flesh"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_DEATH_COUNT_DIES",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_hunt_count_state < 3"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "context_val": "berserk_apostol_remain_position"
+            }
+          },
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_FLESH_DROP"
+          },
+          {
+            "math": [
+              "berserk_apostol_count_flesh_death_confirmed = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COUNT_DIES"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_MASTER_SYNC",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_DEATH_WYALD_DIES",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_apostle_wyald_dead != 1"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "context_val": "berserk_apostol_remain_position"
+            }
+          },
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_FLESH_DROP"
+          },
+          {
+            "math": [
+              "berserk_apostol_wyald_flesh_death_confirmed = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_WYALD_DIES"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_MASTER_SYNC",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_DEATH_ROSINE_DIES",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_apostle_rosine_dead != 1"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "context_val": "berserk_apostol_remain_position"
+            }
+          },
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_DROP"
+          },
+          {
+            "math": [
+              "berserk_apostol_rosine_flesh_death_confirmed = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ROSINE_DIES"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_MASTER_SYNC",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_DEATH_GRUNBELD_DIES",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_apostle_grunbeld_dead != 1"
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "context_val": "berserk_apostol_remain_position"
+            }
+          },
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_DROP"
+          },
+          {
+            "math": [
+              "berserk_apostol_grunbeld_flesh_death_confirmed = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_DIES"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_MASTER_SYNC",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_DEATH_FLORA_GRUNBELD_DIES",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostle_grunbeld_dead != 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_grunbeld_grove_withdrawn != 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "context_val": "berserk_apostol_remain_position"
+            }
+          },
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_DROP"
+          },
+          {
+            "math": [
+              "berserk_apostol_grunbeld_flesh_death_confirmed = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_GRUNBELD_DIES"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_MASTER_SYNC",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_DROP",
+    "effect": [
+      {
+        "map_spawn_item": "berserk_apostol_count_flesh",
+        "count": 1,
+        "loc": {
+          "context_val": "berserk_apostol_remain_position"
+        }
+      },
+      {
+        "math": [
+          "berserk_apostol_count_flesh_issued = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_apostol_count_flesh_issued != 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_OLD_REMAIN",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_apostol_remain_position"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_FLESH_DROP"
+      },
+      {
+        "u_message": "A remnant of the fallen apostle still pulses among the cooled folds. It has not decayed.",
+        "type": "info"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_hunt_count_state >= 3"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_count_flesh_issued != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_count_breach",
+          "loc": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_OLD_REMAIN_SEALED",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_apostol_remain_position"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_FLESH_DROP"
+      },
+      {
+        "u_message": "A remnant of the fallen apostle still pulses among the cooled folds. It has not decayed.",
+        "type": "info"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_hunt_count_state >= 3"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_count_flesh_issued != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_count_breach_sealed",
+          "loc": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_DROP",
+    "effect": [
+      {
+        "map_spawn_item": "berserk_apostol_wyald_flesh",
+        "count": 1,
+        "loc": {
+          "context_val": "berserk_apostol_remain_position"
+        }
+      },
+      {
+        "math": [
+          "berserk_apostol_wyald_flesh_issued = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_apostol_wyald_flesh_issued != 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_OLD_REMAIN",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_apostol_remain_position"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_FLESH_DROP"
+      },
+      {
+        "u_message": "A remnant of the fallen apostle still pulses among the cooled folds. It has not decayed.",
+        "type": "info"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_apostle_wyald_dead == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_wyald_flesh_issued != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_wyald_breach",
+          "loc": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_OLD_REMAIN_SEALED",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_apostol_remain_position"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_FLESH_DROP"
+      },
+      {
+        "u_message": "A remnant of the fallen apostle still pulses among the cooled folds. It has not decayed.",
+        "type": "info"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_apostle_wyald_dead == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_wyald_flesh_issued != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_wyald_breach_sealed",
+          "loc": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_DROP",
+    "effect": [
+      {
+        "map_spawn_item": "berserk_apostol_rosine_flesh",
+        "count": 1,
+        "loc": {
+          "context_val": "berserk_apostol_remain_position"
+        }
+      },
+      {
+        "math": [
+          "berserk_apostol_rosine_flesh_issued = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_apostol_rosine_flesh_issued != 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_OLD_REMAIN",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_apostol_remain_position"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_DROP"
+      },
+      {
+        "u_message": "A remnant of the fallen apostle still pulses among the cooled folds. It has not decayed.",
+        "type": "info"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_apostle_rosine_dead == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_rosine_flesh_issued != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_rosine_breach",
+          "loc": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_OLD_REMAIN_SEALED",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_apostol_remain_position"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_DROP"
+      },
+      {
+        "u_message": "A remnant of the fallen apostle still pulses among the cooled folds. It has not decayed.",
+        "type": "info"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_apostle_rosine_dead == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_rosine_flesh_issued != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_rosine_breach_sealed",
+          "loc": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_DROP",
+    "effect": [
+      {
+        "map_spawn_item": "berserk_apostol_grunbeld_flesh",
+        "count": 1,
+        "loc": {
+          "context_val": "berserk_apostol_remain_position"
+        }
+      },
+      {
+        "math": [
+          "berserk_apostol_grunbeld_flesh_issued = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_apostol_grunbeld_flesh_issued != 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_OLD_REMAIN",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_apostol_remain_position"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_DROP"
+      },
+      {
+        "u_message": "A remnant of the fallen apostle still pulses among the cooled folds. It has not decayed.",
+        "type": "info"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_apostle_grunbeld_dead == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_grunbeld_flesh_issued != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_grunbeld_breach",
+          "loc": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_OLD_REMAIN_SEALED",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_apostol_remain_position"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_DROP"
+      },
+      {
+        "u_message": "A remnant of the fallen apostle still pulses among the cooled folds. It has not decayed.",
+        "type": "info"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_apostle_grunbeld_dead == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_grunbeld_flesh_issued != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_grunbeld_breach_sealed",
+          "loc": {
+            "context_val": "pos"
+          }
+        },
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_STRIKE_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_COUNT_FLESH_STRIKE"
+        },
+        {
+          "u_has_flag": "BERSERK_COUNT_FLESH_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 900"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_count_flesh_strike_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_STRIKE_RESULT",
+    "effect": [
+      {
+        "u_add_effect": "berserk_apostol_flesh_exposed",
+        "duration": "3 seconds"
+      },
+      {
+        "math": [
+          "u_val('stamina') -= 900"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_count_flesh_strike_ready_at = time('now') + time('16 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "2 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_FLESH_STRIKE"
+            },
+            {
+              "u_has_flag": "BERSERK_COUNT_FLESH_FORM_ACTIVE"
+            },
+            {
+              "math": [
+                "u_val('stamina') >= 900"
+              ]
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_apostol_count_flesh_strike_ready_at"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_STRIKE_USE",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+          },
+          {
+            "u_has_trait": "BERSERK_COUNT_FLESH_STRIKE"
+          },
+          {
+            "u_has_flag": "BERSERK_COUNT_FLESH_FORM_ACTIVE"
+          },
+          {
+            "math": [
+              "u_val('stamina') >= 900"
+            ]
+          },
+          {
+            "math": [
+              "time('now') >= u_berserk_apostol_count_flesh_strike_ready_at"
+            ]
+          }
+        ]
+      },
+      "then": [
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_count_flesh_strike",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_COUNT_FLESH_STRIKE_RESULT"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_MEND_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_COUNT_FLESH_MEND"
+        },
+        {
+          "u_has_flag": "BERSERK_COUNT_FLESH_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1000"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_count_flesh_mend_ready_at"
+          ]
+        },
+        {
+          "math": [
+            "u_calories() >= 18080"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_hp('head') < u_hp_max('head')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('torso') < u_hp_max('torso')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('arm_l') < u_hp_max('arm_l')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('arm_r') < u_hp_max('arm_r')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('leg_l') < u_hp_max('leg_l')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('leg_r') < u_hp_max('leg_r')"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_MEND_RESULT",
+    "effect": [
+      {
+        "math": [
+          "u_calories() -= 80"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('head') = min(u_hp_max('head'), u_hp('head') + 3)"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + 3)"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + 3)"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + 3)"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + 3)"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + 3)"
+        ]
+      },
+      {
+        "math": [
+          "u_val('stamina') -= 1000"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_count_flesh_mend_ready_at = time('now') + time('120 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "3 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_COUNT_FLESH_MEND"
+        },
+        {
+          "u_has_flag": "BERSERK_COUNT_FLESH_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1000"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_count_flesh_mend_ready_at"
+          ]
+        },
+        {
+          "math": [
+            "u_calories() >= 18080"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_hp('head') < u_hp_max('head')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('torso') < u_hp_max('torso')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('arm_l') < u_hp_max('arm_l')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('arm_r') < u_hp_max('arm_r')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('leg_l') < u_hp_max('leg_l')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('leg_r') < u_hp_max('leg_r')"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_FLESH_MEND_USE",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+          },
+          {
+            "u_has_trait": "BERSERK_COUNT_FLESH_MEND"
+          },
+          {
+            "u_has_flag": "BERSERK_COUNT_FLESH_FORM_ACTIVE"
+          },
+          {
+            "math": [
+              "u_val('stamina') >= 1000"
+            ]
+          },
+          {
+            "math": [
+              "time('now') >= u_berserk_apostol_count_flesh_mend_ready_at"
+            ]
+          },
+          {
+            "math": [
+              "u_calories() >= 18080"
+            ]
+          },
+          {
+            "or": [
+              {
+                "math": [
+                  "u_hp('head') < u_hp_max('head')"
+                ]
+              },
+              {
+                "math": [
+                  "u_hp('torso') < u_hp_max('torso')"
+                ]
+              },
+              {
+                "math": [
+                  "u_hp('arm_l') < u_hp_max('arm_l')"
+                ]
+              },
+              {
+                "math": [
+                  "u_hp('arm_r') < u_hp_max('arm_r')"
+                ]
+              },
+              {
+                "math": [
+                  "u_hp('leg_l') < u_hp_max('leg_l')"
+                ]
+              },
+              {
+                "math": [
+                  "u_hp('leg_r') < u_hp_max('leg_r')"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_FLESH_MEND_RESULT"
+      },
+      "else": {
+        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_DASH_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_WYALD_FLESH_DASH"
+        },
+        {
+          "u_has_flag": "BERSERK_WYALD_FLESH_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1200"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_wyald_flesh_dash_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_DASH_RESULT",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 1200"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_wyald_flesh_dash_ready_at = time('now') + time('18 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_DASH"
+                },
+                {
+                  "u_has_flag": "BERSERK_WYALD_FLESH_FORM_ACTIVE"
+                },
+                {
+                  "math": [
+                    "u_val('stamina') >= 1200"
+                  ]
+                },
+                {
+                  "math": [
+                    "time('now') >= u_berserk_apostol_wyald_flesh_dash_ready_at"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "distance('u', u_berserk_apostol_flesh_dash_origin) > 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_DASH_USE",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+          },
+          {
+            "u_has_trait": "BERSERK_WYALD_FLESH_DASH"
+          },
+          {
+            "u_has_flag": "BERSERK_WYALD_FLESH_FORM_ACTIVE"
+          },
+          {
+            "math": [
+              "u_val('stamina') >= 1200"
+            ]
+          },
+          {
+            "math": [
+              "time('now') >= u_berserk_apostol_wyald_flesh_dash_ready_at"
+            ]
+          }
+        ]
+      },
+      "then": [
+        {
+          "u_location_variable": {
+            "u_val": "berserk_apostol_flesh_dash_origin"
+          }
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_wyald_flesh_dash",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_WYALD_FLESH_DASH_RESULT"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_GRIP_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_WYALD_FLESH_GRIP"
+        },
+        {
+          "u_has_flag": "BERSERK_WYALD_FLESH_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 900"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_wyald_flesh_grip_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_GRIP_RESULT",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 900"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_wyald_flesh_grip_ready_at = time('now') + time('18 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+            },
+            {
+              "u_has_trait": "BERSERK_WYALD_FLESH_GRIP"
+            },
+            {
+              "u_has_flag": "BERSERK_WYALD_FLESH_FORM_ACTIVE"
+            },
+            {
+              "math": [
+                "u_val('stamina') >= 900"
+              ]
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_apostol_wyald_flesh_grip_ready_at"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_FLESH_GRIP_USE",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+          },
+          {
+            "u_has_trait": "BERSERK_WYALD_FLESH_GRIP"
+          },
+          {
+            "u_has_flag": "BERSERK_WYALD_FLESH_FORM_ACTIVE"
+          },
+          {
+            "math": [
+              "u_val('stamina') >= 900"
+            ]
+          },
+          {
+            "math": [
+              "time('now') >= u_berserk_apostol_wyald_flesh_grip_ready_at"
+            ]
+          }
+        ]
+      },
+      "then": [
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_wyald_flesh_grip",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_WYALD_FLESH_GRIP_RESULT"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_DIVE_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_ROSINE_FLESH_DIVE"
+        },
+        {
+          "u_has_flag": "BERSERK_ROSINE_FLESH_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1500"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_rosine_flesh_dive_ready_at"
+          ]
+        },
+        {
+          "math": [
+            "u_encumbrance('torso') <= 20"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_DIVE_RESULT",
+    "effect": [
+      {
+        "u_cast_spell": {
+          "id": "berserk_apostol_rosine_flesh_impact",
+          "hit_self": true
+        },
+        "targeted": false
+      },
+      {
+        "u_add_effect": "berserk_apostol_flesh_exposed",
+        "duration": "2 seconds"
+      },
+      {
+        "math": [
+          "u_val('stamina') -= 1500"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_rosine_flesh_dive_ready_at = time('now') + time('20 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_DIVE"
+                },
+                {
+                  "u_has_flag": "BERSERK_ROSINE_FLESH_FORM_ACTIVE"
+                },
+                {
+                  "math": [
+                    "u_val('stamina') >= 1500"
+                  ]
+                },
+                {
+                  "math": [
+                    "time('now') >= u_berserk_apostol_rosine_flesh_dive_ready_at"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_encumbrance('torso') <= 20"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "distance('u', u_berserk_apostol_flesh_dash_origin) > 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_DIVE_USE",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+          },
+          {
+            "u_has_trait": "BERSERK_ROSINE_FLESH_DIVE"
+          },
+          {
+            "u_has_flag": "BERSERK_ROSINE_FLESH_FORM_ACTIVE"
+          },
+          {
+            "math": [
+              "u_val('stamina') >= 1500"
+            ]
+          },
+          {
+            "math": [
+              "time('now') >= u_berserk_apostol_rosine_flesh_dive_ready_at"
+            ]
+          },
+          {
+            "math": [
+              "u_encumbrance('torso') <= 20"
+            ]
+          }
+        ]
+      },
+      "then": [
+        {
+          "u_location_variable": {
+            "u_val": "berserk_apostol_flesh_dash_origin"
+          }
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_rosine_flesh_dash",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_ROSINE_FLESH_DIVE_RESULT"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_FLUTTER_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_ROSINE_FLESH_FLUTTER"
+        },
+        {
+          "u_has_flag": "BERSERK_ROSINE_FLESH_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 700"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_rosine_flesh_flutter_ready_at"
+          ]
+        },
+        {
+          "math": [
+            "u_encumbrance('torso') <= 20"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_FLUTTER_RESULT",
+    "effect": [
+      {
+        "u_add_effect": "berserk_apostol_flesh_flutter",
+        "duration": "3 seconds"
+      },
+      {
+        "math": [
+          "u_val('stamina') -= 700"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_rosine_flesh_flutter_ready_at = time('now') + time('20 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_ROSINE_FLESH_FLUTTER"
+        },
+        {
+          "u_has_flag": "BERSERK_ROSINE_FLESH_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 700"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_rosine_flesh_flutter_ready_at"
+          ]
+        },
+        {
+          "math": [
+            "u_encumbrance('torso') <= 20"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_FLUTTER_USE",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+          },
+          {
+            "u_has_trait": "BERSERK_ROSINE_FLESH_FLUTTER"
+          },
+          {
+            "u_has_flag": "BERSERK_ROSINE_FLESH_FORM_ACTIVE"
+          },
+          {
+            "math": [
+              "u_val('stamina') >= 700"
+            ]
+          },
+          {
+            "math": [
+              "time('now') >= u_berserk_apostol_rosine_flesh_flutter_ready_at"
+            ]
+          },
+          {
+            "math": [
+              "u_encumbrance('torso') <= 20"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_FLUTTER_RESULT"
+      },
+      "else": {
+        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_BREATH_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_GRUNBELD_FLESH_BREATH"
+        },
+        {
+          "u_has_flag": "BERSERK_GRUNBELD_FLESH_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1800"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_grunbeld_flesh_breath_ready_at"
+          ]
+        },
+        {
+          "math": [
+            "u_calories() >= 18060"
+          ]
+        },
+        {
+          "not": {
+            "u_has_effect": "berserk_apostol_flesh_overheated"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_BREATH_RESULT",
+    "effect": [
+      {
+        "math": [
+          "u_calories() -= 60"
+        ]
+      },
+      {
+        "u_add_effect": "berserk_apostol_flesh_overheated",
+        "duration": "12 seconds"
+      },
+      {
+        "math": [
+          "u_val('stamina') -= 1800"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_grunbeld_flesh_breath_ready_at = time('now') + time('45 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "2 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+            },
+            {
+              "u_has_trait": "BERSERK_GRUNBELD_FLESH_BREATH"
+            },
+            {
+              "u_has_flag": "BERSERK_GRUNBELD_FLESH_FORM_ACTIVE"
+            },
+            {
+              "math": [
+                "u_val('stamina') >= 1800"
+              ]
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_apostol_grunbeld_flesh_breath_ready_at"
+              ]
+            },
+            {
+              "math": [
+                "u_calories() >= 18060"
+              ]
+            },
+            {
+              "not": {
+                "u_has_effect": "berserk_apostol_flesh_overheated"
+              }
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_BREATH_USE",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+          },
+          {
+            "u_has_trait": "BERSERK_GRUNBELD_FLESH_BREATH"
+          },
+          {
+            "u_has_flag": "BERSERK_GRUNBELD_FLESH_FORM_ACTIVE"
+          },
+          {
+            "math": [
+              "u_val('stamina') >= 1800"
+            ]
+          },
+          {
+            "math": [
+              "time('now') >= u_berserk_apostol_grunbeld_flesh_breath_ready_at"
+            ]
+          },
+          {
+            "math": [
+              "u_calories() >= 18060"
+            ]
+          },
+          {
+            "not": {
+              "u_has_effect": "berserk_apostol_flesh_overheated"
+            }
+          }
+        ]
+      },
+      "then": [
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_grunbeld_flesh_breath",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_BREATH_RESULT"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_BRACE_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_GRUNBELD_FLESH_BRACE"
+        },
+        {
+          "u_has_flag": "BERSERK_GRUNBELD_FLESH_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1100"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_grunbeld_flesh_brace_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_BRACE_RESULT",
+    "effect": [
+      {
+        "u_add_effect": "berserk_apostol_flesh_braced",
+        "duration": "4 seconds"
+      },
+      {
+        "math": [
+          "u_val('stamina') -= 1100"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_grunbeld_flesh_brace_ready_at = time('now') + time('30 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_GRUNBELD_FLESH_BRACE"
+        },
+        {
+          "u_has_flag": "BERSERK_GRUNBELD_FLESH_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1100"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_grunbeld_flesh_brace_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_BRACE_USE",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+          },
+          {
+            "u_has_trait": "BERSERK_GRUNBELD_FLESH_BRACE"
+          },
+          {
+            "u_has_flag": "BERSERK_GRUNBELD_FLESH_FORM_ACTIVE"
+          },
+          {
+            "math": [
+              "u_val('stamina') >= 1100"
+            ]
+          },
+          {
+            "math": [
+              "time('now') >= u_berserk_apostol_grunbeld_flesh_brace_ready_at"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_BRACE_RESULT"
+      },
+      "else": {
+        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 3"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_step == 4"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 0"
+          ]
+        },
+        {
+          "or": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_LINE"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_STRIKE"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_MEND"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_APOSTLE"
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_LINE"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_DASH"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_GRIP"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_APOSTLE"
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_DIVE"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_FLUTTER"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_APOSTLE"
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_LINE"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_BREATH"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_BRACE"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_APOSTLE"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FLESH_CONTINUATION_BEGIN",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+      },
+      {
+        "math": [
+          "u_berserk_apostol_flesh_continuation_started = 1"
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE"
+              }
+            },
+            {
+              "math": [
+                "u_berserk_apostol_flesh_mission_issued != 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_mission": "MISSION_BERSERK_APOSTOL_FLESH_GROWTH"
+              }
+            },
+            "then": {
+              "assign_mission": "MISSION_BERSERK_APOSTOL_FLESH_GROWTH"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_flesh_mission_issued = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_FLESH_CONTINUATION_SYNC"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
+        },
+        {
+          "u_has_flag": "MUTATION_THRESHOLD"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_flesh_continuation_started != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FLESH_CONTINUATION_SYNC",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_flesh_mission_finished != 1"
+            ]
+          }
+        ]
+      },
+      "then": [
+        {
+          "if": {
+            "u_has_mission": "MISSION_BERSERK_APOSTOL_FLESH_GROWTH"
+          },
+          "then": {
+            "finish_mission": "MISSION_BERSERK_APOSTOL_FLESH_GROWTH",
+            "success": true
+          }
+        },
+        {
+          "math": [
+            "u_berserk_apostol_flesh_mission_finished = 1"
+          ]
+        }
+      ]
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FLESH_CONTINUATION_WATCH",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_FLESH_CONTINUATION_BEGIN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_FLESH_CONTINUATION_SYNC"
+      }
+    ],
+    "eoc_type": "RECURRING",
+    "recurrence": "1 minute",
+    "global": true,
+    "deactivate_condition": {
+      "math": [
+        "u_berserk_apostol_flesh_mission_finished == 1"
+      ]
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CAST_CONFIRMED",
+    "effect": {
+      "math": [
+        "u_berserk_apostol_cast_confirmed = 1"
+      ]
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ORDINARY_SURVIVOR"
+        },
+        {
+          "or": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_LINE"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE"
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

@@ -75,9 +75,37 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_LAST_STAND_READ",
     "effect": {
-      "u_message": "We broke the shields to make a wall. Held the gap until the wounded had passed. There is no road back. Keep the pale trail in sight. The great ribs bend toward the gathering.",
-      "type": "info",
-      "popup": true
-    }
+      "if": {
+        "math": [
+          "u_berserk_journal_read_berserk_eclipse_last_stand_note == 1"
+        ]
+      },
+      "then": {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ECLIPSE_LAST_STAND_NOTE"
+        }
+      },
+      "else": [
+        {
+          "u_message": "We broke the shields to make a wall. Held the gap until the wounded had passed. There is no road back. Keep the pale trail in sight. The great ribs bend toward the gathering.",
+          "type": "info",
+          "popup": true
+        },
+        {
+          "math": [
+            "u_berserk_journal_read_berserk_eclipse_last_stand_note = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+        },
+        {
+          "u_message": "A new entry has been added to your road journal.",
+          "type": "info",
+          "popup": false
+        }
+      ]
+    },
+    "//": "Road journal archive: berserk_eclipse_last_stand_note"
   }
 ]

@@ -28,6 +28,9 @@
           "math": [
             "u_berserk_eclipse_final_spawned != 1"
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -76,6 +79,9 @@
           "math": [
             "u_berserk_eclipse_final_spawn_attempts < 3"
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -115,6 +121,9 @@
           "math": [
             "u_berserk_eclipse_final_spawn_attempts < 3"
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -150,7 +159,10 @@
           "u_berserk_eclipse_final_spawned = 1"
         ]
       }
-    ]
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+    }
   },
   {
     "type": "effect_on_condition",
@@ -191,14 +203,24 @@
           "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_BLOCKED"
         ]
       }
-    ]
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+    }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_EXPANDED_FINAL_BLOCKED",
     "condition": {
-      "math": [
-        "u_berserk_eclipse_final_spawn_attempts == 3"
+      "and": [
+        {
+          "math": [
+            "u_berserk_eclipse_final_spawn_attempts == 3"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+        }
       ]
     },
     "effect": {

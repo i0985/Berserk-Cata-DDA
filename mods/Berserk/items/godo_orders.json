@@ -9,7 +9,7 @@
     "name": {
       "str": "Godot's order notes"
     },
-    "description": "Directions to the woodland forge and materials for Rickert and Godot: a prosthesis from the engineer, a blade from the smith. Read to choose a road or review an order.",
+    "description": "Old notes from your journey. Activate to review the corresponding entries in your road journal.",
     "material": [
       "paper"
     ],
@@ -25,8 +25,10 @@
       "type": "effect_on_conditions",
       "need_wielding": false,
       "effect_on_conditions": [
-        "EOC_BERSERK_GODO_BOOK"
-      ]
-    }
+        "EOC_BERSERK_JOURNAL_LEGACY_ORDERS"
+      ],
+      "menu_text": "Open the road journal."
+    },
+    "looks_like": ""
   }
 ]

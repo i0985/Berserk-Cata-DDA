@@ -1,0 +1,5457 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_PAWN_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_apostol_path == 3"
+          ]
+        },
+        "u_is_avatar",
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ORDINARY_SURVIVOR"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_STATE_CONSISTENT"
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 10"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 11"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 12"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 13"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CAN_ACCEPT"
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state != 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_CHECK",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_APOSTOL_COUNT_PAWN_SEEN"
+      ],
+      "mtype_ids": [
+        "mon_berserk_apostle_count"
+      ],
+      "monster_range": 14,
+      "monster_must_see": true
+    },
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "u_at_om_location": "berserk_count_dungeon"
+            },
+            {
+              "not": {
+                "math": [
+                  "berserk_hunt_count_state >= 3"
+                ]
+              }
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 0"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage != 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 0"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_CHECK_MOVEMENT",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_CHECK"
+    },
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_at_om_location": "berserk_count_dungeon"
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_hunt_count_state >= 3"
+            ]
+          }
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage != 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_CHECK_LOADED",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_CHECK"
+    },
+    "eoc_type": "RECURRING",
+    "recurrence": "1 second",
+    "global": true,
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "u_at_om_location": "berserk_count_dungeon"
+            },
+            {
+              "not": {
+                "math": [
+                  "berserk_hunt_count_state >= 3"
+                ]
+              }
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 0"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage != 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 0"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_SEEN",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "berserk_apostol_count_pawn_encounter == 0"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('torso') >= u_hp_max('torso')"
+            ]
+          },
+          {
+            "not": {
+              "u_has_effect": "berserk_count_heavy_ready"
+            }
+          },
+          {
+            "not": {
+              "u_has_effect": "berserk_apostle_attack_recovery"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_committed_count_phase == 0"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_OPEN",
+        "alpha_talker": "avatar",
+        "beta_talker": "u"
+      },
+      "else": {
+        "math": [
+          "berserk_apostol_count_pawn_encounter = 2"
+        ]
+      }
+    },
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_OPEN",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_count_pawn_encounter = 1"
+        ]
+      },
+      {
+        "npc_add_effect": "berserk_apostol_parley",
+        "duration": "1 second"
+      },
+      "open_dialogue",
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_CLOSE"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        },
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_COUNT_PAWN_MASTER"
+        },
+        {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 0"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_hunt_count_state >= 3"
+            ]
+          }
+        },
+        {
+          "math": [
+            "n_hp('torso') >= n_hp_max('torso')"
+          ]
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_count_heavy_ready"
+          }
+        },
+        {
+          "u_at_om_location": "berserk_count_dungeon"
+        },
+        {
+          "math": [
+            "distance('u', 'npc') <= 14"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_CLOSE",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 1"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_REFUSE"
+        }
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_REFUSE",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_count_pawn_encounter = 2"
+        ]
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      },
+      {
+        "u_message": "The offer is withdrawn. The apostle advances.",
+        "type": "bad"
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_apostol_count_pawn_encounter == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_ATTACK_CHARACTER_MELEE_ATTACKS_MONSTER",
+    "effect": {
+      "if": {
+        "or": [
+          "u_is_avatar",
+          "u_following"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "1"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "0"
+        }
+      }
+    },
+    "eoc_type": "EVENT",
+    "required_event": "character_melee_attacks_monster",
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_COUNT_PAWN_HOUSEHOLD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_ATTACK_CHARACTER_RANGED_ATTACKS_MONSTER",
+    "effect": {
+      "if": {
+        "or": [
+          "u_is_avatar",
+          "u_following"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "1"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "0"
+        }
+      }
+    },
+    "eoc_type": "EVENT",
+    "required_event": "character_ranged_attacks_monster",
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_COUNT_PAWN_HOUSEHOLD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_DAMAGED",
+    "effect": {
+      "if": {
+        "or": [
+          "npc_is_avatar",
+          "npc_following",
+          {
+            "and": [
+              "npc_is_monster",
+              {
+                "math": [
+                  "n_val('friendly') != 0"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_HURT",
+        "alpha_talker": "avatar",
+        "beta_talker": "u",
+        "variables": {
+          "berserk_pawn_player_attack": "1"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_HURT",
+        "alpha_talker": "avatar",
+        "beta_talker": "u",
+        "variables": {
+          "berserk_pawn_player_attack": "0"
+        }
+      }
+    },
+    "eoc_type": "EVENT",
+    "required_event": "monster_takes_damage",
+    "condition": {
+      "and": [
+        "u_is_monster",
+        {
+          "u_has_species": "BERSERK_COUNT_PAWN_MASTER"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_HURT",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_apostol_count_pawn_encounter <= 1"
+          ]
+        },
+        "then": {
+          "math": [
+            "berserk_apostol_count_pawn_encounter = 2"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostol_count_pawn_encounter == 3"
+              ]
+            },
+            {
+              "math": [
+                "_berserk_pawn_player_attack == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_BETRAY"
+        }
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_ATTACKED",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostol_count_pawn_encounter <= 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "npc_has_species": "BERSERK_COUNT_PAWN_MASTER"
+                },
+                {
+                  "math": [
+                    "berserk_apostol_count_pawn_encounter == 1"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "berserk_apostol_count_pawn_encounter = 2"
+            ]
+          },
+          {
+            "npc_lose_effect": "berserk_apostol_parley"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostol_count_pawn_encounter == 3"
+              ]
+            },
+            {
+              "math": [
+                "_berserk_pawn_player_attack == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_BETRAY"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_BETRAY",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_count_pawn_encounter = 2"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_oath_broken = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_favor_until = 0"
+        ]
+      },
+      {
+        "u_lose_trait": "BERSERK_COUNT_PAWN_LOYALTY"
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      },
+      {
+        "u_message": "Your attack breaks the pact. The borrowed body remains, but its master’s protection and favor are gone.",
+        "type": "bad"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_MASTER_DIED",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_count_pawn_encounter = 4"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_master_dead = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_favor_until = 0"
+        ]
+      },
+      {
+        "u_lose_trait": "BERSERK_COUNT_PAWN_LOYALTY"
+      },
+      {
+        "u_message": "The bond falls silent. Your master is dead; your body remains a limited servant’s shape. No greater power takes its place.",
+        "type": "warning"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_hunt_count_state >= 3"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_master_dead != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_MASTER_SYNC",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_MASTER_DIED"
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_hunt_count_state >= 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_CHECK",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_APOSTOL_WYALD_PAWN_SEEN"
+      ],
+      "mtype_ids": [
+        "mon_berserk_apostle_wyald"
+      ],
+      "monster_range": 14,
+      "monster_must_see": true
+    },
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "u_at_om_location": "berserk_wyald_ring"
+            },
+            {
+              "not": {
+                "math": [
+                  "berserk_apostle_wyald_dead == 1"
+                ]
+              }
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 0"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage != 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 0"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_CHECK_MOVEMENT",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_CHECK"
+    },
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_at_om_location": "berserk_wyald_ring"
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostle_wyald_dead == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage != 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_CHECK_LOADED",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_CHECK"
+    },
+    "eoc_type": "RECURRING",
+    "recurrence": "1 second",
+    "global": true,
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "u_at_om_location": "berserk_wyald_ring"
+            },
+            {
+              "not": {
+                "math": [
+                  "berserk_apostle_wyald_dead == 1"
+                ]
+              }
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 0"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage != 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 0"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_SEEN",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "berserk_apostol_wyald_pawn_encounter == 0"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('torso') >= u_hp_max('torso')"
+            ]
+          },
+          {
+            "not": {
+              "u_has_effect": "berserk_wyald_ready"
+            }
+          },
+          {
+            "not": {
+              "u_has_effect": "berserk_apostle_attack_recovery"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_committed_wyald_phase == 0"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_OPEN",
+        "alpha_talker": "avatar",
+        "beta_talker": "u"
+      },
+      "else": {
+        "math": [
+          "berserk_apostol_wyald_pawn_encounter = 2"
+        ]
+      }
+    },
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_OPEN",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_wyald_pawn_encounter = 1"
+        ]
+      },
+      {
+        "npc_add_effect": "berserk_apostol_parley",
+        "duration": "1 second"
+      },
+      "open_dialogue",
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_CLOSE"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        },
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_WYALD_PAWN_MASTER"
+        },
+        {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 0"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostle_wyald_dead == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "n_hp('torso') >= n_hp_max('torso')"
+          ]
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_wyald_ready"
+          }
+        },
+        {
+          "u_at_om_location": "berserk_wyald_ring"
+        },
+        {
+          "math": [
+            "distance('u', 'npc') <= 14"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_CLOSE",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 1"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_REFUSE"
+        }
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_REFUSE",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_wyald_pawn_encounter = 2"
+        ]
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      },
+      {
+        "u_message": "The offer is withdrawn. The apostle advances.",
+        "type": "bad"
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_apostol_wyald_pawn_encounter == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_ATTACK_CHARACTER_MELEE_ATTACKS_MONSTER",
+    "effect": {
+      "if": {
+        "or": [
+          "u_is_avatar",
+          "u_following"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "1"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "0"
+        }
+      }
+    },
+    "eoc_type": "EVENT",
+    "required_event": "character_melee_attacks_monster",
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_WYALD_PAWN_HOUSEHOLD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_ATTACK_CHARACTER_RANGED_ATTACKS_MONSTER",
+    "effect": {
+      "if": {
+        "or": [
+          "u_is_avatar",
+          "u_following"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "1"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "0"
+        }
+      }
+    },
+    "eoc_type": "EVENT",
+    "required_event": "character_ranged_attacks_monster",
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_WYALD_PAWN_HOUSEHOLD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_DAMAGED",
+    "effect": {
+      "if": {
+        "or": [
+          "npc_is_avatar",
+          "npc_following",
+          {
+            "and": [
+              "npc_is_monster",
+              {
+                "math": [
+                  "n_val('friendly') != 0"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_HURT",
+        "alpha_talker": "avatar",
+        "beta_talker": "u",
+        "variables": {
+          "berserk_pawn_player_attack": "1"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_HURT",
+        "alpha_talker": "avatar",
+        "beta_talker": "u",
+        "variables": {
+          "berserk_pawn_player_attack": "0"
+        }
+      }
+    },
+    "eoc_type": "EVENT",
+    "required_event": "monster_takes_damage",
+    "condition": {
+      "and": [
+        "u_is_monster",
+        {
+          "u_has_species": "BERSERK_WYALD_PAWN_MASTER"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_HURT",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter <= 1"
+          ]
+        },
+        "then": {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter = 2"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostol_wyald_pawn_encounter == 3"
+              ]
+            },
+            {
+              "math": [
+                "_berserk_pawn_player_attack == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_BETRAY"
+        }
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_ATTACKED",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostol_wyald_pawn_encounter <= 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "npc_has_species": "BERSERK_WYALD_PAWN_MASTER"
+                },
+                {
+                  "math": [
+                    "berserk_apostol_wyald_pawn_encounter == 1"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "berserk_apostol_wyald_pawn_encounter = 2"
+            ]
+          },
+          {
+            "npc_lose_effect": "berserk_apostol_parley"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostol_wyald_pawn_encounter == 3"
+              ]
+            },
+            {
+              "math": [
+                "_berserk_pawn_player_attack == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_BETRAY"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_BETRAY",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_wyald_pawn_encounter = 2"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_oath_broken = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_favor_until = 0"
+        ]
+      },
+      {
+        "u_lose_trait": "BERSERK_WYALD_PAWN_LOYALTY"
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      },
+      {
+        "u_message": "Your attack breaks the pact. The borrowed body remains, but its master’s protection and favor are gone.",
+        "type": "bad"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_MASTER_DIED",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_wyald_pawn_encounter = 4"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_master_dead = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_favor_until = 0"
+        ]
+      },
+      {
+        "u_lose_trait": "BERSERK_WYALD_PAWN_LOYALTY"
+      },
+      {
+        "u_message": "The bond falls silent. Your master is dead; your body remains a limited servant’s shape. No greater power takes its place.",
+        "type": "warning"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostle_wyald_dead == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_master_dead != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_MASTER_SYNC",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_MASTER_DIED"
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostle_wyald_dead == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_CHECK",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_APOSTOL_ROSINE_PAWN_SEEN"
+      ],
+      "mtype_ids": [
+        "mon_berserk_apostle_rosine"
+      ],
+      "monster_range": 14,
+      "monster_must_see": true
+    },
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "u_at_om_location": "berserk_rosine_nest"
+            },
+            {
+              "not": {
+                "math": [
+                  "berserk_apostle_rosine_dead == 1"
+                ]
+              }
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 0"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage != 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 0"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_CHECK_MOVEMENT",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_CHECK"
+    },
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_at_om_location": "berserk_rosine_nest"
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostle_rosine_dead == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage != 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_CHECK_LOADED",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_CHECK"
+    },
+    "eoc_type": "RECURRING",
+    "recurrence": "1 second",
+    "global": true,
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "u_at_om_location": "berserk_rosine_nest"
+            },
+            {
+              "not": {
+                "math": [
+                  "berserk_apostle_rosine_dead == 1"
+                ]
+              }
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 0"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage != 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 0"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_SEEN",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "berserk_apostol_rosine_pawn_encounter == 0"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('torso') >= u_hp_max('torso')"
+            ]
+          },
+          {
+            "not": {
+              "u_has_effect": "berserk_rosine_ready"
+            }
+          },
+          {
+            "not": {
+              "u_has_effect": "berserk_apostle_attack_recovery"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_committed_rosine_phase == 0"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_OPEN",
+        "alpha_talker": "avatar",
+        "beta_talker": "u"
+      },
+      "else": {
+        "math": [
+          "berserk_apostol_rosine_pawn_encounter = 2"
+        ]
+      }
+    },
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_OPEN",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_rosine_pawn_encounter = 1"
+        ]
+      },
+      {
+        "npc_add_effect": "berserk_apostol_parley",
+        "duration": "1 second"
+      },
+      "open_dialogue",
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_CLOSE"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        },
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_ROSINE_PAWN_MASTER"
+        },
+        {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 0"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostle_rosine_dead == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "n_hp('torso') >= n_hp_max('torso')"
+          ]
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_rosine_ready"
+          }
+        },
+        {
+          "u_at_om_location": "berserk_rosine_nest"
+        },
+        {
+          "math": [
+            "distance('u', 'npc') <= 14"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_CLOSE",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 1"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_REFUSE"
+        }
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_REFUSE",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_rosine_pawn_encounter = 2"
+        ]
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      },
+      {
+        "u_message": "The offer is withdrawn. The apostle advances.",
+        "type": "bad"
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_apostol_rosine_pawn_encounter == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_ATTACK_CHARACTER_MELEE_ATTACKS_MONSTER",
+    "effect": {
+      "if": {
+        "or": [
+          "u_is_avatar",
+          "u_following"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "1"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "0"
+        }
+      }
+    },
+    "eoc_type": "EVENT",
+    "required_event": "character_melee_attacks_monster",
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_ROSINE_PAWN_HOUSEHOLD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_ATTACK_CHARACTER_RANGED_ATTACKS_MONSTER",
+    "effect": {
+      "if": {
+        "or": [
+          "u_is_avatar",
+          "u_following"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "1"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "0"
+        }
+      }
+    },
+    "eoc_type": "EVENT",
+    "required_event": "character_ranged_attacks_monster",
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_ROSINE_PAWN_HOUSEHOLD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_DAMAGED",
+    "effect": {
+      "if": {
+        "or": [
+          "npc_is_avatar",
+          "npc_following",
+          {
+            "and": [
+              "npc_is_monster",
+              {
+                "math": [
+                  "n_val('friendly') != 0"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_HURT",
+        "alpha_talker": "avatar",
+        "beta_talker": "u",
+        "variables": {
+          "berserk_pawn_player_attack": "1"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_HURT",
+        "alpha_talker": "avatar",
+        "beta_talker": "u",
+        "variables": {
+          "berserk_pawn_player_attack": "0"
+        }
+      }
+    },
+    "eoc_type": "EVENT",
+    "required_event": "monster_takes_damage",
+    "condition": {
+      "and": [
+        "u_is_monster",
+        {
+          "u_has_species": "BERSERK_ROSINE_PAWN_MASTER"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_HURT",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter <= 1"
+          ]
+        },
+        "then": {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter = 2"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostol_rosine_pawn_encounter == 3"
+              ]
+            },
+            {
+              "math": [
+                "_berserk_pawn_player_attack == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_BETRAY"
+        }
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_ATTACKED",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostol_rosine_pawn_encounter <= 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "npc_has_species": "BERSERK_ROSINE_PAWN_MASTER"
+                },
+                {
+                  "math": [
+                    "berserk_apostol_rosine_pawn_encounter == 1"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "berserk_apostol_rosine_pawn_encounter = 2"
+            ]
+          },
+          {
+            "npc_lose_effect": "berserk_apostol_parley"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostol_rosine_pawn_encounter == 3"
+              ]
+            },
+            {
+              "math": [
+                "_berserk_pawn_player_attack == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_BETRAY"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_BETRAY",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_rosine_pawn_encounter = 2"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_oath_broken = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_favor_until = 0"
+        ]
+      },
+      {
+        "u_lose_trait": "BERSERK_ROSINE_PAWN_LOYALTY"
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      },
+      {
+        "u_message": "Your attack breaks the pact. The borrowed body remains, but its master’s protection and favor are gone.",
+        "type": "bad"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_MASTER_DIED",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_rosine_pawn_encounter = 4"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_master_dead = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_favor_until = 0"
+        ]
+      },
+      {
+        "u_lose_trait": "BERSERK_ROSINE_PAWN_LOYALTY"
+      },
+      {
+        "u_message": "The bond falls silent. Your master is dead; your body remains a limited servant’s shape. No greater power takes its place.",
+        "type": "warning"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostle_rosine_dead == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_master_dead != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_MASTER_SYNC",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_MASTER_DIED"
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostle_rosine_dead == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_CHECK",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_SEEN"
+      ],
+      "mtype_ids": [
+        "mon_berserk_grunbeld_knight"
+      ],
+      "monster_range": 14,
+      "monster_must_see": true
+    },
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "u_at_om_location": "berserk_grunbeld_crucible"
+            },
+            {
+              "not": {
+                "math": [
+                  "berserk_apostle_grunbeld_dead == 1"
+                ]
+              }
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 0"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage != 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter == 0"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_CHECK_MOVEMENT",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_CHECK"
+    },
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_at_om_location": "berserk_grunbeld_crucible"
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostle_grunbeld_dead == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_stage != 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_CHECK_LOADED",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_CHECK"
+    },
+    "eoc_type": "RECURRING",
+    "recurrence": "1 second",
+    "global": true,
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "u_at_om_location": "berserk_grunbeld_crucible"
+            },
+            {
+              "not": {
+                "math": [
+                  "berserk_apostle_grunbeld_dead == 1"
+                ]
+              }
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 0"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage != 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter == 0"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_SEEN",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "math": [
+              "berserk_apostol_grunbeld_pawn_encounter == 0"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('torso') >= u_hp_max('torso')"
+            ]
+          },
+          {
+            "not": {
+              "u_has_effect": "berserk_grunbeld_hammer_ready"
+            }
+          },
+          {
+            "not": {
+              "u_has_effect": "berserk_apostle_attack_recovery"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_committed_grunbeld_knight_phase == 0"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_OPEN",
+        "alpha_talker": "avatar",
+        "beta_talker": "u"
+      },
+      "else": {
+        "math": [
+          "berserk_apostol_grunbeld_pawn_encounter = 2"
+        ]
+      }
+    },
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_OPEN",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_grunbeld_pawn_encounter = 1"
+        ]
+      },
+      {
+        "npc_add_effect": "berserk_apostol_parley",
+        "duration": "1 second"
+      },
+      "open_dialogue",
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_CLOSE"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        },
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_GRUNBELD_PAWN_MASTER"
+        },
+        {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter == 0"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostle_grunbeld_dead == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "n_hp('torso') >= n_hp_max('torso')"
+          ]
+        },
+        {
+          "not": {
+            "npc_has_effect": "berserk_grunbeld_hammer_ready"
+          }
+        },
+        {
+          "u_at_om_location": "berserk_grunbeld_crucible"
+        },
+        {
+          "math": [
+            "distance('u', 'npc') <= 14"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_CLOSE",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter == 1"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_REFUSE"
+        }
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_REFUSE",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_grunbeld_pawn_encounter = 2"
+        ]
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      },
+      {
+        "u_message": "The offer is withdrawn. The apostle advances.",
+        "type": "bad"
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_apostol_grunbeld_pawn_encounter == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_ATTACK_CHARACTER_MELEE_ATTACKS_MONSTER",
+    "effect": {
+      "if": {
+        "or": [
+          "u_is_avatar",
+          "u_following"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "1"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "0"
+        }
+      }
+    },
+    "eoc_type": "EVENT",
+    "required_event": "character_melee_attacks_monster",
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_GRUNBELD_PAWN_HOUSEHOLD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_ATTACK_CHARACTER_RANGED_ATTACKS_MONSTER",
+    "effect": {
+      "if": {
+        "or": [
+          "u_is_avatar",
+          "u_following"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "1"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_ATTACKED",
+        "alpha_talker": "avatar",
+        "variables": {
+          "berserk_pawn_player_attack": "0"
+        }
+      }
+    },
+    "eoc_type": "EVENT",
+    "required_event": "character_ranged_attacks_monster",
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_GRUNBELD_PAWN_HOUSEHOLD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_DAMAGED",
+    "effect": {
+      "if": {
+        "or": [
+          "npc_is_avatar",
+          "npc_following",
+          {
+            "and": [
+              "npc_is_monster",
+              {
+                "math": [
+                  "n_val('friendly') != 0"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_HURT",
+        "alpha_talker": "avatar",
+        "beta_talker": "u",
+        "variables": {
+          "berserk_pawn_player_attack": "1"
+        }
+      },
+      "else": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_HURT",
+        "alpha_talker": "avatar",
+        "beta_talker": "u",
+        "variables": {
+          "berserk_pawn_player_attack": "0"
+        }
+      }
+    },
+    "eoc_type": "EVENT",
+    "required_event": "monster_takes_damage",
+    "condition": {
+      "and": [
+        "u_is_monster",
+        {
+          "u_has_species": "BERSERK_GRUNBELD_PAWN_MASTER"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_HURT",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter <= 1"
+          ]
+        },
+        "then": {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter = 2"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostol_grunbeld_pawn_encounter == 3"
+              ]
+            },
+            {
+              "math": [
+                "_berserk_pawn_player_attack == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_BETRAY"
+        }
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_ATTACKED",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostol_grunbeld_pawn_encounter <= 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "npc_has_species": "BERSERK_GRUNBELD_PAWN_MASTER"
+                },
+                {
+                  "math": [
+                    "berserk_apostol_grunbeld_pawn_encounter == 1"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "berserk_apostol_grunbeld_pawn_encounter = 2"
+            ]
+          },
+          {
+            "npc_lose_effect": "berserk_apostol_parley"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_apostol_grunbeld_pawn_encounter == 3"
+              ]
+            },
+            {
+              "math": [
+                "_berserk_pawn_player_attack == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_BETRAY"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_BETRAY",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_grunbeld_pawn_encounter = 2"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_oath_broken = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_favor_until = 0"
+        ]
+      },
+      {
+        "u_lose_trait": "BERSERK_GRUNBELD_PAWN_LOYALTY"
+      },
+      {
+        "npc_lose_effect": "berserk_apostol_parley"
+      },
+      {
+        "u_message": "Your attack breaks the pact. The borrowed body remains, but its master’s protection and favor are gone.",
+        "type": "bad"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter == 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_MASTER_DIED",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_grunbeld_pawn_encounter = 4"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_master_dead = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_favor_until = 0"
+        ]
+      },
+      {
+        "u_lose_trait": "BERSERK_GRUNBELD_PAWN_LOYALTY"
+      },
+      {
+        "u_message": "The bond falls silent. Your master is dead; your body remains a limited servant’s shape. No greater power takes its place.",
+        "type": "warning"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostle_grunbeld_dead == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_master_dead != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_MASTER_SYNC",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_MASTER_DIED"
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostle_grunbeld_dead == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_PAWN_RECOVER_PARLEY",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 1"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "berserk_apostol_count_pawn_encounter = 2"
+            ]
+          },
+          {
+            "u_run_monster_eocs": [
+              "EOC_BERSERK_APOSTOL_COUNT_PAWN_UNFREEZE"
+            ],
+            "mtype_ids": [
+              "mon_berserk_apostle_count"
+            ],
+            "monster_range": 1000
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 1"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "berserk_apostol_wyald_pawn_encounter = 2"
+            ]
+          },
+          {
+            "u_run_monster_eocs": [
+              "EOC_BERSERK_APOSTOL_WYALD_PAWN_UNFREEZE"
+            ],
+            "mtype_ids": [
+              "mon_berserk_apostle_wyald"
+            ],
+            "monster_range": 1000
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 1"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "berserk_apostol_rosine_pawn_encounter = 2"
+            ]
+          },
+          {
+            "u_run_monster_eocs": [
+              "EOC_BERSERK_APOSTOL_ROSINE_PAWN_UNFREEZE"
+            ],
+            "mtype_ids": [
+              "mon_berserk_apostle_rosine"
+            ],
+            "monster_range": 1000
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter == 1"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "berserk_apostol_grunbeld_pawn_encounter = 2"
+            ]
+          },
+          {
+            "u_run_monster_eocs": [
+              "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_UNFREEZE"
+            ],
+            "mtype_ids": [
+              "mon_berserk_grunbeld_knight"
+            ],
+            "monster_range": 1000
+          }
+        ]
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "game_load",
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_UNFREEZE",
+    "effect": {
+      "u_lose_effect": "berserk_apostol_parley"
+    },
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_UNFREEZE",
+    "effect": {
+      "u_lose_effect": "berserk_apostol_parley"
+    },
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_UNFREEZE",
+    "effect": {
+      "u_lose_effect": "berserk_apostol_parley"
+    },
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_UNFREEZE",
+    "effect": {
+      "u_lose_effect": "berserk_apostol_parley"
+    },
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 10"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 3"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_oath_broken == 0"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_hunt_count_state >= 3"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_FAVOR",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+        },
+        {
+          "math": [
+            "time('now') < u_berserk_apostol_pawn_favor_until"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_BEGIN",
+    "effect": [
+      {
+        "u_add_trait": "BERSERK_COUNT_PAWN_SEED"
+      },
+      {
+        "u_add_trait": "BERSERK_COUNT_PAWN_LOYALTY"
+      },
+      {
+        "math": [
+          "u_berserk_apostol_started_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_step = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_running = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_GROW",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 0"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('6 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_add_trait": "BERSERK_COUNT_PAWN_SENSES"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 1"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh settles into another change.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('18 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_add_trait": "BERSERK_COUNT_PAWN_FORM"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 2"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 2"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh settles into another change.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('36 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_add_trait": "BERSERK_COUNT_PAWN_POWER"
+          },
+          {
+            "u_add_trait": "BERSERK_COUNT_PAWN_PAWN"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_running = 0"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh settles into another change.",
+            "type": "warning"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+        },
+        {
+          "math": [
+            "has_var(u_berserk_apostol_started_at)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_FORM_ON",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_FORM_OFF",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 11"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 3"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_oath_broken == 0"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostle_wyald_dead == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_FAVOR",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+        },
+        {
+          "math": [
+            "time('now') < u_berserk_apostol_pawn_favor_until"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_BEGIN",
+    "effect": [
+      {
+        "u_add_trait": "BERSERK_WYALD_PAWN_SEED"
+      },
+      {
+        "u_add_trait": "BERSERK_WYALD_PAWN_LOYALTY"
+      },
+      {
+        "math": [
+          "u_berserk_apostol_started_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_step = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_running = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_GROW",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 0"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('6 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_add_trait": "BERSERK_WYALD_PAWN_SENSES"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 1"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh settles into another change.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('18 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_add_trait": "BERSERK_WYALD_PAWN_FORM"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 2"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 2"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh settles into another change.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('36 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_add_trait": "BERSERK_WYALD_PAWN_POWER"
+          },
+          {
+            "u_add_trait": "BERSERK_WYALD_PAWN_PAWN"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_running = 0"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh settles into another change.",
+            "type": "warning"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "has_var(u_berserk_apostol_started_at)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_FORM_ON",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_FORM_OFF",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 12"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 3"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_oath_broken == 0"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostle_rosine_dead == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_FAVOR",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+        },
+        {
+          "math": [
+            "time('now') < u_berserk_apostol_pawn_favor_until"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_BEGIN",
+    "effect": [
+      {
+        "u_add_trait": "BERSERK_ROSINE_PAWN_SEED"
+      },
+      {
+        "u_add_trait": "BERSERK_ROSINE_PAWN_LOYALTY"
+      },
+      {
+        "math": [
+          "u_berserk_apostol_started_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_step = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_running = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_GROW",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 0"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('6 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_add_trait": "BERSERK_ROSINE_PAWN_SENSES"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 1"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh settles into another change.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('18 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_add_trait": "BERSERK_ROSINE_PAWN_FORM"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 2"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 2"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh settles into another change.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('36 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_add_trait": "BERSERK_ROSINE_PAWN_POWER"
+          },
+          {
+            "u_add_trait": "BERSERK_ROSINE_PAWN_PAWN"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_running = 0"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh settles into another change.",
+            "type": "warning"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+        },
+        {
+          "math": [
+            "has_var(u_berserk_apostol_started_at)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_FORM_ON",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_FORM_OFF",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 13"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter == 3"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_oath_broken == 0"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostle_grunbeld_dead == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_FAVOR",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
+        },
+        {
+          "math": [
+            "time('now') < u_berserk_apostol_pawn_favor_until"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_BEGIN",
+    "effect": [
+      {
+        "u_add_trait": "BERSERK_GRUNBELD_PAWN_SEED"
+      },
+      {
+        "u_add_trait": "BERSERK_GRUNBELD_PAWN_LOYALTY"
+      },
+      {
+        "math": [
+          "u_berserk_apostol_started_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_step = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_running = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_GROW",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 0"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('6 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_add_trait": "BERSERK_GRUNBELD_PAWN_SENSES"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 1"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh settles into another change.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('18 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_add_trait": "BERSERK_GRUNBELD_PAWN_FORM"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 2"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 2"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh settles into another change.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('36 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_add_trait": "BERSERK_GRUNBELD_PAWN_POWER"
+          },
+          {
+            "u_add_trait": "BERSERK_GRUNBELD_PAWN_PAWN"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_running = 0"
+            ]
+          },
+          {
+            "u_message": "The borrowed flesh settles into another change.",
+            "type": "warning"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "has_var(u_berserk_apostol_started_at)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_FORM_ON",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_FORM_OFF",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_PAWN_COMPLETE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 3"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_step == 3"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 0"
+          ]
+        },
+        {
+          "or": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_PAWN_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_PAWN_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_PAWN_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_PAWN_POWER"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_PAWN_PAWN"
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_PAWN_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_PAWN_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_PAWN_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_PAWN_POWER"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_PAWN_PAWN"
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_PAWN_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_PAWN_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_PAWN_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_PAWN_POWER"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_PAWN_PAWN"
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_PAWN_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_PAWN_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_PAWN_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_PAWN_POWER"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_PAWN_PAWN"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_PAWN_TICK",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_MASTER_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_MASTER_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_MASTER_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_MASTER_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_GROW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_GROW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_GROW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_GROW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_PAWN_SYNC"
+      }
+    ],
+    "eoc_type": "RECURRING",
+    "recurrence": "1 minute",
+    "global": true,
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_ACCEPT",
+    "effect": {
+      "if": {
+        "u_query": "Accept the pact? Your body will change permanently into a weaker servant’s form, with lasting drawbacks. Other main transformations will be closed to you. Your master will spare you; this does not protect companions or command every demon at the site. Do not attack the master or their marked servants, and keep companions from attacking them: their attack also breaks your pact. Your strongest impulse requires supplies for the living master. Betrayal ends their protection; their death gives no stronger form. You abandon the hunt against this master.",
+        "default": false
+      },
+      "then": [
+        {
+          "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_COUNT_PAWN",
+          "variables": {
+            "berserk_apostol_accept_confirmed": "1"
+          }
+        },
+        {
+          "if": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+          },
+          "then": [
+            {
+              "math": [
+                "berserk_apostol_count_pawn_encounter = 3"
+              ]
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_BEGIN"
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_SUSPEND_HUNT"
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_PAWN_BEGIN"
+            },
+            {
+              "npc_lose_effect": "berserk_apostol_parley"
+            },
+            {
+              "u_message": "The pact takes root beneath your skin. Its price and your first service are recorded in the road journal.",
+              "type": "warning"
+            }
+          ]
+        }
+      ]
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        },
+        {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 1"
+          ]
+        },
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_COUNT_PAWN_MASTER"
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_hunt_count_state >= 3"
+            ]
+          }
+        },
+        {
+          "math": [
+            "n_hp('torso') >= n_hp_max('torso')"
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_count_dungeon"
+        },
+        {
+          "math": [
+            "distance('u', 'npc') <= 14"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_PAY",
+    "effect": [
+      {
+        "u_consume_item": "leather",
+        "count": 2
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_service_done = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_favor_until = max(time('now'), u_berserk_apostol_started_at + time('36 hours')) + time('6 hours')"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_PAWN_SYNC"
+      },
+      {
+        "if": {
+          "math": [
+            "time('now') < u_berserk_apostol_started_at + time('36 hours')"
+          ]
+        },
+        "then": {
+          "u_message": "Your offering is accepted. Its support will not be wasted while your body grows: the fighting impulse will be sustained for its first six hours after awakening.",
+          "type": "info"
+        },
+        "else": {
+          "u_message": "Your offering is accepted. For six hours the bond will answer your fighting impulse.",
+          "type": "info"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+        },
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_COUNT_PAWN_MASTER"
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_pawn_favor_until"
+          ]
+        },
+        {
+          "u_has_items": {
+            "item": "leather",
+            "count": 2
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_SUSPEND_HUNT",
+    "effect": {
+      "finish_mission": "MISSION_BERSERK_COUNT",
+      "success": false
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+        },
+        {
+          "u_has_mission": "MISSION_BERSERK_COUNT"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_MISSION",
+    "effect": {
+      "assign_mission": "MISSION_BERSERK_APOSTOL_COUNT_PAWN_SERVICE"
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_service_done == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_oath_broken == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_master_dead == 0"
+          ]
+        },
+        {
+          "not": {
+            "u_has_mission": "MISSION_BERSERK_APOSTOL_COUNT_PAWN_SERVICE"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_MISSION_SYNC",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "u_berserk_apostol_pawn_service_done == 1"
+          ]
+        },
+        "then": {
+          "finish_mission": "MISSION_BERSERK_APOSTOL_COUNT_PAWN_SERVICE",
+          "success": true
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_apostol_pawn_oath_broken == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_pawn_master_dead == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "finish_mission": "MISSION_BERSERK_APOSTOL_COUNT_PAWN_SERVICE",
+          "success": false
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+        },
+        {
+          "u_has_mission": "MISSION_BERSERK_APOSTOL_COUNT_PAWN_SERVICE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_ACCEPT",
+    "effect": {
+      "if": {
+        "u_query": "Accept the pact? Your body will change permanently into a weaker servant’s form, with lasting drawbacks. Other main transformations will be closed to you. Your master will spare you; this does not protect companions or command every demon at the site. Do not attack the master or their marked servants, and keep companions from attacking them: their attack also breaks your pact. Your strongest impulse requires supplies for the living master. Betrayal ends their protection; their death gives no stronger form. You abandon the hunt against this master.",
+        "default": false
+      },
+      "then": [
+        {
+          "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_WYALD_PAWN",
+          "variables": {
+            "berserk_apostol_accept_confirmed": "1"
+          }
+        },
+        {
+          "if": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+          },
+          "then": [
+            {
+              "math": [
+                "berserk_apostol_wyald_pawn_encounter = 3"
+              ]
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_BEGIN"
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_SUSPEND_HUNT"
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_PAWN_BEGIN"
+            },
+            {
+              "npc_lose_effect": "berserk_apostol_parley"
+            },
+            {
+              "u_message": "The pact takes root beneath your skin. Its price and your first service are recorded in the road journal.",
+              "type": "warning"
+            }
+          ]
+        }
+      ]
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        },
+        {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 1"
+          ]
+        },
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_WYALD_PAWN_MASTER"
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostle_wyald_dead == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "n_hp('torso') >= n_hp_max('torso')"
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_wyald_ring"
+        },
+        {
+          "math": [
+            "distance('u', 'npc') <= 14"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_PAY",
+    "effect": [
+      {
+        "u_consume_item": "scrap",
+        "count": 12
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_service_done = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_favor_until = max(time('now'), u_berserk_apostol_started_at + time('36 hours')) + time('6 hours')"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_PAWN_SYNC"
+      },
+      {
+        "if": {
+          "math": [
+            "time('now') < u_berserk_apostol_started_at + time('36 hours')"
+          ]
+        },
+        "then": {
+          "u_message": "Your offering is accepted. Its support will not be wasted while your body grows: the fighting impulse will be sustained for its first six hours after awakening.",
+          "type": "info"
+        },
+        "else": {
+          "u_message": "Your offering is accepted. For six hours the bond will answer your fighting impulse.",
+          "type": "info"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+        },
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_WYALD_PAWN_MASTER"
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_pawn_favor_until"
+          ]
+        },
+        {
+          "u_has_items": {
+            "item": "scrap",
+            "count": 12
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_SUSPEND_HUNT",
+    "effect": {
+      "finish_mission": "MISSION_BERSERK_WYALD",
+      "success": false
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+        },
+        {
+          "u_has_mission": "MISSION_BERSERK_WYALD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_MISSION",
+    "effect": {
+      "assign_mission": "MISSION_BERSERK_APOSTOL_WYALD_PAWN_SERVICE"
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_service_done == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_oath_broken == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_master_dead == 0"
+          ]
+        },
+        {
+          "not": {
+            "u_has_mission": "MISSION_BERSERK_APOSTOL_WYALD_PAWN_SERVICE"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_MISSION_SYNC",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "u_berserk_apostol_pawn_service_done == 1"
+          ]
+        },
+        "then": {
+          "finish_mission": "MISSION_BERSERK_APOSTOL_WYALD_PAWN_SERVICE",
+          "success": true
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_apostol_pawn_oath_broken == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_pawn_master_dead == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "finish_mission": "MISSION_BERSERK_APOSTOL_WYALD_PAWN_SERVICE",
+          "success": false
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+        },
+        {
+          "u_has_mission": "MISSION_BERSERK_APOSTOL_WYALD_PAWN_SERVICE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_ACCEPT",
+    "effect": {
+      "if": {
+        "u_query": "Accept the pact? Your body will change permanently into a weaker servant’s form, with lasting drawbacks. Other main transformations will be closed to you. Your master will spare you; this does not protect companions or command every demon at the site. Do not attack the master or their marked servants, and keep companions from attacking them: their attack also breaks your pact. Your strongest impulse requires supplies for the living master. Betrayal ends their protection; their death gives no stronger form. You abandon the hunt against this master.",
+        "default": false
+      },
+      "then": [
+        {
+          "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_ROSINE_PAWN",
+          "variables": {
+            "berserk_apostol_accept_confirmed": "1"
+          }
+        },
+        {
+          "if": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+          },
+          "then": [
+            {
+              "math": [
+                "berserk_apostol_rosine_pawn_encounter = 3"
+              ]
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_BEGIN"
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_SUSPEND_HUNT"
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_PAWN_BEGIN"
+            },
+            {
+              "npc_lose_effect": "berserk_apostol_parley"
+            },
+            {
+              "u_message": "The pact takes root beneath your skin. Its price and your first service are recorded in the road journal.",
+              "type": "warning"
+            }
+          ]
+        }
+      ]
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        },
+        {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 1"
+          ]
+        },
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_ROSINE_PAWN_MASTER"
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostle_rosine_dead == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "n_hp('torso') >= n_hp_max('torso')"
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_rosine_nest"
+        },
+        {
+          "math": [
+            "distance('u', 'npc') <= 14"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_PAY",
+    "effect": [
+      {
+        "u_consume_item": "meat",
+        "count": 4
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_service_done = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_favor_until = max(time('now'), u_berserk_apostol_started_at + time('36 hours')) + time('6 hours')"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_PAWN_SYNC"
+      },
+      {
+        "if": {
+          "math": [
+            "time('now') < u_berserk_apostol_started_at + time('36 hours')"
+          ]
+        },
+        "then": {
+          "u_message": "Your offering is accepted. Its support will not be wasted while your body grows: the fighting impulse will be sustained for its first six hours after awakening.",
+          "type": "info"
+        },
+        "else": {
+          "u_message": "Your offering is accepted. For six hours the bond will answer your fighting impulse.",
+          "type": "info"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+        },
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_ROSINE_PAWN_MASTER"
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_pawn_favor_until"
+          ]
+        },
+        {
+          "u_has_items": {
+            "item": "meat",
+            "count": 4
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_SUSPEND_HUNT",
+    "effect": {
+      "finish_mission": "MISSION_BERSERK_ROSINE",
+      "success": false
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+        },
+        {
+          "u_has_mission": "MISSION_BERSERK_ROSINE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_MISSION",
+    "effect": {
+      "assign_mission": "MISSION_BERSERK_APOSTOL_ROSINE_PAWN_SERVICE"
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_service_done == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_oath_broken == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_master_dead == 0"
+          ]
+        },
+        {
+          "not": {
+            "u_has_mission": "MISSION_BERSERK_APOSTOL_ROSINE_PAWN_SERVICE"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_MISSION_SYNC",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "u_berserk_apostol_pawn_service_done == 1"
+          ]
+        },
+        "then": {
+          "finish_mission": "MISSION_BERSERK_APOSTOL_ROSINE_PAWN_SERVICE",
+          "success": true
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_apostol_pawn_oath_broken == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_pawn_master_dead == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "finish_mission": "MISSION_BERSERK_APOSTOL_ROSINE_PAWN_SERVICE",
+          "success": false
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+        },
+        {
+          "u_has_mission": "MISSION_BERSERK_APOSTOL_ROSINE_PAWN_SERVICE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_ACCEPT",
+    "effect": {
+      "if": {
+        "u_query": "Accept the pact? Your body will change permanently into a weaker servant’s form, with lasting drawbacks. Other main transformations will be closed to you. Your master will spare you; this does not protect companions or command every demon at the site. Do not attack the master or their marked servants, and keep companions from attacking them: their attack also breaks your pact. Your strongest impulse requires supplies for the living master. Betrayal ends their protection; their death gives no stronger form. You abandon the hunt against this master.",
+        "default": false
+      },
+      "then": [
+        {
+          "run_eocs": "EOC_BERSERK_APOSTOL_ACCEPT_GRUNBELD_PAWN",
+          "variables": {
+            "berserk_apostol_accept_confirmed": "1"
+          }
+        },
+        {
+          "if": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+          },
+          "then": [
+            {
+              "math": [
+                "berserk_apostol_grunbeld_pawn_encounter = 3"
+              ]
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_BEGIN"
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_SUSPEND_HUNT"
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_PAWN_BEGIN"
+            },
+            {
+              "npc_lose_effect": "berserk_apostol_parley"
+            },
+            {
+              "u_message": "The pact takes root beneath your skin. Its price and your first service are recorded in the road journal.",
+              "type": "warning"
+            }
+          ]
+        }
+      ]
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+        },
+        {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter == 1"
+          ]
+        },
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_GRUNBELD_PAWN_MASTER"
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostle_grunbeld_dead == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "n_hp('torso') >= n_hp_max('torso')"
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_grunbeld_crucible"
+        },
+        {
+          "math": [
+            "distance('u', 'npc') <= 14"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_PAY",
+    "effect": [
+      {
+        "u_consume_item": "steel_lump",
+        "count": 4
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_service_done = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_favor_until = max(time('now'), u_berserk_apostol_started_at + time('36 hours')) + time('6 hours')"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_PAWN_SYNC"
+      },
+      {
+        "if": {
+          "math": [
+            "time('now') < u_berserk_apostol_started_at + time('36 hours')"
+          ]
+        },
+        "then": {
+          "u_message": "Your offering is accepted. Its support will not be wasted while your body grows: the fighting impulse will be sustained for its first six hours after awakening.",
+          "type": "info"
+        },
+        "else": {
+          "u_message": "Your offering is accepted. For six hours the bond will answer your fighting impulse.",
+          "type": "info"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
+        },
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_GRUNBELD_PAWN_MASTER"
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_pawn_favor_until"
+          ]
+        },
+        {
+          "u_has_items": {
+            "item": "steel_lump",
+            "count": 4
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_SUSPEND_HUNT",
+    "effect": {
+      "finish_mission": "MISSION_BERSERK_GRUNBELD",
+      "success": false
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
+        },
+        {
+          "u_has_mission": "MISSION_BERSERK_GRUNBELD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_MISSION",
+    "effect": {
+      "assign_mission": "MISSION_BERSERK_APOSTOL_GRUNBELD_PAWN_SERVICE"
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_service_done == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_oath_broken == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_master_dead == 0"
+          ]
+        },
+        {
+          "not": {
+            "u_has_mission": "MISSION_BERSERK_APOSTOL_GRUNBELD_PAWN_SERVICE"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_MISSION_SYNC",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "u_berserk_apostol_pawn_service_done == 1"
+          ]
+        },
+        "then": {
+          "finish_mission": "MISSION_BERSERK_APOSTOL_GRUNBELD_PAWN_SERVICE",
+          "success": true
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_apostol_pawn_oath_broken == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_pawn_master_dead == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "finish_mission": "MISSION_BERSERK_APOSTOL_GRUNBELD_PAWN_SERVICE",
+          "success": false
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+        },
+        {
+          "u_has_mission": "MISSION_BERSERK_APOSTOL_GRUNBELD_PAWN_SERVICE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_PAWN_BEGIN",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_REPLACE_MISSING"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_MISSION"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_MISSION"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_MISSION"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_MISSION"
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_PAWN_SYNC",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_MISSION_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_MISSION_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_MISSION_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_MISSION_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_SUSPEND_HUNT"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_SUSPEND_HUNT"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_SUSPEND_HUNT"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_SUSPEND_HUNT"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_MISSION"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_MISSION"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_MISSION"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_MISSION"
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_PAWN_BOND_LOST",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_apostol_pawn_master_dead == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_oath_broken == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_PAWN_OATH_LOST",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_apostol_pawn_oath_broken == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_pawn_master_dead == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_PAWN_FOLLOW_OTHER",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_goal >= 3"
+          ]
+        },
+        {
+          "not": {
+            "or": [
+              {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+                  },
+                  {
+                    "math": [
+                      "u_berserk_journal_goal == 3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+                  },
+                  {
+                    "math": [
+                      "u_berserk_journal_goal == 4"
+                    ]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+                  },
+                  {
+                    "math": [
+                      "u_berserk_journal_goal == 5"
+                    ]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
+                  },
+                  {
+                    "math": [
+                      "u_berserk_journal_goal == 7"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_POWER_USE",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_FAVOR"
+          },
+          {
+            "u_has_trait": "BERSERK_COUNT_PAWN_POWER"
+          },
+          {
+            "u_has_flag": "BERSERK_COUNT_PAWN_FORM_ACTIVE"
+          },
+          {
+            "math": [
+              "u_val('stamina') >= 900"
+            ]
+          },
+          {
+            "math": [
+              "time('now') >= u_berserk_apostol_pawn_power_ready_at"
+            ]
+          }
+        ]
+      },
+      "then": [
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_location_variable": {
+            "u_val": "berserk_apostol_pawn_cast_origin"
+          }
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_count_pawn_lash"
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_COUNT_PAWN_POWER_PAY"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "The impulse does not answer. Let your body finish changing, recover your stamina and honor the service owed to a living master.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_POWER_PAY",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 900"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_power_ready_at = time('now') + 20"
+        ]
+      },
+      {
+        "turn_cost": "2 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_FAVOR"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_PAWN_POWER"
+            },
+            {
+              "u_has_flag": "BERSERK_COUNT_PAWN_FORM_ACTIVE"
+            },
+            {
+              "math": [
+                "u_val('stamina') >= 900"
+              ]
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_apostol_pawn_power_ready_at"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_POWER_USE",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_FAVOR"
+          },
+          {
+            "u_has_trait": "BERSERK_WYALD_PAWN_POWER"
+          },
+          {
+            "u_has_flag": "BERSERK_WYALD_PAWN_FORM_ACTIVE"
+          },
+          {
+            "math": [
+              "u_val('stamina') >= 1200"
+            ]
+          },
+          {
+            "math": [
+              "time('now') >= u_berserk_apostol_pawn_power_ready_at"
+            ]
+          }
+        ]
+      },
+      "then": [
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_location_variable": {
+            "u_val": "berserk_apostol_pawn_cast_origin"
+          }
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_wyald_pawn_dash"
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_WYALD_PAWN_POWER_PAY"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "The impulse does not answer. Let your body finish changing, recover your stamina and honor the service owed to a living master.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_POWER_PAY",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 1200"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_power_ready_at = time('now') + 24"
+        ]
+      },
+      {
+        "turn_cost": "2 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_FAVOR"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_PAWN_POWER"
+                },
+                {
+                  "u_has_flag": "BERSERK_WYALD_PAWN_FORM_ACTIVE"
+                },
+                {
+                  "math": [
+                    "u_val('stamina') >= 1200"
+                  ]
+                },
+                {
+                  "math": [
+                    "time('now') >= u_berserk_apostol_pawn_power_ready_at"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_cast_confirmed == 1"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "distance('u', u_berserk_apostol_pawn_cast_origin) > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_POWER_USE",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_FAVOR"
+          },
+          {
+            "u_has_trait": "BERSERK_ROSINE_PAWN_POWER"
+          },
+          {
+            "u_has_flag": "BERSERK_ROSINE_PAWN_FORM_ACTIVE"
+          },
+          {
+            "math": [
+              "u_val('stamina') >= 700"
+            ]
+          },
+          {
+            "math": [
+              "time('now') >= u_berserk_apostol_pawn_power_ready_at"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_POWER_PAY"
+      },
+      "else": {
+        "u_message": "The impulse does not answer. Let your body finish changing, recover your stamina and honor the service owed to a living master.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_POWER_PAY",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 700"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_power_ready_at = time('now') + 24"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      },
+      {
+        "u_add_effect": "berserk_apostol_pawn_flutter",
+        "duration": "2 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_FAVOR"
+        },
+        {
+          "u_has_trait": "BERSERK_ROSINE_PAWN_POWER"
+        },
+        {
+          "u_has_flag": "BERSERK_ROSINE_PAWN_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 700"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_pawn_power_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_POWER_USE",
+    "effect": {
+      "if": {
+        "and": [
+          {
+            "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_FAVOR"
+          },
+          {
+            "u_has_trait": "BERSERK_GRUNBELD_PAWN_POWER"
+          },
+          {
+            "u_has_flag": "BERSERK_GRUNBELD_PAWN_FORM_ACTIVE"
+          },
+          {
+            "math": [
+              "u_val('stamina') >= 1000"
+            ]
+          },
+          {
+            "math": [
+              "time('now') >= u_berserk_apostol_pawn_power_ready_at"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_POWER_PAY"
+      },
+      "else": {
+        "u_message": "The impulse does not answer. Let your body finish changing, recover your stamina and honor the service owed to a living master.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_POWER_PAY",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 1000"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_pawn_power_ready_at = time('now') + 30"
+        ]
+      },
+      {
+        "turn_cost": "2 seconds"
+      },
+      {
+        "u_add_effect": "berserk_apostol_pawn_brace",
+        "duration": "3 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_FAVOR"
+        },
+        {
+          "u_has_trait": "BERSERK_GRUNBELD_PAWN_POWER"
+        },
+        {
+          "u_has_flag": "BERSERK_GRUNBELD_PAWN_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1000"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_pawn_power_ready_at"
+          ]
+        }
+      ]
+    }
+  }
+]

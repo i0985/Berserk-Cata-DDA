@@ -1,0 +1,152 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_CONRAD_SEED",
+    "name": {
+      "str": "Seed of cinder rot"
+    },
+    "description": "Your pulse slows. A bitter smell follows each breath; ordinary movement becomes slower.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_CONRAD"
+    ],
+    "threshold": true,
+    "flags": [
+      "MUTATION_THRESHOLD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "SPEED",
+            "add": -10
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_CONRAD_SENSES",
+    "name": {
+      "str": "Senses of cinder rot"
+    },
+    "description": "See 1 tile farther in darkness and take 50% less biological damage. This does not grant immunity to disease, infection or toxic gas.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_CONRAD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "NIGHT_VIS",
+            "add": 1
+          }
+        ],
+        "incoming_damage_mod": [
+          {
+            "type": "biological",
+            "multiply": -0.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_CONRAD_FORM",
+    "name": {
+      "str": "Body of cinder rot"
+    },
+    "description": "Your flesh grows thick and heavy. Gain +3 strength and 3 points of natural protection. You remain slower, and gas can still hurt you. This body is permanent; returning to human shape is impossible.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_CONRAD"
+    ],
+    "flags": [
+      "BERSERK_CONRAD_FORM_ACTIVE"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STRENGTH",
+            "add": 3
+          },
+          {
+            "value": "ARMOR_ALL",
+            "add": -3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_CONRAD_APOSTLE",
+    "name": {
+      "str": "Apostle of cinder rot"
+    },
+    "description": "Your transformation is complete. You bear a limited gift of Conrad; you have not become a member of the God Hand. Your abilities and weaknesses will grow no further.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_CONRAD"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_CONRAD_STRIKE",
+    "name": {
+      "str": "Corrupting touch"
+    },
+    "description": "In your other shape, corrupt an adjacent living enemy for 8 seconds, dealing 2 damage every 2 seconds. Robots, zombies and slimes are unaffected. Costs 700 stamina and 1 second; recovers in 12 seconds.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_CONRAD"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_CONRAD_CLOUD",
+    "name": {
+      "str": "Breath of rot"
+    },
+    "description": "In your other shape, breathe toxic gas into a small area within 3 tiles. Wind and terrain affect it; it can harm you and your companions. Costs 1500 stamina and 2 seconds; recovers in 40 seconds.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_CONRAD"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_CONRAD_CLOUD_USE"
+    ]
+  }
+]

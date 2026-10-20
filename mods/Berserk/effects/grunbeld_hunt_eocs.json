@@ -2,45 +2,58 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GRUNBELD_SEEK",
-    "effect": {
-      "if": {
-        "and": [
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GRUNBELD"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_grunbeld_site_registered == 1"
+              ]
+            },
+            {
+              "math": [
+                "has_var(berserk_hunt_grunbeld_location)"
+              ]
+            }
+          ]
+        },
+        "then": [
           {
-            "math": [
-              "berserk_hunt_grunbeld_site_registered == 1"
-            ]
+            "reveal_map": {
+              "global_val": "berserk_hunt_grunbeld_location"
+            },
+            "radius": 1
           },
           {
-            "math": [
-              "has_var(berserk_hunt_grunbeld_location)"
-            ]
+            "run_eocs": "EOC_BERSERK_DIALOGUE_NOTICE_GRUNBELD"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
           }
+        ],
+        "else": {
+          "run_eocs": "EOC_BERSERK_GRUNBELD_FIND"
+        }
+      }
+    ],
+    "false_effect": {
+      "if": {
+        "math": [
+          "u_berserk_route_notice_quiet != 1"
         ]
       },
-      "then": [
-        {
-          "reveal_map": {
-            "global_val": "berserk_hunt_grunbeld_location"
-          },
-          "radius": 1
-        },
-        {
-          "u_message": "Grunbeld's scarred stronghold is marked on your map. Follow the pale stone track south; the western quarry and eastern ramparts join before the southeast crucible. His armored form appears only when you enter that final area. Prepare heat protection and leave room to retreat.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
-        }
-      ],
-      "else": {
-        "run_eocs": "EOC_BERSERK_GRUNBELD_FIND"
+      "then": {
+        "u_message": "These directions are still incomplete. Follow the unfinished trails you already know and keep the records you recover.",
+        "type": "info",
+        "popup": false
       }
-    },
-    "false_effect": {
-      "u_message": "The remaining trails lead first to Flora. Consult her directions after closing the Count, Wyald and Rosine breaches; the road to Grunbeld continues beyond that meeting.",
-      "type": "info",
-      "popup": true
     },
     "condition": {
       "and": [
@@ -52,8 +65,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             },
             {
@@ -134,6 +154,25 @@
     "effect": [
       {
         "if": {
+          "math": [
+            "u_berserk_site_grunbeld_locator_schema != 2"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_site_grunbeld_tries = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_site_grunbeld_locator_schema = 2"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
           "or": [
             {
               "math": [
@@ -194,9 +233,11 @@
               },
               "target_params": {
                 "om_terrain": "berserk_grunbeld_crucible",
-                "random": false,
+                "random": true,
                 "min_distance": 0,
-                "z": 0
+                "z": 0,
+                "om_special": "berserk_grunbeld_stronghold_special",
+                "search_range": 100
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_GRUNBELD_VALIDATE"
@@ -211,9 +252,11 @@
               },
               "target_params": {
                 "om_terrain": "berserk_grunbeld_crucible",
-                "random": false,
+                "random": true,
                 "min_distance": 0,
-                "z": 0
+                "z": 0,
+                "om_special": "berserk_grunbeld_stronghold_special",
+                "search_range": 140
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_GRUNBELD_VALIDATE"
@@ -289,9 +332,7 @@
         "radius": 1
       },
       {
-        "u_message": "Grunbeld's scarred stronghold is marked on your map. Follow the pale stone track south; the western quarry and eastern ramparts join before the southeast crucible. His armored form appears only when you enter that final area. Prepare heat protection and leave room to retreat.",
-        "type": "info",
-        "popup": true
+        "run_eocs": "EOC_BERSERK_DIALOGUE_NOTICE_GRUNBELD"
       },
       {
         "run_eocs": "EOC_BERSERK_GRUNBELD_RECALL_GROVE"
@@ -319,8 +360,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -470,8 +518,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -535,8 +590,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -669,12 +731,22 @@
         ]
       },
       {
-        "u_message": "Heavy footsteps sound beyond the broken stone. Grunbeld has entered the crucible. Leave room to retreat and watch his hammer before committing to an attack.",
-        "type": "warning",
-        "popup": true
+        "if": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_ELIGIBLE"
+          }
+        },
+        "then": {
+          "u_message": "Heavy footsteps sound beyond the broken stone. Grunbeld has entered the crucible. Leave room to retreat and watch his hammer before committing to an attack.",
+          "type": "warning",
+          "popup": true
+        }
       },
       {
         "run_eocs": "EOC_BERSERK_GRUNBELD_TAG_LOADED"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_CHECK"
       }
     ],
     "condition": {
@@ -849,9 +921,71 @@
         ]
       },
       {
-        "u_message": "The local breach is held by its guardian. Defeat the apostle first; if its approach was blocked, clear the final clearing and examine this mark to retry.",
-        "type": "warning",
-        "popup": true
+        "if": {
+          "math": [
+            "berserk_hunt_grunbeld_state >= 4"
+          ]
+        },
+        "then": {
+          "u_message": "The breach is already sealed.",
+          "type": "info",
+          "popup": true
+        },
+        "else": {
+          "if": {
+            "math": [
+              "berserk_hunt_grunbeld_state == 3"
+            ]
+          },
+          "then": {
+            "u_message": "The guardian has fallen. Approach the open wound to seal the breach.",
+            "type": "info",
+            "popup": true
+          },
+          "else": {
+            "if": {
+              "and": [
+                {
+                  "math": [
+                    "berserk_apostle_grunbeld_dead != 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_grunbeld_state < 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_monsters_nearby('mon_berserk_grunbeld_knight', 'mon_berserk_grunbeld_dragon', 'radius': 60, 'attitude': 'both') > 0"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "u_message": "A deep rumble rises from the breach. While its guardian lives, the wound will not close.",
+              "type": "warning",
+              "popup": true
+            },
+            "else": {
+              "if": {
+                "math": [
+                  "berserk_hunt_grunbeld_dragon_pending == 1"
+                ]
+              },
+              "then": {
+                "u_message": "The broken armor lies still, but the ground trembles beneath it. Something is trying to emerge.",
+                "type": "warning",
+                "popup": true
+              },
+              "else": {
+                "u_message": "The encounter at this breach could not continue. The record of this place has been kept.",
+                "type": "warning",
+                "popup": true
+              }
+            }
+          }
+        }
       }
     ],
     "condition": {
@@ -869,8 +1003,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -1012,8 +1153,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -1107,37 +1255,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GRUNBELD_NEXT",
     "effect": {
-      "if": {
-        "math": [
-          "berserk_hunt_count_state < 4"
-        ]
-      },
-      "then": {
-        "run_eocs": "EOC_BERSERK_COUNT_SEEK"
-      },
-      "else": {
-        "if": {
-          "math": [
-            "berserk_hunt_wyald_state < 4"
-          ]
-        },
-        "then": {
-          "run_eocs": "EOC_BERSERK_WYALD_SEEK"
-        },
-        "else": {
-          "if": {
-            "math": [
-              "berserk_hunt_rosine_state < 4"
-            ]
-          },
-          "then": {
-            "run_eocs": "EOC_BERSERK_ROSINE_SEEK"
-          },
-          "else": {
-            "run_eocs": "EOC_BERSERK_HUNT_RETURN_BREACH"
-          }
-        }
-      }
+      "run_eocs": "EOC_BERSERK_JOURNAL_CHOOSE_CURRENT"
     }
   },
   {

@@ -1,0 +1,166 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_ROSINE_PAWN_SEED",
+    "name": {
+      "str": "Child of the false valley"
+    },
+    "description": "Words become awkward clicks, persuasion falters and crafting slows. Your body is fragile. You can still choose, speak and act; Rosine has not made you a mindless creature.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_ROSINE_PAWN"
+    ],
+    "threshold": true,
+    "flags": [
+      "MUTATION_THRESHOLD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CRAFTING_SPEED_MULTIPLIER",
+            "multiply": -0.25
+          },
+          {
+            "value": "SOCIAL_PERSUADE",
+            "add": -3
+          },
+          {
+            "value": "SOCIAL_LIE",
+            "add": -3
+          }
+        ],
+        "incoming_damage_mod": [
+          {
+            "type": "bash",
+            "multiply": 0.2
+          },
+          {
+            "type": "cut",
+            "multiply": 0.2
+          },
+          {
+            "type": "stab",
+            "multiply": 0.2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ROSINE_PAWN_LOYALTY",
+    "name": {
+      "str": "Bound protection: Child of the false valley"
+    },
+    "description": "Your master and their marked servants leave you alone while you keep the pact. This protects you alone; it does not command demons or make them loyal to your companions.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_ROSINE_PAWN"
+    ],
+    "ignored_by": [
+      "BERSERK_ROSINE_PAWN_HOUSEHOLD"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ROSINE_PAWN_SENSES",
+    "name": {
+      "str": "Lesser senses: Child of the false valley"
+    },
+    "description": "Words become awkward clicks, persuasion falters and crafting slows. Your body is fragile. You can still choose, speak and act; Rosine has not made you a mindless creature.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_ROSINE_PAWN"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "NIGHT_VIS",
+            "add": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ROSINE_PAWN_FORM",
+    "name": {
+      "str": "Body: Child of the false valley"
+    },
+    "description": "Your permanent insectlike body grants +1 dexterity and +8 speed. Its fragility and difficulties with speech and crafting remain. Returning to human shape is impossible.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_ROSINE_PAWN"
+    ],
+    "flags": [
+      "BERSERK_ROSINE_PAWN_FORM_ACTIVE"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "DEXTERITY",
+            "add": 1
+          },
+          {
+            "value": "SPEED",
+            "add": 8
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ROSINE_PAWN_POWER",
+    "name": {
+      "str": "Borrowed impulse: Child of the false valley"
+    },
+    "description": "Your limited fighting impulse requires recent service to your living master. The body and its weaknesses remain if the bond breaks, but this impulse falls silent.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_ROSINE_PAWN"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_ROSINE_PAWN_POWER_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ROSINE_PAWN_PAWN",
+    "name": {
+      "str": "Pawn: Child of the false valley"
+    },
+    "description": "The limited servant’s body is complete. Neither more flesh nor the master’s death will turn it into an independent apostle. Your choices remain your own, but the pact has a lasting price.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_ROSINE_PAWN"
+    ]
+  }
+]

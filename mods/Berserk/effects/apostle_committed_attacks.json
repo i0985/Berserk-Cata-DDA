@@ -28,6 +28,23 @@
           "math": [
             "n_berserk_committed_count_phase != 1"
           ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostol_count_pawn_encounter == 1"
+            ]
+          }
+        },
+        {
+          "not": {
+            "and": [
+              "u_is_avatar",
+              {
+                "u_has_trait": "BERSERK_COUNT_PAWN_LOYALTY"
+              }
+            ]
+          }
         }
       ]
     },
@@ -326,6 +343,23 @@
           "math": [
             "n_berserk_committed_wyald_phase != 1"
           ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostol_wyald_pawn_encounter == 1"
+            ]
+          }
+        },
+        {
+          "not": {
+            "and": [
+              "u_is_avatar",
+              {
+                "u_has_trait": "BERSERK_WYALD_PAWN_LOYALTY"
+              }
+            ]
+          }
         }
       ]
     },
@@ -1018,6 +1052,23 @@
           "math": [
             "n_berserk_committed_rosine_phase != 1"
           ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostol_rosine_pawn_encounter == 1"
+            ]
+          }
+        },
+        {
+          "not": {
+            "and": [
+              "u_is_avatar",
+              {
+                "u_has_trait": "BERSERK_ROSINE_PAWN_LOYALTY"
+              }
+            ]
+          }
         }
       ]
     },
@@ -1847,6 +1898,23 @@
           "math": [
             "n_berserk_committed_grunbeld_knight_phase != 1"
           ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_apostol_grunbeld_pawn_encounter == 1"
+            ]
+          }
+        },
+        {
+          "not": {
+            "and": [
+              "u_is_avatar",
+              {
+                "u_has_trait": "BERSERK_GRUNBELD_PAWN_LOYALTY"
+              }
+            ]
+          }
         }
       ]
     },

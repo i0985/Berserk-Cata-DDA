@@ -29,6 +29,16 @@
           "math": [
             "n_berserk_grunbeld_breath_phase != 1"
           ]
+        },
+        {
+          "not": {
+            "and": [
+              "u_is_avatar",
+              {
+                "u_has_trait": "BERSERK_GRUNBELD_PAWN_LOYALTY"
+              }
+            ]
+          }
         }
       ]
     },

@@ -1,0 +1,376 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_OFFER",
+    "dynamic_line": "*Five figures wait around the circle. “You followed the call. You may leave human, or accept a gift that will reshape you. But you cannot choose what form your soul will take.”",
+    "responses": [
+      {
+        "text": "I accept. Give me the strength to become something else.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_CHOOSE_GIFT"
+        },
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "What is the price?",
+        "topic": "TALK_BERSERK_APOSTOL_PRICE"
+      },
+      {
+        "text": "I will remain human.",
+        "topic": "TALK_BERSERK_APOSTOL_MEMORY",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_REFUSAL_MEMORY"
+        }
+      },
+      {
+        "text": "I need to think.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_PRICE",
+    "dynamic_line": "*“The gift will grow over several days. It grants strength and binds a weakness into your flesh. You will not become one of us. If you refuse, this passage will wound your senses and your mind instead. At least two scars will follow you. No human crosses this place untouched.”",
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_APOSTOL_OFFER"
+      },
+      {
+        "text": "I accept. Give me the strength to become something else.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_CHOOSE_GIFT"
+        },
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I will remain human.",
+        "topic": "TALK_BERSERK_APOSTOL_MEMORY",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_REFUSAL_MEMORY"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_MEMORY",
+    "dynamic_line": "*The field disappears. You see fragments of your life: doors that stayed shut, hands you could not hold, mornings survived without knowing why. The vision presses them together until every kindness seems small and every effort wasted. It offers one conclusion: a worthless life. Yet these are your memories, bent by something that wants your answer.",
+    "responses": [
+      {
+        "text": "Look back toward the circle.",
+        "topic": "TALK_BERSERK_APOSTOL_LAST_CHOICE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_LAST_CHOICE",
+    "dynamic_line": "*The memories recede. “There is still time. Accept, and learn to bear what has touched you. Leave human, and the ceremony will take its price: perhaps your hearing, your sight, the steadiness of your hands, or the peace of your thoughts. More than one wound will remain. Is this still your answer?”",
+    "responses": [
+      {
+        "text": "I accept. Give me the strength to become something else.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_CHOOSE_GIFT"
+        },
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "Yes. Return me human, whatever remains of me.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_CHOOSE_HUMAN"
+        },
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+            },
+            {
+              "math": [
+                "u_berserk_apostol_refusal_seen == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "I need to think.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_PROGRESS",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE",
+      "yes": "*The absorbed flesh is changing you on its own. Secure food, water and a resting place. Its weakness remains throughout the transformation. Continue the roads you already know when prepared; no new dose is needed.",
+      "no": {
+        "math": [
+          "u_berserk_apostol_outcome == 2"
+        ],
+        "yes": "*You refused the gift. The lasting wounds of the ceremony grant no demonic strength. Rest and prepare before following the ashen trail.",
+        "no": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_COMPLETE",
+          "yes": "*You are an apostle bearing a limited gift. The necessary changes are complete; no further dose or growth is needed. Your powers, their costs and your weakness remain.",
+          "no": {
+            "math": [
+              "u_berserk_apostol_growth_step >= 3"
+            ],
+            "yes": "*Your first fighting powers are awake. Learn their cost and leave room to recover between uses. The last change has not yet settled.",
+            "no": {
+              "math": [
+                "u_berserk_apostol_growth_step >= 2"
+              ],
+              "yes": "*Your body has changed permanently; returning to human shape is impossible. The change does not heal wounds. Its fighting powers are still taking root.",
+              "no": {
+                "math": [
+                  "u_berserk_apostol_growth_step >= 1"
+                ],
+                "yes": "*Your senses have changed. Give your body time to learn its next shape; the weakness you accepted has not gone away.",
+                "no": "*The gift has only taken root. Its weakness is already yours. Find food and rest; your body will keep changing without another dose."
+              }
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Back to my current objective.",
+        "topic": "TALK_BERSERK_JOURNAL_CURRENT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_VOID",
+    "dynamic_line": "Every road you took has brought you here. You may accept what waits beyond the limits of your body, or cling to those limits.",
+    "responses": [
+      {
+        "text": "Do you control my fate?",
+        "topic": "TALK_BERSERK_APOSTOL_VOID_QUESTION"
+      },
+      {
+        "text": "I want to hear the terms of the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_PRICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I am ready to answer.",
+        "topic": "TALK_BERSERK_APOSTOL_OFFER",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I will speak with the others.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_VOID_QUESTION",
+    "dynamic_line": "You have heard a call. You still have an answer to give. We will not give you the comfort of calling that answer harmless.",
+    "responses": [
+      {
+        "text": "I have another question.",
+        "topic": "TALK_NONE"
+      },
+      {
+        "text": "I will think about that.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_SLAN",
+    "dynamic_line": "You have carried such fear in so small a body. Does it not tire you, holding yourself together?",
+    "responses": [
+      {
+        "text": "What would happen to my body?",
+        "topic": "TALK_BERSERK_APOSTOL_SLAN_QUESTION"
+      },
+      {
+        "text": "I want to hear the terms of the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_PRICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I am ready to answer.",
+        "topic": "TALK_BERSERK_APOSTOL_OFFER",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I will speak with the others.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_SLAN_QUESTION",
+    "dynamic_line": "Flesh can become an instrument of desire. It can also become a hunger you must spend every day feeding. Strength does not mean peace.",
+    "responses": [
+      {
+        "text": "I have another question.",
+        "topic": "TALK_NONE"
+      },
+      {
+        "text": "I will think about that.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_UBIK",
+    "dynamic_line": "You remember the life you brought here? Of course you do. But do you remember it kindly, or only as it hurt?",
+    "responses": [
+      {
+        "text": "Are these really my memories?",
+        "topic": "TALK_BERSERK_APOSTOL_UBIK_QUESTION"
+      },
+      {
+        "text": "I want to hear the terms of the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_PRICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I am ready to answer.",
+        "topic": "TALK_BERSERK_APOSTOL_OFFER",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I will speak with the others.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_UBIK_QUESTION",
+    "dynamic_line": "A memory has many faces. We can turn it toward the one you refuse to see. Whether you trust that face is another matter.",
+    "responses": [
+      {
+        "text": "I have another question.",
+        "topic": "TALK_NONE"
+      },
+      {
+        "text": "I will think about that.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_CONRAD",
+    "dynamic_line": "*The silent figure watches you. In the folds beneath it, small shapes stir and vanish.",
+    "responses": [
+      {
+        "text": "What are you offering?",
+        "topic": "TALK_BERSERK_APOSTOL_CONRAD_QUESTION"
+      },
+      {
+        "text": "I want to hear the terms of the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_PRICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I am ready to answer.",
+        "topic": "TALK_BERSERK_APOSTOL_OFFER",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I will speak with the others.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_CONRAD_QUESTION",
+    "dynamic_line": "*A breath escapes the figure. For an instant you see an immense world rotting and renewing itself, with no place set aside for mercy.",
+    "responses": [
+      {
+        "text": "I have another question.",
+        "topic": "TALK_NONE"
+      },
+      {
+        "text": "I will think about that.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_FEMTO",
+    "dynamic_line": "You have reached the end of the road that human strength opened. What will you do with the door beyond it?",
+    "responses": [
+      {
+        "text": "Would I become your equal?",
+        "topic": "TALK_BERSERK_APOSTOL_FEMTO_QUESTION"
+      },
+      {
+        "text": "I want to hear the terms of the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_PRICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I am ready to answer.",
+        "topic": "TALK_BERSERK_APOSTOL_OFFER",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I will speak with the others.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_FEMTO_QUESTION",
+    "dynamic_line": "No. A gift does not place its bearer among us. Decide whether the strength you may receive is worth the shape it will give your life.",
+    "responses": [
+      {
+        "text": "I have another question.",
+        "topic": "TALK_NONE"
+      },
+      {
+        "text": "I will think about that.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  }
+]

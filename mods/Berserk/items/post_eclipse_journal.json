@@ -9,7 +9,7 @@
     "name": {
       "str": "journal of the first breach"
     },
-    "description": "Records the first sealed breach and its locally quieted region. Activate to show that area without changing your chosen path, then consider Flora, a refuge or the Count's residence. Other hunts and breaches keep their own records; the Brand remains.",
+    "description": "Old notes from your journey. Activate to review the corresponding entries in your road journal.",
     "weight": "25 g",
     "volume": "50 ml",
     "material": [
@@ -19,10 +19,12 @@
     "color": "light_gray",
     "use_action": {
       "type": "effect_on_conditions",
-      "menu_text": "Consider the next path",
+      "menu_text": "Open the road journal.",
       "effect_on_conditions": [
-        "EOC_BERSERK_POST_ECLIPSE_CHOOSE"
-      ]
-    }
+        "EOC_BERSERK_JOURNAL_OPEN"
+      ],
+      "need_wielding": false
+    },
+    "looks_like": ""
   }
 ]

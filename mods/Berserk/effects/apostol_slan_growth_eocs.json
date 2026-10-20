@@ -1,0 +1,531 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_SLAN_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_apostol_path == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_return_state == 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_SLAN_BEGIN",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_started_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_step = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_running = 1"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_trait": "BERSERK_SLAN_SEED"
+          }
+        },
+        "then": {
+          "u_add_trait": "BERSERK_SLAN_SEED"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_SLAN_GROW",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 0"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('6 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_SLAN_SENSES"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_SLAN_SENSES"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 2"
+            ]
+          },
+          {
+            "u_message": "Your eyes follow movement in the dark before you consciously notice it.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('18 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_SLAN_FORM"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_SLAN_FORM"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 2"
+            ]
+          },
+          {
+            "u_message": "Your flesh has changed into a stronger, unfamiliar body. It will never return to human shape.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('36 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_SLAN_WHIP"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_SLAN_WHIP"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 3"
+            ]
+          },
+          {
+            "u_message": "An impulse travels down your arm. A cord of living flesh snaps outward, then draws back beneath your skin.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 3"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('60 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_SLAN_MEND"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_SLAN_MEND"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 4"
+            ]
+          },
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_SLAN_APOSTLE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_SLAN_APOSTLE"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_running = 0"
+            ]
+          },
+          {
+            "u_message": "The second pulse settles into your heartbeat. Your new flesh has finished growing; now its strength is yours to spend.",
+            "type": "warning"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "has_var(u_berserk_apostol_started_at)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    },
+    "eoc_type": "RECURRING",
+    "recurrence": "1 minute",
+    "deactivate_condition": {
+      "math": [
+        "u_berserk_apostol_stage >= 3"
+      ]
+    },
+    "global": true
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_SLAN_FORM_ON",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_SLAN_FORM_OFF",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_SLAN_WHIP_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_SLAN_WHIP"
+        },
+        {
+          "u_has_flag": "BERSERK_SLAN_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 800"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_whip_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_SLAN_WHIP_USE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_WHIP_READY"
+      },
+      "then": [
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_slan_whip",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_SLAN_WHIP_SPEND"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "You cannot lash out now. Your body must finish changing; you need strength and time to recover.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_SLAN_WHIP_SPEND",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 800"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_whip_ready_at = time('now') + time('15 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 second"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_WHIP_READY"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_SLAN_MEND_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_SLAN_MEND"
+        },
+        {
+          "u_has_flag": "BERSERK_SLAN_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1200"
+          ]
+        },
+        {
+          "math": [
+            "u_calories() >= 500"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_mend_ready_at"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_hp('head') < u_hp_max('head')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('torso') < u_hp_max('torso')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('arm_l') < u_hp_max('arm_l')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('arm_r') < u_hp_max('arm_r')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('leg_l') < u_hp_max('leg_l')"
+              ]
+            },
+            {
+              "math": [
+                "u_hp('leg_r') < u_hp_max('leg_r')"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_SLAN_MEND_USE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_MEND_READY"
+      },
+      "then": [
+        {
+          "math": [
+            "u_hp('head') = min(u_hp_max('head'), u_hp('head') + 6)"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + 6)"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + 6)"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + 6)"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + 6)"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + 6)"
+          ]
+        },
+        {
+          "math": [
+            "u_val('stamina') -= 1200"
+          ]
+        },
+        {
+          "math": [
+            "u_calories() -= 60"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_mend_ready_at = time('now') + time('10 minutes')"
+          ]
+        },
+        {
+          "turn_cost": "6 seconds"
+        },
+        {
+          "u_message": "The torn flesh draws together. Hunger follows the relief.",
+          "type": "good"
+        }
+      ],
+      "else": {
+        "u_message": "Your flesh cannot mend now. You need a wound, food, strength and time to recover.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_LINE"
+    }
+  }
+]

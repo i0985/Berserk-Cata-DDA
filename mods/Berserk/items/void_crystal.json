@@ -2,15 +2,22 @@
   {
     "type": "ITEM",
     "id": "void_crystal",
-    "name": { "str": "Void Crystal" },
+    "name": {
+      "str": "Void Crystal"
+    },
     "description": "A dark crystal radiating a faint energy, left behind by Apostle Void.",
     "weight": "50 g",
     "volume": "250 ml",
     "symbol": "*",
     "color": "dark_gray",
-    "material": [ "glass" ],
+    "material": [
+      "glass"
+    ],
     "price": "500 USD",
     "price_postapoc": "100 USD",
-    "flags": [ "NO_SALVAGE" ]
+    "flags": [
+      "NO_SALVAGE"
+    ],
+    "looks_like": ""
   }
 ]

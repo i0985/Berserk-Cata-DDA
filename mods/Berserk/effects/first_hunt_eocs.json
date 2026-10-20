@@ -74,6 +74,9 @@
               ]
             }
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     }
@@ -97,6 +100,9 @@
           "math": [
             "u_val('pos_z') == 0"
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -397,14 +403,19 @@
               },
               "then": [
                 {
+                  "if": {
+                    "math": [
+                      "u_berserk_first_hunt_mission_issued != 1"
+                    ]
+                  },
+                  "then": {
+                    "run_eocs": "EOC_BERSERK_DIALOGUE_NOTICE_FIRST"
+                  }
+                },
+                {
                   "math": [
                     "u_berserk_first_hunt_mission_issued = 1"
                   ]
-                },
-                {
-                  "u_message": "First hunt added to your missions: the apostle's hollow. Its target is the marked forest hollow. Recover, prepare a ward and your equipment, then follow the mission marker. Search the apostle's remains for a burned scrap after the battle.",
-                  "type": "warning",
-                  "popup": true
                 }
               ]
             }
@@ -432,8 +443,9 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FIRST_HUNT_NOT_FOUND",
     "effect": {
-      "u_message": "The trail to the hollow is still unclear. Keep the notes: study them again or ask the Skull Knight after further exploration. No new hunt has been added to your missions.",
-      "type": "warning"
+      "u_message": "These directions do not yet reveal the road. The record has been kept.",
+      "type": "info",
+      "popup": false
     }
   },
   {
@@ -498,45 +510,6 @@
       },
       {
         "run_eocs": "EOC_BERSERK_FIRST_HUNT_REQUEST"
-      },
-      {
-        "if": {
-          "math": [
-            "u_berserk_first_hunt_done == 1"
-          ]
-        },
-        "then": {
-          "u_message": "First hunt completed. Search the apostle's remains, take the burned scrap and activate it to locate the nearby breach. You do not need the Skull Knight to continue.",
-          "type": "info"
-        },
-        "else": {
-          "if": {
-            "and": [
-              {
-                "u_has_mission": "MISSION_BERSERK_FIRST_HUNT"
-              },
-              {
-                "and": [
-                  {
-                    "math": [
-                      "has_var(u_berserk_first_hunt_location)"
-                    ]
-                  },
-                  {
-                    "overmap_at_point": "berserk_first_hunt_lair",
-                    "point": {
-                      "u_val": "berserk_first_hunt_location"
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          "then": {
-            "u_message": "The first hunt still points to the same hollow. Select \"First hunt: the apostle's hollow\" in your missions menu to track it on the overmap. Other hunts keep their own progress.",
-            "type": "info"
-          }
-        }
       }
     ]
   },
@@ -578,7 +551,7 @@
         "run_eocs": "EOC_BERSERK_FIRST_HUNT_FINISH_MISSION"
       },
       {
-        "u_message": "First hunt completed. Search the apostle's remains, take the burned scrap and activate it to locate the nearby breach. You do not need the Skull Knight to continue.",
+        "u_message": "The apostle is dead. Search its remains: a burned scrap among them may explain where it came from.",
         "type": "good",
         "popup": true
       },
@@ -601,32 +574,31 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FIRST_HUNT_NOTES",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_first_hunt_note_given != 1"
-        ]
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_FIRST"
       },
-      "then": [
-        {
-          "if": {
-            "not": {
-              "u_has_item": "berserk_first_hunt_directions"
-            }
-          },
-          "then": {
-            "u_spawn_item": "berserk_first_hunt_directions",
-            "count": 1,
-            "suppress_message": true
-          }
-        },
-        {
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+      },
+      {
+        "if": {
           "math": [
-            "u_berserk_first_hunt_note_given = 1"
+            "u_berserk_first_hunt_note_given != 1"
           ]
-        }
-      ]
-    }
+        },
+        "then": [
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          },
+          {
+            "math": [
+              "u_berserk_first_hunt_note_given = 1"
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "effect_on_condition",

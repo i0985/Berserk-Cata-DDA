@@ -3,7 +3,7 @@
     "type": "MONSTER",
     "id": "mon_berserk_apostle_rosine",
     "copy-from": "mon_berserk_eclipse_hunter",
-    "looks_like": "mon_berserk_eclipse_hunter",
+    "looks_like": "",
     "name": {
       "str_sp": "Rosine"
     },
@@ -32,24 +32,77 @@
       "HEARS",
       "WARM",
       "FLIES",
-      "ATTACKMON"
+      "ATTACKMON",
+      "CONVERSATION"
     ],
     "special_attacks": [
       {
         "id": "berserk_rosine_b_prepare",
-        "cooldown": 16
+        "cooldown": 16,
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "not": {
+                    "u_has_effect": "berserk_rosine_ready"
+                  }
+                },
+                {
+                  "not": {
+                    "u_has_effect": "berserk_apostle_attack_recovery"
+                  }
+                },
+                {
+                  "math": [
+                    "time('now') >= u_berserk_committed_rosine_cooldown"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_committed_rosine_phase != 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_val('pos_z') == n_val('pos_z')"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  "npc_is_avatar",
+                  {
+                    "npc_has_trait": "BERSERK_ROSINE_PAWN_LOYALTY"
+                  }
+                ]
+              }
+            }
+          ]
+        }
       }
     ],
     "death_drops": "EMPTY_GROUP",
     "death_function": {
-      "eoc": "EOC_BERSERK_ROSINE_DIES"
-    }
+      "eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_DEATH_ROSINE_DIES"
+    },
+    "extend": {
+      "species": [
+        "BERSERK_ROSINE_PAWN_HOUSEHOLD",
+        "BERSERK_ROSINE_PAWN_MASTER"
+      ]
+    },
+    "chat_topics": [
+      "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
+    ]
   },
   {
     "type": "MONSTER",
     "id": "mon_berserk_cocoon_ravager",
     "copy-from": "mon_berserk_eclipse_wretch",
-    "looks_like": "mon_berserk_eclipse_wretch",
+    "looks_like": "",
     "name": {
       "str": "cocoon-born ravager",
       "str_pl": "cocoon-born ravagers"
@@ -81,6 +134,11 @@
       "FLIES",
       "ATTACKMON"
     ],
-    "special_attacks": []
+    "special_attacks": [],
+    "extend": {
+      "species": [
+        "BERSERK_ROSINE_PAWN_HOUSEHOLD"
+      ]
+    }
   }
 ]

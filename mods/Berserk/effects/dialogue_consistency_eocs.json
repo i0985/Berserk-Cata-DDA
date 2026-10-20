@@ -1,0 +1,393 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_SELF_MADE_ARM",
+    "condition": "u_is_avatar",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_arm_cannon_self_made = 1"
+        ]
+      },
+      {
+        "if": {
+          "u_has_bionics": "bio_berserk_hand_stump"
+        },
+        "then": {
+          "math": [
+            "u_berserk_arm_cannon_self_made_one_hand = 1"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_DISPLAY_1",
+    "condition": {
+      "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_DISPLAY_2",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_count == 1"
+          ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_DONE_COUNT"
+          }
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_DISPLAY_3",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_wyald == 1"
+          ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_DONE_WYALD"
+          }
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_DISPLAY_4",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_rosine == 1"
+          ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_DONE_ROSINE"
+          }
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_DISPLAY_5",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_grunbeld == 1"
+          ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GRUNBELD"
+          }
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_DISPLAY_6",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_flora == 1"
+          ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_DONE_FLORA"
+          }
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_DISPLAY_7",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_breach == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_breach_sealed != 1"
+          ]
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_DISPLAY_8",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_journal_knows_breach == 1"
+            ]
+          }
+        }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_NOTICE_FIRST",
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FIRST"
+        },
+        {
+          "math": [
+            "u_berserk_direction_notice_first != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_direction_notice_first = 1"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_route_notice_quiet != 1"
+          ]
+        },
+        "then": {
+          "u_message": "The apostle’s hollow is marked on your map.",
+          "type": "info",
+          "popup": false
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_NOTICE_BREACH",
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_BREACH"
+        },
+        {
+          "math": [
+            "u_berserk_direction_notice_breach != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_direction_notice_breach = 1"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_route_notice_quiet != 1"
+          ]
+        },
+        "then": {
+          "u_message": "The ashen breach is marked on your map.",
+          "type": "info",
+          "popup": false
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_NOTICE_COUNT",
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_COUNT"
+        },
+        {
+          "math": [
+            "u_berserk_direction_notice_count != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_direction_notice_count = 1"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_route_notice_quiet != 1"
+          ]
+        },
+        "then": {
+          "u_message": "The Count’s residence is marked on your map.",
+          "type": "info",
+          "popup": false
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_NOTICE_WYALD",
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_WYALD"
+        },
+        {
+          "math": [
+            "u_berserk_direction_notice_wyald != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_direction_notice_wyald = 1"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_route_notice_quiet != 1"
+          ]
+        },
+        "then": {
+          "u_message": "The Black Dogs’ camp is marked on your map.",
+          "type": "info",
+          "popup": false
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_NOTICE_ROSINE",
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_ROSINE"
+        },
+        {
+          "math": [
+            "u_berserk_direction_notice_rosine != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_direction_notice_rosine = 1"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_route_notice_quiet != 1"
+          ]
+        },
+        "then": {
+          "u_message": "The misty valley is marked on your map.",
+          "type": "info",
+          "popup": false
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_NOTICE_GRUNBELD",
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GRUNBELD"
+        },
+        {
+          "math": [
+            "u_berserk_direction_notice_grunbeld != 1"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_direction_notice_grunbeld = 1"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_route_notice_quiet != 1"
+          ]
+        },
+        "then": {
+          "u_message": "Grunbeld’s stronghold is marked on your map.",
+          "type": "info",
+          "popup": false
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND",
+    "condition": {
+      "u_has_bionics": "bio_berserk_hand_stump"
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_DIALOGUE_DISPLAY_16",
+    "condition": {
+      "u_has_bionics": "bio_berserk_lost_eye"
+    },
+    "effect": []
+  }
+]

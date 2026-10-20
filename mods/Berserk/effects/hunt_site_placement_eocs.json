@@ -294,48 +294,61 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_BREACH_MESSAGE",
     "effect": {
-      "u_message": "The trail cannot be followed from here yet. Keep the recovered directions; try again after traveling beyond this area. Your completed hunts and known destinations remain recorded.",
-      "type": "warning"
+      "u_message": "These directions do not yet reveal the road. The record has been kept.",
+      "type": "info",
+      "popup": false
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_FLORA_MESSAGE",
     "effect": {
-      "u_message": "The trail cannot be followed from here yet. Keep the recovered directions; try again after traveling beyond this area. Your completed hunts and known destinations remain recorded.",
-      "type": "warning"
+      "u_message": "These directions do not yet reveal the road. The record has been kept.",
+      "type": "info",
+      "popup": false
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_COUNT_MESSAGE",
     "effect": {
-      "u_message": "The trail cannot be followed from here yet. Keep the recovered directions; try again after traveling beyond this area. Your completed hunts and known destinations remain recorded.",
-      "type": "warning"
+      "u_message": "These directions do not yet reveal the road. The record has been kept.",
+      "type": "info",
+      "popup": false
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_WYALD_MESSAGE",
     "effect": {
-      "u_message": "The trail cannot be followed from here yet. Keep the recovered directions; try again after traveling beyond this area. Your completed hunts and known destinations remain recorded.",
-      "type": "warning"
+      "u_message": "These directions do not yet reveal the road. The record has been kept.",
+      "type": "info",
+      "popup": false
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_ROSINE_MESSAGE",
     "effect": {
-      "u_message": "The trail cannot be followed from here yet. Keep the recovered directions; try again after traveling beyond this area. Your completed hunts and known destinations remain recorded.",
-      "type": "warning"
+      "u_message": "These directions do not yet reveal the road. The record has been kept.",
+      "type": "info",
+      "popup": false
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SITE_GRUNBELD_MESSAGE",
     "effect": {
-      "u_message": "The trail cannot be followed from here yet. Keep the recovered directions; try again after traveling beyond this area. Your completed hunts and known destinations remain recorded.",
-      "type": "warning"
+      "if": {
+        "math": [
+          "u_berserk_route_notice_quiet != 1"
+        ]
+      },
+      "then": {
+        "u_message": "These directions do not yet reveal the road. The record has been kept.",
+        "type": "info",
+        "popup": false
+      }
     }
   }
 ]

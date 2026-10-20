@@ -13,8 +13,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -57,9 +64,6 @@
               "math": [
                 "u_berserk_flora_armor_resolved == 1"
               ]
-            },
-            {
-              "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
             }
           ]
         }
@@ -75,14 +79,6 @@
       },
       {
         "run_eocs": "EOC_BERSERK_FLORA_SYNC_MANOR_CENTER"
-      },
-      {
-        "if": {
-          "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
-        },
-        "then": {
-          "run_eocs": "EOC_BERSERK_FLORA_GIVE_ARMOR"
-        }
       },
       {
         "run_eocs": "EOC_BERSERK_FLORA_ACKNOWLEDGE_ARMOR"
@@ -1173,16 +1169,26 @@
         "run_eocs": "EOC_BERSERK_GRUNBELD_WITHDRAW_GROVE"
       },
       {
-        "run_eocs": "EOC_BERSERK_CAMPAIGN_POST_FIRE"
-      },
-      {
         "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
       },
       {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
       },
       {
+        "math": [
+          "u_berserk_route_notice_quiet = 1"
+        ]
+      },
+      {
         "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
+      },
+      {
+        "math": [
+          "u_berserk_route_notice_quiet = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_POST_FIRE"
       }
     ],
     "condition": {
@@ -1672,8 +1678,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -1790,7 +1803,7 @@
                 ]
               },
               "then": {
-                "u_message": "The manor has not been registered. Begin a conversation with Flora in her manor, then try the charm again.",
+                "u_message": "The charm remains silent. Speak with Flora here, beside the spiritual tree.",
                 "type": "info",
                 "popup": true
               },

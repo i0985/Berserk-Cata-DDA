@@ -2,8 +2,8 @@
   {
     "type": "furniture",
     "id": "f_berserk_oak_noisemaker_armed",
-    "name": "hanging bone chimes",
-    "description": "The delayed mechanism is wound. It will make four bursts of noise, then stop. It cannot be wound again until 90 seconds after activation.",
+    "name": "broken fitting",
+    "description": "Only a worn fastening remains.",
     "symbol": "!",
     "color": "white",
     "move_cost_mod": 0,
@@ -11,12 +11,7 @@
     "flags": [
       "TRANSPARENT"
     ],
-    "examine_action": {
-      "type": "effect_on_condition",
-      "effect_on_conditions": [
-        "EOC_BERSERK_DISTRACTION_BUSY"
-      ]
-    },
+    "examine_action": "none",
     "looks_like": "f_counter"
   },
   {
@@ -24,7 +19,7 @@
     "id": "berserk_oak_noisemaker_arm",
     "furniture": [
       {
-        "result": "f_berserk_oak_noisemaker_armed",
+        "result": "f_null",
         "valid_furniture": [
           "f_berserk_oak_noisemaker"
         ],
@@ -68,8 +63,8 @@
   {
     "type": "furniture",
     "id": "f_berserk_chapel_noisemaker_armed",
-    "name": "cracked chapel bell",
-    "description": "The delayed mechanism is wound. It will make four bursts of noise, then stop. It cannot be wound again until 90 seconds after activation.",
+    "name": "broken fitting",
+    "description": "Only a worn fastening remains.",
     "looks_like": "f_counter",
     "symbol": "!",
     "color": "yellow",
@@ -78,19 +73,14 @@
     "flags": [
       "TRANSPARENT"
     ],
-    "examine_action": {
-      "type": "effect_on_condition",
-      "effect_on_conditions": [
-        "EOC_BERSERK_DISTRACTION_BUSY"
-      ]
-    }
+    "examine_action": "none"
   },
   {
     "type": "ter_furn_transform",
     "id": "berserk_chapel_noisemaker_arm",
     "furniture": [
       {
-        "result": "f_berserk_chapel_noisemaker_armed",
+        "result": "f_null",
         "valid_furniture": [
           "f_berserk_chapel_noisemaker"
         ],
@@ -101,8 +91,8 @@
   {
     "type": "furniture",
     "id": "f_berserk_expedition_noisemaker_armed",
-    "name": "wind-up emergency siren",
-    "description": "The delayed mechanism is wound. It will make four bursts of noise, then stop. It cannot be wound again until 90 seconds after activation.",
+    "name": "broken fitting",
+    "description": "Only a worn fastening remains.",
     "looks_like": "f_counter",
     "symbol": "!",
     "color": "yellow",
@@ -111,19 +101,14 @@
     "flags": [
       "TRANSPARENT"
     ],
-    "examine_action": {
-      "type": "effect_on_condition",
-      "effect_on_conditions": [
-        "EOC_BERSERK_DISTRACTION_BUSY"
-      ]
-    }
+    "examine_action": "none"
   },
   {
     "type": "ter_furn_transform",
     "id": "berserk_expedition_noisemaker_arm",
     "furniture": [
       {
-        "result": "f_berserk_expedition_noisemaker_armed",
+        "result": "f_null",
         "valid_furniture": [
           "f_berserk_expedition_noisemaker"
         ],
@@ -136,30 +121,9 @@
     "id": "berserk_noisemakers_reset",
     "furniture": [
       {
-        "result": "f_berserk_oak_noisemaker",
-        "valid_furniture": [
-          "f_berserk_oak_noisemaker_armed"
-        ],
-        "valid_flags": []
-      },
-      {
         "result": "f_berserk_cave_noisemaker",
         "valid_furniture": [
           "f_berserk_cave_noisemaker_armed"
-        ],
-        "valid_flags": []
-      },
-      {
-        "result": "f_berserk_chapel_noisemaker",
-        "valid_furniture": [
-          "f_berserk_chapel_noisemaker_armed"
-        ],
-        "valid_flags": []
-      },
-      {
-        "result": "f_berserk_expedition_noisemaker",
-        "valid_furniture": [
-          "f_berserk_expedition_noisemaker_armed"
         ],
         "valid_flags": []
       }

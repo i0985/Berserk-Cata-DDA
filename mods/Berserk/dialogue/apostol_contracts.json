@@ -1,0 +1,498 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_FAVOR",
+        "yes": "Your service has been accepted. The borrowed impulse is sustained for now; no further supplies are due until that favor fades.",
+        "no": "Bring two pieces of leather for the household stores. In return I will nourish the strength I gave you."
+      },
+      "no": {
+        "math": [
+          "berserk_apostol_count_pawn_encounter == 1"
+        ],
+        "yes": "A place at my court, walls between you and the night. I can make you worth keeping. Look at my servants: none need fear exile, so long as they remember whom they serve. Stop there and answer. If you turn away from this offer, we meet as enemies.",
+        "no": "There is no offer now. The apostle has chosen battle."
+      }
+    },
+    "responses": [
+      {
+        "text": "What will happen to me?",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_PRICE",
+        "condition": {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 1"
+          ]
+        }
+      },
+      {
+        "text": "What do you expect in return?",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SERVICE",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "berserk_apostol_count_pawn_encounter == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+            }
+          ]
+        }
+      },
+      {
+        "text": "I accept. Let me weigh the price once more.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_ACCEPT"
+        }
+      },
+      {
+        "text": "I will not serve you.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_REFUSE"
+        }
+      },
+      {
+        "text": "Here are the supplies you demanded.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_apostol_pawn_favor_until"
+              ]
+            },
+            {
+              "u_has_items": {
+                "item": "leather",
+                "count": 2
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_PAY"
+        }
+      },
+      {
+        "text": "Enough. I am leaving.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_CLOSE"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_PRICE",
+    "dynamic_line": "The uniforms hang on bodies that no longer fit them. One servant bows before the Count has even spoken. You would gain shelter, but not an equal’s freedom.",
+    "responses": [
+      {
+        "text": "Back to your offer.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SERVICE",
+    "dynamic_line": "Bring two pieces of leather for the household stores. In return I will nourish the strength I gave you.",
+    "responses": [
+      {
+        "text": "Back to your offer.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_FAVOR",
+        "yes": "Your service has been accepted. The borrowed impulse is sustained for now; no further supplies are due until that favor fades.",
+        "no": "Bring twelve scraps of metal for my men’s gear. Earn your next burst of strength."
+      },
+      "no": {
+        "math": [
+          "berserk_apostol_wyald_pawn_encounter == 1"
+        ],
+        "yes": "You’ve got nerve. Forget the rules that keep weak men crawling. Run with the Black Dogs, and I’ll give you claws to match it. Just remember: even a beast knows who leads the pack. Stop there and answer. If you turn away from this offer, we meet as enemies.",
+        "no": "There is no offer now. The apostle has chosen battle."
+      }
+    },
+    "responses": [
+      {
+        "text": "What will happen to me?",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_PRICE",
+        "condition": {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 1"
+          ]
+        }
+      },
+      {
+        "text": "What do you expect in return?",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SERVICE",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "berserk_apostol_wyald_pawn_encounter == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+            }
+          ]
+        }
+      },
+      {
+        "text": "I accept. Let me weigh the price once more.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_ACCEPT"
+        }
+      },
+      {
+        "text": "I will not serve you.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_REFUSE"
+        }
+      },
+      {
+        "text": "Here are the supplies you demanded.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_apostol_pawn_favor_until"
+              ]
+            },
+            {
+              "u_has_items": {
+                "item": "scrap",
+                "count": 12
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_PAY"
+        }
+      },
+      {
+        "text": "Enough. I am leaving.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_CLOSE"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_PRICE",
+    "dynamic_line": "His men keep out of reach of his hands. The promise of freedom ends wherever Wyald’s amusement begins. The strength he offers is a leash with teeth.",
+    "responses": [
+      {
+        "text": "Back to your offer.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SERVICE",
+    "dynamic_line": "Bring twelve scraps of metal for my men’s gear. Earn your next burst of strength.",
+    "responses": [
+      {
+        "text": "Back to your offer.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_FAVOR",
+        "yes": "Your service has been accepted. The borrowed impulse is sustained for now; no further supplies are due until that favor fades.",
+        "no": "Bring four pieces of animal meat to feed the nest. Then you may use the gift again."
+      },
+      "no": {
+        "math": [
+          "berserk_apostol_rosine_pawn_encounter == 1"
+        ],
+        "yes": "Why go back where everyone hurts you? Stay with us. You can be light and quick, and never alone again. Don’t mind their voices; they hardly need words here. Stop there and answer. If you turn away from this offer, we meet as enemies.",
+        "no": "There is no offer now. The apostle has chosen battle."
+      }
+    },
+    "responses": [
+      {
+        "text": "What will happen to me?",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_PRICE",
+        "condition": {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 1"
+          ]
+        }
+      },
+      {
+        "text": "What do you expect in return?",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SERVICE",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "berserk_apostol_rosine_pawn_encounter == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+            }
+          ]
+        }
+      },
+      {
+        "text": "I accept. Let me weigh the price once more.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_ACCEPT"
+        }
+      },
+      {
+        "text": "I will not serve you.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_REFUSE"
+        }
+      },
+      {
+        "text": "Here are the supplies you demanded.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_apostol_pawn_favor_until"
+              ]
+            },
+            {
+              "u_has_items": {
+                "item": "meat",
+                "count": 4
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_PAY"
+        }
+      },
+      {
+        "text": "Enough. I am leaving.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_CLOSE"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_PRICE",
+    "dynamic_line": "The little shapes around the nest chirr instead of answering. Their human belongings lie among torn cocoons. You would keep your will, but words and skilled hands would become harder to use.",
+    "responses": [
+      {
+        "text": "Back to your offer.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SERVICE",
+    "dynamic_line": "Bring four pieces of animal meat to feed the nest. Then you may use the gift again.",
+    "responses": [
+      {
+        "text": "Back to your offer.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_FAVOR",
+        "yes": "Your service has been accepted. The borrowed impulse is sustained for now; no further supplies are due until that favor fades.",
+        "no": "Bring four steel lumps for the damaged armor. Service earns strength; the shell alone does not."
+      },
+      "no": {
+        "math": [
+          "berserk_apostol_grunbeld_pawn_encounter == 1"
+        ],
+        "yes": "A fragile body is no answer to the battles ahead. I offer a shell and a place among those who endure. You will serve, not reign. Decide before taking another step toward me. Stop there and answer. If you turn away from this offer, we meet as enemies.",
+        "no": "There is no offer now. The apostle has chosen battle."
+      }
+    },
+    "responses": [
+      {
+        "text": "What will happen to me?",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_PRICE",
+        "condition": {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter == 1"
+          ]
+        }
+      },
+      {
+        "text": "What do you expect in return?",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_SERVICE",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "berserk_apostol_grunbeld_pawn_encounter == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
+            }
+          ]
+        }
+      },
+      {
+        "text": "I accept. Let me weigh the price once more.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_ACCEPT"
+        }
+      },
+      {
+        "text": "I will not serve you.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_REFUSE"
+        }
+      },
+      {
+        "text": "Here are the supplies you demanded.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_apostol_pawn_favor_until"
+              ]
+            },
+            {
+              "u_has_items": {
+                "item": "steel_lump",
+                "count": 4
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_PAY"
+        }
+      },
+      {
+        "text": "Enough. I am leaving.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_CLOSE"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_PRICE",
+    "dynamic_line": "The armor bears scars of service rather than honor. He offers endurance, not his dragon’s fire. The heavy shell would remain even if its owner stopped answering.",
+    "responses": [
+      {
+        "text": "Back to your offer.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_SERVICE",
+    "dynamic_line": "Bring four steel lumps for the damaged armor. Service earns strength; the shell alone does not.",
+    "responses": [
+      {
+        "text": "Back to your offer.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
+      }
+    ]
+  }
+]

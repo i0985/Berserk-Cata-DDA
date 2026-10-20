@@ -1,0 +1,154 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_VOID_SEED",
+    "name": {
+      "str": "Seed of folded space"
+    },
+    "description": "Your body feels light and frail; nearby distances seem uncertain.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_VOID"
+    ],
+    "threshold": true,
+    "flags": [
+      "MUTATION_THRESHOLD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STRENGTH",
+            "add": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_VOID_SENSES",
+    "name": {
+      "str": "Senses of folded space"
+    },
+    "description": "The gift sharpens your senses. Its permanent weakness remains throughout the transformation.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_VOID"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PERCEPTION",
+            "add": 1
+          },
+          {
+            "value": "NIGHT_VIS",
+            "add": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_VOID_FORM",
+    "name": {
+      "str": "Body of folded space"
+    },
+    "description": "A fragile, elongated shape sharpens perception of distance. Gain +2 dexterity, +1 dodge and 1 point of natural protection. This body is permanent; returning to human shape is impossible.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_VOID"
+    ],
+    "flags": [
+      "BERSERK_VOID_FORM_ACTIVE"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "DEXTERITY",
+            "add": 2
+          },
+          {
+            "value": "DODGE_CHANCE",
+            "add": 1
+          },
+          {
+            "value": "ARMOR_ALL",
+            "add": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_VOID_APOSTLE",
+    "name": {
+      "str": "Apostle of folded space"
+    },
+    "description": "Your transformation is complete. You bear a limited gift of Void; you have not become a member of the God Hand. Your abilities and weaknesses will grow no further.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_VOID"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_VOID_STEP",
+    "name": {
+      "str": "Folded step"
+    },
+    "description": "In your other shape, step to a visible, unoccupied place within 4 tiles. Costs 1000 stamina and 1 second; recovers in 20 seconds. A blocked destination does not consume strength.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_VOID"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_VOID_STEP_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_VOID_WARD",
+    "name": {
+      "str": "Bend the impact"
+    },
+    "description": "In your other shape, reduce the next damaging impact by 40% for up to 3 seconds. Costs 1400 stamina and 1 second; recovers in 45 seconds. Damage that ignores resistance can still pass through.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_VOID"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_VOID_WARD_USE"
+    ]
+  }
+]

@@ -28,51 +28,84 @@
           ]
         },
         {
-          "math": [
-            "u_berserk_first_hunt_done == 1"
+          "or": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+            }
           ]
         }
       ]
     },
-    "effect": {
-      "if": {
-        "and": [
-          {
-            "math": [
-              "has_var(berserk_hunt_count_location)"
-            ]
-          },
-          {
-            "math": [
-              "berserk_hunt_count_state >= 1"
-            ]
-          }
-        ]
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_COUNT"
       },
-      "then": [
-        {
-          "reveal_map": {
-            "global_val": "berserk_hunt_count_location"
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "has_var(berserk_hunt_count_location)"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_count_state >= 1"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "reveal_map": {
+              "global_val": "berserk_hunt_count_location"
+            },
+            "radius": 1
           },
-          "radius": 1
-        },
-        {
-          "u_message": "The Count's residence is marked on your map. His servants patrol the grounds; the apostle waits below the execution hall.",
-          "type": "info"
-        },
-        {
-          "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+          {
+            "run_eocs": "EOC_BERSERK_DIALOGUE_NOTICE_COUNT"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+          }
+        ],
+        "else": {
+          "run_eocs": "EOC_BERSERK_COUNT_FIND"
         }
-      ],
-      "else": {
-        "run_eocs": "EOC_BERSERK_COUNT_FIND"
       }
-    }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_COUNT_FIND",
     "effect": [
+      {
+        "if": {
+          "math": [
+            "u_berserk_site_count_locator_schema != 2"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_site_count_tries = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_site_count_locator_schema = 2"
+            ]
+          }
+        ]
+      },
       {
         "if": {
           "or": [
@@ -135,9 +168,11 @@
               },
               "target_params": {
                 "om_terrain": "berserk_count_hall",
-                "random": false,
+                "random": true,
                 "min_distance": 0,
-                "z": 0
+                "z": 0,
+                "om_special": "berserk_count_residence_special",
+                "search_range": 80
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_COUNT_VALIDATE"
@@ -152,9 +187,11 @@
               },
               "target_params": {
                 "om_terrain": "berserk_count_hall",
-                "random": false,
+                "random": true,
                 "min_distance": 0,
-                "z": 0
+                "z": 0,
+                "om_special": "berserk_count_residence_special",
+                "search_range": 120
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_COUNT_VALIDATE"
@@ -187,9 +224,7 @@
         "radius": 1
       },
       {
-        "u_message": "A trail of executions leads to the Count's fortified residence, now marked on your map. Explore the grounds before descending. His servants are mortal; no endless reinforcements will replace them.",
-        "type": "warning",
-        "popup": true
+        "run_eocs": "EOC_BERSERK_DIALOGUE_NOTICE_COUNT"
       },
       {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
@@ -200,8 +235,9 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_COUNT_NOT_FOUND",
     "effect": {
-      "u_message": "No suitable residence could be located nearby. Travel elsewhere and consult the hunt journal or the Skull Knight again.",
-      "type": "info"
+      "u_message": "These directions do not yet reveal the road. The record has been kept.",
+      "type": "info",
+      "popup": false
     }
   },
   {
@@ -406,9 +442,37 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_COUNT_TROPHY_READ",
     "effect": {
-      "u_message": "Wear the Seal of Severed Flesh to add 20% of each damaging hit against the listed demons, apostles and projections; the extra damage is rounded down after their defenses. Zombies and people receive no extra damage. Closing the Count's exposed breach quiets future incursions near his residence, but does not erase the Brand. Other apostles must be hunted separately.",
-      "type": "info",
-      "popup": true
-    }
+      "if": {
+        "math": [
+          "u_berserk_journal_read_berserk_count_iron_seal == 1"
+        ]
+      },
+      "then": {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_IRON_SEAL"
+        }
+      },
+      "else": [
+        {
+          "u_message": "Wear the Seal of Severed Flesh to add 20% of each damaging hit against the listed demons, apostles and projections; the extra damage is rounded down after their defenses. Zombies and people receive no extra damage. Closing the Count's exposed breach quiets future incursions near his residence, but does not erase the Brand. Other apostles must be hunted separately.",
+          "type": "info",
+          "popup": true
+        },
+        {
+          "math": [
+            "u_berserk_journal_read_berserk_count_iron_seal = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+        },
+        {
+          "u_message": "A new entry has been added to your road journal.",
+          "type": "info",
+          "popup": false
+        }
+      ]
+    },
+    "//": "Road journal archive: berserk_count_iron_seal"
   }
 ]

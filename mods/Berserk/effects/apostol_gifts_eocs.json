@@ -1,0 +1,2312 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GIFT_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_apostol_path == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_return_state == 2"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 3"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 4"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 5"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GIFT_BEGIN",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_VOID_BEGIN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_SLAN_BEGIN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_UBIK_BEGIN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_CONRAD_BEGIN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_FEMTO_BEGIN"
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_GIFT_GROW",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_VOID_GROW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_UBIK_GROW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_CONRAD_GROW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_FEMTO_GROW"
+      }
+    ],
+    "eoc_type": "RECURRING",
+    "recurrence": "1 minute",
+    "deactivate_condition": {
+      "math": [
+        "u_berserk_apostol_stage >= 3"
+      ]
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage != 2"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    },
+    "global": true
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VOID_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VOID_BEGIN",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_started_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_step = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_running = 1"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_trait": "BERSERK_VOID_SEED"
+          }
+        },
+        "then": {
+          "u_add_trait": "BERSERK_VOID_SEED"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_VOID_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VOID_GROW",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 0"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('6 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_VOID_SENSES"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_VOID_SENSES"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 2"
+            ]
+          },
+          {
+            "u_message": "Your senses sharpen, while the gift’s weakness settles into your body.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('18 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_VOID_FORM"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_VOID_FORM"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 2"
+            ]
+          },
+          {
+            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('36 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_VOID_STEP"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_VOID_STEP"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 3"
+            ]
+          },
+          {
+            "u_message": "The gift answers a new impulse. Its first fighting abilities are now yours.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 3"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('60 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_VOID_WARD"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_VOID_WARD"
+            }
+          },
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_VOID_APOSTLE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_VOID_APOSTLE"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 4"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_running = 0"
+            ]
+          },
+          {
+            "u_message": "The transformation settles. It will grow no further; its strength and its price remain yours.",
+            "type": "warning"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_VOID_LINE"
+        },
+        {
+          "math": [
+            "has_var(u_berserk_apostol_started_at)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VOID_FORM_ON",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_VOID_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VOID_FORM_OFF",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_VOID_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_BEGIN",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_started_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_step = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_running = 1"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_trait": "BERSERK_UBIK_SEED"
+          }
+        },
+        "then": {
+          "u_add_trait": "BERSERK_UBIK_SEED"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_GROW",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 0"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('6 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_UBIK_SENSES"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_UBIK_SENSES"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 2"
+            ]
+          },
+          {
+            "u_message": "Your senses sharpen, while the gift’s weakness settles into your body.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('18 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_UBIK_FORM"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_UBIK_FORM"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 2"
+            ]
+          },
+          {
+            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('36 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_UBIK_IMAGE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_UBIK_IMAGE"
+            }
+          },
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_UBIK_CONFUSE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_UBIK_CONFUSE"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 3"
+            ]
+          },
+          {
+            "u_message": "The gift answers a new impulse. Its first fighting abilities are now yours.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 3"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('60 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_UBIK_VEIL"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_UBIK_VEIL"
+            }
+          },
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_UBIK_APOSTLE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_UBIK_APOSTLE"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 4"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_running = 0"
+            ]
+          },
+          {
+            "u_message": "The transformation settles. It will grow no further; its strength and its price remain yours.",
+            "type": "warning"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_LINE"
+        },
+        {
+          "math": [
+            "has_var(u_berserk_apostol_started_at)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_FORM_ON",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_FORM_OFF",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CONRAD_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 4"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CONRAD_BEGIN",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_started_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_step = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_running = 1"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_trait": "BERSERK_CONRAD_SEED"
+          }
+        },
+        "then": {
+          "u_add_trait": "BERSERK_CONRAD_SEED"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CONRAD_GROW",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 0"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('6 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_CONRAD_SENSES"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_CONRAD_SENSES"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 2"
+            ]
+          },
+          {
+            "u_message": "Your senses sharpen, while the gift’s weakness settles into your body.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('18 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_CONRAD_FORM"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_CONRAD_FORM"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 2"
+            ]
+          },
+          {
+            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('36 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_CONRAD_STRIKE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_CONRAD_STRIKE"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 3"
+            ]
+          },
+          {
+            "u_message": "The gift answers a new impulse. Its first fighting abilities are now yours.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 3"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('60 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_CONRAD_CLOUD"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_CONRAD_CLOUD"
+            }
+          },
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_CONRAD_APOSTLE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_CONRAD_APOSTLE"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 4"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_running = 0"
+            ]
+          },
+          {
+            "u_message": "The transformation settles. It will grow no further; its strength and its price remain yours.",
+            "type": "warning"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_LINE"
+        },
+        {
+          "math": [
+            "has_var(u_berserk_apostol_started_at)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CONRAD_FORM_ON",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CONRAD_FORM_OFF",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_LINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_lineage == 5"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_BEGIN",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_started_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_step = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_growth_running = 1"
+        ]
+      },
+      {
+        "if": {
+          "not": {
+            "u_has_trait": "BERSERK_FEMTO_SEED"
+          }
+        },
+        "then": {
+          "u_add_trait": "BERSERK_FEMTO_SEED"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_LINE"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "has_var(u_berserk_apostol_started_at)"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_GROW",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 0"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('6 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_FEMTO_SENSES"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_FEMTO_SENSES"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 2"
+            ]
+          },
+          {
+            "u_message": "Your senses sharpen, while the gift’s weakness settles into your body.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('18 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_FEMTO_FORM"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_FEMTO_FORM"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 2"
+            ]
+          },
+          {
+            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('36 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_FEMTO_PULSE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_FEMTO_PULSE"
+            }
+          },
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_FEMTO_DASH"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_FEMTO_DASH"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 3"
+            ]
+          },
+          {
+            "u_message": "The gift answers a new impulse. Its first fighting abilities are now yours.",
+            "type": "warning"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_growth_step == 3"
+              ]
+            },
+            {
+              "math": [
+                "time('now') - u_berserk_apostol_started_at >= time('60 hours')"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_FEMTO_SUPPRESS"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_FEMTO_SUPPRESS"
+            }
+          },
+          {
+            "if": {
+              "not": {
+                "u_has_trait": "BERSERK_FEMTO_APOSTLE"
+              }
+            },
+            "then": {
+              "u_add_trait": "BERSERK_FEMTO_APOSTLE"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_step = 4"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_stage = 3"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_growth_running = 0"
+            ]
+          },
+          {
+            "u_message": "The transformation settles. It will grow no further; its strength and its price remain yours.",
+            "type": "warning"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_LINE"
+        },
+        {
+          "math": [
+            "has_var(u_berserk_apostol_started_at)"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_growth_running == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_stage < 3"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_FORM_ON",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_FORM_OFF",
+    "effect": [],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VOID_STEP_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_VOID_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_VOID_STEP"
+        },
+        {
+          "u_has_flag": "BERSERK_VOID_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1000"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_void_step_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VOID_STEP_SPEND",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 1000"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_void_step_ready_at = time('now') + time('20 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_VOID_STEP_READY"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VOID_STEP_RESULT",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_VOID_STEP_SPEND"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_VOID_STEP_READY"
+            },
+            {
+              "math": [
+                "distance('u', u_berserk_apostol_step_origin) > 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VOID_STEP_USE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_VOID_STEP_READY"
+      },
+      "then": [
+        {
+          "u_location_variable": {
+            "u_val": "berserk_apostol_step_origin"
+          }
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_void_step",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_VOID_STEP_RESULT"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_VOID_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VOID_WARD_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_VOID_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_VOID_WARD"
+        },
+        {
+          "u_has_flag": "BERSERK_VOID_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1400"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_void_ward_ready_at"
+          ]
+        },
+        {
+          "not": {
+            "u_has_effect": "berserk_apostol_void_ward"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VOID_WARD_SPEND",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 1400"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_void_ward_ready_at = time('now') + time('45 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_VOID_WARD_READY"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VOID_WARD_USE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_VOID_WARD_READY"
+      },
+      "then": [
+        {
+          "u_add_effect": "berserk_apostol_void_ward",
+          "duration": "3 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_APOSTOL_VOID_WARD_SPEND"
+        }
+      ],
+      "else": {
+        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_VOID_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_VOID_WARD_BREAK",
+    "effect": {
+      "u_lose_effect": "berserk_apostol_void_ward"
+    },
+    "eoc_type": "EVENT",
+    "required_event": "character_takes_damage",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_has_effect": "berserk_apostol_void_ward"
+        },
+        {
+          "math": [
+            "_damage > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_IMAGE_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_UBIK_IMAGE"
+        },
+        {
+          "u_has_flag": "BERSERK_UBIK_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 800"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_ubik_image_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_IMAGE_SPEND",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 800"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_ubik_image_ready_at = time('now') + time('20 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_IMAGE_READY"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_IMAGE_USE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_IMAGE_READY"
+      },
+      "then": [
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_ubik_image",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_UBIK_IMAGE_SPEND"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_TARGET",
+    "effect": {
+      "u_add_effect": "stunned",
+      "duration": "2 seconds"
+    },
+    "condition": {
+      "and": [
+        "u_is_monster",
+        {
+          "not": {
+            "or": [
+              {
+                "u_has_species": "ROBOT"
+              },
+              {
+                "u_has_species": "ZOMBIE"
+              },
+              {
+                "u_has_species": "SLIME"
+              },
+              {
+                "u_has_species": "INSECT"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_UBIK_CONFUSE"
+        },
+        {
+          "u_has_flag": "BERSERK_UBIK_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1100"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_ubik_confuse_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_SPEND",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 1100"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_ubik_confuse_ready_at = time('now') + time('25 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_READY"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_USE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_READY"
+      },
+      "then": [
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_ubik_confuse",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_SPEND"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_VEIL_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_UBIK_VEIL"
+        },
+        {
+          "u_has_flag": "BERSERK_UBIK_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1500"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_ubik_veil_ready_at"
+          ]
+        },
+        {
+          "not": {
+            "u_has_effect": "berserk_apostol_ubik_veil"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_VEIL_SPEND",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 1500"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_ubik_veil_ready_at = time('now') + time('45 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_VEIL_READY"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UBIK_VEIL_USE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_VEIL_READY"
+      },
+      "then": [
+        {
+          "u_add_effect": "berserk_apostol_ubik_veil",
+          "duration": "4 seconds"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_APOSTOL_UBIK_VEIL_SPEND"
+        }
+      ],
+      "else": {
+        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_TARGET",
+    "effect": {
+      "u_add_effect": "berserk_apostol_rot",
+      "duration": "8 seconds"
+    },
+    "condition": {
+      "and": [
+        "u_is_monster",
+        {
+          "not": {
+            "or": [
+              {
+                "u_has_species": "ROBOT"
+              },
+              {
+                "u_has_species": "ZOMBIE"
+              },
+              {
+                "u_has_species": "SLIME"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_CONRAD_STRIKE"
+        },
+        {
+          "u_has_flag": "BERSERK_CONRAD_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 700"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_conrad_strike_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_SPEND",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 700"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_conrad_strike_ready_at = time('now') + time('12 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_READY"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_USE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_READY"
+      },
+      "then": [
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_conrad_strike",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_SPEND"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CONRAD_CLOUD_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_CONRAD_CLOUD"
+        },
+        {
+          "u_has_flag": "BERSERK_CONRAD_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1500"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_conrad_cloud_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CONRAD_CLOUD_SPEND",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 1500"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_conrad_cloud_ready_at = time('now') + time('40 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "2 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_CLOUD_READY"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_CONRAD_CLOUD_USE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_CLOUD_READY"
+      },
+      "then": [
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_conrad_cloud",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_CONRAD_CLOUD_SPEND"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_PULSE_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_FEMTO_PULSE"
+        },
+        {
+          "u_has_flag": "BERSERK_FEMTO_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1600"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_femto_pulse_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_PULSE_SPEND",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 1600"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_femto_pulse_ready_at = time('now') + time('25 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_PULSE_READY"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_PULSE_USE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_PULSE_READY"
+      },
+      "then": [
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_femto_pulse",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_FEMTO_PULSE_SPEND"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_DASH_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_FEMTO_DASH"
+        },
+        {
+          "u_has_flag": "BERSERK_FEMTO_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1200"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_femto_dash_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_DASH_SPEND",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 1200"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_femto_dash_ready_at = time('now') + time('15 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "1 seconds"
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_DASH_READY"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_DASH_RESULT",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_FEMTO_DASH_SPEND"
+      },
+      {
+        "u_add_effect": "berserk_apostol_exposed",
+        "duration": "2 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_DASH_READY"
+            },
+            {
+              "math": [
+                "distance('u', u_berserk_apostol_step_origin) > 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_DASH_USE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_DASH_READY"
+      },
+      "then": [
+        {
+          "u_location_variable": {
+            "u_val": "berserk_apostol_step_origin"
+          }
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_femto_dash",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_FEMTO_DASH_RESULT"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_LINE"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_SUPPRESS_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_LINE"
+        },
+        {
+          "u_has_trait": "BERSERK_FEMTO_SUPPRESS"
+        },
+        {
+          "u_has_flag": "BERSERK_FEMTO_FORM_ACTIVE"
+        },
+        {
+          "math": [
+            "u_val('stamina') >= 1800"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_apostol_femto_suppress_ready_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_SUPPRESS_SPEND",
+    "effect": [
+      {
+        "math": [
+          "u_val('stamina') -= 1800"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_femto_suppress_ready_at = time('now') + time('35 seconds')"
+        ]
+      },
+      {
+        "turn_cost": "2 seconds"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_SUPPRESS_READY"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FEMTO_SUPPRESS_USE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_SUPPRESS_READY"
+      },
+      "then": [
+        {
+          "math": [
+            "u_berserk_apostol_cast_confirmed = 0"
+          ]
+        },
+        {
+          "u_cast_spell": {
+            "id": "berserk_apostol_femto_suppression",
+            "hit_self": false
+          },
+          "targeted": true,
+          "true_eocs": [
+            "EOC_BERSERK_APOSTOL_FEMTO_SUPPRESS_SPEND"
+          ]
+        }
+      ],
+      "else": {
+        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "type": "neutral"
+      }
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_LINE"
+    }
+  }
+]

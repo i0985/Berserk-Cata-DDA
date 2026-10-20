@@ -1,0 +1,82 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_BEHELIT_NOTICE",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_SYNC_RECIPE"
+      },
+      {
+        "math": [
+          "u_berserk_apostol_behelit_notice = 1"
+        ]
+      },
+      {
+        "u_message": "The Behelit seems to call to you. Blood might make it answer differently. A recipe to drench a Behelit in blood is available in the crafting menu. This road will leave you changed, even if you refuse its gift.",
+        "type": "warning",
+        "popup": true
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CAN_DISTORT_BEHELIT"
+        },
+        {
+          "u_has_item": "berserk_behelit"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_behelit_notice == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_BEHELIT_NOTICE_WATCH",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_BEHELIT_NOTICE"
+    },
+    "eoc_type": "RECURRING",
+    "recurrence": "1 second",
+    "deactivate_condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_apostol_behelit_notice == 1"
+          ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_ORDINARY_SURVIVOR"
+          }
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_route != 0"
+          ]
+        }
+      ]
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_apostol_behelit_notice == 0"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CAN_DISTORT_BEHELIT"
+        },
+        {
+          "u_has_item": "berserk_behelit"
+        }
+      ]
+    },
+    "global": true
+  }
+]

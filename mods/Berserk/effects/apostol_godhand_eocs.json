@@ -1,0 +1,505 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_ATTACK_CHARACTER_MELEE_ATTACKS_MONSTER",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_RAGE"
+    },
+    "eoc_type": "EVENT",
+    "required_event": "character_melee_attacks_monster",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        "has_beta",
+        {
+          "npc_has_species": "BERSERK_GODHAND"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_ATTACK_CHARACTER_RANGED_ATTACKS_MONSTER",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_RAGE"
+    },
+    "eoc_type": "EVENT",
+    "required_event": "character_ranged_attacks_monster",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        "has_beta",
+        {
+          "npc_has_species": "BERSERK_GODHAND"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_DAMAGE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_RAGE",
+      "alpha_talker": "avatar"
+    },
+    "eoc_type": "EVENT",
+    "required_event": "monster_takes_damage",
+    "condition": {
+      "and": [
+        "u_is_monster",
+        {
+          "u_has_species": "BERSERK_GODHAND"
+        },
+        "has_beta",
+        "npc_is_avatar"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_RAGE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_godhand_attacked = 1"
+        ]
+      },
+      {
+        "u_run_monster_eocs": [
+          "EOC_BERSERK_APOSTOL_HAND_ANGER"
+        ],
+        "mtype_ids": [
+          "mon_berserk_godhand_void",
+          "mon_berserk_godhand_slan",
+          "mon_berserk_godhand_ubik",
+          "mon_berserk_godhand_conrad",
+          "mon_berserk_godhand_femto"
+        ],
+        "monster_range": 80
+      },
+      {
+        "u_message": "The five voices fall silent. The figures turn toward you.",
+        "type": "bad"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_apostol_godhand_attacked == 0"
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_eclipse_apostol_ceremony"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_ANGER",
+    "effect": [
+      {
+        "math": [
+          "u_val('anger') = 100"
+        ]
+      },
+      {
+        "math": [
+          "u_val('morale') = 100"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_monster",
+        {
+          "u_has_species": "BERSERK_GODHAND"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_VOID_INTRODUCED",
+    "effect": {
+      "math": [
+        "u_berserk_apostol_hand_void_introduced = 1"
+      ]
+    },
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_VOID_DIED",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_VOID_INTRODUCED",
+      "alpha_talker": "avatar"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_VOID_SPAWN",
+    "effect": {
+      "u_spawn_monster": "mon_berserk_godhand_void",
+      "real_count": 1,
+      "min_radius": 0,
+      "max_radius": 1,
+      "target_var": {
+        "u_val": "berserk_apostol_hand_anchor"
+      },
+      "true_eocs": [
+        "EOC_BERSERK_APOSTOL_HAND_VOID_INTRODUCED"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_SLAN_INTRODUCED",
+    "effect": {
+      "math": [
+        "u_berserk_apostol_hand_slan_introduced = 1"
+      ]
+    },
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_SLAN_DIED",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_SLAN_INTRODUCED",
+      "alpha_talker": "avatar"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_SLAN_SPAWN",
+    "effect": {
+      "u_spawn_monster": "mon_berserk_godhand_slan",
+      "real_count": 1,
+      "min_radius": 0,
+      "max_radius": 1,
+      "target_var": {
+        "u_val": "berserk_apostol_hand_anchor"
+      },
+      "true_eocs": [
+        "EOC_BERSERK_APOSTOL_HAND_SLAN_INTRODUCED"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_UBIK_INTRODUCED",
+    "effect": {
+      "math": [
+        "u_berserk_apostol_hand_ubik_introduced = 1"
+      ]
+    },
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_UBIK_DIED",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_UBIK_INTRODUCED",
+      "alpha_talker": "avatar"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_UBIK_SPAWN",
+    "effect": {
+      "u_spawn_monster": "mon_berserk_godhand_ubik",
+      "real_count": 1,
+      "min_radius": 0,
+      "max_radius": 1,
+      "target_var": {
+        "u_val": "berserk_apostol_hand_anchor"
+      },
+      "true_eocs": [
+        "EOC_BERSERK_APOSTOL_HAND_UBIK_INTRODUCED"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_CONRAD_INTRODUCED",
+    "effect": {
+      "math": [
+        "u_berserk_apostol_hand_conrad_introduced = 1"
+      ]
+    },
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_CONRAD_DIED",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_CONRAD_INTRODUCED",
+      "alpha_talker": "avatar"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_CONRAD_SPAWN",
+    "effect": {
+      "u_spawn_monster": "mon_berserk_godhand_conrad",
+      "real_count": 1,
+      "min_radius": 0,
+      "max_radius": 1,
+      "target_var": {
+        "u_val": "berserk_apostol_hand_anchor"
+      },
+      "true_eocs": [
+        "EOC_BERSERK_APOSTOL_HAND_CONRAD_INTRODUCED"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_FEMTO_INTRODUCED",
+    "effect": {
+      "math": [
+        "u_berserk_apostol_hand_femto_introduced = 1"
+      ]
+    },
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_FEMTO_DIED",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_FEMTO_INTRODUCED",
+      "alpha_talker": "avatar"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_FEMTO_SPAWN",
+    "effect": {
+      "u_spawn_monster": "mon_berserk_godhand_femto",
+      "real_count": 1,
+      "min_radius": 0,
+      "max_radius": 1,
+      "target_var": {
+        "u_val": "berserk_apostol_hand_anchor"
+      },
+      "true_eocs": [
+        "EOC_BERSERK_APOSTOL_HAND_FEMTO_INTRODUCED"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_ENSURE",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "u_berserk_apostol_hand_void_introduced == 0"
+          ]
+        },
+        "then": {
+          "if": {
+            "math": [
+              "u_monsters_nearby('mon_berserk_godhand_void', 'attitude': 'both', 'radius': 80) > 0"
+            ]
+          },
+          "then": {
+            "run_eocs": "EOC_BERSERK_APOSTOL_HAND_VOID_INTRODUCED"
+          },
+          "else": {
+            "u_location_variable": {
+              "u_val": "berserk_apostol_hand_anchor"
+            },
+            "furniture": "f_berserk_apostol_circle",
+            "target_max_radius": 35,
+            "x_adjust": -3,
+            "y_adjust": -1,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_HAND_VOID_SPAWN"
+            ]
+          }
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_apostol_hand_slan_introduced == 0"
+          ]
+        },
+        "then": {
+          "if": {
+            "math": [
+              "u_monsters_nearby('mon_berserk_godhand_slan', 'attitude': 'both', 'radius': 80) > 0"
+            ]
+          },
+          "then": {
+            "run_eocs": "EOC_BERSERK_APOSTOL_HAND_SLAN_INTRODUCED"
+          },
+          "else": {
+            "u_location_variable": {
+              "u_val": "berserk_apostol_hand_anchor"
+            },
+            "furniture": "f_berserk_apostol_circle",
+            "target_max_radius": 35,
+            "x_adjust": -1,
+            "y_adjust": -1,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_HAND_SLAN_SPAWN"
+            ]
+          }
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_apostol_hand_ubik_introduced == 0"
+          ]
+        },
+        "then": {
+          "if": {
+            "math": [
+              "u_monsters_nearby('mon_berserk_godhand_ubik', 'attitude': 'both', 'radius': 80) > 0"
+            ]
+          },
+          "then": {
+            "run_eocs": "EOC_BERSERK_APOSTOL_HAND_UBIK_INTRODUCED"
+          },
+          "else": {
+            "u_location_variable": {
+              "u_val": "berserk_apostol_hand_anchor"
+            },
+            "furniture": "f_berserk_apostol_circle",
+            "target_max_radius": 35,
+            "x_adjust": 1,
+            "y_adjust": -1,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_HAND_UBIK_SPAWN"
+            ]
+          }
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_apostol_hand_conrad_introduced == 0"
+          ]
+        },
+        "then": {
+          "if": {
+            "math": [
+              "u_monsters_nearby('mon_berserk_godhand_conrad', 'attitude': 'both', 'radius': 80) > 0"
+            ]
+          },
+          "then": {
+            "run_eocs": "EOC_BERSERK_APOSTOL_HAND_CONRAD_INTRODUCED"
+          },
+          "else": {
+            "u_location_variable": {
+              "u_val": "berserk_apostol_hand_anchor"
+            },
+            "furniture": "f_berserk_apostol_circle",
+            "target_max_radius": 35,
+            "x_adjust": 3,
+            "y_adjust": -1,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_HAND_CONRAD_SPAWN"
+            ]
+          }
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_apostol_hand_femto_introduced == 0"
+          ]
+        },
+        "then": {
+          "if": {
+            "math": [
+              "u_monsters_nearby('mon_berserk_godhand_femto', 'attitude': 'both', 'radius': 80) > 0"
+            ]
+          },
+          "then": {
+            "run_eocs": "EOC_BERSERK_APOSTOL_HAND_FEMTO_INTRODUCED"
+          },
+          "else": {
+            "u_location_variable": {
+              "u_val": "berserk_apostol_hand_anchor"
+            },
+            "furniture": "f_berserk_apostol_circle",
+            "target_max_radius": 35,
+            "x_adjust": 0,
+            "y_adjust": 1,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_HAND_FEMTO_SPAWN"
+            ]
+          }
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_at_om_location": "berserk_eclipse_apostol_ceremony"
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_route == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_return_state == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_godhand_attacked == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_HAND_WATCH",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_ENSURE"
+    },
+    "eoc_type": "RECURRING",
+    "recurrence": "1 second",
+    "deactivate_condition": {
+      "math": [
+        "u_berserk_apostol_return_state == 2"
+      ]
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_at_om_location": "berserk_eclipse_apostol_ceremony"
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_route == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 1"
+          ]
+        }
+      ]
+    },
+    "global": true
+  }
+]

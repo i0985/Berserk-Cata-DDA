@@ -1,0 +1,139 @@
+[
+  {
+    "type": "SPELL",
+    "id": "berserk_godhand_void_judgment",
+    "name": "Folded severance",
+    "description": "Space closes across the attacker.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "min_range": 40,
+    "max_range": 40,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "max_level": 0,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "damage_type": "pure",
+    "min_damage": 180,
+    "max_damage": 180,
+    "min_pierce": 80,
+    "max_pierce": 80
+  },
+  {
+    "type": "SPELL",
+    "id": "berserk_godhand_slan_judgment",
+    "name": "Binding flesh",
+    "description": "Living cords close around the attacker.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "min_range": 20,
+    "max_range": 20,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "max_level": 0,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "damage_type": "cut",
+    "min_damage": 220,
+    "max_damage": 220,
+    "min_pierce": 80,
+    "max_pierce": 80,
+    "effect_str": "downed",
+    "min_duration": 500,
+    "max_duration": 500
+  },
+  {
+    "type": "SPELL",
+    "id": "berserk_godhand_ubik_judgment",
+    "name": "Broken perception",
+    "description": "The attacker’s senses collapse beneath incompatible memories.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "min_range": 35,
+    "max_range": 35,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "max_level": 0,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "damage_type": "pure",
+    "min_damage": 160,
+    "max_damage": 160,
+    "min_pierce": 80,
+    "max_pierce": 80,
+    "effect_str": "stunned",
+    "min_duration": 500,
+    "max_duration": 500
+  },
+  {
+    "type": "SPELL",
+    "id": "berserk_godhand_conrad_judgment",
+    "name": "Breath of extinction",
+    "description": "Rot overwhelms the attacker’s living tissue.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "min_range": 25,
+    "max_range": 25,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "max_level": 0,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "damage_type": "biological",
+    "min_damage": 300,
+    "max_damage": 300,
+    "min_pierce": 80,
+    "max_pierce": 80,
+    "effect_str": "berserk_apostol_rot",
+    "min_duration": 500,
+    "max_duration": 500
+  },
+  {
+    "type": "SPELL",
+    "id": "berserk_godhand_femto_judgment",
+    "name": "Crushing distance",
+    "description": "An immense pressure crushes the attacker.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "min_range": 40,
+    "max_range": 40,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "max_level": 0,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "damage_type": "bash",
+    "min_damage": 240,
+    "max_damage": 240,
+    "min_pierce": 80,
+    "max_pierce": 80,
+    "effect_str": "downed",
+    "min_duration": 500,
+    "max_duration": 500
+  }
+]

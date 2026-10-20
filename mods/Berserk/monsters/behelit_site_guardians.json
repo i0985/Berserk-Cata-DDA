@@ -59,7 +59,8 @@
       "bullet": 4,
       "heat": 0
     },
-    "regenerates": 0
+    "regenerates": 0,
+    "looks_like": ""
   },
   {
     "type": "MONSTER",
@@ -114,13 +115,14 @@
       "max_dist": 64,
       "max_length": 320,
       "avoid_traps": true
-    }
+    },
+    "looks_like": ""
   },
   {
     "type": "MONSTER",
     "id": "mon_berserk_chapel_guardian",
     "copy-from": "mon_berserk_eclipse_butcher",
-    "looks_like": "mon_berserk_eclipse_butcher",
+    "looks_like": "",
     "//": "Map-only guardian: retain combat stats and visuals; enable native sound pathfinding around cover without changing the roaming demon base.",
     "path_settings": {
       "max_dist": 64,
@@ -132,7 +134,7 @@
     "type": "MONSTER",
     "id": "mon_berserk_expedition_guardian",
     "copy-from": "mon_berserk_eclipse_halfbreed",
-    "looks_like": "mon_berserk_eclipse_halfbreed",
+    "looks_like": "",
     "//": "Map-only guardian: retain combat stats and visuals; enable native sound pathfinding around cover without changing the roaming demon base.",
     "path_settings": {
       "max_dist": 64,

@@ -1,0 +1,19 @@
+[
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_APOSTOL_GROWTH",
+    "name": "Live through the borrowed flesh",
+    "description": "The gift is changing you without another dose. Find food, water and a place to rest. Learn the weaknesses of your new body and wait for its final shape. Your road journal keeps a remembered trail to an ashen wound; follow it when you are prepared.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_COMPLETE"
+    },
+    "difficulty": 3,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false
+  }
+]

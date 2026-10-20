@@ -6,9 +6,9 @@
     ],
     "id": "berserk_campaign_journal",
     "name": {
-      "str": "journal of the road after the Eclipse"
+      "str_sp": "road journal"
     },
-    "description": "Known roads, current tasks and completed hunts. Activate to choose an entry; the notes keep the same destinations when you return.",
+    "description": "Known roads, forge orders, shelter preparations and accounts you have read. Activate to open your journal.",
     "material": [
       "paper"
     ],
@@ -23,9 +23,11 @@
     "use_action": {
       "type": "effect_on_conditions",
       "effect_on_conditions": [
-        "EOC_BERSERK_GODO_BOOK"
+        "EOC_BERSERK_JOURNAL_OPEN"
       ],
-      "need_wielding": false
-    }
+      "need_wielding": false,
+      "menu_text": "Open the road journal."
+    },
+    "looks_like": ""
   }
 ]

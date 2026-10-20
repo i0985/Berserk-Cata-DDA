@@ -1,0 +1,114 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_apostol_count_flesh",
+    "name": {
+      "str": "the Count's undying flesh"
+    },
+    "description": "This severed flesh still pulses and does not decay. It is no ordinary food. Deliberately absorbing it begins a lasting transformation into a weaker, independent likeness of its former owner. One portion is enough for the whole change. Another lineage cannot be combined with it.",
+    "looks_like": "",
+    "symbol": "%",
+    "color": "magenta",
+    "weight": "250 g",
+    "volume": "250 ml",
+    "material": [
+      "flesh"
+    ],
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Absorb the flesh",
+      "effect_on_conditions": [
+        "EOC_BERSERK_APOSTOL_COUNT_FLESH_ABSORB"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_apostol_wyald_flesh",
+    "name": {
+      "str": "Wyald's undying flesh"
+    },
+    "description": "This severed flesh still pulses and does not decay. It is no ordinary food. Deliberately absorbing it begins a lasting transformation into a weaker, independent likeness of its former owner. One portion is enough for the whole change. Another lineage cannot be combined with it.",
+    "looks_like": "",
+    "symbol": "%",
+    "color": "magenta",
+    "weight": "250 g",
+    "volume": "250 ml",
+    "material": [
+      "flesh"
+    ],
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Absorb the flesh",
+      "effect_on_conditions": [
+        "EOC_BERSERK_APOSTOL_WYALD_FLESH_ABSORB"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_apostol_rosine_flesh",
+    "name": {
+      "str": "Rosine's undying flesh"
+    },
+    "description": "This severed flesh still pulses and does not decay. It is no ordinary food. Deliberately absorbing it begins a lasting transformation into a weaker, independent likeness of its former owner. One portion is enough for the whole change. Another lineage cannot be combined with it.",
+    "looks_like": "",
+    "symbol": "%",
+    "color": "magenta",
+    "weight": "250 g",
+    "volume": "250 ml",
+    "material": [
+      "flesh"
+    ],
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Absorb the flesh",
+      "effect_on_conditions": [
+        "EOC_BERSERK_APOSTOL_ROSINE_FLESH_ABSORB"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_apostol_grunbeld_flesh",
+    "name": {
+      "str": "Grunbeld's undying flesh"
+    },
+    "description": "This severed flesh still pulses and does not decay. It is no ordinary food. Deliberately absorbing it begins a lasting transformation into a weaker, independent likeness of its former owner. One portion is enough for the whole change. Another lineage cannot be combined with it.",
+    "looks_like": "",
+    "symbol": "%",
+    "color": "magenta",
+    "weight": "250 g",
+    "volume": "250 ml",
+    "material": [
+      "flesh"
+    ],
+    "price": "0 cent",
+    "price_postapoc": "0 cent",
+    "use_action": {
+      "type": "effect_on_conditions",
+      "menu_text": "Absorb the flesh",
+      "effect_on_conditions": [
+        "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_ABSORB"
+      ]
+    }
+  }
+]

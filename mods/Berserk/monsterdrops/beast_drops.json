@@ -4,25 +4,38 @@
     "type": "item_group",
     "subtype": "collection",
     "items": [
-      { "item": "apostle_shard", "prob": 30 },
-      { "item": "tainted_flesh", "prob": 70 }
+      {
+        "item": "apostle_shard",
+        "prob": 30
+      },
+      {
+        "item": "tainted_flesh",
+        "prob": 70
+      }
     ]
   },
   {
     "type": "ITEM",
-    "subtypes": [ "COMESTIBLE" ],
+    "subtypes": [
+      "COMESTIBLE"
+    ],
     "id": "tainted_flesh",
     "comestible_type": "FOOD",
-    "name": { "str": "Tainted Flesh" },
+    "name": {
+      "str": "Tainted Flesh"
+    },
     "description": "A revolting lump of dark flesh that pulses faintly. It looks dangerous to eat.",
     "weight": "200 g",
     "volume": "250 ml",
     "price": "50 cents",
     "price_postapoc": "10 cents",
-    "material": [ "flesh" ],
+    "material": [
+      "flesh"
+    ],
     "symbol": "%",
     "color": "black",
     "calories": 100,
-    "fun": -10
+    "fun": -10,
+    "looks_like": ""
   }
 ]

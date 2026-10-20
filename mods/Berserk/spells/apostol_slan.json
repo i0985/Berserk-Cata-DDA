@@ -1,0 +1,30 @@
+[
+  {
+    "type": "SPELL",
+    "id": "berserk_slan_whip",
+    "name": "Lash of the crimson flesh",
+    "description": "A cutting tendril lashes a nearby enemy.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "damage_type": "cut",
+    "min_damage": 24,
+    "max_damage": 24,
+    "min_range": 3,
+    "max_range": 3,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "max_level": 0,
+    "flags": [
+      "SILENT"
+    ],
+    "extra_effects": [
+      {
+        "id": "berserk_apostol_cast_confirmed",
+        "hit_self": true
+      }
+    ]
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "type": "monster_attack",
+    "id": "berserk_hollow_hook_windup",
+    "attack_type": "spell",
+    "cooldown": 14,
+    "spell_data": {
+      "id": "berserk_committed_hollow_prepare",
+      "min_level": 0
+    },
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "u_has_effect": "berserk_hollow_hook_ready"
+          }
+        },
+        {
+          "not": {
+            "u_has_effect": "berserk_apostle_attack_recovery"
+          }
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_committed_hollow_cooldown"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_committed_hollow_phase != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == n_val('pos_z')"
+          ]
+        }
+      ]
+    },
+    "monster_message": "The hollow’s apostle digs in and raises its hooks. The ground before it is about to be swept!"
+  }
+]

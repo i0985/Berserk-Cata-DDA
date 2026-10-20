@@ -9,7 +9,7 @@
     "name": {
       "str_sp": "the Skull Knight's directions to Flora"
     },
-    "description": "Remembered directions to a secluded forest manor. The records from the Count, Wyald and Rosine's sealed breaches reveal this road. Activate the directions to locate Flora or reveal the same manor again. They are memories, not a book, and can be used without knowing how to read.",
+    "description": "Old notes from your journey. Activate to review the corresponding entries in your road journal.",
     "weight": "1 g",
     "volume": "1 ml",
     "material": [
@@ -22,10 +22,12 @@
     ],
     "use_action": {
       "type": "effect_on_conditions",
-      "menu_text": "Recall the way to Flora",
+      "menu_text": "Open the road journal.",
       "effect_on_conditions": [
-        "EOC_BERSERK_FLORA_SEEK"
-      ]
-    }
+        "EOC_BERSERK_JOURNAL_LEGACY_FLORA"
+      ],
+      "need_wielding": false
+    },
+    "looks_like": ""
   }
 ]

@@ -1,0 +1,67 @@
+[
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_remove_retired_fittings",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_chapel_noisemaker",
+          "f_berserk_chapel_noisemaker_armed",
+          "f_berserk_expedition_noisemaker",
+          "f_berserk_expedition_noisemaker_armed",
+          "f_berserk_oak_noisemaker",
+          "f_berserk_oak_noisemaker_armed",
+          "f_berserk_wyald_wagon_chime",
+          "f_berserk_wyald_wagon_chime_armed",
+          "f_berserk_wyald_wagon_chime_spent"
+        ],
+        "result": "f_null"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REMOVE_RETIRED_FITTINGS_LOAD",
+    "eoc_type": "EVENT",
+    "required_event": "game_load",
+    "condition": "u_is_avatar",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_retired_fittings_checked_at = time('now')"
+        ]
+      },
+      {
+        "u_transform_radius": 12,
+        "ter_furn_transform": "berserk_remove_retired_fittings"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REMOVE_RETIRED_FITTINGS_NEARBY",
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "time('now') - u_berserk_retired_fittings_checked_at >= time('30 seconds')"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_retired_fittings_checked_at = time('now')"
+        ]
+      },
+      {
+        "u_transform_radius": 12,
+        "ter_furn_transform": "berserk_remove_retired_fittings"
+      }
+    ]
+  }
+]

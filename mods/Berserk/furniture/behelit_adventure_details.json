@@ -15,7 +15,15 @@
       "str_max": 80,
       "sound": "crash!",
       "sound_fail": "whump.",
-      "items": [ { "item": "rock", "count": [ 2, 4 ] } ]
+      "items": [
+        {
+          "item": "rock",
+          "count": [
+            2,
+            4
+          ]
+        }
+      ]
     }
   },
   {
@@ -28,29 +36,46 @@
     "color": "light_gray",
     "move_cost_mod": 1,
     "required_str": -1,
-    "flags": [ "TRANSPARENT", "FLAMMABLE", "PLACE_ITEM", "SHORT" ],
+    "flags": [
+      "TRANSPARENT",
+      "FLAMMABLE",
+      "PLACE_ITEM",
+      "SHORT"
+    ],
     "bash": {
       "str_min": 1,
       "str_max": 5,
       "sound": "rrrip!",
       "sound_fail": "slap!",
-      "items": [ { "item": "scrap_cotton", "count": [ 1, 2 ] } ]
+      "items": [
+        {
+          "item": "scrap_cotton",
+          "count": [
+            1,
+            2
+          ]
+        }
+      ]
     }
   },
   {
     "type": "furniture",
     "id": "f_berserk_expedition_approach_note",
     "name": "message tied to the camp cordon",
-    "description": "A folded warning is tied to a stake beside the southern entrance. Rain has blurred the first line, but a hurried account of the alarm test is still legible.",
+    "description": "A folded warning is tied to a stake beside the southern entrance. Rain has blurred the first line, but directions for the wounded are still legible.",
     "looks_like": "f_sign",
     "symbol": "?",
     "color": "light_gray",
     "move_cost_mod": 0,
     "required_str": -1,
-    "flags": [ "TRANSPARENT" ],
+    "flags": [
+      "TRANSPARENT"
+    ],
     "examine_action": {
       "type": "effect_on_condition",
-      "effect_on_conditions": [ "EOC_BERSERK_READ_EXPEDITION_ALARM_NOTE" ]
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_EXPEDITION_ALARM_NOTE"
+      ]
     }
   },
   {
@@ -71,10 +96,14 @@
     "color": "brown",
     "move_cost_mod": 0,
     "required_str": -1,
-    "flags": [ "TRANSPARENT" ],
+    "flags": [
+      "TRANSPARENT"
+    ],
     "examine_action": {
       "type": "effect_on_condition",
-      "effect_on_conditions": [ "EOC_BERSERK_READ_CHAPEL_LAST_VIGIL" ]
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_CHAPEL_LAST_VIGIL"
+      ]
     }
   },
   {
@@ -87,13 +116,25 @@
     "color": "brown",
     "move_cost_mod": 2,
     "required_str": -1,
-    "flags": [ "TRANSPARENT", "FLAMMABLE", "SHORT" ],
+    "flags": [
+      "TRANSPARENT",
+      "FLAMMABLE",
+      "SHORT"
+    ],
     "bash": {
       "str_min": 6,
       "str_max": 20,
       "sound": "crack!",
       "sound_fail": "whump.",
-      "items": [ { "item": "splinter", "count": [ 1, 4 ] } ]
+      "items": [
+        {
+          "item": "splinter",
+          "count": [
+            1,
+            4
+          ]
+        }
+      ]
     }
   },
   {
@@ -106,10 +147,16 @@
     "color": "brown",
     "move_cost_mod": 1,
     "required_str": -1,
-    "flags": [ "TRANSPARENT", "PLACE_ITEM", "SHORT" ],
+    "flags": [
+      "TRANSPARENT",
+      "PLACE_ITEM",
+      "SHORT"
+    ],
     "examine_action": {
       "type": "effect_on_condition",
-      "effect_on_conditions": [ "EOC_BERSERK_SCENERY_OAK_VISITOR" ]
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_OAK_VISITOR"
+      ]
     }
   },
   {
@@ -122,17 +169,32 @@
     "color": "brown",
     "move_cost_mod": 1,
     "required_str": -1,
-    "flags": [ "TRANSPARENT", "FLAMMABLE", "PLACE_ITEM", "SHORT" ],
+    "flags": [
+      "TRANSPARENT",
+      "FLAMMABLE",
+      "PLACE_ITEM",
+      "SHORT"
+    ],
     "examine_action": {
       "type": "effect_on_condition",
-      "effect_on_conditions": [ "EOC_BERSERK_READ_CAVE_LAST_SCRAP" ]
+      "effect_on_conditions": [
+        "EOC_BERSERK_READ_CAVE_LAST_SCRAP"
+      ]
     },
     "bash": {
       "str_min": 3,
       "str_max": 12,
       "sound": "crack!",
       "sound_fail": "whump.",
-      "items": [ { "item": "stick", "count": [ 1, 2 ] } ]
+      "items": [
+        {
+          "item": "stick",
+          "count": [
+            1,
+            2
+          ]
+        }
+      ]
     }
   }
 ]

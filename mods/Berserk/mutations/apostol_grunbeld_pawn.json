@@ -1,0 +1,158 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_GRUNBELD_PAWN_SEED",
+    "name": {
+      "str": "Carapace vassal"
+    },
+    "description": "Your heavy body moves more slowly and needs more food, throughout the transformation. You serve Grunbeld; this lesser shell will never grow into his dragon.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_GRUNBELD_PAWN"
+    ],
+    "threshold": true,
+    "flags": [
+      "MUTATION_THRESHOLD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "SPEED",
+            "add": -8
+          },
+          {
+            "value": "METABOLISM",
+            "multiply": 0.25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_GRUNBELD_PAWN_LOYALTY",
+    "name": {
+      "str": "Bound protection: Carapace vassal"
+    },
+    "description": "Your master and their marked servants leave you alone while you keep the pact. This protects you alone; it does not command demons or make them loyal to your companions.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_GRUNBELD_PAWN"
+    ],
+    "ignored_by": [
+      "BERSERK_GRUNBELD_PAWN_HOUSEHOLD"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_GRUNBELD_PAWN_SENSES",
+    "name": {
+      "str": "Lesser senses: Carapace vassal"
+    },
+    "description": "Your heavy body moves more slowly and needs more food, throughout the transformation. You serve Grunbeld; this lesser shell will never grow into his dragon.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_GRUNBELD_PAWN"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "NIGHT_VIS",
+            "add": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_GRUNBELD_PAWN_FORM",
+    "name": {
+      "str": "Body: Carapace vassal"
+    },
+    "description": "Your permanent carapace grants +1 strength, 3 points of natural protection and 25% less heat damage, with another -8 speed. Returning to human shape is impossible.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_GRUNBELD_PAWN"
+    ],
+    "flags": [
+      "BERSERK_GRUNBELD_PAWN_FORM_ACTIVE"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STRENGTH",
+            "add": 1
+          },
+          {
+            "value": "ARMOR_ALL",
+            "add": -3
+          },
+          {
+            "value": "SPEED",
+            "add": -8
+          }
+        ],
+        "incoming_damage_mod": [
+          {
+            "type": "heat",
+            "multiply": -0.25
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_GRUNBELD_PAWN_POWER",
+    "name": {
+      "str": "Borrowed impulse: Carapace vassal"
+    },
+    "description": "Your limited fighting impulse requires recent service to your living master. The body and its weaknesses remain if the bond breaks, but this impulse falls silent.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_GRUNBELD_PAWN"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_POWER_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_GRUNBELD_PAWN_PAWN",
+    "name": {
+      "str": "Pawn: Carapace vassal"
+    },
+    "description": "The limited servant’s body is complete. Neither more flesh nor the master’s death will turn it into an independent apostle. Your choices remain your own, but the pact has a lasting price.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_GRUNBELD_PAWN"
+    ]
+  }
+]

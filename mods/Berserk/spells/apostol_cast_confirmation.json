@@ -1,0 +1,23 @@
+[
+  {
+    "type": "SPELL",
+    "id": "berserk_apostol_cast_confirmed",
+    "name": "Answered impulse",
+    "description": "The flesh answers a completed impulse.",
+    "effect": "effect_on_condition",
+    "shape": "blast",
+    "valid_targets": [
+      "self"
+    ],
+    "min_range": 0,
+    "max_range": 0,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "max_level": 0,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "effect_str": "EOC_BERSERK_APOSTOL_CAST_CONFIRMED"
+  }
+]

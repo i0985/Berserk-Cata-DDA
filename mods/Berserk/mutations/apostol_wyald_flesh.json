@@ -1,0 +1,150 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_WYALD_FLESH_SEED",
+    "name": {
+      "str": "Seed: hunting beast"
+    },
+    "description": "Your muscles strain against a slower recovery. Stamina regeneration is reduced by 10%, throughout the transformation.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_WYALD_FLESH"
+    ],
+    "threshold": true,
+    "flags": [
+      "MUTATION_THRESHOLD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STAMINA_REGEN_MOD",
+            "add": -0.1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_WYALD_FLESH_SENSES",
+    "name": {
+      "str": "Senses: hunting beast"
+    },
+    "description": "The flesh sharpens your perception in darkness. Its lasting weakness remains throughout the transformation.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_WYALD_FLESH"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "NIGHT_VIS",
+            "add": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_WYALD_FLESH_FORM",
+    "name": {
+      "str": "Body: hunting beast"
+    },
+    "description": "Your beastlike body grants +3 strength, +15% melee damage and -2 dexterity. Your stamina still recovers slowly. This body is permanent; returning to human shape is impossible. It does not heal wounds.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_WYALD_FLESH"
+    ],
+    "flags": [
+      "BERSERK_WYALD_FLESH_FORM_ACTIVE"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STRENGTH",
+            "add": 3
+          },
+          {
+            "value": "DEXTERITY",
+            "add": -2
+          },
+          {
+            "value": "MELEE_DAMAGE",
+            "multiply": 0.15
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_WYALD_FLESH_APOSTLE",
+    "name": {
+      "str": "Apostle: hunting beast"
+    },
+    "description": "Your independent transformation is complete. You are a weaker likeness of the fallen apostle, not its rebirth or servant. No further portion is needed; the weakness remains.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_WYALD_FLESH"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_WYALD_FLESH_DASH",
+    "name": {
+      "str": "Beast rush"
+    },
+    "description": "Rush up to 3 tiles along an open path. Walls and creatures stop the rush. Costs 1200 stamina and 1 second; recovers in 18 seconds. A fully blocked or canceled rush costs nothing.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_WYALD_FLESH"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_WYALD_FLESH_DASH_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_WYALD_FLESH_GRIP",
+    "name": {
+      "str": "Beast grip"
+    },
+    "description": "Deal 10 bash damage to an adjacent enemy and slow it by 25 for 4 seconds. Costs 900 stamina and 1 second; recovers in 18 seconds. This does not make the enemy helpless.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_WYALD_FLESH"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_WYALD_FLESH_GRIP_USE"
+    ]
+  }
+]

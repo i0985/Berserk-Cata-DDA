@@ -10,8 +10,15 @@
           ]
         },
         {
-          "math": [
-            "u_berserk_first_hunt_done == 1"
+          "or": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+            }
           ]
         },
         {
@@ -24,32 +31,59 @@
     "effect": {
       "if": {
         "math": [
-          "u_berserk_breach_marked == 1"
+          "u_berserk_journal_read_berserk_apostle_burned_clue == 1"
         ]
       },
       "then": [
         {
-          "reveal_map": {
-            "u_val": "berserk_local_breach_location"
-          },
-          "radius": 0
+          "run_eocs": "EOC_BERSERK_JOURNAL_REPLACE_MISSING"
         },
         {
-          "u_message": "The ashen breach is already marked on your map.",
-          "type": "info"
-        },
-        {
-          "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+          "open_dialogue": {
+            "topic": "TALK_BERSERK_JOURNAL_PLACE_BREACH"
+          }
         }
       ],
-      "else": {
-        "run_eocs": "EOC_BERSERK_BREACH_FIND"
-      }
+      "else": [
+        {
+          "u_message": "Between the burned edges are a broken road, a ruined foundation and marks around a split in the ground. The hollow’s keeper carried this route to another breach.",
+          "type": "info",
+          "popup": true
+        },
+        {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_BREACH"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_JOURNAL_REPLACE_MISSING"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_JOURNAL_BREACH_LOCATE"
+        },
+        {
+          "math": [
+            "u_berserk_journal_read_berserk_apostle_burned_clue = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+        },
+        {
+          "u_message": "A new entry has been added to your road journal.",
+          "type": "info",
+          "popup": false
+        },
+        {
+          "open_dialogue": {
+            "topic": "TALK_BERSERK_JOURNAL_PLACE_BREACH"
+          }
+        }
+      ]
     },
     "false_effect": {
       "u_message": "The scorched routes make sense only after you survive the Eclipse and the first hunt. Read them above ground.",
       "type": "info"
-    }
+    },
+    "//": "Road journal archive: berserk_apostle_burned_clue"
   },
   {
     "type": "effect_on_condition",
@@ -173,9 +207,7 @@
         "radius": 0
       },
       {
-        "u_message": "You follow the burned lines to an ashen breach marked on your map. Its guardian holds the opening; defeating it may let you close the wound.",
-        "type": "warning",
-        "popup": true
+        "run_eocs": "EOC_BERSERK_DIALOGUE_NOTICE_BREACH"
       },
       {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
@@ -186,8 +218,9 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_BREACH_NOT_FOUND",
     "effect": {
-      "u_message": "You cannot locate the breach from here. Travel farther and consult the scrap again.",
-      "type": "info"
+      "u_message": "These directions do not yet reveal the road. The record has been kept.",
+      "type": "info",
+      "popup": false
     }
   },
   {
@@ -242,8 +275,15 @@
           "u_at_om_location": "berserk_local_breach"
         },
         {
-          "math": [
-            "u_berserk_first_hunt_done == 1"
+          "or": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+            }
           ]
         },
         {
@@ -311,105 +351,15 @@
       }
     ],
     "false_effect": {
-      "u_message": "This breach cannot be sealed yet: its guardian must be defeated, this must be your recorded first breach, and you must examine the open wound beside you. A sealed breach grants nothing again.",
+      "u_message": "The wound does not answer. Its keeper must fall before you can reach the exposed heart of the breach.",
       "type": "warning"
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_POST_ECLIPSE_CHOOSE",
-    "condition": {
-      "math": [
-        "u_berserk_breach_sealed == 1"
-      ]
-    },
-    "effect": [
-      {
-        "if": {
-          "u_query": "Show the region quieted by the first sealed breach? No continues to the next-path choices.",
-          "default": false
-        },
-        "then": {
-          "run_eocs": "EOC_BERSERK_FIRST_BREACH_REPORT"
-        }
-      },
-      {
-        "if": {
-          "u_query": "Consult the independent trails to Wyald and Rosine?",
-          "default": false
-        },
-        "then": [
-          {
-            "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
-          },
-          {
-            "run_eocs": "EOC_BERSERK_HUNT_JOURNAL_USE"
-          }
-        ],
-        "else": {
-          "if": {
-            "and": [
-              {
-                "test_eoc": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE"
-              },
-              {
-                "u_query": "Follow the Skull Knight's remembered directions to Flora?",
-                "default": false
-              }
-            ]
-          },
-          "then": {
-            "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
-          },
-          "else": {
-            "if": {
-              "u_query": "Record a promise to defend a refuge and its people?",
-              "default": false
-            },
-            "then": [
-              {
-                "math": [
-                  "u_berserk_path_choice = 1"
-                ]
-              },
-              {
-                "u_message": "You choose to protect a refuge and those who reach it. The journal keeps this intention for a future chapter.",
-                "type": "good",
-                "popup": true
-              }
-            ],
-            "else": {
-              "if": {
-                "u_query": "Record a vow to pursue the next apostle instead?",
-                "default": false
-              },
-              "then": [
-                {
-                  "math": [
-                    "u_berserk_path_choice = 2"
-                  ]
-                },
-                {
-                  "u_message": "You choose to pursue the next apostle. The journal now traces the Count's residence; you can return to this trail even if the Skull Knight has departed.",
-                  "type": "good",
-                  "popup": true
-                },
-                {
-                  "run_eocs": "EOC_BERSERK_COUNT_SEEK"
-                }
-              ],
-              "else": {
-                "u_message": "You close the journal without changing your path.",
-                "type": "info"
-              }
-            }
-          }
-        }
-      }
-    ],
-    "false_effect": {
-      "u_message": "The journal has no ending to record until the local breach is sealed.",
-      "type": "info"
+    "effect": {
+      "run_eocs": "EOC_BERSERK_JOURNAL_OPEN"
     }
   },
   {
@@ -467,16 +417,28 @@
         ]
       },
       {
-        "u_spawn_item": "berserk_post_eclipse_journal",
-        "count": 1
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
       },
       {
-        "u_message": "The moving crack cools into firm dark stone, and its heartbeat stops. New incursions are suppressed around this recorded breach, roughly two overmap tiles away; existing demons and your Brand remain. The journal can show this region again, then let you choose the next trail. Other apostles' breaches are unchanged.",
-        "type": "good",
-        "popup": true
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+        },
+        "then": {
+          "u_message": "The wound cools and its heartbeat stops. This place has grown quieter; the price of the ceremony remains with you. Among the defenders’ marks you find three roads: a fortified residence, the Black Dogs’ camp and a misty valley. You preserve them in your road journal.",
+          "type": "good",
+          "popup": true
+        },
+        "else": {
+          "u_message": "The wound cools and its heartbeat stops. The surroundings have grown quieter, but your Brand remains. The defenders’ surviving marks name three trails: the Count’s residence, the Black Dogs’ camp and a misty valley. They are preserved in your road journal.",
+          "type": "good",
+          "popup": true
+        }
       },
       {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_NAMED"
       }
     ]
   },
@@ -498,8 +460,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -568,8 +537,15 @@
           ]
         },
         {
-          "math": [
-            "u_berserk_first_hunt_done == 1"
+          "or": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+            }
           ]
         }
       ]
@@ -637,8 +613,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -707,8 +690,15 @@
           ]
         },
         {
-          "math": [
-            "u_berserk_first_hunt_done == 1"
+          "or": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+            }
           ]
         }
       ]
@@ -737,8 +727,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -807,8 +804,15 @@
           ]
         },
         {
-          "math": [
-            "u_berserk_first_hunt_done == 1"
+          "or": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+            }
           ]
         }
       ]

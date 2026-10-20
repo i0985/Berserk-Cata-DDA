@@ -1,0 +1,148 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_COUNT_PAWN_SEED",
+    "name": {
+      "str": "Servant of the Count"
+    },
+    "description": "Your altered flesh slows you throughout the transformation. The Count shelters his own, but only while the pact holds. Your strength will never equal his.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_COUNT_PAWN"
+    ],
+    "threshold": true,
+    "flags": [
+      "MUTATION_THRESHOLD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "SPEED",
+            "add": -5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_COUNT_PAWN_LOYALTY",
+    "name": {
+      "str": "Bound protection: Servant of the Count"
+    },
+    "description": "Your master and their marked servants leave you alone while you keep the pact. This protects you alone; it does not command demons or make them loyal to your companions.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_COUNT_PAWN"
+    ],
+    "ignored_by": [
+      "BERSERK_COUNT_PAWN_HOUSEHOLD"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_COUNT_PAWN_SENSES",
+    "name": {
+      "str": "Lesser senses: Servant of the Count"
+    },
+    "description": "Your altered flesh slows you throughout the transformation. The Count shelters his own, but only while the pact holds. Your strength will never equal his.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_COUNT_PAWN"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "NIGHT_VIS",
+            "add": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_COUNT_PAWN_FORM",
+    "name": {
+      "str": "Body: Servant of the Count"
+    },
+    "description": "Your permanent pliant body grants +1 strength and 2 points of natural protection, with another -5 speed. Returning to human shape is impossible.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_COUNT_PAWN"
+    ],
+    "flags": [
+      "BERSERK_COUNT_PAWN_FORM_ACTIVE"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STRENGTH",
+            "add": 1
+          },
+          {
+            "value": "ARMOR_ALL",
+            "add": -2
+          },
+          {
+            "value": "SPEED",
+            "add": -5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_COUNT_PAWN_POWER",
+    "name": {
+      "str": "Borrowed impulse: Servant of the Count"
+    },
+    "description": "Your limited fighting impulse requires recent service to your living master. The body and its weaknesses remain if the bond breaks, but this impulse falls silent.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_COUNT_PAWN"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_COUNT_PAWN_POWER_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_COUNT_PAWN_PAWN",
+    "name": {
+      "str": "Pawn: Servant of the Count"
+    },
+    "description": "The limited servant’s body is complete. Neither more flesh nor the master’s death will turn it into an independent apostle. Your choices remain your own, but the pact has a lasting price.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_COUNT_PAWN"
+    ]
+  }
+]

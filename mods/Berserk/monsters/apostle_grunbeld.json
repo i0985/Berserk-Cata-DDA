@@ -3,7 +3,7 @@
     "type": "MONSTER",
     "id": "mon_berserk_grunbeld_knight",
     "copy-from": "mon_berserk_eclipse_butcher",
-    "looks_like": "mon_berserk_eclipse_elite",
+    "looks_like": "",
     "name": {
       "str_sp": "Grunbeld, armored apostle"
     },
@@ -36,12 +36,56 @@
       "WARM",
       "BASHES",
       "DESTROYS",
-      "ATTACKMON"
+      "ATTACKMON",
+      "CONVERSATION"
     ],
     "special_attacks": [
       {
         "id": "berserk_grunbeld_hammer_b_prepare",
-        "cooldown": 24
+        "cooldown": 24,
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "not": {
+                    "u_has_effect": "berserk_grunbeld_hammer_ready"
+                  }
+                },
+                {
+                  "not": {
+                    "u_has_effect": "berserk_apostle_attack_recovery"
+                  }
+                },
+                {
+                  "math": [
+                    "time('now') >= u_berserk_committed_grunbeld_knight_cooldown"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_committed_grunbeld_knight_phase != 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_val('pos_z') == n_val('pos_z')"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  "npc_is_avatar",
+                  {
+                    "npc_has_trait": "BERSERK_GRUNBELD_PAWN_LOYALTY"
+                  }
+                ]
+              }
+            }
+          ]
+        }
       }
     ],
     "death_drops": "EMPTY_GROUP",
@@ -49,13 +93,22 @@
       "corpse_type": "NO_CORPSE",
       "eoc": "EOC_BERSERK_GRUNBELD_KNIGHT_DIES",
       "message": "The %s sheds its ruined armor!"
-    }
+    },
+    "extend": {
+      "species": [
+        "BERSERK_GRUNBELD_PAWN_HOUSEHOLD",
+        "BERSERK_GRUNBELD_PAWN_MASTER"
+      ]
+    },
+    "chat_topics": [
+      "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
+    ]
   },
   {
     "type": "MONSTER",
     "id": "mon_berserk_grunbeld_dragon",
     "copy-from": "mon_berserk_eclipse_butcher",
-    "looks_like": "mon_berserk_eclipse_butcher",
+    "looks_like": "",
     "name": {
       "str_sp": "Grunbeld, flaming dragon"
     },
@@ -88,18 +141,71 @@
       "WARM",
       "BASHES",
       "DESTROYS",
-      "ATTACKMON"
+      "ATTACKMON",
+      "CONVERSATION"
     ],
     "special_attacks": [
       {
         "id": "berserk_grunbeld_flame_b_prepare",
-        "cooldown": 24
+        "cooldown": 24,
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "not": {
+                    "u_has_effect": "berserk_grunbeld_flame_ready"
+                  }
+                },
+                {
+                  "not": {
+                    "u_has_effect": "berserk_grunbeld_breath_recovery"
+                  }
+                },
+                {
+                  "math": [
+                    "time('now') >= u_berserk_grunbeld_breath_cooldown"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_val('pos_z') == n_val('pos_z')"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_grunbeld_breath_phase != 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  "npc_is_avatar",
+                  {
+                    "npc_has_trait": "BERSERK_GRUNBELD_PAWN_LOYALTY"
+                  }
+                ]
+              }
+            }
+          ]
+        }
       }
     ],
     "death_drops": "EMPTY_GROUP",
     "death_function": {
       "corpse_type": "NORMAL",
-      "eoc": "EOC_BERSERK_GRUNBELD_DIES"
-    }
+      "eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_DEATH_GRUNBELD_DIES"
+    },
+    "extend": {
+      "species": [
+        "BERSERK_GRUNBELD_PAWN_HOUSEHOLD",
+        "BERSERK_GRUNBELD_PAWN_MASTER"
+      ]
+    },
+    "chat_topics": [
+      "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
+    ]
   }
 ]

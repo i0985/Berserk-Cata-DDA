@@ -3,28 +3,124 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ROAD_READ_CARAVAN",
     "effect": {
-      "u_message": "We lost the wheel before sunset. The others carried the grain north, leaving the iron here. I heard something following the wheels, but the track behind us was empty. If we return, we will look beneath the bound box first.",
-      "popup": true,
-      "type": "info"
-    }
+      "if": {
+        "math": [
+          "u_berserk_journal_read_berserk_road_caravan_note == 1"
+        ]
+      },
+      "then": [
+        {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GODO"
+        },
+        {
+          "open_dialogue": {
+            "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROAD_CARAVAN_NOTE"
+          }
+        }
+      ],
+      "else": [
+        {
+          "u_message": "The wheel broke before dusk. We left the iron fittings under the bound box and carried the grain away. A repair order is tucked between the pages: \"Take the bent blades to Godot’s woodland forge. He works with a young crossbow maker. Keep to the old cart tracks through the woods.\" The margins record bends and stream crossings.",
+          "type": "info",
+          "popup": true
+        },
+        {
+          "run_eocs": "EOC_BERSERK_GODO_LEARN_TRACE"
+        },
+        {
+          "math": [
+            "u_berserk_journal_read_berserk_road_caravan_note = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_GODO_ROUTE_MISSION"
+        }
+      ]
+    },
+    "//": "Road journal archive: berserk_road_caravan_note"
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ROAD_READ_SCOUT",
     "effect": {
-      "u_message": "The open clearing is watched. I saw the trees move while the air was still. I tied the pack above the washout and took the lower path to see whether the other bank was clear. If I fail to return, keep to stone and leave room to turn back.",
-      "popup": true,
-      "type": "info"
-    }
+      "if": {
+        "math": [
+          "u_berserk_journal_read_berserk_road_scout_note == 1"
+        ]
+      },
+      "then": {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROAD_SCOUT_NOTE"
+        }
+      },
+      "else": [
+        {
+          "u_message": "The open clearing is watched. I saw the trees move while the air was still. I tied the pack above the washout and took the lower path to see whether the other bank was clear. If I fail to return, keep to stone and leave room to turn back.",
+          "popup": true,
+          "type": "info"
+        },
+        {
+          "math": [
+            "u_berserk_journal_read_berserk_road_scout_note = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+        },
+        {
+          "u_message": "A new entry has been added to your road journal.",
+          "type": "info",
+          "popup": false
+        }
+      ]
+    },
+    "//": "Road journal archive: berserk_road_scout_note"
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ROAD_READ_CAMP",
     "effect": {
-      "u_message": "We leave before the next dusk. The children slept beneath the branches, and the water is still clean. Whoever follows us may need the blanket more than we do. There were cries beyond the track last night. We did not go to look.",
-      "popup": true,
-      "type": "info"
-    }
+      "if": {
+        "math": [
+          "u_berserk_journal_read_berserk_road_camp_note == 1"
+        ]
+      },
+      "then": [
+        {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GODO"
+        },
+        {
+          "open_dialogue": {
+            "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROAD_CAMP_NOTE"
+          }
+        }
+      ],
+      "else": [
+        {
+          "u_message": "We leave before the next dusk. The water is clean; whoever follows may need the blanket more than we do. The smith Godot repaired our broken blade at his woodland forge. His young helper makes crossbow bolts. We copied the way back here: the old track, the stream crossing, then the charcoal burners’ path. It is a long walk, but there is a master at its end.",
+          "type": "info",
+          "popup": true
+        },
+        {
+          "run_eocs": "EOC_BERSERK_GODO_LEARN_TRACE"
+        },
+        {
+          "math": [
+            "u_berserk_journal_read_berserk_road_camp_note = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_GODO_ROUTE_MISSION"
+        }
+      ]
+    },
+    "//": "Road journal archive: berserk_road_camp_note"
   },
   {
     "type": "effect_on_condition",
@@ -45,10 +141,26 @@
           ]
         },
         {
-          "map_furniture_id": "f_berserk_road_caravan",
-          "loc": {
-            "context_val": "pos"
-          }
+          "or": [
+            {
+              "map_furniture_id": "f_berserk_road_caravan",
+              "loc": {
+                "context_val": "pos"
+              }
+            },
+            {
+              "map_furniture_id": "f_berserk_road_caravan_provisions",
+              "loc": {
+                "context_val": "pos"
+              }
+            },
+            {
+              "map_furniture_id": "f_berserk_road_caravan_iron",
+              "loc": {
+                "context_val": "pos"
+              }
+            }
+          ]
         }
       ]
     },
@@ -395,10 +507,26 @@
           ]
         },
         {
-          "map_furniture_id": "f_berserk_road_camp",
-          "loc": {
-            "context_val": "pos"
-          }
+          "or": [
+            {
+              "map_furniture_id": "f_berserk_road_camp",
+              "loc": {
+                "context_val": "pos"
+              }
+            },
+            {
+              "map_furniture_id": "f_berserk_road_camp_bed",
+              "loc": {
+                "context_val": "pos"
+              }
+            },
+            {
+              "map_furniture_id": "f_berserk_road_camp_blanket",
+              "loc": {
+                "context_val": "pos"
+              }
+            }
+          ]
         }
       ]
     },
@@ -555,5 +683,81 @@
         ]
       }
     ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_CARAVAN_READ_AT_SITE",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', u_berserk_road_story_pos) <= 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "map_furniture_id": "f_berserk_road_caravan",
+              "loc": {
+                "u_val": "berserk_road_story_pos"
+              }
+            },
+            {
+              "map_furniture_id": "f_berserk_road_caravan_provisions",
+              "loc": {
+                "u_val": "berserk_road_story_pos"
+              }
+            },
+            {
+              "map_furniture_id": "f_berserk_road_caravan_iron",
+              "loc": {
+                "u_val": "berserk_road_story_pos"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "run_eocs": "EOC_BERSERK_ROAD_READ_CARAVAN"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ROAD_CAMP_READ_AT_SITE",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "distance('u', u_berserk_road_story_pos) <= 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "map_furniture_id": "f_berserk_road_camp",
+              "loc": {
+                "u_val": "berserk_road_story_pos"
+              }
+            },
+            {
+              "map_furniture_id": "f_berserk_road_camp_bed",
+              "loc": {
+                "u_val": "berserk_road_story_pos"
+              }
+            },
+            {
+              "map_furniture_id": "f_berserk_road_camp_blanket",
+              "loc": {
+                "u_val": "berserk_road_story_pos"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "effect": {
+      "run_eocs": "EOC_BERSERK_ROAD_READ_CAMP"
+    }
   }
 ]

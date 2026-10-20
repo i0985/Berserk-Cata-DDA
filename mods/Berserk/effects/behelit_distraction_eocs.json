@@ -4,39 +4,7 @@
     "id": "EOC_BERSERK_OAK_DISTRACTION_PULSE",
     "eoc_type": "ACTIVATION",
     "//": "Queued activation captures the examined furniture cell in context pos. Skip remote/unloaded-floor pulses; never move the source to the player.",
-    "effect": {
-      "if": {
-        "and": [
-          {
-            "math": [
-              "u_val('pos_z') == _berserk_noise_z"
-            ]
-          },
-          {
-            "math": [
-              "distance('u', _pos) <= 48"
-            ]
-          }
-        ]
-      },
-      "then": {
-        "if": {
-          "map_furniture_id": "f_berserk_oak_noisemaker_armed",
-          "loc": {
-            "context_val": "pos"
-          }
-        },
-        "then": {
-          "u_make_sound": "The bone chimes clatter through the trees!",
-          "volume": 45,
-          "type": "alarm",
-          "ambient": false,
-          "target_var": {
-            "context_val": "pos"
-          }
-        }
-      }
-    }
+    "effect": []
   },
   {
     "type": "effect_on_condition",
@@ -82,78 +50,14 @@
     "id": "EOC_BERSERK_CHAPEL_DISTRACTION_PULSE",
     "eoc_type": "ACTIVATION",
     "//": "Queued activation captures the examined furniture cell in context pos. Skip remote/unloaded-floor pulses; never move the source to the player.",
-    "effect": {
-      "if": {
-        "and": [
-          {
-            "math": [
-              "u_val('pos_z') == _berserk_noise_z"
-            ]
-          },
-          {
-            "math": [
-              "distance('u', _pos) <= 48"
-            ]
-          }
-        ]
-      },
-      "then": {
-        "if": {
-          "map_furniture_id": "f_berserk_chapel_noisemaker_armed",
-          "loc": {
-            "context_val": "pos"
-          }
-        },
-        "then": {
-          "u_make_sound": "The cracked bell tolls across the ruined chapel!",
-          "volume": 65,
-          "type": "alarm",
-          "ambient": false,
-          "target_var": {
-            "context_val": "pos"
-          }
-        }
-      }
-    }
+    "effect": []
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_EXPEDITION_DISTRACTION_PULSE",
     "eoc_type": "ACTIVATION",
     "//": "Queued activation captures the examined furniture cell in context pos. Skip remote/unloaded-floor pulses; never move the source to the player.",
-    "effect": {
-      "if": {
-        "and": [
-          {
-            "math": [
-              "u_val('pos_z') == _berserk_noise_z"
-            ]
-          },
-          {
-            "math": [
-              "distance('u', _pos) <= 48"
-            ]
-          }
-        ]
-      },
-      "then": {
-        "if": {
-          "map_furniture_id": "f_berserk_expedition_noisemaker_armed",
-          "loc": {
-            "context_val": "pos"
-          }
-        },
-        "then": {
-          "u_make_sound": "An emergency siren howls through the abandoned camp!",
-          "volume": 45,
-          "type": "alarm",
-          "ambient": false,
-          "target_var": {
-            "context_val": "pos"
-          }
-        }
-      }
-    }
+    "effect": []
   },
   {
     "type": "effect_on_condition",

@@ -1,0 +1,160 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_GRUNBELD_FLESH_SEED",
+    "name": {
+      "str": "Seed: cinder carapace"
+    },
+    "description": "A hot hunger settles into your body. Burn 35% more calories and recover stamina 15% more slowly, throughout the transformation.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_GRUNBELD_FLESH"
+    ],
+    "threshold": true,
+    "flags": [
+      "MUTATION_THRESHOLD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "METABOLISM",
+            "multiply": 0.35
+          },
+          {
+            "value": "STAMINA_REGEN_MOD",
+            "add": -0.15
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_GRUNBELD_FLESH_SENSES",
+    "name": {
+      "str": "Senses: cinder carapace"
+    },
+    "description": "The flesh sharpens your perception in darkness. Its lasting weakness remains throughout the transformation.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_GRUNBELD_FLESH"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "NIGHT_VIS",
+            "add": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_GRUNBELD_FLESH_FORM",
+    "name": {
+      "str": "Body: cinder carapace"
+    },
+    "description": "Your permanent fiery carapace grants +3 strength, 6 points of natural protection, -15 speed and 50% less heat damage. Hunger and slow recovery remain. This body is permanent; returning to human shape is impossible. It does not heal wounds or make fire harmless.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_GRUNBELD_FLESH"
+    ],
+    "flags": [
+      "BERSERK_GRUNBELD_FLESH_FORM_ACTIVE"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STRENGTH",
+            "add": 3
+          },
+          {
+            "value": "SPEED",
+            "add": -15
+          },
+          {
+            "value": "ARMOR_ALL",
+            "add": -6
+          }
+        ],
+        "incoming_damage_mod": [
+          {
+            "type": "heat",
+            "multiply": -0.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_GRUNBELD_FLESH_APOSTLE",
+    "name": {
+      "str": "Apostle: cinder carapace"
+    },
+    "description": "Your independent transformation is complete. You are a weaker likeness of the fallen apostle, not its rebirth or servant. No further portion is needed; the weakness remains.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_GRUNBELD_FLESH"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_GRUNBELD_FLESH_BREATH",
+    "name": {
+      "str": "Cinder breath"
+    },
+    "description": "Breathe fire in a narrow cone up to 5 tiles for 26 heat damage. The flames can burn you, companions and belongings. Costs 1800 stamina, 60 kcal and 2 seconds; recovers in 45 seconds. You overheat for 12 seconds, losing 15 speed and the ability to breathe fire again.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_GRUNBELD_FLESH"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_BREATH_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_GRUNBELD_FLESH_BRACE",
+    "name": {
+      "str": "Brace the shell"
+    },
+    "description": "Gain 3 extra points of natural protection for 4 seconds, but lose 20 speed. Costs 1100 stamina and 1 second; recovers in 30 seconds. It grants no invulnerability.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_GRUNBELD_FLESH"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_BRACE_USE"
+    ]
+  }
+]

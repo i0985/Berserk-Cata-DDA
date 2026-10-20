@@ -333,33 +333,59 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GRUNBELD_READ_BADGE",
-    "effect": [
-      {
-        "u_message": "A burned clasp is all that remains of the garrison standard. No magic lives in it. Names scratched into the back remember those who held the southern road open. Keep it as testimony; the Carapace Shard belongs to the apostle, not to these fallen soldiers.",
-        "popup": true,
-        "type": "info"
+    "effect": {
+      "if": {
+        "math": [
+          "u_berserk_journal_read_berserk_grunbeld_scorched_badge == 1"
+        ]
       },
-      {
-        "if": {
-          "and": [
-            {
-              "math": [
-                "berserk_apostle_grunbeld_dead == 1"
-              ]
-            },
-            {
-              "math": [
-                "berserk_hunt_grunbeld_defeated_in_lair != 1"
-              ]
-            }
-          ]
-        },
-        "then": {
-          "u_message": "Grunbeld died at Flora's grove. The fortress still holds his unsealed wound and the garrison's testimony, not another living original or another Carapace Shard.",
+      "then": {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_GRUNBELD_SCORCHED_BADGE"
+        }
+      },
+      "else": [
+        {
+          "u_message": "A burned clasp is all that remains of the garrison standard. No magic lives in it. Names scratched into the back remember those who held the southern road open. Keep it as testimony; the Carapace Shard belongs to the apostle, not to these fallen soldiers.",
           "popup": true,
           "type": "info"
+        },
+        {
+          "if": {
+            "and": [
+              {
+                "math": [
+                  "berserk_apostle_grunbeld_dead == 1"
+                ]
+              },
+              {
+                "math": [
+                  "berserk_hunt_grunbeld_defeated_in_lair != 1"
+                ]
+              }
+            ]
+          },
+          "then": {
+            "u_message": "Grunbeld died at Flora's grove. The fortress still holds his unsealed wound and the garrison's testimony, not another living original or another Carapace Shard.",
+            "popup": true,
+            "type": "info"
+          }
+        },
+        {
+          "math": [
+            "u_berserk_journal_read_berserk_grunbeld_scorched_badge = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+        },
+        {
+          "u_message": "A new entry has been added to your road journal.",
+          "type": "info",
+          "popup": false
         }
-      }
-    ]
+      ]
+    },
+    "//": "Road journal archive: berserk_grunbeld_scorched_badge"
   }
 ]

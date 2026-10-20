@@ -1,0 +1,144 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_WYALD_PAWN_SEED",
+    "name": {
+      "str": "Beast of the Black Dogs"
+    },
+    "description": "Stamina returns more slowly, and beast hands hinder precise work. Wyald’s favor feeds your strongest impulse; you remain his lesser fighter.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_WYALD_PAWN"
+    ],
+    "threshold": true,
+    "flags": [
+      "MUTATION_THRESHOLD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STAMINA_REGEN_MOD",
+            "multiply": -0.15
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_WYALD_PAWN_LOYALTY",
+    "name": {
+      "str": "Bound protection: Beast of the Black Dogs"
+    },
+    "description": "Your master and their marked servants leave you alone while you keep the pact. This protects you alone; it does not command demons or make them loyal to your companions.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_WYALD_PAWN"
+    ],
+    "ignored_by": [
+      "BERSERK_WYALD_PAWN_HOUSEHOLD"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_WYALD_PAWN_SENSES",
+    "name": {
+      "str": "Lesser senses: Beast of the Black Dogs"
+    },
+    "description": "Stamina returns more slowly, and beast hands hinder precise work. Wyald’s favor feeds your strongest impulse; you remain his lesser fighter.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_WYALD_PAWN"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "NIGHT_VIS",
+            "add": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_WYALD_PAWN_FORM",
+    "name": {
+      "str": "Body: Beast of the Black Dogs"
+    },
+    "description": "Your permanent beastlike body grants +2 strength and -2 dexterity. Returning to human shape is impossible.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_WYALD_PAWN"
+    ],
+    "flags": [
+      "BERSERK_WYALD_PAWN_FORM_ACTIVE"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STRENGTH",
+            "add": 2
+          },
+          {
+            "value": "DEXTERITY",
+            "add": -2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_WYALD_PAWN_POWER",
+    "name": {
+      "str": "Borrowed impulse: Beast of the Black Dogs"
+    },
+    "description": "Your limited fighting impulse requires recent service to your living master. The body and its weaknesses remain if the bond breaks, but this impulse falls silent.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_WYALD_PAWN"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_WYALD_PAWN_POWER_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_WYALD_PAWN_PAWN",
+    "name": {
+      "str": "Pawn: Beast of the Black Dogs"
+    },
+    "description": "The limited servant’s body is complete. Neither more flesh nor the master’s death will turn it into an independent apostle. Your choices remain your own, but the pact has a lasting price.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_WYALD_PAWN"
+    ]
+  }
+]

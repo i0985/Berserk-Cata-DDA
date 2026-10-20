@@ -1,0 +1,2358 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LEARN_FIRST",
+    "effect": {
+      "math": [
+        "u_berserk_journal_knows_first = 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_KNOWN_FIRST",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_first == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_DONE_FIRST",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_journal_knows_breach == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LEARN_BREACH",
+    "effect": {
+      "math": [
+        "u_berserk_journal_knows_breach = 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_KNOWN_BREACH",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_breach == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_DONE_BREACH",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_breach_sealed == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LEARN_COUNT",
+    "effect": {
+      "math": [
+        "u_berserk_journal_knows_count = 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_KNOWN_COUNT",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_count == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_DONE_COUNT",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "berserk_hunt_count_state >= 5"
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_count_state >= 4"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_count_reward_claimed == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LEARN_WYALD",
+    "effect": {
+      "math": [
+        "u_berserk_journal_knows_wyald = 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_KNOWN_WYALD",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_wyald == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_DONE_WYALD",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "berserk_hunt_wyald_state >= 5"
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_wyald_state >= 4"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_wyald_reward_claimed == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LEARN_ROSINE",
+    "effect": {
+      "math": [
+        "u_berserk_journal_knows_rosine = 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_KNOWN_ROSINE",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_rosine == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_DONE_ROSINE",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "berserk_hunt_rosine_state >= 5"
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_rosine_state >= 4"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_rosine_reward_claimed == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LEARN_FLORA",
+    "effect": {
+      "math": [
+        "u_berserk_journal_knows_flora = 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_KNOWN_FLORA",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_flora == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_DONE_FLORA",
+    "effect": [],
+    "condition": {
+      "math": [
+        "berserk_flora_stage >= 3"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LEARN_GRUNBELD",
+    "effect": {
+      "math": [
+        "u_berserk_journal_knows_grunbeld = 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_KNOWN_GRUNBELD",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_grunbeld == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_DONE_GRUNBELD",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "berserk_hunt_grunbeld_state >= 5"
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_hunt_grunbeld_state >= 4"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_grunbeld_reward_claimed == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LEARN_GODO",
+    "effect": {
+      "math": [
+        "u_berserk_journal_knows_godo = 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_KNOWN_GODO",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_godo == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_DONE_GODO",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_VISIT_GOAL"
+        },
+        {
+          "not": {
+            "or": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_godo_early_state > 0"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_godo_early_state < 3"
+                    ]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_godo_arm_state > 0"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_godo_arm_state < 4"
+                    ]
+                  }
+                ]
+              },
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_godo_sword_state > 0"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_godo_sword_state < 4"
+                    ]
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_rickert_bolts_pending == 1"
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_VALID_FIRST",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(u_berserk_first_hunt_location)"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_first_hunt_lair",
+          "point": {
+            "u_val": "berserk_first_hunt_location"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_VALID_BREACH",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(u_berserk_local_breach_location)"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_local_breach",
+          "point": {
+            "u_val": "berserk_local_breach_location"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_VALID_COUNT",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_hunt_count_location)"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_count_hall",
+          "point": {
+            "global_val": "berserk_hunt_count_location"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_VALID_WYALD",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_hunt_wyald_location)"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_wyald_ring",
+          "point": {
+            "global_val": "berserk_hunt_wyald_location"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_VALID_ROSINE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_hunt_rosine_location)"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_rosine_nest",
+          "point": {
+            "global_val": "berserk_hunt_rosine_location"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_VALID_FLORA",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_flora_location)"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_flora_manor",
+          "point": {
+            "global_val": "berserk_flora_location"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_VALID_GRUNBELD",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_hunt_grunbeld_location)"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_grunbeld_crucible",
+          "point": {
+            "global_val": "berserk_hunt_grunbeld_location"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_VALID_GODO",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_godo_location)"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_godo_workshop",
+          "point": {
+            "global_val": "berserk_godo_location"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LEARN_NAMED",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_COUNT"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_WYALD"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_ROSINE"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_MIGRATE",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_GODO_MIGRATE_ACQUAINTANCE"
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "u_has_mission": "MISSION_BERSERK_FIRST_HUNT"
+            },
+            {
+              "or": [
+                {
+                  "u_at_om_location": "berserk_first_hunt_lair"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_first_issued == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_first_finished == 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_first_hunt_note_given == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_first_hunt_marked == 1"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_FIRST"
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "u_has_mission": "MISSION_BERSERK_BREACH"
+            },
+            {
+              "or": [
+                {
+                  "u_at_om_location": "berserk_local_breach"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_breach_issued == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_breach_finished == 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_breach_marked == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_breach_sealed == 1"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_BREACH"
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "u_has_mission": "MISSION_BERSERK_COUNT"
+            },
+            {
+              "or": [
+                {
+                  "u_at_om_location": "berserk_count_dungeon"
+                },
+                {
+                  "u_at_om_location": "berserk_count_east_yard"
+                },
+                {
+                  "u_at_om_location": "berserk_count_hall"
+                },
+                {
+                  "u_at_om_location": "berserk_count_prison"
+                },
+                {
+                  "u_at_om_location": "berserk_count_west_yard"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_count_issued == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_count_finished == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_COUNT"
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "u_has_mission": "MISSION_BERSERK_WYALD"
+            },
+            {
+              "or": [
+                {
+                  "u_at_om_location": "berserk_wyald_approach"
+                },
+                {
+                  "u_at_om_location": "berserk_wyald_camp"
+                },
+                {
+                  "u_at_om_location": "berserk_wyald_quarry"
+                },
+                {
+                  "u_at_om_location": "berserk_wyald_ring"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_wyald_issued == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_wyald_finished == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_WYALD"
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "u_has_mission": "MISSION_BERSERK_ROSINE"
+            },
+            {
+              "or": [
+                {
+                  "u_at_om_location": "berserk_rosine_cocoons"
+                },
+                {
+                  "u_at_om_location": "berserk_rosine_gully"
+                },
+                {
+                  "u_at_om_location": "berserk_rosine_nest"
+                },
+                {
+                  "u_at_om_location": "berserk_rosine_trail"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_rosine_issued == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_rosine_finished == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_ROSINE"
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "u_has_mission": "MISSION_BERSERK_FLORA"
+            },
+            {
+              "or": [
+                {
+                  "u_at_om_location": "berserk_flora_garden"
+                },
+                {
+                  "u_at_om_location": "berserk_flora_manor"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_flora_issued == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_flora_finished == 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_flora_met == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_flora_late_clue_given == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_flora_directions_repaired == 1"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_FLORA"
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "u_has_mission": "MISSION_BERSERK_GRUNBELD"
+            },
+            {
+              "or": [
+                {
+                  "u_at_om_location": "berserk_grunbeld_approach"
+                },
+                {
+                  "u_at_om_location": "berserk_grunbeld_barracks"
+                },
+                {
+                  "u_at_om_location": "berserk_grunbeld_crucible"
+                },
+                {
+                  "u_at_om_location": "berserk_grunbeld_quarry"
+                },
+                {
+                  "u_at_om_location": "berserk_grunbeld_ramparts"
+                },
+                {
+                  "u_at_om_location": "berserk_grunbeld_ruins"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_grunbeld_issued == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_grunbeld_finished == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GRUNBELD"
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "u_has_mission": "MISSION_BERSERK_GODO"
+            },
+            {
+              "or": [
+                {
+                  "u_at_om_location": "berserk_godo_loft"
+                },
+                {
+                  "u_at_om_location": "berserk_godo_roof"
+                },
+                {
+                  "u_at_om_location": "berserk_godo_workshop"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_godo_issued == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_mission_godo_finished == 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_godo_met == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_route_announced == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_rescue_relocated == 1"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GODO"
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_godo_early_state > 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_order_early = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_godo_arm_state > 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_order_arm = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_godo_sword_state > 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_order_sword = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_rickert_bolts_pending == 1"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_order_bolts = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_brand_known = 1"
+          ]
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GODO_VISIT"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_DISCOVER",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_JOURNAL_MIGRATE"
+    },
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_CHOOSE_CURRENT",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_DONE_FIRST"
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 1"
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_journal_knows_first == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 2"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_DONE_BREACH"
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 2"
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_journal_knows_breach == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 3"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_DONE_COUNT"
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 3"
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_journal_knows_count == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 4"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_DONE_WYALD"
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 4"
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_journal_knows_wyald == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 5"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_DONE_ROSINE"
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 5"
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_journal_knows_rosine == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 6"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_DONE_FLORA"
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 6"
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_journal_knows_flora == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 7"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GRUNBELD"
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 7"
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_journal_knows_grunbeld == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 8"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GODO"
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 8"
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_journal_knows_godo == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 0"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_knows_first == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_FIRST"
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_knows_breach == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_BREACH"
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 2"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_knows_count == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_COUNT"
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 3"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_knows_wyald == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_WYALD"
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 4"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_knows_rosine == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_ROSINE"
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 5"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_knows_flora == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_FLORA"
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 6"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_knows_grunbeld == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GRUNBELD"
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 7"
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_journal_knows_godo == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GODO"
+              }
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_journal_goal = 8"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_REFRESH",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_PAWN_BEGIN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_MASTER_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_MASTER_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_MASTER_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_MASTER_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_PAWN_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_FLESH_CONTINUATION_BEGIN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_FLESH_CONTINUATION_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_CONTINUATION_BEGIN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_CONTINUATION_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_MIGRATE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_CHOOSE_CURRENT"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_OPEN",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_REFRESH"
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_ROAD_JOURNAL"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_OPEN_CURRENT",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_REFRESH"
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_CURRENT"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_OPEN_HUNTS",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_REFRESH"
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_PLACES"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_OPEN_ORDERS",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_REFRESH"
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_ORDERS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_OPEN_REFUGE",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_REFRESH"
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_REFUGE"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_REPLACE_MISSING",
+    "effect": {
+      "if": {
+        "not": {
+          "u_has_item": "berserk_campaign_journal"
+        }
+      },
+      "then": [
+        {
+          "u_spawn_item": "berserk_campaign_journal",
+          "count": 1,
+          "suppress_message": true
+        },
+        {
+          "math": [
+            "u_berserk_road_journal_issued = 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_SHOW_FIRST",
+    "effect": {
+      "reveal_map": {
+        "u_val": "berserk_first_hunt_location"
+      },
+      "radius": 1
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_first == 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FIRST"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LOCATE_FIRST",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FIRST_HUNT_RECALL"
+      }
+    ],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_first == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_SHOW_BREACH",
+    "effect": {
+      "reveal_map": {
+        "u_val": "berserk_local_breach_location"
+      },
+      "radius": 1
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_breach == 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_BREACH"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LOCATE_BREACH",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_BREACH_LOCATE"
+      }
+    ],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_breach == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_SHOW_COUNT",
+    "effect": {
+      "reveal_map": {
+        "global_val": "berserk_hunt_count_location"
+      },
+      "radius": 1
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_count == 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_COUNT"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LOCATE_COUNT",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "berserk_eclipse_era == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_eclipse_trial_active != 1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "math": [
+                    "u_val('pos_z') == 0"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_first_hunt_done == 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_COUNT"
+              }
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_COUNT_FIND"
+        },
+        "else": {
+          "run_eocs": "EOC_BERSERK_COUNT_SEEK"
+        }
+      }
+    ],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_count == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_SHOW_WYALD",
+    "effect": {
+      "reveal_map": {
+        "global_val": "berserk_hunt_wyald_location"
+      },
+      "radius": 1
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_wyald == 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_WYALD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LOCATE_WYALD",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "berserk_eclipse_era == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_eclipse_trial_active != 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_eclipse_rescue_state == 2"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_first_hunt_done == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_val('pos_z') == 0"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_WYALD"
+              }
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_WYALD_FIND"
+        },
+        "else": {
+          "run_eocs": "EOC_BERSERK_WYALD_SEEK"
+        }
+      }
+    ],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_wyald == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_SHOW_ROSINE",
+    "effect": {
+      "reveal_map": {
+        "global_val": "berserk_hunt_rosine_location"
+      },
+      "radius": 1
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_rosine == 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_ROSINE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LOCATE_ROSINE",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "berserk_eclipse_era == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_eclipse_trial_active != 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_eclipse_rescue_state == 2"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_first_hunt_done == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_val('pos_z') == 0"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_ROSINE"
+              }
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_ROSINE_FIND"
+        },
+        "else": {
+          "run_eocs": "EOC_BERSERK_ROSINE_SEEK"
+        }
+      }
+    ],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_rosine == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_SHOW_FLORA",
+    "effect": {
+      "reveal_map": {
+        "global_val": "berserk_flora_location"
+      },
+      "radius": 1
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_flora == 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FLORA"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LOCATE_FLORA",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_SEEK"
+      }
+    ],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_flora == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_SHOW_GRUNBELD",
+    "effect": {
+      "reveal_map": {
+        "global_val": "berserk_hunt_grunbeld_location"
+      },
+      "radius": 1
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_grunbeld == 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GRUNBELD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LOCATE_GRUNBELD",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "berserk_eclipse_era == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_eclipse_rescue_state == 2"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_eclipse_trial_active != 1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "or": [
+                    {
+                      "and": [
+                        {
+                          "math": [
+                            "berserk_hunt_count_state >= 4"
+                          ]
+                        },
+                        {
+                          "math": [
+                            "berserk_hunt_wyald_state >= 4"
+                          ]
+                        },
+                        {
+                          "math": [
+                            "berserk_hunt_rosine_state >= 4"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "math": [
+                        "berserk_apostle_grunbeld_dead == 1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "math": [
+                    "u_val('pos_z') == 0"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_stage != 2"
+                  ]
+                },
+                {
+                  "or": [
+                    {
+                      "math": [
+                        "u_berserk_flora_escaped == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "berserk_flora_siege_state >= 5"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "berserk_flora_stage == 3"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "berserk_hunt_grunbeld_site_registered == 1"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GRUNBELD"
+              }
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_GRUNBELD_FIND"
+        },
+        "else": {
+          "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
+        }
+      }
+    ],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_grunbeld == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_SHOW_GODO",
+    "effect": {
+      "reveal_map": {
+        "global_val": "berserk_godo_location"
+      },
+      "radius": 1
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_godo == 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GODO"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LOCATE_GODO",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_GODO_SEEK"
+      }
+    ],
+    "condition": {
+      "math": [
+        "u_berserk_journal_knows_godo == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_BREACH_LOCATE",
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_JOURNAL_VALID_BREACH"
+      },
+      "then": [
+        {
+          "reveal_map": {
+            "u_val": "berserk_local_breach_location"
+          },
+          "radius": 1
+        },
+        {
+          "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+        }
+      ],
+      "else": {
+        "run_eocs": "EOC_BERSERK_BREACH_FIND"
+      }
+    },
+    "false_effect": {
+      "u_message": "Return to the surface to clarify this route.",
+      "type": "info"
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LEGACY_FIRST",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_FIRST"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_REFRESH"
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_PLACE_FIRST"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LEGACY_FLORA",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_FLORA"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_REFRESH"
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_PLACE_FLORA"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LEGACY_HUNTS",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_COUNT"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_WYALD"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_ROSINE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_REFRESH"
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_PLACES"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_LEGACY_ORDERS",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GODO"
+      },
+      {
+        "math": [
+          "u_berserk_journal_order_early = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_journal_order_bolts = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_JOURNAL_REFRESH"
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_JOURNAL_ORDERS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_JOURNAL_KNIGHT_SPEAKER",
+    "effect": [],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "math": [
+            "n_monsters_nearby('mon_skull_knight_rescuer', 'radius': 0) > 0"
+          ]
+        }
+      ]
+    }
+  }
+]

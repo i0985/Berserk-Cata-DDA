@@ -1,0 +1,19 @@
+[
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_APOSTOL_FLESH_GROWTH",
+    "name": "Live through the apostle’s flesh",
+    "description": "You deliberately absorbed the remains of a fallen apostle. Find food, water and rest while your body changes. One portion is enough; learn your new abilities and their weaknesses, then continue a road you already know.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE"
+    },
+    "difficulty": 3,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false
+  }
+]

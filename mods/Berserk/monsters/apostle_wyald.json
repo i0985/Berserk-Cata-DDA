@@ -3,7 +3,7 @@
     "type": "MONSTER",
     "id": "mon_berserk_apostle_wyald",
     "copy-from": "mon_berserk_eclipse_butcher",
-    "looks_like": "mon_berserk_eclipse_butcher",
+    "looks_like": "",
     "name": {
       "str_sp": "Wyald"
     },
@@ -32,12 +32,56 @@
       "HEARS",
       "WARM",
       "BASHES",
-      "ATTACKMON"
+      "ATTACKMON",
+      "CONVERSATION"
     ],
     "special_attacks": [
       {
         "id": "berserk_wyald_b_prepare",
-        "cooldown": 10
+        "cooldown": 10,
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "not": {
+                    "u_has_effect": "berserk_wyald_ready"
+                  }
+                },
+                {
+                  "not": {
+                    "u_has_effect": "berserk_apostle_attack_recovery"
+                  }
+                },
+                {
+                  "math": [
+                    "time('now') >= u_berserk_committed_wyald_cooldown"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_committed_wyald_phase != 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_val('pos_z') == n_val('pos_z')"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  "npc_is_avatar",
+                  {
+                    "npc_has_trait": "BERSERK_WYALD_PAWN_LOYALTY"
+                  }
+                ]
+              }
+            }
+          ]
+        }
       },
       {
         "type": "leap",
@@ -47,13 +91,27 @@
         "condition": {
           "and": [
             {
-              "not": {
-                "u_has_effect": "berserk_wyald_ready"
-              }
+              "and": [
+                {
+                  "not": {
+                    "u_has_effect": "berserk_wyald_ready"
+                  }
+                },
+                {
+                  "not": {
+                    "u_has_effect": "berserk_apostle_attack_recovery"
+                  }
+                }
+              ]
             },
             {
               "not": {
-                "u_has_effect": "berserk_apostle_attack_recovery"
+                "and": [
+                  "npc_is_avatar",
+                  {
+                    "npc_has_trait": "BERSERK_WYALD_PAWN_LOYALTY"
+                  }
+                ]
               }
             }
           ]
@@ -62,14 +120,23 @@
     ],
     "death_drops": "EMPTY_GROUP",
     "death_function": {
-      "eoc": "EOC_BERSERK_WYALD_DIES"
-    }
+      "eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_DEATH_WYALD_DIES"
+    },
+    "extend": {
+      "species": [
+        "BERSERK_WYALD_PAWN_HOUSEHOLD",
+        "BERSERK_WYALD_PAWN_MASTER"
+      ]
+    },
+    "chat_topics": [
+      "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
+    ]
   },
   {
     "type": "MONSTER",
     "id": "mon_berserk_black_dog_thrall",
     "copy-from": "mon_berserk_count_servant",
-    "looks_like": "mon_berserk_count_servant",
+    "looks_like": "",
     "name": {
       "str": "Black Dog thrall",
       "str_pl": "Black Dog thralls"
@@ -93,6 +160,11 @@
       "cut": 3
     },
     "death_drops": "berserk_eclipse_demon_drops",
-    "special_attacks": []
+    "special_attacks": [],
+    "extend": {
+      "species": [
+        "BERSERK_WYALD_PAWN_HOUSEHOLD"
+      ]
+    }
   }
 ]

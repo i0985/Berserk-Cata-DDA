@@ -1,0 +1,106 @@
+[
+  {
+    "type": "effect_type",
+    "id": "berserk_apostol_void_ward",
+    "name": [
+      "Folded distance"
+    ],
+    "desc": [
+      "Space bends around the next impact."
+    ],
+    "max_intensity": 1,
+    "dur_add_perc": 0,
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "ARMOR_ALL",
+            "multiply": -0.4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_apostol_ubik_veil",
+    "name": [
+      "Borrowed absence"
+    ],
+    "desc": [
+      "Your outline vanishes from ordinary sight."
+    ],
+    "max_intensity": 1,
+    "dur_add_perc": 0,
+    "flags": [
+      "INVISIBLE"
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_apostol_exposed",
+    "name": [
+      "Spent wings"
+    ],
+    "desc": [
+      "Your movements are exposed after a sudden burst."
+    ],
+    "max_intensity": 1,
+    "dur_add_perc": 0,
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "DODGE_CHANCE",
+            "add": -2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_apostol_suppressed",
+    "name": [
+      "Crushing presence"
+    ],
+    "desc": [
+      "A heavy pressure slows movement."
+    ],
+    "max_intensity": 1,
+    "dur_add_perc": 0,
+    "base_mods": {
+      "speed_mod": [
+        -20
+      ]
+    }
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_apostol_rot",
+    "name": [
+      "Gnawing rot"
+    ],
+    "desc": [
+      "A bitter corruption eats at living tissue."
+    ],
+    "max_intensity": 1,
+    "dur_add_perc": 0,
+    "base_mods": {
+      "hurt_min": [
+        2
+      ],
+      "hurt_max": [
+        2
+      ],
+      "hurt_chance": [
+        1
+      ],
+      "hurt_tick": [
+        2
+      ]
+    }
+  }
+]

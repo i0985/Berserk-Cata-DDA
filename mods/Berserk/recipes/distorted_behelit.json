@@ -1,0 +1,35 @@
+[
+  {
+    "type": "recipe",
+    "id": "berserk_behelit_distorted",
+    "name": "drench a Behelit in blood",
+    "description": "The Behelit calls: \"You need not remain powerless.\" Drench its face in blood to answer in another way. The passage it opens will change you, even if you ultimately refuse its gift; surviving afterward will be harder.",
+    "category": "CC_OTHER",
+    "subcategory": "CSC_OTHER_OTHER",
+    "skill_used": "fabrication",
+    "difficulty": 0,
+    "time": "5 minutes",
+    "activity_level": "LIGHT_EXERCISE",
+    "autolearn": false,
+    "flags": [
+      "SECRET"
+    ],
+    "components": [
+      [
+        [
+          "berserk_behelit",
+          1
+        ]
+      ],
+      [
+        [
+          "blood",
+          1
+        ]
+      ]
+    ],
+    "result_eocs": [
+      "EOC_BERSERK_APOSTOL_CRAFT_DISTORTED_BEHELIT"
+    ]
+  }
+]

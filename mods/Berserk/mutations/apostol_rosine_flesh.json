@@ -1,0 +1,164 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_ROSINE_FLESH_SEED",
+    "name": {
+      "str": "Seed: winged hunter"
+    },
+    "description": "Your skin grows thin and sensitive. Take 15% more bash, cut and stab damage, throughout the transformation.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_ROSINE_FLESH"
+    ],
+    "threshold": true,
+    "flags": [
+      "MUTATION_THRESHOLD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [],
+        "incoming_damage_mod": [
+          {
+            "type": "bash",
+            "multiply": 0.15
+          },
+          {
+            "type": "cut",
+            "multiply": 0.15
+          },
+          {
+            "type": "stab",
+            "multiply": 0.15
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ROSINE_FLESH_SENSES",
+    "name": {
+      "str": "Senses: winged hunter"
+    },
+    "description": "The flesh sharpens your perception in darkness. Its lasting weakness remains throughout the transformation.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_ROSINE_FLESH"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PERCEPTION",
+            "add": 2
+          },
+          {
+            "value": "NIGHT_VIS",
+            "add": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ROSINE_FLESH_FORM",
+    "name": {
+      "str": "Body: winged hunter"
+    },
+    "description": "Your permanently grown insectlike wings grant +2 dexterity, +15 speed and half falling damage. Wings permit gliding with a light load and usable arms, not free ascent into the sky. Torso encumbrance above 20 prevents your wing abilities. Your fragile flesh remains. This body is permanent; returning to human shape is impossible.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_ROSINE_FLESH"
+    ],
+    "flags": [
+      "BERSERK_ROSINE_FLESH_FORM_ACTIVE",
+      "WINGS_2"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "DEXTERITY",
+            "add": 2
+          },
+          {
+            "value": "SPEED",
+            "add": 15
+          },
+          {
+            "value": "FALL_DAMAGE",
+            "multiply": -0.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ROSINE_FLESH_APOSTLE",
+    "name": {
+      "str": "Apostle: winged hunter"
+    },
+    "description": "Your independent transformation is complete. You are a weaker likeness of the fallen apostle, not its rebirth or servant. No further portion is needed; the weakness remains.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_ROSINE_FLESH"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ROSINE_FLESH_DIVE",
+    "name": {
+      "str": "Winged dive"
+    },
+    "description": "Dive up to 4 tiles along an open path, then deal 18 cut damage to enemies next to the landing. Costs 1500 stamina and 1 second; recovers in 20 seconds. Torso encumbrance must be at most 20. Your dodge is reduced by 2 for 2 seconds afterward. A fully blocked or canceled dive costs nothing.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_ROSINE_FLESH"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_ROSINE_FLESH_DIVE_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ROSINE_FLESH_FLUTTER",
+    "name": {
+      "str": "Evasive wingbeats"
+    },
+    "description": "Gain +2 dodge for 3 seconds. Costs 700 stamina and 1 second; recovers in 20 seconds. Torso encumbrance must be at most 20.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_ROSINE_FLESH"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_ROSINE_FLESH_FLUTTER_USE"
+    ]
+  }
+]

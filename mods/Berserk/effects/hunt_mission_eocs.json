@@ -169,6 +169,11 @@
           "math": [
             "berserk_hunt_count_state >= 1"
           ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+          }
         }
       ]
     },
@@ -247,6 +252,11 @@
           "math": [
             "berserk_hunt_wyald_state >= 1"
           ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+          }
         }
       ]
     },
@@ -325,6 +335,11 @@
           "math": [
             "berserk_hunt_rosine_state >= 1"
           ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+          }
         }
       ]
     },
@@ -403,6 +418,11 @@
           "math": [
             "berserk_hunt_grunbeld_site_registered == 1"
           ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
+          }
         }
       ]
     },

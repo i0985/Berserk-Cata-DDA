@@ -5,47 +5,119 @@
     "effect": [
       {
         "if": {
-          "or": [
-            { "u_at_om_location": "berserk_eclipse_trial" },
-            { "u_at_om_location": "berserk_eclipse_trial_flesh" },
-            { "u_at_om_location": "berserk_eclipse_dungeon_entry" },
-            { "u_at_om_location": "berserk_eclipse_dungeon_gallery" },
-            { "u_at_om_location": "berserk_eclipse_dungeon_warrens" },
-            { "u_at_om_location": "berserk_eclipse_dungeon_procession" },
-            { "u_at_om_location": "berserk_eclipse_dungeon_descent" },
-            { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
-            { "u_at_om_location": "berserk_eclipse_expanded_arrival" },
-            { "u_at_om_location": "berserk_eclipse_expanded_traces" },
-            { "u_at_om_location": "berserk_eclipse_expanded_cache" },
-            { "u_at_om_location": "berserk_eclipse_expanded_torn" },
-            { "u_at_om_location": "berserk_eclipse_expanded_crossroads" },
-            { "u_at_om_location": "berserk_eclipse_expanded_feast" },
-            { "u_at_om_location": "berserk_eclipse_expanded_hunt" },
-            { "u_at_om_location": "berserk_eclipse_expanded_ravine" },
-            { "u_at_om_location": "berserk_eclipse_expanded_approach" },
-            { "u_at_om_location": "berserk_eclipse_expanded_laststand" },
-            { "u_at_om_location": "berserk_eclipse_expanded_threshold" },
-            { "u_at_om_location": "berserk_eclipse_expanded_ceremony" }
-          ]
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_NORMAL_ECLIPSE_ALLOWED"
+          }
         },
-        "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_EXIT" },
-        "else": {
-          "if": { "math": [ "u_berserk_eclipse_rescue_state == 1" ] },
-          "then": [
-            { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_COMMIT_IF_RETURNED" },
-            { "u_message": "The Behelit has gone quiet. The Eclipse has ended for you.", "type": "neutral", "popup": true }
-          ],
-          "else": {
+        "then": {
+          "u_message": "The stone no longer answers your call.",
+          "type": "neutral"
+        },
+        "else": [
+          {
             "if": {
               "or": [
-                { "math": [ "u_berserk_eclipse_rescue_state == 2" ] },
-                { "math": [ "u_berserk_eclipse_behelit_spent == 1" ] }
+                {
+                  "u_at_om_location": "berserk_eclipse_trial"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_trial_flesh"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_dungeon_entry"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_dungeon_gallery"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_dungeon_warrens"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_dungeon_procession"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_dungeon_descent"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_dungeon_altar"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_expanded_arrival"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_expanded_traces"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_expanded_cache"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_expanded_torn"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_expanded_crossroads"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_expanded_feast"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_expanded_hunt"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_expanded_ravine"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_expanded_approach"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_expanded_laststand"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_expanded_threshold"
+                },
+                {
+                  "u_at_om_location": "berserk_eclipse_expanded_ceremony"
+                }
               ]
             },
-            "then": { "u_message": "The Behelit has gone quiet. The Eclipse has ended for you.", "type": "neutral", "popup": true },
-            "else": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_ENTER" }
+            "then": {
+              "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_EXIT"
+            },
+            "else": {
+              "if": {
+                "math": [
+                  "u_berserk_eclipse_rescue_state == 1"
+                ]
+              },
+              "then": {
+                "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_RETURN"
+              },
+              "else": {
+                "if": {
+                  "or": [
+                    {
+                      "math": [
+                        "u_berserk_eclipse_rescue_state == 2"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_eclipse_behelit_spent == 1"
+                      ]
+                    }
+                  ]
+                },
+                "then": {
+                  "u_message": "The Behelit has gone quiet. The Eclipse has ended for you.",
+                  "type": "neutral",
+                  "popup": true
+                },
+                "else": {
+                  "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_ENTER"
+                }
+              }
+            }
           }
-        }
+        ]
       }
     ]
   },
@@ -53,15 +125,56 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_TRIAL_ENTER",
     "condition": {
-      "u_query": "Enter the Eclipse? Only your carried equipment will follow you. The Behelit will be consumed when the passage opens, and there is no path back until the final confrontation.",
-      "default": false
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_NORMAL_ECLIPSE_ALLOWED"
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_behelit_spent == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active == 0"
+          ]
+        },
+        {
+          "u_query": "Enter the Eclipse? Only your carried equipment will follow you. The Behelit will be consumed when the passage opens, and there is no path back until the final confrontation.",
+          "default": false
+        }
+      ]
     },
     "effect": [
-      { "u_location_variable": { "u_val": "berserk_eclipse_return_origin" } },
-      { "u_location_variable": { "u_val": "berserk_eclipse_return_east" }, "x_adjust": 6 },
-      { "u_location_variable": { "u_val": "berserk_eclipse_return_west" }, "x_adjust": -6 },
       {
-        "u_location_variable": { "u_val": "berserk_eclipse_trial_destination" },
+        "u_location_variable": {
+          "u_val": "berserk_eclipse_return_origin"
+        }
+      },
+      {
+        "u_location_variable": {
+          "u_val": "berserk_eclipse_return_east"
+        },
+        "x_adjust": 6
+      },
+      {
+        "u_location_variable": {
+          "u_val": "berserk_eclipse_return_west"
+        },
+        "x_adjust": -6
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FORGE_RESCUE_REMEMBER_RETREAT"
+      },
+      {
+        "u_location_variable": {
+          "u_val": "berserk_eclipse_trial_destination"
+        },
         "target_params": {
           "om_terrain": "berserk_eclipse_expanded_arrival",
           "om_special": "berserk_eclipse_expanded_special",
@@ -72,8 +185,12 @@
         "furniture": "f_berserk_eclipse_arrival_scar",
         "target_max_radius": 20,
         "x_adjust": 1,
-        "true_eocs": [ "EOC_BERSERK_ECLIPSE_TRIAL_ARRIVE" ],
-        "false_eocs": [ "EOC_BERSERK_ECLIPSE_TRIAL_NO_DESTINATION" ]
+        "true_eocs": [
+          "EOC_BERSERK_ECLIPSE_TRIAL_ARRIVE"
+        ],
+        "false_eocs": [
+          "EOC_BERSERK_ECLIPSE_TRIAL_NO_DESTINATION"
+        ]
       }
     ]
   },
@@ -82,65 +199,154 @@
     "id": "EOC_BERSERK_ECLIPSE_TRIAL_ARRIVE",
     "effect": [
       {
-        "u_teleport": { "u_val": "berserk_eclipse_trial_destination" },
+        "u_teleport": {
+          "u_val": "berserk_eclipse_trial_destination"
+        },
         "force_safe": true,
         "success_message": "The Behelit draws you onto a field of living flesh. Behind you, the passage seals shut.",
         "fail_message": "The passage does not open.  You remain where you are."
       },
       {
-        "if": { "or": [ { "u_at_om_location": "berserk_eclipse_dungeon_entry" },
-                         { "u_at_om_location": "berserk_eclipse_expanded_arrival" } ] },
+        "if": {
+          "or": [
+            {
+              "u_at_om_location": "berserk_eclipse_dungeon_entry"
+            },
+            {
+              "u_at_om_location": "berserk_eclipse_expanded_arrival"
+            }
+          ]
+        },
         "then": [
-          { "math": [ "u_berserk_eclipse_trial_active = 1" ] },
-          { "math": [ "u_berserk_eclipse_behelit_spent = 1" ] },
-          { "math": [ "u_berserk_eclipse_final_started = 0" ] },
-          { "math": [ "u_berserk_eclipse_final_spawned = 0" ] },
-          { "math": [ "u_berserk_eclipse_final_spawn_attempts = 0" ] },
-          { "math": [ "u_berserk_eclipse_grasp_state = 0" ] },
-          { "u_consume_item": "berserk_behelit", "count": 1 },
           {
-            "if": { "u_at_om_location": "berserk_eclipse_expanded_arrival" },
+            "math": [
+              "u_berserk_eclipse_trial_active = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_eclipse_behelit_spent = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_eclipse_final_started = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_eclipse_final_spawned = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_eclipse_final_spawn_attempts = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_eclipse_grasp_state = 0"
+            ]
+          },
+          {
+            "u_consume_item": "berserk_behelit",
+            "count": 1
+          },
+          {
+            "if": {
+              "u_at_om_location": "berserk_eclipse_expanded_arrival"
+            },
             "then": {
               "u_message": "An ashen trail leads east to the fallen band, then bends south toward the ceremony. Narrower tracks branch into the dark.",
               "type": "info",
               "popup": true
             }
+          },
+          {
+            "math": [
+              "u_berserk_eclipse_route = 1"
+            ]
           }
         ]
       }
-    ]
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_NORMAL_ECLIPSE_ALLOWED"
+    }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_TRIAL_NO_DESTINATION",
-    "effect": [ { "u_message": "The Behelit cannot find a safe passage.  Nothing happens.", "type": "bad" } ]
+    "effect": [
+      {
+        "u_message": "The Behelit cannot find a safe passage.  Nothing happens.",
+        "type": "bad"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_TRIAL_EXIT",
     "effect": [
       {
-        "if": { "math": [ "u_berserk_eclipse_rescue_state == 1" ] },
-        "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_RETURN" },
+        "if": {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 1"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_RETURN"
+        },
         "else": {
-          "if": { "math": [ "u_berserk_eclipse_behelit_spent == 1" ] },
-          "then": { "u_message": "The passage behind you is gone. Only the final confrontation remains.", "type": "warning" },
+          "if": {
+            "math": [
+              "u_berserk_eclipse_behelit_spent == 1"
+            ]
+          },
+          "then": {
+            "u_message": "The passage behind you is gone. Only the final confrontation remains.",
+            "type": "warning"
+          },
           "else": {
-            "if": { "math": [ "has_var(u_berserk_eclipse_return_origin)" ] },
-            "then": { "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_RETURN" },
-            "else": { "u_message": "No place of return is recorded for you.", "type": "bad" }
+            "if": {
+              "math": [
+                "has_var(u_berserk_eclipse_return_origin)"
+              ]
+            },
+            "then": {
+              "run_eocs": "EOC_BERSERK_ECLIPSE_TRIAL_RETURN"
+            },
+            "else": {
+              "u_message": "No place of return is recorded for you.",
+              "type": "bad"
+            }
           }
         }
       }
-    ]
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+    }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_TRIAL_RETURN",
-    "condition": { "u_query": "Return to the place where you activated the Behelit? Leave anything on the ground behind.", "default": false },
+    "condition": {
+      "and": [
+        {
+          "u_query": "Return to the place where you activated the Behelit? Leave anything on the ground behind.",
+          "default": false
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+        }
+      ]
+    },
     "effect": [
       {
-        "u_teleport": { "u_val": "berserk_eclipse_return_origin" },
+        "u_teleport": {
+          "u_val": "berserk_eclipse_return_origin"
+        },
         "force_safe": true,
         "success_message": "The Eclipse recedes.  You return to the world you left.",
         "fail_message": "The return passage is blocked.  Try again from the seal."
@@ -149,32 +355,78 @@
         "if": {
           "not": {
             "or": [
-              { "u_at_om_location": "berserk_eclipse_trial" },
-              { "u_at_om_location": "berserk_eclipse_trial_flesh" },
-              { "u_at_om_location": "berserk_eclipse_dungeon_entry" },
-              { "u_at_om_location": "berserk_eclipse_dungeon_gallery" },
-              { "u_at_om_location": "berserk_eclipse_dungeon_warrens" },
-              { "u_at_om_location": "berserk_eclipse_dungeon_procession" },
-              { "u_at_om_location": "berserk_eclipse_dungeon_descent" },
-              { "u_at_om_location": "berserk_eclipse_dungeon_altar" },
-              { "u_at_om_location": "berserk_eclipse_expanded_arrival" },
-              { "u_at_om_location": "berserk_eclipse_expanded_traces" },
-              { "u_at_om_location": "berserk_eclipse_expanded_cache" },
-              { "u_at_om_location": "berserk_eclipse_expanded_torn" },
-              { "u_at_om_location": "berserk_eclipse_expanded_crossroads" },
-              { "u_at_om_location": "berserk_eclipse_expanded_feast" },
-              { "u_at_om_location": "berserk_eclipse_expanded_hunt" },
-              { "u_at_om_location": "berserk_eclipse_expanded_ravine" },
-              { "u_at_om_location": "berserk_eclipse_expanded_approach" },
-              { "u_at_om_location": "berserk_eclipse_expanded_laststand" },
-              { "u_at_om_location": "berserk_eclipse_expanded_threshold" },
-              { "u_at_om_location": "berserk_eclipse_expanded_ceremony" }
+              {
+                "u_at_om_location": "berserk_eclipse_trial"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_trial_flesh"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_dungeon_entry"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_dungeon_gallery"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_dungeon_warrens"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_dungeon_procession"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_dungeon_descent"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_dungeon_altar"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_expanded_arrival"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_expanded_traces"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_expanded_cache"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_expanded_torn"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_expanded_crossroads"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_expanded_feast"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_expanded_hunt"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_expanded_ravine"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_expanded_approach"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_expanded_laststand"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_expanded_threshold"
+              },
+              {
+                "u_at_om_location": "berserk_eclipse_expanded_ceremony"
+              }
             ]
           }
         },
         "then": [
-          { "math": [ "u_berserk_eclipse_trial_active = 0" ] },
-          { "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_COMMIT_IF_RETURNED" }
+          {
+            "math": [
+              "u_berserk_eclipse_trial_active = 0"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_COMMIT_IF_RETURNED"
+          }
         ]
       }
     ]

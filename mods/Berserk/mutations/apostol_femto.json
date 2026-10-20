@@ -1,0 +1,178 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_FEMTO_SEED",
+    "name": {
+      "str": "Seed of black wings"
+    },
+    "description": "Pressure gathers beneath your shoulder blades. Your reserves of stamina diminish.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_FEMTO"
+    ],
+    "threshold": true,
+    "flags": [
+      "MUTATION_THRESHOLD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "MAX_STAMINA",
+            "multiply": -0.15
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_FEMTO_SENSES",
+    "name": {
+      "str": "Senses of black wings"
+    },
+    "description": "The gift sharpens your senses. Its permanent weakness remains throughout the transformation.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_FEMTO"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "NIGHT_VIS",
+            "add": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_FEMTO_FORM",
+    "name": {
+      "str": "Body of black wings"
+    },
+    "description": "Dark wings lighten your movements. Gain +2 strength, +1 dexterity, +10 speed and 2 points of natural protection; falling damage is halved. The wings do not allow sustained flight. This body is permanent; returning to human shape is impossible.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_FEMTO"
+    ],
+    "flags": [
+      "BERSERK_FEMTO_FORM_ACTIVE"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STRENGTH",
+            "add": 2
+          },
+          {
+            "value": "DEXTERITY",
+            "add": 1
+          },
+          {
+            "value": "SPEED",
+            "add": 10
+          },
+          {
+            "value": "ARMOR_ALL",
+            "add": -2
+          },
+          {
+            "value": "FALL_DAMAGE",
+            "multiply": -0.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_FEMTO_APOSTLE",
+    "name": {
+      "str": "Apostle of black wings"
+    },
+    "description": "Your transformation is complete. You bear a limited gift of Femto; you have not become a member of the God Hand. Your abilities and weaknesses will grow no further.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_FEMTO"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_FEMTO_PULSE",
+    "name": {
+      "str": "Wave of pressure"
+    },
+    "description": "In your other shape, push a visible enemy within 4 tiles away by up to 3 tiles. Obstacles can stop it. Costs 1600 stamina and 1 second; recovers in 25 seconds.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_FEMTO"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_FEMTO_PULSE_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_FEMTO_DASH",
+    "name": {
+      "str": "Black-winged rush"
+    },
+    "description": "In your other shape, rush to a visible, unoccupied place within 3 tiles. Costs 1200 stamina and 1 second; recovers in 15 seconds. For 2 seconds afterward, your dodge is reduced by 2. It does not grant flight through the sky.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_FEMTO"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_FEMTO_DASH_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_FEMTO_SUPPRESS",
+    "name": {
+      "str": "Crushing presence"
+    },
+    "description": "In your other shape, reduce enemies’ speed by 20 in a small area within 5 tiles for 3 seconds. Costs 1800 stamina and 2 seconds; recovers in 35 seconds.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_FEMTO"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_FEMTO_SUPPRESS_USE"
+    ]
+  }
+]

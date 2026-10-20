@@ -1,0 +1,267 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_SLAN_SEED",
+    "name": {
+      "str": "Seed of the crimson flesh"
+    },
+    "description": "A second pulse beats beneath your skin. Slan’s gift is taking root. You burn 25% more calories and take 20% more heat damage, throughout the transformation.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_SLAN"
+    ],
+    "threshold": true,
+    "flags": [
+      "MUTATION_THRESHOLD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "METABOLISM",
+            "multiply": 0.25
+          }
+        ],
+        "incoming_damage_mod": [
+          {
+            "type": "heat",
+            "multiply": 0.2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_SLAN_SENSES",
+    "name": {
+      "str": "Senses of the crimson flesh"
+    },
+    "description": "Movement is clearer in the dark. Your night vision reaches 2 tiles farther.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_SLAN"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "NIGHT_VIS",
+            "add": 2
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_SLAN_FORM",
+    "name": {
+      "str": "Body of the crimson flesh"
+    },
+    "description": "Your permanently altered flesh grants +4 strength, +1 dexterity, +15% melee damage and 4 points of natural protection. This body is permanent; returning to human shape is impossible. Its growth does not heal wounds.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_SLAN"
+    ],
+    "flags": [
+      "BERSERK_SLAN_FORM_ACTIVE"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STRENGTH",
+            "add": 4
+          },
+          {
+            "value": "DEXTERITY",
+            "add": 1
+          },
+          {
+            "value": "MELEE_DAMAGE",
+            "multiply": 0.15
+          },
+          {
+            "value": "ARMOR_ALL",
+            "add": -4
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_SLAN_WHIP",
+    "name": {
+      "str": "Lash of the crimson flesh"
+    },
+    "description": "Strike a visible enemy up to 3 tiles away with a cutting tendril. Costs 800 stamina and 1 second; recovers in 15 seconds.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_SLAN"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_SLAN_WHIP_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_SLAN_MEND",
+    "name": {
+      "str": "Mend the crimson flesh"
+    },
+    "description": "Restore up to 6 HP to each major body part. Costs 1200 stamina, 60 kcal and 6 seconds; recovers in 10 minutes. It cannot restore a missing hand or eye.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_SLAN"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_SLAN_MEND_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_SLAN_APOSTLE",
+    "name": {
+      "str": "Apostle of the crimson flesh"
+    },
+    "description": "You bear Slan’s limited gift; you have not become a member of the God Hand. Your transformation is complete. Hunger, heat and exhaustion remain its price.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_SLAN"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ECLIPSE_SCAR_HEARING",
+    "name": {
+      "str": "Echo of the Eclipse"
+    },
+    "description": "You left the ceremony human, but its silence followed you. Sounds reach you at half their former strength.",
+    "points": -1,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "HEARING_MULT",
+            "multiply": -0.5
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ECLIPSE_SCAR_SIGHT",
+    "name": {
+      "str": "Veil of the Eclipse"
+    },
+    "description": "You left the ceremony human, but distant shapes blur together. Corrective glasses can compensate for your damaged sight.",
+    "points": -1,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "flags": [
+      "MYOPIC"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ECLIPSE_SCAR_TREMOR",
+    "name": {
+      "str": "Tremor of the Eclipse"
+    },
+    "description": "You left the ceremony human, but your hands retain a faint tremor. Your dexterity is reduced by 1.",
+    "points": -1,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "DEXTERITY",
+            "add": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ECLIPSE_SCAR_MEMORIES",
+    "name": {
+      "str": "Intrusive memories"
+    },
+    "description": "Fragments of the ceremony intrude when you try to concentrate. Your intelligence is reduced by 1.",
+    "points": -1,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "INTELLIGENCE",
+            "add": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_ECLIPSE_SCAR_DREAD",
+    "name": {
+      "str": "Dread of the Eclipse"
+    },
+    "description": "A nameless dread makes it harder to recover your composure after exertion. Stamina regeneration is reduced by 10%.",
+    "points": -1,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STAMINA_REGEN_MOD",
+            "add": -0.1
+          }
+        ]
+      }
+    ]
+  }
+]

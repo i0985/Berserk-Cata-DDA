@@ -1,0 +1,170 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_UBIK_SEED",
+    "name": {
+      "str": "Seed of borrowed faces"
+    },
+    "description": "Other people’s expressions linger in your thoughts. Your body loses some of its strength.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_UBIK"
+    ],
+    "threshold": true,
+    "flags": [
+      "MUTATION_THRESHOLD"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STRENGTH",
+            "add": -1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_UBIK_SENSES",
+    "name": {
+      "str": "Senses of borrowed faces"
+    },
+    "description": "The gift sharpens your senses. Its permanent weakness remains throughout the transformation.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_UBIK"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "PERCEPTION",
+            "add": 2
+          },
+          {
+            "value": "NIGHT_VIS",
+            "add": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_UBIK_FORM",
+    "name": {
+      "str": "Body of borrowed faces"
+    },
+    "description": "Your outline becomes difficult to follow. Gain +2 dexterity and reduce your visibility range by 3 tiles. This body is permanent; returning to human shape is impossible.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_UBIK"
+    ],
+    "flags": [
+      "BERSERK_UBIK_FORM_ACTIVE"
+    ],
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "DEXTERITY",
+            "add": 2
+          },
+          {
+            "value": "STEALTH_MODIFIER",
+            "add": 3
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_UBIK_APOSTLE",
+    "name": {
+      "str": "Apostle of borrowed faces"
+    },
+    "description": "Your transformation is complete. You bear a limited gift of Ubik; you have not become a member of the God Hand. Your abilities and weaknesses will grow no further.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_UBIK"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_UBIK_IMAGE",
+    "name": {
+      "str": "Borrowed face"
+    },
+    "description": "In your other shape, place one fragile likeness within 4 tiles for 8 seconds. Enemies may attack it; it does not force them to forget you. Costs 800 stamina and 1 second; recovers in 20 seconds.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_UBIK"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_UBIK_IMAGE_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_UBIK_CONFUSE",
+    "name": {
+      "str": "Conflicting memories"
+    },
+    "description": "In your other shape, stun a living enemy within 5 tiles for 2 seconds. Robots, zombies, slimes and insects are unaffected. Costs 1100 stamina and 1 second; recovers in 25 seconds.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_UBIK"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_USE"
+    ]
+  },
+  {
+    "type": "mutation",
+    "id": "BERSERK_UBIK_VEIL",
+    "name": {
+      "str": "Borrowed absence"
+    },
+    "description": "In your other shape, vanish from ordinary sight for 4 seconds. Scent, sound and remembered positions can still betray you. Costs 1500 stamina and 1 second; recovers in 45 seconds.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "category": [
+      "BERSERK_UBIK"
+    ],
+    "active": true,
+    "activated_is_setup": false,
+    "activated_eocs": [
+      "EOC_BERSERK_APOSTOL_UBIK_VEIL_USE"
+    ]
+  }
+]

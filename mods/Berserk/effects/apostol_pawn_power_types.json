@@ -1,0 +1,52 @@
+[
+  {
+    "type": "effect_type",
+    "id": "berserk_apostol_pawn_flutter",
+    "name": [
+      "Borrowed defense"
+    ],
+    "desc": [
+      "Your lesser form briefly braces itself."
+    ],
+    "max_intensity": 1,
+    "dur_add_perc": 0,
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "DODGE_CHANCE",
+            "add": 1
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "effect_type",
+    "id": "berserk_apostol_pawn_brace",
+    "name": [
+      "Borrowed defense"
+    ],
+    "desc": [
+      "Your lesser form briefly braces itself."
+    ],
+    "max_intensity": 1,
+    "dur_add_perc": 0,
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "ARMOR_ALL",
+            "add": -2
+          },
+          {
+            "value": "SPEED",
+            "add": -15
+          }
+        ]
+      }
+    ]
+  }
+]

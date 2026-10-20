@@ -2,8 +2,50 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_ROAD_CARAVAN",
-    "dynamic_line": "*Most of the wagon has been stripped. One dry bundle remains wedged under the box. Lifting it gently preserves the provisions; taking the iron fittings requires breaking the box and its contents.",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_GODO_ROAD_CARAVAN_INTACT",
+      "yes": "*Most of the wagon has been stripped. A repair order lies under the lid of the iron-bound box. One dry bundle remains beneath it. You could recover the provisions or break the box for its fittings.",
+      "no": "*The wagon box has been searched. The repair order is still tucked beneath its lid."
+    },
     "responses": [
+      {
+        "text": "Read the weapon repair order.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "distance('u', u_berserk_road_story_pos) <= 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "map_furniture_id": "f_berserk_road_caravan",
+                  "loc": {
+                    "u_val": "berserk_road_story_pos"
+                  }
+                },
+                {
+                  "map_furniture_id": "f_berserk_road_caravan_provisions",
+                  "loc": {
+                    "u_val": "berserk_road_story_pos"
+                  }
+                },
+                {
+                  "map_furniture_id": "f_berserk_road_caravan_iron",
+                  "loc": {
+                    "u_val": "berserk_road_story_pos"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_ROAD_CARAVAN_READ_AT_SITE"
+        }
+      },
       {
         "text": "Recover the dry provisions.",
         "topic": "TALK_DONE",
@@ -134,8 +176,50 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_ROAD_CAMP",
-    "dynamic_line": "*The travelers left a dry windbreak and their last blanket. You can make a usable bed here or carry the blanket onward. A water skin and a scrap of their last message remain beside it. Neither branches nor bedding can silence the Brand.",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_GODO_ROAD_CAMP_INTACT",
+      "yes": "*The travelers left a dry windbreak and their last blanket. A water skin and a folded message lie beside it. You can prepare a bed here or take the blanket for the road.",
+      "no": "*The bedding and supplies have already been sorted. The traveler’s message remains beside the cold ashes."
+    },
     "responses": [
+      {
+        "text": "Read the traveler’s message.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "distance('u', u_berserk_road_story_pos) <= 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "map_furniture_id": "f_berserk_road_camp",
+                  "loc": {
+                    "u_val": "berserk_road_story_pos"
+                  }
+                },
+                {
+                  "map_furniture_id": "f_berserk_road_camp_bed",
+                  "loc": {
+                    "u_val": "berserk_road_story_pos"
+                  }
+                },
+                {
+                  "map_furniture_id": "f_berserk_road_camp_blanket",
+                  "loc": {
+                    "u_val": "berserk_road_story_pos"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_ROAD_CAMP_READ_AT_SITE"
+        }
+      },
       {
         "text": "Spread the blanket and prepare a bed here.",
         "topic": "TALK_DONE",

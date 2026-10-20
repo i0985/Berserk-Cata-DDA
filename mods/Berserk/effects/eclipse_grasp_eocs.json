@@ -33,6 +33,9 @@
           "math": [
             "u_berserk_eclipse_grasp_state < 2"
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -74,6 +77,9 @@
           "math": [
             "u_berserk_eclipse_grasp_state < 2"
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -113,6 +119,9 @@
           "math": [
             "u_berserk_eclipse_grasp_state < 2"
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -189,6 +198,9 @@
           "math": [
             "u_berserk_eclipse_grasp_state == 0"
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -295,6 +307,9 @@
           "math": [
             "u_berserk_eclipse_grasp_state == 1"
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },
@@ -413,7 +428,10 @@
         ],
         "monster_range": 1
       }
-    ]
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+    }
   },
   {
     "type": "effect_on_condition",

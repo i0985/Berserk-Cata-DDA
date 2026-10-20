@@ -4,21 +4,33 @@
     "type": "item_group",
     "subtype": "collection",
     "items": [
-      { "item": "apostle_shard", "prob": 50 },
-      { "item": "bone_human", "prob": 80 }
+      {
+        "item": "apostle_shard",
+        "prob": 50
+      },
+      {
+        "item": "bone_human",
+        "prob": 80
+      }
     ]
   },
   {
     "type": "ITEM",
     "id": "apostle_shard",
-    "name": { "str": "Apostle Shard" },
+    "name": {
+      "str": "Apostle Shard"
+    },
     "description": "A jagged fragment torn from an otherworldly being, pulsing with dark energy.",
     "weight": "50 g",
     "volume": "250 ml",
     "price": "1000 cents",
     "price_postapoc": "500 cents",
-    "material": [ "flesh", "bone" ],
+    "material": [
+      "flesh",
+      "bone"
+    ],
     "symbol": "*",
-    "color": "white"
+    "color": "white",
+    "looks_like": ""
   }
 ]

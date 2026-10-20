@@ -17,7 +17,7 @@
     "volume": "250 ml",
     "symbol": "?",
     "color": "brown",
-    "looks_like": "billet_wood",
+    "looks_like": "",
     "charges_per_use": 0,
     "flags": [
       "ALLOWS_REMOTE_USE"
@@ -47,7 +47,7 @@
     "volume": "50 ml",
     "symbol": "?",
     "color": "brown",
-    "looks_like": "scrap_cotton",
+    "looks_like": "",
     "charges_per_use": 0,
     "flags": [
       "ALLOWS_REMOTE_USE"
@@ -85,7 +85,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_READ_OAK_LAST_NOTE"
       ]
-    }
+    },
+    "looks_like": ""
   },
   {
     "type": "ITEM",
@@ -113,7 +114,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_READ_FLORA_HERBAL_FOLIO"
       ]
-    }
+    },
+    "looks_like": ""
   },
   {
     "type": "ITEM",
@@ -134,7 +136,8 @@
     },
     "material": [
       "cotton"
-    ]
+    ],
+    "looks_like": ""
   },
   {
     "type": "ITEM",
@@ -152,7 +155,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_READ_CHAPEL_RELIEF_ROSTER"
       ]
-    }
+    },
+    "looks_like": ""
   },
   {
     "type": "ITEM",
@@ -170,7 +174,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_READ_CHAPEL_RITUAL_NOTE"
       ]
-    }
+    },
+    "looks_like": ""
   },
   {
     "type": "ITEM",
@@ -188,7 +193,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_READ_CHAPEL_FOREST_ROUTE"
       ]
-    }
+    },
+    "looks_like": ""
   },
   {
     "type": "ITEM",
@@ -206,7 +212,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_READ_EXPEDITION_TRANSFER_NOTE"
       ]
-    }
+    },
+    "looks_like": ""
   },
   {
     "type": "ITEM",
@@ -224,7 +231,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_ECLIPSE_LAST_STAND_READ"
       ]
-    }
+    },
+    "looks_like": ""
   },
   {
     "type": "ITEM",
@@ -243,7 +251,7 @@
     "volume": "10 ml",
     "symbol": "?",
     "color": "brown",
-    "looks_like": "scrap_cotton",
+    "looks_like": "",
     "charges_per_use": 0,
     "flags": [
       "ALLOWS_REMOTE_USE"
@@ -272,7 +280,7 @@
     "volume": "10 ml",
     "symbol": "?",
     "color": "brown",
-    "looks_like": "scrap_cotton",
+    "looks_like": "",
     "charges_per_use": 0,
     "flags": [
       "ALLOWS_REMOTE_USE"
@@ -301,7 +309,7 @@
     "volume": "10 ml",
     "symbol": "?",
     "color": "brown",
-    "looks_like": "scrap_cotton",
+    "looks_like": "",
     "charges_per_use": 0,
     "flags": [
       "ALLOWS_REMOTE_USE"
@@ -330,7 +338,7 @@
     "volume": "10 ml",
     "symbol": "?",
     "color": "brown",
-    "looks_like": "scrap_cotton",
+    "looks_like": "",
     "charges_per_use": 0,
     "flags": [
       "ALLOWS_REMOTE_USE"
@@ -356,7 +364,7 @@
     "volume": "10 ml",
     "symbol": ",",
     "color": "dark_gray",
-    "looks_like": "scrap"
+    "looks_like": ""
   },
   {
     "type": "ITEM",
@@ -375,7 +383,7 @@
     "volume": "10 ml",
     "symbol": "?",
     "color": "brown",
-    "looks_like": "scrap_cotton",
+    "looks_like": "",
     "charges_per_use": 0,
     "flags": [
       "ALLOWS_REMOTE_USE"
@@ -404,7 +412,7 @@
     "volume": "10 ml",
     "symbol": "?",
     "color": "brown",
-    "looks_like": "scrap_cotton",
+    "looks_like": "",
     "charges_per_use": 0,
     "flags": [
       "ALLOWS_REMOTE_USE"
@@ -433,7 +441,7 @@
     "volume": "10 ml",
     "symbol": "?",
     "color": "brown",
-    "looks_like": "scrap_cotton",
+    "looks_like": "",
     "charges_per_use": 0,
     "flags": [
       "ALLOWS_REMOTE_USE"
@@ -462,7 +470,7 @@
     "volume": "10 ml",
     "symbol": "?",
     "color": "brown",
-    "looks_like": "scrap_cotton",
+    "looks_like": "",
     "charges_per_use": 0,
     "flags": [
       "ALLOWS_REMOTE_USE"
@@ -491,7 +499,7 @@
     "volume": "10 ml",
     "symbol": "?",
     "color": "brown",
-    "looks_like": "scrap_cotton",
+    "looks_like": "",
     "charges_per_use": 0,
     "flags": [
       "ALLOWS_REMOTE_USE"
@@ -513,13 +521,14 @@
     "name": {
       "str_sp": "message from the expedition's lookout"
     },
-    "description": "A rain-marked warning left for a late-arriving member of the survey team. Activate it to read the account of the alarm test.",
+    "description": "A rain-marked warning left for a late-arriving member of the survey team. It describes the wounded and a way out of the camp.",
     "use_action": {
       "type": "effect_on_conditions",
       "effect_on_conditions": [
         "EOC_BERSERK_READ_EXPEDITION_ALARM_NOTE"
       ]
-    }
+    },
+    "looks_like": ""
   },
   {
     "type": "ITEM",
@@ -537,7 +546,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_READ_CHAPEL_LAST_VIGIL"
       ]
-    }
+    },
+    "looks_like": ""
   },
   {
     "type": "ITEM",
@@ -558,6 +568,7 @@
     },
     "material": [
       "cotton"
-    ]
+    ],
+    "looks_like": ""
   }
 ]

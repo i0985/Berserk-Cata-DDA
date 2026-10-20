@@ -124,23 +124,7 @@
         ]
       },
       {
-        "if": {
-          "math": [
-            "u_berserk_refuge_journal_issued != 1"
-          ]
-        },
-        "then": [
-          {
-            "u_spawn_item": "berserk_refuge_journal",
-            "count": 1,
-            "suppress_message": true
-          },
-          {
-            "math": [
-              "u_berserk_refuge_journal_issued = 1"
-            ]
-          }
-        ]
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
       },
       {
         "u_message": "Refuge recorded. Stay within this ward's reach for the Brand's protection; keep watch for creatures that are already here. The refuge journal keeps your preparations and onward directions. It grants no healing, armor or immunity.",
@@ -152,103 +136,15 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_REFUGE_JOURNAL",
-    "effect": [
-      {
-        "u_message": "Within eight local tiles on this level, a bone and stone ward suppresses the Brand's extra nighttime summons, including on the ward's own tile. It does not stop roaming demons, armor-created shadows, zombies or attacks, and does not erase the Brand. Choose an existing defensible building; put your sleeping place inside the ward's reach, prepare light and drinking water, and keep an escape route. The ward needs no fuel or repeated servicing. You can record your own readiness here; light, water and bedding are a checklist, not an automatic safety guarantee.",
-        "type": "info",
-        "popup": true
-      },
-      {
-        "if": {
-          "math": [
-            "u_berserk_refuge_ready == 1"
-          ]
-        },
-        "then": [
-          {
-            "reveal_map": {
-              "u_val": "berserk_refuge_ward_location"
-            },
-            "radius": 0
-          },
-          {
-            "u_message": "Your chosen refuge is recorded at the ward's location. This is your readiness checklist, not a guarantee about its current walls, light or supplies.",
-            "type": "info",
-            "popup": true
-          }
-        ],
-        "else": {
-          "u_message": "No prepared refuge is currently recorded. Inspect a ward from a sheltered adjacent tile and confirm your preparations.",
-          "type": "info",
-          "popup": true
-        }
-      },
-      {
-        "if": {
-          "math": [
-            "u_berserk_refuge_dawn_recorded == 1"
-          ]
-        },
-        "then": {
-          "u_message": "The journal records a dawn reached after at least an hour of nighttime presence within the recorded ward's reach. This does not certify that no enemy could enter. You can rest or prepare your prosthesis before following a trail.",
-          "type": "info",
-          "popup": true
-        }
-      },
-      {
-        "if": {
-          "u_query": "Read the next story direction? This does not require you to finish a night here or build a new base.",
-          "default": false
-        },
-        "then": {
-          "run_eocs": "EOC_BERSERK_REFUGE_NEXT_TRAIL"
-        }
-      }
-    ]
+    "effect": {
+      "run_eocs": "EOC_BERSERK_JOURNAL_OPEN_REFUGE"
+    }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_REFUGE_NEXT_TRAIL",
-    "condition": {
-      "and": [
-        {
-          "math": [
-            "berserk_eclipse_era == 1"
-          ]
-        },
-        {
-          "math": [
-            "u_berserk_eclipse_rescue_state == 2"
-          ]
-        }
-      ]
-    },
     "effect": {
-      "if": {
-        "math": [
-          "u_berserk_first_hunt_done != 1"
-        ]
-      },
-      "then": {
-        "run_eocs": "EOC_BERSERK_FIRST_HUNT_RECALL"
-      },
-      "else": {
-        "if": {
-          "math": [
-            "u_berserk_breach_sealed != 1"
-          ]
-        },
-        "then": {
-          "run_eocs": "EOC_BERSERK_BREACH_READ_CLUE"
-        },
-        "else": {
-          "run_eocs": "EOC_BERSERK_POST_ECLIPSE_CHOOSE"
-        }
-      }
-    },
-    "false_effect": {
-      "u_message": "The journal keeps your refuge preparations. Survive the Eclipse and return before following the post-Eclipse trails.",
-      "type": "info"
+      "run_eocs": "EOC_BERSERK_JOURNAL_OPEN_CURRENT"
     }
   },
   {

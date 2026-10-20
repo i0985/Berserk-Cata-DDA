@@ -46,8 +46,15 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             }
           ]
@@ -116,15 +123,29 @@
                   ]
                 },
                 {
-                  "math": [
-                    "u_berserk_eclipse_rescue_state == 2"
+                  "or": [
+                    {
+                      "math": [
+                        "u_berserk_eclipse_rescue_state == 2"
+                      ]
+                    },
+                    {
+                      "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                    }
                   ]
                 }
               ]
             },
             {
-              "math": [
-                "u_berserk_first_hunt_done == 1"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_first_hunt_done == 1"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                }
               ]
             },
             {
@@ -187,6 +208,25 @@
     "effect": [
       {
         "if": {
+          "math": [
+            "u_berserk_site_flora_locator_schema != 2"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_site_flora_tries = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_site_flora_locator_schema = 2"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
           "or": [
             {
               "math": [
@@ -247,9 +287,11 @@
               },
               "target_params": {
                 "om_terrain": "berserk_flora_manor_west",
-                "random": false,
+                "random": true,
                 "min_distance": 0,
-                "z": 0
+                "z": 0,
+                "om_special": "berserk_flora_manor_special",
+                "search_range": 140
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_FLORA_VALIDATE"
@@ -264,9 +306,11 @@
               },
               "target_params": {
                 "om_terrain": "berserk_flora_manor_west",
-                "random": false,
+                "random": true,
                 "min_distance": 0,
-                "z": 0
+                "z": 0,
+                "om_special": "berserk_flora_manor_special",
+                "search_range": 180
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_FLORA_VALIDATE"
@@ -342,9 +386,9 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_NOT_FOUND",
     "effect": {
-      "u_message": "No suitable forest clearing was found nearby. Travel to another area and consult the Skull Knight or his directions again. No armor has been claimed.",
+      "u_message": "These directions do not yet reveal the road. The record has been kept.",
       "type": "info",
-      "popup": true
+      "popup": false
     }
   },
   {
@@ -632,15 +676,10 @@
     "id": "EOC_BERSERK_FLORA_DIRECTIONS",
     "effect": [
       {
-        "if": {
-          "not": {
-            "u_has_item": "berserk_flora_directions"
-          }
-        },
-        "then": {
-          "u_spawn_item": "berserk_flora_directions",
-          "count": 1
-        }
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_FLORA"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
       },
       {
         "run_eocs": "EOC_BERSERK_FLORA_SEEK"
@@ -975,6 +1014,12 @@
     },
     "effect": [
       {
+        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_FLORA"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+      },
+      {
         "run_eocs": "EOC_BERSERK_FLORA_REGISTER_HERE"
       },
       {
@@ -1003,7 +1048,9 @@
         ]
       },
       "then": {
-        "run_eocs": "EOC_BERSERK_CAMPAIGN_REPORT"
+        "u_message": "The charm has already served its purpose. Keep the surviving directions in your journal.",
+        "type": "info",
+        "popup": false
       },
       "else": {
         "if": {
