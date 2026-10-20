@@ -98,9 +98,11 @@ class BeforeEclipseForge(unittest.TestCase):
         f = self.survivor('berserk_before_eclipse'); f.items['true_guts_early_sword']=1
         f.run('EOC_BERSERK_GODO_START_EARLY_SWORD'); self.assertEqual(f.vars['u_berserk_godo_early_state'],0)
         self.assertIn('TALK_BERSERK_GODO_REPAIR',[r['topic'] for r in f.available('TALK_BERSERK_GODO_EARLY_SWORD')])
-        f.items.update({'steel_lump':1, 'charcoal':50}); f.repair_item='true_guts_early_sword'
-        f.run('EOC_BERSERK_GODO_REPAIR_PICK'); self.assertEqual(f.item_hp,f.item_max)
-        self.assertEqual(f.items['true_guts_early_sword'],1)
+        from test_godo_repairs_33 import Repair
+        repair = Repair(); repair.blade(id='true_guts_early_sword'); repair.run('PICK')
+        self.assertFalse(repair.carried); self.assertEqual(repair.floor[0]['hp'],1000)
+        repair.now += 7200; repair.run('CLAIM')
+        self.assertEqual(len(repair.floor),1); self.assertEqual(repair.floor[0]['hp'],4000)
 
     def test_prepaid_early_order_survives_eclipse_and_reload(self):
         f=self.survivor(); self.early(f); f.vars['berserk_eclipse_era']=1

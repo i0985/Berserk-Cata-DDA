@@ -1,0 +1,16 @@
+[
+  {
+    "type": "ITEM",
+    "copy-from": "mc_zweihander",
+    "id": "forged_guts_early_sword",
+    "name": { "str_sp": "Homemade Guts' battle sword" },
+    "description": "A roughly forged copy of Guts' broad battle sword. The uneven edge still bites deep, but the heavy blade pulls against the hand and its imperfect temper makes it prone to damage.",
+    "weight": "3000 g",
+    "looks_like": "true_guts_early_sword",
+    "to_hit": { "grip": "weapon", "length": "long", "surface": "line", "balance": "clumsy" },
+    "flags": [ "ALWAYS_TWOHAND", "CONDUCTIVE", "SHEATH_SWORD" ],
+    "techniques": [ "WBLOCK_1", "WIDE", "BRUTAL" ],
+    "melee_damage": { "bash": 12, "cut": 38 },
+    "qualities": [ [ "CUT", 1 ], [ "BUTCHER", 1 ] ]
+  }
+]

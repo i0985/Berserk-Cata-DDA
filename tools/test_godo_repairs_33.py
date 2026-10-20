@@ -181,8 +181,9 @@ class Repairs(unittest.TestCase):
         self.assertEqual(result['hp'], 4000); self.assertEqual(result['degradation'], 0)
         self.assertIs(f.carried[0], other); self.assertEqual(other['hp'], 600)
 
-    def test_all_three_supported_blades(self):
-        for id in ['true_guts_early_sword', 'true_guts_sword', 'forged_guts_sword']:
+    def test_all_supported_blades(self):
+        for id in ['true_guts_early_sword', 'true_guts_sword', 'forged_guts_sword',
+                   'forged_guts_early_sword']:
             f = Repair(); f.blade(id=id); f.run('PICK'); f.now += 7200; f.run('CLAIM')
             self.assertEqual(f.floor[0]['id'], id); self.assertEqual(f.floor[0]['hp'], 4000)
 

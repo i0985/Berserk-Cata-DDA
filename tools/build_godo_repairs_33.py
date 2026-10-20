@@ -19,7 +19,8 @@ def tr(en, ru, zh):
 
 
 P = 'EOC_BERSERK_GODO_REPAIR_'
-BLADES = ['true_guts_sword', 'true_guts_early_sword', 'forged_guts_sword']
+BLADES = ['true_guts_sword', 'true_guts_early_sword', 'forged_guts_sword',
+          'forged_guts_early_sword']
 IDLE = math('u_berserk_godo_repair_state != 1')
 ACTIVE = math('u_berserk_godo_repair_state == 1')
 READY = both(ACTIVE, math("time('now') >= u_berserk_godo_repair_ready_at"))
