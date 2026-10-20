@@ -991,32 +991,59 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_REPAIR",
     "dynamic_line": {
-      "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE",
-      "yes": "I mend the heavy blades I forge. Bring one steel lump and 50 charcoal for a damaged piece. If yours is still sound, keep your metal; we can discuss a new blade without starting the work today.",
-      "no": "I mend my own heavy blades: the long battle sword and the Dragon Slayer. For a damaged piece, bring one steel lump and 50 charcoal. We can go over the materials even if you do not have them yet."
+      "math": [
+        "u_berserk_godo_repair_state == 1"
+      ],
+      "yes": "You left a blade with me. I need two hours at the forge. If you took it away, bring the same blade back.",
+      "no": "Show me the blade first. No sense working sound metal. If it needs repair, leave it with one steel lump and 50 charcoal. Come back in two hours."
     },
     "responses": [
       {
-        "text": "Show you a damaged piece.",
+        "text": "Have a look at my blade.",
         "topic": "TALK_BERSERK_GODO_REPAIR",
         "condition": {
-          "and": [
-            {
-              "u_has_items": {
-                "item": "steel_lump",
-                "count": 1
-              }
-            },
-            {
-              "u_has_items": {
-                "item": "charcoal",
-                "count": 50
-              }
-            }
+          "math": [
+            "u_berserk_godo_repair_state != 1"
           ]
         },
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_REPAIR_PICK"
+        }
+      },
+      {
+        "text": "Is my blade ready?",
+        "topic": "TALK_BERSERK_GODO_REPAIR",
+        "condition": {
+          "math": [
+            "u_berserk_godo_repair_state == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_REPAIR_CLAIM"
+        }
+      },
+      {
+        "text": "I took the blade. Here it is again.",
+        "topic": "TALK_BERSERK_GODO_REPAIR",
+        "condition": {
+          "math": [
+            "u_berserk_godo_repair_state == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_REPAIR_REDEPOSIT"
+        }
+      },
+      {
+        "text": "Close the repair order.",
+        "topic": "TALK_BERSERK_GODO_REPAIR",
+        "condition": {
+          "math": [
+            "u_berserk_godo_repair_state == 1"
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_REPAIR_ABANDON"
         }
       },
       {
@@ -3186,6 +3213,15 @@
     "id": "TALK_BERSERK_GODO_ORDERS",
     "dynamic_line": "A good order is plain: what you need, what you have brought, and what remains for me to do.",
     "responses": [
+      {
+        "text": "About my blade repair.",
+        "topic": "TALK_BERSERK_GODO_REPAIR",
+        "condition": {
+          "math": [
+            "u_berserk_godo_repair_state == 1"
+          ]
+        }
+      },
       {
         "text": "I need a reliable long sword.",
         "topic": "TALK_BERSERK_GODO_EARLY_SWORD",

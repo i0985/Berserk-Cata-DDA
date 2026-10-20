@@ -1946,6 +1946,15 @@
     "dynamic_line": "*Orders at the woodland forge. Godot works on blades; Rickert makes prostheses and crossbow bolts. These notes list the materials needed and the progress of each order.",
     "responses": [
       {
+        "text": "Godot: blade repair.",
+        "topic": "TALK_BERSERK_JOURNAL_REPAIR",
+        "condition": {
+          "math": [
+            "u_berserk_godo_repair_state == 1"
+          ]
+        }
+      },
+      {
         "text": "Godot: battle sword.",
         "topic": "TALK_BERSERK_JOURNAL_EARLY",
         "condition": {
@@ -4206,6 +4215,23 @@
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_JOURNAL_CURRENT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_JOURNAL_REPAIR",
+    "dynamic_line": {
+      "math": [
+        "time('now') >= u_berserk_godo_repair_ready_at"
+      ],
+      "yes": "*Blade repair. The agreed time has passed. Return to Godot at the forge to collect your blade.",
+      "no": "*Blade repair. Godot has the blade and the materials. Allow two hours, then return to the forge."
+    },
+    "responses": [
+      {
+        "text": "Back.",
+        "topic": "TALK_BERSERK_JOURNAL_ORDERS"
       }
     ]
   }

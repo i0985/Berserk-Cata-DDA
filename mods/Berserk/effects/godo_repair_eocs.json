@@ -1,0 +1,507 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_REPAIR_PLACE_ITEM",
+    "effect": [
+      {
+        "math": [
+          "berserk_godo_repair_serial = berserk_godo_repair_serial + 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_godo_repair_job = berserk_godo_repair_serial"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_godo_repair_job = u_berserk_godo_repair_job"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_godo_repair_handoff_pending = 1"
+        ]
+      },
+      {
+        "npc_teleport": {
+          "u_val": "berserk_godo_repair_storage"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_godo_repair_state != 1"
+          ]
+        },
+        {
+          "and": [
+            {
+              "u_has_items": {
+                "item": "steel_lump",
+                "count": 1
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "charcoal",
+                "count": 50
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_REPAIR_START_STORED",
+    "effect": [
+      {
+        "u_consume_item": "steel_lump",
+        "charges": 1
+      },
+      {
+        "u_consume_item": "charcoal",
+        "charges": 50
+      },
+      {
+        "math": [
+          "u_berserk_godo_repair_ready_at = time('now') + 7200"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_godo_repair_state = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_godo_repair_handoff_pending = 0"
+        ]
+      },
+      {
+        "u_message": "Godot sets your blade beside his tools. \"Come back in two hours. I will see to the edge and the worn metal.\""
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_repair_job > 0"
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_godo_repair_job == u_berserk_godo_repair_job"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_repair_state != 1"
+          ]
+        },
+        {
+          "and": [
+            {
+              "u_has_items": {
+                "item": "steel_lump",
+                "count": 1
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "charcoal",
+                "count": 50
+              }
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_repair_handoff_pending == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_REPAIR_RETURN_ITEM",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_godo_repair_found = 1"
+        ]
+      },
+      {
+        "math": [
+          "n_degradation() = 0"
+        ]
+      },
+      {
+        "math": [
+          "n_hp('ALL') = n_hp_max('torso')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_godo_repair_state = 2"
+        ]
+      },
+      {
+        "u_message": "Godot lays your repaired blade at your feet. \"Good as new. Take it.\""
+      },
+      {
+        "npc_teleport": {
+          "u_val": "berserk_godo_repair_return_point"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_repair_job > 0"
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_godo_repair_job == u_berserk_godo_repair_job"
+              ]
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_repair_state == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_godo_repair_ready_at"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_REPAIR_CLAIM",
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_repair_state == 1"
+              ]
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_godo_repair_ready_at"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_location_variable": {
+              "u_val": "berserk_godo_repair_return_point"
+            }
+          },
+          {
+            "math": [
+              "u_berserk_godo_repair_found = 0"
+            ]
+          },
+          {
+            "u_map_run_item_eocs": "all",
+            "loc": {
+              "u_val": "berserk_godo_repair_storage"
+            },
+            "min_radius": 0,
+            "max_radius": 2,
+            "search_data": [
+              {
+                "id": [
+                  "true_guts_sword",
+                  "true_guts_early_sword",
+                  "forged_guts_sword"
+                ],
+                "condition": {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_godo_repair_job > 0"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "n_berserk_godo_repair_job == u_berserk_godo_repair_job"
+                      ]
+                    }
+                  ]
+                }
+              }
+            ],
+            "true_eocs": [
+              "EOC_BERSERK_GODO_REPAIR_RETURN_ITEM"
+            ]
+          },
+          {
+            "if": {
+              "math": [
+                "u_berserk_godo_repair_found == 0"
+              ]
+            },
+            "then": {
+              "u_message": "\"Your blade is not beside my tools. If you took it, bring the same blade back so I can finish.\""
+            }
+          }
+        ],
+        "else": {
+          "u_message": "\"Not yet. Give me two hours from when you left the blade.\""
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        {
+          "math": [
+            "u_berserk_godo_repair_state == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_REPAIR_REDEPOSIT_ITEM",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_godo_repair_handoff_pending = 1"
+        ]
+      },
+      {
+        "npc_teleport": {
+          "u_val": "berserk_godo_repair_storage"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_godo_repair_state == 1"
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_repair_job > 0"
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_godo_repair_job == u_berserk_godo_repair_job"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_REPAIR_RESUME_STORED",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_godo_repair_ready_at = time('now') + 7200"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_godo_repair_handoff_pending = 0"
+        ]
+      },
+      {
+        "u_message": "\"Leave it here this time. Another two hours; you have already paid for the materials.\""
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_godo_repair_state == 1"
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_repair_job > 0"
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_godo_repair_job == u_berserk_godo_repair_job"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_repair_handoff_pending == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_REPAIR_REDEPOSIT",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_godo_repair_handoff_pending = 0"
+        ]
+      },
+      {
+        "u_run_inv_eocs": "manual",
+        "title": "Return your blade to Godot",
+        "search_data": [
+          {
+            "id": [
+              "true_guts_sword",
+              "true_guts_early_sword",
+              "forged_guts_sword"
+            ],
+            "condition": {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_repair_job > 0"
+                  ]
+                },
+                {
+                  "math": [
+                    "n_berserk_godo_repair_job == u_berserk_godo_repair_job"
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "true_eocs": [
+          "EOC_BERSERK_GODO_REPAIR_REDEPOSIT_ITEM"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_godo_repair_handoff_pending == 1"
+          ]
+        },
+        "then": {
+          "u_map_run_item_eocs": "all",
+          "loc": {
+            "u_val": "berserk_godo_repair_storage"
+          },
+          "min_radius": 0,
+          "max_radius": 2,
+          "search_data": [
+            {
+              "id": [
+                "true_guts_sword",
+                "true_guts_early_sword",
+                "forged_guts_sword"
+              ],
+              "condition": {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_godo_repair_job > 0"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "n_berserk_godo_repair_job == u_berserk_godo_repair_job"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "true_eocs": [
+            "EOC_BERSERK_GODO_REPAIR_RESUME_STORED"
+          ]
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        {
+          "math": [
+            "u_berserk_godo_repair_state == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_REPAIR_ABANDON",
+    "effect": {
+      "if": {
+        "u_query": "Close this repair order? The materials have been used and will not be returned. No blade will be replaced.",
+        "default": false
+      },
+      "then": [
+        {
+          "math": [
+            "u_berserk_godo_repair_state = 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_repair_job = 0"
+          ]
+        }
+      ]
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        {
+          "math": [
+            "u_berserk_godo_repair_state == 1"
+          ]
+        }
+      ]
+    }
+  }
+]

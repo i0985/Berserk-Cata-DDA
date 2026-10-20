@@ -1531,76 +1531,136 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GODO_REPAIR_PICK",
-    "effect": {
-      "u_run_inv_eocs": "manual",
-      "title": "Choose equipment for Godot to repair",
-      "search_data": [
-        {
-          "id": [
-            "true_guts_sword",
-            "true_guts_early_sword",
-            "forged_guts_sword"
-          ],
-          "condition": {
-            "math": [
-              "n_hp('ALL') < n_hp_max('torso')"
-            ]
-          }
-        }
-      ],
-      "true_eocs": [
-        "EOC_BERSERK_GODO_REPAIR_ITEM"
-      ]
-    },
-    "condition": {
-      "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
-    }
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_BERSERK_GODO_REPAIR_ITEM",
     "effect": [
       {
-        "u_consume_item": "steel_lump",
-        "charges": 1
-      },
-      {
-        "u_consume_item": "charcoal",
-        "charges": 50
+        "npc_location_variable": {
+          "u_val": "berserk_godo_repair_storage"
+        }
       },
       {
         "math": [
-          "n_hp('ALL') = n_hp_max('torso')"
+          "u_berserk_godo_repair_handoff_pending = 0"
         ]
       },
       {
-        "turn_cost": "1 minute"
+        "u_run_inv_eocs": "manual",
+        "title": "Show Godot a blade",
+        "search_data": [
+          {
+            "id": [
+              "true_guts_sword",
+              "true_guts_early_sword",
+              "forged_guts_sword"
+            ]
+          }
+        ],
+        "true_eocs": [
+          "EOC_BERSERK_GODO_REPAIR_ITEM"
+        ]
       },
       {
-        "u_message": "Godot straightens the damaged metal and restores the edge.",
-        "type": "good",
-        "popup": false
+        "if": {
+          "math": [
+            "u_berserk_godo_repair_handoff_pending == 1"
+          ]
+        },
+        "then": {
+          "u_map_run_item_eocs": "all",
+          "loc": {
+            "u_val": "berserk_godo_repair_storage"
+          },
+          "min_radius": 0,
+          "max_radius": 2,
+          "search_data": [
+            {
+              "id": [
+                "true_guts_sword",
+                "true_guts_early_sword",
+                "forged_guts_sword"
+              ],
+              "condition": {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_godo_repair_job > 0"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "n_berserk_godo_repair_job == u_berserk_godo_repair_job"
+                    ]
+                  }
+                ]
+              }
+            }
+          ],
+          "true_eocs": [
+            "EOC_BERSERK_GODO_REPAIR_START_STORED"
+          ]
+        }
       }
     ],
     "condition": {
       "and": [
         {
-          "u_has_items": {
-            "item": "steel_lump",
-            "count": 1
-          }
-        },
-        {
-          "u_has_items": {
-            "item": "charcoal",
-            "count": 50
-          }
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
         },
         {
           "math": [
-            "n_hp('ALL') < n_hp_max('torso')"
+            "u_berserk_godo_repair_state != 1"
           ]
         }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_REPAIR_ITEM",
+    "effect": {
+      "if": {
+        "math": [
+          "n_hp('ALL') * 100 >= n_hp_max('torso') * 70"
+        ]
+      },
+      "then": {
+        "u_message": "Godot checks the blade. \"Still in good condition. No repair needed yet. Keep your materials.\"",
+        "popup": true
+      },
+      "else": {
+        "if": {
+          "and": [
+            {
+              "u_has_items": {
+                "item": "steel_lump",
+                "count": 1
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "charcoal",
+                "count": 50
+              }
+            }
+          ]
+        },
+        "then": {
+          "if": {
+            "u_query": "Leave this blade, one steel lump and 50 charcoal with Godot? The repair takes two hours.",
+            "default": false
+          },
+          "then": {
+            "run_eocs": "EOC_BERSERK_GODO_REPAIR_PLACE_ITEM"
+          }
+        },
+        "else": {
+          "u_message": "\"The blade needs work. Bring one steel lump and 50 charcoal, and leave it with me for two hours.\"",
+          "popup": true
+        }
+      }
+    },
+    "condition": {
+      "math": [
+        "u_berserk_godo_repair_state != 1"
       ]
     }
   },

@@ -80,8 +80,9 @@ class Forge:
         elif 'finish_mission' in v:self.missions.discard(v['finish_mission'])
         elif 'u_run_inv_eocs' in v:
             query=v['search_data'][0]
-            if self.repair_item in query['id'] and self.condition(query['condition']):
+            if self.repair_item in query['id'] and ('condition' not in query or self.condition(query['condition'])):
                 for id in v['true_eocs']:self.run(id)
+        elif 'npc_location_variable' in v:pass  # Full custody model: test_godo_repairs_33.
         elif 'u_message' in v or 'turn_cost' in v:pass
         else:raise AssertionError(v)
 
@@ -143,15 +144,17 @@ class Orders(unittest.TestCase):
         f=Forge();self.arm(f);f.now+=21600;f.actor='book'
         self.run_eoc(f,'ARM_CLAIM');self.assertEqual(f.items['bio_berserk_arm_cannon'],0)
     def test_repair_cancel_and_healthy_piece_are_free(self):
-        f=Forge();f.actor='godo';f.items.update({'steel_lump':1,'charcoal':50})
-        self.run_eoc(f,'REPAIR_PICK');self.assertEqual(f.items['steel_lump'],1)
-        f.repair_item='true_guts_sword';f.item_hp=f.item_max
-        self.run_eoc(f,'REPAIR_PICK');self.assertEqual(f.items['charcoal'],50)
+        from test_godo_repairs_33 import Repair
+        f=Repair(); f.blade(4000); f.run('PICK')
+        self.assertEqual(f.items['steel_lump'],3); self.assertEqual(f.items['charcoal'],150)
+        f.selection=None; f.run('PICK'); self.assertEqual(len(f.carried),1)
     def test_repair_preserves_existing_piece_and_costs_once(self):
-        f=Forge();f.actor='godo';f.items.update({'steel_lump':2,'charcoal':100,'true_guts_sword':1});f.repair_item='true_guts_sword'
-        self.run_eoc(f,'REPAIR_PICK');self.run_eoc(f,'REPAIR_PICK')
-        self.assertEqual(f.item_hp,f.item_max);self.assertEqual(f.items['true_guts_sword'],1)
-        self.assertEqual(f.items['steel_lump'],1);self.assertEqual(f.items['charcoal'],50)
+        from test_godo_repairs_33 import Repair
+        f=Repair(); f.blade(); f.run('PICK'); f.run('PICK')
+        self.assertFalse(f.carried); self.assertEqual(f.floor[0]['hp'],1000)
+        f.now+=7200; f.run('CLAIM'); f.run('CLAIM')
+        self.assertEqual(len(f.floor),1); self.assertEqual(f.floor[0]['hp'],4000)
+        self.assertEqual(f.items['steel_lump'],2); self.assertEqual(f.items['charcoal'],100)
     def test_prepaid_arm_order_transfers_without_reset(self):
         f=Forge();f.vars['u_berserk_godo_arm_state']=2
         f.items.update({'spring':2,'leather':4,'charcoal':200})
