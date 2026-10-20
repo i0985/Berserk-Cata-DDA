@@ -312,7 +312,7 @@
             ]
           },
           {
-            "u_message": "The borrowed flesh has settled. This transformation is complete; its strength and its weakness remain.",
+            "u_message": "The changes subside. This is your body now.",
             "type": "warning"
           }
         ]
@@ -596,7 +596,7 @@
             ]
           },
           {
-            "u_message": "The borrowed flesh has settled. This transformation is complete; its strength and its weakness remain.",
+            "u_message": "The changes subside. This is your body now.",
             "type": "warning"
           }
         ]
@@ -880,7 +880,7 @@
             ]
           },
           {
-            "u_message": "The borrowed flesh has settled. This transformation is complete; its strength and its weakness remain.",
+            "u_message": "The changes subside. This is your body now.",
             "type": "warning"
           }
         ]
@@ -1164,7 +1164,7 @@
             ]
           },
           {
-            "u_message": "The borrowed flesh has settled. This transformation is complete; its strength and its weakness remain.",
+            "u_message": "The changes subside. This is your body now.",
             "type": "warning"
           }
         ]
@@ -1264,7 +1264,7 @@
       },
       "then": {
         "if": {
-          "u_query": "Absorb the Count’s flesh? You will slowly become a heavy, pliant apostle. Your movement will remain slower, throughout the transformation. This is permanent: no other main line can take root afterward. You cannot undo the choice by closing a breach.",
+          "u_query": "Absorb the Count’s flesh? It will begin changing your body forever.",
           "default": false
         },
         "then": [
@@ -1344,7 +1344,7 @@
       },
       "then": {
         "if": {
-          "u_query": "Absorb Wyald’s flesh? You will slowly become a beastlike apostle. Your stamina will recover more slowly; your altered hands will hinder precise work. This is permanent: no other main line can take root afterward.",
+          "u_query": "Absorb Wyald’s flesh? It will begin changing your body forever.",
           "default": false
         },
         "then": [
@@ -1424,7 +1424,7 @@
       },
       "then": {
         "if": {
-          "u_query": "Absorb Rosine’s flesh? You will slowly become a winged insectlike apostle. Your flesh will take more physical damage, throughout the transformation. Heavy equipment restricts your winged movements. This is permanent: no other main line can take root afterward.",
+          "u_query": "Absorb Rosine’s flesh? It will begin changing your body forever.",
           "default": false
         },
         "then": [
@@ -1504,7 +1504,7 @@
       },
       "then": {
         "if": {
-          "u_query": "Absorb Grunbeld’s flesh? You will slowly grow an armored, fiery shape. Hunger and slow stamina recovery remain throughout the transformation; breathing fire overheats your body. This is permanent: no other main line can take root afterward.",
+          "u_query": "Absorb Grunbeld’s flesh? It will begin changing your body forever.",
           "default": false
         },
         "then": [

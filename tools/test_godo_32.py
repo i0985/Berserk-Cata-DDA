@@ -12,9 +12,11 @@ def objects(path):
 class Forge:
     def __init__(self):
         self.eocs={r['id']:r for r in objects('effects/godo_eocs.json')}
+        self.eocs.update({r['id']:r for r in objects('effects/apostol_human_equipment_eocs.json')})
         self.topics={r['id']:r for r in objects('dialogue/godo.json')}
         self.vars=collections.defaultdict(int, {'berserk_eclipse_era':1});self.items=collections.Counter()
         self.profession='unemployed'
+        self.traits=set()
         self.bionics={'bio_berserk_hand_stump'};self.now=1000;self.at_smith=True
         self.actor='rickert';self.at_forge=True;self.following=False
         self.missions=set();self.repair_item=None;self.item_hp=1000;self.item_max=4000
@@ -44,6 +46,7 @@ class Forge:
             return self.condition(self.eocs[c['test_eoc']]['condition'])
         if 'u_has_items' in c:
             v=c['u_has_items'];return self.items[v['item']]>=v.get('count',v.get('charges',0))
+        if 'u_has_trait' in c:return c['u_has_trait'] in self.traits
         if 'u_has_bionics' in c:return c['u_has_bionics'] in self.bionics
         if 'u_has_mission' in c:return c['u_has_mission'] in self.missions
         if 'u_profession' in c:return self.profession==c['u_profession']

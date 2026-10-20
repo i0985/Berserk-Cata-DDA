@@ -76,12 +76,15 @@ def main():
     orders = index(dialogue)['TALK_BERSERK_GODO_ORDERS']['responses']
     for suffix, state, terminal in [('EARLY', 'early', 3), ('SWORD', 'sword', 4)]:
         topic = 'TALK_BERSERK_GODO_CHANGED_' + suffix
+        label = (text('The change has begun. What about the long sword?', 'Изменения уже начались. Что будет с заказом боевого меча?')
+                 if suffix == 'EARLY' else text('The change has begun. What about the Dragonslayer?', 'Изменения уже начались. Что будет с заказом Драконоборца?'))
         if not any(x.get('topic') == topic for x in orders):
-            orders.insert(-1, {'text': text('The change has begun. What about my order?',
-                                           'Изменения уже начались. Что будет с моим заказом?'),
+            orders.insert(-1, {'text': label,
                 'topic': topic,
                 'condition': both({'not': test(ALLOWED)}, math(f'u_berserk_godo_{state}_state > 0'),
                                   math(f'u_berserk_godo_{state}_state < {terminal}'))})
+        else:
+            next(x for x in orders if x.get('topic') == topic)['text'] = label
         upsert(dialogue, {'type': 'talk_topic', 'id': topic,
             'dynamic_line': text('Then I will not finish this blade for you. Take back the materials you brought.',
                                  'Тогда этот клинок я для тебя не закончу. Забери материалы, которые принёс.'),

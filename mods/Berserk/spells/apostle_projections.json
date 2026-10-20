@@ -1,0 +1,144 @@
+[
+  {
+    "type": "SPELL",
+    "id": "berserk_projection_count_tendril",
+    "name": "Spectral tendril",
+    "description": "A heavy tendril lashes outward.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "min_range": 2,
+    "max_range": 2,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "min_damage": 16,
+    "max_damage": 16,
+    "damage_type": "bash",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 100,
+    "message": "The apparition gathers its strength.",
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ]
+  },
+  {
+    "type": "SPELL",
+    "id": "berserk_projection_grunbeld_heat",
+    "name": "Cinder gust",
+    "description": "A short cone of heat spills from the apparition.",
+    "effect": "attack",
+    "shape": "cone",
+    "valid_targets": [
+      "hostile"
+    ],
+    "min_range": 3,
+    "max_range": 3,
+    "min_aoe": 30,
+    "max_aoe": 30,
+    "min_damage": 18,
+    "max_damage": 18,
+    "damage_type": "heat",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 100,
+    "message": "The apparition gathers its strength.",
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ]
+  },
+  {
+    "type": "SPELL",
+    "id": "berserk_projection_slan_cord",
+    "name": "Crimson cord",
+    "description": "A cord of flesh lashes a distant target.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "min_range": 3,
+    "max_range": 3,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "min_damage": 16,
+    "max_damage": 16,
+    "damage_type": "cut",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 100,
+    "message": "The apparition gathers its strength.",
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ]
+  },
+  {
+    "type": "SPELL",
+    "id": "berserk_projection_ubik_haze",
+    "name": "Uncertain footing",
+    "description": "Conflicting sensations disturb movement.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "min_range": 4,
+    "max_range": 4,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "min_damage": 0,
+    "max_damage": 0,
+    "damage_type": "bash",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 100,
+    "message": "The apparition gathers its strength.",
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "effect_str": "berserk_projection_ubik_haze",
+    "min_duration": 300,
+    "max_duration": 300
+  },
+  {
+    "type": "SPELL",
+    "id": "berserk_projection_conrad_cloud",
+    "name": "Bitter exhalation",
+    "description": "A bitter cloud eats into nearby flesh.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "min_range": 3,
+    "max_range": 3,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "min_damage": 12,
+    "max_damage": 12,
+    "damage_type": "acid",
+    "max_level": 0,
+    "base_energy_cost": 0,
+    "energy_source": "NONE",
+    "base_casting_time": 100,
+    "message": "The apparition gathers its strength.",
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "field_id": "fd_toxic_gas",
+    "min_field_intensity": 1,
+    "max_field_intensity": 1,
+    "field_chance": 1
+  }
+]

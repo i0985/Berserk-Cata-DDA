@@ -107,5 +107,472 @@
       "message": "The %s unravels.",
       "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
     }
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_projection_count",
+    "name": {
+      "str": "Projection of the Count",
+      "str_pl": "Projections of the Count"
+    },
+    "description": "A swollen likeness fills the passage. Its heavy flesh wavers at the edges.",
+    "looks_like": "",
+    "default_faction": "berserk_eclipse_demons",
+    "bodytype": "humanoid",
+    "species": [
+      "NETHER"
+    ],
+    "volume": "90000 ml",
+    "weight": "110000 g",
+    "material": [
+      "flesh"
+    ],
+    "hp": 210,
+    "speed": 80,
+    "regenerates": 0,
+    "symbol": "C",
+    "color": "magenta",
+    "aggression": 100,
+    "morale": 100,
+    "melee_skill": 4,
+    "melee_dice": 1,
+    "melee_dice_sides": 4,
+    "melee_damage": [
+      {
+        "damage_type": "bash",
+        "amount": 10
+      }
+    ],
+    "dodge": 1,
+    "armor": {
+      "bash": 3,
+      "cut": 5
+    },
+    "vision_day": 18,
+    "vision_night": 20,
+    "harvest": "exempt",
+    "flags": [
+      "SEES",
+      "HEARS"
+    ],
+    "death_drops": "berserk_projection_behelit_drops",
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s unravels.",
+      "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
+    },
+    "special_attacks": [
+      {
+        "type": "monster_attack",
+        "attack_type": "spell",
+        "id": "berserk_projection_count_attack",
+        "cooldown": 18,
+        "spell_data": {
+          "id": "berserk_projection_count_tendril",
+          "min_level": 0
+        },
+        "monster_message": "The apparition lashes out with a heavy tendril!"
+      }
+    ]
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_projection_wyald",
+    "name": {
+      "str": "Projection of Wyald",
+      "str_pl": "Projections of Wyald"
+    },
+    "description": "A grinning, beastlike likeness moves in sudden bounds.",
+    "looks_like": "",
+    "default_faction": "berserk_eclipse_demons",
+    "bodytype": "humanoid",
+    "species": [
+      "NETHER"
+    ],
+    "volume": "90000 ml",
+    "weight": "110000 g",
+    "material": [
+      "flesh"
+    ],
+    "hp": 190,
+    "speed": 100,
+    "regenerates": 0,
+    "symbol": "W",
+    "color": "magenta",
+    "aggression": 100,
+    "morale": 100,
+    "melee_skill": 4,
+    "melee_dice": 1,
+    "melee_dice_sides": 4,
+    "melee_damage": [
+      {
+        "damage_type": "cut",
+        "amount": 12
+      }
+    ],
+    "dodge": 1,
+    "armor": {
+      "bash": 2,
+      "cut": 4
+    },
+    "vision_day": 18,
+    "vision_night": 20,
+    "harvest": "exempt",
+    "flags": [
+      "SEES",
+      "HEARS"
+    ],
+    "death_drops": "berserk_projection_behelit_drops",
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s unravels.",
+      "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
+    },
+    "special_attacks": [
+      {
+        "type": "leap",
+        "id": "berserk_projection_wyald_bound",
+        "cooldown": 14,
+        "max_range": 2,
+        "min_range": 1,
+        "move_cost": 150,
+        "allow_no_target": false
+      }
+    ]
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_projection_rosine",
+    "name": {
+      "str": "Projection of Rosine",
+      "str_pl": "Projections of Rosine"
+    },
+    "description": "A delicate winged apparition darts above the ground.",
+    "looks_like": "",
+    "default_faction": "berserk_eclipse_demons",
+    "bodytype": "humanoid",
+    "species": [
+      "NETHER"
+    ],
+    "volume": "90000 ml",
+    "weight": "110000 g",
+    "material": [
+      "flesh"
+    ],
+    "hp": 140,
+    "speed": 115,
+    "regenerates": 0,
+    "symbol": "R",
+    "color": "magenta",
+    "aggression": 100,
+    "morale": 100,
+    "melee_skill": 4,
+    "melee_dice": 1,
+    "melee_dice_sides": 4,
+    "melee_damage": [
+      {
+        "damage_type": "cut",
+        "amount": 8
+      }
+    ],
+    "dodge": 1,
+    "armor": {
+      "bash": 1,
+      "cut": 3
+    },
+    "vision_day": 18,
+    "vision_night": 20,
+    "harvest": "exempt",
+    "flags": [
+      "SEES",
+      "HEARS",
+      "FLIES"
+    ],
+    "death_drops": "berserk_projection_behelit_drops",
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s unravels.",
+      "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
+    },
+    "special_attacks": [
+      {
+        "type": "leap",
+        "id": "berserk_projection_rosine_bound",
+        "cooldown": 14,
+        "max_range": 3,
+        "min_range": 1,
+        "move_cost": 150,
+        "allow_no_target": false
+      }
+    ]
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_projection_grunbeld",
+    "name": {
+      "str": "Projection of Grunbeld",
+      "str_pl": "Projections of Grunbeld"
+    },
+    "description": "A heavy armored likeness radiates a brief, wavering heat.",
+    "looks_like": "",
+    "default_faction": "berserk_eclipse_demons",
+    "bodytype": "humanoid",
+    "species": [
+      "NETHER"
+    ],
+    "volume": "90000 ml",
+    "weight": "110000 g",
+    "material": [
+      "flesh"
+    ],
+    "hp": 240,
+    "speed": 80,
+    "regenerates": 0,
+    "symbol": "G",
+    "color": "magenta",
+    "aggression": 100,
+    "morale": 100,
+    "melee_skill": 4,
+    "melee_dice": 1,
+    "melee_dice_sides": 4,
+    "melee_damage": [
+      {
+        "damage_type": "bash",
+        "amount": 12
+      }
+    ],
+    "dodge": 1,
+    "armor": {
+      "bash": 6,
+      "cut": 10
+    },
+    "vision_day": 18,
+    "vision_night": 20,
+    "harvest": "exempt",
+    "flags": [
+      "SEES",
+      "HEARS"
+    ],
+    "death_drops": "berserk_projection_behelit_drops",
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s unravels.",
+      "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
+    },
+    "special_attacks": [
+      {
+        "type": "monster_attack",
+        "attack_type": "spell",
+        "id": "berserk_projection_grunbeld_attack",
+        "cooldown": 18,
+        "spell_data": {
+          "id": "berserk_projection_grunbeld_heat",
+          "min_level": 0
+        },
+        "monster_message": "Heat spills from the apparition!"
+      }
+    ]
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_projection_slan",
+    "name": {
+      "str": "Projection of Slan",
+      "str_pl": "Projections of Slan"
+    },
+    "description": "A crimson likeness of living flesh reaches through a thin place in the world.",
+    "looks_like": "",
+    "default_faction": "berserk_eclipse_demons",
+    "bodytype": "humanoid",
+    "species": [
+      "NETHER"
+    ],
+    "volume": "90000 ml",
+    "weight": "110000 g",
+    "material": [
+      "flesh"
+    ],
+    "hp": 170,
+    "speed": 100,
+    "regenerates": 0,
+    "symbol": "S",
+    "color": "magenta",
+    "aggression": 100,
+    "morale": 100,
+    "melee_skill": 4,
+    "melee_dice": 1,
+    "melee_dice_sides": 4,
+    "melee_damage": [
+      {
+        "damage_type": "cut",
+        "amount": 8
+      }
+    ],
+    "dodge": 1,
+    "armor": {
+      "bash": 2,
+      "cut": 4
+    },
+    "vision_day": 18,
+    "vision_night": 20,
+    "harvest": "exempt",
+    "flags": [
+      "SEES",
+      "HEARS"
+    ],
+    "death_drops": "berserk_projection_behelit_drops",
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s unravels.",
+      "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
+    },
+    "special_attacks": [
+      {
+        "type": "monster_attack",
+        "attack_type": "spell",
+        "id": "berserk_projection_slan_attack",
+        "cooldown": 18,
+        "spell_data": {
+          "id": "berserk_projection_slan_cord",
+          "min_level": 0
+        },
+        "monster_message": "A crimson cord lashes outward!"
+      }
+    ]
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_projection_ubik",
+    "name": {
+      "str": "Projection of Ubik",
+      "str_pl": "Projections of Ubik"
+    },
+    "description": "A small hovering image blurs whenever your gaze shifts.",
+    "looks_like": "",
+    "default_faction": "berserk_eclipse_demons",
+    "bodytype": "humanoid",
+    "species": [
+      "NETHER"
+    ],
+    "volume": "90000 ml",
+    "weight": "110000 g",
+    "material": [
+      "flesh"
+    ],
+    "hp": 130,
+    "speed": 105,
+    "regenerates": 0,
+    "symbol": "U",
+    "color": "magenta",
+    "aggression": 100,
+    "morale": 100,
+    "melee_skill": 4,
+    "melee_dice": 1,
+    "melee_dice_sides": 4,
+    "melee_damage": [
+      {
+        "damage_type": "bash",
+        "amount": 6
+      }
+    ],
+    "dodge": 1,
+    "armor": {
+      "bash": 1,
+      "cut": 3
+    },
+    "vision_day": 18,
+    "vision_night": 20,
+    "harvest": "exempt",
+    "flags": [
+      "SEES",
+      "HEARS",
+      "FLIES"
+    ],
+    "death_drops": "berserk_projection_behelit_drops",
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s unravels.",
+      "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
+    },
+    "special_attacks": [
+      {
+        "type": "monster_attack",
+        "attack_type": "spell",
+        "id": "berserk_projection_ubik_attack",
+        "cooldown": 18,
+        "spell_data": {
+          "id": "berserk_projection_ubik_haze",
+          "min_level": 0
+        },
+        "monster_message": "The hovering image confuses your senses!"
+      }
+    ]
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_projection_conrad",
+    "name": {
+      "str": "Projection of Conrad",
+      "str_pl": "Projections of Conrad"
+    },
+    "description": "A squat likeness gathers amid a bitter, drifting haze.",
+    "looks_like": "",
+    "default_faction": "berserk_eclipse_demons",
+    "bodytype": "humanoid",
+    "species": [
+      "NETHER"
+    ],
+    "volume": "90000 ml",
+    "weight": "110000 g",
+    "material": [
+      "flesh"
+    ],
+    "hp": 200,
+    "speed": 75,
+    "regenerates": 0,
+    "symbol": "K",
+    "color": "magenta",
+    "aggression": 100,
+    "morale": 100,
+    "melee_skill": 4,
+    "melee_dice": 1,
+    "melee_dice_sides": 4,
+    "melee_damage": [
+      {
+        "damage_type": "bash",
+        "amount": 10
+      }
+    ],
+    "dodge": 1,
+    "armor": {
+      "bash": 4,
+      "cut": 4
+    },
+    "vision_day": 18,
+    "vision_night": 20,
+    "harvest": "exempt",
+    "flags": [
+      "SEES",
+      "HEARS"
+    ],
+    "death_drops": "berserk_projection_behelit_drops",
+    "death_function": {
+      "corpse_type": "NO_CORPSE",
+      "message": "The %s unravels.",
+      "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
+    },
+    "special_attacks": [
+      {
+        "type": "monster_attack",
+        "attack_type": "spell",
+        "id": "berserk_projection_conrad_attack",
+        "cooldown": 18,
+        "spell_data": {
+          "id": "berserk_projection_conrad_cloud",
+          "min_level": 0
+        },
+        "monster_message": "The apparition exhales a bitter cloud!"
+      }
+    ]
   }
 ]

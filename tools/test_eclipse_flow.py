@@ -72,7 +72,9 @@ class EclipseFlowTests(unittest.TestCase):
             "mon_berserk_projection_griffith": "mon_griffith_reborn",
             "mon_berserk_projection_void": "mon_void_apostle",
         }
-        self.assertEqual(set(projections), set(expected))
+        extra = {'mon_berserk_projection_' + x for x in
+                 ('count','wyald','rosine','grunbeld','slan','ubik','conrad')}
+        self.assertEqual(set(projections), set(expected) | extra)
         group = objects(MOD / "monstergroups" / "monster_groups.json")[0]
         members = {entry["monster"] for entry in group["monsters"]}
         self.assertTrue(set(expected) <= members)

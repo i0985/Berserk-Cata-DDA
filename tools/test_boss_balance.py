@@ -22,13 +22,19 @@ class BossBalanceTests(unittest.TestCase):
         }
         for projection in load("monsters/apostle_projections.json"):
             with self.subTest(projection=projection["id"]):
-                original = originals[projection["copy-from"]]
-                self.assertLess(projection["hp"], original["hp"])
-                self.assertLess(projection["melee_skill"], original["melee_skill"])
+                original = originals.get(projection.get("copy-from"))
+                if original:
+                    self.assertLess(projection["hp"], original["hp"])
+                    self.assertLess(projection["melee_skill"], original["melee_skill"])
+                else:
+                    self.assertLessEqual(projection['hp'], 250)
+                    self.assertLessEqual(projection['melee_skill'], 5)
+                    self.assertNotIn('copy-from', projection)
                 self.assertEqual(projection["regenerates"], 0)
                 self.assertIn("special_attacks", projection)
                 self.assertEqual(len(projection["special_attacks"]), 1)
-                self.assertNotEqual(projection["special_attacks"], original["special_attacks"])
+                if original:
+                    self.assertNotEqual(projection["special_attacks"], original["special_attacks"])
                 self.assertEqual(projection["death_drops"], "berserk_projection_behelit_drops")
 
     def test_originals_and_story_griffith_do_not_recover_in_combat(self):

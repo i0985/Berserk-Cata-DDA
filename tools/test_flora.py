@@ -55,6 +55,8 @@ class FloraGraph(HuntGraph):
             raise AssertionError(value)
         if 'u_has_item' in value:
             return value['u_has_item'] in set(self.inventory) | self.worn | self.nested
+        if 'u_has_trait' in value:
+            return value['u_has_trait'] in getattr(self, 'traits', set())
         if 'u_profession' in value:
             return self.profession == value['u_profession']
         if 'npc_at_om_location' in value:
