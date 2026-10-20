@@ -147,4 +147,76 @@ class RecoveryGameplay(unittest.TestCase):
         self.assertFalse((MOD / 'dialogue/flora_rewrite.json').exists())
 
 
+class HumanEquipment(unittest.TestCase):
+    allowed = 'EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED'
+
+    def test_acceptance_at_the_first_stage_blocks_all_three_actual_paths(self):
+        for path, line in [(1,1), (2,6), (3,10)]:
+            g = StateGraph(); g.values.update(u_berserk_apostol_path=path,
+                u_berserk_apostol_lineage=line, u_berserk_apostol_stage=1)
+            self.assertFalse(g.condition({'test_eoc': self.allowed}))
+
+    def test_behelit_ownership_and_refusal_scars_do_not_block_human_rewards(self):
+        g = StateGraph(); g.inventory.update(berserk_behelit=1, berserk_behelit_distorted=1)
+        g.traits.update(['DEAF', 'INSOMNIA'])
+        g.values['u_berserk_apostol_refusal_done'] = 1
+        self.assertTrue(g.condition({'test_eoc': self.allowed}))
+
+    def test_legacy_traits_latch_the_block_even_if_old_numeric_fields_are_missing(self):
+        for trait in ['BERSERK_SLAN_SEED', 'BERSERK_CONRAD_APOSTLE',
+                      'BERSERK_COUNT_FLESH_FORM', 'BERSERK_ROSINE_PAWN_PAWN']:
+            g = StateGraph(); g.traits.add(trait)
+            self.assertFalse(g.condition({'test_eoc': self.allowed}))
+            g.run('EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_LATCH')
+            g.traits.clear()
+            self.assertFalse(g.condition({'test_eoc': self.allowed}))
+
+    def test_existing_equipment_is_never_removed(self):
+        g = StateGraph(); g.values['u_berserk_apostol_path'] = 1
+        g.inventory.update(true_guts_sword=1, true_guts_early_sword=1, berserk_armor_bundle=1)
+        before = g.inventory.copy(); g.run('EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_LATCH')
+        self.assertEqual(before, g.inventory)
+
+    def test_early_paid_order_refunds_once_without_awarding_a_sword(self):
+        g = StateGraph(); g.values.update(u_berserk_apostol_path=3, u_berserk_godo_early_state=2)
+        g.run('EOC_BERSERK_GODO_EARLY_CLAIM')
+        self.assertFalse(g.inventory)
+        g.run('EOC_BERSERK_GODO_EARLY_REFUND'); before = g.inventory.copy()
+        g.run('EOC_BERSERK_GODO_EARLY_REFUND')
+        self.assertEqual(g.inventory, before)
+        self.assertEqual(g.inventory['steel_lump'], 4)
+        self.assertEqual(g.inventory['charcoal'], 200)
+        self.assertEqual(g.inventory['true_guts_early_sword'], 0)
+
+    def test_dragonslayer_refunds_actual_partial_and_full_payments_once(self):
+        for state, paid in [(1,8), (2,32), (3,32)]:
+            g = StateGraph(); g.values.update(u_berserk_apostol_path=2,
+                u_berserk_godo_sword_state=state, u_berserk_godo_sword_iron_given=paid)
+            g.run('EOC_BERSERK_GODO_SWORD_CLAIM'); self.assertFalse(g.inventory)
+            g.run('EOC_BERSERK_GODO_SWORD_REFUND'); before = g.inventory.copy()
+            g.run('EOC_BERSERK_GODO_SWORD_REFUND')
+            self.assertEqual(g.inventory, before)
+            self.assertEqual(g.inventory['steel_lump'], paid)
+            self.assertEqual(g.inventory['hc_steel_lump'], 8 if state == 3 else 0)
+            self.assertEqual(g.inventory['true_guts_sword'], 0)
+
+    def test_new_weapon_delivery_and_armor_conditions_use_shared_gate(self):
+        g = StateGraph()
+        for suffix in ['START_SWORD','SWORD_IRON','SWORD_TEMPER','SWORD_CLAIM',
+                       'START_EARLY_SWORD','EARLY_MATERIALS','EARLY_CLAIM']:
+            condition = g.eocs['EOC_BERSERK_GODO_' + suffix]['condition']
+            self.assertIn({'test_eoc': self.allowed}, list(walk(condition)))
+        self.assertIn({'test_eoc': self.allowed}, list(walk(g.eocs['EOC_BERSERK_FLORA_CAN_RECEIVE']['condition'])))
+        ready = g.eocs['EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE']['condition']
+        self.assertIn({'not': {'test_eoc': self.allowed}}, list(walk(ready)))
+        self.assertFalse((MOD / 'item_groups.json').exists())
+
+    def test_rickert_services_are_not_gated_by_accepted_path(self):
+        g = StateGraph()
+        for name, obj in g.eocs.items():
+            if name in ['EOC_BERSERK_GODO_START_ARM', 'EOC_BERSERK_GODO_ARM_CLAIM',
+                        'EOC_BERSERK_RICKERT_ORDER_BOLTS']:
+                self.assertNotIn({'test_eoc': self.allowed}, list(walk(obj)))
+
+
 if __name__ == '__main__': unittest.main()

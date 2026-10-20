@@ -64,6 +64,11 @@
               "math": [
                 "u_berserk_flora_armor_resolved == 1"
               ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+              }
             }
           ]
         }

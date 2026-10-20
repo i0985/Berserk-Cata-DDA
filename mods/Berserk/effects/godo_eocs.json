@@ -606,178 +606,258 @@
       },
       {
         "if": {
-          "math": [
-            "u_berserk_godo_sword_state >= 2"
-          ]
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
         },
         "then": {
           "if": {
-            "u_has_mission": "MISSION_BERSERK_GODO_SWORD_IRON"
-          },
-          "then": {
-            "finish_mission": "MISSION_BERSERK_GODO_SWORD_IRON",
-            "success": true
-          }
-        },
-        "else": {
-          "if": {
-            "and": [
-              {
-                "math": [
-                  "u_berserk_godo_sword_state == 1"
-                ]
-              },
-              {
-                "not": {
-                  "u_has_mission": "MISSION_BERSERK_GODO_SWORD_IRON"
-                }
-              }
+            "math": [
+              "u_berserk_godo_sword_state >= 2"
             ]
           },
           "then": {
-            "assign_mission": "MISSION_BERSERK_GODO_SWORD_IRON"
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_GODO_SWORD_IRON"
+            },
+            "then": {
+              "finish_mission": "MISSION_BERSERK_GODO_SWORD_IRON",
+              "success": true
+            }
+          },
+          "else": {
+            "if": {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "u_has_mission": "MISSION_BERSERK_GODO_SWORD_IRON"
+                  }
+                }
+              ]
+            },
+            "then": {
+              "assign_mission": "MISSION_BERSERK_GODO_SWORD_IRON"
+            }
           }
-        }
+        },
+        "else": [
+          {
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_GODO_SWORD_IRON"
+            },
+            "then": {
+              "finish_mission": "MISSION_BERSERK_GODO_SWORD_IRON",
+              "success": false
+            }
+          }
+        ]
       },
       {
         "if": {
-          "math": [
-            "u_berserk_godo_sword_state >= 3"
-          ]
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
         },
         "then": {
           "if": {
-            "u_has_mission": "MISSION_BERSERK_GODO_SWORD_TEMPER"
-          },
-          "then": {
-            "finish_mission": "MISSION_BERSERK_GODO_SWORD_TEMPER",
-            "success": true
-          }
-        },
-        "else": {
-          "if": {
-            "and": [
-              {
-                "math": [
-                  "u_berserk_godo_sword_state == 2"
-                ]
-              },
-              {
-                "not": {
-                  "u_has_mission": "MISSION_BERSERK_GODO_SWORD_TEMPER"
-                }
-              }
+            "math": [
+              "u_berserk_godo_sword_state >= 3"
             ]
           },
           "then": {
-            "assign_mission": "MISSION_BERSERK_GODO_SWORD_TEMPER"
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_GODO_SWORD_TEMPER"
+            },
+            "then": {
+              "finish_mission": "MISSION_BERSERK_GODO_SWORD_TEMPER",
+              "success": true
+            }
+          },
+          "else": {
+            "if": {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state == 2"
+                  ]
+                },
+                {
+                  "not": {
+                    "u_has_mission": "MISSION_BERSERK_GODO_SWORD_TEMPER"
+                  }
+                }
+              ]
+            },
+            "then": {
+              "assign_mission": "MISSION_BERSERK_GODO_SWORD_TEMPER"
+            }
           }
-        }
+        },
+        "else": [
+          {
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_GODO_SWORD_TEMPER"
+            },
+            "then": {
+              "finish_mission": "MISSION_BERSERK_GODO_SWORD_TEMPER",
+              "success": false
+            }
+          }
+        ]
       },
       {
         "if": {
-          "math": [
-            "u_berserk_godo_sword_state >= 4"
-          ]
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
         },
         "then": {
           "if": {
-            "u_has_mission": "MISSION_BERSERK_GODO_SWORD_COLLECT"
-          },
-          "then": {
-            "finish_mission": "MISSION_BERSERK_GODO_SWORD_COLLECT",
-            "success": true
-          }
-        },
-        "else": {
-          "if": {
-            "and": [
-              {
-                "math": [
-                  "u_berserk_godo_sword_state == 3"
-                ]
-              },
-              {
-                "not": {
-                  "u_has_mission": "MISSION_BERSERK_GODO_SWORD_COLLECT"
-                }
-              }
+            "math": [
+              "u_berserk_godo_sword_state >= 4"
             ]
           },
           "then": {
-            "assign_mission": "MISSION_BERSERK_GODO_SWORD_COLLECT"
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_GODO_SWORD_COLLECT"
+            },
+            "then": {
+              "finish_mission": "MISSION_BERSERK_GODO_SWORD_COLLECT",
+              "success": true
+            }
+          },
+          "else": {
+            "if": {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state == 3"
+                  ]
+                },
+                {
+                  "not": {
+                    "u_has_mission": "MISSION_BERSERK_GODO_SWORD_COLLECT"
+                  }
+                }
+              ]
+            },
+            "then": {
+              "assign_mission": "MISSION_BERSERK_GODO_SWORD_COLLECT"
+            }
           }
-        }
+        },
+        "else": [
+          {
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_GODO_SWORD_COLLECT"
+            },
+            "then": {
+              "finish_mission": "MISSION_BERSERK_GODO_SWORD_COLLECT",
+              "success": false
+            }
+          }
+        ]
       },
       {
         "if": {
-          "math": [
-            "u_berserk_godo_early_state >= 2"
-          ]
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
         },
         "then": {
           "if": {
-            "u_has_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS"
-          },
-          "then": {
-            "finish_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS",
-            "success": true
-          }
-        },
-        "else": {
-          "if": {
-            "and": [
-              {
-                "math": [
-                  "u_berserk_godo_early_state == 1"
-                ]
-              },
-              {
-                "not": {
-                  "u_has_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS"
-                }
-              }
+            "math": [
+              "u_berserk_godo_early_state >= 2"
             ]
           },
           "then": {
-            "assign_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS"
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS"
+            },
+            "then": {
+              "finish_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS",
+              "success": true
+            }
+          },
+          "else": {
+            "if": {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_early_state == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "u_has_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS"
+                  }
+                }
+              ]
+            },
+            "then": {
+              "assign_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS"
+            }
           }
-        }
+        },
+        "else": [
+          {
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS"
+            },
+            "then": {
+              "finish_mission": "MISSION_BERSERK_GODO_EARLY_MATERIALS",
+              "success": false
+            }
+          }
+        ]
       },
       {
         "if": {
-          "math": [
-            "u_berserk_godo_early_state >= 3"
-          ]
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
         },
         "then": {
           "if": {
-            "u_has_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT"
-          },
-          "then": {
-            "finish_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT",
-            "success": true
-          }
-        },
-        "else": {
-          "if": {
-            "and": [
-              {
-                "math": [
-                  "u_berserk_godo_early_state == 2"
-                ]
-              },
-              {
-                "not": {
-                  "u_has_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT"
-                }
-              }
+            "math": [
+              "u_berserk_godo_early_state >= 3"
             ]
           },
           "then": {
-            "assign_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT"
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT"
+            },
+            "then": {
+              "finish_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT",
+              "success": true
+            }
+          },
+          "else": {
+            "if": {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_early_state == 2"
+                  ]
+                },
+                {
+                  "not": {
+                    "u_has_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT"
+                  }
+                }
+              ]
+            },
+            "then": {
+              "assign_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT"
+            }
           }
-        }
+        },
+        "else": [
+          {
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT"
+            },
+            "then": {
+              "finish_mission": "MISSION_BERSERK_GODO_EARLY_COLLECT",
+              "success": false
+            }
+          }
+        ]
       }
     ],
     "condition": {
@@ -850,24 +930,31 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
         },
         {
           "and": [
             {
-              "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+              "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
             },
             {
               "and": [
                 {
-                  "math": [
-                    "u_berserk_godo_sword_state == 0"
-                  ]
+                  "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
                 },
                 {
-                  "not": {
-                    "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
-                  }
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_godo_sword_state == 0"
+                      ]
+                    },
+                    {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+                      }
+                    }
+                  ]
                 }
               ]
             }
@@ -1047,30 +1134,37 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
         },
         {
           "and": [
             {
-              "math": [
-                "u_berserk_godo_sword_state == 1"
+              "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_sword_iron_given < 32"
+                  ]
+                },
+                {
+                  "u_has_items": {
+                    "item": "steel_lump",
+                    "count": 8
+                  }
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+                  }
+                }
               ]
-            },
-            {
-              "math": [
-                "u_berserk_godo_sword_iron_given < 32"
-              ]
-            },
-            {
-              "u_has_items": {
-                "item": "steel_lump",
-                "count": 8
-              }
-            },
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
-              }
             }
           ]
         }
@@ -1110,37 +1204,44 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
         },
         {
           "and": [
             {
-              "math": [
-                "u_berserk_godo_sword_state == 2"
+              "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state == 2"
+                  ]
+                },
+                {
+                  "u_has_items": {
+                    "item": "hc_steel_lump",
+                    "count": 8
+                  }
+                },
+                {
+                  "u_has_items": {
+                    "item": "charcoal",
+                    "count": 600
+                  }
+                },
+                {
+                  "u_has_items": {
+                    "item": "leather",
+                    "count": 4
+                  }
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+                  }
+                }
               ]
-            },
-            {
-              "u_has_items": {
-                "item": "hc_steel_lump",
-                "count": 8
-              }
-            },
-            {
-              "u_has_items": {
-                "item": "charcoal",
-                "count": 600
-              }
-            },
-            {
-              "u_has_items": {
-                "item": "leather",
-                "count": 4
-              }
-            },
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
-              }
             }
           ]
         }
@@ -1354,7 +1455,16 @@
               ]
             },
             {
-              "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+              "or": [
+                {
+                  "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+                  }
+                }
+              ]
             }
           ]
         }
@@ -1392,18 +1502,25 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
         },
         {
           "and": [
             {
-              "math": [
-                "u_berserk_godo_sword_state == 3"
-              ]
+              "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
             },
             {
-              "math": [
-                "time('now') >= u_berserk_godo_sword_ready_at"
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state == 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "time('now') >= u_berserk_godo_sword_ready_at"
+                  ]
+                }
               ]
             }
           ]
@@ -2212,23 +2329,30 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
         },
         {
-          "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
-        },
-        {
-          "math": [
-            "u_berserk_godo_early_state == 0"
-          ]
-        },
-        {
-          "not": {
-            "u_has_items": {
-              "item": "true_guts_early_sword",
-              "count": 1
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+            },
+            {
+              "math": [
+                "u_berserk_godo_early_state == 0"
+              ]
+            },
+            {
+              "not": {
+                "u_has_items": {
+                  "item": "true_guts_early_sword",
+                  "count": 1
+                }
+              }
             }
-          }
+          ]
         }
       ]
     }
@@ -2270,44 +2394,51 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
         },
         {
-          "math": [
-            "u_berserk_godo_early_state == 1"
-          ]
-        },
-        {
-          "not": {
-            "u_has_items": {
-              "item": "true_guts_early_sword",
-              "count": 1
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+            },
+            {
+              "math": [
+                "u_berserk_godo_early_state == 1"
+              ]
+            },
+            {
+              "not": {
+                "u_has_items": {
+                  "item": "true_guts_early_sword",
+                  "count": 1
+                }
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "steel_lump",
+                "count": 4
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "hc_steel_lump",
+                "count": 1
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "charcoal",
+                "count": 200
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "leather",
+                "count": 2
+              }
             }
-          }
-        },
-        {
-          "u_has_items": {
-            "item": "steel_lump",
-            "count": 4
-          }
-        },
-        {
-          "u_has_items": {
-            "item": "hc_steel_lump",
-            "count": 1
-          }
-        },
-        {
-          "u_has_items": {
-            "item": "charcoal",
-            "count": 200
-          }
-        },
-        {
-          "u_has_items": {
-            "item": "leather",
-            "count": 2
-          }
+          ]
         }
       ]
     }
@@ -2360,10 +2491,19 @@
           "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
         },
         {
-          "u_has_items": {
-            "item": "true_guts_early_sword",
-            "count": 1
-          }
+          "or": [
+            {
+              "u_has_items": {
+                "item": "true_guts_early_sword",
+                "count": 1
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+              }
+            }
+          ]
         },
         {
           "math": [
@@ -2412,16 +2552,23 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
         },
         {
-          "math": [
-            "u_berserk_godo_early_state == 2"
-          ]
-        },
-        {
-          "math": [
-            "time('now') >= u_berserk_godo_early_ready_at"
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+            },
+            {
+              "math": [
+                "u_berserk_godo_early_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_godo_early_ready_at"
+              ]
+            }
           ]
         }
       ]
