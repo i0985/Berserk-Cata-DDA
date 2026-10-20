@@ -468,32 +468,32 @@
       "then": [
         {
           "math": [
-            "u_hp('head') = min(u_hp_max('head'), u_hp('head') + 6)"
+            "u_hp('head') = min(u_hp_max('head'), u_hp('head') + 12)"
           ]
         },
         {
           "math": [
-            "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + 6)"
+            "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + 12)"
           ]
         },
         {
           "math": [
-            "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + 6)"
+            "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + 12)"
           ]
         },
         {
           "math": [
-            "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + 6)"
+            "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + 12)"
           ]
         },
         {
           "math": [
-            "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + 6)"
+            "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + 12)"
           ]
         },
         {
           "math": [
-            "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + 6)"
+            "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + 12)"
           ]
         },
         {

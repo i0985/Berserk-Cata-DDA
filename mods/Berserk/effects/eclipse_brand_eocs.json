@@ -91,7 +91,9 @@
           ]
         },
         {
-          "not": "is_day"
+          "not": {
+            "test_eoc": "EOC_BERSERK_SOLAR_DAY"
+          }
         },
         {
           "not": {
@@ -106,6 +108,9 @@
       ]
     },
     "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_BRAND_NEW_NIGHT"
+      },
       {
         "math": [
           "u_berserk_brand_night_last_check = time('now')"
@@ -128,7 +133,7 @@
       },
       {
         "math": [
-          "u_berserk_brand_night_next_attempt = time('now') + 3600"
+          "u_berserk_brand_night_next_attempt = time('now') + 7200"
         ]
       },
       {
@@ -230,7 +235,9 @@
                 }
               },
               "else": {
-                "if": "is_day",
+                "if": {
+                  "test_eoc": "EOC_BERSERK_SOLAR_DAY"
+                },
                 "then": {
                   "set_string_var": "daylight",
                   "target_var": {
@@ -323,7 +330,7 @@
       },
       {
         "math": [
-          "u_berserk_brand_night_requested = min(3, max(0, 8 - berserk_era_nearby_count))"
+          "u_berserk_brand_night_requested = min(2, max(0, 6 - berserk_era_nearby_count), max(0, 6 - u_berserk_brand_night_night_spawned))"
         ]
       },
       {
@@ -352,9 +359,6 @@
             "run_eocs": "EOC_BERSERK_BRAND_NIGHT_SPAWN_ONE"
           },
           {
-            "run_eocs": "EOC_BERSERK_BRAND_NIGHT_SPAWN_ONE"
-          },
-          {
             "if": {
               "math": [
                 "u_berserk_brand_night_spawned > 0"
@@ -375,7 +379,7 @@
         ]
       }
     ],
-    "//": "Three bounded one-monster requests permit exact success accounting. Count the entire 20-30 tile spawn ring, never refill inside the same hour. No forced target or sound from the hidden player."
+    "//": "At most two attempts per two hours, six successful new spawns per night, six nearby demons. Count successful spawns only; leave existing creatures alive."
   },
   {
     "type": "effect_on_condition",
@@ -566,7 +570,7 @@
         },
         {
           "math": [
-            "berserk_era_nearby_count < 8"
+            "berserk_era_nearby_count < 6"
           ]
         }
       ]
@@ -610,6 +614,11 @@
               {
                 "math": [
                   "berserk_spawn_brand_nearby += 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_brand_night_night_spawned += 1"
                 ]
               }
             ]

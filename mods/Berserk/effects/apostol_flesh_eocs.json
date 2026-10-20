@@ -218,7 +218,7 @@
             ]
           },
           {
-            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "u_message": "Your flesh settles into an unfamiliar shape.",
             "type": "warning"
           }
         ]
@@ -502,7 +502,7 @@
             ]
           },
           {
-            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "u_message": "Your flesh settles into an unfamiliar shape.",
             "type": "warning"
           }
         ]
@@ -786,7 +786,7 @@
             ]
           },
           {
-            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "u_message": "Your flesh settles into an unfamiliar shape.",
             "type": "warning"
           }
         ]
@@ -1070,7 +1070,7 @@
             ]
           },
           {
-            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "u_message": "Your flesh settles into an unfamiliar shape.",
             "type": "warning"
           }
         ]
@@ -2401,7 +2401,7 @@
         }
       ],
       "else": {
-        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "u_message": "Your body is not ready for this movement.",
         "type": "neutral"
       }
     },
@@ -2487,32 +2487,32 @@
       },
       {
         "math": [
-          "u_hp('head') = min(u_hp_max('head'), u_hp('head') + 3)"
+          "u_hp('head') = min(u_hp_max('head'), u_hp('head') + 7)"
         ]
       },
       {
         "math": [
-          "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + 3)"
+          "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + 7)"
         ]
       },
       {
         "math": [
-          "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + 3)"
+          "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + 7)"
         ]
       },
       {
         "math": [
-          "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + 3)"
+          "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + 7)"
         ]
       },
       {
         "math": [
-          "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + 3)"
+          "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + 7)"
         ]
       },
       {
         "math": [
-          "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + 3)"
+          "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + 7)"
         ]
       },
       {
@@ -2662,7 +2662,7 @@
         "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_FLESH_MEND_RESULT"
       },
       "else": {
-        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "u_message": "Your body is not ready for this movement.",
         "type": "neutral"
       }
     },
@@ -2808,7 +2808,7 @@
         }
       ],
       "else": {
-        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "u_message": "Your body is not ready for this movement.",
         "type": "neutral"
       }
     },
@@ -2940,7 +2940,7 @@
         }
       ],
       "else": {
-        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "u_message": "Your body is not ready for this movement.",
         "type": "neutral"
       }
     },
@@ -3112,7 +3112,7 @@
         }
       ],
       "else": {
-        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "u_message": "Your body is not ready for this movement.",
         "type": "neutral"
       }
     },
@@ -3159,7 +3159,7 @@
     "effect": [
       {
         "u_add_effect": "berserk_apostol_flesh_flutter",
-        "duration": "3 seconds"
+        "duration": "5 seconds"
       },
       {
         "math": [
@@ -3240,7 +3240,7 @@
         "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_FLUTTER_RESULT"
       },
       "else": {
-        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "u_message": "Your body is not ready for this movement.",
         "type": "neutral"
       }
     },
@@ -3411,7 +3411,7 @@
         }
       ],
       "else": {
-        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "u_message": "Your body is not ready for this movement.",
         "type": "neutral"
       }
     },
@@ -3453,7 +3453,7 @@
     "effect": [
       {
         "u_add_effect": "berserk_apostol_flesh_braced",
-        "duration": "4 seconds"
+        "duration": "8 seconds"
       },
       {
         "math": [
@@ -3524,7 +3524,7 @@
         "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_BRACE_RESULT"
       },
       "else": {
-        "u_message": "This ability needs your fighting shape, enough strength and time to recover. Winged movements also need room for your equipment.",
+        "u_message": "Your body is not ready for this movement.",
         "type": "neutral"
       }
     },

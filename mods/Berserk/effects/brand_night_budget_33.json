@@ -1,0 +1,60 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_SOLAR_DAY",
+    "effect": [],
+    "condition": {
+      "math": [
+        "time_until('sunset') < time_until('sunrise')"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BRAND_NEW_NIGHT",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_brand_night_night_spawned = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_brand_night_window_active = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "math": [
+        "u_berserk_brand_night_window_active != 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_BRAND_DAY_RESET",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_brand_night_window_active = 0"
+        ]
+      }
+    ],
+    "eoc_type": "RECURRING",
+    "recurrence": "1 minute",
+    "global": true,
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "test_eoc": "EOC_BERSERK_SOLAR_DAY"
+        },
+        {
+          "math": [
+            "u_berserk_brand_night_window_active == 1"
+          ]
+        }
+      ]
+    }
+  }
+]

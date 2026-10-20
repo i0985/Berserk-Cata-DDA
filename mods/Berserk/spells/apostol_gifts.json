@@ -9,8 +9,8 @@
     "valid_targets": [
       "ground"
     ],
-    "min_range": 4,
-    "max_range": 4,
+    "min_range": 8,
+    "max_range": 8,
     "min_aoe": 0,
     "max_aoe": 0,
     "max_level": 0,
@@ -36,8 +36,8 @@
     "valid_targets": [
       "ground"
     ],
-    "min_range": 4,
-    "max_range": 4,
+    "min_range": 7,
+    "max_range": 7,
     "min_aoe": 0,
     "max_aoe": 0,
     "max_level": 0,
@@ -49,8 +49,8 @@
     "effect_str": "mon_berserk_ubik_image",
     "min_damage": 1,
     "max_damage": 1,
-    "min_duration": 800,
-    "max_duration": 800,
+    "min_duration": 2000,
+    "max_duration": 2000,
     "extra_effects": [
       {
         "id": "berserk_apostol_cast_confirmed",
@@ -68,10 +68,10 @@
     "valid_targets": [
       "hostile"
     ],
-    "min_range": 5,
-    "max_range": 5,
-    "min_aoe": 0,
-    "max_aoe": 0,
+    "min_range": 7,
+    "max_range": 7,
+    "min_aoe": 1,
+    "max_aoe": 1,
     "max_level": 0,
     "flags": [
       "SILENT",
@@ -89,14 +89,14 @@
     "type": "SPELL",
     "id": "berserk_apostol_conrad_strike",
     "name": "Corrupting touch",
-    "description": "Living tissue blackens beneath the touch.",
-    "effect": "effect_on_condition",
+    "description": "A corrosive touch eats into a nearby enemy.",
+    "effect": "attack",
     "shape": "blast",
     "valid_targets": [
       "hostile"
     ],
-    "min_range": 1,
-    "max_range": 1,
+    "min_range": 2,
+    "max_range": 2,
     "min_aoe": 0,
     "max_aoe": 0,
     "max_level": 0,
@@ -104,19 +104,21 @@
       "SILENT",
       "NO_EXPLOSION_SFX"
     ],
-    "effect_str": "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_TARGET",
     "extra_effects": [
       {
         "id": "berserk_apostol_cast_confirmed",
         "hit_self": true
       }
-    ]
+    ],
+    "damage_type": "acid",
+    "min_damage": 40,
+    "max_damage": 40
   },
   {
     "type": "SPELL",
     "id": "berserk_apostol_conrad_cloud",
     "name": "Breath of rot",
-    "description": "A small cloud of toxic breath spreads around the chosen place.",
+    "description": "A caustic breath strikes the area and leaves toxic fumes.",
     "effect": "attack",
     "shape": "blast",
     "valid_targets": [
@@ -124,40 +126,41 @@
       "hostile",
       "ally"
     ],
-    "min_range": 3,
-    "max_range": 3,
-    "min_aoe": 1,
-    "max_aoe": 1,
+    "min_range": 6,
+    "max_range": 6,
+    "min_aoe": 2,
+    "max_aoe": 2,
     "max_level": 0,
     "flags": [
       "SILENT",
       "NO_EXPLOSION_SFX"
     ],
-    "min_damage": 0,
-    "max_damage": 0,
+    "min_damage": 24,
+    "max_damage": 24,
     "field_id": "fd_toxic_gas",
-    "min_field_intensity": 1,
-    "max_field_intensity": 1,
+    "min_field_intensity": 2,
+    "max_field_intensity": 2,
     "field_chance": 1,
     "extra_effects": [
       {
         "id": "berserk_apostol_cast_confirmed",
         "hit_self": true
       }
-    ]
+    ],
+    "damage_type": "acid"
   },
   {
     "type": "SPELL",
     "id": "berserk_apostol_femto_pulse",
     "name": "Wave of pressure",
     "description": "Push an enemy away along the line of sight.",
-    "effect": "directed_push",
+    "effect": "attack",
     "shape": "blast",
     "valid_targets": [
       "hostile"
     ],
-    "min_range": 4,
-    "max_range": 4,
+    "min_range": 7,
+    "max_range": 7,
     "min_aoe": 0,
     "max_aoe": 0,
     "max_level": 0,
@@ -165,14 +168,18 @@
       "SILENT",
       "NO_EXPLOSION_SFX"
     ],
-    "min_damage": 3,
-    "max_damage": 3,
+    "min_damage": 35,
+    "max_damage": 35,
     "extra_effects": [
+      {
+        "id": "berserk_apostol_femto_push"
+      },
       {
         "id": "berserk_apostol_cast_confirmed",
         "hit_self": true
       }
-    ]
+    ],
+    "damage_type": "bash"
   },
   {
     "type": "SPELL",
@@ -184,8 +191,8 @@
     "valid_targets": [
       "ground"
     ],
-    "min_range": 3,
-    "max_range": 3,
+    "min_range": 6,
+    "max_range": 6,
     "min_aoe": 0,
     "max_aoe": 0,
     "max_level": 0,
@@ -211,25 +218,50 @@
     "valid_targets": [
       "hostile"
     ],
-    "min_range": 5,
-    "max_range": 5,
-    "min_aoe": 1,
-    "max_aoe": 1,
+    "min_range": 7,
+    "max_range": 7,
+    "min_aoe": 2,
+    "max_aoe": 2,
     "max_level": 0,
     "flags": [
       "SILENT",
       "NO_EXPLOSION_SFX"
     ],
-    "min_damage": 0,
-    "max_damage": 0,
+    "min_damage": 20,
+    "max_damage": 20,
     "effect_str": "berserk_apostol_suppressed",
-    "min_duration": 300,
-    "max_duration": 300,
+    "min_duration": 600,
+    "max_duration": 600,
     "extra_effects": [
       {
         "id": "berserk_apostol_cast_confirmed",
         "hit_self": true
       }
-    ]
+    ],
+    "damage_type": "bash"
+  },
+  {
+    "type": "SPELL",
+    "id": "berserk_apostol_femto_push",
+    "name": "Wave of pressure",
+    "description": "Push an enemy away along the line of sight.",
+    "effect": "directed_push",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "min_range": 7,
+    "max_range": 7,
+    "min_aoe": 0,
+    "max_aoe": 0,
+    "max_level": 0,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "min_damage": 5,
+    "max_damage": 5,
+    "extra_effects": [],
+    "damage_type": "bash"
   }
 ]

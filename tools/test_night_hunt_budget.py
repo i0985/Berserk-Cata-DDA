@@ -26,7 +26,7 @@ class NightGraph:
     def __init__(self):
         self.eocs = {}
         for path in ('effects/eclipse_brand_eocs.json', 'effects/eclipse_era_eocs.json',
-                     'effects/spawn_source_diagnostics.json'):
+                     'effects/spawn_source_diagnostics.json', 'effects/brand_night_budget_33.json'):
             gather(load(path), self.eocs)
         self.avatar = Actor((0, 0, 0))
         self.alpha = self.avatar
@@ -67,6 +67,8 @@ class NightGraph:
         raise AssertionError(v)
 
     def condition(self, v):
+        if v == 'u_is_avatar':
+            return self.alpha is self.avatar
         if v == 'is_day':
             return self.day
         if not isinstance(v, dict):
@@ -86,6 +88,10 @@ class NightGraph:
         if 'u_near_om_location' in v:
             return False  # fixtures use the current independent-breach registry
         if 'test_eoc' in v:
+            if v['test_eoc'] == 'EOC_BERSERK_SOLAR_DAY':
+                return self.day  # solar-time fixture; native time_until is not simulated
+            if v['test_eoc'] in self.eocs:
+                return self.condition(self.eocs[v['test_eoc']]['condition'])
             self.assert_flora(v['test_eoc'])
             return self.flora
         if 'x_in_y_chance' in v:
@@ -171,13 +177,13 @@ class NightBudgetTests(unittest.TestCase):
         for shelter in ('field', 'ordinary_house'):
             with self.subTest(shelter=shelter):
                 g = NightGraph(); g.hunt()
-                self.assertEqual(len(g.requests), 3)
+                self.assertEqual(len(g.requests), 2)
                 for request in g.requests:
                     self.assertTrue(request['outdoor_only'])
                     self.assertEqual((request['min_radius'], request['max_radius']), (20, 30))
                     self.assertEqual(request['real_count'], 1)
                     self.assertNotIn('summoner_is_alpha', request)
-                self.assertEqual(g.avatar.values['berserk_brand_night_spawned'], 3)
+                self.assertEqual(g.avatar.values['berserk_brand_night_spawned'], 2)
 
     def test_protected_sign_flora_daylight_and_underground_have_distinct_reasons(self):
         for mode, reason in [('ward','shelter_ward'), ('flora','flora_ward'),
@@ -191,31 +197,31 @@ class NightBudgetTests(unittest.TestCase):
 
     def test_far_edge_sources_share_budget_and_only_remaining_slot_is_requested(self):
         g = NightGraph()
-        for i in range(7):
+        for i in range(5):
             mon = Actor((30, i, 0)); mon.mtype = 'mon_berserk_eclipse_wretch'
-            if i < 3: mon.values['berserk_spawn_source'] = 'brand'
-            elif i < 5: mon.mtype = 'mon_beast_of_darkness_1'  # old untagged armor
+            if i < 2: mon.values['berserk_spawn_source'] = 'brand'
+            elif i < 4: mon.mtype = 'mon_beast_of_darkness_1'  # old untagged armor
             g.monsters.append(mon)
         g.hunt()
         self.assertEqual(len(g.requests), 1)
-        self.assertEqual(g.world['berserk_era_nearby_count'], 8)
-        self.assertEqual(g.world['berserk_spawn_brand_nearby'], 4)
+        self.assertEqual(g.world['berserk_era_nearby_count'], 6)
+        self.assertEqual(g.world['berserk_spawn_brand_nearby'], 3)
         self.assertEqual(g.world['berserk_spawn_armor_nearby'], 2)
-        self.assertEqual(g.world['berserk_spawn_world_or_site_nearby'], 2)
-        g.now += 3600; g.hunt(); self.assertEqual(len(g.requests), 1)
+        self.assertEqual(g.world['berserk_spawn_world_or_site_nearby'], 1)
+        g.now += 7200; g.hunt(); self.assertEqual(len(g.requests), 1)
         self.assertEqual(g.avatar.values['berserk_brand_night_status'], 'active_budget')
 
     def test_partial_success_does_not_lie_about_count_or_retry_every_second(self):
-        g = NightGraph(); g.outcomes = [False, True, False]; g.hunt()
+        g = NightGraph(); g.outcomes = [False, True]; g.hunt()
         self.assertEqual(g.avatar.values['berserk_brand_night_spawned'], 1)
-        self.assertEqual(g.avatar.values['berserk_brand_night_no_cell_total'], 2)
+        self.assertEqual(g.avatar.values['berserk_brand_night_no_cell_total'], 1)
         # Serialize saved character/world variables, then try again in the same hour.
         g.avatar.values = json.loads(json.dumps(g.avatar.values))
         g.world = json.loads(json.dumps(g.world)); g.now += 30; g.hunt()
-        self.assertEqual(len(g.requests), 3)
+        self.assertEqual(len(g.requests), 2)
         self.assertEqual(g.avatar.values['berserk_brand_night_status'], 'hour_cooldown')
-        g.now = 3700; g.outcomes = [False, False, False]; g.hunt()
-        self.assertEqual(len(g.requests), 6)
+        g.now = 7300; g.outcomes = [False, False]; g.hunt()
+        self.assertEqual(len(g.requests), 4)
         self.assertEqual(g.avatar.values['berserk_brand_night_status'], 'no_outdoor_cell')
 
     def test_closed_breach_suppression_does_not_erase_existing_monsters(self):
@@ -247,6 +253,28 @@ class NightBudgetTests(unittest.TestCase):
             self.assertEqual(role['vision_night'],35)
             self.assertFalse(set(role)&{'hp','speed','armor','melee_damage','special_attacks','flags','default_faction'})
             self.assertIn(role['id'],scan['mtype_ids']);self.assertIn(role['id'],relic)
+
+    def test_six_successes_per_night_survive_travel_and_save_reload(self):
+        g = NightGraph()
+        for _ in range(3):
+            g.outcomes = [True, True]
+            g.hunt()
+            g.monsters.clear()  # leave the old reality bubble; do not replenish budget
+            g.now += 7200
+            g.avatar.values = json.loads(json.dumps(g.avatar.values))
+        self.assertEqual(g.avatar.values['berserk_brand_night_night_spawned'], 6)
+        before = len(g.requests); g.hunt()
+        self.assertEqual(len(g.requests), before)
+        g.day = True; g.run('EOC_BERSERK_BRAND_DAY_RESET')
+        g.day = False; g.now += 7200; g.outcomes = [True, True]; g.hunt()
+        self.assertEqual(g.avatar.values['berserk_brand_night_night_spawned'], 2)
+
+    def test_same_solar_condition_controls_refuge_and_brand(self):
+        refuge = json.dumps(load('effects/refuge_eocs.json'))
+        brand = json.dumps(load('effects/eclipse_brand_eocs.json'))
+        for data in (refuge, brand):
+            self.assertNotIn('"is_day"', data)
+            self.assertIn('EOC_BERSERK_SOLAR_DAY', data)
 
 
 if __name__ == '__main__':

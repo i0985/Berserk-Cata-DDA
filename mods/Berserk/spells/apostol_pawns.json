@@ -3,14 +3,14 @@
     "type": "SPELL",
     "id": "berserk_apostol_count_pawn_lash",
     "name": "Borrowed strike",
-    "description": "A limited impulse of the master’s flesh.",
+    "description": "A heavy tendril lashes the enemy.",
     "effect": "attack",
     "shape": "blast",
     "valid_targets": [
       "hostile"
     ],
-    "min_range": 2,
-    "max_range": 2,
+    "min_range": 3,
+    "max_range": 3,
     "min_aoe": 0,
     "max_aoe": 0,
     "max_level": 0,
@@ -25,21 +25,21 @@
       }
     ],
     "damage_type": "bash",
-    "min_damage": 12,
-    "max_damage": 12
+    "min_damage": 28,
+    "max_damage": 28
   },
   {
     "type": "SPELL",
     "id": "berserk_apostol_wyald_pawn_dash",
     "name": "Borrowed strike",
-    "description": "A limited impulse of the master’s flesh.",
+    "description": "Rush forward and strike nearby enemies.",
     "effect": "dash",
     "shape": "blast",
     "valid_targets": [
       "ground"
     ],
-    "min_range": 2,
-    "max_range": 2,
+    "min_range": 4,
+    "max_range": 4,
     "min_aoe": 0,
     "max_aoe": 0,
     "max_level": 0,
@@ -53,5 +53,28 @@
         "hit_self": true
       }
     ]
+  },
+  {
+    "type": "SPELL",
+    "id": "berserk_apostol_wyald_pawn_impact",
+    "name": "Rending rush",
+    "description": "A violent rush ends in a sweeping blow.",
+    "effect": "attack",
+    "shape": "blast",
+    "valid_targets": [
+      "hostile"
+    ],
+    "min_range": 0,
+    "max_range": 0,
+    "min_aoe": 1,
+    "max_aoe": 1,
+    "max_level": 0,
+    "flags": [
+      "SILENT",
+      "NO_EXPLOSION_SFX"
+    ],
+    "min_damage": 22,
+    "max_damage": 22,
+    "damage_type": "bash"
   }
 ]

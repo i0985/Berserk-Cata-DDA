@@ -207,7 +207,9 @@
           },
           "then": {
             "if": {
-              "not": "is_day"
+              "not": {
+                "test_eoc": "EOC_BERSERK_SOLAR_DAY"
+              }
             },
             "then": [
               {
@@ -277,7 +279,7 @@
                   ]
                 },
                 {
-                  "u_message": "Dawn reaches the refuge. Your journal records the night watch by the ward. The Brand remains; recover here if you can, prepare the prosthesis, then consult your next trail.",
+                  "u_message": "Dawn reaches the refuge. You have survived the night.",
                   "type": "good",
                   "popup": true
                 }

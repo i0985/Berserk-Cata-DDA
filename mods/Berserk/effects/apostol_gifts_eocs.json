@@ -228,7 +228,7 @@
             ]
           },
           {
-            "u_message": "Your senses sharpen, while the gift’s weakness settles into your body.",
+            "u_message": "Your senses shift. Familiar things feel different.",
             "type": "warning"
           }
         ]
@@ -265,7 +265,7 @@
             ]
           },
           {
-            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "u_message": "Your flesh settles into an unfamiliar shape.",
             "type": "warning"
           }
         ]
@@ -302,7 +302,7 @@
             ]
           },
           {
-            "u_message": "The gift answers a new impulse. Its first fighting abilities are now yours.",
+            "u_message": "A new strength answers your will.",
             "type": "warning"
           }
         ]
@@ -359,7 +359,7 @@
             ]
           },
           {
-            "u_message": "The transformation settles. It will grow no further; its strength and its price remain yours.",
+            "u_message": "The changes subside. This is your body now.",
             "type": "warning"
           }
         ]
@@ -512,7 +512,7 @@
             ]
           },
           {
-            "u_message": "Your senses sharpen, while the gift’s weakness settles into your body.",
+            "u_message": "Your senses shift. Familiar things feel different.",
             "type": "warning"
           }
         ]
@@ -549,7 +549,7 @@
             ]
           },
           {
-            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "u_message": "Your flesh settles into an unfamiliar shape.",
             "type": "warning"
           }
         ]
@@ -596,7 +596,7 @@
             ]
           },
           {
-            "u_message": "The gift answers a new impulse. Its first fighting abilities are now yours.",
+            "u_message": "A new strength answers your will.",
             "type": "warning"
           }
         ]
@@ -653,7 +653,7 @@
             ]
           },
           {
-            "u_message": "The transformation settles. It will grow no further; its strength and its price remain yours.",
+            "u_message": "The changes subside. This is your body now.",
             "type": "warning"
           }
         ]
@@ -806,7 +806,7 @@
             ]
           },
           {
-            "u_message": "Your senses sharpen, while the gift’s weakness settles into your body.",
+            "u_message": "Your senses shift. Familiar things feel different.",
             "type": "warning"
           }
         ]
@@ -843,7 +843,7 @@
             ]
           },
           {
-            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "u_message": "Your flesh settles into an unfamiliar shape.",
             "type": "warning"
           }
         ]
@@ -880,7 +880,7 @@
             ]
           },
           {
-            "u_message": "The gift answers a new impulse. Its first fighting abilities are now yours.",
+            "u_message": "A new strength answers your will.",
             "type": "warning"
           }
         ]
@@ -937,7 +937,7 @@
             ]
           },
           {
-            "u_message": "The transformation settles. It will grow no further; its strength and its price remain yours.",
+            "u_message": "The changes subside. This is your body now.",
             "type": "warning"
           }
         ]
@@ -1090,7 +1090,7 @@
             ]
           },
           {
-            "u_message": "Your senses sharpen, while the gift’s weakness settles into your body.",
+            "u_message": "Your senses shift. Familiar things feel different.",
             "type": "warning"
           }
         ]
@@ -1127,7 +1127,7 @@
             ]
           },
           {
-            "u_message": "Your body has changed permanently. Its new strengths and weaknesses cannot be switched off.",
+            "u_message": "Your flesh settles into an unfamiliar shape.",
             "type": "warning"
           }
         ]
@@ -1174,7 +1174,7 @@
             ]
           },
           {
-            "u_message": "The gift answers a new impulse. Its first fighting abilities are now yours.",
+            "u_message": "A new strength answers your will.",
             "type": "warning"
           }
         ]
@@ -1231,7 +1231,7 @@
             ]
           },
           {
-            "u_message": "The transformation settles. It will grow no further; its strength and its price remain yours.",
+            "u_message": "The changes subside. This is your body now.",
             "type": "warning"
           }
         ]
@@ -1386,7 +1386,7 @@
         }
       ],
       "else": {
-        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "u_message": "You cannot call on this strength yet.",
         "type": "neutral"
       }
     },
@@ -1459,14 +1459,14 @@
       "then": [
         {
           "u_add_effect": "berserk_apostol_void_ward",
-          "duration": "3 seconds"
+          "duration": "4 seconds"
         },
         {
           "run_eocs": "EOC_BERSERK_APOSTOL_VOID_WARD_SPEND"
         }
       ],
       "else": {
-        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "u_message": "You cannot call on this strength yet.",
         "type": "neutral"
       }
     },
@@ -1580,7 +1580,7 @@
         }
       ],
       "else": {
-        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "u_message": "You cannot call on this strength yet.",
         "type": "neutral"
       }
     },
@@ -1593,30 +1593,25 @@
     "id": "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_TARGET",
     "effect": {
       "u_add_effect": "stunned",
-      "duration": "2 seconds"
+      "duration": "4 seconds"
     },
     "condition": {
-      "and": [
-        "u_is_monster",
-        {
-          "not": {
-            "or": [
-              {
-                "u_has_species": "ROBOT"
-              },
-              {
-                "u_has_species": "ZOMBIE"
-              },
-              {
-                "u_has_species": "SLIME"
-              },
-              {
-                "u_has_species": "INSECT"
-              }
-            ]
+      "not": {
+        "or": [
+          {
+            "u_has_species": "ROBOT"
+          },
+          {
+            "u_has_species": "ZOMBIE"
+          },
+          {
+            "u_has_species": "SLIME"
+          },
+          {
+            "u_has_species": "INSECT"
           }
-        }
-      ]
+        ]
+      }
     }
   },
   {
@@ -1703,7 +1698,7 @@
         }
       ],
       "else": {
-        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "u_message": "You cannot call on this strength yet.",
         "type": "neutral"
       }
     },
@@ -1776,14 +1771,14 @@
       "then": [
         {
           "u_add_effect": "berserk_apostol_ubik_veil",
-          "duration": "4 seconds"
+          "duration": "8 seconds"
         },
         {
           "run_eocs": "EOC_BERSERK_APOSTOL_UBIK_VEIL_SPEND"
         }
       ],
       "else": {
-        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "u_message": "You cannot call on this strength yet.",
         "type": "neutral"
       }
     },
@@ -1903,7 +1898,7 @@
         }
       ],
       "else": {
-        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "u_message": "You cannot call on this strength yet.",
         "type": "neutral"
       }
     },
@@ -1995,7 +1990,7 @@
         }
       ],
       "else": {
-        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "u_message": "You cannot call on this strength yet.",
         "type": "neutral"
       }
     },
@@ -2087,7 +2082,7 @@
         }
       ],
       "else": {
-        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "u_message": "You cannot call on this strength yet.",
         "type": "neutral"
       }
     },
@@ -2209,7 +2204,7 @@
         }
       ],
       "else": {
-        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "u_message": "You cannot call on this strength yet.",
         "type": "neutral"
       }
     },
@@ -2301,7 +2296,7 @@
         }
       ],
       "else": {
-        "u_message": "Your body must finish changing. You need strength and time before calling on this gift again.",
+        "u_message": "You cannot call on this strength yet.",
         "type": "neutral"
       }
     },
