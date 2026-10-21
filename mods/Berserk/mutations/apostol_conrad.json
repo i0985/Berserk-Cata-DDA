@@ -67,7 +67,7 @@
     "name": {
       "str": "Body of cinder rot"
     },
-    "description": "Your flesh grows thick and heavy. Gain +3 strength and 3 points of natural protection. You remain slower, and gas can still hurt you. This body is permanent; returning to human shape is impossible.",
+    "description": "Your flesh grows thick and heavy. Gain +3 strength and 3 points of natural protection. You remain slower, and gas can still hurt you. This body is permanent; returning to human shape is impossible.\n\nClothing: The thickened body cannot fit ordinary rigid torso and leg armor.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -92,7 +92,16 @@
           }
         ]
       }
-    ]
+    ],
+    "restricts_gear": [
+      "torso",
+      "leg_l",
+      "leg_r"
+    ],
+    "allow_soft_gear": true,
+    "destroys_gear": false,
+    "visibility": 9,
+    "ugliness": 6
   },
   {
     "type": "mutation",

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Build Rickert's approved script without replacing the forge or paid orders.
 
-Unresolved design additions (trust cooldown, incompatible anatomy and lab loot)
-are deliberately absent. Source paragraph indices refer to the full owner file.
+Trust uses the real NPC opinion. Anatomy and rare loot are built separately by
+build_apostol_body_rules_33.py. Source indices refer to the full owner file.
 """
 import hashlib
 import json
@@ -162,6 +162,7 @@ def menu_responses(c=None,effect=None):
         response('О твоём решении не идти со мной.','About your decision not to travel with me.','REFUSE_MENU',withc(nval('recruit_refused')),effect),
         response('Со мной происходит перемена.','Something is happening to me.','TALK_BERSERK_APOSTOL_RICKERT',withc(neg(HUMAN)),effect),
         response('Когда я вернулся, тебя рядом не было.','You were not there when I came back.','REUNION_LATER',withc(both(WITNESS,MET,val('care_present','!=',1),val('read_reunion','!=',1))),[effect,setv('read_reunion')] if effect else setv('read_reunion')),
+        response('Насчёт доверия после моего обмана.','About trusting me after my lie.','TRUST_RECOVERY',withc(nval('lie_trust_pending')),effect),
     ]
 
 
@@ -200,9 +201,12 @@ def craft():
         response('Мне нужен новый дорожный журнал.','I need a new road journal.','ORDERS',neg({'u_has_item':'berserk_campaign_journal'}),run('EOC_BERSERK_JOURNAL_REPLACE_MISSING')),back()])
     topic('ORDER_STATUS',tr('Which work did you want to discuss?','О какой работе хотел спросить?'),[
         response('О протезе.','About the prosthesis.','TALK_BERSERK_GODO_ARM',HAND),
+        response('Рука восстановилась. Что с моим заказом?','My hand has grown back. What about my order?','ARM_REGROWN_ORDER',both(math('u_berserk_apostol_left_hand_regrown == 1'),math('u_berserk_godo_arm_state > 0'),math('u_berserk_godo_arm_state < 4'))),
         response('О болтах.','About the bolts.','BOLTS',val('bolts_pending')),
         response(1769,'Will you still finish my order?','ORDER_AFTER_REFUSAL',both(nval('recruit_refused'),test('EOC_BERSERK_RICKERT_HAS_ORDER'))),back()])
     leaf('ORDER_AFTER_REFUSAL',1773,'I promised to finish the work, and I keep my word. That does not change my decision about traveling with you. Work is one thing; the road is another.','ORDER_STATUS')
+    topic('ARM_REGROWN_ORDER',choose(math('u_berserk_godo_arm_state >= 2'),tr('You no longer need a replacement hand. I still have the materials you brought; you can take them back.','Тебе больше не нужна замена кисти. Материалы, которые ты принёс, у меня. Можешь забрать их.'),tr('You no longer need a replacement hand. Let us close that order.','Тебе больше не нужна замена кисти. Закроем этот заказ.')),[
+        response('Закрыть заказ и забрать переданные материалы.','Close the order and collect any materials delivered.','ARM_REFUNDED',test('EOC_BERSERK_GODO_ARM_REFUND'),run('EOC_BERSERK_GODO_ARM_REFUND')),back('ORDER_STATUS')])
     leaf('GODO',150,'Godot grumbles, but he lets me try. When I ruin something, he makes me explain what I did wrong. Sometimes that is harder than doing it over.','PERSONAL')
 
 
@@ -368,6 +372,14 @@ def band_and_story():
     topic('CONFESSION_DONE',tr('I hear you. What I remember of him does not fit your words yet. I need time.','Я слышу тебя. Просто всё, что я помню о нём, пока не складывается с твоими словами. Мне нужно время.'),[
         response(1287,'Could you trust me again?','CONFESSION_TRUST'),back('ECLIPSE')])
     leaf('CONFESSION_TRUST',1288,'Not straight away. But you came back and told me yourself. That counts for something. We will see what you do next.','ECLIPSE')
+    topic('TRUST_RECOVERY',choose(test('EOC_BERSERK_RICKERT_TRUST_RESTORED'),
+        tr('I remember the lie. But I have had time to listen to you since then. We can talk about the road again.','Я помню обман. Но с тех пор у меня было время тебя выслушать. Можем снова поговорить о дороге.'),
+        line(1678,'After what came out, I need time. I can work beside you at the forge. Trusting you with my life on the road is another matter.')),[
+        response(1682,'What can I do?','TRUST_ADVICE'),
+        response('Поговорим о том, что я действительно видел и что собираюсь делать.','Let us talk honestly about what I saw and what I mean to do.','TRUST_TALK',test('EOC_BERSERK_RICKERT_CAN_REBUILD_TRUST'),run('REBUILD_TRUST')),
+        response('Насчёт совместной дороги.','About traveling together.','ROAD',both(test('EOC_BERSERK_RICKERT_TRUST_RESTORED'),nval('recruit_refused','!=',1))),back()])
+    leaf('TRUST_ADVICE',1689,'Do not try to mend this with another fine promise. Keep speaking honestly until I can see it is a habit.','TRUST_RECOVERY')
+    topic('TRUST_TALK',tr('Thank you for sitting down and telling me plainly. I cannot forget everything at once. Let us leave it there for today.','Спасибо, что сел и рассказал прямо. Я не могу сразу всё забыть. На сегодня давай остановимся на этом.'),[back()])
     topic('ECLIPSE_SILENCE',tr('All right. I will not force the words out of you. Just do not tell me everything is all right if it is not.',russian(1301)+' '+russian(1306)),[
         response(1318,'I can talk now.','ECLIPSE'),response(1334,'I am still not ready.','SILENCE_MORE'),back()])
     leaf('SILENCE_MORE',1338,'Then let us do something else for now.')
@@ -451,9 +463,11 @@ def recruitment(old):
         response('Сначала припасы и безопасная дорога.','First, supplies and a safe road.','ROAD_READY',open_),
         response('Пойдём по известному нам следу. Сначала разведаем подходы.','We will follow the lead we know and scout the approaches first.','ROAD_READY',both(open_,test('EOC_BERSERK_RICKERT_HAS_KNOWN_GOAL'))),
         response('Перед дорогой поговорим о моей перемене.','Before setting out, let us discuss what is happening to me.','TALK_BERSERK_APOSTOL_RICKERT',both(open_,neg(HUMAN))),back()])
-    topic('ROAD_READY',choose(both(neg(HUMAN),math('u_berserk_apostol_rickert_counsel != 1')),tr('Before we set out, tell me what is happening to you. I need to know what to expect beside you.','Прежде чем отправимся, расскажи, что с тобой происходит. Мне нужно знать, чего ждать рядом с тобой.'),line(1626,'All right. I will come. Let me gather my things and tell Godot; I do not want him wondering where I went.')),[
+    topic('ROAD_READY',choose(neg(test('EOC_BERSERK_RICKERT_TRUST_RESTORED')),choose(nval('lie_trust_pending'),line(1678,'After what came out, I need time. I can work beside you at the forge. Trusting you with my life on the road is another matter.'),line(1659,'I do not know you well enough to leave everything and go with you. Come back and talk; we will see how things go.')),
+        choose(both(neg(HUMAN),math('u_berserk_apostol_rickert_counsel != 1')),tr('Before we set out, tell me what is happening to you. I need to know what to expect beside you.','Прежде чем отправимся, расскажи, что с тобой происходит. Мне нужно знать, чего ждать рядом с тобой.'),line(1626,'All right. I will come. Let me gather my things and tell Godot; I do not want him wondering where I went.'))),[
         response(1629,'I will wait.','JOINED',test('EOC_BERSERK_RICKERT_JOIN'),run('JOIN')),
         response('Расскажу о перемене.','I will tell you about the change.','TALK_BERSERK_APOSTOL_RICKERT',both(neg(HUMAN),math('u_berserk_apostol_rickert_counsel != 1'))),
+        response('Как вернуть твоё доверие?','How can I rebuild your trust?','TRUST_RECOVERY',nval('lie_trust_pending')),
         response(1630,'I changed my mind. We will stay for now.','ROAD_LATER'),back()])
     leaf('ROAD_LATER',1600,'All right. Better to agree now than sort it out on the road when it is too late to turn back.')
     topic('JOINED',line(1637,'I will be ready soon. I will not keep you long.'),[back('COMPANION'),response('Обсудим снаряжение и порядок в пути.','Let us discuss equipment and travel arrangements.','TALK_FRIEND',FOLLOW)])
@@ -544,7 +558,19 @@ def state_hooks():
         if id!='SILENCE':body.append(setv('heard_losses'))
         if id=='TRUTH':body.extend([{'if':G,'then':[setv('knows_death_'+n.lower()) for n,*_ in MEMORIES]}])
         add('STORY_'+id,body,both(RICKERT,NORMAL_WITNESS,either(val('eclipse_story','==',0),val('eclipse_story','==',3))))
-    add('STORY_CONFESS',[setv('lied_before'),setv('eclipse_story',1),setv('heard_losses'),{'if':G,'then':[setv('knows_death_'+n.lower()) for n,*_ in MEMORIES]}],both(RICKERT,NORMAL_WITNESS,val('eclipse_story','==',2)))
+    confession_effect=[
+        math('n_berserk_rickert_lie_trust_target = max(0, n_npc_trust())'),
+        math('n_npc_trust() = n_npc_trust() - 4'),
+        math("n_berserk_rickert_confession_at = time('now')"),
+        math("n_berserk_rickert_trust_next_talk = time('now') + 86400"),
+        math('n_berserk_rickert_lie_trust_pending = 1'),
+        setv('lied_before'),setv('eclipse_story',1),setv('heard_losses'),{'if':G,'then':[setv('knows_death_'+n.lower()) for n,*_ in MEMORIES]}]
+    add('STORY_CONFESS',confession_effect,both(RICKERT,NORMAL_WITNESS,val('eclipse_story','==',2)))
+    trust_ok=both(math('n_npc_trust() >= 0'),either(nval('lie_trust_pending','!=',1),both(math("time('now') >= n_berserk_rickert_confession_at + 86400"),math('n_npc_trust() >= n_berserk_rickert_lie_trust_target'))))
+    add('TRUST_RESTORED',[],trust_ok)
+    rebuild=both(RICKERT,nval('lie_trust_pending'),math('n_npc_trust() < n_berserk_rickert_lie_trust_target'),math("time('now') >= n_berserk_rickert_trust_next_talk"),'u_at_safe_space')
+    add('CAN_REBUILD_TRUST',[],rebuild)
+    add('REBUILD_TRUST',[math('n_npc_trust() = min(n_berserk_rickert_lie_trust_target, n_npc_trust() + 1)'),math("n_berserk_rickert_trust_next_talk = time('now') + 86400")],rebuild)
     for name,*_,item in MEMORIES:
         stem=name.lower()
         add('DEATH_'+name,[setv('knows_death_'+stem),setv('heard_losses')],both(RICKERT,math('u_berserk_godo_witness_'+stem+' == 1')))
@@ -567,11 +593,14 @@ def state_hooks():
         if isinstance(then,list) and math('u_berserk_godo_rescue_relocated = 1') in then:
             hook=run('CAPTURE_CARE')
             if hook not in then:then.insert(1,hook)
-    # Preserve existing human/demon counsel and respect requirements. The new
-    # unresolved trust cooldown does not silently add any recruitment lock.
+    # Preserve respect, demon counsel, rejoining and permanent refusal, adding
+    # the actual NPC opinion rather than a second relationship score.
     join=ids['EOC_BERSERK_RICKERT_JOIN']
     if neg(FOLLOW) not in join['condition'].get('and',[]):
         join['condition']=both(neg(FOLLOW),join['condition'])
+    trust_requirement=test('EOC_BERSERK_RICKERT_TRUST_RESTORED')
+    if not any(x.get('test_eoc')==trust_requirement['test_eoc'] for x in walk(join['condition'])):
+        join['condition']=both(trust_requirement,join['condition'])
     write('effects/godo_eocs.json',data)
     cont=read('effects/apostol_continuation_eocs.json');by=index(cont)
     by['EOC_BERSERK_APOSTOL_TELL_RICKERT']['condition']=both(neg(HUMAN),RICKERT)

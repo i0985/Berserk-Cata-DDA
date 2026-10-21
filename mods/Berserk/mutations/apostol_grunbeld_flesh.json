@@ -65,7 +65,7 @@
     "name": {
       "str": "Body: cinder carapace"
     },
-    "description": "Your permanent fiery carapace grants +3 strength, 6 points of natural protection, -15 speed and 50% less heat damage. Hunger and slow recovery remain. This body is permanent; returning to human shape is impossible. It does not heal wounds or make fire harmless.",
+    "description": "Your permanent fiery carapace grants +3 strength, 6 points of natural protection, -15 speed and 50% less heat damage. Hunger and slow recovery remain. This body is permanent; returning to human shape is impossible. It does not heal wounds or make fire harmless.\n\nClothing: The carapace cannot fit beneath ordinary rigid torso or limb armor.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -100,7 +100,18 @@
           }
         ]
       }
-    ]
+    ],
+    "restricts_gear": [
+      "torso",
+      "arm_l",
+      "arm_r",
+      "leg_l",
+      "leg_r"
+    ],
+    "allow_soft_gear": true,
+    "destroys_gear": false,
+    "visibility": 10,
+    "ugliness": 5
   },
   {
     "type": "mutation",

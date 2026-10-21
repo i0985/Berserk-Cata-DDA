@@ -65,7 +65,7 @@
     "name": {
       "str": "Body of borrowed faces"
     },
-    "description": "Your outline becomes difficult to follow. Gain +2 dexterity and reduce your visibility range by 3 tiles. This body is permanent; returning to human shape is impossible.",
+    "description": "Your outline becomes difficult to follow. Gain +2 dexterity and reduce your visibility range by 3 tiles. This body is permanent; returning to human shape is impossible.\n\nClothing: Ordinary rigid helmets and masks do not fit the altered head.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -90,7 +90,15 @@
           }
         ]
       }
-    ]
+    ],
+    "restricts_gear": [
+      "head",
+      "mouth"
+    ],
+    "allow_soft_gear": true,
+    "destroys_gear": false,
+    "visibility": 5,
+    "ugliness": 3
   },
   {
     "type": "mutation",

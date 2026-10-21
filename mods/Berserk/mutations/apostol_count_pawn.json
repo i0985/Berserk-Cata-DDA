@@ -79,7 +79,7 @@
     "name": {
       "str": "Body: Servant of the Count"
     },
-    "description": "Your permanent pliant body grants +1 strength and 2 points of natural protection, with another -5 speed. Returning to human shape is impossible.",
+    "description": "Your permanent pliant body grants +1 strength and 2 points of natural protection, with another -5 speed. Returning to human shape is impossible.\n\nClothing: The thickened torso cannot fit ordinary rigid armor.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -108,7 +108,14 @@
           }
         ]
       }
-    ]
+    ],
+    "restricts_gear": [
+      "torso"
+    ],
+    "allow_soft_gear": true,
+    "destroys_gear": false,
+    "visibility": 5,
+    "ugliness": 3
   },
   {
     "type": "mutation",

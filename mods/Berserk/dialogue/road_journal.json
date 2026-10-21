@@ -1852,25 +1852,35 @@
     "id": "TALK_BERSERK_JOURNAL_ARM",
     "dynamic_line": {
       "math": [
-        "u_berserk_godo_arm_state == 0"
+        "u_berserk_apostol_left_hand_regrown == 1"
       ],
-      "yes": "Order the cannon from Rickert at the forge, or make it yourself with fabrication 8 and mechanics 4.",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_UNUSED_ARM_ORDER",
+        "yes": "Your hand has grown back. Speak with Rickert at the forge to settle the unnecessary prosthesis order and collect any materials already delivered.",
+        "no": "Your hand has grown back. You no longer need a replacement."
+      },
       "no": {
         "math": [
-          "u_berserk_godo_arm_state == 1"
+          "u_berserk_godo_arm_state == 0"
         ],
-        "yes": "Deliver 8 steel lumps and 2 pipes to Rickert at the forge.",
+        "yes": "Order the cannon from Rickert at the forge, or make it yourself with fabrication 8 and mechanics 4.",
         "no": {
           "math": [
-            "u_berserk_godo_arm_state == 2"
+            "u_berserk_godo_arm_state == 1"
           ],
-          "yes": "Deliver 2 springs, 4 leather patches and 200 charcoal.",
+          "yes": "Deliver 8 steel lumps and 2 pipes to Rickert at the forge.",
           "no": {
             "math": [
-              "u_berserk_godo_arm_state == 3"
+              "u_berserk_godo_arm_state == 2"
             ],
-            "yes": "Meet Rickert at the forge six hours after the last delivery to collect the cannon.",
-            "no": "This order is settled. Install the cannon you received or maintain the prosthetic you already own."
+            "yes": "Deliver 2 springs, 4 leather patches and 200 charcoal.",
+            "no": {
+              "math": [
+                "u_berserk_godo_arm_state == 3"
+              ],
+              "yes": "Meet Rickert at the forge six hours after the last delivery to collect the cannon.",
+              "no": "This order is settled. Install the cannon you received or maintain the prosthetic you already own."
+            }
           }
         }
       }

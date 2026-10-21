@@ -1322,7 +1322,16 @@
               ]
             },
             {
-              "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+              "or": [
+                {
+                  "test_eoc": "EOC_BERSERK_GODO_HAS_ARM"
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_left_hand_regrown == 1"
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -1871,68 +1880,82 @@
         {
           "and": [
             {
+              "test_eoc": "EOC_BERSERK_RICKERT_TRUST_RESTORED"
+            },
+            {
               "and": [
                 {
+                  "not": "npc_following"
+                },
+                {
                   "and": [
-                    "has_beta",
-                    "npc_is_npc",
                     {
-                      "npc_has_class": "NC_BERSERK_RICKERT"
-                    }
-                  ]
-                },
-                {
-                  "math": [
-                    "n_berserk_rickert_recruit_refused != 1"
-                  ]
-                },
-                {
-                  "or": [
-                    {
-                      "math": [
-                        "n_berserk_rickert_respect == 1"
+                      "and": [
+                        {
+                          "and": [
+                            "has_beta",
+                            "npc_is_npc",
+                            {
+                              "npc_has_class": "NC_BERSERK_RICKERT"
+                            }
+                          ]
+                        },
+                        {
+                          "math": [
+                            "n_berserk_rickert_recruit_refused != 1"
+                          ]
+                        },
+                        {
+                          "or": [
+                            {
+                              "math": [
+                                "n_berserk_rickert_respect == 1"
+                              ]
+                            },
+                            {
+                              "math": [
+                                "n_berserk_rickert_recruited == 1"
+                              ]
+                            }
+                          ]
+                        }
                       ]
                     },
                     {
-                      "math": [
-                        "n_berserk_rickert_recruited == 1"
+                      "or": [
+                        {
+                          "not": {
+                            "or": [
+                              {
+                                "math": [
+                                  "u_berserk_apostol_path == 1"
+                                ]
+                              },
+                              {
+                                "math": [
+                                  "u_berserk_apostol_path == 2"
+                                ]
+                              },
+                              {
+                                "math": [
+                                  "u_berserk_apostol_path == 3"
+                                ]
+                              }
+                            ]
+                          }
+                        },
+                        {
+                          "math": [
+                            "u_berserk_apostol_rickert_counsel == 1"
+                          ]
+                        },
+                        {
+                          "math": [
+                            "n_berserk_rickert_recruited == 1"
+                          ]
+                        }
                       ]
                     }
-                  ]
-                }
-              ]
-            },
-            {
-              "or": [
-                {
-                  "not": {
-                    "or": [
-                      {
-                        "math": [
-                          "u_berserk_apostol_path == 1"
-                        ]
-                      },
-                      {
-                        "math": [
-                          "u_berserk_apostol_path == 2"
-                        ]
-                      },
-                      {
-                        "math": [
-                          "u_berserk_apostol_path == 3"
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "math": [
-                    "u_berserk_apostol_rickert_counsel == 1"
-                  ]
-                },
-                {
-                  "math": [
-                    "n_berserk_rickert_recruited == 1"
                   ]
                 }
               ]

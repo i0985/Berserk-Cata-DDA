@@ -74,7 +74,7 @@
     "name": {
       "str": "Body: winged hunter"
     },
-    "description": "Your permanently grown insectlike wings grant +2 dexterity, +15 speed and half falling damage. Wings permit gliding with a light load and usable arms, not free ascent into the sky. Torso encumbrance above 20 prevents your wing abilities. Your fragile flesh remains. This body is permanent; returning to human shape is impossible.",
+    "description": "Your permanently grown insectlike wings grant +2 dexterity, +15 speed and half falling damage. Wings permit gliding with a light load and usable arms, not free ascent into the sky. Torso encumbrance above 20 prevents your wing abilities. Your fragile flesh remains. This body is permanent; returning to human shape is impossible.\n\nClothing: The wings need an open back; ordinary torso clothing gets in their way.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -104,7 +104,14 @@
           }
         ]
       }
-    ]
+    ],
+    "restricts_gear": [
+      "torso"
+    ],
+    "allow_soft_gear": false,
+    "destroys_gear": false,
+    "visibility": 8,
+    "ugliness": 5
   },
   {
     "type": "mutation",

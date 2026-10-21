@@ -26,6 +26,7 @@ class StateGraph:
         self.eocs = {o['id']: o for p in (MOD / 'effects').glob('*.json')
                      for o in (lambda x: x if isinstance(x, list) else [x])(json.loads(p.read_text()))}
         self.values = {}; self.traits = set(); self.inventory = Counter()
+        self.bionics=set();self.effects=set();self.messages=[]
         self.overrides = {'EOC_BERSERK_FORGE_GUTS': False,
                           'EOC_BERSERK_GODO_AT_SMITH': True,
                           'EOC_BERSERK_GODO_KNOWN': False}
@@ -49,6 +50,7 @@ class StateGraph:
             return self.overrides[name] if name in self.overrides else self.condition(self.eocs[name]['condition'])
         if 'math' in value: return bool(self.evaluate(value['math'][0]))
         if 'u_has_trait' in value: return value['u_has_trait'] in self.traits
+        if 'u_has_bionics' in value:return value['u_has_bionics'] in self.bionics
         if 'u_profession' in value: return False
         if 'u_has_flag' in value: return False
         if 'u_has_items' in value:
@@ -72,12 +74,14 @@ class StateGraph:
             self.values[name] = self.evaluate(expr) + (self.values.get(name, 0) if op == '+=' else 0)
         elif 'u_add_trait' in value: self.traits.add(value['u_add_trait'])
         elif 'u_lose_trait' in value: self.traits.discard(value['u_lose_trait'])
+        elif 'u_lose_bionic' in value:self.bionics.discard(value['u_lose_bionic'])
+        elif 'u_lose_effect' in value:self.effects.discard(value['u_lose_effect'])
         elif 'run_eocs' in value: self.run(value['run_eocs'])
         elif 'u_spawn_item' in value:
             count = value.get('count', 1)
             if isinstance(count, dict): count = self.values.get('u_' + count['u_val'], 0)
             self.inventory[value['u_spawn_item']] += count
-        elif 'u_message' in value: pass
+        elif 'u_message' in value:self.messages.append(value['u_message'])
         else: raise AssertionError(value)
 
 

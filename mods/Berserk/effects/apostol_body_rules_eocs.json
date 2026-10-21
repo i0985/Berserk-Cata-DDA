@@ -1,0 +1,506 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_FIRST_BODY_CHANGE",
+    "effect": [
+      {
+        "if": {
+          "u_has_bionics": "bio_berserk_hand_stump"
+        },
+        "then": [
+          {
+            "u_lose_bionic": "bio_berserk_hand_stump"
+          },
+          {
+            "u_lose_effect": "berserk_missing_left_hand",
+            "target_part": "hand_l"
+          },
+          {
+            "u_lose_effect": "berserk_left_arm_onehanded",
+            "target_part": "arm_l"
+          },
+          {
+            "math": [
+              "u_berserk_apostol_left_hand_regrown = 1"
+            ]
+          },
+          {
+            "u_message": "Bone presses through the scar. Tendons tighten, fingers uncurl: your left hand has grown back.",
+            "type": "good",
+            "popup": true
+          }
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_body_checked = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+          }
+        },
+        {
+          "or": [
+            {
+              "u_has_trait": "BERSERK_CONRAD_SEED"
+            },
+            {
+              "u_has_trait": "BERSERK_CONRAD_SENSES"
+            },
+            {
+              "u_has_trait": "BERSERK_CONRAD_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_CONRAD_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_FLESH_SEED"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_FLESH_SENSES"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_FLESH_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_FLESH_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_PAWN_SEED"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_PAWN_SENSES"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_PAWN_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_PAWN_PAWN"
+            },
+            {
+              "u_has_trait": "BERSERK_FEMTO_SEED"
+            },
+            {
+              "u_has_trait": "BERSERK_FEMTO_SENSES"
+            },
+            {
+              "u_has_trait": "BERSERK_FEMTO_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_FEMTO_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_GRUNBELD_FLESH_SEED"
+            },
+            {
+              "u_has_trait": "BERSERK_GRUNBELD_FLESH_SENSES"
+            },
+            {
+              "u_has_trait": "BERSERK_GRUNBELD_FLESH_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_GRUNBELD_FLESH_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_GRUNBELD_PAWN_SEED"
+            },
+            {
+              "u_has_trait": "BERSERK_GRUNBELD_PAWN_SENSES"
+            },
+            {
+              "u_has_trait": "BERSERK_GRUNBELD_PAWN_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_GRUNBELD_PAWN_PAWN"
+            },
+            {
+              "u_has_trait": "BERSERK_ROSINE_FLESH_SEED"
+            },
+            {
+              "u_has_trait": "BERSERK_ROSINE_FLESH_SENSES"
+            },
+            {
+              "u_has_trait": "BERSERK_ROSINE_FLESH_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_ROSINE_FLESH_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_ROSINE_PAWN_SEED"
+            },
+            {
+              "u_has_trait": "BERSERK_ROSINE_PAWN_SENSES"
+            },
+            {
+              "u_has_trait": "BERSERK_ROSINE_PAWN_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_ROSINE_PAWN_PAWN"
+            },
+            {
+              "u_has_trait": "BERSERK_SLAN_SEED"
+            },
+            {
+              "u_has_trait": "BERSERK_SLAN_SENSES"
+            },
+            {
+              "u_has_trait": "BERSERK_SLAN_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_SLAN_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_UBIK_SEED"
+            },
+            {
+              "u_has_trait": "BERSERK_UBIK_SENSES"
+            },
+            {
+              "u_has_trait": "BERSERK_UBIK_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_UBIK_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_VOID_SEED"
+            },
+            {
+              "u_has_trait": "BERSERK_VOID_SENSES"
+            },
+            {
+              "u_has_trait": "BERSERK_VOID_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_VOID_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_WYALD_FLESH_SEED"
+            },
+            {
+              "u_has_trait": "BERSERK_WYALD_FLESH_SENSES"
+            },
+            {
+              "u_has_trait": "BERSERK_WYALD_FLESH_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_WYALD_FLESH_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_WYALD_PAWN_SEED"
+            },
+            {
+              "u_has_trait": "BERSERK_WYALD_PAWN_SENSES"
+            },
+            {
+              "u_has_trait": "BERSERK_WYALD_PAWN_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_WYALD_PAWN_PAWN"
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_body_checked != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_RESTORE_WORLD_ERA",
+    "effect": {
+      "math": [
+        "berserk_eclipse_era = 1"
+      ]
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_eclipse_route == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_return_state == 2"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_apostol_outcome == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_outcome == 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_eclipse_era != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_UNUSED_ARM_ORDER",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_godo_arm_state > 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_arm_state < 4"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_APOSTOL_BODY_MIGRATE",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_FIRST_BODY_CHANGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_APOSTOL_RESTORE_WORLD_ERA"
+      }
+    ],
+    "eoc_type": "RECURRING",
+    "recurrence": "1 minute",
+    "global": true,
+    "condition": {
+      "or": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            },
+            {
+              "or": [
+                {
+                  "u_has_trait": "BERSERK_CONRAD_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_CONRAD_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_CONRAD_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_CONRAD_APOSTLE"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_APOSTLE"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_PAWN_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_PAWN_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_PAWN_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_COUNT_PAWN_PAWN"
+                },
+                {
+                  "u_has_trait": "BERSERK_FEMTO_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_FEMTO_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_FEMTO_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_FEMTO_APOSTLE"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_APOSTLE"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_PAWN_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_PAWN_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_PAWN_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_GRUNBELD_PAWN_PAWN"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_APOSTLE"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_PAWN_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_PAWN_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_PAWN_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_PAWN_PAWN"
+                },
+                {
+                  "u_has_trait": "BERSERK_SLAN_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_SLAN_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_SLAN_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_SLAN_APOSTLE"
+                },
+                {
+                  "u_has_trait": "BERSERK_UBIK_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_UBIK_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_UBIK_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_UBIK_APOSTLE"
+                },
+                {
+                  "u_has_trait": "BERSERK_VOID_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_VOID_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_VOID_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_VOID_APOSTLE"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_APOSTLE"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_PAWN_SEED"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_PAWN_SENSES"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_PAWN_FORM"
+                },
+                {
+                  "u_has_trait": "BERSERK_WYALD_PAWN_PAWN"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_body_checked != 1"
+              ]
+            }
+          ]
+        },
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "math": [
+                "u_berserk_eclipse_route == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 2"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_apostol_outcome == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_outcome == 2"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "berserk_eclipse_era != 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

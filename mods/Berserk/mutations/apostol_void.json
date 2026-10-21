@@ -65,7 +65,7 @@
     "name": {
       "str": "Body of folded space"
     },
-    "description": "A fragile, elongated shape sharpens perception of distance. Gain +2 dexterity, +1 dodge and 1 point of natural protection. This body is permanent; returning to human shape is impossible.",
+    "description": "A fragile, elongated shape sharpens perception of distance. Gain +2 dexterity, +1 dodge and 1 point of natural protection. This body is permanent; returning to human shape is impossible.\n\nClothing: Elongated fingers do not fit ordinary rigid gloves.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -94,7 +94,15 @@
           }
         ]
       }
-    ]
+    ],
+    "restricts_gear": [
+      "hand_l",
+      "hand_r"
+    ],
+    "allow_soft_gear": true,
+    "destroys_gear": false,
+    "visibility": 4,
+    "ugliness": 2
   },
   {
     "type": "mutation",

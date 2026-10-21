@@ -2405,6 +2405,42 @@
         ]
       },
       {
+        "text": "About trusting me after my lie.",
+        "topic": "TALK_BERSERK_RICKERT_TRUST_RECOVERY",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                  }
+                },
+                {
+                  "or": [
+                    {
+                      "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                    },
+                    {
+                      "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                    },
+                    "npc_following"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_rickert_lie_trust_pending == 1"
+              ]
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_RICKERT"
+        }
+      },
+      {
         "text": "Have you noticed my hands?",
         "topic": "TALK_BERSERK_RICKERT_VISIBLE_HANDS",
         "condition": {
@@ -7955,6 +7991,29 @@
         }
       },
       {
+        "text": "My hand has grown back. What about my order?",
+        "topic": "TALK_BERSERK_RICKERT_ARM_REGROWN_ORDER",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_left_hand_regrown == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state < 4"
+              ]
+            }
+          ]
+        }
+      },
+      {
         "text": "About the bolts.",
         "topic": "TALK_BERSERK_RICKERT_BOLTS",
         "condition": {
@@ -9565,9 +9624,19 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_ROAD_READY",
     "dynamic_line": {
-      "test_eoc": "EOC_BERSERK_RICKERT_LINE_F71BB7108FB3",
-      "yes": "Before we set out, tell me what is happening to you. I need to know what to expect beside you.",
-      "no": "All right. I will come. Let me gather my things and tell Godot; I do not want him wondering where I went."
+      "test_eoc": "EOC_BERSERK_RICKERT_LINE_2EA1A31DEF56",
+      "yes": {
+        "math": [
+          "n_berserk_rickert_lie_trust_pending == 1"
+        ],
+        "yes": "After what came out, I need time. I can work beside you at the forge. Trusting you with my life on the road is another matter.",
+        "no": "I do not know you well enough to leave everything and go with you. Come back and talk; we will see how things go."
+      },
+      "no": {
+        "test_eoc": "EOC_BERSERK_RICKERT_LINE_F71BB7108FB3",
+        "yes": "Before we set out, tell me what is happening to you. I need to know what to expect beside you.",
+        "no": "All right. I will come. Let me gather my things and tell Godot; I do not want him wondering where I went."
+      }
     },
     "responses": [
       {
@@ -9595,6 +9664,15 @@
                 "u_berserk_apostol_rickert_counsel != 1"
               ]
             }
+          ]
+        }
+      },
+      {
+        "text": "How can I rebuild your trust?",
+        "topic": "TALK_BERSERK_RICKERT_TRUST_RECOVERY",
+        "condition": {
+          "math": [
+            "n_berserk_rickert_lie_trust_pending == 1"
           ]
         }
       },
@@ -10088,6 +10166,100 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT_MECHANISMS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_ARM_REGROWN_ORDER",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_godo_arm_state >= 2"
+      ],
+      "yes": "You no longer need a replacement hand. I still have the materials you brought; you can take them back.",
+      "no": "You no longer need a replacement hand. Let us close that order."
+    },
+    "responses": [
+      {
+        "text": "Close the order and collect any materials delivered.",
+        "topic": "TALK_BERSERK_RICKERT_ARM_REFUNDED",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_ARM_REFUND"
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_ARM_REFUND"
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_RICKERT_ORDER_STATUS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_TRUST_RECOVERY",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_RICKERT_TRUST_RESTORED",
+      "yes": "I remember the lie. But I have had time to listen to you since then. We can talk about the road again.",
+      "no": "After what came out, I need time. I can work beside you at the forge. Trusting you with my life on the road is another matter."
+    },
+    "responses": [
+      {
+        "text": "What can I do?",
+        "topic": "TALK_BERSERK_RICKERT_TRUST_ADVICE"
+      },
+      {
+        "text": "Let us talk honestly about what I saw and what I mean to do.",
+        "topic": "TALK_BERSERK_RICKERT_TRUST_TALK",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_RICKERT_CAN_REBUILD_TRUST"
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_RICKERT_REBUILD_TRUST"
+        }
+      },
+      {
+        "text": "About traveling together.",
+        "topic": "TALK_BERSERK_RICKERT_ROAD",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_RICKERT_TRUST_RESTORED"
+            },
+            {
+              "math": [
+                "n_berserk_rickert_recruit_refused != 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_RICKERT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_TRUST_ADVICE",
+    "dynamic_line": "Do not try to mend this with another fine promise. Keep speaking honestly until I can see it is a habit.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_RICKERT_TRUST_RECOVERY"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_TRUST_TALK",
+    "dynamic_line": "Thank you for sitting down and telling me plainly. I cannot forget everything at once. Let us leave it there for today.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_RICKERT"
       }
     ]
   }

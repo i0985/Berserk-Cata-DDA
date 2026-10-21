@@ -83,7 +83,7 @@
     "name": {
       "str": "Body: Carapace vassal"
     },
-    "description": "Your permanent carapace grants +1 strength, 3 points of natural protection and 25% less heat damage, with another -8 speed. Returning to human shape is impossible.",
+    "description": "Your permanent carapace grants +1 strength, 3 points of natural protection and 25% less heat damage, with another -8 speed. Returning to human shape is impossible.\n\nClothing: The carapace cannot fit beneath ordinary rigid torso or arm armor.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -118,7 +118,16 @@
           }
         ]
       }
-    ]
+    ],
+    "restricts_gear": [
+      "torso",
+      "arm_l",
+      "arm_r"
+    ],
+    "allow_soft_gear": true,
+    "destroys_gear": false,
+    "visibility": 7,
+    "ugliness": 4
   },
   {
     "type": "mutation",

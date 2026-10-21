@@ -30,6 +30,7 @@ class Conversation(GodoConversation):
         self.overrides['EOC_BERSERK_GODO_ORDER_SYNC']=False
 
     def evaluate(self,s):
+        s=s.replace('n_npc_trust()',str(self.npc.get('trust',0) if self.npc else 0))
         s=re.sub(r"n_hp\('(\w+)'\)",lambda m:str(self.hp[m[1]]),s)
         s=re.sub(r"n_hp_max\('(\w+)'\)",'100',s)
         s=re.sub(r"u_monsters_nearby\([^)]*\)",str(int(self.legacy_rickert)),s)
@@ -56,6 +57,8 @@ class Conversation(GodoConversation):
             if x=='leave':self.npc['following']=False;self.leaves+=1;return
             if x=='assign_guard':self.guarding=True;return
         if isinstance(x,dict):
+            if 'math' in x and x['math'][0].startswith('n_npc_trust() = '):
+                self.npc['trust']=self.evaluate(x['math'][0].split(' = ',1)[1]);return
             if 'npc_first_topic' in x:self.npc['chat']=x['npc_first_topic'];return
             if 'u_sell_item' in x:
                 item=x['u_sell_item'];n=x.get('count',1)

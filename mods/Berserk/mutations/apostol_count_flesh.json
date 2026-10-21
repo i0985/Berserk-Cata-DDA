@@ -61,7 +61,7 @@
     "name": {
       "str": "Body: pliant flesh"
     },
-    "description": "Your heavy, pliant body grants +3 strength and 3 points of natural protection. Your slower movement remains. This body is permanent; returning to human shape is impossible. It does not heal wounds.",
+    "description": "Your heavy, pliant body grants +3 strength and 3 points of natural protection. Your slower movement remains. This body is permanent; returning to human shape is impossible. It does not heal wounds.\n\nClothing: The swollen torso and arms cannot fit ordinary rigid armor.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -86,7 +86,16 @@
           }
         ]
       }
-    ]
+    ],
+    "restricts_gear": [
+      "torso",
+      "arm_l",
+      "arm_r"
+    ],
+    "allow_soft_gear": true,
+    "destroys_gear": false,
+    "visibility": 8,
+    "ugliness": 5
   },
   {
     "type": "mutation",

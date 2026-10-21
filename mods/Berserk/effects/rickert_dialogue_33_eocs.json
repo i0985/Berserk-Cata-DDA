@@ -559,6 +559,31 @@
     "effect": [
       {
         "math": [
+          "n_berserk_rickert_lie_trust_target = max(0, n_npc_trust())"
+        ]
+      },
+      {
+        "math": [
+          "n_npc_trust() = n_npc_trust() - 4"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_rickert_confession_at = time('now')"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_rickert_trust_next_talk = time('now') + 86400"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_rickert_lie_trust_pending = 1"
+        ]
+      },
+      {
+        "math": [
           "u_berserk_rickert_lied_before = 1"
         ]
       },
@@ -624,6 +649,110 @@
             "u_berserk_rickert_eclipse_story == 2"
           ]
         }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_TRUST_RESTORED",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "n_npc_trust() >= 0"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "n_berserk_rickert_lie_trust_pending != 1"
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "time('now') >= n_berserk_rickert_confession_at + 86400"
+                  ]
+                },
+                {
+                  "math": [
+                    "n_npc_trust() >= n_berserk_rickert_lie_trust_target"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_CAN_REBUILD_TRUST",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "math": [
+            "n_berserk_rickert_lie_trust_pending == 1"
+          ]
+        },
+        {
+          "math": [
+            "n_npc_trust() < n_berserk_rickert_lie_trust_target"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= n_berserk_rickert_trust_next_talk"
+          ]
+        },
+        "u_at_safe_space"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_REBUILD_TRUST",
+    "effect": [
+      {
+        "math": [
+          "n_npc_trust() = min(n_berserk_rickert_lie_trust_target, n_npc_trust() + 1)"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_rickert_trust_next_talk = time('now') + 86400"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "math": [
+            "n_berserk_rickert_lie_trust_pending == 1"
+          ]
+        },
+        {
+          "math": [
+            "n_npc_trust() < n_berserk_rickert_lie_trust_target"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= n_berserk_rickert_trust_next_talk"
+          ]
+        },
+        "u_at_safe_space"
       ]
     }
   },
@@ -1157,6 +1286,16 @@
           ]
         }
       ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_2EA1A31DEF56",
+    "effect": [],
+    "condition": {
+      "not": {
+        "test_eoc": "EOC_BERSERK_RICKERT_TRUST_RESTORED"
+      }
     }
   },
   {

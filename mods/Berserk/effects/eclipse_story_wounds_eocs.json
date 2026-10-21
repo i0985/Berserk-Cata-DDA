@@ -37,7 +37,16 @@
       }
     ],
     "condition": {
-      "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+      "and": [
+        {
+          "math": [
+            "u_berserk_apostol_left_hand_regrown != 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+        }
+      ]
     }
   }
 ]
