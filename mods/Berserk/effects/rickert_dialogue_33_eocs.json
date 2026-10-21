@@ -1,0 +1,1177 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_HAS_ORDER",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_arm_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state < 4"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_rickert_bolts_pending == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_HAS_KNOWN_GOAL",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_KNOWN_FIRST"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_FIRST"
+              }
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 2"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_KNOWN_BREACH"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_BREACH"
+              }
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 3"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_KNOWN_COUNT"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_COUNT"
+              }
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 4"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_KNOWN_WYALD"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_WYALD"
+              }
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 5"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_KNOWN_ROSINE"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_ROSINE"
+              }
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 6"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_KNOWN_FLORA"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_FLORA"
+              }
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 7"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_KNOWN_GRUNBELD"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GRUNBELD"
+              }
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_goal == 8"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_JOURNAL_KNOWN_GODO"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GODO"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_rickert_care_present == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_rickert_wake_greeted != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_RECORD_CARE_NPC",
+    "effect": {
+      "math": [
+        "berserk_rickert_care_present = 1"
+      ]
+    },
+    "condition": {
+      "and": [
+        "u_is_npc",
+        {
+          "u_has_class": "NC_BERSERK_RICKERT"
+        },
+        {
+          "or": [
+            {
+              "u_at_om_location": "berserk_godo_workshop"
+            },
+            {
+              "u_at_om_location": "berserk_godo_loft"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_CAPTURE_CARE",
+    "effect": [
+      {
+        "math": [
+          "berserk_rickert_care_present = 0"
+        ]
+      },
+      {
+        "u_run_npc_eocs": [
+          "EOC_BERSERK_RICKERT_RECORD_CARE_NPC"
+        ],
+        "unique_ids": [],
+        "local": true,
+        "npc_range": 60,
+        "z_min": 0,
+        "z_max": 1
+      },
+      {
+        "if": {
+          "math": [
+            "u_monsters_nearby('mon_berserk_rickert', 'radius': 32, 'attitude': 'both') > 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "berserk_rickert_care_present = 1"
+          ]
+        }
+      },
+      {
+        "math": [
+          "u_berserk_rickert_care_present = berserk_rickert_care_present"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_rickert_care_recorded = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_godo_rescue_relocated == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_rickert_care_recorded != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_VISIBLE_HANDS",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        {
+          "or": [
+            {
+              "u_has_flag": "BERSERK_WYALD_FLESH_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_WYALD_PAWN_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_SLAN_FORM_ACTIVE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_VISIBLE_SHELL",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        {
+          "or": [
+            {
+              "u_has_flag": "BERSERK_GRUNBELD_FLESH_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_GRUNBELD_PAWN_FORM_ACTIVE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_VISIBLE_WINGS",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        {
+          "or": [
+            {
+              "u_has_flag": "WINGS_2"
+            },
+            {
+              "u_has_flag": "BERSERK_FEMTO_FORM_ACTIVE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_SYNC",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_GODO_REPAIR_REFUSAL_CLASSIFICATION"
+      },
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_RICKERT_KNOWS_GIFT"
+        },
+        "then": {
+          "math": [
+            "u_berserk_apostol_rickert_told = 1"
+          ]
+        }
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_STORY_TRUTH",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_rickert_eclipse_story = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_rickert_heard_losses = 1"
+        ]
+      },
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_rickert_knows_death_judeau = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_rickert_knows_death_pippin = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_rickert_knows_death_corkus = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_rickert_knows_death_gaston = 1"
+            ]
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_route != 2"
+              ]
+            }
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_rickert_eclipse_story == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_rickert_eclipse_story == 3"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_STORY_LIE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_rickert_eclipse_story = 2"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_rickert_heard_losses = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_route != 2"
+              ]
+            }
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_rickert_eclipse_story == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_rickert_eclipse_story == 3"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_STORY_SILENCE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_rickert_eclipse_story = 3"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_route != 2"
+              ]
+            }
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_rickert_eclipse_story == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_rickert_eclipse_story == 3"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_STORY_CONFESS",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_rickert_lied_before = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_rickert_eclipse_story = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_rickert_heard_losses = 1"
+        ]
+      },
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_rickert_knows_death_judeau = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_rickert_knows_death_pippin = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_rickert_knows_death_corkus = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_rickert_knows_death_gaston = 1"
+            ]
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_route != 2"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_DEATH_JUDEAU",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_rickert_knows_death_judeau = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_rickert_heard_losses = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "math": [
+            "u_berserk_godo_witness_judeau == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_KEEPSAKE_JUDEAU",
+    "effect": {
+      "math": [
+        "u_berserk_rickert_given_judeau = 1"
+      ]
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_DEATH_PIPPIN",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_rickert_knows_death_pippin = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_rickert_heard_losses = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "math": [
+            "u_berserk_godo_witness_pippin == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_KEEPSAKE_PIPPIN",
+    "effect": {
+      "math": [
+        "u_berserk_rickert_given_pippin = 1"
+      ]
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_DEATH_CORKUS",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_rickert_knows_death_corkus = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_rickert_heard_losses = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "math": [
+            "u_berserk_godo_witness_corkus == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_KEEPSAKE_CORKUS",
+    "effect": {
+      "math": [
+        "u_berserk_rickert_given_corkus = 1"
+      ]
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_DEATH_GASTON",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_rickert_knows_death_gaston = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_rickert_heard_losses = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "math": [
+            "u_berserk_godo_witness_gaston == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_KEEPSAKE_GASTON",
+    "effect": {
+      "math": [
+        "u_berserk_rickert_given_gaston = 1"
+      ]
+    },
+    "condition": {
+      "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_BREAK_COMPANIONSHIP",
+    "effect": [
+      {
+        "math": [
+          "n_berserk_rickert_recruit_refused = 1"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_rickert_respect = 0"
+        ]
+      },
+      {
+        "math": [
+          "n_berserk_rickert_recruited = 0"
+        ]
+      },
+      "leave",
+      "assign_guard",
+      {
+        "npc_first_topic": "TALK_BERSERK_RICKERT"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        "npc_following",
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_HURT",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "n_hp('head') < n_hp_max('head') / 2"
+          ]
+        },
+        {
+          "math": [
+            "n_hp('torso') < n_hp_max('torso') / 2"
+          ]
+        },
+        {
+          "math": [
+            "n_hp('arm_l') < n_hp_max('arm_l') / 2"
+          ]
+        },
+        {
+          "math": [
+            "n_hp('arm_r') < n_hp_max('arm_r') / 2"
+          ]
+        },
+        {
+          "math": [
+            "n_hp('leg_l') < n_hp_max('leg_l') / 2"
+          ]
+        },
+        {
+          "math": [
+            "n_hp('leg_r') < n_hp_max('leg_r') / 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_HAS_MODERN_ITEM",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "u_has_items": {
+            "item": "smart_phone",
+            "count": 1
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "two_way_radio",
+            "count": 1
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "flashlight",
+            "count": 1
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "binoculars",
+            "count": 1
+          }
+        },
+        {
+          "u_has_items": {
+            "item": "soldering_iron",
+            "count": 1
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_38463F2DBC47",
+    "effect": [],
+    "condition": "npc_following"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_F97A2284B6C6",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_E6668ED5E6DA",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+          }
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_2B2A7CF32C0D",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            }
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_5E50D455872C",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_RICKERT_KNOWS_GIFT"
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+          }
+        },
+        {
+          "not": "npc_following"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_3AD31BC8CC29",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_godo_arm_state > 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_arm_state < 4"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_EA8837F4BFC9",
+    "effect": [],
+    "condition": {
+      "not": {
+        "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_250E67181A27",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_rickert_heard_losses == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_E7ED75157F85",
+    "effect": [],
+    "condition": {
+      "not": {
+        "and": [
+          {
+            "math": [
+              "u_berserk_eclipse_rescue_state == 2"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_eclipse_route != 2"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_CB4FA88CE096",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_godo_witness_judeau == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_rickert_knows_death_judeau == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_D53F2756ED4E",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_godo_witness_pippin == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_rickert_knows_death_pippin == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_8EA507EA14B9",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_godo_witness_corkus == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_rickert_knows_death_corkus == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_8FCD6B096707",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_godo_witness_gaston == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_rickert_knows_death_gaston == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_F71BB7108FB3",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        {
+          "math": [
+            "u_berserk_apostol_rickert_counsel != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_RICKERT_LINE_F82E81DD938F",
+    "effect": [],
+    "condition": {
+      "and": [
+        "npc_following",
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_RICKERT_KNOWS_GIFT"
+          }
+        }
+      ]
+    }
+  }
+]

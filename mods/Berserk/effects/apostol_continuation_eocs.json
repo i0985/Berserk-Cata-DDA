@@ -514,7 +514,9 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_DEMON_SURVIVOR"
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
         },
         {
           "or": [
@@ -563,12 +565,12 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_DEMON_SURVIVOR"
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
         },
-        "has_beta",
-        "npc_is_npc",
         {
-          "npc_has_class": "NC_BERSERK_RICKERT"
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
         }
       ]
     }
@@ -584,12 +586,12 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_DEMON_SURVIVOR"
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
         },
-        "has_beta",
-        "npc_is_npc",
         {
-          "npc_has_class": "NC_BERSERK_RICKERT"
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
         }
       ]
     }

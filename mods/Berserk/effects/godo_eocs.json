@@ -1348,6 +1348,11 @@
           },
           {
             "math": [
+              "u_berserk_rickert_arm_delivered = 1"
+            ]
+          },
+          {
+            "math": [
               "u_berserk_godo_arm_state = 4"
             ]
           },
@@ -1861,26 +1866,68 @@
     "condition": {
       "and": [
         {
+          "not": "npc_following"
+        },
+        {
           "and": [
             {
               "and": [
-                "has_beta",
-                "npc_is_npc",
                 {
-                  "npc_has_class": "NC_BERSERK_RICKERT"
+                  "and": [
+                    "has_beta",
+                    "npc_is_npc",
+                    {
+                      "npc_has_class": "NC_BERSERK_RICKERT"
+                    }
+                  ]
+                },
+                {
+                  "math": [
+                    "n_berserk_rickert_recruit_refused != 1"
+                  ]
+                },
+                {
+                  "or": [
+                    {
+                      "math": [
+                        "n_berserk_rickert_respect == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "n_berserk_rickert_recruited == 1"
+                      ]
+                    }
+                  ]
                 }
-              ]
-            },
-            {
-              "math": [
-                "n_berserk_rickert_recruit_refused != 1"
               ]
             },
             {
               "or": [
                 {
+                  "not": {
+                    "or": [
+                      {
+                        "math": [
+                          "u_berserk_apostol_path == 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_apostol_path == 2"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_apostol_path == 3"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
                   "math": [
-                    "n_berserk_rickert_respect == 1"
+                    "u_berserk_apostol_rickert_counsel == 1"
                   ]
                 },
                 {
@@ -1888,41 +1935,6 @@
                     "n_berserk_rickert_recruited == 1"
                   ]
                 }
-              ]
-            }
-          ]
-        },
-        {
-          "or": [
-            {
-              "not": {
-                "or": [
-                  {
-                    "math": [
-                      "u_berserk_apostol_path == 1"
-                    ]
-                  },
-                  {
-                    "math": [
-                      "u_berserk_apostol_path == 2"
-                    ]
-                  },
-                  {
-                    "math": [
-                      "u_berserk_apostol_path == 3"
-                    ]
-                  }
-                ]
-              }
-            },
-            {
-              "math": [
-                "u_berserk_apostol_rickert_counsel == 1"
-              ]
-            },
-            {
-              "math": [
-                "n_berserk_rickert_recruited == 1"
               ]
             }
           ]
@@ -3024,36 +3036,13 @@
     "effect": [
       {
         "if": {
-          "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+          "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
         },
         "then": {
           "math": [
-            "u_berserk_rickert_intro_first = 0"
-          ]
-        },
-        "else": {
-          "math": [
-            "u_berserk_rickert_intro_first = 1"
+            "u_berserk_rickert_wake_greeted = 1"
           ]
         }
-      },
-      {
-        "if": {
-          "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_RICKERT_PENDING"
-        },
-        "then": {
-          "math": [
-            "u_berserk_rickert_wake_intro = 1"
-          ]
-        },
-        "else": {
-          "math": [
-            "u_berserk_rickert_wake_intro = 0"
-          ]
-        }
-      },
-      {
-        "run_eocs": "EOC_BERSERK_GODO_BEGIN"
       },
       {
         "math": [
@@ -3066,28 +3055,10 @@
         ]
       },
       {
-        "run_eocs": "EOC_BERSERK_GODO_ROUTE_MISSION"
+        "run_eocs": "EOC_BERSERK_GODO_BEGIN"
       },
       {
-        "if": {
-          "and": [
-            {
-              "math": [
-                "u_berserk_eclipse_rescue_state == 2"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_godo_rescue_relocated == 1"
-              ]
-            }
-          ]
-        },
-        "then": {
-          "math": [
-            "u_berserk_rickert_wake_greeted = 1"
-          ]
-        }
+        "run_eocs": "EOC_BERSERK_GODO_ROUTE_MISSION"
       }
     ],
     "condition": {
@@ -10780,6 +10751,9 @@
             "math": [
               "u_berserk_godo_rescue_relocated = 1"
             ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_RICKERT_CAPTURE_CARE"
           },
           {
             "math": [
