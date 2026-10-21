@@ -1490,6 +1490,11 @@
           },
           {
             "math": [
+              "u_berserk_godo_sword_delivered = 1"
+            ]
+          },
+          {
+            "math": [
               "u_berserk_godo_sword_state = 4"
             ]
           },
@@ -1548,11 +1553,18 @@
         "search_data": [
           {
             "id": [
-              "true_guts_sword",
               "true_guts_early_sword",
               "forged_guts_sword",
               "forged_guts_early_sword"
             ]
+          },
+          {
+            "id": [
+              "true_guts_sword"
+            ],
+            "condition": {
+              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+            }
           }
         ],
         "true_eocs": [
@@ -2602,6 +2614,11 @@
           },
           {
             "math": [
+              "u_berserk_godo_early_delivered = 1"
+            ]
+          },
+          {
+            "math": [
               "u_berserk_godo_early_state = 3"
             ]
           },
@@ -2941,6 +2958,9 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GODO_MEET_SMITH",
     "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_GODO_REPAIR_REFUSAL_CLASSIFICATION"
+      },
       {
         "if": {
           "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"

@@ -3,97 +3,205 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_ENTER",
     "dynamic_line": {
-      "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING",
-      "yes": {
-        "test_eoc": "EOC_BERSERK_FORGE_GUTS",
-        "yes": "Guts. You are awake. Sit down; the iron can wait. I have done what I could for your wounds.",
-        "no": {
-          "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED",
-          "yes": "You frightened me when the rider brought you back. You are under my roof now. Rest first; tell me about the work when you can.",
-          "no": "The armored rider brought you in. I am Godot. Give your wounds time to settle. Rest before asking what the forge can do for you."
-        }
-      },
+      "test_eoc": "EOC_BERSERK_GODO_LINE_5906E52BD2DA",
+      "yes": "Guts. Still alive. Sit down and catch your breath.",
       "no": {
-        "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE",
+        "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING",
         "yes": {
           "test_eoc": "EOC_BERSERK_FORGE_GUTS",
-          "yes": "Guts. Still alive, then. Sit down and show me what needs mending.",
+          "yes": "Alive.",
           "no": {
             "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED",
-            "yes": "Back again? Good. Tell me what the road did to your equipment.",
-            "no": {
-              "math": [
-                "u_berserk_godo_rescue_relocated == 1"
-              ],
-              "yes": "That armored rider brought you in. I am Godot; the boy is Rickert. Sit while your legs still shake. Work can wait until you can tell me what you need.",
-              "no": "*The hammer keeps its rhythm. \"What do you want? This is a forge, not an inn. If you need work done, show me the iron.\""
-            }
+            "yes": "Awake at last. Last time you crossed the threshold on your own feet. This time someone had to carry you.",
+            "no": "Easy. You have been through enough. This is my forge. I am Godot."
           }
         },
         "no": {
-          "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED",
-          "yes": "Back again? Good. Tell me what the road did to your equipment.",
-          "no": "*The hammer keeps its rhythm. \"What do you want? This is a forge, not an inn. If you need work done, show me the iron.\""
+          "test_eoc": "EOC_BERSERK_GODO_LINE_186BF7807D4B",
+          "yes": "*Godot looks at your blade, then raises his eyes. \"Guts. Thought I would recognize you by that iron when I could no longer make out your face. What is it? Straighten your sword again?\"",
+          "no": {
+            "test_eoc": "EOC_BERSERK_GODO_LINE_CF75A03BBE66",
+            "yes": {
+              "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE",
+              "yes": "If you want a forge, you have found it. Mind what you touch. I am not fond of strangers. Rickert can show you where to rest.",
+              "no": "*The smith turns the billet in his tongs. Only after a few hammer blows does he notice you. \"Close the door. And step away from that bucket.\""
+            },
+            "no": {
+              "math": [
+                "u_berserk_godo_repair_state == 1"
+              ],
+              "yes": "You left a blade here. Have you come about the repair?",
+              "no": {
+                "math": [
+                  "u_berserk_godo_early_state == 1"
+                ],
+                "yes": "I am still waiting for the steel and the rest of your delivery.",
+                "no": {
+                  "math": [
+                    "u_berserk_godo_early_state == 2"
+                  ],
+                  "yes": "Your blade is at the forge. Ask me how the work is going.",
+                  "no": {
+                    "test_eoc": "EOC_BERSERK_GODO_LINE_A3CB7AE68E2D",
+                    "yes": "Your great blade has not been forgotten. What do you need?",
+                    "no": {
+                      "test_eoc": "EOC_BERSERK_FORGE_GUTS",
+                      "yes": "Still alive, I see! Is your sword in one piece?",
+                      "no": {
+                        "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE",
+                        "yes": "It has been a while. Heard what is happening? Even the daylight seems darker. Something bad has happened.",
+                        "no": "Back again. What is it this time?"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     },
     "responses": [
       {
-        "text": "Something has changed in me. Can we talk?",
-        "topic": "TALK_BERSERK_APOSTOL_GODO",
+        "text": "Griffith... Where is that bastard?!",
+        "topic": "TALK_BERSERK_GODO_WAKE_GUTS_ANGER",
         "condition": {
           "and": [
             {
-              "or": [
-                {
-                  "math": [
-                    "u_berserk_apostol_path == 1"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_apostol_path == 2"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_apostol_path == 3"
-                  ]
-                }
-              ]
+              "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
             },
             {
-              "test_eoc": "EOC_BERSERK_APOSTOL_DEMON_SURVIVOR"
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
             }
           ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
         }
       },
       {
-        "text": "Easy, old man. I need my old blade straightened.",
-        "topic": "TALK_BERSERK_GODO_RECOGNIZE",
+        "text": "Where is everyone?! What was that dream?!",
+        "topic": "TALK_BERSERK_GODO_WAKE_GUTS_DREAM",
         "condition": {
           "and": [
             {
-              "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+              "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "Where is my hand? Where is Rickert? What the hell happened?!",
+        "topic": "TALK_BERSERK_GODO_WAKE_GUTS_REST",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
             },
             {
               "test_eoc": "EOC_BERSERK_FORGE_GUTS"
             },
             {
-              "math": [
-                "u_berserk_godo_intro_first == 1"
-              ]
+              "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND"
             }
           ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
         }
       },
       {
-        "text": "I am passing through. I need a good smith.",
-        "topic": "TALK_BERSERK_GODO_STRANGER",
+        "text": "Where is Rickert? What happened?",
+        "topic": "TALK_BERSERK_GODO_WAKE_GUTS_REST",
         "condition": {
           "and": [
             {
-              "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+              "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "Who brought me here?",
+        "topic": "TALK_BERSERK_GODO_WAKE_RIDER",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "How long have I been here?",
+        "topic": "TALK_BERSERK_GODO_WAKE_TIME",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "My belongings...",
+        "topic": "TALK_BERSERK_GODO_WAKE_BELONGINGS",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "Why did you help me?",
+        "topic": "TALK_BERSERK_GODO_WAKE_HELP",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
             },
             {
               "not": {
@@ -101,111 +209,422 @@
               }
             },
             {
-              "math": [
-                "u_berserk_godo_intro_first == 1"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "text": "Let us talk about the work.",
-        "topic": "TALK_BERSERK_GODO",
-        "condition": {
-          "or": [
-            {
-              "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
-            },
-            {
               "not": {
-                "math": [
-                  "u_berserk_godo_intro_first == 1"
-                ]
+                "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
               }
             }
           ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
         }
       },
       {
-        "text": "I will come back later.",
-        "topic": "TALK_DONE"
+        "text": "I do not know how I can repay you.",
+        "topic": "TALK_BERSERK_GODO_WAKE_PAY",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "Are you Godot? I am looking for a smith.",
+        "topic": "TALK_BERSERK_GODO_STRANGER",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "I heard you can mend weapons here.",
+        "topic": "TALK_BERSERK_GODO_INTRO_REPAIR",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "I was looking for somewhere to rest.",
+        "topic": "TALK_BERSERK_GODO_INTRO_REST",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "It still serves me.",
+        "topic": "TALK_BERSERK_GODO_RECOGNIZE_BLADE",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "I need a better blade.",
+        "topic": "TALK_BERSERK_GODO_RECOGNIZE_NEW",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "Good to see you, old man.",
+        "topic": "TALK_BERSERK_GODO_RECOGNIZE_HELLO",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "For now.",
+        "topic": "TALK_BERSERK_GODO_RETURN_BLADE",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "not": {
+                "not": {
+                  "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+                }
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "There is work to discuss.",
+        "topic": "TALK_BERSERK_GODO",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+              }
+            },
+            {
+              "not": {
+                "not": {
+                  "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+                }
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "Just looking in.",
+        "topic": "TALK_BERSERK_GODO_RETURN_VISIT",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "not": {
+                "not": {
+                  "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+                }
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "Let us talk, Godot.",
+        "topic": "TALK_BERSERK_GODO",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
+      },
+      {
+        "text": "I will leave you to your work.",
+        "topic": "TALK_DONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        }
       }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
-      }
-    }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT",
-      "yes": "That body is no excuse to forget what your hands do. If you came for honest work, we can talk. Keep your quarrels away from the boy and my hearth.",
+      "yes": "Your body is no excuse for what you do with your hands. Speak, and keep your quarrels away from the boy and my hearth.",
       "no": {
         "test_eoc": "EOC_BERSERK_FORGE_GUTS",
-        "yes": "Speak, Guts. The iron will not stay hot forever.",
-        "no": "Honest iron or an honest answer. What do you need?"
+        "yes": "Speak, Guts. The iron is cooling.",
+        "no": "What did you want to ask?"
       }
     },
     "responses": [
-      {
-        "text": "Something has changed in me. Can we talk?",
-        "topic": "TALK_BERSERK_APOSTOL_GODO",
-        "condition": {
-          "and": [
-            {
-              "or": [
-                {
-                  "math": [
-                    "u_berserk_apostol_path == 1"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_apostol_path == 2"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_apostol_path == 3"
-                  ]
-                }
-              ]
-            },
-            {
-              "test_eoc": "EOC_BERSERK_APOSTOL_DEMON_SURVIVOR"
-            }
-          ]
-        }
-      },
       {
         "text": "Weapons and work.",
         "topic": "TALK_BERSERK_GODO_WORK"
       },
       {
-        "text": "Current orders.",
-        "topic": "TALK_BERSERK_GODO_ORDERS"
+        "text": "About my order.",
+        "topic": "TALK_BERSERK_GODO_ORDERS",
+        "condition": {
+          "or": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_early_state > 0"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_early_state < 3"
+                  ]
+                }
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state > 0"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state < 4"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_repair_state == 1"
+              ]
+            }
+          ]
+        }
       },
       {
-        "text": "Life at the forge.",
+        "text": "How long have you lived at the forge?",
         "topic": "TALK_BERSERK_GODO_HEARTH"
       },
       {
-        "text": "About Rickert.",
+        "text": "I wanted to ask about Rickert.",
         "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
       },
       {
+        "text": "There is something I need to tell you.",
+        "topic": "TALK_BERSERK_GODO_PERSONAL",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_PERSONAL_AVAILABLE"
+        }
+      },
+      {
+        "text": "Something is changing in me. I accepted it to survive.",
+        "topic": "TALK_BERSERK_APOSTOL_GODO",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_TELL_GODO"
+        }
+      },
+      {
+        "text": "About what is happening to me.",
+        "topic": "TALK_BERSERK_APOSTOL_GODO",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+        }
+      },
+      {
         "text": "I will leave you to your work.",
-        "topic": "TALK_DONE"
+        "topic": "TALK_BERSERK_GODO_FAREWELL"
       }
     ],
     "speaker_effect": {
       "effect": {
-        "run_eocs": "EOC_BERSERK_GODO_MEET_SMITH"
+        "run_eocs": "EOC_BERSERK_GODO_DIALOGUE_SYNC"
       }
-    }
+    },
+    "//": "Approved Godo dialogue 2026-10-21"
   },
   {
     "type": "talk_topic",
@@ -214,87 +633,90 @@
       "math": [
         "u_berserk_godo_sparks_closed == 1"
       ],
-      "yes": "*Godot returns to the iron. He does not take up the abandoned conversation.",
-      "no": "*Godot strikes the hot iron. Sparks flare against the dark rafters. \"Look closely. What do you see in that darkness?\""
+      "yes": "*Godot returns to the iron. He does not resume the conversation.",
+      "no": "*Godot lifts the white-hot billet from the forge. Light crosses his worn face. The hammer falls; sparks scatter across the dark earthen floor. \"What do you see before you?\""
     },
     "responses": [
       {
-        "text": "The fire, and the sparks.",
+        "text": "Iron. Fire. Sparks.",
         "topic": "TALK_BERSERK_GODO_SPARKS_LIGHT",
         "condition": {
-          "math": [
-            "u_berserk_godo_sparks_closed != 1"
-          ]
+          "test_eoc": "EOC_BERSERK_GODO_CAN_SPARKS"
         }
       },
       {
-        "text": "Nothing. I do not want to talk about it.",
+        "text": "I see your work, Godot.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_WORK",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_CAN_SPARKS"
+        }
+      },
+      {
+        "text": "Nothing special. Let us talk about something else.",
         "topic": "TALK_BERSERK_GODO_SPARKS_DISMISSED",
         "condition": {
-          "math": [
-            "u_berserk_godo_sparks_closed != 1"
-          ]
+          "test_eoc": "EOC_BERSERK_GODO_CAN_SPARKS"
         },
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_CLOSE_SPARKS"
         }
       },
       {
-        "text": "Let me come back to this when I can listen.",
-        "topic": "TALK_BERSERK_GODO",
-        "condition": {
-          "math": [
-            "u_berserk_godo_sparks_closed != 1"
-          ]
-        }
-      },
-      {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_GODO"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_HEARTH"
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_PRICE",
-    "dynamic_line": "A blade doesn't decide why you live. Keep swinging only to fill the silence, and you'll lose whatever waited beyond the battle. I can make the iron endure. The reason to come home is your own work.",
+    "dynamic_line": "Ask what you came to ask.",
     "responses": [
       {
-        "text": "Then make a long sword I can return with.",
-        "topic": "TALK_BERSERK_GODO_EARLY_SWORD",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
-        }
-      },
-      {
-        "text": "Then make something I can return with.",
-        "topic": "TALK_BERSERK_GODO_SWORD",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
-        }
-      },
-      {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_GODO"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_ORDERS"
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_LIFE",
-    "dynamic_line": "I've served men who wanted a beautiful blade and men who wanted an impossible one. Iron is more honest than either. Out here Rickert and I can make something useful without a lord counting every blow of the hammer.",
+    "dynamic_line": "Since I could hold tongs. First I carried billets and water and worked the bellows. Then I was graciously allowed to spoil the iron myself.",
     "responses": [
       {
-        "text": "Tell me more about the sparks.",
-        "topic": "TALK_BERSERK_GODO_SPARKS",
+        "text": "Did you spoil much good iron?",
+        "topic": "TALK_BERSERK_GODO_LIFE_IRON",
         "condition": {
           "math": [
-            "u_berserk_godo_sparks_closed != 1"
+            "u_berserk_godo_read_life_iron != 1"
           ]
-        }
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_life_iron = 1"
+            ]
+          }
+        ]
       },
       {
-        "text": "Back to the topics.",
+        "text": "When did you know you were a master?",
+        "topic": "TALK_BERSERK_GODO_LIFE_MASTER",
+        "condition": {
+          "math": [
+            "u_berserk_godo_read_life_master != 1"
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_life_master = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_HEARTH"
       }
     ]
@@ -302,41 +724,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_HOME",
-    "dynamic_line": "You may use the bench and anvil. Bring me your blade if it needs straightening; Rickert knows the tools and fittings. There is a place to rest upstairs. Ask before taking our supplies.",
+    "dynamic_line": "There is a place for a traveler. Rickert can show you. No sleeping in the workshop, and leave the tools alone.",
     "responses": [
       {
-        "text": "A little food and dressing cloth would help.",
-        "topic": "TALK_BERSERK_GODO_HOME",
-        "condition": {
-          "and": [
-            {
-              "test_eoc": "EOC_BERSERK_FORGE_SCENE_HOST_HERE"
-            },
-            {
-              "math": [
-                "u_berserk_forge_welcome_help_taken != 1"
-              ]
-            }
-          ]
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_FORGE_SCENE_GIVE_HELP"
-        }
+        "text": "Understood. Thank you.",
+        "topic": "TALK_BERSERK_GODO_INTRO_AGREED"
       },
       {
-        "text": "Thank you. I know where to rest.",
-        "topic": "TALK_DONE"
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_HEARTH"
       }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "run_eocs": "EOC_BERSERK_FORGE_SCENE_ALLOW_REST"
-      }
-    }
+    ]
   },
   {
     "type": "talk_topic",
@@ -737,134 +1135,107 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_SWORD",
     "dynamic_line": {
-      "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD",
-      "yes": "You already carry that great blade. I will not forge another to lie beside it. We can restore its edge and keep you supplied for the next journey.",
-      "no": "A Dragonslayer is a great piece of work, not an ordinary sword recipe. Bring 32 lumps of steel in loads of eight, then 8 lumps of high steel, 600 charcoal and 4 leather patches. After that I need two days to forge and temper it."
+      "test_eoc": "EOC_BERSERK_GODO_LINE_97502AC24A5F",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT",
+        "yes": "My answer has not changed. There will be no new blade.",
+        "no": "Something has been weighing on you. If it concerns this work, tell me before we continue."
+      },
+      "no": {
+        "math": [
+          "u_berserk_godo_sword_state == 2"
+        ],
+        "yes": "The ordinary steel is here. Now bring 8 high-steel lumps, 600 charcoal and 4 leather patches.",
+        "no": {
+          "math": [
+            "u_berserk_godo_sword_state == 4"
+          ],
+          "yes": "That order is settled. We have nothing more to exchange for it.",
+          "no": {
+            "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD",
+            "yes": "You already have the blade. If you left materials for another, take them back.",
+            "no": {
+              "math": [
+                "u_berserk_godo_sword_state == 1"
+              ],
+              "yes": "I need 32 steel lumps in all. You have brought <u_val:berserk_godo_sword_iron_given>. Bring another load of eight when you can.",
+              "no": {
+                "math": [
+                  "u_berserk_godo_sword_state == 3"
+                ],
+                "yes": {
+                  "math": [
+                    "time('now') >= u_berserk_godo_sword_ready_at"
+                  ],
+                  "yes": "Finished. Come over here and take it by the grip.",
+                  "no": "In the forge. Metal does not like haste. You can see to your own equipment while I work."
+                },
+                "no": "First I need 32 steel lumps, in loads of eight. Then 8 high-steel lumps, 600 charcoal and 4 leather patches. After the final delivery, give me two days."
+              }
+            }
+          }
+        }
+      }
     },
     "responses": [
       {
-        "text": "Accept my order for a Dragonslayer.",
+        "text": "Will you take the work?",
         "topic": "TALK_BERSERK_GODO_SWORD",
         "condition": {
-          "and": [
-            {
-              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
-            },
-            {
-              "and": [
-                {
-                  "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
-                },
-                {
-                  "and": [
-                    {
-                      "math": [
-                        "u_berserk_godo_sword_state == 0"
-                      ]
-                    },
-                    {
-                      "not": {
-                        "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+          "test_eoc": "EOC_BERSERK_GODO_START_SWORD"
         },
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_START_SWORD"
         }
       },
       {
-        "text": "Deliver a load of 8 steel lumps.",
-        "topic": "TALK_BERSERK_GODO_SWORD_STATUS",
+        "text": "Here are eight steel lumps.",
+        "topic": "TALK_BERSERK_GODO_SWORD_DELIVERY",
         "condition": {
-          "and": [
-            {
-              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
-            },
-            {
-              "and": [
-                {
-                  "math": [
-                    "u_berserk_godo_sword_state == 1"
-                  ]
-                },
-                {
-                  "u_has_items": {
-                    "item": "steel_lump",
-                    "count": 8
-                  }
-                },
-                {
-                  "not": {
-                    "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
-                  }
-                }
-              ]
-            }
-          ]
+          "test_eoc": "EOC_BERSERK_GODO_SWORD_IRON"
         },
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_SWORD_IRON"
         }
       },
       {
-        "text": "Deliver the high steel, charcoal and leather.",
-        "topic": "TALK_BERSERK_GODO_SWORD_STATUS",
+        "text": "Here are the high steel, charcoal and leather.",
+        "topic": "TALK_BERSERK_GODO_SWORD_DELIVERY",
         "condition": {
-          "and": [
-            {
-              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
-            },
-            {
-              "and": [
-                {
-                  "math": [
-                    "u_berserk_godo_sword_state == 2"
-                  ]
-                },
-                {
-                  "u_has_items": {
-                    "item": "hc_steel_lump",
-                    "count": 8
-                  }
-                },
-                {
-                  "u_has_items": {
-                    "item": "charcoal",
-                    "count": 600
-                  }
-                },
-                {
-                  "u_has_items": {
-                    "item": "leather",
-                    "count": 4
-                  }
-                },
-                {
-                  "not": {
-                    "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
-                  }
-                }
-              ]
-            }
-          ]
+          "test_eoc": "EOC_BERSERK_GODO_SWORD_TEMPER"
         },
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_SWORD_TEMPER"
         }
       },
       {
-        "text": "Collect the Dragonslayer.",
-        "topic": "TALK_BERSERK_GODO_PRICE",
+        "text": "I will take the finished blade.",
+        "topic": "TALK_BERSERK_GODO_SWORD_DELIVERED",
         "condition": {
           "and": [
             {
-              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+              "test_eoc": "EOC_BERSERK_GODO_SWORD_CLAIM"
             },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_SWORD_CLAIM"
+        }
+      },
+      {
+        "text": "What do I still need to bring?",
+        "topic": "TALK_BERSERK_GODO_SWORD_STATUS"
+      },
+      {
+        "text": "Why so long? I am short of time.",
+        "topic": "TALK_BERSERK_GODO_SWORD_WHY",
+        "condition": {
+          "and": [
             {
               "and": [
                 {
@@ -874,19 +1245,28 @@
                 },
                 {
                   "math": [
-                    "time('now') >= u_berserk_godo_sword_ready_at"
+                    "time('now') < u_berserk_godo_sword_ready_at"
                   ]
                 }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_read_sword_why != 1"
               ]
             }
           ]
         },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_GODO_SWORD_CLAIM"
-        }
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_sword_why = 1"
+            ]
+          }
+        ]
       },
       {
-        "text": "I found a blade already. Return my unused materials.",
+        "text": "I already have the blade. Return the unused materials.",
         "topic": "TALK_BERSERK_GODO_SWORD",
         "condition": {
           "and": [
@@ -910,80 +1290,124 @@
         }
       },
       {
-        "text": "What remains to be delivered?",
-        "topic": "TALK_BERSERK_GODO_SWORD_STATUS"
+        "text": "I have changed. What about our agreement?",
+        "topic": "TALK_BERSERK_APOSTOL_GODO",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_TELL_GODO"
+        }
       },
       {
-        "text": "Where can I find the right steel?",
-        "topic": "TALK_BERSERK_GODO_STEEL"
+        "text": "You promised to return the materials.",
+        "topic": "TALK_BERSERK_GODO_CHANGED_SWORD",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state < 4"
+              ]
+            }
+          ]
+        }
       },
       {
-        "text": "Can you repair my existing blade?",
+        "text": "Inspect my blade.",
         "topic": "TALK_BERSERK_GODO_REPAIR",
         "condition": {
           "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
         }
       },
       {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_GODO"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_ORDERS"
       }
     ],
     "speaker_effect": {
-      "effect": [
-        {
-          "math": [
-            "u_berserk_journal_order_sword = 1"
-          ]
-        }
-      ]
+      "effect": {
+        "math": [
+          "u_berserk_journal_order_sword = 1"
+        ]
+      }
     }
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_SWORD_STATUS",
     "dynamic_line": {
-      "math": [
-        "u_berserk_godo_sword_state == 1"
-      ],
-      "yes": "I have received <u_val:berserk_godo_sword_iron_given> of the 32 steel lumps. Bring the next load of eight.",
+      "test_eoc": "EOC_BERSERK_GODO_LINE_97502AC24A5F",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT",
+        "yes": "My answer has not changed. There will be no new blade.",
+        "no": "Something has been weighing on you. If it concerns this work, tell me before we continue."
+      },
       "no": {
         "math": [
           "u_berserk_godo_sword_state == 2"
         ],
-        "yes": "The ordinary steel is here. Bring 8 lumps of high steel, 600 charcoal and 4 leather patches.",
+        "yes": "The ordinary steel is here. Now bring 8 high-steel lumps, 600 charcoal and 4 leather patches.",
         "no": {
           "math": [
-            "u_berserk_godo_sword_state == 3"
+            "u_berserk_godo_sword_state == 4"
           ],
-          "yes": "The material is ready. I need two days from the last delivery before you can collect the blade.",
-          "no": "If you want a new blade, place the order first. A blade I already made for you is work to maintain, not a reason to begin a second copy."
+          "yes": "That order is settled. We have nothing more to exchange for it.",
+          "no": {
+            "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD",
+            "yes": "You already have the blade. If you left materials for another, take them back.",
+            "no": {
+              "math": [
+                "u_berserk_godo_sword_state == 1"
+              ],
+              "yes": "I need 32 steel lumps in all. You have brought <u_val:berserk_godo_sword_iron_given>. Bring another load of eight when you can.",
+              "no": {
+                "math": [
+                  "u_berserk_godo_sword_state == 3"
+                ],
+                "yes": {
+                  "math": [
+                    "time('now') >= u_berserk_godo_sword_ready_at"
+                  ],
+                  "yes": "Finished. Come over here and take it by the grip.",
+                  "no": "In the forge. Metal does not like haste. You can see to your own equipment while I work."
+                },
+                "no": "First I need 32 steel lumps, in loads of eight. Then 8 high-steel lumps, 600 charcoal and 4 leather patches. After the final delivery, give me two days."
+              }
+            }
+          }
         }
       }
     },
     "responses": [
       {
-        "text": "Return to the sword order.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_SWORD"
-      },
-      {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_GODO"
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_STEEL",
-    "dynamic_line": "Separate ordinary steel from high-carbon steel. Look in metal stores and working smithies, or smelt high steel with the ordinary metalworking recipes. I do not need a magic stone or the head of an apostle. Eight good lumps matter more than a pile of poor metal.",
+    "dynamic_line": "Try stores of metal, old workshops, or steel you have smelted yourself. Keep the good high-carbon pieces separate from the ordinary steel.",
     "responses": [
       {
-        "text": "Return to the sword order.",
-        "topic": "TALK_BERSERK_GODO_SWORD"
-      },
-      {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_GODO"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_ORDERS"
       }
     ]
   },
@@ -991,19 +1415,46 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_REPAIR",
     "dynamic_line": {
-      "math": [
-        "u_berserk_godo_repair_state == 1"
-      ],
-      "yes": "You left a blade with me. I need two hours at the forge. If you took it away, bring the same blade back.",
-      "no": "Show me the blade first. No sense working sound metal. If it needs repair, leave it with one steel lump and 50 charcoal. Come back in two hours."
+      "test_eoc": "EOC_BERSERK_GODO_LINE_39AAE6D6FC28",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT",
+        "yes": "I will not take new work on the Dragonslayer. I can still inspect an ordinary blade.",
+        "no": "Before we discuss this blade, tell me what has been weighing on you."
+      },
+      "no": {
+        "math": [
+          "u_berserk_godo_repair_state == 1"
+        ],
+        "yes": "You left me a blade. Two hours at the forge; then come and ask for it.",
+        "no": "Put it in the light. First I will inspect it. If it is sound, keep your steel. If it needs work, I need the blade, one steel lump, 50 charcoal and two hours."
+      }
     },
     "responses": [
       {
         "text": "Have a look at my blade.",
         "topic": "TALK_BERSERK_GODO_REPAIR",
         "condition": {
-          "math": [
-            "u_berserk_godo_repair_state != 1"
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_repair_state != 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+                  }
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+                }
+              ]
+            }
           ]
         },
         "effect": {
@@ -1047,11 +1498,26 @@
         }
       },
       {
-        "text": "What can you offer if I already own your sword?",
-        "topic": "TALK_BERSERK_GODO_OWNER"
+        "text": "I accepted an inhuman power. What about my sword?",
+        "topic": "TALK_BERSERK_GODO_DEMON_OWNED",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_TELL_GODO"
+        }
       },
       {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_WORK"
       }
     ]
@@ -1059,14 +1525,58 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_OWNER",
-    "dynamic_line": "Use the bench and anvil. I can restore the blade you brought; Rickert can explain its fittings and the cannon. Upstairs there is room to rest. Keeping a weapon usable is worth more than collecting a second one.",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD",
+      "yes": "Put it down. Even that much iron has parts that need watching.",
+      "no": {
+        "math": [
+          "u_berserk_godo_early_delivered == 1"
+        ],
+        "yes": "Let me see. Has the grip turned? Does the guard press into your palm? How is the swing?",
+        "no": "Heavy. Familiar to you, then. The edge shows it has not been idle."
+      }
+    },
     "responses": [
       {
-        "text": "Return to repairs.",
+        "text": "It serves me well.",
+        "topic": "TALK_BERSERK_GODO_OWNER_GOOD",
+        "condition": {
+          "u_has_items": {
+            "item": "true_guts_early_sword",
+            "count": 1
+          }
+        }
+      },
+      {
+        "text": "It needs repair.",
         "topic": "TALK_BERSERK_GODO_REPAIR"
       },
       {
-        "text": "Back to the topics.",
+        "text": "Could you improve it?",
+        "topic": "TALK_BERSERK_GODO_OWNER_UPGRADE",
+        "condition": {
+          "u_has_items": {
+            "item": "true_guts_early_sword",
+            "count": 1
+          }
+        }
+      },
+      {
+        "text": "I thought it was almost impossible to break.",
+        "topic": "TALK_BERSERK_GODO_OWNER_BREAK",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+        }
+      },
+      {
+        "text": "It feels different now.",
+        "topic": "TALK_BERSERK_GODO_OWNER_FEEL",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_WORK"
       }
     ]
@@ -1448,11 +1958,11 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_RICKERT",
-    "dynamic_line": "Rickert has patient hands and an eye for moving parts. Let him show you his crossbow. I teach him to work the metal; he finds uses I would not have thought of.",
+    "dynamic_line": "Ask what you came to ask.",
     "responses": [
       {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_GODO"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
       }
     ]
   },
@@ -1875,75 +2385,32 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_SPARKS_LIGHT",
-    "dynamic_line": "The fire stays in the hearth. The sparks live only until they fall. A moment of brightness, then ash. You can spend a whole night watching them and still be cold when the forge goes out.",
+    "dynamic_line": "I watched those sparks when I was a child. Thought that beauty was worth swinging a hammer all day. Fool that I was.",
     "responses": [
       {
-        "text": "What are you getting at, old man?",
-        "topic": "TALK_BERSERK_GODO_SPARKS_RAGE",
-        "condition": {
-          "math": [
-            "u_berserk_godo_sparks_closed != 1"
-          ]
-        }
-      },
-      {
-        "text": "Forging gives you more than a moment of light.",
-        "topic": "TALK_BERSERK_GODO_LIFE"
-      },
-      {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_GODO"
+        "text": "What changed?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_FINGERS"
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_SPARKS_RAGE",
-    "dynamic_line": {
-      "yes": "You came out of that darkness and reached for a weapon. I understand that. But hatred can make every blow look like a reason to live. Those are sparks too: bright enough to hide your pain for a moment, too brief to warm anyone. If all you keep is the next enemy, what will be left when you put the blade down?",
-      "no": "You came here from a world full of graves. A weapon can keep you alive, but hatred can make every blow look like a reason to live. Those are sparks too: bright enough to hide pain for a moment, too brief to warm anyone. What will remain when you put the blade down?",
-      "test_eoc": "EOC_BERSERK_FORGE_WITNESS"
-    },
+    "dynamic_line": "Ask what you came to ask.",
     "responses": [
       {
-        "text": "I cannot let their deaths go unanswered.",
-        "topic": "TALK_BERSERK_GODO_SPARKS_HOME"
-      },
-      {
-        "text": "Then what am I supposed to live for?",
-        "topic": "TALK_BERSERK_GODO_SPARKS_HOME"
-      },
-      {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_GODO"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_HEARTH"
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_SPARKS_HOME",
-    "dynamic_line": "Do not forget the dead. But do not make the living wait forever while you chase them. A hearth needs someone to tend it. A companion needs you to return. Protecting those things is harder than finding another monster to strike. I can forge you a blade; I cannot choose what you will come home to.",
+    "dynamic_line": "Ask what you came to ask.",
     "responses": [
       {
-        "text": "Then make a long sword I can return with.",
-        "topic": "TALK_BERSERK_GODO_EARLY_SWORD",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
-        }
-      },
-      {
-        "text": "I need a blade that lets me return.",
-        "topic": "TALK_BERSERK_GODO_SWORD",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
-        }
-      },
-      {
-        "text": "Tell me about your own life at the forge.",
-        "topic": "TALK_BERSERK_GODO_LIFE"
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_HEARTH"
       }
     ]
@@ -1951,10 +2418,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_SPARKS_DISMISSED",
-    "dynamic_line": "*Godot lowers his eyes to the iron. \"Then let us speak of the work. I will not force you to listen.\" The hammer rises again.",
+    "dynamic_line": "All right. Give me back the tongs and do not get in the way.",
     "responses": [
       {
-        "text": "Ask something else.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ]
@@ -2385,177 +2852,97 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_EARLY_SWORD",
     "dynamic_line": {
-      "u_has_items": {
-        "item": "true_guts_early_sword",
-        "count": 1
+      "test_eoc": "EOC_BERSERK_GODO_LINE_97502AC24A5F",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT",
+        "yes": "My answer has not changed. There will be no new blade.",
+        "no": "Something has been weighing on you. If it concerns this work, tell me before we continue."
       },
-      "yes": "You already have the long blade. Show me a damaged edge and I will mend it; another copy will not make the first one better.",
       "no": {
         "math": [
-          "u_berserk_godo_early_state > 0"
+          "u_berserk_godo_early_state == 3"
         ],
-        "yes": {
-          "math": [
-            "u_berserk_godo_early_state == 1"
-          ],
-          "yes": "Bring 4 steel lumps, 1 high-steel lump, 200 charcoal and 2 leather patches. I take the complete set together.",
+        "yes": "That order is settled. We have nothing more to exchange for it.",
+        "no": {
+          "u_has_items": {
+            "item": "true_guts_early_sword",
+            "count": 1
+          },
+          "yes": "You already have the blade. If you left materials for another, take them back.",
           "no": {
             "math": [
-              "u_berserk_godo_early_state == 2"
+              "u_berserk_godo_early_state == 1"
             ],
-            "yes": "Your material is at the forge. Give me twelve hours from the delivery, then collect the blade.",
+            "yes": "For this delivery: 4 steel lumps, 1 high-steel lump, 200 charcoal and 2 leather patches. Bring the whole lot so I can begin.",
             "no": {
               "math": [
-                "u_berserk_godo_early_state == 3"
+                "u_berserk_godo_early_state == 2"
               ],
-              "yes": "This order is settled. Keep the blade in good repair.",
-              "no": "We have not agreed on this order. Speak to me about a long battle sword."
+              "yes": {
+                "math": [
+                  "time('now') >= u_berserk_godo_early_ready_at"
+                ],
+                "yes": "Finished. Come over here and take it by the grip.",
+                "no": "In the forge. Metal does not like haste. You can see to your own equipment while I work."
+              },
+              "no": "A long battle sword, no ornaments. Bring 4 steel lumps, 1 high-steel lump, 200 charcoal and 2 leather patches, all together. Then give me twelve hours at the forge."
             }
           }
-        },
-        "no": "A long battle sword, no gilding. Bring 4 steel lumps, 1 high-steel lump, 200 charcoal and 2 leather patches. Twelve hours after the delivery, come back for the tempered blade. Bring sound steel; raw ore still needs smelting."
+        }
       }
     },
     "responses": [
       {
-        "text": "No ornaments. Forge a blade I can trust.",
+        "text": "Will you take the work?",
         "topic": "TALK_BERSERK_GODO_EARLY_SWORD",
         "condition": {
-          "and": [
-            {
-              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
-            },
-            {
-              "and": [
-                {
-                  "test_eoc": "EOC_BERSERK_FORGE_GUTS"
-                },
-                {
-                  "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
-                },
-                {
-                  "math": [
-                    "u_berserk_godo_early_state == 0"
-                  ]
-                },
-                {
-                  "not": {
-                    "u_has_items": {
-                      "item": "true_guts_early_sword",
-                      "count": 1
-                    }
-                  }
-                }
-              ]
-            }
-          ]
+          "test_eoc": "EOC_BERSERK_GODO_START_EARLY_SWORD"
         },
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_START_EARLY_SWORD"
         }
       },
       {
-        "text": "I agree. Take my order for the long sword.",
-        "topic": "TALK_BERSERK_GODO_EARLY_SWORD",
+        "text": "The materials are here. Everything you asked for.",
+        "topic": "TALK_BERSERK_GODO_EARLY_DELIVERY",
         "condition": {
-          "and": [
-            {
-              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
-            },
-            {
-              "and": [
-                {
-                  "not": {
-                    "test_eoc": "EOC_BERSERK_FORGE_GUTS"
-                  }
-                },
-                {
-                  "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
-                },
-                {
-                  "math": [
-                    "u_berserk_godo_early_state == 0"
-                  ]
-                },
-                {
-                  "not": {
-                    "u_has_items": {
-                      "item": "true_guts_early_sword",
-                      "count": 1
-                    }
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_GODO_START_EARLY_SWORD"
-        }
-      },
-      {
-        "text": "Deliver the steel, charcoal and leather.",
-        "topic": "TALK_BERSERK_GODO_EARLY_SWORD",
-        "condition": {
-          "and": [
-            {
-              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
-            },
-            {
-              "and": [
-                {
-                  "math": [
-                    "u_berserk_godo_early_state == 1"
-                  ]
-                },
-                {
-                  "not": {
-                    "u_has_items": {
-                      "item": "true_guts_early_sword",
-                      "count": 1
-                    }
-                  }
-                },
-                {
-                  "u_has_items": {
-                    "item": "steel_lump",
-                    "count": 4
-                  }
-                },
-                {
-                  "u_has_items": {
-                    "item": "hc_steel_lump",
-                    "count": 1
-                  }
-                },
-                {
-                  "u_has_items": {
-                    "item": "charcoal",
-                    "count": 200
-                  }
-                },
-                {
-                  "u_has_items": {
-                    "item": "leather",
-                    "count": 2
-                  }
-                }
-              ]
-            }
-          ]
+          "test_eoc": "EOC_BERSERK_GODO_EARLY_MATERIALS"
         },
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_EARLY_MATERIALS"
         }
       },
       {
-        "text": "Collect the long sword.",
-        "topic": "TALK_BERSERK_GODO_EARLY_SWORD",
+        "text": "I will take the finished blade.",
+        "topic": "TALK_BERSERK_GODO_EARLY_DELIVERED",
         "condition": {
           "and": [
             {
-              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+              "test_eoc": "EOC_BERSERK_GODO_EARLY_CLAIM"
             },
+            {
+              "not": {
+                "u_has_items": {
+                  "item": "true_guts_early_sword",
+                  "count": 1
+                }
+              }
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_EARLY_CLAIM"
+        }
+      },
+      {
+        "text": "What do I still need to bring?",
+        "topic": "TALK_BERSERK_GODO_EARLY_STATUS"
+      },
+      {
+        "text": "Why so long? I am short of time.",
+        "topic": "TALK_BERSERK_GODO_EARLY_WHY",
+        "condition": {
+          "and": [
             {
               "and": [
                 {
@@ -2565,19 +2952,28 @@
                 },
                 {
                   "math": [
-                    "time('now') >= u_berserk_godo_early_ready_at"
+                    "time('now') < u_berserk_godo_early_ready_at"
                   ]
                 }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_read_early_why != 1"
               ]
             }
           ]
         },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_GODO_EARLY_CLAIM"
-        }
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_early_why = 1"
+            ]
+          }
+        ]
       },
       {
-        "text": "I already have this blade. Return my materials.",
+        "text": "I already have the blade. Return the unused materials.",
         "topic": "TALK_BERSERK_GODO_EARLY_SWORD",
         "condition": {
           "and": [
@@ -2604,11 +3000,45 @@
         }
       },
       {
-        "text": "How is the order coming along?",
-        "topic": "TALK_BERSERK_GODO_EARLY_STATUS"
+        "text": "I have changed. What about our agreement?",
+        "topic": "TALK_BERSERK_APOSTOL_GODO",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_TELL_GODO"
+        }
       },
       {
-        "text": "Straighten my old blade, then.",
+        "text": "You promised to return the materials.",
+        "topic": "TALK_BERSERK_GODO_CHANGED_EARLY",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+            },
+            {
+              "math": [
+                "u_berserk_godo_early_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_early_state < 3"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Inspect my blade.",
         "topic": "TALK_BERSERK_GODO_REPAIR",
         "condition": {
           "u_has_items": {
@@ -2618,130 +3048,105 @@
         }
       },
       {
-        "text": "Why do you need different steels?",
-        "topic": "TALK_BERSERK_GODO_METAL"
-      },
-      {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_GODO"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_ORDERS"
       }
     ],
     "speaker_effect": {
-      "effect": [
-        {
-          "math": [
-            "u_berserk_journal_order_early = 1"
-          ]
-        }
-      ]
+      "effect": {
+        "math": [
+          "u_berserk_journal_order_early = 1"
+        ]
+      }
     }
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_EARLY_STATUS",
     "dynamic_line": {
-      "math": [
-        "u_berserk_godo_early_state == 1"
-      ],
-      "yes": "Bring 4 steel lumps, 1 high-steel lump, 200 charcoal and 2 leather patches. I take the complete set together.",
+      "test_eoc": "EOC_BERSERK_GODO_LINE_97502AC24A5F",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT",
+        "yes": "My answer has not changed. There will be no new blade.",
+        "no": "Something has been weighing on you. If it concerns this work, tell me before we continue."
+      },
       "no": {
         "math": [
-          "u_berserk_godo_early_state == 2"
+          "u_berserk_godo_early_state == 3"
         ],
-        "yes": "Your material is at the forge. Give me twelve hours from the delivery, then collect the blade.",
+        "yes": "That order is settled. We have nothing more to exchange for it.",
         "no": {
-          "math": [
-            "u_berserk_godo_early_state == 3"
-          ],
-          "yes": "This order is settled. Keep the blade in good repair.",
-          "no": "We have not agreed on this order. Speak to me about a long battle sword."
+          "u_has_items": {
+            "item": "true_guts_early_sword",
+            "count": 1
+          },
+          "yes": "You already have the blade. If you left materials for another, take them back.",
+          "no": {
+            "math": [
+              "u_berserk_godo_early_state == 1"
+            ],
+            "yes": "For this delivery: 4 steel lumps, 1 high-steel lump, 200 charcoal and 2 leather patches. Bring the whole lot so I can begin.",
+            "no": {
+              "math": [
+                "u_berserk_godo_early_state == 2"
+              ],
+              "yes": {
+                "math": [
+                  "time('now') >= u_berserk_godo_early_ready_at"
+                ],
+                "yes": "Finished. Come over here and take it by the grip.",
+                "no": "In the forge. Metal does not like haste. You can see to your own equipment while I work."
+              },
+              "no": "A long battle sword, no ornaments. Bring 4 steel lumps, 1 high-steel lump, 200 charcoal and 2 leather patches, all together. Then give me twelve hours at the forge."
+            }
+          }
         }
       }
     },
     "responses": [
       {
-        "text": "Return to the long sword order.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_EARLY_SWORD"
-      },
-      {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_GODO"
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_RECOGNIZE",
-    "dynamic_line": "*Godot stills the hammer and squints. \"So it is you, Guts. The blade has taken a beating, but you have not broken it yet. All right. What does it need?\"",
+    "dynamic_line": "Ask what you came to ask.",
     "responses": [
       {
-        "text": "Let me show you the blade.",
-        "topic": "TALK_BERSERK_GODO_REPAIR"
-      },
-      {
-        "text": "May I rest here before going on?",
-        "topic": "TALK_BERSERK_GODO_HOME"
-      },
-      {
-        "text": "I have a few questions.",
-        "topic": "TALK_BERSERK_GODO"
-      },
-      {
-        "text": "I will let you work.",
-        "topic": "TALK_DONE"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_RECOGNIZE_HELLO"
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_STRANGER",
-    "dynamic_line": "A good smith? You found the best. I am Godot. If a blade is worth saving, put it where I can see it. If you need a new one, we will talk about the metal first.",
+    "dynamic_line": "You found him. What do you want?",
     "responses": [
       {
-        "text": "Let me show you the blade.",
-        "topic": "TALK_BERSERK_GODO_REPAIR"
+        "text": "What sort of work do you take?",
+        "topic": "TALK_BERSERK_GODO_INTRO_WORK"
       },
       {
-        "text": "May I rest here before going on?",
-        "topic": "TALK_BERSERK_GODO_HOME"
+        "text": "I need a good sword.",
+        "topic": "TALK_BERSERK_GODO_WEAPON_REQUEST"
       },
       {
-        "text": "I have a few questions.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
-      },
-      {
-        "text": "I will let you work.",
-        "topic": "TALK_DONE"
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_CRAFT",
-    "dynamic_line": "Ask. Just do not expect a pretty answer.",
+    "dynamic_line": "Ask what you came to ask.",
     "responses": [
       {
-        "text": "Why live so far from towns?",
-        "topic": "TALK_BERSERK_GODO_ISOLATION"
-      },
-      {
-        "text": "What makes a blade reliable?",
-        "topic": "TALK_BERSERK_GODO_METAL"
-      },
-      {
-        "text": "Tell me about the blade you made to kill a dragon.",
-        "topic": "TALK_BERSERK_GODO_DRAGON_STORY"
-      },
-      {
-        "text": "Were you always a smith?",
-        "topic": "TALK_BERSERK_GODO_LIFE"
-      },
-      {
-        "text": "Which repairs do you take?",
-        "topic": "TALK_BERSERK_GODO_REPAIR"
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_WORK"
       }
     ]
@@ -2749,68 +3154,80 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_ISOLATION",
-    "dynamic_line": "A lord asks for a golden guard, then another asks for a blade nobody could use. They admire the polish and forget the steel. Here I can hear the hammer without somebody measuring how grand the weapon will look at a feast.",
+    "dynamic_line": "Here I can hear my own hammer. In town, people sometimes cannot hear their own work through all the empty talk.",
     "responses": [
       {
-        "text": "Then why make weapons at all?",
-        "topic": "TALK_BERSERK_GODO_PRICE"
+        "text": "Do people bother you that much?",
+        "topic": "TALK_BERSERK_GODO_ISOLATION_PEOPLE",
+        "condition": {
+          "math": [
+            "u_berserk_godo_read_isolation_people != 1"
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_isolation_people = 1"
+            ]
+          }
+        ]
       },
       {
-        "text": "Does Rickert ever tire of this place?",
-        "topic": "TALK_BERSERK_GODO_HOME"
+        "text": "But customers must be harder to find here.",
+        "topic": "TALK_BERSERK_GODO_ISOLATION_CUSTOMERS",
+        "condition": {
+          "math": [
+            "u_berserk_godo_read_isolation_customers != 1"
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_isolation_customers = 1"
+            ]
+          }
+        ]
       },
       {
-        "text": "Return to questions about smithing.",
-        "topic": "TALK_BERSERK_GODO_CRAFT"
+        "text": "Do you and Rickert get lonely here?",
+        "topic": "TALK_BERSERK_GODO_ISOLATION_LONELY",
+        "condition": {
+          "math": [
+            "u_berserk_godo_read_isolation_lonely != 1"
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_isolation_lonely = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_HEARTH"
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_METAL",
-    "dynamic_line": "Too soft, and the edge folds. Too brittle, and it snaps. Good steel is only the beginning: heat, temper and shape must suit the work. No blade excuses a foolish blow into stone, and weight alone will not cut every breastplate.",
+    "dynamic_line": "Soft steel folds at the edge; brittle steel breaks. Heat, temper and shape must suit the work. Bring sound steel, not a promise of it.",
     "responses": [
       {
-        "text": "Can I bring raw ore?",
-        "topic": "TALK_BERSERK_GODO_ORE"
-      },
-      {
-        "text": "Tell me about the long sword.",
-        "topic": "TALK_BERSERK_GODO_EARLY_SWORD",
-        "condition": {
-          "or": [
-            {
-              "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
-            },
-            {
-              "math": [
-                "u_berserk_godo_early_state > 0"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "text": "Tell me about the Dragonslayer.",
-        "topic": "TALK_BERSERK_GODO_DRAGON_STORY"
-      },
-      {
-        "text": "Return to questions about smithing.",
-        "topic": "TALK_BERSERK_GODO_CRAFT"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_ORE",
-    "dynamic_line": "Ore has to become iron, then steel fit for the blade. For your order, bring the steel itself. Sound recovered metal or steel you smelted will do. Judge the metal, not the fine story about the mine it came from.",
+    "dynamic_line": "Ore has to be smelted first. For these orders, bring steel ready for the forge. Rickert can help you tell the pieces apart.",
     "responses": [
       {
-        "text": "Return to the discussion of steel.",
-        "topic": "TALK_BERSERK_GODO_METAL"
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_WORK"
       }
     ]
@@ -2818,47 +3235,77 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_DRAGON_STORY",
-    "dynamic_line": {
-      "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE",
-      "yes": "The Dragonslayer. A lord demanded a sword to kill a dragon, so I made one. Then his knights saw it and decided they preferred smaller legends. It is a slab of iron with an edge. Do not mistake its weight for proof that you can use it.",
-      "no": "Against creatures like those, such a blade may have work worthy of its weight. Still, a Dragonslayer is no promise that you will survive. Iron can endure what flesh cannot. Remember the difference."
-    },
+    "dynamic_line": "Hmph. I did. A long time ago.",
     "responses": [
       {
-        "text": "Why keep that design?",
+        "text": "Do dragons even exist?",
+        "topic": "TALK_BERSERK_GODO_DRAGON_EXIST",
+        "condition": {
+          "math": [
+            "u_berserk_godo_read_dragon_exist != 1"
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_dragon_exist = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Why take such an order?",
+        "topic": "TALK_BERSERK_GODO_DRAGON_ORDER",
+        "condition": {
+          "math": [
+            "u_berserk_godo_read_dragon_order != 1"
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_dragon_order = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Who could use it?",
+        "topic": "TALK_BERSERK_GODO_DRAGON_USER",
+        "condition": {
+          "math": [
+            "u_berserk_godo_read_dragon_user != 1"
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_dragon_user = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Do you consider that sword a failure?",
         "topic": "TALK_BERSERK_GODO_DRAGON_KEEP"
       },
       {
-        "text": "I need a sword I can use now.",
-        "topic": "TALK_BERSERK_GODO_EARLY_SWORD",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
-        }
-      },
-      {
-        "text": "Then let us discuss that great blade.",
-        "topic": "TALK_BERSERK_GODO_SWORD",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
-        }
-      },
-      {
-        "text": "Return to questions about smithing.",
-        "topic": "TALK_BERSERK_GODO_CRAFT"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_DRAGON_KEEP",
-    "dynamic_line": "I kept the design. Bad judgment does not erase good work. The measurements remind me to think about the hands that will carry my iron, not only the order I was given.",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_GODO_LINE_D0CA198B377F",
+      "yes": "The iron was what I intended: strong and deadly. But it was useless to the people it was meant for. A smith must think about the hands that will carry his work. You have reminded me of that.",
+      "no": "No. The iron was what I intended: strong and deadly. It was useless to the people it was meant for. A smith must think about the hands that will carry his work. A blade like that only makes sense for someone as mad as the design."
+    },
     "responses": [
       {
-        "text": "Return to the great blade.",
-        "topic": "TALK_BERSERK_GODO_DRAGON_STORY"
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_WORK"
       }
     ]
@@ -2866,15 +3313,11 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_APPRENTICE",
-    "dynamic_line": "He looks at a crooked joint and wants to know why it sticks. That is a useful habit. He still gets carried away with clever mechanisms, but he will redo a bad piece instead of hiding it under polish. I can work with that.",
+    "dynamic_line": "Ask what you came to ask.",
     "responses": [
       {
-        "text": "Return to questions about the forge.",
-        "topic": "TALK_BERSERK_GODO_HOME"
-      },
-      {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_GODO"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
       }
     ]
   },
@@ -3160,10 +3603,173 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_WORK",
-    "dynamic_line": "Show me the iron and tell me what it must endure. A blade and a repair are different jobs.",
+    "dynamic_line": "Show me the iron and tell me what it must endure.",
     "responses": [
       {
-        "text": "I need a reliable long sword.",
+        "text": "I need a reliable heavy sword.",
+        "topic": "TALK_BERSERK_GODO_WEAPON_REQUEST",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+            },
+            {
+              "not": {
+                "u_has_items": {
+                  "item": "true_guts_early_sword",
+                  "count": 1
+                }
+              }
+            },
+            {
+              "math": [
+                "u_berserk_godo_early_state == 0"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "I need a sword for fighting those creatures.",
+        "topic": "TALK_BERSERK_GODO_SWORD_REQUEST",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+              }
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state == 0"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+            }
+          ]
+        }
+      },
+      {
+        "text": "Have a look at this sword.",
+        "topic": "TALK_BERSERK_GODO_OWNER",
+        "condition": {
+          "or": [
+            {
+              "u_has_items": {
+                "item": "true_guts_early_sword",
+                "count": 1
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+            }
+          ]
+        }
+      },
+      {
+        "text": "Have a look at this homemade copy.",
+        "topic": "TALK_BERSERK_GODO_COPY",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_GODO_HAS_COPY"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_MADE_COPY"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I made this blade myself. What do you think?",
+        "topic": "TALK_BERSERK_GODO_COPY_SELF",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_MADE_COPY"
+        }
+      },
+      {
+        "text": "My blade needs inspection.",
+        "topic": "TALK_BERSERK_GODO_REPAIR"
+      },
+      {
+        "text": "They say you once made a sword to kill a dragon.",
+        "topic": "TALK_BERSERK_GODO_DRAGON_STORY"
+      },
+      {
+        "text": "About an order.",
+        "topic": "TALK_BERSERK_GODO_ORDERS"
+      },
+      {
+        "text": "Why use different steels in a sword?",
+        "topic": "TALK_BERSERK_GODO_METAL",
+        "condition": {
+          "math": [
+            "u_berserk_godo_read_metal != 1"
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_metal = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "I brought ore. Will that do?",
+        "topic": "TALK_BERSERK_GODO_ORE",
+        "condition": {
+          "math": [
+            "u_berserk_godo_read_ore != 1"
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_ore = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "My body is changing. Can we talk about a new blade?",
+        "topic": "TALK_BERSERK_APOSTOL_GODO",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_ORDERS",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_GODO_LINE_97502AC24A5F",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT",
+        "yes": "I will return what you brought for the unfinished blade. The work is over.",
+        "no": "Before we go on, tell me what has been troubling you."
+      },
+      "no": "What is needed, what you brought, and what is left to do. That is a proper order."
+    },
+    "responses": [
+      {
+        "text": "The battle sword order.",
         "topic": "TALK_BERSERK_GODO_EARLY_SWORD",
         "condition": {
           "or": [
@@ -3179,7 +3785,7 @@
         }
       },
       {
-        "text": "Can you forge a weapon for fighting demons?",
+        "text": "The Dragonslayer order.",
         "topic": "TALK_BERSERK_GODO_SWORD",
         "condition": {
           "or": [
@@ -3195,26 +3801,7 @@
         }
       },
       {
-        "text": "Can you repair my blade?",
-        "topic": "TALK_BERSERK_GODO_REPAIR"
-      },
-      {
-        "text": "Tell me about your craft and your life here.",
-        "topic": "TALK_BERSERK_GODO_CRAFT"
-      },
-      {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_GODO"
-      }
-    ]
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_BERSERK_GODO_ORDERS",
-    "dynamic_line": "A good order is plain: what you need, what you have brought, and what remains for me to do.",
-    "responses": [
-      {
-        "text": "About my blade repair.",
+        "text": "About the blade repair.",
         "topic": "TALK_BERSERK_GODO_REPAIR",
         "condition": {
           "math": [
@@ -3223,46 +3810,7 @@
         }
       },
       {
-        "text": "I need a reliable long sword.",
-        "topic": "TALK_BERSERK_GODO_EARLY_SWORD",
-        "condition": {
-          "or": [
-            {
-              "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
-            },
-            {
-              "math": [
-                "u_berserk_godo_early_state > 0"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "text": "Can you forge a weapon for fighting demons?",
-        "topic": "TALK_BERSERK_GODO_SWORD",
-        "condition": {
-          "or": [
-            {
-              "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
-            },
-            {
-              "math": [
-                "u_berserk_godo_sword_state > 0"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "text": "Open my road journal.",
-        "topic": "TALK_BERSERK_GODO_ORDERS",
-        "effect": {
-          "run_eocs": "EOC_BERSERK_JOURNAL_OPEN"
-        }
-      },
-      {
-        "text": "I need a new road journal.",
+        "text": "I lost my road journal. I need another.",
         "topic": "TALK_BERSERK_GODO_ORDERS",
         "condition": {
           "not": {
@@ -3274,53 +3822,7 @@
         }
       },
       {
-        "text": "The change has begun. What about the long sword?",
-        "topic": "TALK_BERSERK_GODO_CHANGED_EARLY",
-        "condition": {
-          "and": [
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
-              }
-            },
-            {
-              "math": [
-                "u_berserk_godo_early_state > 0"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_godo_early_state < 3"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "text": "The change has begun. What about the Dragonslayer?",
-        "topic": "TALK_BERSERK_GODO_CHANGED_SWORD",
-        "condition": {
-          "and": [
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
-              }
-            },
-            {
-              "math": [
-                "u_berserk_godo_sword_state > 0"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_godo_sword_state < 4"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ]
@@ -3328,31 +3830,42 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_HEARTH",
-    "dynamic_line": "The forge gives me work worth doing. Ask what you came to ask; the coals will keep.",
+    "dynamic_line": "The coals will keep. Ask.",
     "responses": [
       {
-        "text": "Why do you keep forging?",
-        "topic": "TALK_BERSERK_GODO_SPARKS",
-        "condition": {
-          "math": [
-            "u_berserk_godo_sparks_closed != 1"
-          ]
-        }
+        "text": "Why live so far from other people?",
+        "topic": "TALK_BERSERK_GODO_ISOLATION"
       },
       {
-        "text": "Were you always a smith?",
+        "text": "How long have you worked at the anvil?",
         "topic": "TALK_BERSERK_GODO_LIFE"
       },
       {
-        "text": "Why live so far from towns?",
-        "topic": "TALK_BERSERK_GODO_ISOLATION"
+        "text": "You are old and ill. You could have put the hammer down long ago.",
+        "topic": "TALK_BERSERK_GODO_KEEP_FORGING"
+      },
+      {
+        "text": "Let me sit by your forge a while.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_INVITE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_CAN_SPARKS"
+        }
+      },
+      {
+        "text": "I remember what you told me at the forge.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_RECALL",
+        "condition": {
+          "math": [
+            "u_berserk_godo_sparks_completed == 1"
+          ]
+        }
       },
       {
         "text": "May I rest here?",
         "topic": "TALK_BERSERK_GODO_HOME"
       },
       {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ]
@@ -3360,18 +3873,96 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_APPRENTICE_MENU",
-    "dynamic_line": "Rickert has patient hands and an eye for moving parts. Let him show you his crossbow. I teach him to work the metal; he finds uses I would not have thought of.",
+    "dynamic_line": "He has learned a few things. Invented a few more while I grumbled about making simple things complicated.",
     "responses": [
       {
-        "text": "How did Rickert become your apprentice?",
-        "topic": "TALK_BERSERK_GODO_APPRENTICE"
+        "text": "What sort of things?",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_EXAMPLES",
+        "condition": {
+          "math": [
+            "u_berserk_godo_read_rickert_examples != 1"
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_rickert_examples = 1"
+            ]
+          }
+        ]
       },
       {
-        "text": "May I rest here?",
-        "topic": "TALK_BERSERK_GODO_HOME"
+        "text": "Do you approve of his inventions?",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_APPROVE",
+        "condition": {
+          "math": [
+            "u_berserk_godo_read_rickert_approve != 1"
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_rickert_approve = 1"
+            ]
+          }
+        ]
       },
       {
-        "text": "Back to the topics.",
+        "text": "Why did you let him stay here?",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_HOME"
+      },
+      {
+        "text": "Rickert is taking our conversation hard.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_GRIEF",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+            },
+            {
+              "math": [
+                "u_berserk_rickert_eclipse_story > 0"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Rickert decided to leave the forge and travel with me.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_TRAVEL",
+        "condition": {
+          "math": [
+            "berserk_godo_rickert_following == 1"
+          ]
+        }
+      },
+      {
+        "text": "Talk to Rickert. Tell him to come with me. He will listen to you.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_REFUSAL",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "berserk_godo_rickert_refused == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_read_rickert_refused != 1"
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_rickert_refused = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ]
@@ -3636,33 +4227,141 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GODO",
     "dynamic_line": {
-      "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE",
-      "yes": "So you took a master along with that body. I can still work steel for you, but I won’t pretend a leash is freedom. What you do next is still yours to answer for.",
-      "no": "Iron does not care what lives beneath your skin. I care what you bring to my door. You may ask for work. Do not mistake that for permission to hurt the people under this roof."
+      "math": [
+        "u_berserk_godo_demon_refused == 1"
+      ],
+      "yes": "My answer has not changed. There will be no new blade.",
+      "no": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_FORM_VISIBLE",
+        "yes": "I can see what is happening to you. Your skin, your eyes... Why did you let that corruption in?",
+        "no": "What change? Explain it properly."
+      }
     },
     "responses": [
       {
-        "text": "Can the forge still help me?",
-        "topic": "TALK_BERSERK_GODO_WORK"
-      },
-      {
-        "text": "How do I keep this strength from becoming my whole life?",
-        "topic": "TALK_BERSERK_APOSTOL_GODO_HEARTH"
-      },
-      {
-        "text": "I lost my road journal. Could I have another?",
-        "topic": "TALK_BERSERK_APOSTOL_GODO",
+        "text": "I was given this power. My body is becoming something else.",
+        "topic": "TALK_BERSERK_GODO_DEMON_GIFT",
         "condition": {
-          "not": {
-            "u_has_item": "berserk_campaign_journal"
-          }
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_JOURNAL_REPLACE_MISSING"
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_demon_refused != 1"
+              ]
+            },
+            {
+              "not": {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_apostol_path == 2"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_apostol_path == 3"
+                    ]
+                  }
+                ]
+              }
+            }
+          ]
         }
       },
       {
-        "text": "Back to the topics.",
+        "text": "I took the power from one of those creatures.",
+        "topic": "TALK_BERSERK_GODO_DEMON_FLESH",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_demon_refused != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_path == 2"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "I agreed to serve those who are stronger. This is the price.",
+        "topic": "TALK_BERSERK_GODO_DEMON_SERVICE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_demon_refused != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_path == 3"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "You promised to return the battle sword materials.",
+        "topic": "TALK_BERSERK_GODO_CHANGED_EARLY",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_early_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_early_state < 3"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "You promised to return the Dragonslayer materials.",
+        "topic": "TALK_BERSERK_GODO_CHANGED_SWORD",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_sword_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state < 4"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "I already have the sword. Will you demand it back?",
+        "topic": "TALK_BERSERK_GODO_DEMON_OWNED",
+        "condition": {
+          "or": [
+            {
+              "u_has_items": {
+                "item": "true_guts_early_sword",
+                "count": 1
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+            }
+          ]
+        }
+      },
+      {
+        "text": "May I remain at the forge?",
+        "topic": "TALK_BERSERK_GODO_DEMON_STAY"
+      },
+      {
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -3675,11 +4374,11 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GODO_HEARTH",
-    "dynamic_line": "A spark is bright and soon gone. The hearth keeps somebody warm after the hammer falls silent. Your new flesh can win a fight; it cannot tell you what deserves to survive it. Decide that before you reach for the fire.",
+    "dynamic_line": "Ask what you came to ask.",
     "responses": [
       {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_GODO"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_HEARTH"
       }
     ]
   },
@@ -3780,36 +4479,2432 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_CHANGED_EARLY",
-    "dynamic_line": "Then I will not finish this blade for you. Take back the materials you brought.",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT",
+      "yes": "I will return everything you brought. I have no use for what is not mine. Come here and take it.",
+      "no": "Something has been weighing on you. If it concerns this work, tell me before we continue."
+    },
     "responses": [
       {
         "text": "Return my materials.",
-        "topic": "TALK_BERSERK_GODO_ORDERS",
+        "topic": "TALK_BERSERK_GODO_REFUND_DONE",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_GODO_EARLY_REFUND"
+            }
+          ]
+        },
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_EARLY_REFUND"
         }
       },
       {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_GODO"
+        "text": "I need to explain what happened.",
+        "topic": "TALK_BERSERK_APOSTOL_GODO",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+          }
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_TELL_GODO"
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_ORDERS"
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_CHANGED_SWORD",
-    "dynamic_line": "Then I will not finish this blade for you. Take back the materials you brought.",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT",
+      "yes": "I will return everything you brought. I have no use for what is not mine. Come here and take it.",
+      "no": "Something has been weighing on you. If it concerns this work, tell me before we continue."
+    },
     "responses": [
       {
         "text": "Return my materials.",
-        "topic": "TALK_BERSERK_GODO_ORDERS",
+        "topic": "TALK_BERSERK_GODO_REFUND_DONE",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_GODO_SWORD_REFUND"
+            }
+          ]
+        },
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_SWORD_REFUND"
         }
       },
       {
-        "text": "Back to the topics.",
+        "text": "I need to explain what happened.",
+        "topic": "TALK_BERSERK_APOSTOL_GODO",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+          }
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_TELL_GODO"
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_ORDERS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_INTRO_WORK",
+    "dynamic_line": "Blades, iron, fittings. Show me the thing and I will tell you whether it is worth the work. Gears and little mechanisms are Rickert's business. His eyes are better than mine.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_INTRO_REPAIR",
+    "dynamic_line": "Rumors do not do my work for me. Show me. Put it on the edge of the table, away from the heat.",
+    "responses": [
+      {
+        "text": "Here is my blade.",
+        "topic": "TALK_BERSERK_GODO_REPAIR"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_INTRO_REST",
+    "dynamic_line": "There is a place for a traveler. Rickert can show you. No sleeping in the workshop, and leave the tools alone.",
+    "responses": [
+      {
+        "text": "Understood. Thank you.",
+        "topic": "TALK_BERSERK_GODO_INTRO_AGREED"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_INTRO_AGREED",
+    "dynamic_line": "Good. Then we have an understanding.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_RECOGNIZE_BLADE",
+    "dynamic_line": "I see. A more careful owner would make it last longer. Put it here; let me look.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_RECOGNIZE_NEW",
+    "dynamic_line": "Show me the old one first. What remains of it tells me more than your wishes.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_RECOGNIZE_HELLO",
+    "dynamic_line": "Then stop standing in the doorway. You are letting in a draft.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_RETURN_BLADE",
+    "dynamic_line": "Do not lie to me. Let me have a look.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_RETURN_VISIT",
+    "dynamic_line": "Bed upstairs. You know the rest.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_WAKE_GUTS_ANGER",
+    "dynamic_line": "Calm down or you will pass out again. You have no strength left.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_WAKE_GUTS_REST",
+    "dynamic_line": "Easy. Rest first; we can talk when you have recovered. You can tell me what happened then.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_WAKE_TIME",
+    "dynamic_line": "Long enough. I do not count the hours at the forge.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_WAKE_BELONGINGS",
+    "dynamic_line": "First make sure you can stand. Then count your iron.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_WAKE_HELP",
+    "dynamic_line": "You were lying in my arms, barely breathing. What else was I to do? Not the gift I would have chosen, but here we are.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_WAKE_PAY",
+    "dynamic_line": "Get back on your feet first. I do not bargain with a dying man over water and a place by the wall.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_WAKE_GUTS_DREAM",
+    "dynamic_line": "I cannot tell you what you saw. I only know the wounds are real.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_WAKE_RIDER",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_knight_farewell_confirmed != 1"
+      ],
+      "yes": "A knight. Tall, armored. He laid you down here and told us to prepare water. Ask him the rest; he is waiting outside.",
+      "no": "An armored knight brought you. Said you could recover here. He has gone on his way."
+    },
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_FAREWELL",
+    "dynamic_line": "Come back if you have work.",
+    "responses": [
+      {
+        "text": "Until next time, Godot.",
+        "topic": "TALK_DONE"
+      },
+      {
+        "text": "I will stay here a while.",
+        "topic": "TALK_BERSERK_GODO_FAREWELL_STAY"
+      },
+      {
+        "text": "I will go and find the materials.",
+        "topic": "TALK_BERSERK_GODO_FAREWELL_MATERIALS",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_godo_early_state == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state == 2"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "I will come back later.",
+        "topic": "TALK_BERSERK_GODO_FAREWELL_WAIT",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_godo_early_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state == 3"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_repair_state == 1"
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_FAREWELL_STAY",
+    "dynamic_line": "Stay. Just leave the passage clear; do not stand in the way.",
+    "responses": [
+      {
+        "text": "Until next time, Godot.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_FAREWELL_MATERIALS",
+    "dynamic_line": "Go on. Check the list before you leave so you do not have to make the trip twice.",
+    "responses": [
+      {
+        "text": "Until next time, Godot.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_FAREWELL_WAIT",
+    "dynamic_line": "Come back and we will see what is ready by then.",
+    "responses": [
+      {
+        "text": "Until next time, Godot.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_FAREWELL_ALONE",
+    "dynamic_line": "All right. Go.",
+    "responses": [
+      {
+        "text": "Until next time, Godot.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_WEAPON_REQUEST",
+    "dynamic_line": "*Godot taps the anvil without turning. \"Another soldier full of stories. A sword is a tool. It must be balanced and quick. Too heavy, and you will die winding up for the first swing.\"",
+    "responses": [
+      {
+        "text": "All right, forget it.",
+        "topic": "TALK_BERSERK_GODO_WEAPON_LEAVE"
+      },
+      {
+        "text": "I need a powerful blade. It need not be that extreme.",
+        "topic": "TALK_BERSERK_GODO_WEAPON_REASONABLE"
+      },
+      {
+        "text": "I can handle the weight. Ordinary swords break when I put all my strength into them.",
+        "topic": "TALK_BERSERK_GODO_WEAPON_REFUSE"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_WEAPON_LEAVE",
+    "dynamic_line": "Come back if you need something. Ask Rickert, too. He may have something useful for you. Not a sword, but useful all the same.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_WEAPON_REASONABLE",
+    "dynamic_line": "There. You can listen after all. I can try, but you will have to bring the materials. I am too old to go looking for them.",
+    "responses": [
+      {
+        "text": "Will you take the work?",
+        "topic": "TALK_BERSERK_GODO_EARLY_SWORD"
+      },
+      {
+        "text": "I need to think.",
+        "topic": "TALK_BERSERK_GODO_WEAPON_THINK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_WEAPON_REFUSE",
+    "dynamic_line": "Listen. A sword is forged for a person. It must be an extension of the hand. I have done this since I could hold tongs. I will not waste steel and heat on a useless monstrosity no one can fight with.",
+    "responses": [
+      {
+        "text": "Then make a blade I can use.",
+        "topic": "TALK_BERSERK_GODO_WEAPON_REASONABLE"
+      },
+      {
+        "text": "I need to think.",
+        "topic": "TALK_BERSERK_GODO_WEAPON_THINK"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_WEAPON_THINK",
+    "dynamic_line": "Think. No need to hurry before the iron is in the fire.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_OWNER_GOOD",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_godo_early_delivered == 1"
+      ],
+      "yes": "Then the fitting was worth the work.",
+      "no": "Then keep looking after it. A sound blade deserves that much."
+    },
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_OWNER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_OWNER_UPGRADE",
+    "dynamic_line": "Not without changing its shape and finding the balance all over again. That would mean making a new sword.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_OWNER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_OWNER_BREAK",
+    "dynamic_line": "Anything can break. Especially if you keep testing whether it can take one more blow.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_OWNER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_OWNER_FEEL",
+    "dynamic_line": "Show me the grip. Then take it again. We will see whether it is the blade or you getting used to it.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_OWNER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_COPY",
+    "dynamic_line": "*Godot turns the sword, checks the grip and draws a thumb across the edge. \"Someone took pains with this. Still a long way from a fine blade, but better than nothing.\"",
+    "responses": [
+      {
+        "text": "It needs repair.",
+        "topic": "TALK_BERSERK_GODO_REPAIR"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_COPY_SELF",
+    "dynamic_line": "*Godot checks the grip and the edge. \"What matters is how it behaves in the hand. You worked at it, I can see. A long way from a fine blade, but better than nothing.\"",
+    "responses": [
+      {
+        "text": "You could have praised it.",
+        "topic": "TALK_BERSERK_GODO_COPY_PRAISE"
+      },
+      {
+        "text": "There was no other suitable weapon.",
+        "topic": "TALK_BERSERK_GODO_COPY_NEED"
+      },
+      {
+        "text": "I wanted to learn.",
+        "topic": "TALK_BERSERK_GODO_COPY_LEARN"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_COPY_PRAISE",
+    "dynamic_line": "Flattery makes a worse smith. Your life depends on the blade; one mistake can end it. Do not take offense.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_COPY_NEED",
+    "dynamic_line": "A good reason to pick up a hammer. Live with it now. You will feel where you went wrong.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_COPY_LEARN",
+    "dynamic_line": "Keep it, then. Pick it up again after a few more attempts and you will see the mistakes for yourself.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_DRAGON_EXIST",
+    "dynamic_line": "The puffed-up fool who sent the plans never thought about that. He wanted a toy everyone would talk about. Vanity brings plenty of foolish things into the world.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_DRAGON_STORY"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_DRAGON_ORDER",
+    "dynamic_line": "An order from above. They asked for a sword that could cut a dragon, so I forged one. I met the terms exactly. Nobody thought to ask whether an ordinary man could lift it.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_DRAGON_STORY"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_DRAGON_USER",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_GODO_LINE_D0CA198B377F",
+      "yes": "None of those pampered lords could use it. That was then. You know what sort of hands it has reached now.",
+      "no": "Nobody then. Certainly none of the pampered lords who ordered it. Not a knight in the kingdom could use it. It stayed there, dead weight."
+    },
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_DRAGON_STORY"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SWORD_REQUEST",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_GODO_LINE_E434D679269C",
+      "yes": "The same creatures that left those wounds on you?",
+      "no": "A blade for fighting those creatures? Tell me why you need it."
+    },
+    "responses": [
+      {
+        "text": "Ordinary weapons shatter against them.",
+        "topic": "TALK_BERSERK_GODO_SWORD_REASON_STEEL"
+      },
+      {
+        "text": "I want to reach whoever is behind this nightmare.",
+        "topic": "TALK_BERSERK_GODO_SWORD_REASON_VENGEANCE"
+      },
+      {
+        "text": "I need to protect myself and those I care about.",
+        "topic": "TALK_BERSERK_GODO_SWORD_REASON_PROTECT"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SWORD_REASON_STEEL",
+    "dynamic_line": "Creatures of the abyss are no wild beasts. If ordinary steel will not do, we must make a blade that bears the impact without dragging its owner into the grave.",
+    "responses": [
+      {
+        "text": "Will you make me a Dragonslayer?",
+        "topic": "TALK_BERSERK_GODO_SWORD_DESIGN"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SWORD_REASON_VENGEANCE",
+    "dynamic_line": "Before the one at the top, there are those below. You order it with rage in your eyes, but you must carry it on the days when you have no strength left to be angry.",
+    "responses": [
+      {
+        "text": "Will you make me a Dragonslayer?",
+        "topic": "TALK_BERSERK_GODO_SWORD_DESIGN"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SWORD_REASON_PROTECT",
+    "dynamic_line": "Protection is a heavier burden than revenge. Then listen. Where will you fight? How much can you carry? What balance are you used to? I need honest answers.",
+    "responses": [
+      {
+        "text": "Will you make me a Dragonslayer?",
+        "topic": "TALK_BERSERK_GODO_SWORD_DESIGN"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SWORD_DESIGN",
+    "dynamic_line": "I know a blade that could hew demons. That old design. I also know how much good steel and charcoal it takes. We will not finish it in an evening.",
+    "responses": [
+      {
+        "text": "Tell me what to bring. I will find it.",
+        "topic": "TALK_BERSERK_GODO_SWORD"
+      },
+      {
+        "text": "I need time to prepare.",
+        "topic": "TALK_BERSERK_GODO_WEAPON_THINK"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_EARLY_WHY",
+    "dynamic_line": "Because I will not give you a weapon with a hidden crack I could have found in the forge. Heat, hammering and cooling take their time. Want quick? Find a club in the woods. Want to live? Wait.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_EARLY_SWORD"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_EARLY_DELIVERY",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_godo_early_state == 2"
+      ],
+      "yes": "Good. The metal is here. Now it is my work. Give me twelve hours and do not hover over my shoulder.",
+      "no": "Good. That part is settled. Ask what is needed next before you leave."
+    },
+    "responses": [
+      {
+        "text": "What is needed now?",
+        "topic": "TALK_BERSERK_GODO_EARLY_SWORD"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_ORDERS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SWORD_WHY",
+    "dynamic_line": "Because I will not give you a weapon with a hidden crack I could have found in the forge. Heat, hammering and cooling take their time. Want quick? Find a club in the woods. Want to live? Wait.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_SWORD"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SWORD_DELIVERY",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_godo_sword_state == 3"
+      ],
+      "yes": "Good. The metal is here. Now it is my work. Give me two days and do not hover over my shoulder.",
+      "no": "Good. That part is settled. Ask what is needed next before you leave."
+    },
+    "responses": [
+      {
+        "text": "What is needed now?",
+        "topic": "TALK_BERSERK_GODO_SWORD"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_ORDERS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_REFUND_DONE",
+    "dynamic_line": "We have settled the account. There will be no blade for this order.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_ORDERS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_EARLY_DELIVERED",
+    "dynamic_line": "Finished. Take the grip. Now lift it... Careful! Do not swing; I still need that ceiling. How does it feel?",
+    "responses": [
+      {
+        "text": "It sits well in the hand.",
+        "topic": "TALK_BERSERK_GODO_EARLY_RECEIPT_GOOD"
+      },
+      {
+        "text": "Heavier than I expected...",
+        "topic": "TALK_BERSERK_GODO_EARLY_RECEIPT_HEAVY"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_EARLY_RECEIPT_GOOD",
+    "dynamic_line": "Remember that feeling. If the grip starts to shift, repair it before it loosens completely.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_EARLY_RECEIPT_HEAVY",
+    "dynamic_line": "Learn its weight in an open space, not a narrow passage full of creatures. Bring the blade back into guard after each blow.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SWORD_DELIVERED",
+    "dynamic_line": "*Godot clears a space beside the enormous black blade. \"Finished. Come around and help me shift it. A blade for things a man was never meant to fight. Your Dragonslayer.\"",
+    "responses": [
+      {
+        "text": "With this, I will finally have a chance.",
+        "topic": "TALK_BERSERK_GODO_SWORD_RECEIPT_CHANCE"
+      },
+      {
+        "text": "I will come back, Godot.",
+        "topic": "TALK_BERSERK_GODO_SWORD_RECEIPT_RETURN"
+      },
+      {
+        "text": "Thank you, Godot.",
+        "topic": "TALK_BERSERK_GODO_SWORD_RECEIPT_THANKS"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SWORD_RECEIPT_CHANCE",
+    "dynamic_line": "A chance, yes. It is only iron. The rest, whether you live or die, is yours to do.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SWORD_RECEIPT_RETURN",
+    "dynamic_line": "Come back. We will see how this iron serves against your demons.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SWORD_RECEIPT_THANKS",
+    "dynamic_line": "Keep your grip. And... take care of yourself, boy.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_KEEP_FORGING",
+    "dynamic_line": "I could have. Long ago.",
+    "responses": [
+      {
+        "text": "Then why keep going?",
+        "topic": "TALK_BERSERK_GODO_KEEP_REASON"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_HEARTH"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_KEEP_REASON",
+    "dynamic_line": "Every morning I see what I did not finish the night before. I know where my day begins. By noon a shapeless lump has become a thing someone can use. Enough to feel alive.",
+    "responses": [
+      {
+        "text": "Did you never want a different life?",
+        "topic": "TALK_BERSERK_GODO_KEEP_OTHER",
+        "condition": {
+          "math": [
+            "u_berserk_godo_read_keep_other != 1"
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_read_keep_other = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "I understand.",
+        "topic": "TALK_BERSERK_GODO_KEEP_UNDERSTAND",
+        "effect": {
+          "math": [
+            "u_berserk_godo_hearth_trust = 1"
+          ]
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_HEARTH"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_KEEP_UNDERSTAND",
+    "dynamic_line": "If you understand, you have been luckier than most wanderers.",
+    "responses": [
+      {
+        "text": "Let me sit by your forge a while.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_INVITE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_CAN_SPARKS"
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_HEARTH"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_ISOLATION_PEOPLE",
+    "dynamic_line": "A man who knows why he came does not bother me. Being asked to admire a crest for half a day instead of making a sound weapon does.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_ISOLATION"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_ISOLATION_CUSTOMERS",
+    "dynamic_line": "I have more than enough work. Extra gold will not make these hands younger.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_ISOLATION"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_ISOLATION_LONELY",
+    "dynamic_line": "Rickert always finds a way to break the silence. Sometimes before I have had time to miss it.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_ISOLATION"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_LIFE_IRON",
+    "dynamic_line": "Enough. Some of the rubbish I made when I was young still makes me ashamed.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_LIFE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_LIFE_MASTER",
+    "dynamic_line": "When I stopped blaming the steel every time a blade cracked. Steel does not lie. The smith's hand does.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_LIFE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_KEEP_OTHER",
+    "dynamic_line": "I wanted plenty of things when I was young and foolish. But I always came back to this forge of my own accord.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_HEARTH"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_APPRENTICE_EXAMPLES",
+    "dynamic_line": "Fastenings, triggers, little springs. I would make a thicker piece of solid steel. He spends an hour on a drawing, removes half the iron, and the damned thing still works.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_APPRENTICE_APPROVE",
+    "dynamic_line": "If it survives a real fight, yes. If it breaks in the hand, he makes it again. Better for his hands than any praise.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_APPRENTICE_HOME",
+    "dynamic_line": "The boy needed somewhere to live. There was room here and another piece of bread.",
+    "responses": [
+      {
+        "text": "Is that the only reason?",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_HELP"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_APPRENTICE_HELP",
+    "dynamic_line": "Did you want a longer, tearful story? If you can help the boy, you help. No need to make a speech.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_APPRENTICE_GRIEF",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_rickert_eclipse_story == 1"
+      ],
+      "yes": "I see it. His hammer falls out of rhythm; he overheats the forge. It is hard on him.",
+      "no": "He has more questions than answers. Do not make him guess what you are able to tell him."
+    },
+    "responses": [
+      {
+        "text": "I did not know how to tell him.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_GRIEF_WORDS",
+        "condition": {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 1"
+          ]
+        }
+      },
+      {
+        "text": "I have not been able to tell him everything.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_GRIEF_WAIT",
+        "condition": {
+          "math": [
+            "u_berserk_rickert_eclipse_story >= 2"
+          ]
+        }
+      },
+      {
+        "text": "How should I speak to him now?",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_GRIEF_HELP"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_APPRENTICE_GRIEF_WORDS",
+    "dynamic_line": "Nobody knows the right words for that. Losing people is a blow to the head, however you dress it up.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_APPRENTICE_GRIEF_WAIT",
+    "dynamic_line": "Do not promise some vague later if you cannot do it now. Tell him plainly: I will tell you the rest when I can. He can understand honesty.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_APPRENTICE_GRIEF_HELP",
+    "dynamic_line": "Do not expect him to understand it all and move on today. Give him time. When he can speak, let him ask his questions. Answer without hiding behind excuses.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_APPRENTICE_TRAVEL",
+    "dynamic_line": "He decided that himself? Without you leaning on him?",
+    "responses": [
+      {
+        "text": "Yes. It was his decision.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_TRAVEL_RESPECT"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_APPRENTICE_TRAVEL_RESPECT",
+    "dynamic_line": "Remember that he has a head of his own. A companion, not spare hands for your weapon or a slave to carry loot. Treat him with respect.",
+    "responses": [
+      {
+        "text": "I understand, Godot.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_TRAVEL_PROMISE"
+      },
+      {
+        "text": "You do not want to let him go, do you?",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_TRAVEL_WORRY"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_APPRENTICE_TRAVEL_PROMISE",
+    "dynamic_line": "Good. Do not make me search the woods for you if a hair on his head is harmed.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_APPRENTICE_TRAVEL_WORRY",
+    "dynamic_line": "I do not. I am old and used to having the boy here. But I will not lock him inside for my own comfort. His road is his to choose.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_APPRENTICE_REFUSAL",
+    "dynamic_line": "He has given his answer. Do not go around him through me. He has his own life. If he said no, respect it. Go about your business and stop begging.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_APPRENTICE_MENU"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_PERSONAL",
+    "dynamic_line": "Set the iron down. I am listening.",
+    "responses": [
+      {
+        "text": "My companions died in that nightmare.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_GODO_WITNESSED_ECLIPSE"
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_trauma_done != 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            }
+          ]
+        },
+        "effect": {
+          "math": [
+            "u_berserk_godo_hearth_trust = 1"
+          ]
+        }
+      },
+      {
+        "text": "People were dying in that nightmare. I still remember it.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_GODO_WITNESSED_ECLIPSE"
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_trauma_done != 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            }
+          ]
+        },
+        "effect": {
+          "math": [
+            "u_berserk_godo_hearth_trust = 1"
+          ]
+        }
+      },
+      {
+        "text": "I will find him. Whatever it costs.",
+        "topic": "TALK_BERSERK_GODO_REVENGE",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_GODO_WITNESSED_ECLIPSE"
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_revenge_told != 1"
+              ]
+            }
+          ]
+        },
+        "effect": {
+          "math": [
+            "u_berserk_godo_revenge_told = 1"
+          ]
+        }
+      },
+      {
+        "text": "Something is changing in me.",
+        "topic": "TALK_BERSERK_APOSTOL_GODO",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_TELL_GODO"
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_TRAUMA",
+    "dynamic_line": "Sit by the fire. We can talk.",
+    "responses": [
+      {
+        "text": "I should have done something. Saved them.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_COULD"
+      },
+      {
+        "text": "I still remember their voices.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES"
+      },
+      {
+        "text": "I cannot go on talking about this now.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_SILENT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_TRAUMA_COULD",
+    "dynamic_line": "What could you have done against that abyss?",
+    "responses": [
+      {
+        "text": "I do not know...",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_UNKNOWN"
+      },
+      {
+        "text": "I should have died with them!",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_DIED"
+      },
+      {
+        "text": "I need to be alone.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_SILENT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_TRAUMA_UNKNOWN",
+    "dynamic_line": "Then do not pretend you knew the answer and chose cowardice. You did what a human body could do.",
+    "responses": [
+      {
+        "text": "Thank you for listening.",
+        "topic": "TALK_BERSERK_GODO",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_TRAUMA_DIED",
+    "dynamic_line": "But you are alive. By a miracle or by your teeth, you got out. Now you have to live with that. Living on is the hard part.",
+    "responses": [
+      {
+        "text": "I need time.",
+        "topic": "TALK_BERSERK_GODO",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_TRAUMA_SILENT",
+    "dynamic_line": "If you cannot, you cannot. No need to tear the wound open. We can sit quietly by the forge. Warm yourself.",
+    "responses": [
+      {
+        "text": "Let us sit quietly.",
+        "topic": "TALK_BERSERK_GODO",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
+        }
+      },
+      {
+        "text": "I need to be alone.",
+        "topic": "TALK_BERSERK_GODO_FAREWELL_ALONE",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_TRAUMA_VOICES",
+    "dynamic_line": "Tell me about one of them, if you want. Who they were before that day. Remember people alive, not torn apart.",
+    "responses": [
+      {
+        "text": "About Judeau.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_JUDEAU",
+        "condition": {
+          "or": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "math": [
+                "u_berserk_godo_witness_judeau == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "About Pippin.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_PIPPIN",
+        "condition": {
+          "or": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "math": [
+                "u_berserk_godo_witness_pippin == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "About Corkus.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_CORKUS",
+        "condition": {
+          "or": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "math": [
+                "u_berserk_godo_witness_corkus == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "About Gaston.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_GASTON",
+        "condition": {
+          "or": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "math": [
+                "u_berserk_godo_witness_gaston == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Not yet. Thank you for listening.",
+        "topic": "TALK_BERSERK_GODO",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_MEMORY_JUDEAU",
+    "dynamic_line": "He looked after the people beside him. Tell me about that, not just the way he died.",
+    "responses": [
+      {
+        "text": "I remember him.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES"
+      },
+      {
+        "text": "Thank you. Enough for today.",
+        "topic": "TALK_BERSERK_GODO",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_MEMORY_PIPPIN",
+    "dynamic_line": "A man who stood between danger and his companions. That is worth remembering.",
+    "responses": [
+      {
+        "text": "I remember him.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES"
+      },
+      {
+        "text": "Thank you. Enough for today.",
+        "topic": "TALK_BERSERK_GODO",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_MEMORY_CORKUS",
+    "dynamic_line": "A man has more to him than a sharp tongue. What did he hope for?",
+    "responses": [
+      {
+        "text": "I remember him.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES"
+      },
+      {
+        "text": "Thank you. Enough for today.",
+        "topic": "TALK_BERSERK_GODO",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_MEMORY_GASTON",
+    "dynamic_line": "A life beyond battle. Work, a place of his own. Not a foolish dream.",
+    "responses": [
+      {
+        "text": "I remember him.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES"
+      },
+      {
+        "text": "Thank you. Enough for today.",
+        "topic": "TALK_BERSERK_GODO",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_REVENGE",
+    "dynamic_line": "I believe you. If you have the strength, you will find him.",
+    "responses": [
+      {
+        "text": "Is that all? You will not try to stop me?",
+        "topic": "TALK_BERSERK_GODO_REVENGE_REPLY"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_REVENGE_REPLY",
+    "dynamic_line": "What would be the point? You did not come for my blessing. But revenge is the end of a road. When you want to talk about how to reach that day without losing your mind, I will be here at the forge.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_DEMON_GIFT",
+    "dynamic_line": "Do you understand where it will end? Iron changes in the forge too. Leave it too long and it becomes slag.",
+    "responses": [
+      {
+        "text": "I needed the power to survive!",
+        "topic": "TALK_BERSERK_GODO_DEMON_REFUSE_NEED",
+        "effect": {
+          "math": [
+            "u_berserk_godo_demon_refused = 1"
+          ]
+        }
+      },
+      {
+        "text": "I still decide what I do. My mind is my own.",
+        "topic": "TALK_BERSERK_GODO_DEMON_REFUSE_WILL",
+        "effect": {
+          "math": [
+            "u_berserk_godo_demon_refused = 1"
+          ]
+        }
+      },
+      {
+        "text": "I do not want to argue, Godot.",
+        "topic": "TALK_BERSERK_GODO_DEMON_REFUSE_QUIET",
+        "effect": {
+          "math": [
+            "u_berserk_godo_demon_refused = 1"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_DEMON_FLESH",
+    "dynamic_line": "Defeating it was not enough? You chose to become it. The abyss can poison people even after its creatures die.",
+    "responses": [
+      {
+        "text": "I needed the power to survive!",
+        "topic": "TALK_BERSERK_GODO_DEMON_REFUSE_NEED",
+        "effect": {
+          "math": [
+            "u_berserk_godo_demon_refused = 1"
+          ]
+        }
+      },
+      {
+        "text": "I still decide what I do. My mind is my own.",
+        "topic": "TALK_BERSERK_GODO_DEMON_REFUSE_WILL",
+        "effect": {
+          "math": [
+            "u_berserk_godo_demon_refused = 1"
+          ]
+        }
+      },
+      {
+        "text": "I do not want to argue, Godot.",
+        "topic": "TALK_BERSERK_GODO_DEMON_REFUSE_QUIET",
+        "effect": {
+          "math": [
+            "u_berserk_godo_demon_refused = 1"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_DEMON_SERVICE",
+    "dynamic_line": "Serve them? What if your master tells you to turn that weapon on the people you came to for help?",
+    "responses": [
+      {
+        "text": "I needed the power to survive!",
+        "topic": "TALK_BERSERK_GODO_DEMON_REFUSE_NEED",
+        "effect": {
+          "math": [
+            "u_berserk_godo_demon_refused = 1"
+          ]
+        }
+      },
+      {
+        "text": "I still decide what I do. My mind is my own.",
+        "topic": "TALK_BERSERK_GODO_DEMON_REFUSE_WILL",
+        "effect": {
+          "math": [
+            "u_berserk_godo_demon_refused = 1"
+          ]
+        }
+      },
+      {
+        "text": "I do not want to argue, Godot.",
+        "topic": "TALK_BERSERK_GODO_DEMON_REFUSE_QUIET",
+        "effect": {
+          "math": [
+            "u_berserk_godo_demon_refused = 1"
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_DEMON_REFUSE_NEED",
+    "dynamic_line": "Maybe you did. Everyone wants to live. But I will not forge a sword for this new road of yours.",
+    "responses": [
+      {
+        "text": "You agreed to help me before. Why refuse now?",
+        "topic": "TALK_BERSERK_GODO_DEMON_WHY"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_DEMON_REFUSE_WILL",
+    "dynamic_line": "Then listen to my answer while you can. I will not make that blade.",
+    "responses": [
+      {
+        "text": "You agreed to help me before. Why refuse now?",
+        "topic": "TALK_BERSERK_GODO_DEMON_WHY"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_DEMON_REFUSE_QUIET",
+    "dynamic_line": "Then we will not argue. I have told you the work I will not take.",
+    "responses": [
+      {
+        "text": "You agreed to help me before. Why refuse now?",
+        "topic": "TALK_BERSERK_GODO_DEMON_WHY"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_DEMON_WHY",
+    "dynamic_line": "You came as a person asking for a person's weapon. Now you ask me to arm what you are becoming. I do not know that creature. I will not help it grow stronger.",
+    "responses": [
+      {
+        "text": "Are you throwing me out?",
+        "topic": "TALK_BERSERK_GODO_DEMON_STAY"
+      },
+      {
+        "text": "Is that your final answer?",
+        "topic": "TALK_BERSERK_GODO_DEMON_FINAL"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_DEMON_STAY",
+    "dynamic_line": "I refused to forge you a blade. The rest depends on your behavior under my roof. Act like a person and you may remain.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_DEMON_FINAL",
+    "dynamic_line": "Yes. Final.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_DEMON_OWNED",
+    "dynamic_line": "It is yours. You fought with it; you answer for it. I will not tear it out of your hands. But if the Dragonslayer breaks, I will not take new work on it for this road.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_INVITE",
+    "dynamic_line": "In a hurry? Stay a little. Hand me those long tongs.",
+    "responses": [
+      {
+        "text": "All right. Let me help.",
+        "topic": "TALK_BERSERK_GODO_SPARKS",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_CAN_SPARKS"
+        },
+        "effect": {
+          "math": [
+            "u_berserk_godo_sparks_started = 1"
+          ]
+        }
+      },
+      {
+        "text": "Sorry, old man. Another time.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_LATER"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_HEARTH"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_LATER",
+    "dynamic_line": "As you wish. Go about your business.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_HEARTH"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_FINGERS",
+    "dynamic_line": "They let me hold the billet myself. Soon learned to watch my fingers and where I was striking, not the sparks.",
+    "responses": [
+      {
+        "text": "What is left after the fire?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_IRON"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_WORK",
+    "dynamic_line": "Then look closer. The finest-looking thing here disappears the quickest.",
+    "responses": [
+      {
+        "text": "The sparks go out. The iron remains.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_IRON"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_IRON",
+    "dynamic_line": "A bright spark, then nothing. But the iron remains. Each morning I can see what I did yesterday. Where I straightened it. Where I ruined the steel.",
+    "responses": [
+      {
+        "text": "People are more complicated than iron.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_PEOPLE"
+      },
+      {
+        "text": "Are you saying I only look at the sparks?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_ME"
+      },
+      {
+        "text": "Is what remains after the fire really enough for you?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_ENOUGH"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_PEOPLE",
+    "dynamic_line": "Of course. Iron is more honest. It does not try to tell me that a crack inside has done it good.",
+    "responses": [
+      {
+        "text": "What do you see in me?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_GUTS_BEFORE",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+            }
+          ]
+        }
+      },
+      {
+        "text": "Are you talking about my anger?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_GUTS_AFTER",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+            }
+          ]
+        }
+      },
+      {
+        "text": "What do you think remains for me?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_HUMAN",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I have changed. Does it still apply to me?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_DEMON",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_ME",
+    "dynamic_line": "I have not accused you of anything. I asked what you could see in the dark.",
+    "responses": [
+      {
+        "text": "What do you see in me?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_GUTS_BEFORE",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+            }
+          ]
+        }
+      },
+      {
+        "text": "Are you talking about my anger?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_GUTS_AFTER",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+            }
+          ]
+        }
+      },
+      {
+        "text": "What do you think remains for me?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_HUMAN",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I have changed. Does it still apply to me?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_DEMON",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_ENOUGH",
+    "dynamic_line": "Not every day. But I can return to the anvil next morning and go on with the work.",
+    "responses": [
+      {
+        "text": "What do you see in me?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_GUTS_BEFORE",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+            }
+          ]
+        }
+      },
+      {
+        "text": "Are you talking about my anger?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_GUTS_AFTER",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+            }
+          ]
+        }
+      },
+      {
+        "text": "What do you think remains for me?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_HUMAN",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I have changed. Does it still apply to me?",
+        "topic": "TALK_BERSERK_GODO_SPARKS_DEMON",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_GUTS_BEFORE",
+    "dynamic_line": "You have lived from one battle to the next a long time. You know where to stand, where to strike, and how to reach the next dawn.",
+    "responses": [
+      {
+        "text": "It is what I do best.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_GUTS_PEACE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_GUTS_PEACE",
+    "dynamic_line": "I see that. But what will you do with a peaceful day? One day without a fight?",
+    "responses": [
+      {
+        "text": "I will find something worth living for.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_GOAL"
+      },
+      {
+        "text": "I do not know. I never thought about it.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_DONT_KNOW"
+      },
+      {
+        "text": "I will decide when that day comes.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_LATER_DECIDE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_GUTS_AFTER",
+    "dynamic_line": "Your anger got you out of the grave. But even here by the fire you sit as though you must spring up and run.",
+    "responses": [
+      {
+        "text": "While I sit here warming myself, he is out there. Alive.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_GUTS_ALIVE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_GUTS_ALIVE",
+    "dynamic_line": "Perhaps. And you? Are you alive?",
+    "responses": [
+      {
+        "text": "As long as I can hold a weapon and fight.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_FIGHT"
+      },
+      {
+        "text": "If I stop for a moment, it will all come back.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_NIGHTMARE"
+      },
+      {
+        "text": "You do not understand. You were not there.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_NOT_THERE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_HUMAN",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE",
+      "yes": "You ask whether your blade can survive the next creature. Suppose it can. What will you do when the fighting is over?",
+      "no": "You ask whether your blade will last another fight. Suppose it does. What will you do with a day when you do not have to swing it?"
+    },
+    "responses": [
+      {
+        "text": "I want a safe place where I can just live.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_SAFE"
+      },
+      {
+        "text": "There are people I need to return to.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_RETURN"
+      },
+      {
+        "text": "For now I just want to survive tomorrow.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_TOMORROW"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_DEMON",
+    "dynamic_line": "You chose to change your nature for strength. What will you hold on to with that changed body?",
+    "responses": [
+      {
+        "text": "My own life. I want to protect it.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_SURVIVE"
+      },
+      {
+        "text": "I can protect the people I care about with this strength.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_PROTECT"
+      },
+      {
+        "text": "Freedom. Nobody will dare command me now.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_FREEDOM"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_GOAL",
+    "dynamic_line": "Search hard, boy. Do not expect a purpose to appear as if by magic when you kill your last enemy.",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_END",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_FINISH_SPARKS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_DONT_KNOW",
+    "dynamic_line": "There is no shame in not knowing. At least you can begin with that admission.",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_END",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_FINISH_SPARKS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_LATER_DECIDE",
+    "dynamic_line": "Mind that the habit of killing does not decide for you before you can open your mouth.",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_END",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_FINISH_SPARKS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_FIGHT",
+    "dynamic_line": "And when your wounded body cannot raise the blade? Will you deny yourself the right to live that day? A sword cannot replace a beating heart.",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_END",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_FINISH_SPARKS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_NIGHTMARE",
+    "dynamic_line": "Fear is a poor companion. If the nightmares return, there is someone here who can sit beside you until they quiet down. You are not alone in these woods.",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_END",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_FINISH_SPARKS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_NOT_THERE",
+    "dynamic_line": "No. I was not in your hell. But I can see what is happening here. I can see how carelessly you treat the little you managed to keep.",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_END",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_FINISH_SPARKS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_SAFE",
+    "dynamic_line": "A good aim. Keep it in mind. One day you must decide what to do with your hands besides striking.",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_END",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_FINISH_SPARKS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_RETURN",
+    "dynamic_line": "Then make the journey. Try to get back before they tire of waiting or die. The road takes more time than you think.",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_END",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_FINISH_SPARKS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_TOMORROW",
+    "dynamic_line": "Fair enough. Find a few minutes even in the worst day that you do not have to give wholly to fear.",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_END",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_FINISH_SPARKS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_SURVIVE",
+    "dynamic_line": "Everyone wants to live. Then do not hurry to throw away everything human you had before this choice.",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_END",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_FINISH_SPARKS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_PROTECT",
+    "dynamic_line": "Let them speak to you as equals. Even when they say things your new nature does not like. Do not become their monster.",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_END",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_FINISH_SPARKS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_FREEDOM",
+    "dynamic_line": "Pride. Then you must answer for each step yourself. That takes more strength than empty threats.",
+    "responses": [
+      {
+        "text": "I will remember.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_END",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_FINISH_SPARKS"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_END",
+    "dynamic_line": "*Godot turns back to the anvil. \"Enough talk. The iron is cooling.\"",
+    "responses": [
+      {
+        "text": "Let me work the bellows.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_BELLOWS"
+      },
+      {
+        "text": "Thank you for the conversation, Godot.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_THANKS"
+      },
+      {
+        "text": "I should go.",
+        "topic": "TALK_BERSERK_GODO_FAREWELL"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_BELLOWS",
+    "dynamic_line": "Steadily. Not too hard yet; do not burn through the coal.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      },
+      {
+        "text": "I should go.",
+        "topic": "TALK_BERSERK_GODO_FAREWELL"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_THANKS",
+    "dynamic_line": "Mm.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO"
+      },
+      {
+        "text": "I should go.",
+        "topic": "TALK_BERSERK_GODO_FAREWELL"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_RECALL",
+    "dynamic_line": "And what have you decided?",
+    "responses": [
+      {
+        "text": "I am still thinking. It is not simple.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_RECALL_THINK"
+      },
+      {
+        "text": "I think I have something to return to.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_RECALL_HOME"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_HEARTH"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_RECALL_THINK",
+    "dynamic_line": "I am not hurrying you. These things take time.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_HEARTH"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_SPARKS_RECALL_HOME",
+    "dynamic_line": "Good. Then we did not sit here for nothing.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_GODO_HEARTH"
       }
     ]
   }

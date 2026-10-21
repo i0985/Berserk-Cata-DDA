@@ -17,7 +17,8 @@ def main():
     for path in sorted((MOD / 'mutations').glob('apostol_*.json')):
         data = read(str(path.relative_to(MOD)))
         if not isinstance(data, list): continue
-        traits += [{'u_has_trait': x['id']} for x in data if x.get('type') == 'mutation']
+        traits += [{'u_has_trait': x['id']} for x in data if x.get('type') == 'mutation'
+                   and not x['id'].startswith('BERSERK_ECLIPSE_SCAR_')]
     accepted = {'or': [math('u_berserk_apostol_human_equipment_locked == 1'),
                         math('u_berserk_apostol_path > 0'),
                         math('u_berserk_apostol_lineage > 0'), *traits]}

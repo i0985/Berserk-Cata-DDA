@@ -1,0 +1,533 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_WITNESSED_ECLIPSE",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_outcome == 2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_PERSONAL_AVAILABLE",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "and": [
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_return_state == 2"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_outcome == 2"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+            },
+            {
+              "math": [
+                "u_berserk_godo_trauma_done != 1"
+              ]
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_return_state == 2"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_outcome == 2"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_revenge_told != 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_CAN_SPARKS",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        "u_at_safe_space",
+        {
+          "math": [
+            "u_berserk_godo_sparks_closed != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_sparks_completed != 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_godo_hearth_trust == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_early_delivered == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_delivered == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_FINISH_SPARKS",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_godo_sparks_completed = 1"
+        ]
+      },
+      {
+        "u_add_morale": "morale_berserk_godo_hearth",
+        "bonus": 5,
+        "max_bonus": 5,
+        "duration": "2 hours",
+        "decay_start": "1 hour",
+        "capped": true
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        {
+          "math": [
+            "u_berserk_godo_sparks_started == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_sparks_completed != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_sparks_closed != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_END_TRAUMA",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_godo_trauma_done = 1"
+        ]
+      },
+      {
+        "u_add_morale": "morale_berserk_godo_hearth",
+        "bonus": 3,
+        "max_bonus": 5,
+        "duration": "1 hour",
+        "decay_start": "30 minutes",
+        "capped": true
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_apostol_return_state == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_outcome == 2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+        },
+        {
+          "math": [
+            "u_berserk_godo_trauma_done != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_HAS_COPY",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "u_has_item": "forged_guts_early_sword"
+        },
+        {
+          "u_has_item": "forged_guts_sword"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_MADE_COPY",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_crafted_early_copy == 1"
+              ]
+            },
+            {
+              "u_has_item": "forged_guts_early_sword"
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_crafted_dragon_copy == 1"
+              ]
+            },
+            {
+              "u_has_item": "forged_guts_sword"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_RECORD_EARLY_COPY",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_godo_crafted_early_copy = 1"
+        ]
+      }
+    ],
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_RECORD_DRAGON_COPY",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_godo_crafted_dragon_copy = 1"
+        ]
+      }
+    ],
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_READ_RICKERT",
+    "effect": [
+      {
+        "if": "u_following",
+        "then": {
+          "math": [
+            "berserk_godo_rickert_following = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_rickert_recruit_refused == 1"
+          ]
+        },
+        "then": {
+          "math": [
+            "berserk_godo_rickert_refused = 1"
+          ]
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_npc",
+        {
+          "u_has_class": "NC_BERSERK_RICKERT"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_DIALOGUE_SYNC",
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FORM_VISIBLE"
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_TELL_GODO"
+        }
+      },
+      {
+        "math": [
+          "berserk_godo_rickert_following = 0"
+        ]
+      },
+      {
+        "math": [
+          "berserk_godo_rickert_refused = 0"
+        ]
+      },
+      {
+        "u_run_npc_eocs": [
+          "EOC_BERSERK_GODO_READ_RICKERT"
+        ],
+        "unique_ids": [],
+        "local": true,
+        "npc_range": 60
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_LINE_A3CB7AE68E2D",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_godo_sword_state > 0"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_sword_state < 4"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_LINE_CF75A03BBE66",
+    "effect": [],
+    "condition": {
+      "not": {
+        "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_LINE_186BF7807D4B",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_LINE_5906E52BD2DA",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FORGE_SCENE_WAKE_GODO_PENDING"
+          }
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_GODO_SMITH_ACQUAINTED"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_LINE_D0CA198B377F",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+        },
+        {
+          "math": [
+            "u_berserk_godo_sword_delivered == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_LINE_E434D679269C",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_GODO_WITNESSED_ECLIPSE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_LINE_97502AC24A5F",
+    "effect": [],
+    "condition": {
+      "not": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_GODO_LINE_39AAE6D6FC28",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        {
+          "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+        },
+        {
+          "math": [
+            "u_berserk_godo_repair_state != 1"
+          ]
+        }
+      ]
+    }
+  }
+]

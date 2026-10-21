@@ -488,7 +488,9 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_DEMON_SURVIVOR"
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
         },
         {
           "or": [
@@ -540,7 +542,9 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_DEMON_SURVIVOR"
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
         },
         {
           "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"

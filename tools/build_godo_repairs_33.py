@@ -83,7 +83,11 @@ def main():
         math('u_berserk_godo_repair_handoff_pending = 0'),
         {'u_run_inv_eocs': 'manual',
          'title': tr('Show Godot a blade', 'Показать Годо клинок', '给高多看一把剑'),
-         'search_data': [{'id': BLADES}], 'true_eocs': [P + 'ITEM']},
+         # The approved October dialogue refuses NEW work on Dragonslayer once
+         # a demonic path is accepted. A previously handed-in repair is honored.
+         'search_data': [{'id': [x for x in BLADES if x != 'true_guts_sword']},
+                         {'id': ['true_guts_sword'], 'condition': test('EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED')}],
+         'true_eocs': [P + 'ITEM']},
         # No false_eocs: manual item callbacks also call false_eocs after a move.
         {'if': math('u_berserk_godo_repair_handoff_pending == 1'), 'then': scan('START_STORED')},
     ], both(AT_SMITH, IDLE)))
@@ -140,6 +144,10 @@ def main():
     write('effects/godo_repair_eocs.json', helper)
 
     topics = read('dialogue/godo.json'); topic = index(topics)['TALK_BERSERK_GODO_REPAIR']
+    if index(topics)['TALK_BERSERK_GODO'].get('//') == 'Approved Godo dialogue 2026-10-21':
+        # New authored dialogue is canonical; this helper only maintains repair
+        # mechanics now. Run build_godo_dialogue_33.py for literary changes.
+        return
     topic['dynamic_line'] = {
         'math': ['u_berserk_godo_repair_state == 1'],
         'yes': tr('You left a blade with me. I need two hours at the forge. If you took it away, bring the same blade back.',

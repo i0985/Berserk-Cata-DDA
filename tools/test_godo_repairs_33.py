@@ -65,6 +65,8 @@ class Repair:
         if 'u_has_items' in obj:
             x = obj['u_has_items']; return self.items[x['item']] >= x['count']
         if 'test_eoc' in obj:
+            if obj['test_eoc'] == 'EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED':
+                return not (self.vars['u_berserk_apostol_path'] or self.vars['u_berserk_apostol_human_equipment_locked'])
             assert obj['test_eoc'] == 'EOC_BERSERK_GODO_AT_SMITH'
             return self.actor == 'godo' and self.at_smith and self.current is None
         raise AssertionError(obj)
@@ -237,9 +239,17 @@ class Repairs(unittest.TestCase):
             self.assertFalse(f.floor); self.assertEqual(f.items['steel_lump'], 3)
 
     def test_demonic_path_keeps_repair_of_owned_blade_available(self):
-        f = Repair(); f.vars['u_berserk_apostol_committed'] = 1
+        f = Repair(); f.vars['u_berserk_apostol_path'] = 1
         f.blade(); f.run('PICK'); f.now += 7200; f.run('CLAIM')
         self.assertEqual(f.floor[0]['hp'], 4000)
+
+    def test_demonic_path_refuses_new_dragonslayer_work_but_honors_existing_order(self):
+        f = Repair(); f.vars['u_berserk_apostol_path'] = 1; f.blade(id='true_guts_sword')
+        f.run('PICK'); self.assertEqual(len(f.carried),1); self.assertFalse(f.floor)
+        self.assertEqual(f.items['steel_lump'],3)
+        f.vars['u_berserk_apostol_path']=0; f.run('PICK')
+        f.vars['u_berserk_apostol_path']=1; f.now+=7200; f.run('CLAIM')
+        self.assertEqual(f.floor[0]['hp'],4000)
 
     def test_no_replacement_spawn_and_teleport_is_last(self):
         for id, e in Repair().eocs.items():

@@ -2,38 +2,66 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_SCENE_JUDEAU",
-    "effect": {
-      "u_message": "Three empty knife sheaths lie beside Judeau. His last throws bought someone a few breaths. Beyond him, the ash trail bends south between the pale sinews; the eastern branch leads to an abandoned satchel.",
-      "type": "info",
-      "popup": true
-    }
+    "effect": [
+      {
+        "u_message": "Three empty knife sheaths lie beside Judeau. His last throws bought someone a few breaths. Beyond him, the ash trail bends south between the pale sinews; the eastern branch leads to an abandoned satchel.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "math": [
+          "u_berserk_godo_witness_judeau = 1"
+        ]
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_SCENE_PIPPIN",
-    "effect": {
-      "u_message": "Pippin lies across the narrowest gap in the ridge. Scrapes on his hammer show where he held back the first rush. You can continue south along the western scars or rejoin the ash trail to the east.",
-      "type": "info",
-      "popup": true
-    }
+    "effect": [
+      {
+        "u_message": "Pippin lies across the narrowest gap in the ridge. Scrapes on his hammer show where he held back the first rush. You can continue south along the western scars or rejoin the ash trail to the east.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "math": [
+          "u_berserk_godo_witness_pippin = 1"
+        ]
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_SCENE_CORKUS",
-    "effect": {
-      "u_message": "A fragment of scabbard is clenched beside Corkus. Something that looked like an escape drew him into the feast. The outer eastern flank remains open: you need not approach the feeding hollows.",
-      "type": "info",
-      "popup": true
-    }
+    "effect": [
+      {
+        "u_message": "A fragment of scabbard is clenched beside Corkus. Something that looked like an escape drew him into the feast. The outer eastern flank remains open: you need not approach the feeding hollows.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "math": [
+          "u_berserk_godo_witness_corkus = 1"
+        ]
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ECLIPSE_SCENE_GASTON",
-    "effect": {
-      "u_message": "Gaston's sewing roll has spilled beneath the battered breastplate. Beyond him, the enormous ribs lean toward a still, luminous center. Follow their curve south to the last ceremony scar.",
-      "type": "info",
-      "popup": true
-    }
+    "effect": [
+      {
+        "u_message": "Gaston's sewing roll has spilled beneath the battered breastplate. Beyond him, the enormous ribs lean toward a still, luminous center. Follow their curve south to the last ceremony scar.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "math": [
+          "u_berserk_godo_witness_gaston = 1"
+        ]
+      }
+    ]
   },
   {
     "type": "effect_on_condition",

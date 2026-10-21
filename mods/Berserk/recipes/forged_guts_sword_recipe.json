@@ -10,20 +10,64 @@
     "time": "40 h",
     "autolearn": true,
     "proficiencies": [
-      { "proficiency": "prof_metalworking", "time_multiplier": 1.0 },
-      { "proficiency": "prof_blacksmithing", "time_multiplier": 0.8 },
-      { "proficiency": "prof_bladesmith", "time_multiplier": 0.6 }
+      {
+        "proficiency": "prof_metalworking",
+        "time_multiplier": 1.0
+      },
+      {
+        "proficiency": "prof_blacksmithing",
+        "time_multiplier": 0.8
+      },
+      {
+        "proficiency": "prof_bladesmith",
+        "time_multiplier": 0.6
+      }
     ],
     "using": [
-      [ "blacksmithing_standard", 15 ],
-      [ "steel_standard", 25 ],
-      [ "hc_steel_standard", 1 ]
+      [
+        "blacksmithing_standard",
+        15
+      ],
+      [
+        "steel_standard",
+        25
+      ],
+      [
+        "hc_steel_standard",
+        1
+      ]
     ],
-    "qualities": [ { "id": "GRIND", "level": 2 } ],
-    "tools": [ [ [ "hotcut_any", 1, "LIST" ] ] ],
+    "qualities": [
+      {
+        "id": "GRIND",
+        "level": 2
+      }
+    ],
+    "tools": [
+      [
+        [
+          "hotcut_any",
+          1,
+          "LIST"
+        ]
+      ]
+    ],
     "components": [
-      [ [ "pipe", 1 ] ],
-      [ [ "leather", 10 ] ]
+      [
+        [
+          "pipe",
+          1
+        ]
+      ],
+      [
+        [
+          "leather",
+          10
+        ]
+      ]
+    ],
+    "result_eocs": [
+      "EOC_BERSERK_GODO_RECORD_DRAGON_COPY"
     ]
   }
 ]
