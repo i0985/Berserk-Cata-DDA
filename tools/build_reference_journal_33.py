@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build the complete optional reference book after the five current builders.
+"""Build the complete optional reference book last in the canonical build order.
 
 The book can only observe/store knowledge and acknowledge read entries. Native
 missions, physical sources, order transactions and restoration are separate.
@@ -330,6 +330,7 @@ def items_and_restoration():
         'type': 'recipe', 'result': 'berserk_campaign_journal', 'id_suffix': 'copy_road_notes',
         'category': 'CC_OTHER', 'subcategory': 'CSC_OTHER_OTHER', 'skill_used': 'fabrication',
         'difficulty': 0, 'time': '15 minutes', 'autolearn': True,
+        'activity_level': 'LIGHT_EXERCISE',
         'components': [[['paper', 20]], [['thread', 10]]],
         'result_eocs': [PREFIX + 'COPY_FINISHED']}])
     GENERATED.append(eoc(PREFIX + 'COPY_FINISHED', [math('u_berserk_road_journal_issued = 1'),

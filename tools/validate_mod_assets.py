@@ -88,6 +88,26 @@ def validate_furniture_required_fields(path: Path, objects: list[dict[str, Any]]
                 )
 
 
+def validate_recipe_activity_level(path: Path, objects: list[dict[str, Any]]) -> None:
+    """recipe::load in CDDA 0.I requires exertion unless inherited.
+
+    This checks the mandatory string, not the complete native recipe schema
+    or resolution of copy-from definitions.
+    """
+    for entry in objects:
+        if entry.get("type") not in {"recipe", "uncraft", "practice", "nested_category"}:
+            continue
+        if "activity_level" not in entry and "copy-from" in entry:
+            continue
+        value = entry.get("activity_level")
+        if not isinstance(value, str) or not value.strip():
+            identity = entry.get("id", entry.get("abstract", entry.get("result")))
+            raise ValidationError(
+                f"{path.relative_to(ROOT)}: {entry['type']} {identity!r} "
+                "requires non-empty string activity_level in CDDA 0.I-1"
+            )
+
+
 def validate_monster_attacks(path: Path, objects: list[dict[str, Any]]) -> None:
     """Required cooldown and attack actor names from the 0.I-1 factory."""
     for entry in objects:
@@ -556,6 +576,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
             validate_mapgen_method(path, objects)
             validate_mapgen_update_effects(path, objects)
             validate_furniture_required_fields(path, objects)
+            validate_recipe_activity_level(path, objects)
             validate_monster_attacks(path, objects)
             validate_math_actor_scopes(path, objects)
             validate_dynamic_lines(path, objects)
