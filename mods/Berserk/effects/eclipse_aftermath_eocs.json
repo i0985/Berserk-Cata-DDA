@@ -45,6 +45,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -200,6 +203,9 @@
           "min_level": 0
         },
         "targeted": false
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "//": "Successful one-time rescue restores combat damage and transient disablement. Does not remove story bionics, the Brand, curse progress or the three-day Berserk recovery."
@@ -242,6 +248,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -309,6 +318,9 @@
             "run_eocs": "EOC_BERSERK_ECLIPSE_KNIGHT_RETRY"
           }
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -374,6 +386,9 @@
           "type": "info",
           "popup": true
         }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -528,6 +543,9 @@
             ]
           }
         }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -593,6 +611,9 @@
       {
         "run_eocs": "EOC_BERSERK_KNIGHT_DEPART",
         "time_in_future": "1 second"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },

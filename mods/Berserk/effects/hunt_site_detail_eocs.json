@@ -169,13 +169,21 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_HUNT_REVEALED_TRAIL",
-    "effect": [
-      {
-        "u_message": "The burned scrap carried by the apostle matches the ashen route here. Search its remains and activate the scrap to locate the separate breach. The gathered belongings can now be recovered.",
-        "type": "info",
-        "popup": true
-      }
-    ]
+    "effect": {
+      "run_eocs": "EOC_BERSERK_BREACH_READ_CLUE"
+    },
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_first_hunt_done == 1"
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_first_hunt_lair"
+        }
+      ]
+    }
   },
   {
     "type": "effect_on_condition",

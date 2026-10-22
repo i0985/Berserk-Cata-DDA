@@ -84,6 +84,17 @@
       },
       {
         "u_message": "Godot sets your blade beside his tools. \"Come back in two hours. I will see to the edge and the worn metal.\""
+      },
+      {
+        "math": [
+          "u_berserk_ref_repair_handoff = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_ORDERS_SYNC"
       }
     ],
     "condition": {
@@ -157,6 +168,9 @@
       },
       {
         "u_message": "Godot lays your repaired blade at your feet. \"Good as new. Take it.\""
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_ORDERS_SYNC"
       },
       {
         "npc_teleport": {
@@ -476,24 +490,29 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GODO_REPAIR_ABANDON",
-    "effect": {
-      "if": {
-        "u_query": "Close this repair order? The materials have been used and will not be returned. No blade will be replaced.",
-        "default": false
-      },
-      "then": [
-        {
-          "math": [
-            "u_berserk_godo_repair_state = 0"
-          ]
+    "effect": [
+      {
+        "if": {
+          "u_query": "Close this repair order? The materials have been used and will not be returned. No blade will be replaced.",
+          "default": false
         },
-        {
-          "math": [
-            "u_berserk_godo_repair_job = 0"
-          ]
-        }
-      ]
-    },
+        "then": [
+          {
+            "math": [
+              "u_berserk_godo_repair_state = 0"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_godo_repair_job = 0"
+            ]
+          }
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_ORDERS_SYNC"
+      }
+    ],
     "condition": {
       "and": [
         {

@@ -199,11 +199,16 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_RICKERT_RECORD_CARE_NPC",
-    "effect": {
-      "math": [
-        "berserk_rickert_care_present = 1"
-      ]
-    },
+    "effect": [
+      {
+        "math": [
+          "berserk_rickert_care_present = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
     "condition": {
       "and": [
         "u_is_npc",
@@ -263,6 +268,9 @@
         "math": [
           "u_berserk_rickert_care_recorded = 1"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -372,6 +380,9 @@
             "u_berserk_apostol_rickert_told = 1"
           ]
         }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -418,6 +429,9 @@
             ]
           }
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -469,6 +483,9 @@
         "math": [
           "u_berserk_rickert_heard_losses = 1"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -515,6 +532,9 @@
         "math": [
           "u_berserk_rickert_eclipse_story = 3"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -623,6 +643,9 @@
             ]
           }
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -769,6 +792,9 @@
         "math": [
           "u_berserk_rickert_heard_losses = 1"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -787,11 +813,16 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_RICKERT_KEEPSAKE_JUDEAU",
-    "effect": {
-      "math": [
-        "u_berserk_rickert_given_judeau = 1"
-      ]
-    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_rickert_given_judeau = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
     }
@@ -809,6 +840,9 @@
         "math": [
           "u_berserk_rickert_heard_losses = 1"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -827,11 +861,16 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_RICKERT_KEEPSAKE_PIPPIN",
-    "effect": {
-      "math": [
-        "u_berserk_rickert_given_pippin = 1"
-      ]
-    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_rickert_given_pippin = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
     }
@@ -849,6 +888,9 @@
         "math": [
           "u_berserk_rickert_heard_losses = 1"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -867,11 +909,16 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_RICKERT_KEEPSAKE_CORKUS",
-    "effect": {
-      "math": [
-        "u_berserk_rickert_given_corkus = 1"
-      ]
-    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_rickert_given_corkus = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
     }
@@ -889,6 +936,9 @@
         "math": [
           "u_berserk_rickert_heard_losses = 1"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -907,11 +957,16 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_RICKERT_KEEPSAKE_GASTON",
-    "effect": {
-      "math": [
-        "u_berserk_rickert_given_gaston = 1"
-      ]
-    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_rickert_given_gaston = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
     }

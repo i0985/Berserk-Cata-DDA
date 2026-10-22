@@ -49,14 +49,47 @@
     "condition": {
       "test_eoc": "EOC_BERSERK_BEHELIT_AVAILABLE"
     },
-    "effect": {
-      "map_spawn_item": "berserk_behelit",
-      "loc": {
-        "context_val": "berserk_behelit_drop_pos"
+    "effect": [
+      {
+        "map_spawn_item": "berserk_behelit",
+        "loc": {
+          "context_val": "berserk_behelit_drop_pos"
+        },
+        "count": 1,
+        "suppress_message": true
       },
-      "count": 1,
-      "suppress_message": true
-    }
+      {
+        "if": {
+          "math": [
+            "distance('u', _berserk_behelit_drop_pos) <= 3"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_ref_projection_drop_seen = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', _berserk_behelit_drop_pos) <= 3"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_ref_projection_drop_seen = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_ref_projection_studied = 1"
+            ]
+          }
+        ]
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -72,6 +105,80 @@
       {
         "u_message": "You recover a Behelit from the hiding place. The empty recess holds nothing else.",
         "type": "good"
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "u_at_om_location": "berserk_cursed_oak"
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_ref_behelit_oak = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "u_at_om_location": "berserk_echo_cave_entrance"
+            },
+            {
+              "u_at_om_location": "berserk_echo_cave_depth"
+            },
+            {
+              "u_at_om_location": "berserk_echo_cave_gallery"
+            },
+            {
+              "u_at_om_location": "berserk_echo_cave_passage"
+            },
+            {
+              "u_at_om_location": "berserk_echo_cave_relic_chamber"
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_ref_behelit_cave = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "u_at_om_location": "berserk_desecrated_chapel_nave"
+            },
+            {
+              "u_at_om_location": "berserk_desecrated_chapel_reliquary"
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_ref_behelit_chapel = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "or": [
+            {
+              "u_at_om_location": "berserk_lost_expedition"
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_ref_behelit_expedition = 1"
+          ]
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },

@@ -2,111 +2,104 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_OAK_BROKEN_ROOTCUTTER",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_oak_broken_rootcutter == 1"
+    "effect": [
+      {
+        "u_message": "Свежие зарубки обрываются посреди корней. На древке вырезаны два ряда отметок; один внезапно заканчивается. Эти люди пытались прорубить путь к каменному лицу, а не сразиться с тем, что жило под ним.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_oak_broken_rootcutter == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_oak_broken_rootcutter = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_OAK_BROKEN_ROOTCUTTER"
-        }
-      },
-      "else": [
-        {
-          "u_message": "Fresh cuts stop halfway through the roots. Two sets of tally marks were scratched into the haft; one ends abruptly. They meant to cut a path to the stone face, not to fight what lived beneath it.",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_oak_broken_rootcutter = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_oak_broken_rootcutter"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_OAK_WAYFARER_WARD",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_oak_wayfarer_ward == 1"
+    "effect": [
+      {
+        "u_message": "Надпись называет двух путников и просит, чтобы оба вернулись домой. Второй узел завязан дрожавшей рукой. На коре рядом — такое же тёмное пятно, как на брошенном корнерезе.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_oak_wayfarer_ward == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_oak_wayfarer_ward = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_OAK_WAYFARER_WARD"
-        }
-      },
-      "else": [
-        {
-          "u_message": "The inscription names two travelers and asks that both return home. A second knot was added with a shaking hand. Beyond it, the bark bears the same dark stain as the abandoned cutting tool.",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_oak_wayfarer_ward = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_oak_wayfarer_ward"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_OAK_LAST_NOTE",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_oak_last_note == 1"
+    "effect": [
+      {
+        "u_message": "Мы оставили телегу на старой тропе. Лицо застряло в корнях, как он и говорил. Пока существо обходило ствол, я ждал за толстыми корнями и не двигался.\n\nНазад пойдём по старой западной тропе. Если лишь один из нас доберётся до телеги, оставь имя другого на шнуре.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_oak_last_note == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_oak_last_note = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_OAK_LAST_NOTE"
-        }
-      },
-      "else": [
-        {
-          "u_message": "We left the cart on the old track. The face is caught in the roots, just as he said. At the eastern edge, the bones rang and the thing beneath the trunk turned toward them. I waited behind the thick roots until it passed. We will return by the old western track. If only one of us reaches the cart, leave the other name on the cord.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_oak_last_note = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_oak_last_note"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
@@ -290,227 +283,212 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_FLORA_HERBAL_FOLIO",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_flora_herbal_folio == 1"
+    "effect": [
+      {
+        "u_message": "Травы сушить отдельно. Чистую ткань для ран прокипятить. Старые рукава починить до следующего пути. Оба прохода вокруг духовного дерева держать свободными.\n\nУбежище остаётся убежищем, потому что кто-то заботится о нём.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_herbal_folio == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_herbal_folio = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_HERBAL_FOLIO"
-        }
-      },
-      "else": [
-        {
-          "u_message": "Dry the herbs separately. Boil clean cloth for wounds. Mend the old sleeves before another journey. Keep both paths around the spiritual tree clear. The last line reads: a refuge remains a refuge because someone cares for it.",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_flora_herbal_folio = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_flora_herbal_folio"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_CAVE_SCOUT_NOTE",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_cave_scout_note == 1"
+    "effect": [
+      {
+        "u_message": "Я отметил широкую галерею на востоке. Под ней тесный ход огибает каменную толщу и дважды соединяется с галереей. В западном зале мы услышали подвеску раньше, чем увидели то, что пошло на её звук. Повороты скрыли нас от его глаз.\n\nВозле лестницы есть проход с подпоркой, но колышек обращён в глубину пещеры. Если дойдём, оставлю ещё одну отметку у сломанной опоры.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_cave_scout_note == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_cave_scout_note = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CAVE_SCOUT_NOTE"
-        }
-      },
-      "else": [
-        {
-          "u_message": "I marked the wide gallery to the east. Below it, the smaller passage winds around the stone mass and meets the gallery twice. We heard the chime in the western chamber before we saw what followed it. The turns hid us from its eyes. There is a braced chute near the ladder, but its peg faces deeper into the cave. I will leave another mark by the broken prop if we reach it.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_cave_scout_note = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_cave_scout_note"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_CHAPEL_RELIEF_ROSTER",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_chapel_relief_roster == 1"
+    "effect": [
+      {
+        "u_message": "Воду хранили в восточной комнате, одеяла и перевязку — в ризнице. В ранней записи упомянут путник с починенным мечом и болтами: «Кузница Годо ещё работает в лесу. Старик и молодой помощник берут за работу пригодный металл». На обороте он нарисовал дорогу.\n\nПозднее вместо порций еды стали считать часы у красного камня. Последний доброволец написал: «Это должно было быть убежищем».",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_relief_roster == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_relief_roster = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_GODO_LEARN_TRACE"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_GODO_ROUTE_MISSION"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": [
-        {
-          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GODO"
-        },
-        {
-          "open_dialogue": {
-            "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CHAPEL_RELIEF_ROSTER"
-          }
-        }
-      ],
-      "else": [
-        {
-          "u_message": "Water was stored in the east room; blankets and dressings in the sacristy. An earlier entry records a traveler who brought a repaired sword and bolts: \"Godot’s forge is still working in the woods. The old man and his young helper take useful metal for their work.\" He drew the road on the back of the page. Later entries stop counting meals and count hours beside the red stone. The last volunteer wrote: \"This was meant to be a shelter.\"",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "run_eocs": "EOC_BERSERK_GODO_LEARN_TRACE"
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_chapel_relief_roster = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "run_eocs": "EOC_BERSERK_GODO_ROUTE_MISSION"
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_chapel_relief_roster"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_CHAPEL_RITUAL_NOTE",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_chapel_ritual_note == 1"
+    "effect": [
+      {
+        "u_message": "Мы назвали камень чудом, потому что нуждались в чуде. Перенесли его за алтарь и перестали открывать дверь чужакам. Когда начался шёпот, мы решили, что нам ответили.\n\nОтпечатки рук на алтаре оставили не во время молитвы.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_ritual_note == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_ritual_note = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CHAPEL_RITUAL_NOTE"
-        }
-      },
-      "else": [
-        {
-          "u_message": "We called the stone a miracle because we needed one. We moved it behind the altar and stopped opening the door to strangers. When the whispers began, we thought we had been answered. The handprints on the altar were not made in prayer.",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_chapel_ritual_note = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_chapel_ritual_note"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_CHAPEL_FOREST_ROUTE",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_chapel_forest_route == 1"
+    "effect": [
+      {
+        "u_message": "Если часовня потеряна, уходите через пролом в западной стене. Старая колея глубже в лесу приводит к огромному дубу с переплетёнными корнями. Путники рассказывали о другом каменном лице. Я не видел его сам.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_forest_route == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_forest_route = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CHAPEL_FOREST_ROUTE"
-        }
-      },
-      "else": [
-        {
-          "u_message": "If the chapel is lost, leave through the broken west wall. An old cart track farther into the forest ends at a huge oak with knotted roots. Travelers spoke of another stone face there. This is a lead, not a surveyed map; do not mistake the tree for safety.",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_chapel_forest_route = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_chapel_forest_route"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_EXPEDITION_TRANSFER_NOTE",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_expedition_transfer_note == 1"
+    "effect": [
+      {
+        "u_message": "Приказ на вывоз перечёркнут.\n\nТрое из нас после ночёвки здесь описали одно и то же красное лицо. Когда мы перенесли образец, за новой палаткой началось царапанье. Павел ранен: существо настигло его, когда он вышел на открытое место. Отменить сбор образца. Прислать транспорт для раненых. Снаряжение оставляем.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_expedition_transfer_note == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_expedition_transfer_note = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_EXPEDITION_TRANSFER_NOTE"
-        }
-      },
-      "else": [
-        {
-          "u_message": "The transport order is crossed out. Below it: Three of us described the same red face after sleeping here. When we moved the specimen, the scratching began outside its new tent. Pavel is hurt; the creature caught him when he stepped into the open. Cancel collection of the sample. Send transport for the wounded. We are leaving the equipment.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_expedition_transfer_note = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_expedition_transfer_note"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "ter_furn_transform",
@@ -712,6 +690,14 @@
       },
       {
         "turn_cost": "1 second"
+      },
+      {
+        "math": [
+          "u_berserk_ref_cave_prop = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   }

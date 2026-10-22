@@ -29,7 +29,24 @@
         "text": "I need to think.",
         "topic": "TALK_DONE"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_circle_reached = 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_gift_choice_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -57,7 +74,24 @@
           "run_eocs": "EOC_BERSERK_APOSTOL_REFUSAL_MEMORY"
         }
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_circle_reached = 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_gift_choice_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -180,7 +214,19 @@
         "text": "I will speak with the others.",
         "topic": "TALK_DONE"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_circle_reached = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -195,7 +241,19 @@
         "text": "I will think about that.",
         "topic": "TALK_DONE"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_circle_reached = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -224,7 +282,19 @@
         "text": "I will speak with the others.",
         "topic": "TALK_DONE"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_circle_reached = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -239,7 +309,19 @@
         "text": "I will think about that.",
         "topic": "TALK_DONE"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_circle_reached = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -268,7 +350,19 @@
         "text": "I will speak with the others.",
         "topic": "TALK_DONE"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_circle_reached = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -283,7 +377,19 @@
         "text": "I will think about that.",
         "topic": "TALK_DONE"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_circle_reached = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -312,7 +418,19 @@
         "text": "I will speak with the others.",
         "topic": "TALK_DONE"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_circle_reached = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -327,7 +445,19 @@
         "text": "I will think about that.",
         "topic": "TALK_DONE"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_circle_reached = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -356,7 +486,19 @@
         "text": "I will speak with the others.",
         "topic": "TALK_DONE"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_circle_reached = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -371,6 +513,18 @@
         "text": "I will think about that.",
         "topic": "TALK_DONE"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_circle_reached = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   }
 ]

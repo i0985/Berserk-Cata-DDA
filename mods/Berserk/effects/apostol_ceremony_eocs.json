@@ -188,6 +188,9 @@
         "false_eocs": [
           "EOC_BERSERK_APOSTOL_ENTRY_FAILED"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -209,6 +212,9 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_ARRIVE",
     "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      },
       {
         "u_teleport": {
           "u_val": "berserk_apostol_destination"
@@ -346,11 +352,16 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_REFUSAL_MEMORY",
-    "effect": {
-      "math": [
-        "u_berserk_apostol_refusal_seen = 1"
-      ]
-    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_refusal_seen = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
     }
@@ -437,6 +448,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_APOSTOL_RETURN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -862,6 +876,9 @@
             "type": "warning"
           }
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -935,7 +952,7 @@
             "run_eocs": "EOC_BERSERK_APOSTOL_GIFT_BEGIN"
           },
           {
-            "u_message": "You return to the living world. A broken road and an ashen wound linger behind your eyes. You record that trail in your road journal. Find food and somewhere to recover before following it.",
+            "u_message": "Вы вернулись в мир живых. Перед глазами всё ещё стоят разбитая дорога и пепельная рана. Этот след не забыт. Найдите еду и место для отдыха, прежде чем идти дальше.",
             "type": "warning",
             "popup": true
           }
@@ -945,7 +962,7 @@
             "run_eocs": "EOC_BERSERK_APOSTOL_APPLY_REFUSAL_SCAR"
           },
           {
-            "u_message": "You return to the living world. A broken road and an ashen wound linger behind your eyes. You record that trail in your road journal. Find food and somewhere to recover before following it.",
+            "u_message": "Вы вернулись в мир живых. Перед глазами всё ещё стоят разбитая дорога и пепельная рана. Этот след не забыт. Найдите еду и место для отдыха, прежде чем идти дальше.",
             "type": "warning",
             "popup": true
           }
@@ -953,6 +970,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_APOSTOL_CONTINUATION_BEGIN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -976,238 +996,243 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_APPLY_REFUSAL_SCAR",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_apostol_scar_schema == 2"
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "u_berserk_apostol_scar_schema == 2"
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_1 == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_2 == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_3 == 1"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_ECLIPSE_SCAR_HEARING"
+                }
+              },
+              "then": {
+                "u_add_trait": "BERSERK_ECLIPSE_SCAR_HEARING"
+              }
+            }
+          },
+          {
+            "if": {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_1 == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_2 == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_3 == 2"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_ECLIPSE_SCAR_SIGHT"
+                }
+              },
+              "then": {
+                "u_add_trait": "BERSERK_ECLIPSE_SCAR_SIGHT"
+              }
+            }
+          },
+          {
+            "if": {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_1 == 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_2 == 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_3 == 3"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_ECLIPSE_SCAR_TREMOR"
+                }
+              },
+              "then": {
+                "u_add_trait": "BERSERK_ECLIPSE_SCAR_TREMOR"
+              }
+            }
+          },
+          {
+            "if": {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_1 == 4"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_2 == 4"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_3 == 4"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_ECLIPSE_SCAR_MEMORIES"
+                }
+              },
+              "then": {
+                "u_add_trait": "BERSERK_ECLIPSE_SCAR_MEMORIES"
+              }
+            }
+          },
+          {
+            "if": {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_1 == 5"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_2 == 5"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_scar_3 == 5"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_ECLIPSE_SCAR_DREAD"
+                }
+              },
+              "then": {
+                "u_add_trait": "BERSERK_ECLIPSE_SCAR_DREAD"
+              }
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_scar_applied = 1"
+            ]
+          }
+        ],
+        "else": [
+          {
+            "math": [
+              "u_berserk_apostol_refusal_scar = floor(u_berserk_apostol_refusal_scar + 0.5)"
+            ]
+          },
+          {
+            "if": {
+              "math": [
+                "u_berserk_apostol_refusal_scar == 1"
+              ]
+            },
+            "then": {
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_ECLIPSE_SCAR_HEARING"
+                }
+              },
+              "then": {
+                "u_add_trait": "BERSERK_ECLIPSE_SCAR_HEARING"
+              }
+            }
+          },
+          {
+            "if": {
+              "math": [
+                "u_berserk_apostol_refusal_scar == 2"
+              ]
+            },
+            "then": {
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_ECLIPSE_SCAR_SIGHT"
+                }
+              },
+              "then": {
+                "u_add_trait": "BERSERK_ECLIPSE_SCAR_SIGHT"
+              }
+            }
+          },
+          {
+            "if": {
+              "math": [
+                "u_berserk_apostol_refusal_scar == 3"
+              ]
+            },
+            "then": {
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_ECLIPSE_SCAR_TREMOR"
+                }
+              },
+              "then": {
+                "u_add_trait": "BERSERK_ECLIPSE_SCAR_TREMOR"
+              }
+            }
+          },
+          {
+            "math": [
+              "u_berserk_apostol_scar_applied = 1"
+            ]
+          }
         ]
       },
-      "then": [
-        {
-          "if": {
-            "or": [
-              {
-                "math": [
-                  "u_berserk_apostol_scar_1 == 1"
-                ]
-              },
-              {
-                "math": [
-                  "u_berserk_apostol_scar_2 == 1"
-                ]
-              },
-              {
-                "math": [
-                  "u_berserk_apostol_scar_3 == 1"
-                ]
-              }
-            ]
-          },
-          "then": {
-            "if": {
-              "not": {
-                "u_has_trait": "BERSERK_ECLIPSE_SCAR_HEARING"
-              }
-            },
-            "then": {
-              "u_add_trait": "BERSERK_ECLIPSE_SCAR_HEARING"
-            }
-          }
-        },
-        {
-          "if": {
-            "or": [
-              {
-                "math": [
-                  "u_berserk_apostol_scar_1 == 2"
-                ]
-              },
-              {
-                "math": [
-                  "u_berserk_apostol_scar_2 == 2"
-                ]
-              },
-              {
-                "math": [
-                  "u_berserk_apostol_scar_3 == 2"
-                ]
-              }
-            ]
-          },
-          "then": {
-            "if": {
-              "not": {
-                "u_has_trait": "BERSERK_ECLIPSE_SCAR_SIGHT"
-              }
-            },
-            "then": {
-              "u_add_trait": "BERSERK_ECLIPSE_SCAR_SIGHT"
-            }
-          }
-        },
-        {
-          "if": {
-            "or": [
-              {
-                "math": [
-                  "u_berserk_apostol_scar_1 == 3"
-                ]
-              },
-              {
-                "math": [
-                  "u_berserk_apostol_scar_2 == 3"
-                ]
-              },
-              {
-                "math": [
-                  "u_berserk_apostol_scar_3 == 3"
-                ]
-              }
-            ]
-          },
-          "then": {
-            "if": {
-              "not": {
-                "u_has_trait": "BERSERK_ECLIPSE_SCAR_TREMOR"
-              }
-            },
-            "then": {
-              "u_add_trait": "BERSERK_ECLIPSE_SCAR_TREMOR"
-            }
-          }
-        },
-        {
-          "if": {
-            "or": [
-              {
-                "math": [
-                  "u_berserk_apostol_scar_1 == 4"
-                ]
-              },
-              {
-                "math": [
-                  "u_berserk_apostol_scar_2 == 4"
-                ]
-              },
-              {
-                "math": [
-                  "u_berserk_apostol_scar_3 == 4"
-                ]
-              }
-            ]
-          },
-          "then": {
-            "if": {
-              "not": {
-                "u_has_trait": "BERSERK_ECLIPSE_SCAR_MEMORIES"
-              }
-            },
-            "then": {
-              "u_add_trait": "BERSERK_ECLIPSE_SCAR_MEMORIES"
-            }
-          }
-        },
-        {
-          "if": {
-            "or": [
-              {
-                "math": [
-                  "u_berserk_apostol_scar_1 == 5"
-                ]
-              },
-              {
-                "math": [
-                  "u_berserk_apostol_scar_2 == 5"
-                ]
-              },
-              {
-                "math": [
-                  "u_berserk_apostol_scar_3 == 5"
-                ]
-              }
-            ]
-          },
-          "then": {
-            "if": {
-              "not": {
-                "u_has_trait": "BERSERK_ECLIPSE_SCAR_DREAD"
-              }
-            },
-            "then": {
-              "u_add_trait": "BERSERK_ECLIPSE_SCAR_DREAD"
-            }
-          }
-        },
-        {
-          "math": [
-            "u_berserk_apostol_scar_applied = 1"
-          ]
-        }
-      ],
-      "else": [
-        {
-          "math": [
-            "u_berserk_apostol_refusal_scar = floor(u_berserk_apostol_refusal_scar + 0.5)"
-          ]
-        },
-        {
-          "if": {
-            "math": [
-              "u_berserk_apostol_refusal_scar == 1"
-            ]
-          },
-          "then": {
-            "if": {
-              "not": {
-                "u_has_trait": "BERSERK_ECLIPSE_SCAR_HEARING"
-              }
-            },
-            "then": {
-              "u_add_trait": "BERSERK_ECLIPSE_SCAR_HEARING"
-            }
-          }
-        },
-        {
-          "if": {
-            "math": [
-              "u_berserk_apostol_refusal_scar == 2"
-            ]
-          },
-          "then": {
-            "if": {
-              "not": {
-                "u_has_trait": "BERSERK_ECLIPSE_SCAR_SIGHT"
-              }
-            },
-            "then": {
-              "u_add_trait": "BERSERK_ECLIPSE_SCAR_SIGHT"
-            }
-          }
-        },
-        {
-          "if": {
-            "math": [
-              "u_berserk_apostol_refusal_scar == 3"
-            ]
-          },
-          "then": {
-            "if": {
-              "not": {
-                "u_has_trait": "BERSERK_ECLIPSE_SCAR_TREMOR"
-              }
-            },
-            "then": {
-              "u_add_trait": "BERSERK_ECLIPSE_SCAR_TREMOR"
-            }
-          }
-        },
-        {
-          "math": [
-            "u_berserk_apostol_scar_applied = 1"
-          ]
-        }
-      ]
-    },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
     "condition": {
       "and": [
         {
@@ -1379,6 +1404,9 @@
             "run_eocs": "EOC_BERSERK_APOSTOL_RETURN"
           }
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -1901,6 +1929,9 @@
             ]
           }
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {

@@ -22,6 +22,14 @@
         "then": {
           "u_add_bionic": "bio_berserk_lost_eye"
         }
+      },
+      {
+        "math": [
+          "u_berserk_ref_brand_explained = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -377,6 +385,14 @@
             ]
           }
         ]
+      },
+      {
+        "math": [
+          "u_berserk_ref_night_experienced = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "//": "At most two attempts per two hours, six successful new spawns per night, six nearby demons. Count successful spawns only; leave existing creatures alive."

@@ -2,113 +2,104 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_EXPEDITION_ALARM_NOTE",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_expedition_alarm_note == 1"
+    "effect": [
+      {
+        "u_message": "Михаил, если первым доберёшься до лагеря: мы перенесли раненых в юго-западную палатку. Существо вышло из северной палатки и настигло Павла на открытом месте. Держись за полотном палаток и уходи через разрыв восточного ограждения. Мы уходим до сумерек.\n\nЛена.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_expedition_alarm_note == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_expedition_alarm_note = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_EXPEDITION_ALARM_NOTE"
-        }
-      },
-      "else": [
-        {
-          "u_message": "Mikhail, if you reach the camp first: we moved the wounded into the southwestern tent. The creature came out of the northern tent and caught Pavel in the open. Keep behind the canvas and use the gap in the eastern cordon. We are leaving before dusk. — Lena",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_expedition_alarm_note = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_expedition_alarm_note"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_CHAPEL_LAST_VIGIL",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_chapel_last_vigil == 1"
+    "effect": [
+      {
+        "u_message": "Последняя молитва перечёркнута.\n\nМы заперли парадные двери, чтобы не впускать чужаков. Теперь шаги слышны внутри. Ирина вынесла оставшиеся одеяла через ризницу; я не смог уговорить её вернуться за камнем. Западная стена проломлена. Идите за живыми, пока ещё есть время.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_last_vigil == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_last_vigil = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CHAPEL_LAST_VIGIL"
-        }
-      },
-      "else": [
-        {
-          "u_message": "The last prayer has been crossed out. Beneath it: We barred the front doors to keep the strangers away. Now the footsteps are inside. Irina took the remaining blankets through the sacristy; I could not persuade her to come back for the stone. The western wall is broken. Follow the living while there is still time.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_chapel_last_vigil = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_chapel_last_vigil"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_CAVE_LAST_SCRAP",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_cave_last_scrap == 1"
+    "effect": [
+      {
+        "u_message": "Восточный ход достаточно широк, чтобы нести его, но царапины там свежие. Железный лом я оставил у сломанной опоры. Мы вернулись вокруг каменной подвески и подошли к подпорке снизу. С той стороны колышек можно вытащить.\n\nЕсли он очнётся, сначала попробуем добраться до лестницы, а не до красного лица.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_cave_last_scrap == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_cave_last_scrap = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_CAVE_LAST_SCRAP"
-        }
-      },
-      "else": [
-        {
-          "u_message": "The letters were written on a strip torn from a sleeve: The eastern way is wide enough to carry him, but the scratches there are fresh. I left the iron bar where the prop broke. We came back around the stone chime and reached the brace from below. The peg can be pulled from that side. If he wakes, we will try the ladder before we try the red face again.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_cave_last_scrap = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_cave_last_scrap"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",

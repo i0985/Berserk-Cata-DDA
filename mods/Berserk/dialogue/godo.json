@@ -1597,7 +1597,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_WORK"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_repair_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -1656,7 +1668,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_WORK"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_early_blade_known = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -2545,7 +2569,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_ARM"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_prosthesis_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -2634,7 +2670,24 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_ARM"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_prosthesis_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        },
+        {
+          "math": [
+            "u_berserk_ref_rickert_one_hand_praise = 1"
+          ]
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -3865,11 +3918,26 @@
       }
     ],
     "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_journal_order_early = 1"
-        ]
-      }
+      "effect": [
+        {
+          "math": [
+            "u_berserk_journal_order_early = 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_forge_orders = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        },
+        {
+          "math": [
+            "u_berserk_ref_early_blade_known = 1"
+          ]
+        }
+      ]
     }
   },
   {
@@ -3961,7 +4029,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_WORK"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_godo_work = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -4105,7 +4185,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_WORK"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_dragonslayer_story = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -4142,7 +4234,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT_INTRO_LOCK"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_crossbow_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -4175,7 +4279,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT_MECHANISMS"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_crossbow_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -4186,7 +4302,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT_BAND"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_rickert_band = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -4216,7 +4344,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT_BAND"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_rickert_band = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -4296,11 +4436,26 @@
       }
     ],
     "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_journal_order_bolts = 1"
-        ]
-      }
+      "effect": [
+        {
+          "math": [
+            "u_berserk_journal_order_bolts = 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_bolts_explained = 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_forge_orders = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
     }
   },
   {
@@ -4312,7 +4467,24 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT_BOLTS"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_bolts_explained = 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_forge_orders = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -4464,10 +4636,34 @@
         }
       },
       {
+        "text": "I lost my road notes. Could I have a new notebook?",
+        "topic": "TALK_BERSERK_GODO_WORK",
+        "condition": {
+          "not": {
+            "u_has_item": "berserk_campaign_journal"
+          }
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_REF_RESTORE"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_godo_work = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -4524,7 +4720,7 @@
         }
       },
       {
-        "text": "I lost my road journal. I need another.",
+        "text": "I lost my road notes. Could I have a new notebook?",
         "topic": "TALK_BERSERK_GODO_ORDERS",
         "condition": {
           "not": {
@@ -4539,7 +4735,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_forge_orders = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -4732,7 +4940,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_crossbow_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -4769,7 +4989,7 @@
         "topic": "TALK_BERSERK_RICKERT_GODO"
       },
       {
-        "text": "I need a new road journal.",
+        "text": "I lost my road notes. Could I have a new notebook?",
         "topic": "TALK_BERSERK_RICKERT_ORDERS",
         "condition": {
           "not": {
@@ -4843,7 +5063,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_rickert_band = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -5306,7 +5538,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_godo_work = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -5321,7 +5565,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_repair_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -5620,7 +5876,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_early_blade_known = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -5741,7 +6009,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_WORK"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_early_blade_known = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -5808,7 +6088,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_DRAGON_STORY"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_dragonslayer_story = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -5861,7 +6153,24 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_WORK"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_forge_orders = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        },
+        {
+          "math": [
+            "u_berserk_ref_dragonslayer_story = 1"
+          ]
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -5957,7 +6266,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_ORDERS"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_forge_orders = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -5989,7 +6310,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_ORDERS"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_forge_orders = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -7862,7 +8195,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT_MECHANISMS"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_crossbow_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -8064,7 +8409,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_ARM"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_prosthesis_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -8075,7 +8432,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_ARM"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_prosthesis_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -8290,7 +8659,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_ARM"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_prosthesis_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -8402,7 +8783,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO_ARM"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_prosthesis_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -8413,7 +8806,14 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT_BOLTS"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "run_eocs": "EOC_BERSERK_REF_ORDERS_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -8424,7 +8824,14 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT_BOLTS"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "run_eocs": "EOC_BERSERK_REF_ORDERS_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -8435,7 +8842,14 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT_BOLTS"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "run_eocs": "EOC_BERSERK_REF_ORDERS_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -8487,7 +8901,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT_BAND"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_rickert_band = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -8986,7 +9412,35 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT_ECLIPSE"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "if": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_rickert_lied_before == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_RICKERT_TRUST_RESTORED"
+              }
+            ]
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_rickert_trust_restored = 1"
+              ]
+            },
+            {
+              "run_eocs": "EOC_BERSERK_REF_SYNC"
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -10156,7 +10610,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT_MECHANISMS"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_crossbow_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -10261,6 +10727,34 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "if": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_rickert_lied_before == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_RICKERT_TRUST_RESTORED"
+              }
+            ]
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_rickert_trust_restored = 1"
+              ]
+            },
+            {
+              "run_eocs": "EOC_BERSERK_REF_SYNC"
+            }
+          ]
+        }
+      ]
+    }
   }
 ]

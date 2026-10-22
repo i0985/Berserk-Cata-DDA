@@ -2,159 +2,150 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_COUNT_PRISON_LIST_READ",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_count_prison_list == 1"
+    "effect": [
+      {
+        "u_message": "Имена повторяются на объявлениях о казнях. Обувь и плащи рассортировали ещё до приговора, словно владелец уже перестал быть человеком. Одну запись зачеркнули и заменили словами «отправлен вниз».\n\nЗа каждым ровным столбцом стоял человек, которого здесь заранее сочли вещью.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_count_prison_list == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_count_prison_list = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_PRISON_LIST"
-        }
-      },
-      "else": [
-        {
-          "u_message": "Names repeat on the execution notices. Shoes and cloaks were sorted before the sentence, as though the owner had already ceased to be a person. One entry was crossed out and replaced by 'sent below'. There is no altar here: terror was an ordinary office routine.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_count_prison_list = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_count_prison_list"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_COUNT_PHYSICIAN_LEDGER_READ",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_count_physician_ledger == 1"
+    "effect": [
+      {
+        "u_message": "Первые страницы посвящены кипячённому полотну и обычным ранам. Затем появляются зарисовки второго рта, растущего из груди слуги.\n\nАвтор перестал называть это болезнью. Частицы плоти хозяина внедряли в жертву другую жизнь. Привычное лечение не возвращало человека.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_count_physician_ledger == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_count_physician_ledger = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_PHYSICIAN_LEDGER"
-        }
-      },
-      "else": [
-        {
-          "u_message": "The early pages discuss boiled linen and ordinary wounds. Later sketches show an extra mouth growing through a servant's chest. The writer stopped calling it an illness: fragments of the master's flesh were forcing a second life into the victim. His treatment could not reverse it. The servants are finite, not a renewing garrison.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_count_physician_ledger = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_count_physician_ledger"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_COUNT_FAMILY_RIBBON_READ",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_count_family_ribbon == 1"
+    "effect": [
+      {
+        "u_message": "Лента лежала рядом с шитьём и книгой, которую очищали от пыли. Записка называет комнату комнатой Терезии и запрещает слугам её тревожить.\n\nТот же правитель, который подписывал тюремные списки, оберегал этот островок обычной жизни. Где дочь сейчас, не сказано.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_count_family_ribbon == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_count_family_ribbon = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_FAMILY_RIBBON"
-        }
-      },
-      "else": [
-        {
-          "u_message": "The ribbon lay beside sewing and a book kept clear of dust. A note calls the room Theresia's and orders the servants not to disturb it. The same ruler who signed the prison lists protected this little island of ordinary life. Her whereabouts are not recorded; the servants kept this door closed as the rest of the house fell apart.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_count_family_ribbon = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_count_family_ribbon"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_COUNT_NEXT_TRACE_READ",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_count_next_trace == 1"
+    "effect": [
+      {
+        "u_message": "На карте отмечены две дороги. На одной — лагерь Чёрных Псов и имя Уайлда; на другой — туманная долина и имя Розины. По краю тянутся записи о пропавших обозах и закрытых дорогах.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_count_next_trace == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_count_next_trace = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_COUNT"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_WYALD"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_ROSINE"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_KNOWN_ROUTES_NOW"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_NEXT_TRACE"
-        }
-      },
-      "else": [
-        {
-          "u_message": "Two roads are marked on the map. One bears the Black Dogs’ camp and Wyald’s name; the other, a mist-filled valley and Rosine’s name. Notes along the edges describe missing wagons and roads that have been closed.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_COUNT"
-        },
-        {
-          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_WYALD"
-        },
-        {
-          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_ROSINE"
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_count_next_trace = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_count_next_trace"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "ter_furn_transform",

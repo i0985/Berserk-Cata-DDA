@@ -2,9 +2,16 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_CAMPAIGN_REPORT",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_JOURNAL_OPEN_CURRENT"
-    },
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_REF_ROOT"
+        }
+      }
+    ],
     "condition": {
       "math": [
         "berserk_eclipse_era == 1"
@@ -19,6 +26,9 @@
         "math": [
           "u_berserk_campaign_chapter_closed = 1"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -73,32 +83,37 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_road_journal_issued != 1"
-        ]
-      },
-      "then": [
-        {
-          "if": {
-            "not": {
-              "u_has_item": "berserk_campaign_journal"
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "u_berserk_road_journal_issued != 1"
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "not": {
+                "u_has_item": "berserk_campaign_journal"
+              }
+            },
+            "then": {
+              "u_spawn_item": "berserk_campaign_journal",
+              "count": 1,
+              "suppress_message": true
             }
           },
-          "then": {
-            "u_spawn_item": "berserk_campaign_journal",
-            "count": 1,
-            "suppress_message": true
+          {
+            "math": [
+              "u_berserk_road_journal_issued = 1"
+            ]
           }
-        },
-        {
-          "math": [
-            "u_berserk_road_journal_issued = 1"
-          ]
-        }
-      ]
-    }
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -147,14 +162,14 @@
               ]
             },
             "then": {
-              "set_string_var": "Grunbeld has fallen, but the wound linked to his stronghold remains to be examined. Keep that unfinished trail in your journal.",
+              "set_string_var": "Грюнбельд пал, но связанную с его крепостью рану ещё предстоит осмотреть.",
               "target_var": {
                 "context_val": "flora_next"
               },
               "i18n": true
             },
             "else": {
-              "set_string_var": "The surviving directions point toward Grunbeld’s stronghold. Consult that entry when you are ready to continue.",
+              "set_string_var": "Уцелевший след ведёт к крепости Грюнбельда. Направление отмечено среди ваших заданий.",
               "target_var": {
                 "context_val": "flora_next"
               },
@@ -187,7 +202,7 @@
             ]
           },
           "then": {
-            "set_string_var": "The Count's unfinished trail remains in your journal.",
+            "set_string_var": "Среди известных дорог остались незавершённые следы.",
             "target_var": {
               "context_val": "flora_next"
             },
@@ -218,7 +233,7 @@
               ]
             },
             "then": {
-              "set_string_var": "The Black Dogs' unfinished trail remains in your journal.",
+              "set_string_var": "Среди известных дорог остались незавершённые следы.",
               "target_var": {
                 "context_val": "flora_next"
               },
@@ -249,7 +264,7 @@
                 ]
               },
               "then": {
-                "set_string_var": "The unfinished trail to the misty valley remains in your journal.",
+                "set_string_var": "Осталась незавершённая дорога в туманную долину.",
                 "target_var": {
                   "context_val": "flora_next"
                 },
@@ -280,14 +295,14 @@
                   ]
                 },
                 "then": {
-                  "set_string_var": "The ashen breach is still open. Its location remains in your journal.",
+                  "set_string_var": "Пепельный разрыв ещё открыт. Его место вам известно.",
                   "target_var": {
                     "context_val": "flora_next"
                   },
                   "i18n": true
                 },
                 "else": {
-                  "set_string_var": "Recover at your refuge. Consult your journal for wounds still open and trails you have not completed.",
+                  "set_string_var": "Отдохните в своём пристанище, прежде чем продолжать незавершённые пути.",
                   "target_var": {
                     "context_val": "flora_next"
                   },
@@ -302,6 +317,9 @@
         "u_message": "Behind you, fire spreads through Flora's home. You have escaped, but a shelter is being lost. Darkness is taking deeper root in the world of Cataclysm; closing every rift will demand far more than the battles won so far.\n\n<context_val:flora_next>",
         "type": "warning",
         "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {

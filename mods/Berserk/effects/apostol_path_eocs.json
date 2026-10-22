@@ -240,18 +240,44 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_DISTORTED_BEHELIT_USE",
-    "effect": {
-      "if": {
-        "test_eoc": "EOC_BERSERK_APOSTOL_CAN_DISTORT_BEHELIT"
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CAN_DISTORT_BEHELIT"
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_ENTER"
+        },
+        "else": {
+          "u_message": "The blood-darkened face remains silent.",
+          "type": "neutral"
+        }
       },
-      "then": {
-        "run_eocs": "EOC_BERSERK_APOSTOL_ENTER"
+      {
+        "if": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            },
+            {
+              "u_has_item": "berserk_behelit_distorted"
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_ref_distorted_warning = 1"
+            ]
+          }
+        ]
       },
-      "else": {
-        "u_message": "The blood-darkened face remains silent.",
-        "type": "neutral"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -569,6 +595,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_APOSTOL_SYNC_RECIPE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {

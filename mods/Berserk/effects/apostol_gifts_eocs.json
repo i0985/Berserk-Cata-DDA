@@ -168,6 +168,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_APOSTOL_FIRST_BODY_CHANGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -369,6 +372,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_APOSTOL_FIRST_BODY_CHANGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -458,6 +464,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_APOSTOL_FIRST_BODY_CHANGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -669,6 +678,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_APOSTOL_FIRST_BODY_CHANGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -758,6 +770,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_APOSTOL_FIRST_BODY_CHANGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -959,6 +974,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_APOSTOL_FIRST_BODY_CHANGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -1048,6 +1066,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_APOSTOL_FIRST_BODY_CHANGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -1259,6 +1280,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_APOSTOL_FIRST_BODY_CHANGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -1344,6 +1368,9 @@
       },
       {
         "turn_cost": "1 seconds"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -1383,37 +1410,42 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_VOID_STEP_USE",
-    "effect": {
-      "if": {
-        "test_eoc": "EOC_BERSERK_APOSTOL_VOID_STEP_READY"
-      },
-      "then": [
-        {
-          "u_location_variable": {
-            "u_val": "berserk_apostol_step_origin"
-          }
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_VOID_STEP_READY"
         },
-        {
-          "math": [
-            "u_berserk_apostol_cast_confirmed = 0"
-          ]
-        },
-        {
-          "u_cast_spell": {
-            "id": "berserk_apostol_void_step",
-            "hit_self": false
+        "then": [
+          {
+            "u_location_variable": {
+              "u_val": "berserk_apostol_step_origin"
+            }
           },
-          "targeted": true,
-          "true_eocs": [
-            "EOC_BERSERK_APOSTOL_VOID_STEP_RESULT"
-          ]
+          {
+            "math": [
+              "u_berserk_apostol_cast_confirmed = 0"
+            ]
+          },
+          {
+            "u_cast_spell": {
+              "id": "berserk_apostol_void_step",
+              "hit_self": false
+            },
+            "targeted": true,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_VOID_STEP_RESULT"
+            ]
+          }
+        ],
+        "else": {
+          "u_message": "You cannot call on this strength yet.",
+          "type": "neutral"
         }
-      ],
-      "else": {
-        "u_message": "You cannot call on this strength yet.",
-        "type": "neutral"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    },
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_APOSTOL_VOID_LINE"
     }
@@ -1467,6 +1499,9 @@
       },
       {
         "turn_cost": "1 seconds"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -1564,6 +1599,9 @@
       },
       {
         "turn_cost": "1 seconds"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -1582,32 +1620,37 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_UBIK_IMAGE_USE",
-    "effect": {
-      "if": {
-        "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_IMAGE_READY"
-      },
-      "then": [
-        {
-          "math": [
-            "u_berserk_apostol_cast_confirmed = 0"
-          ]
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_IMAGE_READY"
         },
-        {
-          "u_cast_spell": {
-            "id": "berserk_apostol_ubik_image",
-            "hit_self": false
+        "then": [
+          {
+            "math": [
+              "u_berserk_apostol_cast_confirmed = 0"
+            ]
           },
-          "targeted": true,
-          "true_eocs": [
-            "EOC_BERSERK_APOSTOL_UBIK_IMAGE_SPEND"
-          ]
+          {
+            "u_cast_spell": {
+              "id": "berserk_apostol_ubik_image",
+              "hit_self": false
+            },
+            "targeted": true,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_UBIK_IMAGE_SPEND"
+            ]
+          }
+        ],
+        "else": {
+          "u_message": "You cannot call on this strength yet.",
+          "type": "neutral"
         }
-      ],
-      "else": {
-        "u_message": "You cannot call on this strength yet.",
-        "type": "neutral"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    },
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_LINE"
     }
@@ -1682,6 +1725,9 @@
       },
       {
         "turn_cost": "1 seconds"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -1700,32 +1746,37 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_USE",
-    "effect": {
-      "if": {
-        "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_READY"
-      },
-      "then": [
-        {
-          "math": [
-            "u_berserk_apostol_cast_confirmed = 0"
-          ]
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_READY"
         },
-        {
-          "u_cast_spell": {
-            "id": "berserk_apostol_ubik_confuse",
-            "hit_self": false
+        "then": [
+          {
+            "math": [
+              "u_berserk_apostol_cast_confirmed = 0"
+            ]
           },
-          "targeted": true,
-          "true_eocs": [
-            "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_SPEND"
-          ]
+          {
+            "u_cast_spell": {
+              "id": "berserk_apostol_ubik_confuse",
+              "hit_self": false
+            },
+            "targeted": true,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_UBIK_CONFUSE_SPEND"
+            ]
+          }
+        ],
+        "else": {
+          "u_message": "You cannot call on this strength yet.",
+          "type": "neutral"
         }
-      ],
-      "else": {
-        "u_message": "You cannot call on this strength yet.",
-        "type": "neutral"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    },
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_APOSTOL_UBIK_LINE"
     }
@@ -1779,6 +1830,9 @@
       },
       {
         "turn_cost": "1 seconds"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -1882,6 +1936,9 @@
       },
       {
         "turn_cost": "1 seconds"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -1900,32 +1957,37 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_USE",
-    "effect": {
-      "if": {
-        "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_READY"
-      },
-      "then": [
-        {
-          "math": [
-            "u_berserk_apostol_cast_confirmed = 0"
-          ]
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_READY"
         },
-        {
-          "u_cast_spell": {
-            "id": "berserk_apostol_conrad_strike",
-            "hit_self": false
+        "then": [
+          {
+            "math": [
+              "u_berserk_apostol_cast_confirmed = 0"
+            ]
           },
-          "targeted": true,
-          "true_eocs": [
-            "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_SPEND"
-          ]
+          {
+            "u_cast_spell": {
+              "id": "berserk_apostol_conrad_strike",
+              "hit_self": false
+            },
+            "targeted": true,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_CONRAD_STRIKE_SPEND"
+            ]
+          }
+        ],
+        "else": {
+          "u_message": "You cannot call on this strength yet.",
+          "type": "neutral"
         }
-      ],
-      "else": {
-        "u_message": "You cannot call on this strength yet.",
-        "type": "neutral"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    },
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_LINE"
     }
@@ -1974,6 +2036,9 @@
       },
       {
         "turn_cost": "2 seconds"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -1992,32 +2057,37 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_CONRAD_CLOUD_USE",
-    "effect": {
-      "if": {
-        "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_CLOUD_READY"
-      },
-      "then": [
-        {
-          "math": [
-            "u_berserk_apostol_cast_confirmed = 0"
-          ]
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_CLOUD_READY"
         },
-        {
-          "u_cast_spell": {
-            "id": "berserk_apostol_conrad_cloud",
-            "hit_self": false
+        "then": [
+          {
+            "math": [
+              "u_berserk_apostol_cast_confirmed = 0"
+            ]
           },
-          "targeted": true,
-          "true_eocs": [
-            "EOC_BERSERK_APOSTOL_CONRAD_CLOUD_SPEND"
-          ]
+          {
+            "u_cast_spell": {
+              "id": "berserk_apostol_conrad_cloud",
+              "hit_self": false
+            },
+            "targeted": true,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_CONRAD_CLOUD_SPEND"
+            ]
+          }
+        ],
+        "else": {
+          "u_message": "You cannot call on this strength yet.",
+          "type": "neutral"
         }
-      ],
-      "else": {
-        "u_message": "You cannot call on this strength yet.",
-        "type": "neutral"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    },
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CONRAD_LINE"
     }
@@ -2066,6 +2136,9 @@
       },
       {
         "turn_cost": "1 seconds"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -2084,32 +2157,37 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_FEMTO_PULSE_USE",
-    "effect": {
-      "if": {
-        "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_PULSE_READY"
-      },
-      "then": [
-        {
-          "math": [
-            "u_berserk_apostol_cast_confirmed = 0"
-          ]
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_PULSE_READY"
         },
-        {
-          "u_cast_spell": {
-            "id": "berserk_apostol_femto_pulse",
-            "hit_self": false
+        "then": [
+          {
+            "math": [
+              "u_berserk_apostol_cast_confirmed = 0"
+            ]
           },
-          "targeted": true,
-          "true_eocs": [
-            "EOC_BERSERK_APOSTOL_FEMTO_PULSE_SPEND"
-          ]
+          {
+            "u_cast_spell": {
+              "id": "berserk_apostol_femto_pulse",
+              "hit_self": false
+            },
+            "targeted": true,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_FEMTO_PULSE_SPEND"
+            ]
+          }
+        ],
+        "else": {
+          "u_message": "You cannot call on this strength yet.",
+          "type": "neutral"
         }
-      ],
-      "else": {
-        "u_message": "You cannot call on this strength yet.",
-        "type": "neutral"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    },
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_LINE"
     }
@@ -2158,6 +2236,9 @@
       },
       {
         "turn_cost": "1 seconds"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -2201,37 +2282,42 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_FEMTO_DASH_USE",
-    "effect": {
-      "if": {
-        "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_DASH_READY"
-      },
-      "then": [
-        {
-          "u_location_variable": {
-            "u_val": "berserk_apostol_step_origin"
-          }
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_DASH_READY"
         },
-        {
-          "math": [
-            "u_berserk_apostol_cast_confirmed = 0"
-          ]
-        },
-        {
-          "u_cast_spell": {
-            "id": "berserk_apostol_femto_dash",
-            "hit_self": false
+        "then": [
+          {
+            "u_location_variable": {
+              "u_val": "berserk_apostol_step_origin"
+            }
           },
-          "targeted": true,
-          "true_eocs": [
-            "EOC_BERSERK_APOSTOL_FEMTO_DASH_RESULT"
-          ]
+          {
+            "math": [
+              "u_berserk_apostol_cast_confirmed = 0"
+            ]
+          },
+          {
+            "u_cast_spell": {
+              "id": "berserk_apostol_femto_dash",
+              "hit_self": false
+            },
+            "targeted": true,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_FEMTO_DASH_RESULT"
+            ]
+          }
+        ],
+        "else": {
+          "u_message": "You cannot call on this strength yet.",
+          "type": "neutral"
         }
-      ],
-      "else": {
-        "u_message": "You cannot call on this strength yet.",
-        "type": "neutral"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    },
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_LINE"
     }
@@ -2280,6 +2366,9 @@
       },
       {
         "turn_cost": "2 seconds"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -2298,32 +2387,37 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_FEMTO_SUPPRESS_USE",
-    "effect": {
-      "if": {
-        "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_SUPPRESS_READY"
-      },
-      "then": [
-        {
-          "math": [
-            "u_berserk_apostol_cast_confirmed = 0"
-          ]
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_SUPPRESS_READY"
         },
-        {
-          "u_cast_spell": {
-            "id": "berserk_apostol_femto_suppression",
-            "hit_self": false
+        "then": [
+          {
+            "math": [
+              "u_berserk_apostol_cast_confirmed = 0"
+            ]
           },
-          "targeted": true,
-          "true_eocs": [
-            "EOC_BERSERK_APOSTOL_FEMTO_SUPPRESS_SPEND"
-          ]
+          {
+            "u_cast_spell": {
+              "id": "berserk_apostol_femto_suppression",
+              "hit_self": false
+            },
+            "targeted": true,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_FEMTO_SUPPRESS_SPEND"
+            ]
+          }
+        ],
+        "else": {
+          "u_message": "You cannot call on this strength yet.",
+          "type": "neutral"
         }
-      ],
-      "else": {
-        "u_message": "You cannot call on this strength yet.",
-        "type": "neutral"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    },
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_APOSTOL_FEMTO_LINE"
     }

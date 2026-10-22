@@ -11,11 +11,21 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_SCENERY_CHAPEL",
-    "effect": {
-      "u_message": "The memorial was altered rather than broken. Names are scraped away, but the older words offering shelter remain. Wax fills the altar joints, and handprints continue around its far side. The books in the sacristy still carry the names of their donors.",
-      "type": "info",
-      "popup": true
-    }
+    "effect": [
+      {
+        "u_message": "The memorial was altered rather than broken. Names are scraped away, but the older words offering shelter remain. Wax fills the altar joints, and handprints continue around its far side. The books in the sacristy still carry the names of their donors.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "math": [
+          "u_berserk_ref_chapel_bypass = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",

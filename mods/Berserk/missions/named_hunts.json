@@ -3,7 +3,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_BREACH",
     "name": "Close the ashen breach",
-    "description": "Defeat the guardian at the marked breach, then examine the wound at its center to seal it. Existing demons remain. Read your journal afterward to choose another trail.",
+    "description": "Defeat the keeper at the marked breach, then examine the wound at its center. Closing the passage will not destroy creatures which have already crossed. Study the surviving marks for further trails.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [
@@ -58,8 +58,8 @@
   {
     "type": "mission_definition",
     "id": "MISSION_BERSERK_COUNT",
-    "name": "Hunt the Count",
-    "description": "Explore the marked residence, descend below the execution hall and defeat the Count. Examine his exposed breach, seal it and claim the relic. The other hunts keep separate progress.",
+    "name": "The Count's residence",
+    "description": "Explore the marked residence and the rooms below its execution hall. The trail leads to the Count and a passage held open beneath his house. Deal with the keeper, examine the wound and recover what remains after it is sealed.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [
@@ -86,8 +86,8 @@
   {
     "type": "mission_definition",
     "id": "MISSION_BERSERK_WYALD",
-    "name": "Hunt Wyald and the Black Dogs",
-    "description": "Enter the marked camp and explore its stores and prisoner cages. The apostle waits in the southeastern fighting ground. Defeat him, examine the breach and claim the Beast Knot.",
+    "name": "The Black Dogs' camp",
+    "description": "Follow the trail to the Black Dogs' camp. Inspect its stores, prisoners' traces and paths of retreat. Wyald holds this place; after confronting him, find the wound linked to the camp and examine what remains when it closes.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [
@@ -114,8 +114,8 @@
   {
     "type": "mission_definition",
     "id": "MISSION_BERSERK_ROSINE",
-    "name": "Hunt Rosine in Mistvale",
-    "description": "Follow the marked valley through flowers and cocoons to its southeastern nest. Defeat Rosine, seal her breach and claim the Mistvale Veil. Some cocoons can be opened or destroyed.",
+    "name": "The misty valley",
+    "description": "Follow the marked trail into the valley. The evidence names Rosine. Study the flowers, cocoons and paths before confronting her. Examine the wound linked to this place and recover the surviving relic after it closes.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [
@@ -142,8 +142,8 @@
   {
     "type": "mission_definition",
     "id": "MISSION_BERSERK_GRUNBELD",
-    "name": "Hunt Grunbeld in the scarred stronghold",
-    "description": "After leaving Flora's grove, follow the marked stronghold trail. Defeat both forms in the crucible, seal this site and claim its relic. If Grunbeld fell during the earlier battle, follow the surviving trace instead; his unique reward is not given twice.",
+    "name": "Grunbeld's stronghold",
+    "description": "The surviving trail leads to the stronghold. Explore the fortifications and the passage linked to this place. Examine the traces Grunbeld left here, close the wound and recover what remains.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [

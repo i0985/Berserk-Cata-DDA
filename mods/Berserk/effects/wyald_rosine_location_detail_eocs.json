@@ -2,190 +2,178 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_BERSERK_WYALD_MUSTER_ROLL",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_wyald_muster_roll == 1"
+    "effect": [
+      {
+        "u_message": "В списках отдельно указаны солдаты, пленники и те, кого увели к командиру. Первые страницы заполнены размерами сапог и пайками. Позже появляются пометки об искривлённых стражах в той же форме.\n\nЗа привычной военной ведомостью проступает другая жизнь лагеря.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_muster_roll == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_muster_roll = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_WYALD_MUSTER_ROLL"
-        }
-      },
-      "else": [
-        {
-          "u_message": "The lists separate soldiers, prisoners and those taken to the leader. Human boot sizes and ration counts fill the early pages. Later marks describe warped guards wearing the same uniforms. This was an army before its cruelty took a monstrous shape. The broken wagon lies west of the tents; the quarry leaves a southern way around the cages.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_wyald_muster_roll = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_wyald_muster_roll"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_BERSERK_WYALD_PRISONER_ACCOUNT",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_wyald_prisoner_account == 1"
+    "effect": [
+      {
+        "u_message": "Я спрятал это до переклички. Дверцы клеток перевязаны, а не заперты железными ключами. Развяжи их с любой стороны и проходи; путь через карьер длиннее, но открыт.\n\nРядом с одним именем внизу дописано короткое слово: «сбежал».",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_prisoner_account == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_prisoner_account = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_WYALD_PRISONER_ACCOUNT"
-        }
-      },
-      "else": [
-        {
-          "u_message": "I hid this before they counted us. The cage doors are tied, not locked with iron keys. Untie them from either side and pass through; the quarry is longer but stays open. One name at the bottom is followed by a small word: escaped.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_wyald_prisoner_account = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_wyald_prisoner_account"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_BERSERK_WYALD_COMMAND_ORDERS",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_wyald_command_orders == 1"
+    "effect": [
+      {
+        "u_message": "Уайлд приказал пересчитать награбленные припасы и расчистить площадку для боя. Деревянные заслоны оттащили к краям. Между строчек о добыче и людях повторяется одно требование: никто не должен уйти без его разрешения.\n\nПоследний лист говорит о расколотом мире. Переход изменил прежнюю судьбу командира. В этом лагере живёт он сам, а не его отражение.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_command_orders == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_command_orders = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_WYALD"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_KNOWN_ROUTES_NOW"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_WYALD_COMMAND_ORDERS"
-        }
-      },
-      "else": [
-        {
-          "u_message": "Wyald ordered the stolen stores counted and the fighting ground cleared. Timber screens were dragged to its edges; three wrecked barriers remain on the open earth. Leave space beside them for a sidestep when he braces to charge. The last order names a world broken open: his old fate was diverted by the crossing, and the being leading this camp is alive, not an echo.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_WYALD"
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_wyald_command_orders = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_wyald_command_orders"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_BERSERK_ROSINE_WITNESS_NOTE",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_rosine_witness_note == 1"
+    "effect": [
+      {
+        "u_message": "Они называли крылатых тварей феями, потому что цветы были прекрасны. Я шёл по следу брошенной обуви, мимо игр — к шёлку.\n\nВ тихих оболочках не осталось надежды; в движущихся было нечто уже изменившееся. Вернуть их я не могу. По западному оврагу можно обойти рощу и выйти к огромным корням.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_rosine_witness_note == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_rosine_witness_note = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROSINE_WITNESS_NOTE"
-        }
-      },
-      "else": [
-        {
-          "u_message": "They called the winged things fairies because the flowers were beautiful. I followed their lost shoes past the games to the silk. The still shells were empty of hope; the moving ones held something already changed. Break a swelling cocoon before it opens and no creature will fly out of that shell. I cannot bring the transformed back. The shallow western gully bends around the grove toward the great roots.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_rosine_witness_note = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_rosine_witness_note"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_READ_BERSERK_ROSINE_FADED_RIBBON",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_rosine_faded_ribbon == 1"
+    "effect": [
+      {
+        "u_message": "Ленту повязали на ветку как метку для игры. Дальше такой же узел зажат в расколотой оболочке. Цветы продолжили расти, когда игры оборвались.\n\nОт человека иногда остаётся вещь, которую легко пройти мимо.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_rosine_faded_ribbon == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_rosine_faded_ribbon = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROSINE_FADED_RIBBON"
-        }
-      },
-      "else": [
-        {
-          "u_message": "The ribbon was tied around a twig as a marker in a game. Another knot is clenched inside a split shell farther along. The flowers kept growing when the games stopped. This little thing records a person, not a treasure hidden in a creature.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_rosine_faded_ribbon = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_rosine_faded_ribbon"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "ter_furn_transform",

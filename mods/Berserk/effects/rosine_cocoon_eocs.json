@@ -47,27 +47,37 @@
         }
       ]
     },
-    "effect": {
-      "if": {
-        "u_query": "Cut open the stirring cocoon? A creature may emerge beside it.",
-        "default": false
-      },
-      "then": {
-        "u_spawn_monster": "mon_berserk_cocoon_ravager",
-        "target_var": {
-          "context_val": "pos"
+    "effect": [
+      {
+        "if": {
+          "u_query": "Cut open the stirring cocoon? A creature may emerge beside it.",
+          "default": false
         },
-        "real_count": 1,
-        "min_radius": 1,
-        "max_radius": 2,
-        "true_eocs": [
-          "EOC_BERSERK_COCOON_EMPTIED"
-        ],
-        "false_eocs": [
-          "EOC_BERSERK_COCOON_BLOCKED"
+        "then": {
+          "u_spawn_monster": "mon_berserk_cocoon_ravager",
+          "target_var": {
+            "context_val": "pos"
+          },
+          "real_count": 1,
+          "min_radius": 1,
+          "max_radius": 2,
+          "true_eocs": [
+            "EOC_BERSERK_COCOON_EMPTIED"
+          ],
+          "false_eocs": [
+            "EOC_BERSERK_COCOON_BLOCKED"
+          ]
+        }
+      },
+      {
+        "math": [
+          "u_berserk_ref_cocoon_examined = 1"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -91,6 +101,14 @@
       {
         "u_message": "The silk splits. A winged creature crawls free, leaving an empty shell.",
         "type": "warning"
+      },
+      {
+        "math": [
+          "u_berserk_ref_rosine_creatures = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },

@@ -228,6 +228,9 @@
             }
           ]
         }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -289,6 +292,9 @@
             "EOC_BERSERK_FIRST_HUNT_SEARCH_FAILED"
           ]
         }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -348,6 +354,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_FIRST_HUNT_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -359,85 +368,90 @@
         "u_berserk_first_hunt_done != 1"
       ]
     },
-    "effect": {
-      "if": {
-        "and": [
+    "effect": [
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "has_var(u_berserk_first_hunt_location)"
+              ]
+            },
+            {
+              "overmap_at_point": "berserk_first_hunt_lair",
+              "point": {
+                "u_val": "berserk_first_hunt_location"
+              }
+            }
+          ]
+        },
+        "then": [
           {
             "math": [
-              "has_var(u_berserk_first_hunt_location)"
+              "u_berserk_first_hunt_location_invalid = 0"
             ]
           },
           {
-            "overmap_at_point": "berserk_first_hunt_lair",
-            "point": {
+            "reveal_map": {
               "u_val": "berserk_first_hunt_location"
-            }
+            },
+            "radius": 0
+          },
+          {
+            "if": {
+              "not": {
+                "u_has_mission": "MISSION_BERSERK_FIRST_HUNT"
+              }
+            },
+            "then": [
+              {
+                "assign_mission": "MISSION_BERSERK_FIRST_HUNT"
+              },
+              {
+                "if": {
+                  "u_has_mission": "MISSION_BERSERK_FIRST_HUNT"
+                },
+                "then": [
+                  {
+                    "if": {
+                      "math": [
+                        "u_berserk_first_hunt_mission_issued != 1"
+                      ]
+                    },
+                    "then": {
+                      "run_eocs": "EOC_BERSERK_DIALOGUE_NOTICE_FIRST"
+                    }
+                  },
+                  {
+                    "math": [
+                      "u_berserk_first_hunt_mission_issued = 1"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "else": [
+          {
+            "math": [
+              "u_berserk_first_hunt_location_invalid = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_first_hunt_marked = 0"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_FIRST_HUNT_NOT_FOUND"
           }
         ]
       },
-      "then": [
-        {
-          "math": [
-            "u_berserk_first_hunt_location_invalid = 0"
-          ]
-        },
-        {
-          "reveal_map": {
-            "u_val": "berserk_first_hunt_location"
-          },
-          "radius": 0
-        },
-        {
-          "if": {
-            "not": {
-              "u_has_mission": "MISSION_BERSERK_FIRST_HUNT"
-            }
-          },
-          "then": [
-            {
-              "assign_mission": "MISSION_BERSERK_FIRST_HUNT"
-            },
-            {
-              "if": {
-                "u_has_mission": "MISSION_BERSERK_FIRST_HUNT"
-              },
-              "then": [
-                {
-                  "if": {
-                    "math": [
-                      "u_berserk_first_hunt_mission_issued != 1"
-                    ]
-                  },
-                  "then": {
-                    "run_eocs": "EOC_BERSERK_DIALOGUE_NOTICE_FIRST"
-                  }
-                },
-                {
-                  "math": [
-                    "u_berserk_first_hunt_mission_issued = 1"
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      ],
-      "else": [
-        {
-          "math": [
-            "u_berserk_first_hunt_location_invalid = 1"
-          ]
-        },
-        {
-          "math": [
-            "u_berserk_first_hunt_marked = 0"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_FIRST_HUNT_NOT_FOUND"
-        }
-      ]
-    }
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -510,6 +524,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_FIRST_HUNT_REQUEST"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -557,6 +574,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -566,10 +586,15 @@
     "condition": {
       "u_has_mission": "MISSION_BERSERK_FIRST_HUNT"
     },
-    "effect": {
-      "finish_mission": "MISSION_BERSERK_FIRST_HUNT",
-      "success": true
-    }
+    "effect": [
+      {
+        "finish_mission": "MISSION_BERSERK_FIRST_HUNT",
+        "success": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_TRACE_SYNC"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -597,6 +622,9 @@
             ]
           }
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -731,6 +759,9 @@
         "false_eocs": [
           "EOC_BERSERK_FIRST_HUNT_TRY_HIDDEN"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },

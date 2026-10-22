@@ -38,7 +38,10 @@
       "IMMOBILE",
       "PACIFIST"
     ],
-    "looks_like": "mon_civilian_stationary"
+    "looks_like": "mon_civilian_stationary",
+    "death_function": {
+      "eoc": "EOC_BERSERK_REF_GODO_DEATH"
+    }
   },
   {
     "type": "MONSTER",
@@ -79,6 +82,9 @@
       "IMMOBILE",
       "PACIFIST"
     ],
-    "looks_like": "mon_civilian_stationary"
+    "looks_like": "mon_civilian_stationary",
+    "death_function": {
+      "eoc": "EOC_BERSERK_REF_RICKERT_DEATH"
+    }
   }
 ]

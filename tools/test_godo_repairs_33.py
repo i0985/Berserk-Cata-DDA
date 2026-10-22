@@ -72,6 +72,9 @@ class Repair:
         raise AssertionError(obj)
 
     def run(self, id):
+        # Knowledge and ordinary task bookkeeping are exercised separately by
+        # test_reference_journal_33. This fixture models physical item talkers.
+        if id in ['EOC_BERSERK_REF_SYNC', 'EOC_BERSERK_REF_ORDERS_SYNC']: return
         e = self.eocs[id if id.startswith('EOC_') else P + id]
         if 'condition' not in e or self.condition(e['condition']): self.effect(e['effect'])
 

@@ -141,7 +141,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_GODO_SWORD_TEMPER",
     "name": "Steel that will hold an edge",
-    "description": "Bring 8 lumps of high steel, 600 charcoal and 4 leather patches. High steel can be recovered or smelted using ordinary metalworking recipes; no unique defeated boss is required.",
+    "description": "Bring Godot 8 lumps of high steel, 600 charcoal and 4 leather patches. After delivery, allow two days for forging and tempering.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [
@@ -169,7 +169,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_GODO_SWORD_COLLECT",
     "name": "Collect the Dragonslayer",
-    "description": "Give Godot two days to forge and temper the blade, then return. A sword you already own is repaired, not duplicated.",
+    "description": "Return to Godot two days after the last delivery and collect your finished blade.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [
@@ -225,7 +225,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_GODO_EARLY_COLLECT",
     "name": "Collect the long battle sword",
-    "description": "Return to Godot twelve hours after delivering the materials. He repairs an early sword you already own rather than duplicating it.",
+    "description": "Return to Godot twelve hours after delivering the materials and collect the battle sword.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [

@@ -62,7 +62,9 @@ class DirectMissions(unittest.TestCase):
         f=Routes();clue=f.eocs['EOC_BERSERK_BREACH_READ_CLUE']
         self.assertNotIn('open_dialogue',json.dumps(clue))
         self.assertIn('EOC_BERSERK_JOURNAL_BREACH_LOCATE',json.dumps(clue))
-        self.assertEqual(f.eocs['EOC_BERSERK_APOSTOL_CONTINUATION_BEGIN']['effect'][-1]['run_eocs'],'EOC_BERSERK_KNOWN_ROUTES_NOW')
+        actions = f.eocs['EOC_BERSERK_APOSTOL_CONTINUATION_BEGIN']['effect']
+        self.assertIn({'run_eocs':'EOC_BERSERK_KNOWN_ROUTES_NOW'}, actions)
+        self.assertNotIn('open_dialogue', json.dumps(actions))
 
     def test_first_hunt_stays_automatic_and_nothing_erases_known_coordinates(self):
         f=Routes();self.assertIn({'run_eocs':'EOC_BERSERK_FIRST_HUNT_REQUEST'},f.eocs['EOC_BERSERK_ECLIPSE_AFTERMATH']['effect'])

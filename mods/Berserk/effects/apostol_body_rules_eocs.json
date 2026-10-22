@@ -35,6 +35,9 @@
         "math": [
           "u_berserk_apostol_body_checked = 1"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -216,11 +219,16 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_RESTORE_WORLD_ERA",
-    "effect": {
-      "math": [
-        "berserk_eclipse_era = 1"
-      ]
-    },
+    "effect": [
+      {
+        "math": [
+          "berserk_eclipse_era = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
     "condition": {
       "and": [
         "u_is_avatar",

@@ -36,8 +36,11 @@ def main():
     clue=by['EOC_BERSERK_BREACH_READ_CLUE']
     # First reading gives its actual evidence, then locates/assigns the target.
     # Re-reading repeats neither the scene nor the journal's menu tree.
-    clue['effect']['then']=[run('EOC_BERSERK_JOURNAL_BREACH_LOCATE')]
-    clue['effect']['else']=[x for x in clue['effect']['else'] if 'open_dialogue' not in x and x.get('run_eocs')!='EOC_BERSERK_JOURNAL_REPLACE_MISSING' and x.get('u_message')!='A new entry has been added to your road journal.']
+    if isinstance(clue['effect'],dict):
+        clue['effect']['then']=[run('EOC_BERSERK_JOURNAL_BREACH_LOCATE')]
+        clue['effect']['else']=[x for x in clue['effect']['else'] if 'open_dialogue' not in x and x.get('run_eocs')!='EOC_BERSERK_JOURNAL_REPLACE_MISSING' and x.get('u_message')!='A new entry has been added to your road journal.']
+    # The complete reference-book builder owns the later standalone reader.
+    # A deterministic rebuild must not index that reader as an old dict.
     commit=by['EOC_BERSERK_BREACH_CLOSE_COMMIT']
     hook=run('EOC_BERSERK_KNOWN_ROUTES_NOW')
     if hook not in commit['effect']:commit['effect'].append(hook)

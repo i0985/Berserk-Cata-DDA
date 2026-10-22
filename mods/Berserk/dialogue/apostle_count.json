@@ -29,7 +29,24 @@
         "text": "Stay here. I will look around.",
         "topic": "TALK_DONE"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_prisoner_met = 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_name_count = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -40,7 +57,19 @@
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_prisoner_help = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -62,7 +91,19 @@
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_prisoner_freed = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",

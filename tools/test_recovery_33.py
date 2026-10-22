@@ -31,6 +31,7 @@ class StateGraph:
                           'EOC_BERSERK_GODO_AT_SMITH': True,
                           'EOC_BERSERK_GODO_KNOWN': False}
         self.now = 100; self.avatar = True
+        self.om_terrain = ''  # No campaign site in this mutation-only fixture.
 
     def evaluate(self, expr):
         expr = re.sub(r'has_var\((\w+)\)', lambda m: str(int(m[1] in self.values)), expr)
@@ -57,6 +58,7 @@ class StateGraph:
             item = value['u_has_items']; return self.inventory[item['item']] >= item.get('count', 1)
         if 'u_has_item' in value: return self.inventory[value['u_has_item']] > 0
         if 'u_has_mission' in value: return False
+        if 'u_at_om_location' in value: return value['u_at_om_location'] == self.om_terrain
         raise AssertionError(value)
 
     def run(self, name):

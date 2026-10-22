@@ -169,6 +169,9 @@
         "duration": "2 hours",
         "decay_start": "1 hour",
         "capped": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -210,6 +213,9 @@
         "duration": "1 hour",
         "decay_start": "30 minutes",
         "capped": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -307,6 +313,9 @@
         "math": [
           "u_berserk_godo_crafted_early_copy = 1"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": "u_is_avatar"
@@ -319,6 +328,9 @@
         "math": [
           "u_berserk_godo_crafted_dragon_copy = 1"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": "u_is_avatar"
@@ -346,6 +358,9 @@
             "berserk_godo_rickert_refused = 1"
           ]
         }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -386,6 +401,9 @@
         "unique_ids": [],
         "local": true,
         "npc_range": 60
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {

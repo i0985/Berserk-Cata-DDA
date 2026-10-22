@@ -919,6 +919,14 @@
         "else": {
           "run_eocs": "EOC_BERSERK_FLORA_SIEGE_REFUSAL"
         }
+      },
+      {
+        "math": [
+          "u_berserk_ref_flora_attack = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -941,6 +949,14 @@
         "math": [
           "berserk_flora_grunbeld_spawned = 1"
         ]
+      },
+      {
+        "math": [
+          "u_berserk_ref_grunbeld_siege_seen = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -1540,6 +1556,10 @@
           "context_val": "berserk_grunbeld_siege_body"
         },
         "count": 1
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_GRUNBELD_GROVE_DEATH",
+        "alpha_talker": "avatar"
       }
     ],
     "condition": {

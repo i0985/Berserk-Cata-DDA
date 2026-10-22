@@ -55,6 +55,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_APOSTOL_FIRST_BODY_CHANGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -256,6 +259,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_APOSTOL_FIRST_BODY_CHANGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -336,32 +342,37 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_SLAN_WHIP_USE",
-    "effect": {
-      "if": {
-        "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_WHIP_READY"
-      },
-      "then": [
-        {
-          "math": [
-            "u_berserk_apostol_cast_confirmed = 0"
-          ]
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_WHIP_READY"
         },
-        {
-          "u_cast_spell": {
-            "id": "berserk_slan_whip",
-            "hit_self": false
+        "then": [
+          {
+            "math": [
+              "u_berserk_apostol_cast_confirmed = 0"
+            ]
           },
-          "targeted": true,
-          "true_eocs": [
-            "EOC_BERSERK_APOSTOL_SLAN_WHIP_SPEND"
-          ]
+          {
+            "u_cast_spell": {
+              "id": "berserk_slan_whip",
+              "hit_self": false
+            },
+            "targeted": true,
+            "true_eocs": [
+              "EOC_BERSERK_APOSTOL_SLAN_WHIP_SPEND"
+            ]
+          }
+        ],
+        "else": {
+          "u_message": "You cannot lash out now. Your body must finish changing; you need strength and time to recover.",
+          "type": "neutral"
         }
-      ],
-      "else": {
-        "u_message": "You cannot lash out now. Your body must finish changing; you need strength and time to recover.",
-        "type": "neutral"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    },
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_LINE"
     }
@@ -382,6 +393,9 @@
       },
       {
         "turn_cost": "1 second"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -467,69 +481,74 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_SLAN_MEND_USE",
-    "effect": {
-      "if": {
-        "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_MEND_READY"
-      },
-      "then": [
-        {
-          "math": [
-            "u_hp('head') = min(u_hp_max('head'), u_hp('head') + 12)"
-          ]
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_MEND_READY"
         },
-        {
-          "math": [
-            "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + 12)"
-          ]
-        },
-        {
-          "math": [
-            "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + 12)"
-          ]
-        },
-        {
-          "math": [
-            "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + 12)"
-          ]
-        },
-        {
-          "math": [
-            "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + 12)"
-          ]
-        },
-        {
-          "math": [
-            "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + 12)"
-          ]
-        },
-        {
-          "math": [
-            "u_val('stamina') -= 1200"
-          ]
-        },
-        {
-          "math": [
-            "u_calories() -= 60"
-          ]
-        },
-        {
-          "math": [
-            "u_berserk_apostol_mend_ready_at = time('now') + time('10 minutes')"
-          ]
-        },
-        {
-          "turn_cost": "6 seconds"
-        },
-        {
-          "u_message": "The torn flesh draws together. Hunger follows the relief.",
-          "type": "good"
+        "then": [
+          {
+            "math": [
+              "u_hp('head') = min(u_hp_max('head'), u_hp('head') + 12)"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + 12)"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + 12)"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + 12)"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + 12)"
+            ]
+          },
+          {
+            "math": [
+              "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + 12)"
+            ]
+          },
+          {
+            "math": [
+              "u_val('stamina') -= 1200"
+            ]
+          },
+          {
+            "math": [
+              "u_calories() -= 60"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_apostol_mend_ready_at = time('now') + time('10 minutes')"
+            ]
+          },
+          {
+            "turn_cost": "6 seconds"
+          },
+          {
+            "u_message": "The torn flesh draws together. Hunger follows the relief.",
+            "type": "good"
+          }
+        ],
+        "else": {
+          "u_message": "Your flesh cannot mend now. You need a wound, food, strength and time to recover.",
+          "type": "neutral"
         }
-      ],
-      "else": {
-        "u_message": "Your flesh cannot mend now. You need a wound, food, strength and time to recover.",
-        "type": "neutral"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    },
+    ],
     "condition": {
       "test_eoc": "EOC_BERSERK_APOSTOL_SLAN_LINE"
     }

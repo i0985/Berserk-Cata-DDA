@@ -29,20 +29,40 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_READ_COSMOLOGY_SHELF",
-    "effect": {
-      "u_message": "The books distinguish the God Hand from apostles and projections. The collision with this world deepened local wounds; quieting one breach cannot close them all.",
-      "type": "info",
-      "popup": true
-    }
+    "effect": [
+      {
+        "u_message": "The books distinguish the God Hand from apostles and projections. The collision with this world deepened local wounds; quieting one breach cannot close them all.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "math": [
+          "u_berserk_ref_flora_world = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_READ_WARD_SHELF",
-    "effect": {
-      "u_message": "A small stone and bone ward quiets new night summons of the Brand within eight tiles. It does not stop zombies or drive away demons already present. Build it in a defensible shelter, not as a substitute for walls.",
-      "type": "info",
-      "popup": true
-    }
+    "effect": [
+      {
+        "u_message": "A small stone and bone ward quiets new night summons of the Brand within eight tiles. It does not stop zombies or drive away demons already present. Build it in a defensible shelter, not as a substitute for walls.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "math": [
+          "u_berserk_ref_ward_recipe_explained = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -101,11 +121,21 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_READ_ARMOR_STAND",
-    "effect": {
-      "u_message": "Leather pads cover the wooden stand. Nearby fitting notes show where the plates bear on a wearer and where straps must leave room to move. The armor is no common suit to take from a rack; Flora must entrust it to you.",
-      "type": "info",
-      "popup": true
-    }
+    "effect": [
+      {
+        "u_message": "Leather pads cover the wooden stand. Nearby fitting notes show where the plates bear on a wearer and where straps must leave room to move. The armor is no common suit to take from a rack; Flora must entrust it to you.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "math": [
+          "u_berserk_ref_armor_properties = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -147,6 +177,14 @@
         "u_message": "Flora offers the prepared bundles in the kitchen, workshop and southern gallery, and gives you her travel notes.",
         "type": "info",
         "popup": false
+      },
+      {
+        "math": [
+          "u_berserk_ref_flora_aid_allowed = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -178,45 +216,42 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_READ_TRAVEL_FOLIO",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_flora_travel_folio == 1"
+    "effect": [
+      {
+        "u_message": "Чистую ткань для перевязок нужно кипятить. Бурдюк лучше сшить до дальней дороги. Питьевая вода, место для сна и свободный выход важнее удобства комнаты.\n\nНебольшой знак из камня и костей помогает сдерживать ночной зов, но не прогоняет существо, которое уже стоит у двери.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_travel_folio == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_travel_folio = 1"
+            ]
+          },
+          {
+            "u_learn_recipe": "bandages_makeshift_boiled"
+          },
+          {
+            "u_learn_recipe": "waterskin"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_TRAVEL_FOLIO"
-        }
-      },
-      "else": [
-        {
-          "u_learn_recipe": "bandages_makeshift_boiled"
-        },
-        {
-          "u_learn_recipe": "waterskin"
-        },
-        {
-          "u_message": "Flora's notes: boil clean cloth for dressings; sew a waterskin before a long journey. A defensible room, drinking water, a bed and a small stone-and-bone ward make a refuge. The ward quiets new Brand summons within eight tiles, not existing enemies. Neither the missing hand nor eye will grow back through rest.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_flora_travel_folio = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_flora_travel_folio"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "ter_furn_transform",
@@ -233,15 +268,25 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_AID_PANTRY",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_FLORA_CLAIM_GIFT",
-      "variables": {
-        "berserk_location_full": "f_berserk_flora_aid_pantry",
-        "berserk_location_empty": "f_berserk_flora_aid_pantry_empty",
-        "berserk_location_transform": "berserk_flora_aid_pantry_claimed",
-        "berserk_location_loot": "berserk_flora_aid_pantry"
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_CLAIM_GIFT",
+        "variables": {
+          "berserk_location_full": "f_berserk_flora_aid_pantry",
+          "berserk_location_empty": "f_berserk_flora_aid_pantry_empty",
+          "berserk_location_transform": "berserk_flora_aid_pantry_claimed",
+          "berserk_location_loot": "berserk_flora_aid_pantry"
+        }
+      },
+      {
+        "math": [
+          "u_berserk_ref_flora_aid_taken = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    },
+    ],
     "condition": {
       "and": [
         {
@@ -280,15 +325,25 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_AID_WORKSHOP",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_FLORA_CLAIM_GIFT",
-      "variables": {
-        "berserk_location_full": "f_berserk_flora_aid_workshop",
-        "berserk_location_empty": "f_berserk_flora_aid_workshop_empty",
-        "berserk_location_transform": "berserk_flora_aid_workshop_claimed",
-        "berserk_location_loot": "berserk_flora_aid_workshop"
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_CLAIM_GIFT",
+        "variables": {
+          "berserk_location_full": "f_berserk_flora_aid_workshop",
+          "berserk_location_empty": "f_berserk_flora_aid_workshop_empty",
+          "berserk_location_transform": "berserk_flora_aid_workshop_claimed",
+          "berserk_location_loot": "berserk_flora_aid_workshop"
+        }
+      },
+      {
+        "math": [
+          "u_berserk_ref_flora_aid_taken = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    },
+    ],
     "condition": {
       "and": [
         {
@@ -327,15 +382,25 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_AID_WARD",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_FLORA_CLAIM_GIFT",
-      "variables": {
-        "berserk_location_full": "f_berserk_flora_aid_ward",
-        "berserk_location_empty": "f_berserk_flora_aid_ward_empty",
-        "berserk_location_transform": "berserk_flora_aid_ward_claimed",
-        "berserk_location_loot": "berserk_flora_aid_ward"
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_CLAIM_GIFT",
+        "variables": {
+          "berserk_location_full": "f_berserk_flora_aid_ward",
+          "berserk_location_empty": "f_berserk_flora_aid_ward_empty",
+          "berserk_location_transform": "berserk_flora_aid_ward_claimed",
+          "berserk_location_loot": "berserk_flora_aid_ward"
+        }
+      },
+      {
+        "math": [
+          "u_berserk_ref_flora_aid_taken = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    },
+    ],
     "condition": {
       "and": [
         {
@@ -479,76 +544,70 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_READ_RESCUED_MANUSCRIPT",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_flora_rescued_manuscript == 1"
+    "effect": [
+      {
+        "u_message": "Флора сравнивает соединённые миры с корнями, сросшимися поперёк раны. Тихое место может укрыть путника; одно убежище не исцелит весь мир.\n\nНа полях сохранились следы дыма. Большая часть исследования осталась за оборванными страницами.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_rescued_manuscript == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_rescued_manuscript = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_RESCUED_MANUSCRIPT"
-        }
-      },
-      "else": [
-        {
-          "u_message": "The pages survived because someone chose to carry them. Flora compares the joined worlds to roots grafted across a wound. A quiet place can shelter a traveler; no single refuge can mend the whole world. These notes grant no combat power.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_flora_rescued_manuscript = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_flora_rescued_manuscript"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_READ_BOOKMARK",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_flora_scorched_bookmark == 1"
+    "effect": [
+      {
+        "u_message": "Деревянная закладка в форме листа уцелела в каменной нише между корнями. На ней вырезано: «Оставь свет следующему путнику».",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_scorched_bookmark == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_scorched_bookmark = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_FLORA_SCORCHED_BOOKMARK"
-        }
-      },
-      "else": [
-        {
-          "u_message": "A leaf-shaped wooden bookmark survived inside the stone-lined root niche. Its little inscription reads: leave a light for the next traveler.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_flora_scorched_bookmark = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_flora_scorched_bookmark"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "ter_furn_transform",
@@ -760,10 +819,20 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_READ_SANCTUARY_WARD",
-    "effect": {
-      "u_message": "The pale stones quiet the Brand's call while the grove is peaceful. New night pursuers and nearby manifestations are held back, but the mark remains. Enemies already inside the grove and the armor's shadows still threaten you. The tree offers a place to prepare, not invulnerability.",
-      "type": "info",
-      "popup": true
-    }
+    "effect": [
+      {
+        "u_message": "The pale stones quiet the Brand's call while the grove is peaceful. New night pursuers and nearby manifestations are held back, but the mark remains. Enemies already inside the grove and the armor's shadows still threaten you. The tree offers a place to prepare, not invulnerability.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "math": [
+          "u_berserk_ref_ward_examined = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ]
   }
 ]

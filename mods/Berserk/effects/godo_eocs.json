@@ -216,7 +216,7 @@
                 ]
               },
               {
-                "u_message": "The woodland forge is marked on your map. The direction is kept in your road journal.",
+                "u_message": "Лесная кузница отмечена на карте.",
                 "type": "info",
                 "popup": false
               }
@@ -224,7 +224,7 @@
           }
         ],
         "else": {
-          "u_message": "The woodland forge’s road is still uncertain. The account is saved in your road journal; return to it when you have more bearings.",
+          "u_message": "По этим сведениям пока не удалось уточнить дорогу к кузнице. Полученный след сохранён.",
           "type": "info",
           "popup": false
         }
@@ -858,6 +858,9 @@
             }
           }
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_ORDERS_SYNC"
       }
     ],
     "condition": {
@@ -1696,7 +1699,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GODO_BOOK",
     "effect": {
-      "run_eocs": "EOC_BERSERK_JOURNAL_OPEN"
+      "run_eocs": "EOC_BERSERK_REF_RESTORE"
     }
   },
   {
@@ -1870,7 +1873,15 @@
           "n_berserk_rickert_recruited = 1"
         ]
       },
-      "follow"
+      "follow",
+      {
+        "math": [
+          "u_berserk_ref_rickert_joined = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
     ],
     "condition": {
       "and": [
@@ -2157,11 +2168,22 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_RICKERT_DEATH",
-    "effect": {
-      "math": [
-        "berserk_rickert_dead = 1"
-      ]
-    },
+    "effect": [
+      {
+        "math": [
+          "berserk_rickert_dead = 1"
+        ]
+      },
+      {
+        "u_location_variable": {
+          "context_val": "ref_death_pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_RICKERT_DEATH_OBSERVED",
+        "alpha_talker": "avatar"
+      }
+    ],
     "eoc_type": "NPC_DEATH"
   },
   {
@@ -2731,6 +2753,9 @@
         "math": [
           "u_berserk_rickert_bolts_ready_at = time('now') + 1800"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_ORDERS_SYNC"
       }
     ],
     "condition": {
@@ -2789,6 +2814,9 @@
         "math": [
           "u_berserk_rickert_bolts_pending = 0"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_ORDERS_SYNC"
       }
     ],
     "condition": {
@@ -3047,6 +3075,14 @@
             "u_berserk_godo_wake_greeted = 1"
           ]
         }
+      },
+      {
+        "math": [
+          "u_berserk_ref_name_godo = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -3082,6 +3118,14 @@
       },
       {
         "run_eocs": "EOC_BERSERK_GODO_ROUTE_MISSION"
+      },
+      {
+        "math": [
+          "u_berserk_ref_name_godo = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -3125,6 +3169,14 @@
       },
       {
         "run_eocs": "EOC_BERSERK_GODO_SEEK"
+      },
+      {
+        "math": [
+          "u_berserk_ref_name_godo = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },

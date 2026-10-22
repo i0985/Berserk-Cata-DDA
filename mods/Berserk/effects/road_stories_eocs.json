@@ -2,125 +2,116 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ROAD_READ_CARAVAN",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_road_caravan_note == 1"
+    "effect": [
+      {
+        "u_message": "Колесо сломалось до сумерек. Железные крепления оставили под окованным коробом, зерно унесли.\n\nМежду страницами вложен заказ: «Отнести погнутые клинки в лесную кузницу Годо. С ним работает молодой мастер арбалетов. Держаться старых тележных троп через лес».\n\nНа полях отмечены повороты и переправы.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_road_caravan_note == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_road_caravan_note = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_GODO_LEARN_TRACE"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_GODO_ROUTE_MISSION"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": [
-        {
-          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GODO"
-        },
-        {
-          "open_dialogue": {
-            "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROAD_CARAVAN_NOTE"
-          }
-        }
-      ],
-      "else": [
-        {
-          "u_message": "The wheel broke before dusk. We left the iron fittings under the bound box and carried the grain away. A repair order is tucked between the pages: \"Take the bent blades to Godot’s woodland forge. He works with a young crossbow maker. Keep to the old cart tracks through the woods.\" The margins record bends and stream crossings.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "run_eocs": "EOC_BERSERK_GODO_LEARN_TRACE"
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_road_caravan_note = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "run_eocs": "EOC_BERSERK_GODO_ROUTE_MISSION"
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_road_caravan_note"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ROAD_READ_SCOUT",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_road_scout_note == 1"
+    "effect": [
+      {
+        "u_message": "За открытой поляной следят. Я видел, как деревья двигались в безветрие. Привязал ранец над промоиной и пошёл нижней тропой — проверить другой берег. Если не вернусь, держитесь камня и оставляйте место, чтобы повернуть назад.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_road_scout_note == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_road_scout_note = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROAD_SCOUT_NOTE"
-        }
-      },
-      "else": [
-        {
-          "u_message": "The open clearing is watched. I saw the trees move while the air was still. I tied the pack above the washout and took the lower path to see whether the other bank was clear. If I fail to return, keep to stone and leave room to turn back.",
-          "popup": true,
-          "type": "info"
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_road_scout_note = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_road_scout_note"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_ROAD_READ_CAMP",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_road_camp_note == 1"
+    "effect": [
+      {
+        "u_message": "Уходим до следующих сумерек. Вода чистая; тем, кто пойдёт следом, одеяло может понадобиться больше, чем нам.\n\nКузнец Годо починил наш сломанный клинок. Его молодой помощник делает арбалетные болты. Здесь записали обратную дорогу: старая тропа, переправа через ручей, затем путь углежогов. Идти долго, но в конце дороги есть мастер.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_road_camp_note == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_road_camp_note = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_GODO_LEARN_TRACE"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_GODO_ROUTE_MISSION"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": [
-        {
-          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GODO"
-        },
-        {
-          "open_dialogue": {
-            "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_ROAD_CAMP_NOTE"
-          }
-        }
-      ],
-      "else": [
-        {
-          "u_message": "We leave before the next dusk. The water is clean; whoever follows may need the blanket more than we do. The smith Godot repaired our broken blade at his woodland forge. His young helper makes crossbow bolts. We copied the way back here: the old track, the stream crossing, then the charcoal burners’ path. It is a long walk, but there is a master at its end.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "run_eocs": "EOC_BERSERK_GODO_LEARN_TRACE"
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_road_camp_note = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "run_eocs": "EOC_BERSERK_GODO_ROUTE_MISSION"
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_road_camp_note"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",

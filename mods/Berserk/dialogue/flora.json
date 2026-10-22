@@ -151,7 +151,19 @@
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_flora_brand = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -207,7 +219,24 @@
         "text": "Back to the topics.",
         "topic": "TALK_BERSERK_FLORA"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_flora_armor = 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_armor_properties = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -222,7 +251,19 @@
         "text": "Back to the topics.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_armor_cost = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -279,7 +320,7 @@
     "responses": [
       {
         "text": "The Count’s residence",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_COUNT",
+        "topic": "TALK_BERSERK_FLORA_KNOWN_COUNT",
         "condition": {
           "math": [
             "u_berserk_journal_knows_count == 1"
@@ -288,7 +329,7 @@
       },
       {
         "text": "The Black Dogs’ camp",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_WYALD",
+        "topic": "TALK_BERSERK_FLORA_KNOWN_WYALD",
         "condition": {
           "math": [
             "u_berserk_journal_knows_wyald == 1"
@@ -297,7 +338,7 @@
       },
       {
         "text": "The misty valley",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_ROSINE",
+        "topic": "TALK_BERSERK_FLORA_KNOWN_ROSINE",
         "condition": {
           "math": [
             "u_berserk_journal_knows_rosine == 1"
@@ -306,7 +347,7 @@
       },
       {
         "text": "Grunbeld’s stronghold",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_GRUNBELD",
+        "topic": "TALK_BERSERK_FLORA_KNOWN_GRUNBELD",
         "condition": {
           "math": [
             "u_berserk_journal_knows_grunbeld == 1"
@@ -336,7 +377,24 @@
         "text": "Back to the topics.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_flora_armor = 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_armor_properties = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -357,7 +415,24 @@
         "text": "Not yet. I want to ask more first.",
         "topic": "TALK_BERSERK_FLORA"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_flora_armor = 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_armor_properties = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -466,7 +541,19 @@
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_flora_world = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -519,7 +606,19 @@
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_flora_aid_allowed = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -530,7 +629,19 @@
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_flora_brand_pain = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -541,7 +652,19 @@
         "text": "Back to the topics.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_armor_cost = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -612,7 +735,19 @@
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_ward_recipe_explained = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -650,7 +785,19 @@
         "text": "Ask something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_flora_world = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -658,11 +805,13 @@
     "dynamic_line": "Godot and Rickert work at a woodland forge. They can help with a mechanical hand and a blade that must endure great strain. If you already own their work, ask for repairs rather than a second weapon.",
     "responses": [
       {
-        "text": "Look up the road to the forge.",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_GODO",
-        "effect": {
-          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GODO"
-        }
+        "text": "Where can I find that forge?",
+        "topic": "TALK_BERSERK_FLORA_KNOWN_SMITH",
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_GODO_LEARN_TRACE"
+          }
+        ]
       },
       {
         "text": "Back to the topics.",
@@ -716,13 +865,6 @@
         }
       },
       {
-        "text": "Open my road journal.",
-        "topic": "TALK_BERSERK_FLORA_AID",
-        "effect": {
-          "run_eocs": "EOC_BERSERK_JOURNAL_OPEN"
-        }
-      },
-      {
         "text": "I need a new road journal.",
         "topic": "TALK_BERSERK_FLORA_AID",
         "condition": {
@@ -738,7 +880,19 @@
         "text": "Back to the topics.",
         "topic": "TALK_BERSERK_FLORA"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_flora_aid_allowed = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -827,7 +981,24 @@
         "text": "Back to the topics.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_flora_armor = 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_armor_properties = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -858,7 +1029,19 @@
         "text": "Back to the topics.",
         "topic": "TALK_BERSERK_FLORA"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_flora_demon_counsel = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",
@@ -887,6 +1070,169 @@
       {
         "text": "What do you see in the change within me?",
         "topic": "TALK_BERSERK_APOSTOL_FLORA"
+      }
+    ],
+    "speaker_effect": {
+      "effect": [
+        {
+          "math": [
+            "u_berserk_ref_flora_armor_refused = 1"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_REF_SYNC"
+        }
+      ]
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_KNOWN_COUNT",
+    "dynamic_line": {
+      "math": [
+        "berserk_hunt_count_state >= 5"
+      ],
+      "yes": "Этот след уже пройден. Не позволяйте законченной охоте удерживать вас там, где больше нечего искать.",
+      "no": {
+        "math": [
+          "berserk_hunt_count_state >= 4"
+        ],
+        "yes": "Рана уже закрыта. Осмотрите её уцелевший след, если ещё не успели это сделать.",
+        "no": {
+          "math": [
+            "berserk_hunt_count_state >= 3"
+          ],
+          "yes": "Хранитель пал, но сам проход ещё нужно осмотреть. Смерть чудовища не всегда закрывает дорогу за ним.",
+          "no": "Продолжите известную вам дорогу. Не входите в незнакомое место, прежде чем увидите, куда сможете отступить."
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_FLORA_NEXT"
+      },
+      {
+        "text": "Спасибо. До свидания.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_KNOWN_WYALD",
+    "dynamic_line": {
+      "math": [
+        "berserk_hunt_wyald_state >= 5"
+      ],
+      "yes": "Этот след уже пройден. Не позволяйте законченной охоте удерживать вас там, где больше нечего искать.",
+      "no": {
+        "math": [
+          "berserk_hunt_wyald_state >= 4"
+        ],
+        "yes": "Рана уже закрыта. Осмотрите её уцелевший след, если ещё не успели это сделать.",
+        "no": {
+          "math": [
+            "berserk_hunt_wyald_state >= 3"
+          ],
+          "yes": "Хранитель пал, но сам проход ещё нужно осмотреть. Смерть чудовища не всегда закрывает дорогу за ним.",
+          "no": "Продолжите известную вам дорогу. Не входите в незнакомое место, прежде чем увидите, куда сможете отступить."
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_FLORA_NEXT"
+      },
+      {
+        "text": "Спасибо. До свидания.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_KNOWN_ROSINE",
+    "dynamic_line": {
+      "math": [
+        "berserk_hunt_rosine_state >= 5"
+      ],
+      "yes": "Этот след уже пройден. Не позволяйте законченной охоте удерживать вас там, где больше нечего искать.",
+      "no": {
+        "math": [
+          "berserk_hunt_rosine_state >= 4"
+        ],
+        "yes": "Рана уже закрыта. Осмотрите её уцелевший след, если ещё не успели это сделать.",
+        "no": {
+          "math": [
+            "berserk_hunt_rosine_state >= 3"
+          ],
+          "yes": "Хранитель пал, но сам проход ещё нужно осмотреть. Смерть чудовища не всегда закрывает дорогу за ним.",
+          "no": "Продолжите известную вам дорогу. Не входите в незнакомое место, прежде чем увидите, куда сможете отступить."
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_FLORA_NEXT"
+      },
+      {
+        "text": "Спасибо. До свидания.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_KNOWN_GRUNBELD",
+    "dynamic_line": {
+      "math": [
+        "berserk_hunt_grunbeld_state >= 5"
+      ],
+      "yes": "Этот след уже пройден. Не позволяйте законченной охоте удерживать вас там, где больше нечего искать.",
+      "no": {
+        "math": [
+          "berserk_hunt_grunbeld_state >= 4"
+        ],
+        "yes": "Рана уже закрыта. Осмотрите её уцелевший след, если ещё не успели это сделать.",
+        "no": {
+          "math": [
+            "berserk_hunt_grunbeld_state >= 3"
+          ],
+          "yes": "Хранитель пал, но сам проход ещё нужно осмотреть. Смерть чудовища не всегда закрывает дорогу за ним.",
+          "no": "Продолжите известную вам дорогу. Не входите в незнакомое место, прежде чем увидите, куда сможете отступить."
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_FLORA_NEXT"
+      },
+      {
+        "text": "Спасибо. До свидания.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_KNOWN_SMITH",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GODO",
+      "yes": "Годо работает в лесной кузнице. С ним живёт Рикерт, молодой мастер механизмов. Теперь у вас есть направление; познакомиться с ними нужно самим.",
+      "no": "Я знаю мастеров лесной кузницы. Годо занимается клинками, Рикерт — механизмами. По имеющимся сведениям пока трудно уточнить дорогу, но этот след стоит сохранить."
+    },
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_FLORA_HELP"
+      },
+      {
+        "text": "Спасибо. До свидания.",
+        "topic": "TALK_DONE"
       }
     ]
   }

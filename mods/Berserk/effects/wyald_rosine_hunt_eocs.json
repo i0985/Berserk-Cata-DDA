@@ -882,7 +882,7 @@
         "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
       },
       {
-        "u_message": "You claim the relic from the sealed mark. The gift is issued once for this hunt; check the floor if you cannot carry it. Wear it to receive its effect. The hunt journal preserves the directions.",
+        "u_message": "Вы забираете реликвию из затихшей раны. Наденьте её, чтобы ощутить силу. Если в вещах не хватило места, находка осталась у ног.",
         "type": "good",
         "popup": true
       },
@@ -1850,7 +1850,7 @@
         "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
       },
       {
-        "u_message": "You claim the relic from the sealed mark. The gift is issued once for this hunt; check the floor if you cannot carry it. Wear it to receive its effect. The hunt journal preserves the directions.",
+        "u_message": "Вы забираете реликвию из затихшей раны. Наденьте её, чтобы ощутить силу. Если в вещах не хватило места, находка осталась у ног.",
         "type": "good",
         "popup": true
       },
@@ -1979,39 +1979,38 @@
     "id": "EOC_BERSERK_HUNT_RETURN_BREACH",
     "effect": [
       {
-        "if": {
-          "math": [
-            "has_var(berserk_hunt_first_breach_location)"
-          ]
-        },
-        "then": {
-          "reveal_map": {
-            "global_val": "berserk_hunt_first_breach_location"
-          },
-          "radius": 1
-        }
+        "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
       },
       {
-        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-      },
-      {
-        "run_eocs": "EOC_BERSERK_CAMPAIGN_REPORT"
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_HUNT_STATUS",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_CAMPAIGN_REPORT"
-    }
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_HUNT_JOURNAL_USE",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_JOURNAL_OPEN_HUNTS"
-    },
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_REF_PLACES"
+        }
+      }
+    ],
     "false_effect": {
       "u_message": "These trails belong to the road after the Eclipse and the first hunt.",
       "type": "info",

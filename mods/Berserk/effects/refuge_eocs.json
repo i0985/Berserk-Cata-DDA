@@ -41,6 +41,14 @@
           "type": "info",
           "popup": false
         }
+      },
+      {
+        "math": [
+          "u_berserk_ref_ward_examined = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -127,25 +135,50 @@
         "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
       },
       {
-        "u_message": "Refuge recorded. Stay within this ward's reach for the Brand's protection; keep watch for creatures that are already here. The refuge journal keeps your preparations and onward directions. It grants no healing, armor or immunity.",
+        "u_message": "Вы выбрали пристанище у защитного знака. Он ослабит зов Клейма поблизости, но уже пришедшие существа остаются опасны.",
         "type": "good",
         "popup": true
+      },
+      {
+        "math": [
+          "u_berserk_ref_refuge_chosen = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      },
+      {
+        "math": [
+          "u_berserk_ref_refuge_lost = 0"
+        ]
       }
     ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_REFUGE_JOURNAL",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_JOURNAL_OPEN_REFUGE"
-    }
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      },
+      {
+        "open_dialogue": {
+          "topic": "TALK_BERSERK_REF_PAST"
+        }
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_REFUGE_NEXT_TRAIL",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_JOURNAL_OPEN_CURRENT"
-    }
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_KNOWN_ROUTES_NOW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -326,7 +359,7 @@
             ]
           },
           {
-            "u_message": "The recorded ward is gone. Its journal entry no longer marks the refuge as ready; inspect another ward when your preparations are complete.",
+            "u_message": "Защита прежнего знака больше не действует. Если нужно новое пристанище, осмотрите другой знак.",
             "type": "warning",
             "popup": false
           }

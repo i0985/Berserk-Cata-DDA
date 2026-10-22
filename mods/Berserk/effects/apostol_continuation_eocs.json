@@ -389,6 +389,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_KNOWN_ROUTES_NOW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -437,6 +440,9 @@
             ]
           }
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
     "condition": {
@@ -539,11 +545,16 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_TELL_GODO",
-    "effect": {
-      "math": [
-        "u_berserk_apostol_godo_told = 1"
-      ]
-    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_godo_told = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
     "condition": {
       "and": [
         {
@@ -560,11 +571,16 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_TELL_RICKERT",
-    "effect": {
-      "math": [
-        "u_berserk_apostol_rickert_told = 1"
-      ]
-    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_rickert_told = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
     "condition": {
       "and": [
         {
@@ -581,11 +597,16 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_RICKERT_GIFT_COUNSEL",
-    "effect": {
-      "math": [
-        "u_berserk_apostol_rickert_counsel = 1"
-      ]
-    },
+    "effect": [
+      {
+        "math": [
+          "u_berserk_apostol_rickert_counsel = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
     "condition": {
       "and": [
         {

@@ -1,0 +1,4596 @@
+{
+  "records": [
+    {
+      "code": "М01",
+      "key": "m01",
+      "section": "places",
+      "title": "Лесная кузница",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_ref_name_godo == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                    }
+                  }
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_godo_dead == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "В лесной глуши работает кузнец Годо. Говорят, он берётся за тяжёлые клинки и оружие, от которого отказываются другие мастера. Вместе с ним живёт молодой мастер, знакомый с арбалетами и механизмами."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_ref_name_godo == 1"
+                    ]
+                  },
+                  {
+                    "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                  }
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_godo_dead == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Годо держит кузницу вдали от городов. Он знает, для чего нужен клинок, и не любит тратить железо на украшения. Если моё оружие ещё можно спасти, он скажет об этом прямо."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_visit_godo == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_name_godo == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "В лесу стоит дом с кузницей. Кто здесь работает, я ещё не узнал."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_visit_godo == 1"
+            ]
+          },
+          "text": "Внизу находится кузница с горном и рабочим местом. Наверху — жилое помещение. Это дом мастеров, а не заброшенный склад."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_forge_rest_allowed == 1"
+            ]
+          },
+          "text": "Мне разрешили воспользоваться местом для отдыха. Проходы нужно оставлять свободными, инструменты хозяев — на своих местах."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_eclipse_rescue_state == 2"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_eclipse_route == 2"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_godo_rescue_relocated == 1"
+                ]
+              }
+            ]
+          },
+          "text": "После Затмения Рыцарь принёс меня сюда. Я пришёл в себя под этой крышей."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_forge_damage_observed == 1"
+            ]
+          },
+          "text": "Кузница пострадала. Прежнее укрытие нельзя считать безопасным, пока я не осмотрю то, что осталось."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_ref_name_godo == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                    }
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_godo_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "В этой лесной кузнице работал Годо. Он брался за тяжёлые клинки и оружие, от которого отказывались другие мастера."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_ref_name_godo == 1"
+                    ]
+                  },
+                  {
+                    "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_godo_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Годо держал кузницу вдали от городов. Он знал, для чего нужен клинок, и не любил тратить железо на украшения."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "М02",
+      "key": "m02",
+      "section": "places",
+      "title": "Дуб со сплетёнными корнями",
+      "parts": [
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_ref_visit_oak == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_chapel_forest_route == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_oak_last_note == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_oak_broken_rootcutter == 1"
+                ]
+              }
+            ]
+          },
+          "text": "В глубине леса стоит огромный дуб. Переплетённые корни скрывают землю у ствола."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_oak_broken_rootcutter == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_oak_last_note == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_chapel_forest_route == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Между корнями искали камень с человеческими чертами. Люди, оставившие этот след, считали находку достаточно важной, чтобы вернуться за ней."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_visit_oak == 1"
+            ]
+          },
+          "text": "Корни разбивают землю на тесные проходы. Следы чужой работы обрываются среди свежих зарубок. Прежде чем подходить к стволу, стоит осмотреть путь назад."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_behelit_oak == 1"
+            ]
+          },
+          "text": "Камень оказался настоящим. Я забрал его из-под корней."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "М03",
+      "key": "m03",
+      "section": "places",
+      "title": "Пещера отголосков",
+      "parts": [
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_ref_visit_cave == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_cave_scout_note == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_cave_last_scrap == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Под землёй расходятся широкие галереи и тесные боковые ходы. В темноте трудно судить, насколько далеко уходит пещера."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_cave_scout_note == 1"
+            ]
+          },
+          "text": "Разведчик оставил сведения о лестнице, обходе и старой подпорке. По его следу здесь искали камень с человеческим лицом."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_ref_cave_chime == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_cave_scout_note == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_cave_last_scrap == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Звон каменной подвески слышен за поворотами. Существо в глубине реагирует на него. Звук может выиграть время, если путь к лестнице подготовлен заранее."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_ref_cave_prop == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_cave_scout_note == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_cave_last_scrap == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Узкий ход соединяется с галереей. Подпорка мешает проходу; добраться до её крепления можно со стороны глубины пещеры."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_behelit_cave == 1"
+            ]
+          },
+          "text": "Бехелит найден среди подземных следов. Выбираться отсюда всё равно придётся обычным путём."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "М04",
+      "key": "m04",
+      "section": "places",
+      "title": "Лагерь пропавшей экспедиции",
+      "parts": [
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_ref_visit_expedition == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_expedition_transfer_note == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_expedition_alarm_note == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Среди леса оставлен лагерь с палатками и снаряжением людей этого мира."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_expedition_transfer_note == 1"
+            ]
+          },
+          "text": "Экспедиция изучала необычную находку. В записях повторяются сны о красном лице. После переноса образца возле палаток появилось существо."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_expedition_alarm_note == 1"
+            ]
+          },
+          "text": "Раненых переносили в отдельную палатку. Дозорный советовал держаться укрытий и не пересекать открытое место перед существом. Последний приказ требовал вывезти людей, оставив снаряжение."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_behelit_expedition == 1"
+            ]
+          },
+          "text": "Образцом был Бехелит. Экспедиция успела понять опасность слишком поздно."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "М05",
+      "key": "m05",
+      "section": "places",
+      "title": "Лесная часовня",
+      "parts": [
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_ref_visit_chapel == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_chapel_relief_roster == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_chapel_ritual_note == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_chapel_last_vigil == 1"
+                ]
+              }
+            ]
+          },
+          "text": "В лесу стоит часовня. Старая дорога приводит к её дверям."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_relief_roster == 1"
+            ]
+          },
+          "text": "Здесь принимали путников и раненых. Позже обитатели перенесли за алтарь необычный камень и начали считать его чудом."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_ritual_note == 1"
+            ]
+          },
+          "text": "Двери закрыли перед теми, кто искал помощи. Шёпот приняли за ответ на молитву. Следы у алтаря говорят о том, чем закончилось ожидание чуда."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_chapel_forest_route == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_chapel_last_vigil == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_chapel_bypass == 1"
+                ]
+              }
+            ]
+          },
+          "text": "У часовни есть обходной путь. Последние записи советуют искать живых, а не возвращаться за камнем."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_behelit_chapel == 1"
+            ]
+          },
+          "text": "Камень из реликвария оказался Бехелитом."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "М06",
+      "key": "m06",
+      "section": "places",
+      "title": "Лесная низина",
+      "parts": [
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_journal_knows_first == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_visit_first == 1"
+                ]
+              }
+            ]
+          },
+          "text": "След исчезнувших путников ведёт в лесную низину. Здесь скрывается существо, которое охотится на людей. Перед спуском стоит осмотреть подходы и оставить путь для отступления."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_first_hunt_done == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_journal_read_berserk_apostle_burned_clue == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Существо погибло. Среди его останков могут сохраниться следы тех мест, откуда оно пришло."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_apostle_burned_clue == 1"
+            ]
+          },
+          "text": "В найденном клочке описаны разрушенный фундамент и расселина в земле. След ведёт к отдельному прорыву."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "М07",
+      "key": "m07",
+      "section": "places",
+      "title": "Пепельный разрыв",
+      "parts": [
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_journal_knows_breach == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_visit_breach == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Среди разрушенных оснований открылась рана в земле. По краям лежит пепел, из глубины доносится тяжёлый пульс. Это отдельный проход между мирами."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_breach_keeper_dead == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_breach_sealed == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Хранитель пал, но пульс не прекратился. Сам проход ещё нужно осмотреть."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_breach_sealed == 1"
+            ]
+          },
+          "text": "Рана остыла, её пульс затих. Здесь стало тише. Существа, уже прошедшие в этот мир, никуда не исчезли."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_breach_directions == 1"
+            ]
+          },
+          "text": "Среди уцелевших отметок различимы пути к резиденции Графа, лагерю Чёрных Псов и туманной долине."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_breach_sealed == 1"
+                ]
+              },
+              {
+                "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+              }
+            ]
+          },
+          "text": "Клеймо осталось со мной."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_breach_sealed == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_path > 0"
+                ]
+              }
+            ]
+          },
+          "text": "Закрытие прохода не изменило то, что происходит с моим телом."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "М08",
+      "key": "m08",
+      "section": "places",
+      "title": "Укреплённая резиденция",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_name_count == 1"
+            ]
+          },
+          "text": "След привёл к укреплённому дому. Известные сведения называют его резиденцией Графа."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_visit_count == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_name_count == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Укреплённый дом за внешней оградой. Кто распоряжается им, я ещё не узнал."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_count_prison_list == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_count_physician_ledger == 1"
+                ]
+              }
+            ]
+          },
+          "text": "За внешним порядком скрываются казни, заключение и слуги, чьи тела уже нельзя назвать человеческими."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_prisoner_met == 1"
+            ]
+          },
+          "text": "Один из пленников рассказал о знакомых ему помещениях и служебном проходе. Его сведения касаются этого дома; о происходящем за его пределами он знает немного."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_dead_count == 1"
+            ]
+          },
+          "text": "Граф погиб. Власть хозяина над этим домом закончилась, но связанные с ним следы ещё требуют внимания."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_sealed_count == 1"
+            ]
+          },
+          "text": "Проход при резиденции закрыт. Для окрестностей это передышка, а не конец вторжения."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+              }
+            ]
+          },
+          "text": "Я принял покровительство Графа. Вместе с новой плотью пришло место при его дворе. Что он называет защитой, ещё предстоит испытать на себе."
+        }
+      ],
+      "title_variants": [
+        [
+          {
+            "math": [
+              "u_berserk_ref_name_count == 1"
+            ]
+          },
+          "Резиденция Графа"
+        ]
+      ]
+    },
+    {
+      "code": "М09",
+      "key": "m09",
+      "section": "places",
+      "title": "Военный лагерь",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_name_wyald == 1"
+            ]
+          },
+          "text": "След ведёт к лагерю Чёрных Псов. В полученных сведениях назван их командир — Уайлд."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_visit_wyald == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_name_wyald == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Среди леса разбит военный лагерь. Я ещё не узнал, кому подчиняются его обитатели."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_muster_roll == 1"
+            ]
+          },
+          "text": "Здесь пересчитывают добычу, держат пленных и исполняют приказы командира."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_muster_roll == 1"
+            ]
+          },
+          "text": "Военные порядки сохранились даже среди чудовищ. Людей записывали рядом с пайками и снаряжением, словно всё было частью одной ведомости."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_dead_wyald == 1"
+            ]
+          },
+          "text": "Уайлд погиб. Его смерть не отменяет того, что происходило в лагере, но теперь этот хозяин больше никого не уведёт к себе."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+              }
+            ]
+          },
+          "text": "Я согласился войти в Чёрных Псов. Уайлд обещал силу и жизнь без человеческих запретов. Моё тело изменилось сразу."
+        }
+      ],
+      "title_variants": [
+        [
+          {
+            "math": [
+              "u_berserk_ref_name_wyald == 1"
+            ]
+          },
+          "Лагерь Чёрных Псов"
+        ]
+      ]
+    },
+    {
+      "code": "М10",
+      "key": "m10",
+      "section": "places",
+      "title": "Туманная долина",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_name_rosine == 1"
+            ]
+          },
+          "text": "Дорога ведёт в туманную долину. В полученных сведениях её связывают с именем Розины."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_visit_rosine == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_name_rosine == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Дорога привела в туманную долину. Кто скрывается среди её обитателей, я ещё не узнал."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_rosine_witness_note == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_rosine_creatures == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Над цветами кружат существа, которых называли феями. Следы исчезнувших людей ведут к шёлку и огромным корням. Красота этого места ещё ничего не говорит о его обитателях."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_rosine_witness_note == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_cocoon_examined == 1"
+                ]
+              }
+            ]
+          },
+          "text": "В коконах меняются тела. Разрушить оболочку до её раскрытия — не то же самое, что спасти того, кто когда-то оказался внутри."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_dead_rosine == 1"
+            ]
+          },
+          "text": "Розина погибла. Обещанное ею убежище больше не примет новых жертв по её воле. Судьбу уже изменённых людей одной победой не вернуть."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+              }
+            ]
+          },
+          "text": "Я принял предложение Розины остаться среди её обитателей. Новое тело появилось сразу. Человеческая речь стала труднее, а обещанное чувство безопасности не заменило собственной воли."
+        }
+      ],
+      "title_variants": [
+        [
+          {
+            "math": [
+              "u_berserk_ref_name_rosine == 1"
+            ]
+          },
+          "Туманная долина"
+        ]
+      ]
+    },
+    {
+      "code": "М12",
+      "key": "m12",
+      "section": "places",
+      "title": "Крепость",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_name_grunbeld == 1"
+            ]
+          },
+          "text": "Полученные сведения связывают крепость с Грюнбельдом."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_visit_grunbeld == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_name_grunbeld == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Мощные укрепления закрывают внутренний двор. Чей приказ здесь исполняют, я ещё не узнал."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_grunbeld_siege_alive == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_dead_grunbeld == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "У духовного дерева Грюнбельд остался жив. Этот след может привести к новой встрече с ним."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_grunbeld_siege_dead == 1"
+            ]
+          },
+          "text": "Грюнбельд погиб у духовного дерева. В крепости остаются последствия его власти и связанный с ней проход."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_grunbeld_siege_seen == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_grunbeld_siege_alive == 1"
+                  ]
+                }
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_dead_grunbeld == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "После боя у духовного дерева я потерял его из виду. Этого недостаточно, чтобы считать его погибшим."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_grunbeld_castle_victory == 1"
+            ]
+          },
+          "text": "Грюнбельд пал. Перемена облика продолжила его сопротивление, но теперь бой действительно окончен."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_sealed_grunbeld == 1"
+            ]
+          },
+          "text": "Проход в крепости закрыт. Окрестности получили передышку."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+              }
+            ]
+          },
+          "text": "Я принял клятву перед Грюнбельдом. Он дал мне панцирь и место среди своих воинов. Вместе с защитой пришли требования службы."
+        }
+      ],
+      "title_variants": [
+        [
+          {
+            "math": [
+              "u_berserk_ref_name_grunbeld == 1"
+            ]
+          },
+          "Крепость Грюнбельда"
+        ]
+      ]
+    },
+    {
+      "code": "М11",
+      "key": "m11",
+      "section": "places",
+      "title": "Дом у огромного дерева",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_name_flora == 1"
+            ]
+          },
+          "text": "Полученный след ведёт к дому у огромного дерева. В этих сведениях названа ведьма Флора."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_ref_visit_flora == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_ref_name_flora == 1"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_flora_home_lost == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Жилой дом соединён с огромными корнями. Его хозяйка мне пока не представилась."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_visit_flora == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_flora_met == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Жилые комнаты соединены с огромными корнями. Здесь есть место для чтения, работы и отдыха. Укрытие держится не только на силе дерева, но и на заботе хозяйки."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_flora_aid_allowed == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_flora_home_lost == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Флора разрешила мне отдохнуть и взять приготовленные припасы. Остальные вещи дома принадлежат его обитателям."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_flora_armor == 1"
+            ]
+          },
+          "text": "Флора знает о доспехе, который позволяет телу продолжать бой ценой самого владельца."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_flora_attack == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_flora_escaped == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Дом атакован. Прежняя защита больше не удерживает всех врагов. Известные проходы теперь нужны для выхода."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_flora_escaped == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_flora_home_lost == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Я выбрался из дома. Позади оставались огонь и бой. Что уцелело, пока неизвестно."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_flora_home_lost == 1"
+            ]
+          },
+          "text": "Дом у духовного дерева потерян. Огонь прошёл через знакомые комнаты. Это место больше не может быть прежним убежищем."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_ref_visit_flora == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_ref_name_flora == 1"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_flora_home_lost == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Жилые комнаты были соединены с огромными корнями. Здесь находилось место для чтения, работы и отдыха. Укрытие держалось не только на силе дерева, но и на заботе хозяйки."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_flora_aid_allowed == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_flora_home_lost == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Флора рассказывала о доспехе, который позволяет телу продолжать бой ценой самого владельца."
+        }
+      ],
+      "title_variants": [
+        [
+          {
+            "math": [
+              "u_berserk_ref_name_flora == 1"
+            ]
+          },
+          "Дом у духовного дерева"
+        ]
+      ]
+    },
+    {
+      "code": "М13",
+      "key": "m13",
+      "section": "places",
+      "title": "Моё пристанище",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_refuge_chosen == 1"
+            ]
+          },
+          "text": "Я выбрал место, куда можно вернуться с дороги. Здесь должны оставаться вода, перевязки и свободный путь к выходу."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_refuge_chosen == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_refuge_ready == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Неподалёку от места для сна сложен знак из камней и костей. Он сдерживает ночной зов Клейма поблизости, но не останавливает существ, которые уже пришли."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_refuge_lost == 1"
+            ]
+          },
+          "text": "Прежнее пристанище больше не годится для отдыха. Потребуется найти другое место."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Л01",
+      "key": "l01",
+      "section": "people",
+      "title": "Годо",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_godo_personally_met == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                    }
+                  }
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_godo_dead == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Годо — хозяин лесной кузницы. Говорит резко и быстро переходит к делу. Сначала хочет увидеть оружие, а уже потом слушать просьбы о нём."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_godo_personally_met == 1"
+                    ]
+                  },
+                  {
+                    "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                  }
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_godo_dead == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Годо узнал меня. По-прежнему ворчит на мои клинки и не бережёт слов. О железе он судит увереннее, чем другие — о людях."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_godo_work == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_godo_dead == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Его дело — клинки, железные детали и ремонт. Механизмы и арбалеты он оставляет Рикерту."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_godo_care == 1"
+            ]
+          },
+          "text": "Он принял меня, когда я не мог сам пройти через порог. Плату за воду и место у стены требовать не стал."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_godo_sparks_completed == 1"
+            ]
+          },
+          "text": "У горна Годо говорил об огне и искрах. Яркая вспышка быстро гаснет; работа и те, о ком заботишься, остаются. Важна не одна сила, с которой наносишь удар, но и жизнь, к которой собираешься вернуться."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_godo_sparks_closed == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_godo_dead == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Я не стал слушать его разговор у горна."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_godo_demon_refused == 1"
+            ]
+          },
+          "text": "Годо отказался делать для меня этот клинок. Он знает о принятой мной силе и считает, что дальше я должен отвечать за свой выбор."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_godo_personally_met == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                    }
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_godo_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Годо был хозяином лесной кузницы. Говорил резко и быстро переходил к делу. Сначала хотел увидеть оружие, а уже потом слушать просьбы о нём."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_godo_personally_met == 1"
+                    ]
+                  },
+                  {
+                    "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_godo_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Годо узнал меня. Ворчал на мои клинки и не берёг слов. О железе он судил увереннее, чем другие — о людях."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_godo_work == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_godo_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Его делом были клинки, железные детали и ремонт. Механизмы и арбалеты он оставлял Рикерту."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_godo_sparks_closed == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_godo_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Годо отказался делать для меня этот клинок. Он знал о принятой мной силе и считал, что дальше я должен отвечать за свой выбор."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_godo_personally_met == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_godo_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Годо погиб."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Л02",
+      "key": "l02",
+      "section": "people",
+      "title": "Рикерт",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_rickert_met == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_rickert_dead == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Рикерт работает рядом с Годо. Разбирается в арбалетах, спусках и креплениях. Может долго возиться с маленькой деталью, если от неё зависит надёжность оружия."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_rickert_band == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_rickert_dead == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Он путешествовал с Отрядом Сокола. В бою рассчитывает на арбалет, позицию и подготовку больше, чем на силу удара мечом."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_rickert_met == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_rickert_care_present == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Рикерт помогал мне после спасения. О том, что было внутри Затмения, он не знал."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_rickert_eclipse_story == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_rickert_lied_before == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Я рассказал ему, что видел в Затмении. Он услышал о предательстве Гриффита и гибели товарищей."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_rickert_eclipse_story == 2"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_rickert_lied_before == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Я сказал Рикерту, что отряд погиб от нападения людей и зверей. О предательстве Гриффита я умолчал."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_rickert_eclipse_story == 3"
+            ]
+          },
+          "text": "Я пока не рассказал ему о пережитом. Он остался с вопросами о судьбе товарищей."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_rickert_lied_before == 1"
+            ]
+          },
+          "text": "Я признался, что прежде солгал. Теперь Рикерт знает правду и помнит мой обман. Одного признания недостаточно, чтобы всё стало как раньше."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_rickert_lied_before == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_rickert_trust_restored == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Между нами снова стало возможно доверие. Прежний разговор от этого не исчез из памяти."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_rickert_joined == 1"
+            ]
+          },
+          "text": "Рикерт решил идти со мной. Он согласился быть товарищем, а не чьей-то собственностью."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_rickert_recruit_refused == 1"
+            ]
+          },
+          "text": "После моих слов Рикерт отказался идти со мной. Обычная работа в кузнице осталась отдельным делом."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_rickert_met == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_rickert_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Рикерт работал рядом с Годо. Разбирался в арбалетах, спусках и креплениях. Мог долго возиться с маленькой деталью, если от неё зависела надёжность оружия."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_rickert_band == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_rickert_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Он путешествовал с Отрядом Сокола. В бою рассчитывал на арбалет, позицию и подготовку больше, чем на силу удара мечом."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_rickert_met == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_rickert_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Рикерт погиб."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Л03",
+      "key": "l03",
+      "section": "people",
+      "title": "Рыцарь-Череп",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_eclipse_rescue_state == 2"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_eclipse_route == 2"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Всадник в шлеме, похожем на череп. Он нашёл проход из места жертвоприношения и вынес меня наружу."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_knight_read_purpose == 1"
+            ]
+          },
+          "text": "Он сказал, что имел возможность вмешаться и воспользовался ею. Нового долга за спасённую жизнь не потребовал."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_knight_read_self == 1"
+            ]
+          },
+          "text": "Он давно сражается с существами за гранью. Своего имени и прошлого не назвал."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_knight_farewell_confirmed == 1"
+            ]
+          },
+          "text": "Рыцарь продолжил свой путь. Он предупреждал, что ждать его у этого порога больше не следует."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Л04",
+      "key": "l04",
+      "section": "people",
+      "title": "Флора",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_flora_met == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_flora_dead == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Флора — ведьма, живущая у духовного дерева. Говорит спокойно и не обещает избавления от любой беды. Знания для неё связаны с заботой о живых."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_flora_brand == 1"
+            ]
+          },
+          "text": "Она объяснила, что Клеймо связывает отмеченного с иной стороной мира. Простая победа над одним чудовищем этой связи не разрывает."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_flora_armor == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_flora_dead == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Флора знает цену доспеха Берсерка. Он способен заставить тело продолжать бой, когда обычный человек уже не мог бы стоять."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_flora_aid_taken == 1"
+            ]
+          },
+          "text": "Она позволила взять приготовленную помощь. Это дар хозяйки, а не разрешение опустошить весь дом."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_flora_demon_counsel == 1"
+            ]
+          },
+          "text": "Флора услышала о моей перемене. Она не обещала вернуть прежнее тело. Разговор о том, как распорядиться оставшейся волей, оказался важнее обещания лёгкого исцеления."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_flora_met == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_flora_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Флора была ведьмой, жившей у духовного дерева. Говорила спокойно и не обещала избавления от любой беды. Знания для неё были связаны с заботой о живых."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_flora_armor == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_flora_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Флора знала цену доспеха Берсерка. Он способен заставить тело продолжать бой, когда обычный человек уже не мог бы стоять."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_flora_met == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_flora_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Флора погибла."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Л05",
+      "key": "l05",
+      "section": "people",
+      "title": "Пленник резиденции",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_prisoner_met == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_prisoner_dead == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Человек, которого держали в резиденции Графа. Он знает привычки слуг и часть служебных помещений. Боится хозяина и не уверен, что помощь извне вообще возможна."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_prisoner_help == 1"
+            ]
+          },
+          "text": "Он рассказал, что мог, о пути через дом. Его помощь позволила лучше понять, где можно обойти слуг."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_prisoner_freed == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_prisoner_dead == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Власть Графа над ним закончилась. Что он сделает с этой свободой, пока неизвестно."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_prisoner_met == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_prisoner_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Человек, которого держали в резиденции Графа. Он знал привычки слуг и часть служебных помещений. Боялся хозяина и не был уверен, что помощь извне вообще возможна."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_prisoner_met == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_prisoner_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Пленник погиб."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Л06",
+      "key": "l06",
+      "section": "people",
+      "title": "Работа лесной кузницы",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_forge_orders == 1"
+            ]
+          },
+          "text": "За работу здесь берут пригодный металл и другие нужные материалы. Годо занимается клинками, Рикерт — механизмами и болтами. Договорённость стоит обсудить прежде, чем приносить случайный лом."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_forge_orders == 1"
+            ]
+          },
+          "text": "Материалы передаются тому мастеру, который взялся за дело. Готовая работа требует времени. Когда она закончена, за ней нужно вернуться в кузницу."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Л07",
+      "key": "l07",
+      "section": "people",
+      "title": "Ремонт клинка",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_repair_explained == 1"
+            ]
+          },
+          "text": "Целый клинок Годо не станет перековывать без нужды. Сначала осмотрит лезвие и скажет, нужна ли работа. Если повреждения серьёзные, потребуются материалы и время у горна."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_repair_handoff == 1"
+            ]
+          },
+          "text": "Для ремонта придётся оставить сам клинок. Пока он у мастера, в дороге понадобится другое оружие. После окончания работы я получу обратно свой клинок."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Л08",
+      "key": "l08",
+      "section": "people",
+      "title": "Большие клинки",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_early_blade_known == 1"
+            ]
+          },
+          "text": "Длинный боевой клинок без украшений. Такой меч требует надёжной закалки и хорошего равновесия. Размер сам по себе не делает работу хорошей."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_godo_crafted_early_copy == 1"
+            ]
+          },
+          "text": "Мой самодельный клинок повторяет общий замысел, но он тяжелее, грубее и хуже выдерживает работу. Это моя попытка, а не изделие Годо."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_dragonslayer_story == 1"
+            ]
+          },
+          "text": "Годо создал клинок для невозможной задачи — убить дракона. Обычному воину трудно даже поднять это железо. Мастер не рассказывает о нём как о красивом оружии для парада."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Л09",
+      "key": "l09",
+      "section": "people",
+      "title": "Протез и рука-пушка",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_prosthesis_explained == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_rickert_dead == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Рикерт может собрать механическую замену потерянной кисти. В устройстве совмещены подвижная часть и скрытая пушка. Для работы нужны не только железо, но и точные крепления."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_arm_device_owned == 1"
+                ]
+              },
+              {
+                "not": {
+                  "u_has_bionics": "bio_berserk_arm_cannon"
+                }
+              }
+            ]
+          },
+          "text": "Устройство готово, но ещё не стало частью моей руки. Прежде чем рассчитывать на него в бою, нужно закрепить его и проверить работу механизма."
+        },
+        {
+          "condition": {
+            "u_has_bionics": "bio_berserk_arm_cannon"
+          },
+          "text": "Протез закреплён на руке. Теперь нужно привыкнуть к его весу и движению, а пушку содержать в рабочем состоянии и заряжать подходящими зарядами."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_arm_cannon_self_made == 1"
+            ]
+          },
+          "text": "Этот механизм я собрал сам."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_arm_cannon_self_made_one_hand == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_rickert_one_hand_praise == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Я собрал его уже после потери кисти. Рикерт отдельно отметил эту работу."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_prosthesis_explained == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_rickert_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Рикерт рассказывал, как собрать механическую замену потерянной кисти. В устройстве совмещены подвижная часть и скрытая пушка. Для работы нужны не только железо, но и точные крепления."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Л10",
+      "key": "l10",
+      "section": "people",
+      "title": "Арбалет и болты",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_crossbow_explained == 1"
+            ]
+          },
+          "text": "Рикерт ценит надёжный спуск больше эффектной переделки. Арбалет помогает держать расстояние, но требует подходящей позиции и времени на перезарядку."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_bolts_explained == 1"
+            ]
+          },
+          "text": "У него можно заказать болты, передав нужные материалы. Обсуждение болтов не обязывает заказывать протез или звать Рикерта в дорогу."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С01",
+      "key": "c01",
+      "section": "past",
+      "title": "Камень с человеческим лицом",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_behelit_examined == 1"
+            ]
+          },
+          "text": "Маленький камень с человеческими чертами. Его трудно принять за обычную безделушку."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_expedition_transfer_note == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_chapel_ritual_note == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_oak_last_note == 1"
+                ]
+              }
+            ]
+          },
+          "text": "В рассказах людей, которые держали его прежде, повторяются шёпот и ощущение чужого зова."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_behelit_call == 1"
+            ]
+          },
+          "text": "Теперь я тоже слышал этот зов. Он обращается к желанию, которое трудно произнести вслух."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С02",
+      "key": "c02",
+      "section": "past",
+      "title": "Осквернённый Бехелит",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_behelit_distorted == 1"
+            ]
+          },
+          "text": "Кровь изменила камень. Зов стал настойчивее. Он обещает иной выход из церемонии, но не возвращение к прежней жизни."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_distorted_warning == 1"
+            ]
+          },
+          "text": "Я был предупреждён: переход опасен даже для того, кто откажется от предложенной силы. Изменения могут остаться навсегда."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С03",
+      "key": "c03",
+      "section": "past",
+      "title": "Затмение",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_eclipse_rescue_state == 2"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_eclipse_route == 2"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            ]
+          },
+          "text": "Я прошёл через место жертвоприношения. Отряд, с которым я знал жизнь до этой ночи, оказался среди обречённых. Гриффит стоял по другую сторону случившегося."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_eclipse_rescue_state == 2"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_eclipse_route == 2"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "not": {
+                  "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                }
+              }
+            ]
+          },
+          "text": "По ту сторону прохода оказалось место жертвоприношения. Среди существ лежали люди и следы последнего сопротивления. Их прошлое не было моим, но увиденное уже стало частью моей жизни."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_eclipse_rescue_state == 2"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_eclipse_route == 2"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Рыцарь-Череп вынес меня наружу. Церемония осталась позади; её последствия — со мной."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_eclipse_hand_lost == 1"
+            ]
+          },
+          "text": "В той ночи я потерял левую кисть."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_eclipse_eye_lost == 1"
+            ]
+          },
+          "text": "В той ночи я потерял глаз."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_eclipse_manifestation_defeated == 1"
+            ]
+          },
+          "text": "Мне удалось разрушить удерживавший сцену облик. Это не было уничтожением всей Руки Бога."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С04",
+      "key": "c04",
+      "section": "past",
+      "title": "Церемониальный круг",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_circle_reached == 1"
+            ]
+          },
+          "text": "В конце пути меня ждали пять фигур. Они говорили о судьбе, желаниях и выборе. Предложенный дар не обещал сохранить прежнее тело."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_gift_choice_explained == 1"
+            ]
+          },
+          "text": "Я мог принять дар, но не назначить себе тот облик, который он даст."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_eclipse_route == 2"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_apostol_return_state == 2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_outcome == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Я согласился. Участники церемонии вернули меня наружу. Теперь перемена продолжается во мне."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_eclipse_route == 2"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_apostol_return_state == 2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_outcome == 2"
+                ]
+              }
+            ]
+          },
+          "text": "Я отказался и после последнего предупреждения. Меня вернули без дара. Человеческое тело вынесло этот переход не без последствий."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С05",
+      "key": "c05",
+      "section": "past",
+      "title": "Те, кто стоял у круга",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_apostol_hand_void_introduced == 1"
+            ]
+          },
+          "text": "Войд говорил о причинности и решении, которое нельзя отменить. Камень привёл меня к возможности выбора, но не сделал последствия этого выбора чужой ответственностью."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_apostol_hand_slan_introduced == 1"
+            ]
+          },
+          "text": "Слан говорила о желании жить и о теле, которое способно принять больше человеческого. В её обещаниях плоть и страсть звучали как одна цена."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_apostol_hand_ubik_introduced == 1"
+            ]
+          },
+          "text": "Убик обращался к памяти и к тому, как легко человек объясняет себе собственное желание. Его слова заставляли сомневаться не только в увиденном, но и в собственных оправданиях."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_apostol_hand_conrad_introduced == 1"
+            ]
+          },
+          "text": "Конрад говорил мало. В его ответах человеческая уязвимость выглядела частью неизбежного распада. Уйти из этого места без последствий он не обещал."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_apostol_hand_femto_introduced == 1"
+            ]
+          },
+          "text": "Фемто говорил так, словно прежняя человеческая мера уже не имела значения. Предложенная им сила не делала принимающего равным тому, кто её предлагал."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С06",
+      "key": "c06",
+      "section": "past",
+      "title": "След отказа",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_eclipse_route == 2"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_apostol_return_state == 2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_outcome == 2"
+                ]
+              }
+            ]
+          },
+          "text": "Я вернулся человеком. Отказ не оставил мне принятой силы, но церемония всё равно изменила то, как я слышу, вижу или переживаю окружающее."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "u_berserk_eclipse_route == 2"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_apostol_return_state == 2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_apostol_outcome == 2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "u_has_trait": "BERSERK_ECLIPSE_SCAR_HEARING"
+              }
+            ]
+          },
+          "text": "Некоторые звуки стали глуше. Чтобы расслышать знакомое, приходится прислушиваться."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "u_berserk_eclipse_route == 2"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_apostol_return_state == 2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_apostol_outcome == 2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "u_has_trait": "BERSERK_ECLIPSE_SCAR_SIGHT"
+              }
+            ]
+          },
+          "text": "Зрение уже не такое, каким было до перехода."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "u_berserk_eclipse_route == 2"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_apostol_return_state == 2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_apostol_outcome == 2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "u_has_trait": "BERSERK_ECLIPSE_SCAR_TREMOR"
+              }
+            ]
+          },
+          "text": "В точном движении появилась дрожь, которой прежде не было."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "u_berserk_eclipse_route == 2"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_apostol_return_state == 2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_apostol_outcome == 2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "u_has_trait": "BERSERK_ECLIPSE_SCAR_MEMORIES"
+              }
+            ]
+          },
+          "text": "Воспоминания возвращаются без приглашения. Иногда настоящее на мгновение теряет перед ними силу."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "u_berserk_eclipse_route == 2"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_apostol_return_state == 2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_apostol_outcome == 2"
+                    ]
+                  }
+                ]
+              },
+              {
+                "u_has_trait": "BERSERK_ECLIPSE_SCAR_DREAD"
+              }
+            ]
+          },
+          "text": "Ощущение опасности остаётся даже там, где я пока ничего не вижу."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С07",
+      "key": "c07",
+      "section": "past",
+      "title": "Клеймо жертвы",
+      "parts": [
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_knight_read_brand == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_flora_brand == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_brand_explained == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Клеймо осталось знаком жертвы. Существа за гранью различают его там, где человеческий глаз ничего не видит. Ночь облегчает им путь к отмеченному."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_knight_read_brand_pain == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_flora_brand_pain == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Боль и кровь могут предупредить о близости существа. Предупреждение не называет врага и не показывает безопасную дорогу."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_knight_read_local_wounds == 1"
+                ]
+              },
+              {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_breach_sealed == 1"
+                    ]
+                  },
+                  {
+                    "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_flora_brand == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Закрытие одного прохода не разрывает связь Клейма."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С08",
+      "key": "c08",
+      "section": "past",
+      "title": "Ночные преследователи",
+      "parts": [
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_knight_read_nights == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_knight_read_prepare == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_night_experienced == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Тишина не означает, что след потерян. Стоит готовить место для ночлега до темноты и держать нужные вещи рядом с выходом."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_knight_read_doors == 1"
+            ]
+          },
+          "text": "Дверь помогает не против всякого существа. Защита стен не должна оставлять меня без пути отступления."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_knight_read_dawn == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_brand_dawn_seen == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Рассвет не уничтожает существ, которые уже пришли. Перед выходом нужно смотреть, кто остался снаружи."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С09",
+      "key": "c09",
+      "section": "past",
+      "title": "Знак из камня и костей",
+      "parts": [
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_knight_read_ward == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_ward_examined == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_flora_travel_folio == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Небольшой знак из камней и костей сдерживает ночной зов Клейма поблизости. Он не уничтожает существ и не заменяет стены, воду и путь к выходу."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_knight_read_ward_build == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_ward_recipe_explained == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Для знака нужны восемь камней и четыре кости. Его складывают на свободной земле рядом с местом для сна."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_knight_read_ward_build == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_ward_examined == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Держать постель нужно рядом со знаком и на том же этаже. Знак действует и под открытым небом, но от этого открытая поляна не становится надёжным укрытием."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С10",
+      "key": "c10",
+      "section": "past",
+      "title": "Раны между мирами",
+      "parts": [
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_knight_read_world_collision == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_flora_world == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_visit_breach == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_breach_sealed == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Граница между мирами повреждена. Через отдельные проходы приходят существа, которые прежде не принадлежали этим землям."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_knight_read_local_wounds == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_breach_keeper_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Победа над существом, удерживающим проход, не всегда закрывает саму рану. После боя нужно осмотреть то, что оно оставило."
+        },
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_knight_read_local_wounds == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_breach_sealed == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Закрытый проход даёт передышку окрестностям. Уже пришедшие существа остаются, а дальние раны продолжают существовать."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С11",
+      "key": "c11",
+      "section": "past",
+      "title": "Отражения",
+      "parts": [
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_knight_read_projections == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_projection_studied == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Не всякий знакомый облик принадлежит самому существу. У границ миров возникают отражения, несущие часть чужой силы."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_griffith_projection_defeated == 1"
+                ]
+              },
+              {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_knight_read_projections == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_ref_griffith_projection_understood == 1"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "text": "Побеждённое мной отражение Гриффита не было его оригиналом. Исчезновение облика не доказывает смерть того, чей образ он принял."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_projection_behelit == 1"
+            ]
+          },
+          "text": "Найденный камень оказался настоящим, хотя существо вокруг него было отражением."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С12",
+      "key": "c12",
+      "section": "past",
+      "title": "Джудо",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_godo_witness_judeau == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            ]
+          },
+          "text": "Среди следов последнего боя я узнал Джудо. Даже там он пытался дать другим время. Помнить о нём стоит не только по этой последней ночи."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_godo_witness_judeau == 1"
+                ]
+              },
+              {
+                "not": {
+                  "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                }
+              }
+            ]
+          },
+          "text": "Я нашёл свидетельство о Джудо. Следы говорят, что он пытался помочь другим выбраться из давки. До этой ночи у него была жизнь, о которой я знаю лишь обрывки."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_keepsake_judeau == 1"
+            ]
+          },
+          "text": "От его ножа сохранилась рукоять."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_knight_read_memory_judeau == 1"
+            ]
+          },
+          "text": "Рыцарь сказал: сохранить память — значит помнить не только смерть человека, но и то, каким он был."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С13",
+      "key": "c13",
+      "section": "past",
+      "title": "Пиппин",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_godo_witness_pippin == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            ]
+          },
+          "text": "Пиппин держал проход до конца. За тем местом, где он стоял, ещё могли уйти другие."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_godo_witness_pippin == 1"
+                ]
+              },
+              {
+                "not": {
+                  "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                }
+              }
+            ]
+          },
+          "text": "Следы у тела Пиппина говорят о сопротивлении в тесном проходе. Он остался между существами и теми, кто ещё пытался выбраться."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_keepsake_pippin == 1"
+            ]
+          },
+          "text": "Среди обломков сохранилась сломанная застёжка."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_knight_read_memory_pippin == 1"
+            ]
+          },
+          "text": "Не всякий поступок можно измерить тем, кто остался стоять после боя."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С14",
+      "key": "c14",
+      "section": "past",
+      "title": "Коркус",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_godo_witness_corkus == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            ]
+          },
+          "text": "Коркус хотел выбраться из войны и грязи. Мы часто не ладили, но это не уменьшает того, что у него отняли."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_godo_witness_corkus == 1"
+                ]
+              },
+              {
+                "not": {
+                  "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                }
+              }
+            ]
+          },
+          "text": "В свидетельстве о Коркусе остались обычные человеческие надежды. Чудовища оборвали их так же, как мечты тех, кого называют героями."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_keepsake_corkus == 1"
+            ]
+          },
+          "text": "От его вещей сохранился обломок ножен."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_knight_read_memory_corkus == 1"
+            ]
+          },
+          "text": "Для права на жизнь не требуется стать героем."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С15",
+      "key": "c15",
+      "section": "past",
+      "title": "Гастон",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_godo_witness_gaston == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            ]
+          },
+          "text": "Гастон хотел однажды оставить войну и жить собственным трудом. Его будущее было тише чужих мечтаний о королевстве, но значило для него не меньше."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_godo_witness_gaston == 1"
+                ]
+              },
+              {
+                "not": {
+                  "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                }
+              }
+            ]
+          },
+          "text": "Я нашёл след человека по имени Гастон. Он надеялся на обычную жизнь после войны. Среди огромных имён и знамён такие надежды легко потерять."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_keepsake_gaston == 1"
+            ]
+          },
+          "text": "Его швейные принадлежности напоминают о жизни, к которой он хотел вернуться."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С16",
+      "key": "c16",
+      "section": "past",
+      "title": "Доспех Берсерка",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_armor_properties == 1"
+            ]
+          },
+          "text": "Этот доспех позволяет продолжать бой за пределом обычной боли. Он не делает тело невредимым и не отменяет цену уже полученных ран."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_armor_cost == 1"
+            ]
+          },
+          "text": "Получить доспех — ещё не значит научиться ему противостоять. Сила, которая удерживает тело в бою, может уничтожить его владельца."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_armor_properties == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+              }
+            ]
+          },
+          "text": "Полный доспех уже у меня. Мне нужны понимание и контроль, а не второй комплект."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_armor_properties == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_armor_part_known == 1"
+                ]
+              },
+              {
+                "not": {
+                  "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+                }
+              }
+            ]
+          },
+          "text": "У меня есть часть доспеха. Это ещё не полный комплект."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_flora_armor_refused == 1"
+            ]
+          },
+          "text": "Флора отказалась передать мне новый доспех после моего выбора. Она знает о принятой мной силе."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С17",
+      "key": "c17",
+      "section": "past",
+      "title": "Огонь у духовного дерева",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_flora_home_lost == 1"
+            ]
+          },
+          "text": "Я выбрался, но дом у духовного дерева потерян. За знакомыми дверями остались комнаты, в которых ещё недавно можно было отдыхать и разговаривать."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_flora_home_lost == 1"
+            ]
+          },
+          "text": "Закрытые раны дали местную передышку. Они не остановили столкновение миров. Дорога продолжается среди тех последствий, которые ещё можно изменить."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_flora_home_lost == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_knows_grunbeld == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_grunbeld_siege_alive == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_dead_grunbeld == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "След ведёт к крепости Грюнбельда."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_flora_home_lost == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_dead_grunbeld == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Грюнбельд погиб. В крепости остаётся связанный с ним проход и последствия его власти."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_flora_home_lost == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_grunbeld_siege_seen == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_grunbeld_siege_alive == 1"
+                  ]
+                }
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_ref_dead_grunbeld == 1"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Я не знаю, что стало с Грюнбельдом после боя."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "С18",
+      "key": "c18",
+      "section": "past",
+      "title": "Передышка",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_chapter_closed_known == 1"
+            ]
+          },
+          "text": "Те раны, по следу которых я прошёл, закрыты. В этих местах стало тише. Это не конец тьмы, но люди получили время, которого прежде у них не было."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_chapter_closed_known == 1"
+                ]
+              },
+              {
+                "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+              }
+            ]
+          },
+          "text": "Клеймо осталось. Следующая ночь всё ещё требует подготовки."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_chapter_closed_known == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_path > 0"
+                ]
+              }
+            ]
+          },
+          "text": "Принятая мной сила осталась со мной. Законченная охота не возвращает прежнего тела."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_chapter_closed_known == 1"
+                ]
+              },
+              {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "u_berserk_eclipse_route == 2"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_apostol_return_state == 2"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_apostol_outcome == 2"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "text": "Я остался человеком и несу последствия того перехода."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Т01",
+      "key": "t01",
+      "section": "past",
+      "title": "Моё тело",
+      "parts": [
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 1"
+                ]
+              },
+              {
+                "not": {
+                  "math": [
+                    "u_berserk_apostol_stage == 3"
+                  ]
+                }
+              }
+            ]
+          },
+          "text": "Согласие уже дано. Я чувствую перемену, но ещё не знаю, каким станет её завершение. Возвращаться за новой долей силы мне не предлагали."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_body_changed == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Перемена продолжается сама. Новые ощущения и потребности появляются не сразу. То, что тело выдерживает больше, не означает, что оно перестало получать раны."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_apostol_path == 2"
+            ]
+          },
+          "text": "Я принял внутрь плоть побеждённого существа. Она не осталась обычной пищей. Теперь её сила меняет моё тело."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_apostol_path == 2"
+            ]
+          },
+          "text": "Назад этот выбор не ведёт. Принять другую плоть вместо первой — не значит отменить уже случившееся."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_apostol_left_hand_regrown == 1"
+            ]
+          },
+          "text": "Под рубцом проступила кость, натянулись сухожилия и распрямились пальцы. Левая кисть отросла вновь. Это произошло вместе с принятой переменой, а не от обычного заживления."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_left_hand_regrown == 1"
+                ]
+              },
+              {
+                "u_has_bionics": "bio_berserk_arm_cannon"
+              }
+            ]
+          },
+          "text": "Механизм пушки остался на предплечье. Новая кисть не уничтожила уже закреплённое устройство."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_VOID_APOSTLE"
+          },
+          "text": "Тело вытянулось, пальцы изменились. Расстояние иногда ощущается не тем, каким кажется глазу. Короткий шаг способен провести меня через промежуток, который раньше пришлось бы преодолевать иначе."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_VOID_APOSTLE"
+          },
+          "text": "Изгиб пространства может ослабить удар, но сама плоть не стала неуязвимой. Обычные жёсткие перчатки больше не подходят к рукам."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_SLAN_APOSTLE"
+          },
+          "text": "Плоть стала сильнее и подвижнее. Из неё можно вытянуть оружие, которого прежде не было. Возвращать себе силы удаётся ценой голода и времени."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_SLAN_APOSTLE"
+          },
+          "text": "Жёсткое снаряжение на руках мешает изменённому телу. Способность восстановиться не позволяет забыть о ранах и пище."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_UBIK_APOSTLE"
+          },
+          "text": "Собственный силуэт стал труднее удержать взглядом. Чужое внимание можно увести к ложной цели, а восприятие врага — сбить на короткое время."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_UBIK_APOSTLE"
+          },
+          "text": "Это не обещает власти над каждым разумом. Изменённой голове не подходят обычные жёсткие шлемы и маски."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_CONRAD_APOSTLE"
+          },
+          "text": "Плоть стала толще и тяжелее. Прикосновение разъедает живое тело, а выдох оставляет едкую взвесь. Собственная сила требует осторожности рядом с теми, кого я не хочу ранить."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_CONRAD_APOSTLE"
+          },
+          "text": "Я двигаюсь медленнее. Обычная жёсткая броня корпуса и ног не подходит новому телу. Облако не становится безопасным только потому, что его выпустил я."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_FEMTO_APOSTLE"
+          },
+          "text": "Тёмные крылья изменили спину и равновесие тела. Движение стало стремительнее. Давлением можно оттолкнуть противника и нарушить его наступление."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_FEMTO_APOSTLE"
+          },
+          "text": "Крыльям нужно место. Обычная одежда на корпусе мешает им; бесконечного полёта эта сила не дала."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_COUNT_FLESH_APOSTLE"
+          },
+          "text": "Тело стало тяжёлым и пластичным. Изменённая плоть выдерживает больше, а её отросток способен достать врага на расстоянии удара."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_COUNT_FLESH_APOSTLE"
+          },
+          "text": "За прочность приходится платить медлительностью. Жёсткая броня тесна корпусу и рукам. Восстановление остаётся потребностью тела, а не доказательством бессмертия."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_WYALD_FLESH_APOSTLE"
+          },
+          "text": "Новое тело тянется к рывку и хватке. Ближний бой стал естественнее, точная работа — труднее."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_WYALD_FLESH_APOSTLE"
+          },
+          "text": "После усилия силы возвращаются медленнее. Изменённые кисти и стопы не подходят для обычных жёстких перчаток и обуви."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_ROSINE_FLESH_APOSTLE"
+          },
+          "text": "Насекомоподобные крылья раскрылись за спиной. Они помогают быстро перемещаться и смягчать падение, если тело и груз позволяют ими пользоваться."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_ROSINE_FLESH_APOSTLE"
+          },
+          "text": "Я не стал свободно подниматься в небо. Тяжёлое и тесное снаряжение мешает крыльям, а хрупкость тела не исчезла."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_GRUNBELD_FLESH_APOSTLE"
+          },
+          "text": "На теле сомкнулся тяжёлый панцирь. Жар стал переноситься легче, а выдох способен обернуться пламенем."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_GRUNBELD_FLESH_APOSTLE"
+          },
+          "text": "Тело требует больше пищи и медленнее отходит от усилия. Жёсткая броня не помещается поверх панциря. Сопротивление жару не делает любой огонь безопасным."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_COUNT_PAWN_PAWN"
+          },
+          "text": "Граф назвал меня своим. Тело стало плотнее и медленнее, из него вырос отросток. Новая защита связана с тем, кто её дал."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_COUNT_PAWN_PAWN"
+          },
+          "text": "Изменённый корпус не помещается в обычную жёсткую броню. Я принял место при чужом дворе; распоряжаться собственными поступками всё равно придётся самому."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_WYALD_PAWN_PAWN"
+          },
+          "text": "Уайлд дал мне звериное тело. Оно тянется вперёд, к короткому броску и удару. За грубую силу приходится платить неловкостью в точной работе."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_WYALD_PAWN_PAWN"
+          },
+          "text": "Жёсткие перчатки не подходят изменённым кистям. Его одобрение не заменяет отдыха после боя."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_ROSINE_PAWN_PAWN"
+          },
+          "text": "Розина приняла меня среди своих. Голова и кисти изменились; слова стали даваться тяжелее. Я всё ещё могу выбирать и действовать."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_ROSINE_PAWN_PAWN"
+          },
+          "text": "Прежняя человеческая работа требует больше усилий. Обычные жёсткие шлемы, маски и перчатки не подходят этому телу."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_GRUNBELD_PAWN_PAWN"
+          },
+          "text": "Принятая клятва оставила на теле панцирь. Он удерживает часть ударов и жара, но делает движения тяжелее."
+        },
+        {
+          "condition": {
+            "u_has_trait": "BERSERK_GRUNBELD_PAWN_PAWN"
+          },
+          "text": "Корпусу и рукам тесно в обычной жёсткой броне. Под защитой хозяина остаются требования службы."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_pawn_oath_broken == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Связь с хозяином больше не даёт прежней поддержки. Изменённое тело осталось. Нарушенная клятва не вернула меня человеком."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_pawn_master_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Хозяин погиб. Вместе с ним закончилась поддержка, но принятая от него плоть не исчезла."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "or": [
+                  {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_GIFT_COMPLETE"
+                  },
+                  {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_COMPLETE"
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_ref_body_changed == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Перестройка завершилась. Тело обрело свой новый облик. Теперь мне предстоит жить с ним, а не ждать, что ещё одна ночь вернёт прежнего меня."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Р01",
+      "key": "r01",
+      "section": "past",
+      "title": "Печать рассечённой плоти",
+      "parts": [
+        {
+          "condition": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_ref_relic_1 == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_journal_read_berserk_count_iron_seal == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Тяжёлая печать, оставшаяся после Графа. Надетая печать помогает поражать существ из-за грани. Её сила не обращена против любого живого тела."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Р02",
+      "key": "r02",
+      "section": "past",
+      "title": "Узел Зверя",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_relic_2 == 1"
+            ]
+          },
+          "text": "Жилистый узел обостряет чувство того, что движется во тьме. С ним ночная дорога различима лучше."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Р03",
+      "key": "r03",
+      "section": "past",
+      "title": "Покров Туманной долины",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_relic_3 == 1"
+            ]
+          },
+          "text": "Тонкий покров сохранил след странной долины. Надетый покров помогает уйти от удара, но не обещает спастись от каждого нападения."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "Р04",
+      "key": "r04",
+      "section": "past",
+      "title": "Осколок пламенного панциря",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_relic_4 == 1"
+            ]
+          },
+          "text": "Осколок принадлежит самому апостолу. Надетый осколок помогает переносить жар, но не защищает от дыма и не делает огонь безопасным."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_ref_relic_4 == 1"
+            ]
+          },
+          "text": "Его нельзя спутать с обгоревшими застёжками людей гарнизона."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П01",
+      "key": "p01",
+      "section": "past",
+      "title": "Заказ с разграбленного обоза",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_road_caravan_note == 1"
+            ]
+          },
+          "text": "Колесо сломалось до сумерек. Железные крепления оставили под окованным коробом, зерно унесли."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_road_caravan_note == 1"
+            ]
+          },
+          "text": "Между страницами вложен заказ: «Отнести погнутые клинки в лесную кузницу Годо. С ним работает молодой мастер арбалетов. Держаться старых тележных троп через лес»."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_road_caravan_note == 1"
+            ]
+          },
+          "text": "На полях отмечены повороты и переправы."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П02",
+      "key": "p02",
+      "section": "past",
+      "title": "Запись разведчика",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_road_scout_note == 1"
+            ]
+          },
+          "text": "За открытой поляной следят. Я видел, как деревья двигались в безветрие. Привязал ранец над промоиной и пошёл нижней тропой — проверить другой берег. Если не вернусь, держитесь камня и оставляйте место, чтобы повернуть назад."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П03",
+      "key": "p03",
+      "section": "past",
+      "title": "Письмо дорожной стоянки",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_road_camp_note == 1"
+            ]
+          },
+          "text": "Уходим до следующих сумерек. Вода чистая; тем, кто пойдёт следом, одеяло может понадобиться больше, чем нам."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_road_camp_note == 1"
+            ]
+          },
+          "text": "Кузнец Годо починил наш сломанный клинок. Его молодой помощник делает арбалетные болты. Здесь записали обратную дорогу: старая тропа, переправа через ручей, затем путь углежогов. Идти долго, но в конце дороги есть мастер."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П04",
+      "key": "p04",
+      "section": "past",
+      "title": "Дорожные советы Флоры",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_travel_folio == 1"
+            ]
+          },
+          "text": "Чистую ткань для перевязок нужно кипятить. Бурдюк лучше сшить до дальней дороги. Питьевая вода, место для сна и свободный выход важнее удобства комнаты."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_travel_folio == 1"
+            ]
+          },
+          "text": "Небольшой знак из камня и костей помогает сдерживать ночной зов, но не прогоняет существо, которое уже стоит у двери."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П05",
+      "key": "p05",
+      "section": "past",
+      "title": "Спасённая рукопись",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_rescued_manuscript == 1"
+            ]
+          },
+          "text": "Флора сравнивает соединённые миры с корнями, сросшимися поперёк раны. Тихое место может укрыть путника; одно убежище не исцелит весь мир."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_rescued_manuscript == 1"
+            ]
+          },
+          "text": "На полях сохранились следы дыма. Большая часть исследования осталась за оборванными страницами."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П06",
+      "key": "p06",
+      "section": "past",
+      "title": "Закладка в форме листа",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_scorched_bookmark == 1"
+            ]
+          },
+          "text": "Деревянная закладка в форме листа уцелела в каменной нише между корнями. На ней вырезано: «Оставь свет следующему путнику»."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П07",
+      "key": "p07",
+      "section": "past",
+      "title": "Обгоревший клочок",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_apostle_burned_clue == 1"
+            ]
+          },
+          "text": "Между обгоревшими краями различимы оборванная дорога, разрушенный фундамент и отметки вокруг расселины. Существо из низины носило этот путь к другому прорыву."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П08",
+      "key": "p08",
+      "section": "past",
+      "title": "Сломанный корнерез",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_oak_broken_rootcutter == 1"
+            ]
+          },
+          "text": "Свежие зарубки обрываются посреди корней. На древке вырезаны два ряда отметок; один внезапно заканчивается. Эти люди пытались прорубить путь к каменному лицу, а не сразиться с тем, что жило под ним."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П09",
+      "key": "p09",
+      "section": "past",
+      "title": "Оберег двух путников",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_oak_wayfarer_ward == 1"
+            ]
+          },
+          "text": "Надпись называет двух путников и просит, чтобы оба вернулись домой. Второй узел завязан дрожавшей рукой. На коре рядом — такое же тёмное пятно, как на брошенном корнерезе."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П10",
+      "key": "p10",
+      "section": "past",
+      "title": "Последняя записка у дуба",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_oak_last_note == 1"
+            ]
+          },
+          "text": "Мы оставили телегу на старой тропе. Лицо застряло в корнях, как он и говорил. Пока существо обходило ствол, я ждал за толстыми корнями и не двигался."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_oak_last_note == 1"
+            ]
+          },
+          "text": "Назад пойдём по старой западной тропе. Если лишь один из нас доберётся до телеги, оставь имя другого на шнуре."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П11",
+      "key": "p11",
+      "section": "past",
+      "title": "Травник Флоры",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_herbal_folio == 1"
+            ]
+          },
+          "text": "Травы сушить отдельно. Чистую ткань для ран прокипятить. Старые рукава починить до следующего пути. Оба прохода вокруг духовного дерева держать свободными."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_flora_herbal_folio == 1"
+            ]
+          },
+          "text": "Убежище остаётся убежищем, потому что кто-то заботится о нём."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П12",
+      "key": "p12",
+      "section": "past",
+      "title": "Схема пещерного разведчика",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_cave_scout_note == 1"
+            ]
+          },
+          "text": "Я отметил широкую галерею на востоке. Под ней тесный ход огибает каменную толщу и дважды соединяется с галереей. В западном зале мы услышали подвеску раньше, чем увидели то, что пошло на её звук. Повороты скрыли нас от его глаз."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_cave_scout_note == 1"
+            ]
+          },
+          "text": "Возле лестницы есть проход с подпоркой, но колышек обращён в глубину пещеры. Если дойдём, оставлю ещё одну отметку у сломанной опоры."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П13",
+      "key": "p13",
+      "section": "past",
+      "title": "Список помощи в часовне",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_relief_roster == 1"
+            ]
+          },
+          "text": "Воду хранили в восточной комнате, одеяла и перевязку — в ризнице. В ранней записи упомянут путник с починенным мечом и болтами: «Кузница Годо ещё работает в лесу. Старик и молодой помощник берут за работу пригодный металл». На обороте он нарисовал дорогу."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_relief_roster == 1"
+            ]
+          },
+          "text": "Позднее вместо порций еды стали считать часы у красного камня. Последний доброволец написал: «Это должно было быть убежищем»."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П14",
+      "key": "p14",
+      "section": "past",
+      "title": "Признание хранителя",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_ritual_note == 1"
+            ]
+          },
+          "text": "Мы назвали камень чудом, потому что нуждались в чуде. Перенесли его за алтарь и перестали открывать дверь чужакам. Когда начался шёпот, мы решили, что нам ответили."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_ritual_note == 1"
+            ]
+          },
+          "text": "Отпечатки рук на алтаре оставили не во время молитвы."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П15",
+      "key": "p15",
+      "section": "past",
+      "title": "Лесная дорога беженца",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_forest_route == 1"
+            ]
+          },
+          "text": "Если часовня потеряна, уходите через пролом в западной стене. Старая колея глубже в лесу приводит к огромному дубу с переплетёнными корнями. Путники рассказывали о другом каменном лице. Я не видел его сам."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П16",
+      "key": "p16",
+      "section": "past",
+      "title": "Отмена вывоза образца",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_expedition_transfer_note == 1"
+            ]
+          },
+          "text": "Приказ на вывоз перечёркнут."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_expedition_transfer_note == 1"
+            ]
+          },
+          "text": "Трое из нас после ночёвки здесь описали одно и то же красное лицо. Когда мы перенесли образец, за новой палаткой началось царапанье. Павел ранен: существо настигло его, когда он вышел на открытое место. Отменить сбор образца. Прислать транспорт для раненых. Снаряжение оставляем."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П17",
+      "key": "p17",
+      "section": "past",
+      "title": "Последние слова на ткани",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_eclipse_last_stand_note == 1"
+            ]
+          },
+          "text": "Мы ломали щиты, чтобы построить стену. Держали проход, пока не пронесли раненых. Дороги назад нет. Не теряйте бледную тропу из виду. Огромные рёбра склоняются к месту сборища."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П18",
+      "key": "p18",
+      "section": "past",
+      "title": "Список узников",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_count_prison_list == 1"
+            ]
+          },
+          "text": "Имена повторяются на объявлениях о казнях. Обувь и плащи рассортировали ещё до приговора, словно владелец уже перестал быть человеком. Одну запись зачеркнули и заменили словами «отправлен вниз»."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_count_prison_list == 1"
+            ]
+          },
+          "text": "За каждым ровным столбцом стоял человек, которого здесь заранее сочли вещью."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П19",
+      "key": "p19",
+      "section": "past",
+      "title": "Записки лекаря",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_count_physician_ledger == 1"
+            ]
+          },
+          "text": "Первые страницы посвящены кипячённому полотну и обычным ранам. Затем появляются зарисовки второго рта, растущего из груди слуги."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_count_physician_ledger == 1"
+            ]
+          },
+          "text": "Автор перестал называть это болезнью. Частицы плоти хозяина внедряли в жертву другую жизнь. Привычное лечение не возвращало человека."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П20",
+      "key": "p20",
+      "section": "past",
+      "title": "Лента Терезии",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_count_family_ribbon == 1"
+            ]
+          },
+          "text": "Лента лежала рядом с шитьём и книгой, которую очищали от пыли. Записка называет комнату комнатой Терезии и запрещает слугам её тревожить."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_count_family_ribbon == 1"
+            ]
+          },
+          "text": "Тот же правитель, который подписывал тюремные списки, оберегал этот островок обычной жизни. Где дочь сейчас, не сказано."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П21",
+      "key": "p21",
+      "section": "past",
+      "title": "Две дороги из резиденции",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_count_next_trace == 1"
+            ]
+          },
+          "text": "На карте отмечены две дороги. На одной — лагерь Чёрных Псов и имя Уайлда; на другой — туманная долина и имя Розины. По краю тянутся записи о пропавших обозах и закрытых дорогах."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П22",
+      "key": "p22",
+      "section": "past",
+      "title": "Списки Чёрных Псов",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_muster_roll == 1"
+            ]
+          },
+          "text": "В списках отдельно указаны солдаты, пленники и те, кого увели к командиру. Первые страницы заполнены размерами сапог и пайками. Позже появляются пометки об искривлённых стражах в той же форме."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_muster_roll == 1"
+            ]
+          },
+          "text": "За привычной военной ведомостью проступает другая жизнь лагеря."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П23",
+      "key": "p23",
+      "section": "past",
+      "title": "Свидетельство о побеге",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_prisoner_account == 1"
+            ]
+          },
+          "text": "Я спрятал это до переклички. Дверцы клеток перевязаны, а не заперты железными ключами. Развяжи их с любой стороны и проходи; путь через карьер длиннее, но открыт."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_prisoner_account == 1"
+            ]
+          },
+          "text": "Рядом с одним именем внизу дописано короткое слово: «сбежал»."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П24",
+      "key": "p24",
+      "section": "past",
+      "title": "Приказы командира",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_command_orders == 1"
+            ]
+          },
+          "text": "Уайлд приказал пересчитать награбленные припасы и расчистить площадку для боя. Деревянные заслоны оттащили к краям. Между строчек о добыче и людях повторяется одно требование: никто не должен уйти без его разрешения."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_wyald_command_orders == 1"
+            ]
+          },
+          "text": "Последний лист говорит о расколотом мире. Переход изменил прежнюю судьбу командира. В этом лагере живёт он сам, а не его отражение."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П25",
+      "key": "p25",
+      "section": "past",
+      "title": "Свидетельство искателя долины",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_rosine_witness_note == 1"
+            ]
+          },
+          "text": "Они называли крылатых тварей феями, потому что цветы были прекрасны. Я шёл по следу брошенной обуви, мимо игр — к шёлку."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_rosine_witness_note == 1"
+            ]
+          },
+          "text": "В тихих оболочках не осталось надежды; в движущихся было нечто уже изменившееся. Вернуть их я не могу. По западному оврагу можно обойти рощу и выйти к огромным корням."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П26",
+      "key": "p26",
+      "section": "past",
+      "title": "Выцветшая лента",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_rosine_faded_ribbon == 1"
+            ]
+          },
+          "text": "Ленту повязали на ветку как метку для игры. Дальше такой же узел зажат в расколотой оболочке. Цветы продолжили расти, когда игры оборвались."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_rosine_faded_ribbon == 1"
+            ]
+          },
+          "text": "От человека иногда остаётся вещь, которую легко пройти мимо."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П27",
+      "key": "p27",
+      "section": "past",
+      "title": "Послание дозорного",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_expedition_alarm_note == 1"
+            ]
+          },
+          "text": "Михаил, если первым доберёшься до лагеря: мы перенесли раненых в юго-западную палатку. Существо вышло из северной палатки и настигло Павла на открытом месте. Держись за полотном палаток и уходи через разрыв восточного ограждения. Мы уходим до сумерек."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_expedition_alarm_note == 1"
+            ]
+          },
+          "text": "Лена."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П28",
+      "key": "p28",
+      "section": "past",
+      "title": "Последнее бдение",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_last_vigil == 1"
+            ]
+          },
+          "text": "Последняя молитва перечёркнута."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_chapel_last_vigil == 1"
+            ]
+          },
+          "text": "Мы заперли парадные двери, чтобы не впускать чужаков. Теперь шаги слышны внутри. Ирина вынесла оставшиеся одеяла через ризницу; я не смог уговорить её вернуться за камнем. Западная стена проломлена. Идите за живыми, пока ещё есть время."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П29",
+      "key": "p29",
+      "section": "past",
+      "title": "Записка на рукаве",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_cave_last_scrap == 1"
+            ]
+          },
+          "text": "Восточный ход достаточно широк, чтобы нести его, но царапины там свежие. Железный лом я оставил у сломанной опоры. Мы вернулись вокруг каменной подвески и подошли к подпорке снизу. С той стороны колышек можно вытащить."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_cave_last_scrap == 1"
+            ]
+          },
+          "text": "Если он очнётся, сначала попробуем добраться до лестницы, а не до красного лица."
+        }
+      ],
+      "title_variants": []
+    },
+    {
+      "code": "П30",
+      "key": "p30",
+      "section": "past",
+      "title": "Застёжка гарнизонного знамени",
+      "parts": [
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_grunbeld_scorched_badge == 1"
+            ]
+          },
+          "text": "От знамени гарнизона осталась обгоревшая застёжка. На обороте выцарапаны имена людей, державших южную дорогу."
+        },
+        {
+          "condition": {
+            "math": [
+              "u_berserk_journal_read_berserk_grunbeld_scorched_badge == 1"
+            ]
+          },
+          "text": "Это человеческая вещь. Пламенный панцирь апостола не принадлежал тем, чьи имена здесь остались."
+        }
+      ],
+      "title_variants": []
+    }
+  ],
+  "physical_readers": [
+    "EOC_BERSERK_ROAD_READ_CARAVAN",
+    "EOC_BERSERK_ROAD_READ_SCOUT",
+    "EOC_BERSERK_ROAD_READ_CAMP",
+    "EOC_BERSERK_FLORA_READ_TRAVEL_FOLIO",
+    "EOC_BERSERK_FLORA_READ_RESCUED_MANUSCRIPT",
+    "EOC_BERSERK_FLORA_READ_BOOKMARK",
+    "EOC_BERSERK_BREACH_READ_CLUE",
+    "EOC_BERSERK_READ_OAK_BROKEN_ROOTCUTTER",
+    "EOC_BERSERK_READ_OAK_WAYFARER_WARD",
+    "EOC_BERSERK_READ_OAK_LAST_NOTE",
+    "EOC_BERSERK_READ_FLORA_HERBAL_FOLIO",
+    "EOC_BERSERK_READ_CAVE_SCOUT_NOTE",
+    "EOC_BERSERK_READ_CHAPEL_RELIEF_ROSTER",
+    "EOC_BERSERK_READ_CHAPEL_RITUAL_NOTE",
+    "EOC_BERSERK_READ_CHAPEL_FOREST_ROUTE",
+    "EOC_BERSERK_READ_EXPEDITION_TRANSFER_NOTE",
+    "EOC_BERSERK_ECLIPSE_LAST_STAND_READ",
+    "EOC_BERSERK_COUNT_PRISON_LIST_READ",
+    "EOC_BERSERK_COUNT_PHYSICIAN_LEDGER_READ",
+    "EOC_BERSERK_COUNT_FAMILY_RIBBON_READ",
+    "EOC_BERSERK_COUNT_NEXT_TRACE_READ",
+    "EOC_BERSERK_READ_BERSERK_WYALD_MUSTER_ROLL",
+    "EOC_BERSERK_READ_BERSERK_WYALD_PRISONER_ACCOUNT",
+    "EOC_BERSERK_READ_BERSERK_WYALD_COMMAND_ORDERS",
+    "EOC_BERSERK_READ_BERSERK_ROSINE_WITNESS_NOTE",
+    "EOC_BERSERK_READ_BERSERK_ROSINE_FADED_RIBBON",
+    "EOC_BERSERK_READ_EXPEDITION_ALARM_NOTE",
+    "EOC_BERSERK_READ_CHAPEL_LAST_VIGIL",
+    "EOC_BERSERK_READ_CAVE_LAST_SCRAP",
+    "EOC_BERSERK_GRUNBELD_READ_BADGE"
+  ],
+  "manuscript_entries": 93,
+  "sections": [
+    "places",
+    "people",
+    "past"
+  ]
+}

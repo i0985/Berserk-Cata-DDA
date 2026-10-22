@@ -36,6 +36,7 @@ class RewardGraph:
         self.victim = None
         self.alpha = "avatar"
         self.fail_updates = False
+        self.omt = ''
 
     def variable(self, name):
         if name.startswith("u_") and self.alpha != "avatar":
@@ -46,11 +47,19 @@ class RewardGraph:
         return self.context[value["context_val"]] if isinstance(value, dict) else value
 
     def condition(self, value):
+        if isinstance(value, str):
+            if value == 'u_is_avatar': return self.alpha == 'avatar'
+            raise AssertionError(value)
+        if 'u_at_om_location' in value:
+            return self.omt == value['u_at_om_location']
         if "and" in value:
             return all(self.condition(v) for v in value["and"])
         if "test_eoc" in value:
             return self.condition(self.eocs[value["test_eoc"]]["condition"])
         if "math" in value:
+            if value['math'][0] == "distance('u', _berserk_behelit_drop_pos) <= 3":
+                target = self.context['berserk_behelit_drop_pos']
+                return max(abs(self.avatar[i] - target[i]) for i in range(3)) <= 3
             name, expected = value["math"][0].split(" == ")
             return self.variable(name) == int(expected)
         if "map_furniture_id" in value:
@@ -58,6 +67,9 @@ class RewardGraph:
         raise AssertionError(f"Unsupported condition: {value}")
 
     def run(self, id):
+        # The full read-only observer is executed in test_reference_journal_33;
+        # this fixture isolates reward coordinates and player-vs-killer scope.
+        if id == 'EOC_BERSERK_REF_SYNC': return
         obj = self.eocs[id]
         if "condition" not in obj or self.condition(obj["condition"]):
             self.effect(obj["effect"])

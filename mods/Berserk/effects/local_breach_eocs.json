@@ -2,70 +2,46 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_BREACH_READ_CLUE",
-    "condition": {
-      "and": [
-        {
-          "math": [
-            "berserk_eclipse_era == 1"
-          ]
+    "condition": "u_is_avatar",
+    "effect": [
+      {
+        "u_message": "Между обгоревшими краями различимы оборванная дорога, разрушенный фундамент и отметки вокруг расселины. Существо из низины носило этот путь к другому прорыву.",
+        "type": "info",
+        "popup": true
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_journal_read_berserk_apostle_burned_clue == 1"
+            ]
+          }
         },
-        {
-          "or": [
-            {
-              "math": [
-                "u_berserk_first_hunt_done == 1"
-              ]
-            },
-            {
-              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-            }
-          ]
-        },
-        {
-          "math": [
-            "u_val('pos_z') == 0"
-          ]
-        }
-      ]
-    },
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_apostle_burned_clue == 1"
+        "then": [
+          {
+            "math": [
+              "u_berserk_journal_read_berserk_apostle_burned_clue = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_BREACH"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_JOURNAL_BREACH_LOCATE"
+          },
+          {
+            "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+          }
         ]
       },
-      "then": [
-        {
-          "run_eocs": "EOC_BERSERK_JOURNAL_BREACH_LOCATE"
-        }
-      ],
-      "else": [
-        {
-          "u_message": "Between the burned edges are a broken road, a ruined foundation and marks around a split in the ground. The hollow’s keeper carried this route to another breach.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_BREACH"
-        },
-        {
-          "run_eocs": "EOC_BERSERK_JOURNAL_BREACH_LOCATE"
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_apostle_burned_clue = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        }
-      ]
-    },
-    "false_effect": {
-      "u_message": "The scorched routes make sense only after you survive the Eclipse and the first hunt. Read them above ground.",
-      "type": "info"
-    },
-    "//": "Road journal archive: berserk_apostle_burned_clue"
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_TRACE_SYNC"
+      }
+    ],
+    "//": "Reference journal: physical source only; rereading never reapplies progression."
   },
   {
     "type": "effect_on_condition",
@@ -340,9 +316,14 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_POST_ECLIPSE_CHOOSE",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_JOURNAL_OPEN"
-    }
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_KNOWN_ROUTES_NOW"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ]
   },
   {
     "type": "effect_on_condition",
@@ -424,6 +405,29 @@
       },
       {
         "run_eocs": "EOC_BERSERK_KNOWN_ROUTES_NOW"
+      },
+      {
+        "math": [
+          "u_berserk_ref_breach_directions = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_ref_name_count = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_ref_name_wyald = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_ref_name_rosine = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
