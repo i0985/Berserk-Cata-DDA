@@ -214,7 +214,10 @@ class HumanEquipment(unittest.TestCase):
             self.assertIn({'test_eoc': self.allowed}, list(walk(condition)))
         self.assertIn({'test_eoc': self.allowed}, list(walk(g.eocs['EOC_BERSERK_FLORA_CAN_RECEIVE']['condition'])))
         ready = g.eocs['EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE']['condition']
-        self.assertIn({'not': {'test_eoc': self.allowed}}, list(walk(ready)))
+        # Continuation now works without an armor grant for human refusal,
+        # existing owners and demon paths. Only the reward tests the lock.
+        self.assertNotIn({'test_eoc': self.allowed}, list(walk(ready)))
+        self.assertIn({'test_eoc':'EOC_BERSERK_FLORA33_LATE'}, list(walk(ready)))
         self.assertFalse((MOD / 'item_groups.json').exists())
 
     def test_rickert_services_are_not_gated_by_accepted_path(self):

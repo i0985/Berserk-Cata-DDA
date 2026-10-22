@@ -39,72 +39,82 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
-        },
-        {
           "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+            },
             {
               "and": [
                 {
-                  "math": [
-                    "berserk_eclipse_era == 1"
-                  ]
-                },
-                {
-                  "or": [
+                  "and": [
                     {
                       "math": [
-                        "u_berserk_eclipse_rescue_state == 2"
+                        "berserk_eclipse_era == 1"
                       ]
                     },
                     {
-                      "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                      "or": [
+                        {
+                          "math": [
+                            "u_berserk_eclipse_rescue_state == 2"
+                          ]
+                        },
+                        {
+                          "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                        }
+                      ]
                     }
                   ]
-                }
-              ]
-            },
-            {
-              "and": [
-                "has_beta",
-                "npc_is_monster",
+                },
                 {
-                  "math": [
-                    "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
-                  ]
-                }
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_flora_armor_resolved != 1"
-              ]
-            },
-            {
-              "math": [
-                "berserk_flora_armor_claimed != 1"
-              ]
-            },
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
-              }
-            },
-            {
-              "and": [
-                {
-                  "math": [
-                    "berserk_flora_stage <= 1"
+                  "and": [
+                    "has_beta",
+                    "npc_is_monster",
+                    {
+                      "math": [
+                        "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+                      ]
+                    }
                   ]
                 },
                 {
                   "math": [
-                    "berserk_flora_siege_state <= 1"
+                    "u_berserk_flora_armor_resolved != 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_armor_claimed != 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+                  }
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "berserk_flora_stage <= 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "berserk_flora_siege_state <= 1"
+                      ]
+                    }
                   ]
                 }
               ]
             }
           ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_AT_REGISTERED_MANOR"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA33_LATE"
         }
       ]
     },
@@ -524,6 +534,9 @@
           "count": 1,
           "suppress_message": true
         }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA33_QUEUE"
       }
     ]
   },

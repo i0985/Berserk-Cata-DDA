@@ -14241,8 +14241,71 @@
             {
               "or": [
                 {
-                  "math": [
-                    "u_berserk_ref_chapter_closed_known == 1"
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_ref_chapter_closed_known == 1"
+                      ]
+                    },
+                    {
+                      "not": {
+                        "or": [
+                          {
+                            "math": [
+                              "u_berserk_pact_resolved_count == 1"
+                            ]
+                          },
+                          {
+                            "math": [
+                              "u_berserk_pact_resolved_wyald == 1"
+                            ]
+                          },
+                          {
+                            "math": [
+                              "u_berserk_pact_resolved_rosine == 1"
+                            ]
+                          },
+                          {
+                            "math": [
+                              "u_berserk_pact_resolved_grunbeld == 1"
+                            ]
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_ref_chapter_closed_known == 1"
+                      ]
+                    },
+                    {
+                      "or": [
+                        {
+                          "math": [
+                            "u_berserk_pact_resolved_count == 1"
+                          ]
+                        },
+                        {
+                          "math": [
+                            "u_berserk_pact_resolved_wyald == 1"
+                          ]
+                        },
+                        {
+                          "math": [
+                            "u_berserk_pact_resolved_rosine == 1"
+                          ]
+                        },
+                        {
+                          "math": [
+                            "u_berserk_pact_resolved_grunbeld == 1"
+                          ]
+                        }
+                      ]
+                    }
                   ]
                 },
                 {
@@ -14322,8 +14385,38 @@
       },
       {
         "if": {
-          "math": [
-            "u_berserk_ref_chapter_closed_known == 1"
+          "and": [
+            {
+              "math": [
+                "u_berserk_ref_chapter_closed_known == 1"
+              ]
+            },
+            {
+              "not": {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_pact_resolved_count == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_pact_resolved_wyald == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_pact_resolved_rosine == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_pact_resolved_grunbeld == 1"
+                    ]
+                  }
+                ]
+              }
+            }
           ]
         },
         "then": {
@@ -14376,7 +14469,28 @@
               ]
             },
             {
-              "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_pact_resolved_count == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_pact_resolved_wyald == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_pact_resolved_rosine == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_pact_resolved_grunbeld == 1"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -14430,9 +14544,7 @@
               ]
             },
             {
-              "math": [
-                "u_berserk_apostol_path > 0"
-              ]
+              "u_has_bionics": "bio_berserk_brand_of_sacrifice"
             }
           ]
         },
@@ -14486,26 +14598,8 @@
               ]
             },
             {
-              "and": [
-                {
-                  "and": [
-                    {
-                      "math": [
-                        "u_berserk_eclipse_route == 2"
-                      ]
-                    },
-                    {
-                      "math": [
-                        "u_berserk_apostol_return_state == 2"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_apostol_outcome == 2"
-                  ]
-                }
+              "math": [
+                "u_berserk_apostol_path > 0"
               ]
             }
           ]
@@ -14541,6 +14635,80 @@
             {
               "math": [
                 "u_berserk_ref_active_c18_3 = 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_c18 = u_berserk_ref_revision_c18 + 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_ref_chapter_closed_known == 1"
+              ]
+            },
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_eclipse_route == 2"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_return_state == 2"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_outcome == 2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "if": {
+            "not": {
+              "math": [
+                "u_berserk_ref_active_c18_4 == 1"
+              ]
+            }
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_c18_4 = 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_c18 = u_berserk_ref_revision_c18 + 1"
+              ]
+            }
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "u_berserk_ref_active_c18_4 == 1"
+            ]
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_c18_4 = 0"
               ]
             },
             {
@@ -22502,23 +22670,59 @@
                   ]
                 },
                 {
-                  "math": [
-                    "u_berserk_mission_count_finished == 1"
+                  "or": [
+                    {
+                      "math": [
+                        "u_berserk_mission_count_finished == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_pact_resolved_count == 1"
+                      ]
+                    }
                   ]
                 },
                 {
-                  "math": [
-                    "u_berserk_mission_wyald_finished == 1"
+                  "or": [
+                    {
+                      "math": [
+                        "u_berserk_mission_wyald_finished == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_pact_resolved_wyald == 1"
+                      ]
+                    }
                   ]
                 },
                 {
-                  "math": [
-                    "u_berserk_mission_rosine_finished == 1"
+                  "or": [
+                    {
+                      "math": [
+                        "u_berserk_mission_rosine_finished == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_pact_resolved_rosine == 1"
+                      ]
+                    }
                   ]
                 },
                 {
-                  "math": [
-                    "u_berserk_mission_grunbeld_finished == 1"
+                  "or": [
+                    {
+                      "math": [
+                        "u_berserk_mission_grunbeld_finished == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_pact_resolved_grunbeld == 1"
+                      ]
+                    }
                   ]
                 },
                 {

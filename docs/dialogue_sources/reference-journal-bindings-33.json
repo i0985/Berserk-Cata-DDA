@@ -3403,11 +3403,77 @@
       "parts": [
         {
           "condition": {
-            "math": [
-              "u_berserk_ref_chapter_closed_known == 1"
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_chapter_closed_known == 1"
+                ]
+              },
+              {
+                "not": {
+                  "or": [
+                    {
+                      "math": [
+                        "u_berserk_pact_resolved_count == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_pact_resolved_wyald == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_pact_resolved_rosine == 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_pact_resolved_grunbeld == 1"
+                      ]
+                    }
+                  ]
+                }
+              }
             ]
           },
           "text": "Те раны, по следу которых я прошёл, закрыты. В этих местах стало тише. Это не конец тьмы, но люди получили время, которого прежде у них не было."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_ref_chapter_closed_known == 1"
+                ]
+              },
+              {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_pact_resolved_count == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_pact_resolved_wyald == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_pact_resolved_rosine == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_pact_resolved_grunbeld == 1"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          "text": "Известные дороги этого пути пройдены. Не каждое решение было победой: принятый договор тоже оставил след. Там, где прорывы закрылись, окрестности получили передышку. Оставшиеся раны и пришедшие существа никуда не исчезли."
         },
         {
           "condition": {

@@ -262,7 +262,9 @@ def experiences():
         (allof(fact('flora_home_lost'), dead('grunbeld')), p('С17', 3)),
         (allof(fact('flora_home_lost'), fact('grunbeld_siege_seen'), no(fact('grunbeld_siege_alive')), no(dead('grunbeld'))), p('С17', 4))])
     done = fact('chapter_closed_known')
-    record('С18', 'past', [(done, p('С18', 0)), (allof(done, BRAND), p('С18', 1)),
+    contracts = anyof(*(eq('u_berserk_pact_resolved_'+s) for s in ['count','wyald','rosine','grunbeld']))
+    record('С18', 'past', [(allof(done,no(contracts)), p('С18', 0)),
+        (allof(done,contracts),'Известные дороги этого пути пройдены. Не каждое решение было победой: принятый договор тоже оставил след. Там, где прорывы закрылись, окрестности получили передышку. Оставшиеся раны и пришедшие существа никуда не исчезли.'), (allof(done, BRAND), p('С18', 1)),
         (allof(done, DEMON), p('С18', 2)), (allof(done, REFUSED), p('С18', 3))])
 
 

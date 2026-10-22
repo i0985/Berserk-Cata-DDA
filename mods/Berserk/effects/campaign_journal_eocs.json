@@ -34,47 +34,32 @@
     "condition": {
       "and": [
         {
+          "not": {
+            "math": [
+              "u_berserk_campaign_chapter_closed == 1"
+            ]
+          }
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA33_RESOLVED_COUNT"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA33_RESOLVED_WYALD"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA33_RESOLVED_ROSINE"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA33_RESOLVED_GRUNBELD"
+        },
+        {
           "math": [
-            "u_berserk_campaign_chapter_closed != 1"
+            "u_berserk_flora_escaped == 1"
           ]
         },
         {
           "math": [
-            "berserk_hunt_count_state >= 4"
-          ]
-        },
-        {
-          "math": [
-            "berserk_hunt_wyald_state >= 4"
-          ]
-        },
-        {
-          "math": [
-            "berserk_hunt_rosine_state >= 4"
-          ]
-        },
-        {
-          "math": [
-            "berserk_hunt_grunbeld_state >= 4"
-          ]
-        },
-        {
-          "or": [
-            {
-              "math": [
-                "berserk_flora_siege_state >= 5"
-              ]
-            },
-            {
-              "math": [
-                "berserk_flora_stage == 3"
-              ]
-            }
-          ]
-        },
-        {
-          "math": [
-            "berserk_hunt_first_breach_state >= 4"
+            "u_berserk_breach_sealed == 1"
           ]
         }
       ]
@@ -128,193 +113,70 @@
         "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
       },
       {
+        "set_string_var": "Прежде чем продолжать известные дороги, найдите место для отдыха.",
+        "target_var": {
+          "context_val": "flora_next"
+        },
+        "i18n": true
+      },
+      {
         "if": {
-          "and": [
-            {
+          "math": [
+            "u_berserk_ref_grunbeld_siege_seen == 1"
+          ]
+        },
+        "then": {
+          "set_string_var": "В дыму вы потеряли его из виду. Жив он или нет — неизвестно. Пустое место не значит мёртвое тело.",
+          "target_var": {
+            "context_val": "flora_next"
+          },
+          "i18n": true
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_ref_grunbeld_siege_dead == 1"
+          ]
+        },
+        "then": {
+          "set_string_var": "Грюнбельд мёртв. Но связанные с ним раны не исчезли вместе с ним.",
+          "target_var": {
+            "context_val": "flora_next"
+          },
+          "i18n": true
+        },
+        "else": {
+          "if": {
+            "math": [
+              "u_berserk_ref_grunbeld_siege_alive == 1"
+            ]
+          },
+          "then": {
+            "if": {
               "math": [
                 "u_berserk_journal_knows_grunbeld == 1"
               ]
             },
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GRUNBELD"
-              }
-            }
-          ]
-        },
-        "then": {
-          "if": {
-            "math": [
-              "berserk_hunt_grunbeld_state >= 4"
-            ]
-          },
-          "then": {
-            "set_string_var": "The wound at Grunbeld’s stronghold is closed. Its unclaimed relic remains on your road.",
-            "target_var": {
-              "context_val": "flora_next"
-            },
-            "i18n": true
-          },
-          "else": {
-            "if": {
-              "math": [
-                "berserk_apostle_grunbeld_dead == 1"
-              ]
-            },
             "then": {
-              "set_string_var": "Грюнбельд пал, но связанную с его крепостью рану ещё предстоит осмотреть.",
+              "set_string_var": "Грюнбельд выжил. Уцелевший след ведёт к его крепости. Прежде чем продолжать дорогу, можно восстановить силы.",
               "target_var": {
                 "context_val": "flora_next"
               },
               "i18n": true
             },
             "else": {
-              "set_string_var": "Уцелевший след ведёт к крепости Грюнбельда. Направление отмечено среди ваших заданий.",
+              "set_string_var": "Грюнбельд выжил и исчез в дыму. Куда он делся после боя, ещё предстоит выяснить.",
               "target_var": {
                 "context_val": "flora_next"
               },
               "i18n": true
-            }
-          }
-        },
-        "else": {
-          "if": {
-            "and": [
-              {
-                "math": [
-                  "u_berserk_journal_knows_count == 1"
-                ]
-              },
-              {
-                "and": [
-                  {
-                    "math": [
-                      "berserk_hunt_count_state >= 1"
-                    ]
-                  },
-                  {
-                    "math": [
-                      "berserk_hunt_count_state < 4"
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          "then": {
-            "set_string_var": "Среди известных дорог остались незавершённые следы.",
-            "target_var": {
-              "context_val": "flora_next"
-            },
-            "i18n": true
-          },
-          "else": {
-            "if": {
-              "and": [
-                {
-                  "math": [
-                    "u_berserk_journal_knows_wyald == 1"
-                  ]
-                },
-                {
-                  "and": [
-                    {
-                      "math": [
-                        "berserk_hunt_wyald_state >= 1"
-                      ]
-                    },
-                    {
-                      "math": [
-                        "berserk_hunt_wyald_state < 4"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            "then": {
-              "set_string_var": "Среди известных дорог остались незавершённые следы.",
-              "target_var": {
-                "context_val": "flora_next"
-              },
-              "i18n": true
-            },
-            "else": {
-              "if": {
-                "and": [
-                  {
-                    "math": [
-                      "u_berserk_journal_knows_rosine == 1"
-                    ]
-                  },
-                  {
-                    "and": [
-                      {
-                        "math": [
-                          "berserk_hunt_rosine_state >= 1"
-                        ]
-                      },
-                      {
-                        "math": [
-                          "berserk_hunt_rosine_state < 4"
-                        ]
-                      }
-                    ]
-                  }
-                ]
-              },
-              "then": {
-                "set_string_var": "Осталась незавершённая дорога в туманную долину.",
-                "target_var": {
-                  "context_val": "flora_next"
-                },
-                "i18n": true
-              },
-              "else": {
-                "if": {
-                  "and": [
-                    {
-                      "math": [
-                        "u_berserk_journal_knows_breach == 1"
-                      ]
-                    },
-                    {
-                      "and": [
-                        {
-                          "math": [
-                            "u_berserk_breach_sealed != 1"
-                          ]
-                        },
-                        {
-                          "math": [
-                            "has_var(u_berserk_local_breach_location)"
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                },
-                "then": {
-                  "set_string_var": "Пепельный разрыв ещё открыт. Его место вам известно.",
-                  "target_var": {
-                    "context_val": "flora_next"
-                  },
-                  "i18n": true
-                },
-                "else": {
-                  "set_string_var": "Отдохните в своём пристанище, прежде чем продолжать незавершённые пути.",
-                  "target_var": {
-                    "context_val": "flora_next"
-                  },
-                  "i18n": true
-                }
-              }
             }
           }
         }
       },
       {
-        "u_message": "Behind you, fire spreads through Flora's home. You have escaped, but a shelter is being lost. Darkness is taking deeper root in the world of Cataclysm; closing every rift will demand far more than the battles won so far.\n\n<context_val:flora_next>",
+        "u_message": "Дым ест глаза раньше, чем вы успеваете понять, что уже снаружи. Деревья расступаются — и вот оно, дерево, огромное, чёрное на фоне пламени. Там, где раньше были окна, теперь только оранжевые провалы, и в них что-то шевелится — то ли жар, то ли то, что осталось от крыши.\n\nВы стояли у этого очага. Разговаривали с хозяйкой и узнавали этот дом. Теперь дом горит, и идти больше некуда — только вперёд.\n\nЗакрытые прорывы дали земле передышку — не больше. Тьма продолжает сочиться в мир, который и без того не оправился от Катаклизма. Сколько ещё предстоит сделать, чтобы хоть немного залатать эти раны, вы пока даже примерно представить не можете.\n\nСегодня вы остались живы. Пока этого достаточно.\n\n<context_val:flora_next>",
         "type": "warning",
         "popup": true
       },

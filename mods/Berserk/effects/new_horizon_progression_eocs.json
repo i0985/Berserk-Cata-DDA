@@ -5,19 +5,13 @@
     "condition": {
       "and": [
         {
-          "math": [
-            "berserk_hunt_count_state >= 4"
-          ]
+          "test_eoc": "EOC_BERSERK_FLORA33_RESOLVED_COUNT"
         },
         {
-          "math": [
-            "berserk_hunt_wyald_state >= 4"
-          ]
+          "test_eoc": "EOC_BERSERK_FLORA33_RESOLVED_WYALD"
         },
         {
-          "math": [
-            "berserk_hunt_rosine_state >= 4"
-          ]
+          "test_eoc": "EOC_BERSERK_FLORA33_RESOLVED_ROSINE"
         }
       ]
     },
@@ -53,17 +47,40 @@
     "condition": {
       "and": [
         {
-          "math": [
-            "berserk_eclipse_era == 1"
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_return_state == 2"
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
-          "math": [
-            "u_berserk_eclipse_rescue_state == 2"
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FLORA33_RESOLVED_COUNT"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FLORA33_RESOLVED_WYALD"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FLORA33_RESOLVED_ROSINE"
+            }
           ]
-        },
-        {
-          "test_eoc": "EOC_BERSERK_EARLY_HUNTS_CLOSED"
         },
         {
           "math": [
@@ -72,12 +89,12 @@
         },
         {
           "math": [
-            "berserk_flora_stage < 1"
+            "u_berserk_flora_late_clue_given == 0"
           ]
         },
         {
           "math": [
-            "u_berserk_flora_late_clue_given != 1"
+            "berserk_flora_stage < 2"
           ]
         }
       ]

@@ -6,33 +6,18 @@
     "condition": {
       "and": [
         {
-          "and": [
-            {
-              "math": [
-                "berserk_eclipse_era == 1"
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "u_berserk_eclipse_rescue_state == 2"
-                  ]
-                },
-                {
-                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-                }
-              ]
-            }
-          ]
+          "test_eoc": "EOC_BERSERK_FLORA33_LATE"
         },
         {
           "and": [
-            "has_beta",
-            "npc_is_monster",
             {
               "math": [
-                "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+                "berserk_flora_stage <= 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_siege_state <= 1"
               ]
             }
           ]
@@ -41,36 +26,11 @@
           "test_eoc": "EOC_BERSERK_FLORA_AT_REGISTERED_MANOR"
         },
         {
-          "math": [
-            "distance('npc', berserk_flora_center) <= 34"
-          ]
-        },
-        {
-          "math": [
-            "berserk_flora_stage <= 1"
-          ]
-        },
-        {
-          "math": [
-            "berserk_flora_siege_state == 0"
-          ]
-        },
-        {
-          "or": [
-            {
-              "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
-            },
-            {
-              "math": [
-                "u_berserk_flora_armor_resolved == 1"
-              ]
-            },
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
-              }
-            }
-          ]
+          "not": {
+            "math": [
+              "u_berserk_flora33_queued == 1"
+            ]
+          }
         }
       ]
     }
@@ -167,18 +127,6 @@
         },
         "x_adjust": 42,
         "y_adjust": 18
-      },
-      {
-        "if": {
-          "not": {
-            "u_has_item": "berserk_flora_escape_charm"
-          }
-        },
-        "then": {
-          "u_spawn_item": "berserk_flora_escape_charm",
-          "count": 1,
-          "suppress_message": true
-        }
       }
     ],
     "condition": {
@@ -911,7 +859,7 @@
             }
           },
           {
-            "u_message": "The charm tightens against your palm. Beyond the northern trees, something breaks the ward. Roots rise to meet figures approaching from the east. The western path and southern garden are still open.",
+            "u_message": "Внешняя защита не держит. Отойди от входа — живо.",
             "type": "warning",
             "popup": true
           }
@@ -921,12 +869,33 @@
         }
       },
       {
-        "math": [
-          "u_berserk_ref_flora_attack = 1"
-        ]
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       },
       {
-        "run_eocs": "EOC_BERSERK_REF_SYNC"
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_siege_state >= 2"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_siege_state <= 4"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_ref_flora_attack = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_REF_SYNC"
+          }
+        ]
       }
     ]
   },
@@ -1710,7 +1679,9 @@
                   ]
                 },
                 {
-                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                  "math": [
+                    "u_berserk_apostol_return_state == 2"
+                  ]
                 }
               ]
             }

@@ -1,0 +1,890 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_HURT",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_hp('head') < u_hp_max('head') * 0.8"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('torso') < u_hp_max('torso') * 0.8"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('arm_l') < u_hp_max('arm_l') * 0.8"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('arm_r') < u_hp_max('arm_r') * 0.8"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('leg_l') < u_hp_max('leg_l') * 0.8"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('leg_r') < u_hp_max('leg_r') * 0.8"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_ANY_ARMOR",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "u_has_item": "berserk_helmet"
+        },
+        {
+          "u_has_item": "berserk_chestplate"
+        },
+        {
+          "u_has_item": "berserk_gloves"
+        },
+        {
+          "u_has_item": "berserk_armguards"
+        },
+        {
+          "u_has_item": "berserk_legguards"
+        },
+        {
+          "u_has_item": "berserk_boots"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_ARMOR_KNOWN",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA33_ANY_ARMOR"
+        },
+        {
+          "math": [
+            "u_berserk_ref_armor_properties == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_flora_armor == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_flora33_heard_armor == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_KNOWN_DANGER",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_flora33_projection_defeated == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_breach_sealed == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_journal_knows_count == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_journal_knows_wyald == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_journal_knows_rosine == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_journal_knows_grunbeld == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_RESOLVED_COUNT",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "berserk_hunt_count_state >= 4"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_pact_resolved_count == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_RESOLVED_WYALD",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "berserk_hunt_wyald_state >= 4"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_pact_resolved_wyald == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_RESOLVED_ROSINE",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "berserk_hunt_rosine_state >= 4"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_pact_resolved_rosine == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_RESOLVED_GRUNBELD",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "berserk_hunt_grunbeld_state >= 4"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_pact_resolved_grunbeld == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_LATE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_return_state == 2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "or": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_FLORA33_RESOLVED_COUNT"
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_FLORA33_RESOLVED_WYALD"
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_FLORA33_RESOLVED_ROSINE"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_flora33_legacy_ready == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_QUEUE",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_PREPARE_SIEGE"
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_flora_siege_state == 1"
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_flora33_queued = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_flora33_due = time('now') + 3"
+            ]
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "not": {
+            "math": [
+              "u_berserk_flora33_queued == 1"
+            ]
+          }
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA33_LATE"
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_stage <= 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_siege_state <= 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_DUE",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_START_SIEGE"
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_siege_state >= 2"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_siege_state <= 4"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_flora33_queued = 2"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_FLORA_APOSTLES_ARRIVE"
+          }
+        ]
+      }
+    ],
+    "global": true,
+    "recurrence": "1 second",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_flora33_queued == 1"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_flora33_due"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_AT_REGISTERED_MANOR"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_CHARM",
+    "effect": {
+      "u_message": "Бумажный оберег хранит слабый запах трав.",
+      "type": "info"
+    },
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_MIGRATE",
+    "effect": [
+      {
+        "if": {
+          "or": [
+            {
+              "math": [
+                "berserk_flora_siege_state == 1"
+              ]
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_armor_claimed == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_flora_armor_resolved == 1"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_flora33_legacy_ready = 1"
+          ]
+        }
+      },
+      {
+        "math": [
+          "u_berserk_flora33_schema = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "not": {
+            "math": [
+              "u_berserk_flora33_schema == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_NEW_GAME",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_flora33_schema = 1"
+        ]
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "game_start",
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_RECOVER",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FLORA33_MIGRATE"
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_griffith_projection_defeated == 1"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_flora33_projection_defeated = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
+        },
+        "then": {
+          "math": [
+            "u_berserk_pact_resolved_count = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
+        },
+        "then": {
+          "math": [
+            "u_berserk_pact_resolved_wyald = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
+        },
+        "then": {
+          "math": [
+            "u_berserk_pact_resolved_rosine = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
+        },
+        "then": {
+          "math": [
+            "u_berserk_pact_resolved_grunbeld = 1"
+          ]
+        }
+      }
+    ],
+    "global": true,
+    "recurrence": "1 minute",
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_PROJECTION_KILL",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_flora33_projection_defeated = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "character_kills_monster",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "or": [
+            {
+              "compare_string": [
+                {
+                  "context_val": "victim_type"
+                },
+                "mon_berserk_projection_zodd"
+              ]
+            },
+            {
+              "compare_string": [
+                {
+                  "context_val": "victim_type"
+                },
+                "mon_berserk_projection_griffith"
+              ]
+            },
+            {
+              "compare_string": [
+                {
+                  "context_val": "victim_type"
+                },
+                "mon_berserk_projection_void"
+              ]
+            },
+            {
+              "compare_string": [
+                {
+                  "context_val": "victim_type"
+                },
+                "mon_berserk_projection_count"
+              ]
+            },
+            {
+              "compare_string": [
+                {
+                  "context_val": "victim_type"
+                },
+                "mon_berserk_projection_wyald"
+              ]
+            },
+            {
+              "compare_string": [
+                {
+                  "context_val": "victim_type"
+                },
+                "mon_berserk_projection_rosine"
+              ]
+            },
+            {
+              "compare_string": [
+                {
+                  "context_val": "victim_type"
+                },
+                "mon_berserk_projection_grunbeld"
+              ]
+            },
+            {
+              "compare_string": [
+                {
+                  "context_val": "victim_type"
+                },
+                "mon_berserk_projection_slan"
+              ]
+            },
+            {
+              "compare_string": [
+                {
+                  "context_val": "victim_type"
+                },
+                "mon_berserk_projection_ubik"
+              ]
+            },
+            {
+              "compare_string": [
+                {
+                  "context_val": "victim_type"
+                },
+                "mon_berserk_projection_conrad"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_ARMOR_COMBAT_CHARACTER_MELEE_ATTACKS_MONSTER",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_flora33_used_in_combat = 1"
+        ]
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "character_melee_attacks_monster",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_mode_state == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_ARMOR_COMBAT_CHARACTER_MELEE_ATTACKS_CHARACTER",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_flora33_used_in_combat = 1"
+        ]
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "character_melee_attacks_character",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_mode_state == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_MANUSCRIPT_REACHABLE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_flora33_manuscript_seen == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_manuscript_rescued == 0"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_AT_REGISTERED_MANOR"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_P_7C9D040B2A0F",
+    "effect": [],
+    "condition": {
+      "not": {
+        "test_eoc": "EOC_BERSERK_FLORA33_LATE"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_P_2C9C82C811FA",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_flora33_demon_noticed == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_P_6A66D3F13D15",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_flora_siege_state >= 2"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_siege_state <= 4"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_P_97502AC24A5F",
+    "effect": [],
+    "condition": {
+      "not": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_P_D5EFD4C1D4CB",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_flora33_motive_recalled == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "u_berserk_flora33_motive > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_P_6E47DB6C2FDD",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_grunbeld == 1"
+          ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GRUNBELD"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_P_79E9E9DAA827",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_rosine == 1"
+          ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_DONE_ROSINE"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_P_DAB0685D7713",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_wyald == 1"
+          ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_DONE_WYALD"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_P_C402274F96B9",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_count == 1"
+          ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_DONE_COUNT"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_P_678E2F36C17F",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_breach == 1"
+          ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_DONE_BREACH"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA33_P_C8F07FE2CEA9",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_first == 1"
+          ]
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_JOURNAL_DONE_FIRST"
+          }
+        }
+      ]
+    }
+  }
+]

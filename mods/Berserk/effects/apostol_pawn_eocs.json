@@ -3666,19 +3666,30 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_COUNT_PAWN_SUSPEND_HUNT",
-    "effect": {
-      "finish_mission": "MISSION_BERSERK_COUNT",
-      "success": false
-    },
-    "condition": {
-      "and": [
-        {
-          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
-        },
-        {
+    "effect": [
+      {
+        "math": [
+          "u_berserk_pact_resolved_count = 1"
+        ]
+      },
+      {
+        "if": {
           "u_has_mission": "MISSION_BERSERK_COUNT"
+        },
+        "then": {
+          "finish_mission": "MISSION_BERSERK_COUNT",
+          "success": true
         }
-      ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_LATE_FLORA_RECOVER"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LINE"
     }
   },
   {
@@ -3917,19 +3928,30 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_WYALD_PAWN_SUSPEND_HUNT",
-    "effect": {
-      "finish_mission": "MISSION_BERSERK_WYALD",
-      "success": false
-    },
-    "condition": {
-      "and": [
-        {
-          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
-        },
-        {
+    "effect": [
+      {
+        "math": [
+          "u_berserk_pact_resolved_wyald = 1"
+        ]
+      },
+      {
+        "if": {
           "u_has_mission": "MISSION_BERSERK_WYALD"
+        },
+        "then": {
+          "finish_mission": "MISSION_BERSERK_WYALD",
+          "success": true
         }
-      ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_LATE_FLORA_RECOVER"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LINE"
     }
   },
   {
@@ -4168,19 +4190,30 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_SUSPEND_HUNT",
-    "effect": {
-      "finish_mission": "MISSION_BERSERK_ROSINE",
-      "success": false
-    },
-    "condition": {
-      "and": [
-        {
-          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
-        },
-        {
+    "effect": [
+      {
+        "math": [
+          "u_berserk_pact_resolved_rosine = 1"
+        ]
+      },
+      {
+        "if": {
           "u_has_mission": "MISSION_BERSERK_ROSINE"
+        },
+        "then": {
+          "finish_mission": "MISSION_BERSERK_ROSINE",
+          "success": true
         }
-      ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_LATE_FLORA_RECOVER"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LINE"
     }
   },
   {
@@ -4419,19 +4452,30 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_SUSPEND_HUNT",
-    "effect": {
-      "finish_mission": "MISSION_BERSERK_GRUNBELD",
-      "success": false
-    },
-    "condition": {
-      "and": [
-        {
-          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
-        },
-        {
+    "effect": [
+      {
+        "math": [
+          "u_berserk_pact_resolved_grunbeld = 1"
+        ]
+      },
+      {
+        "if": {
           "u_has_mission": "MISSION_BERSERK_GRUNBELD"
+        },
+        "then": {
+          "finish_mission": "MISSION_BERSERK_GRUNBELD",
+          "success": true
         }
-      ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_LATE_FLORA_RECOVER"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "condition": {
+      "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LINE"
     }
   },
   {

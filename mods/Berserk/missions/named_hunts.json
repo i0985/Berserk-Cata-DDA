@@ -62,8 +62,17 @@
     "description": "Explore the marked residence and the rooms below its execution hall. The trail leads to the Count and a passage held open beneath his house. Deal with the keeper, examine the wound and recover what remains after it is sealed.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
-      "math": [
-        "berserk_hunt_count_state >= 5"
+      "or": [
+        {
+          "math": [
+            "berserk_hunt_count_state >= 5"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_pact_resolved_count == 1"
+          ]
+        }
       ]
     },
     "difficulty": 4,
@@ -90,8 +99,17 @@
     "description": "Follow the trail to the Black Dogs' camp. Inspect its stores, prisoners' traces and paths of retreat. Wyald holds this place; after confronting him, find the wound linked to the camp and examine what remains when it closes.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
-      "math": [
-        "berserk_hunt_wyald_state >= 5"
+      "or": [
+        {
+          "math": [
+            "berserk_hunt_wyald_state >= 5"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_pact_resolved_wyald == 1"
+          ]
+        }
       ]
     },
     "difficulty": 4,
@@ -118,8 +136,17 @@
     "description": "Follow the marked trail into the valley. The evidence names Rosine. Study the flowers, cocoons and paths before confronting her. Examine the wound linked to this place and recover the surviving relic after it closes.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
-      "math": [
-        "berserk_hunt_rosine_state >= 5"
+      "or": [
+        {
+          "math": [
+            "berserk_hunt_rosine_state >= 5"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_pact_resolved_rosine == 1"
+          ]
+        }
       ]
     },
     "difficulty": 4,
@@ -146,8 +173,17 @@
     "description": "The surviving trail leads to the stronghold. Explore the fortifications and the passage linked to this place. Examine the traces Grunbeld left here, close the wound and recover what remains.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
-      "math": [
-        "berserk_hunt_grunbeld_state >= 5"
+      "or": [
+        {
+          "math": [
+            "berserk_hunt_grunbeld_state >= 5"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_pact_resolved_grunbeld == 1"
+          ]
+        }
       ]
     },
     "difficulty": 4,

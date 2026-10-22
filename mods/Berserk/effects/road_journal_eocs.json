@@ -100,19 +100,28 @@
       "or": [
         {
           "math": [
-            "berserk_hunt_count_state >= 5"
+            "u_berserk_pact_resolved_count == 1"
           ]
         },
         {
-          "and": [
+          "or": [
             {
               "math": [
-                "berserk_hunt_count_state >= 4"
+                "berserk_hunt_count_state >= 5"
               ]
             },
             {
-              "math": [
-                "berserk_hunt_count_reward_claimed == 1"
+              "and": [
+                {
+                  "math": [
+                    "berserk_hunt_count_state >= 4"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_count_reward_claimed == 1"
+                  ]
+                }
               ]
             }
           ]
@@ -147,19 +156,28 @@
       "or": [
         {
           "math": [
-            "berserk_hunt_wyald_state >= 5"
+            "u_berserk_pact_resolved_wyald == 1"
           ]
         },
         {
-          "and": [
+          "or": [
             {
               "math": [
-                "berserk_hunt_wyald_state >= 4"
+                "berserk_hunt_wyald_state >= 5"
               ]
             },
             {
-              "math": [
-                "berserk_hunt_wyald_reward_claimed == 1"
+              "and": [
+                {
+                  "math": [
+                    "berserk_hunt_wyald_state >= 4"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_wyald_reward_claimed == 1"
+                  ]
+                }
               ]
             }
           ]
@@ -194,19 +212,28 @@
       "or": [
         {
           "math": [
-            "berserk_hunt_rosine_state >= 5"
+            "u_berserk_pact_resolved_rosine == 1"
           ]
         },
         {
-          "and": [
+          "or": [
             {
               "math": [
-                "berserk_hunt_rosine_state >= 4"
+                "berserk_hunt_rosine_state >= 5"
               ]
             },
             {
-              "math": [
-                "berserk_hunt_rosine_reward_claimed == 1"
+              "and": [
+                {
+                  "math": [
+                    "berserk_hunt_rosine_state >= 4"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_rosine_reward_claimed == 1"
+                  ]
+                }
               ]
             }
           ]
@@ -270,19 +297,28 @@
       "or": [
         {
           "math": [
-            "berserk_hunt_grunbeld_state >= 5"
+            "u_berserk_pact_resolved_grunbeld == 1"
           ]
         },
         {
-          "and": [
+          "or": [
             {
               "math": [
-                "berserk_hunt_grunbeld_state >= 4"
+                "berserk_hunt_grunbeld_state >= 5"
               ]
             },
             {
-              "math": [
-                "berserk_hunt_grunbeld_reward_claimed == 1"
+              "and": [
+                {
+                  "math": [
+                    "berserk_hunt_grunbeld_state >= 4"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_hunt_grunbeld_reward_claimed == 1"
+                  ]
+                }
               ]
             }
           ]

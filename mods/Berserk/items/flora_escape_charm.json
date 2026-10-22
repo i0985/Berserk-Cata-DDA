@@ -9,7 +9,7 @@
     "name": {
       "str_sp": "Flora's escape charm"
     },
-    "description": "A paper charm prepared by Flora. Finish your rest, equip yourself and gather what you need before awakening it at her home. Its awakening ends your preparations and carries you into the next dangerous part of your journey.",
+    "description": "Бумажный оберег Флоры. Среди волокон ещё держится запах сушёных трав.",
     "weight": "1 g",
     "volume": "1 ml",
     "material": [
@@ -23,9 +23,9 @@
     ],
     "use_action": {
       "type": "effect_on_conditions",
-      "menu_text": "Awaken Flora's escape charm",
+      "menu_text": "Осмотреть оберег",
       "effect_on_conditions": [
-        "EOC_BERSERK_FLORA_START_SIEGE"
+        "EOC_BERSERK_FLORA33_CHARM"
       ]
     },
     "looks_like": "",

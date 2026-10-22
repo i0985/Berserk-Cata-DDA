@@ -436,7 +436,7 @@ def knowledge_events_and_hooks():
     remember('armor_part_known', anyof(*(item(x) for x in ['berserk_helmet', 'berserk_chestplate', 'berserk_armguards', 'berserk_gloves', 'berserk_legguards', 'berserk_boots'])))
     remember('refuge_chosen', eq('u_berserk_refuge_ready'))
     remember('chapter_closed_known', allof(eq('u_berserk_campaign_chapter_closed'),
-        *(eq('u_berserk_mission_' + s + '_finished') for s in ['count', 'wyald', 'rosine', 'grunbeld']), fact('flora_home_lost')))
+        *(anyof(eq('u_berserk_mission_' + s + '_finished'),eq('u_berserk_pact_resolved_' + s)) for s in ['count', 'wyald', 'rosine', 'grunbeld']), fact('flora_home_lost')))
     GENERATED.append(eoc(PREFIX + 'OBSERVE', observe, 'u_is_avatar'))
     data = load('dialogue/godo.json'); by = index(data)
     def god(suffixes, facts): stamp_topics(by, ['TALK_BERSERK_GODO_' + s for s in suffixes], facts)
@@ -479,15 +479,18 @@ def knowledge_events_and_hooks():
         sp = obj.setdefault('speaker_effect', {'effect': []}); append(sp, run('ORDERS_SYNC'))
     write('dialogue/godo.json', data)
     data = load('dialogue/flora.json'); by = index(data)
+    source_flora = 'TALK_BERSERK_FLORA_INTRO_STRANGER' in by
     for names, facts_ in [(['BRAND'], ['flora_brand']), (['BRAND_PAIN'], ['flora_brand_pain']),
         (['ARMOR', 'ARMOR_PROPERTIES', 'OWNED', 'OFFER'], ['flora_armor', 'armor_properties']),
         (['COST', 'COST_CONTROL'], ['armor_cost']), (['WARD'], ['ward_recipe_explained']),
         (['WORLD', 'WORLD_COLLISION'], ['flora_world']),
         (['HELP', 'AID'], ['flora_aid_allowed']), (['APOSTOL_FLORA'], ['flora_demon_counsel'])]:
         ids = [('TALK_BERSERK_' + s if s.startswith('APOSTOL_') else 'TALK_BERSERK_FLORA_' + s) for s in names]
+        if source_flora and names == ['HELP', 'AID']: continue
         stamp_topics(by, ids, facts_)
     stamp_topics(by, ['TALK_BERSERK_APOSTOL_FLORA_ARMOR'], ['flora_armor_refused'])
     for stem, name in [('COUNT', 'Графа'), ('WYALD', 'Уайлда'), ('ROSINE', 'Розины'), ('GRUNBELD', 'Грюнбельда')]:
+        if source_flora: continue
         target = 'TALK_BERSERK_FLORA_KNOWN_' + stem
         key = stem.lower(); state = 'berserk_hunt_' + key + '_state'
         text = choose(math(state + ' >= 5'), tr('Этот след уже пройден. Не позволяйте законченной охоте удерживать вас там, где больше нечего искать.'),
@@ -501,7 +504,7 @@ def knowledge_events_and_hooks():
         for response in by['TALK_BERSERK_FLORA_NEXT']['responses']:
             if response['topic'] == 'TALK_BERSERK_JOURNAL_PLACE_' + stem: response['topic'] = target
     smith_topic = 'TALK_BERSERK_FLORA_KNOWN_SMITH'
-    upsert(data, topic(smith_topic, choose(test('JOURNAL_VALID_GODO'),
+    if not source_flora: upsert(data, topic(smith_topic, choose(test('JOURNAL_VALID_GODO'),
         tr('Годо работает в лесной кузнице. С ним живёт Рикерт, молодой мастер механизмов. Теперь у вас есть направление; познакомиться с ними нужно самим.'),
         tr('Я знаю мастеров лесной кузницы. Годо занимается клинками, Рикерт — механизмами. По имеющимся сведениям пока трудно уточнить дорогу, но этот след стоит сохранить.')),
         [button('Я хотел спросить о другом.', 'TALK_BERSERK_FLORA_HELP'), button('Спасибо. До свидания.', 'TALK_DONE')]))
@@ -537,12 +540,11 @@ def knowledge_events_and_hooks():
         'location_scenery_eocs': [(['SCENERY_CHAPEL'], ['chapel_bypass'])],
         'rosine_cocoon_eocs': [(['COCOON_OPEN'], ['cocoon_examined']), (['COCOON_EMPTIED'], ['rosine_creatures'])],
         'flora_treehouse_eocs': [(['FLORA_ALLOW_AID'], ['flora_aid_allowed']),
-            (['FLORA_AID_PANTRY', 'FLORA_AID_WORKSHOP', 'FLORA_AID_WARD'], ['flora_aid_taken']),
             (['FLORA_READ_COSMOLOGY_SHELF'], ['flora_world']),
             (['FLORA_READ_SANCTUARY_WARD'], ['ward_examined']),
             (['FLORA_READ_ARMOR_STAND'], ['armor_properties']),
             (['FLORA_READ_WARD_SHELF'], ['ward_recipe_explained'])],
-        'flora_siege_eocs': [(['FLORA_START_SIEGE'], ['flora_attack']), (['FLORA_GRUNBELD_ARRIVED'], ['grunbeld_siege_seen'])],
+        'flora_siege_eocs': [(['FLORA_GRUNBELD_ARRIVED'], ['grunbeld_siege_seen'])],
         'godo_repair_eocs': [(['GODO_REPAIR_START_STORED'], ['repair_handoff'])],
     }
     for file, rules in hookmap.items():
@@ -551,6 +553,16 @@ def knowledge_events_and_hooks():
             ids = ['EOC_BERSERK_' + s for s in suffixes]
             stamp_eocs(by, ids, flags)
         write('effects/' + file + '.json', data)
+    data = load('effects/flora_treehouse_eocs.json'); by = index(data)
+    for suffix in ['PANTRY','WORKSHOP','WARD']:
+        obj = by['EOC_BERSERK_FLORA_AID_' + suffix]
+        obj['effect'] = [x for x in effects(obj['effect']) if x != setf('flora_aid_taken')]
+    claim = by['EOC_BERSERK_FLORA_CLAIM_GIFT']
+    for node in list(walk(claim)):
+        if isinstance(node.get('then'), list) and any('map_spawn_item' in x for x in node['then']):
+            for x in [setf('flora_aid_taken'), run('SYNC')]:
+                if x not in node['then']: node['then'].append(x)
+    write('effects/flora_treehouse_eocs.json', data)
     data = load('effects/apostol_path_eocs.json'); by = index(data)
     stamp_eocs(by, ['EOC_BERSERK_APOSTOL_DISTORTED_BEHELIT_USE'], ['distorted_warning'],
                allof(no(GUTS), item('berserk_behelit_distorted')))

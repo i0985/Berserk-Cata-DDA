@@ -279,11 +279,6 @@
         }
       },
       {
-        "math": [
-          "u_berserk_ref_flora_aid_taken = 1"
-        ]
-      },
-      {
         "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
@@ -334,11 +329,6 @@
           "berserk_location_transform": "berserk_flora_aid_workshop_claimed",
           "berserk_location_loot": "berserk_flora_aid_workshop"
         }
-      },
-      {
-        "math": [
-          "u_berserk_ref_flora_aid_taken = 1"
-        ]
       },
       {
         "run_eocs": "EOC_BERSERK_REF_SYNC"
@@ -393,11 +383,6 @@
         }
       },
       {
-        "math": [
-          "u_berserk_ref_flora_aid_taken = 1"
-        ]
-      },
-      {
         "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ],
@@ -428,7 +413,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_READ_CHARRED_ARCHIVE",
     "effect": {
-      "u_message": "Only charred edges remain of the unfinished notes. A few lines are still legible, but the fire took most of the knowledge they held.",
+      "u_message": "Края листов скручены и почернели, рассыпаются при прикосновении. Между обугленными краями ещё можно разобрать несколько уцелевших строк — обрывки фраз без начала и конца. Остальное огонь забрал себе целиком, и уже ничего не вернуть.",
       "type": "info",
       "popup": true
     }
@@ -457,71 +442,86 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_MANUSCRIPT",
-    "effect": {
-      "if": {
-        "and": [
-          {
-            "math": [
-              "berserk_flora_siege_state >= 2"
-            ]
-          },
-          {
-            "math": [
-              "berserk_flora_siege_state <= 4"
-            ]
-          }
-        ]
-      },
-      "then": {
+    "effect": [
+      {
         "if": {
-          "u_query": "Rescue the unfinished manuscript? It costs time; escaping without it still succeeds.",
-          "default": false
-        },
-        "then": [
-          {
-            "u_transform_radius": 0,
-            "ter_furn_transform": "berserk_flora_manuscript_taken",
-            "target_var": {
-              "context_val": "pos"
+          "and": [
+            {
+              "math": [
+                "berserk_flora_siege_state >= 2"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_siege_state <= 4"
+              ]
             }
+          ]
+        },
+        "then": {
+          "if": {
+            "u_query": "Rescue the unfinished manuscript? It costs time; escaping without it still succeeds.",
+            "default": false
           },
-          {
-            "if": {
-              "map_furniture_id": "f_berserk_flora_manuscript_taken",
-              "loc": {
+          "then": [
+            {
+              "u_transform_radius": 0,
+              "ter_furn_transform": "berserk_flora_manuscript_taken",
+              "target_var": {
                 "context_val": "pos"
               }
             },
-            "then": [
-              {
-                "map_spawn_item": "berserk_flora_rescued_manuscript",
+            {
+              "if": {
+                "map_furniture_id": "f_berserk_flora_manuscript_taken",
                 "loc": {
                   "context_val": "pos"
                 }
               },
-              {
-                "math": [
-                  "berserk_flora_manuscript_rescued = 1"
-                ]
-              },
-              {
-                "u_message": "The manuscript lies here ready to be picked up. Leave by the western road or southern garden; do not wait for a victory.",
-                "type": "info",
-                "popup": false
-              },
-              {
-                "turn_cost": "2 seconds"
-              }
-            ]
-          }
-        ]
+              "then": [
+                {
+                  "map_spawn_item": "berserk_flora_rescued_manuscript",
+                  "loc": {
+                    "context_val": "pos"
+                  }
+                },
+                {
+                  "math": [
+                    "berserk_flora_manuscript_rescued = 1"
+                  ]
+                },
+                {
+                  "u_message": "The manuscript lies here ready to be picked up. Leave by the western road or southern garden; do not wait for a victory.",
+                  "type": "info",
+                  "popup": false
+                },
+                {
+                  "turn_cost": "2 seconds"
+                }
+              ]
+            }
+          ]
+        },
+        "else": {
+          "u_message": "These unfinished pages gather Flora's notes on paths between worlds. A smooth stone holds down the loose sheets; careful annotations crowd the margins. Beside them lies a quill she has not yet cleaned.",
+          "type": "info",
+          "popup": true
+        }
       },
-      "else": {
-        "u_message": "These unfinished pages gather Flora's notes on paths between worlds. A smooth stone holds down the loose sheets; careful annotations crowd the margins. Beside them lies a quill she has not yet cleaned.",
-        "type": "info",
-        "popup": true
+      {
+        "if": {
+          "map_furniture_id": "f_berserk_flora_manuscript",
+          "loc": {
+            "context_val": "pos"
+          }
+        },
+        "then": {
+          "math": [
+            "u_berserk_flora33_manuscript_seen = 1"
+          ]
+        }
       }
-    },
+    ],
     "condition": {
       "and": [
         {
@@ -806,6 +806,14 @@
             {
               "u_message": "You lay the recovered belongings here. Pick them up before leaving.",
               "type": "info"
+            },
+            {
+              "math": [
+                "u_berserk_ref_flora_aid_taken = 1"
+              ]
+            },
+            {
+              "run_eocs": "EOC_BERSERK_REF_SYNC"
             }
           ],
           "else": {

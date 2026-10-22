@@ -159,82 +159,107 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_MISSION_COUNT",
     "condition": {
-      "and": [
+      "or": [
         {
           "math": [
-            "has_var(berserk_hunt_count_location)"
+            "u_berserk_pact_resolved_count == 1"
           ]
         },
         {
-          "math": [
-            "berserk_hunt_count_state >= 1"
+          "and": [
+            {
+              "math": [
+                "has_var(berserk_hunt_count_location)"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_count_state >= 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+              }
+            }
           ]
-        },
-        {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
-          }
         }
       ]
     },
     "effect": {
       "if": {
         "math": [
-          "berserk_hunt_count_state >= 5"
+          "u_berserk_pact_resolved_count == 1"
         ]
       },
-      "then": [
-        {
-          "if": {
-            "u_has_mission": "MISSION_BERSERK_COUNT"
-          },
-          "then": {
-            "finish_mission": "MISSION_BERSERK_COUNT",
-            "success": true
-          }
+      "then": {
+        "if": {
+          "u_has_mission": "MISSION_BERSERK_COUNT"
         },
-        {
-          "math": [
-            "u_berserk_mission_count_finished = 1"
-          ]
+        "then": {
+          "finish_mission": "MISSION_BERSERK_COUNT",
+          "success": true
         }
-      ],
+      },
       "else": {
         "if": {
-          "and": [
-            {
-              "not": {
-                "u_has_mission": "MISSION_BERSERK_COUNT"
-              }
-            },
-            {
-              "math": [
-                "u_berserk_mission_count_finished != 1"
-              ]
-            }
+          "math": [
+            "berserk_hunt_count_state >= 5"
           ]
         },
         "then": [
           {
-            "assign_mission": "MISSION_BERSERK_COUNT"
-          },
-          {
             "if": {
               "u_has_mission": "MISSION_BERSERK_COUNT"
             },
-            "then": [
-              {
-                "math": [
-                  "u_berserk_mission_count_issued = 1"
-                ]
-              },
-              {
-                "u_message": "A new objective is marked on your map.",
-                "type": "info"
-              }
+            "then": {
+              "finish_mission": "MISSION_BERSERK_COUNT",
+              "success": true
+            }
+          },
+          {
+            "math": [
+              "u_berserk_mission_count_finished = 1"
             ]
           }
-        ]
+        ],
+        "else": {
+          "if": {
+            "and": [
+              {
+                "not": {
+                  "u_has_mission": "MISSION_BERSERK_COUNT"
+                }
+              },
+              {
+                "math": [
+                  "u_berserk_mission_count_finished != 1"
+                ]
+              }
+            ]
+          },
+          "then": [
+            {
+              "assign_mission": "MISSION_BERSERK_COUNT"
+            },
+            {
+              "if": {
+                "u_has_mission": "MISSION_BERSERK_COUNT"
+              },
+              "then": [
+                {
+                  "math": [
+                    "u_berserk_mission_count_issued = 1"
+                  ]
+                },
+                {
+                  "u_message": "A new objective is marked on your map.",
+                  "type": "info"
+                }
+              ]
+            }
+          ]
+        }
       }
     }
   },
@@ -242,82 +267,107 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_MISSION_WYALD",
     "condition": {
-      "and": [
+      "or": [
         {
           "math": [
-            "has_var(berserk_hunt_wyald_location)"
+            "u_berserk_pact_resolved_wyald == 1"
           ]
         },
         {
-          "math": [
-            "berserk_hunt_wyald_state >= 1"
+          "and": [
+            {
+              "math": [
+                "has_var(berserk_hunt_wyald_location)"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_wyald_state >= 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+              }
+            }
           ]
-        },
-        {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
-          }
         }
       ]
     },
     "effect": {
       "if": {
         "math": [
-          "berserk_hunt_wyald_state >= 5"
+          "u_berserk_pact_resolved_wyald == 1"
         ]
       },
-      "then": [
-        {
-          "if": {
-            "u_has_mission": "MISSION_BERSERK_WYALD"
-          },
-          "then": {
-            "finish_mission": "MISSION_BERSERK_WYALD",
-            "success": true
-          }
+      "then": {
+        "if": {
+          "u_has_mission": "MISSION_BERSERK_WYALD"
         },
-        {
-          "math": [
-            "u_berserk_mission_wyald_finished = 1"
-          ]
+        "then": {
+          "finish_mission": "MISSION_BERSERK_WYALD",
+          "success": true
         }
-      ],
+      },
       "else": {
         "if": {
-          "and": [
-            {
-              "not": {
-                "u_has_mission": "MISSION_BERSERK_WYALD"
-              }
-            },
-            {
-              "math": [
-                "u_berserk_mission_wyald_finished != 1"
-              ]
-            }
+          "math": [
+            "berserk_hunt_wyald_state >= 5"
           ]
         },
         "then": [
           {
-            "assign_mission": "MISSION_BERSERK_WYALD"
-          },
-          {
             "if": {
               "u_has_mission": "MISSION_BERSERK_WYALD"
             },
-            "then": [
-              {
-                "math": [
-                  "u_berserk_mission_wyald_issued = 1"
-                ]
-              },
-              {
-                "u_message": "A new objective is marked on your map.",
-                "type": "info"
-              }
+            "then": {
+              "finish_mission": "MISSION_BERSERK_WYALD",
+              "success": true
+            }
+          },
+          {
+            "math": [
+              "u_berserk_mission_wyald_finished = 1"
             ]
           }
-        ]
+        ],
+        "else": {
+          "if": {
+            "and": [
+              {
+                "not": {
+                  "u_has_mission": "MISSION_BERSERK_WYALD"
+                }
+              },
+              {
+                "math": [
+                  "u_berserk_mission_wyald_finished != 1"
+                ]
+              }
+            ]
+          },
+          "then": [
+            {
+              "assign_mission": "MISSION_BERSERK_WYALD"
+            },
+            {
+              "if": {
+                "u_has_mission": "MISSION_BERSERK_WYALD"
+              },
+              "then": [
+                {
+                  "math": [
+                    "u_berserk_mission_wyald_issued = 1"
+                  ]
+                },
+                {
+                  "u_message": "A new objective is marked on your map.",
+                  "type": "info"
+                }
+              ]
+            }
+          ]
+        }
       }
     }
   },
@@ -325,82 +375,107 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_MISSION_ROSINE",
     "condition": {
-      "and": [
+      "or": [
         {
           "math": [
-            "has_var(berserk_hunt_rosine_location)"
+            "u_berserk_pact_resolved_rosine == 1"
           ]
         },
         {
-          "math": [
-            "berserk_hunt_rosine_state >= 1"
+          "and": [
+            {
+              "math": [
+                "has_var(berserk_hunt_rosine_location)"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_rosine_state >= 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+              }
+            }
           ]
-        },
-        {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
-          }
         }
       ]
     },
     "effect": {
       "if": {
         "math": [
-          "berserk_hunt_rosine_state >= 5"
+          "u_berserk_pact_resolved_rosine == 1"
         ]
       },
-      "then": [
-        {
-          "if": {
-            "u_has_mission": "MISSION_BERSERK_ROSINE"
-          },
-          "then": {
-            "finish_mission": "MISSION_BERSERK_ROSINE",
-            "success": true
-          }
+      "then": {
+        "if": {
+          "u_has_mission": "MISSION_BERSERK_ROSINE"
         },
-        {
-          "math": [
-            "u_berserk_mission_rosine_finished = 1"
-          ]
+        "then": {
+          "finish_mission": "MISSION_BERSERK_ROSINE",
+          "success": true
         }
-      ],
+      },
       "else": {
         "if": {
-          "and": [
-            {
-              "not": {
-                "u_has_mission": "MISSION_BERSERK_ROSINE"
-              }
-            },
-            {
-              "math": [
-                "u_berserk_mission_rosine_finished != 1"
-              ]
-            }
+          "math": [
+            "berserk_hunt_rosine_state >= 5"
           ]
         },
         "then": [
           {
-            "assign_mission": "MISSION_BERSERK_ROSINE"
-          },
-          {
             "if": {
               "u_has_mission": "MISSION_BERSERK_ROSINE"
             },
-            "then": [
-              {
-                "math": [
-                  "u_berserk_mission_rosine_issued = 1"
-                ]
-              },
-              {
-                "u_message": "A new objective is marked on your map.",
-                "type": "info"
-              }
+            "then": {
+              "finish_mission": "MISSION_BERSERK_ROSINE",
+              "success": true
+            }
+          },
+          {
+            "math": [
+              "u_berserk_mission_rosine_finished = 1"
             ]
           }
-        ]
+        ],
+        "else": {
+          "if": {
+            "and": [
+              {
+                "not": {
+                  "u_has_mission": "MISSION_BERSERK_ROSINE"
+                }
+              },
+              {
+                "math": [
+                  "u_berserk_mission_rosine_finished != 1"
+                ]
+              }
+            ]
+          },
+          "then": [
+            {
+              "assign_mission": "MISSION_BERSERK_ROSINE"
+            },
+            {
+              "if": {
+                "u_has_mission": "MISSION_BERSERK_ROSINE"
+              },
+              "then": [
+                {
+                  "math": [
+                    "u_berserk_mission_rosine_issued = 1"
+                  ]
+                },
+                {
+                  "u_message": "A new objective is marked on your map.",
+                  "type": "info"
+                }
+              ]
+            }
+          ]
+        }
       }
     }
   },
@@ -408,82 +483,107 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_MISSION_GRUNBELD",
     "condition": {
-      "and": [
+      "or": [
         {
           "math": [
-            "has_var(berserk_hunt_grunbeld_location)"
+            "u_berserk_pact_resolved_grunbeld == 1"
           ]
         },
         {
-          "math": [
-            "berserk_hunt_grunbeld_site_registered == 1"
+          "and": [
+            {
+              "math": [
+                "has_var(berserk_hunt_grunbeld_location)"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_grunbeld_state >= 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
+              }
+            }
           ]
-        },
-        {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
-          }
         }
       ]
     },
     "effect": {
       "if": {
         "math": [
-          "berserk_hunt_grunbeld_state >= 5"
+          "u_berserk_pact_resolved_grunbeld == 1"
         ]
       },
-      "then": [
-        {
-          "if": {
-            "u_has_mission": "MISSION_BERSERK_GRUNBELD"
-          },
-          "then": {
-            "finish_mission": "MISSION_BERSERK_GRUNBELD",
-            "success": true
-          }
+      "then": {
+        "if": {
+          "u_has_mission": "MISSION_BERSERK_GRUNBELD"
         },
-        {
-          "math": [
-            "u_berserk_mission_grunbeld_finished = 1"
-          ]
+        "then": {
+          "finish_mission": "MISSION_BERSERK_GRUNBELD",
+          "success": true
         }
-      ],
+      },
       "else": {
         "if": {
-          "and": [
-            {
-              "not": {
-                "u_has_mission": "MISSION_BERSERK_GRUNBELD"
-              }
-            },
-            {
-              "math": [
-                "u_berserk_mission_grunbeld_finished != 1"
-              ]
-            }
+          "math": [
+            "berserk_hunt_grunbeld_state >= 5"
           ]
         },
         "then": [
           {
-            "assign_mission": "MISSION_BERSERK_GRUNBELD"
-          },
-          {
             "if": {
               "u_has_mission": "MISSION_BERSERK_GRUNBELD"
             },
-            "then": [
-              {
-                "math": [
-                  "u_berserk_mission_grunbeld_issued = 1"
-                ]
-              },
-              {
-                "u_message": "A new objective is marked on your map.",
-                "type": "info"
-              }
+            "then": {
+              "finish_mission": "MISSION_BERSERK_GRUNBELD",
+              "success": true
+            }
+          },
+          {
+            "math": [
+              "u_berserk_mission_grunbeld_finished = 1"
             ]
           }
-        ]
+        ],
+        "else": {
+          "if": {
+            "and": [
+              {
+                "not": {
+                  "u_has_mission": "MISSION_BERSERK_GRUNBELD"
+                }
+              },
+              {
+                "math": [
+                  "u_berserk_mission_grunbeld_finished != 1"
+                ]
+              }
+            ]
+          },
+          "then": [
+            {
+              "assign_mission": "MISSION_BERSERK_GRUNBELD"
+            },
+            {
+              "if": {
+                "u_has_mission": "MISSION_BERSERK_GRUNBELD"
+              },
+              "then": [
+                {
+                  "math": [
+                    "u_berserk_mission_grunbeld_issued = 1"
+                  ]
+                },
+                {
+                  "u_message": "A new objective is marked on your map.",
+                  "type": "info"
+                }
+              ]
+            }
+          ]
+        }
       }
     }
   },
