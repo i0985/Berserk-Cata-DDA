@@ -5,7 +5,7 @@
     "copy-from": "f_berserk_location_medieval_bundle",
     "name": "abandoned leather scout pack",
     "description": "A worn leather pack rests in the entrance pocket, above the wet stone. Its owner drew a route before descending farther.",
-    "looks_like": "f_rubble",
+    "looks_like": "",
     "examine_action": {
       "type": "effect_on_condition",
       "effect_on_conditions": [
@@ -32,7 +32,7 @@
     "copy-from": "f_berserk_location_medieval_bundle",
     "name": "empty lamp tied to a rope",
     "description": "A clay lamp hangs from a rope beside the return passage. Its wick is dry; examine it to recover the lamp and cord.",
-    "looks_like": "f_rubble",
+    "looks_like": "",
     "examine_action": {
       "type": "effect_on_condition",
       "effect_on_conditions": [
@@ -173,7 +173,6 @@
     "flags": [
       "TRANSPARENT"
     ],
-    "looks_like": "f_rubble",
     "examine_action": {
       "type": "effect_on_condition",
       "effect_on_conditions": [
@@ -193,7 +192,6 @@
     "flags": [
       "TRANSPARENT"
     ],
-    "looks_like": "f_rubble",
     "examine_action": {
       "type": "effect_on_condition",
       "effect_on_conditions": [
@@ -213,7 +211,6 @@
     "flags": [
       "TRANSPARENT"
     ],
-    "looks_like": "f_table",
     "examine_action": {
       "type": "effect_on_condition",
       "effect_on_conditions": [
@@ -230,8 +227,7 @@
     "color": "brown",
     "move_cost_mod": -1,
     "required_str": -1,
-    "flags": [],
-    "looks_like": "f_barricade_road"
+    "flags": []
   },
   {
     "type": "furniture",
@@ -245,7 +241,6 @@
     "flags": [
       "TRANSPARENT"
     ],
-    "looks_like": "f_rubble",
     "examine_action": {
       "type": "effect_on_condition",
       "effect_on_conditions": [

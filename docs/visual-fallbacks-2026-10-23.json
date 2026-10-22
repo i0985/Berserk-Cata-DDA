@@ -1,0 +1,671 @@
+{
+  "description": "Remove misleading borrowed artwork only. Preserve authored mod_tileset sheets and matching wood/stone/furniture/cocoon/flesh appearances. Empty or ASCII fallback is intentional until dedicated artwork exists.",
+  "removed": [
+    {
+      "id": "f_berserk_grunbeld_siege_orders",
+      "file": "00_grunbeld_stronghold_details.json",
+      "previous": "f_rubble",
+      "reason": "Writing and tracks are not a rubble pile."
+    },
+    {
+      "id": "f_berserk_grunbeld_garrison_roll",
+      "file": "00_grunbeld_stronghold_details.json",
+      "previous": "f_desk",
+      "reason": "The note does not create a desk."
+    },
+    {
+      "id": "f_berserk_grunbeld_quarry_note",
+      "file": "00_grunbeld_stronghold_details.json",
+      "previous": "f_rubble",
+      "reason": "Writing and tracks are not a rubble pile."
+    },
+    {
+      "id": "f_berserk_grunbeld_soldier_letter",
+      "file": "00_grunbeld_stronghold_details.json",
+      "previous": "f_desk",
+      "reason": "The note does not create a desk."
+    },
+    {
+      "id": "f_berserk_grunbeld_dresser_note",
+      "file": "00_grunbeld_stronghold_details.json",
+      "previous": "f_desk",
+      "reason": "The note does not create a desk."
+    },
+    {
+      "id": "f_berserk_grunbeld_smith_note",
+      "file": "00_grunbeld_stronghold_details.json",
+      "previous": "f_desk",
+      "reason": "The note does not create a desk."
+    },
+    {
+      "id": "f_berserk_grunbeld_inner_warning",
+      "file": "00_grunbeld_stronghold_details.json",
+      "previous": "f_rubble",
+      "reason": "Writing and tracks are not a rubble pile."
+    },
+    {
+      "id": "f_berserk_grunbeld_last_warning",
+      "file": "00_grunbeld_stronghold_details.json",
+      "previous": "f_rubble",
+      "reason": "Writing and tracks are not a rubble pile."
+    },
+    {
+      "id": "f_berserk_grunbeld_anvil_stump",
+      "file": "00_grunbeld_stronghold_details.json",
+      "previous": "f_workbench",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_grunbeld_quarry_rope",
+      "file": "00_grunbeld_stronghold_details.json",
+      "previous": "f_crate_o",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_grunbeld_standard_keepsake",
+      "file": "00_grunbeld_stronghold_details.json",
+      "previous": "f_crate_o",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "t_berserk_flora_living_roots",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "t_tree",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "t_berserk_flora_charred_trunk",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "t_tree",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "t_berserk_flora_charred_roots",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "t_tree",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "t_berserk_flora_charred_timber",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "t_wall_log",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_flora_treehouse_threshold",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_bench",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_flora_guest_record",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_desk",
+      "reason": "The note does not create a desk."
+    },
+    {
+      "id": "f_berserk_flora_house_rules",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_desk",
+      "reason": "The note does not create a desk."
+    },
+    {
+      "id": "f_berserk_flora_gallery_record",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_desk",
+      "reason": "The note does not create a desk."
+    },
+    {
+      "id": "f_berserk_flora_armor_stand",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_rack_wood",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_flora_root_niche",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_flora_reading_lamp",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_table",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_flora_drying_herbs",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_rack_wood",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_flora_herb_bed",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_flower_tulip",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_flora_rain_basin",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_flora_aid_pantry",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_counter",
+      "reason": "A prepared bundle is not an additional counter or rack."
+    },
+    {
+      "id": "f_berserk_flora_aid_pantry_empty",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_counter",
+      "reason": "A prepared bundle is not an additional counter or rack."
+    },
+    {
+      "id": "f_berserk_flora_aid_workshop",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_rack_wood",
+      "reason": "A prepared bundle is not an additional counter or rack."
+    },
+    {
+      "id": "f_berserk_flora_aid_workshop_empty",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_rack_wood",
+      "reason": "A prepared bundle is not an additional counter or rack."
+    },
+    {
+      "id": "f_berserk_flora_aid_ward",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_rack_wood",
+      "reason": "A prepared bundle is not an additional counter or rack."
+    },
+    {
+      "id": "f_berserk_flora_aid_ward_empty",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_rack_wood",
+      "reason": "A prepared bundle is not an additional counter or rack."
+    },
+    {
+      "id": "f_berserk_flora_ruin_keepsake",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_flora_ruin_keepsake_empty",
+      "file": "00_flora_treehouse_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_flora_garden_arch",
+      "file": "00_household_furnishings.json",
+      "previous": "f_sign",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "t_berserk_rosine_root_screen",
+      "file": "00_hunt_location_details.json",
+      "previous": "t_tree",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_location_rosine_travelers",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_location_rosine_travelers_empty",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_location_rosine_keepsake",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_location_rosine_keepsake_empty",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_location_rosine_waycamp",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_location_rosine_waycamp_empty",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_wyald_prisoner_trace",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_rubble",
+      "reason": "Writing and tracks are not a rubble pile."
+    },
+    {
+      "id": "f_berserk_wyald_ring_warning",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_rubble",
+      "reason": "Writing and tracks are not a rubble pile."
+    },
+    {
+      "id": "f_berserk_rosine_missing_trace",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_rubble",
+      "reason": "Writing and tracks are not a rubble pile."
+    },
+    {
+      "id": "f_berserk_rosine_nest_warning",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_rubble",
+      "reason": "Writing and tracks are not a rubble pile."
+    },
+    {
+      "id": "f_berserk_wyald_punishment_post",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_rack",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_wyald_cage_gate",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_crate_c",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_rosine_shell_material",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_egg_sacke",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_rosine_shell_material_empty",
+      "file": "00_hunt_location_details.json",
+      "previous": "f_egg_sacke",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "t_berserk_flora_charred_wall",
+      "file": "mapgen/flora_siege_terrain.json",
+      "previous": "t_wall",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_apostol_circle",
+      "file": "furniture/apostol_ceremony.json",
+      "previous": "f_berserk_eclipse_escape_rift",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_apostol_threshold",
+      "file": "furniture/apostol_ceremony.json",
+      "previous": "f_berserk_eclipse_escape_rift",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_oak_noisemaker",
+      "file": "furniture/behelit_sites.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_cave_noisemaker",
+      "file": "furniture/behelit_sites.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_chapel_relic",
+      "file": "furniture/behelit_sites.json",
+      "previous": "f_safe_c",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_chapel_relic_empty",
+      "file": "furniture/behelit_sites.json",
+      "previous": "f_safe_c",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_chapel_noisemaker",
+      "file": "furniture/behelit_sites.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_chapel_record",
+      "file": "furniture/behelit_sites.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_expedition_noisemaker",
+      "file": "furniture/behelit_sites.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_expedition_record",
+      "file": "furniture/behelit_sites.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_shelter_ward",
+      "file": "furniture/shelter_ward.json",
+      "previous": "f_firering",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_flora_ward",
+      "file": "furniture/flora.json",
+      "previous": "f_sign",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "t_berserk_expedition_groundsheet",
+      "file": "furniture/behelit_site_surfaces.json",
+      "previous": "f_canvas_floor",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_eclipse_ceremony_warning",
+      "file": "furniture/eclipse_field_details.json",
+      "previous": "f_rubble",
+      "reason": "Writing and tracks are not a rubble pile."
+    },
+    {
+      "id": "f_berserk_location_hunt_shelter",
+      "file": "furniture/hunt_site_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_location_hunt_shelter_empty",
+      "file": "furniture/hunt_site_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_location_hunt_reward",
+      "file": "furniture/hunt_site_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_location_hunt_reward_empty",
+      "file": "furniture/hunt_site_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_hunt_warning",
+      "file": "furniture/hunt_site_details.json",
+      "previous": "f_rubble",
+      "reason": "Writing and tracks are not a rubble pile."
+    },
+    {
+      "id": "f_berserk_chapel_altar",
+      "file": "furniture/behelit_adventure_details.json",
+      "previous": "f_table",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_wyald_record",
+      "file": "furniture/wyald_rosine_hunts.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_rosine_record",
+      "file": "furniture/wyald_rosine_hunts.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_eclipse_cart_tally",
+      "file": "furniture/eclipse_sidepath_details.json",
+      "previous": "f_rubble",
+      "reason": "Writing and tracks are not a rubble pile."
+    },
+    {
+      "id": "f_berserk_eclipse_held_gap",
+      "file": "furniture/eclipse_sidepath_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_eclipse_broken_crossing",
+      "file": "furniture/eclipse_sidepath_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_eclipse_last_retreat",
+      "file": "furniture/eclipse_sidepath_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_oak_noisemaker_armed",
+      "file": "furniture/behelit_distractions.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_cave_noisemaker_armed",
+      "file": "furniture/behelit_distractions.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_chapel_noisemaker_armed",
+      "file": "furniture/behelit_distractions.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_expedition_noisemaker_armed",
+      "file": "furniture/behelit_distractions.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_location_oak_cart",
+      "file": "furniture/location_interactions.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_location_oak_camp",
+      "file": "furniture/location_interactions.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_location_oak_ward",
+      "file": "furniture/location_interactions.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_location_medieval_bundle",
+      "file": "furniture/location_interactions.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_oak_great_trunk",
+      "file": "furniture/location_interactions.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_oak_root_wall",
+      "file": "furniture/location_interactions.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_oak_cart_tracks",
+      "file": "furniture/location_interactions.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_chapel_scene",
+      "file": "furniture/location_scenery.json",
+      "previous": "f_bookcase",
+      "reason": "A scene inspection is not extra furniture."
+    },
+    {
+      "id": "f_berserk_first_hunt_scene",
+      "file": "furniture/location_scenery.json",
+      "previous": "f_rubble",
+      "reason": "A scene inspection is not extra furniture."
+    },
+    {
+      "id": "f_berserk_breach_scene",
+      "file": "furniture/location_scenery.json",
+      "previous": "f_rubble",
+      "reason": "A scene inspection is not extra furniture."
+    },
+    {
+      "id": "f_berserk_wyald_scene",
+      "file": "furniture/location_scenery.json",
+      "previous": "f_rack",
+      "reason": "A scene inspection is not extra furniture."
+    },
+    {
+      "id": "f_berserk_rosine_scene",
+      "file": "furniture/location_scenery.json",
+      "previous": "f_rubble",
+      "reason": "A scene inspection is not extra furniture."
+    },
+    {
+      "id": "f_berserk_flora_scene",
+      "file": "furniture/location_scenery.json",
+      "previous": "f_bookcase",
+      "reason": "A scene inspection is not extra furniture."
+    },
+    {
+      "id": "f_berserk_grunbeld_scene",
+      "file": "furniture/location_scenery.json",
+      "previous": "f_rubble",
+      "reason": "A scene inspection is not extra furniture."
+    },
+    {
+      "id": "f_berserk_location_cave_scout",
+      "file": "furniture/location_site_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_location_cave_lamp",
+      "file": "furniture/location_site_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_cave_claw_marks",
+      "file": "furniture/location_site_details.json",
+      "previous": "f_rubble",
+      "reason": "Writing and tracks are not a rubble pile."
+    },
+    {
+      "id": "f_berserk_cave_return_marks",
+      "file": "furniture/location_site_details.json",
+      "previous": "f_rubble",
+      "reason": "Writing and tracks are not a rubble pile."
+    },
+    {
+      "id": "f_berserk_expedition_sample_diagram",
+      "file": "furniture/location_site_details.json",
+      "previous": "f_table",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_cave_return_brace",
+      "file": "furniture/location_site_details.json",
+      "previous": "f_barricade_road",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_cave_return_release",
+      "file": "furniture/location_site_details.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_grunbeld_record",
+      "file": "furniture/grunbeld_hunt.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_road_scout",
+      "file": "furniture/road_stories.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_road_camp",
+      "file": "furniture/road_stories.json",
+      "previous": "f_rubble",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_count_notice",
+      "file": "furniture/count_residence_details.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_count_family_door",
+      "file": "furniture/count_residence_details.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_count_service_grate",
+      "file": "furniture/count_residence_details.json",
+      "previous": "f_rack",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_count_service_grate_open",
+      "file": "furniture/count_residence_details.json",
+      "previous": "f_rack",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_grunbeld_broken_mantlet",
+      "file": "furniture/grunbeld_siege_scenery.json",
+      "previous": "f_crate_c",
+      "reason": "Borrowed graphic depicts a different physical object or state."
+    },
+    {
+      "id": "f_berserk_grunbeld_quarry_hoist",
+      "file": "furniture/grunbeld_siege_scenery.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    },
+    {
+      "id": "f_berserk_count_execution_record",
+      "file": "furniture/apostle_count.json",
+      "previous": "f_counter",
+      "reason": "An interaction or note is not a kitchen counter."
+    }
+  ]
+}

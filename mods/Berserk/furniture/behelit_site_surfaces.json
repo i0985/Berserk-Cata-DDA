@@ -12,7 +12,6 @@
       "FLAT",
       "FLAMMABLE"
     ],
-    "looks_like": "f_canvas_floor",
     "//": "0.I-1 tile lookup resolves a concrete sprite ID before category-specific looks_like recursion. Reuse the vanilla canvas-floor tile as a terrain background; no furniture occupies the empty floor.",
     "bash": {
       "str_min": 1,

@@ -40,6 +40,10 @@ def tid(id): return id if id.startswith('TALK_') else 'TALK_BERSERK_GODO' + ('_'
 
 def tr(en, ru):
     assert en and ru
+    # Native '*' prepends the speaker name. These authored stage paragraphs
+    # already contain Godo/the smith, so '&' displays the complete narration.
+    if en.startswith('*'): en = '&' + en[1:]
+    if ru.startswith('*'): ru = '&' + ru[1:]
     STRINGS[en] = ru
     return en
 

@@ -51,14 +51,14 @@
     "type": "overmap_special",
     "id": "berserk_flora_manor_special",
     "occurrences": [
-      1,
-      1
+      0,
+      0
     ],
     "flags": [
       "GLOBALLY_UNIQUE"
     ],
     "rotate": false,
-    "//": "One globally unique site may generate naturally. Directions reuse it or request native placement when absent. Saved coordinates are never moved; travel distances are soft design targets.",
+    "//": "Globally unique story placement only, after the Eclipse. Reuse saved coordinates; never regenerate a visited house.",
     "overmaps": [
       {
         "point": [

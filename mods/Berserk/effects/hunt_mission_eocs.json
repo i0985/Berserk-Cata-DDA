@@ -83,13 +83,40 @@
     "condition": {
       "and": [
         {
-          "math": [
-            "has_var(berserk_flora_location)"
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_return_state == 2"
+                  ]
+                }
+              ]
+            }
           ]
         },
         {
-          "math": [
-            "berserk_flora_stage >= 1"
+          "and": [
+            {
+              "math": [
+                "has_var(berserk_flora_location)"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_stage >= 1"
+              ]
+            }
           ]
         }
       ]

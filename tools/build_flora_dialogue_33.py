@@ -264,8 +264,21 @@ def mechanics():
     # A manually discovered home must not suppress the later real clue, and
     # an alternative survivor is not required to have been rescued by Knight.
     survived=both(eq('berserk_eclipse_era'),either(eq('u_berserk_eclipse_rescue_state',2),eq('u_berserk_apostol_return_state',2)))
+    route=by['EOC_BERSERK_FLORA_ROUTE_AVAILABLE']['condition']
+    if route.get('and') and route['and'][0]==survived:route=route['and'][1]
+    by['EOC_BERSERK_FLORA_ROUTE_AVAILABLE']['condition']=both(survived,route)
     by['EOC_BERSERK_LATE_FLORA_CHECK']['condition']=both(survived,resolved,math("u_val('pos_z') == 0"),eq('u_berserk_flora_late_clue_given',0),math('berserk_flora_stage < 2'))
     write('effects/new_horizon_progression_eocs.json',data)
+    data=read('overmap/flora_manor.json')
+    special=index(data)['berserk_flora_manor_special']
+    special['occurrences']=[0,0]
+    special['//']='Globally unique story placement only, after the Eclipse. Reuse saved coordinates; never regenerate a visited house.'
+    write('overmap/flora_manor.json',data)
+    data=read('effects/hunt_mission_eocs.json');mission=index(data)['EOC_BERSERK_MISSION_FLORA']
+    c=mission['condition']
+    if c.get('and') and c['and'][0]==survived:c=c['and'][1]
+    mission['condition']=both(survived,c)
+    write('effects/hunt_mission_eocs.json',data)
     EOCS.append(eoc(E+'LATE',[],both(survived,either(resolved,v('legacy_ready')))))
     data=read('effects/flora_eocs.json');by=index(data)
     c=by['EOC_BERSERK_FLORA_CAN_RECEIVE']['condition']

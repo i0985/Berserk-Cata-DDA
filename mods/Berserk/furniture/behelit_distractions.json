@@ -11,8 +11,7 @@
     "flags": [
       "TRANSPARENT"
     ],
-    "examine_action": "none",
-    "looks_like": "f_counter"
+    "examine_action": "none"
   },
   {
     "type": "ter_furn_transform",
@@ -44,8 +43,7 @@
       "effect_on_conditions": [
         "EOC_BERSERK_DISTRACTION_BUSY"
       ]
-    },
-    "looks_like": "f_counter"
+    }
   },
   {
     "type": "ter_furn_transform",
@@ -65,7 +63,6 @@
     "id": "f_berserk_chapel_noisemaker_armed",
     "name": "broken fitting",
     "description": "Only a worn fastening remains.",
-    "looks_like": "f_counter",
     "symbol": "!",
     "color": "yellow",
     "move_cost_mod": 0,
@@ -93,7 +90,6 @@
     "id": "f_berserk_expedition_noisemaker_armed",
     "name": "broken fitting",
     "description": "Only a worn fastening remains.",
-    "looks_like": "f_counter",
     "symbol": "!",
     "color": "yellow",
     "move_cost_mod": 0,

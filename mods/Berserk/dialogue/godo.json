@@ -18,13 +18,13 @@
         },
         "no": {
           "test_eoc": "EOC_BERSERK_GODO_LINE_186BF7807D4B",
-          "yes": "*Godot looks at your blade, then raises his eyes. \"Guts. Thought I would recognize you by that iron when I could no longer make out your face. What is it? Straighten your sword again?\"",
+          "yes": "&Godot looks at your blade, then raises his eyes. \"Guts. Thought I would recognize you by that iron when I could no longer make out your face. What is it? Straighten your sword again?\"",
           "no": {
             "test_eoc": "EOC_BERSERK_GODO_LINE_CF75A03BBE66",
             "yes": {
               "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE",
               "yes": "If you want a forge, you have found it. Mind what you touch. I am not fond of strangers. Rickert can show you where to rest.",
-              "no": "*The smith turns the billet in his tongs. Only after a few hammer blows does he notice you. \"Close the door. And step away from that bucket.\""
+              "no": "&The smith turns the billet in his tongs. Only after a few hammer blows does he notice you. \"Close the door. And step away from that bucket.\""
             },
             "no": {
               "math": [
@@ -633,8 +633,8 @@
       "math": [
         "u_berserk_godo_sparks_closed == 1"
       ],
-      "yes": "*Godot returns to the iron. He does not resume the conversation.",
-      "no": "*Godot lifts the white-hot billet from the forge. Light crosses his worn face. The hammer falls; sparks scatter across the dark earthen floor. \"What do you see before you?\""
+      "yes": "&Godot returns to the iron. He does not resume the conversation.",
+      "no": "&Godot lifts the white-hot billet from the forge. Light crosses his worn face. The hammer falls; sparks scatter across the dark earthen floor. \"What do you see before you?\""
     },
     "responses": [
       {
@@ -5858,7 +5858,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_WEAPON_REQUEST",
-    "dynamic_line": "*Godot taps the anvil without turning. \"Another soldier full of stories. A sword is a tool. It must be balanced and quick. Too heavy, and you will die winding up for the first swing.\"",
+    "dynamic_line": "&Godot taps the anvil without turning. \"Another soldier full of stories. A sword is a tool. It must be balanced and quick. Too heavy, and you will die winding up for the first swing.\"",
     "responses": [
       {
         "text": "All right, forget it.",
@@ -5999,7 +5999,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_COPY",
-    "dynamic_line": "*Godot turns the sword, checks the grip and draws a thumb across the edge. \"Someone took pains with this. Still a long way from a fine blade, but better than nothing.\"",
+    "dynamic_line": "&Godot turns the sword, checks the grip and draws a thumb across the edge. \"Someone took pains with this. Still a long way from a fine blade, but better than nothing.\"",
     "responses": [
       {
         "text": "It needs repair.",
@@ -6026,7 +6026,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_COPY_SELF",
-    "dynamic_line": "*Godot checks the grip and the edge. \"What matters is how it behaves in the hand. You worked at it, I can see. A long way from a fine blade, but better than nothing.\"",
+    "dynamic_line": "&Godot checks the grip and the edge. \"What matters is how it behaves in the hand. You worked at it, I can see. A long way from a fine blade, but better than nothing.\"",
     "responses": [
       {
         "text": "You could have praised it.",
@@ -6379,7 +6379,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_SWORD_DELIVERED",
-    "dynamic_line": "*Godot clears a space beside the enormous black blade. \"Finished. Come around and help me shift it. A blade for things a man was never meant to fight. Your Dragonslayer.\"",
+    "dynamic_line": "&Godot clears a space beside the enormous black blade. \"Finished. Come around and help me shift it. A blade for things a man was never meant to fight. Your Dragonslayer.\"",
     "responses": [
       {
         "text": "With this, I will finally have a chance.",
@@ -7887,7 +7887,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_SPARKS_END",
-    "dynamic_line": "*Godot turns back to the anvil. \"Enough talk. The iron is cooling.\"",
+    "dynamic_line": "&Godot turns back to the anvil. \"Enough talk. The iron is cooling.\"",
     "responses": [
       {
         "text": "Let me work the bellows.",

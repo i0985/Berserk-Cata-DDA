@@ -21,19 +21,46 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_ROUTE_AVAILABLE",
     "condition": {
-      "or": [
-        {
-          "test_eoc": "EOC_BERSERK_EARLY_HUNTS_CLOSED"
-        },
+      "and": [
         {
           "and": [
             {
               "math": [
-                "berserk_flora_stage >= 1"
+                "berserk_eclipse_era == 1"
               ]
             },
             {
-              "test_eoc": "EOC_BERSERK_FLORA_KNOWN_MANOR_VALID"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_return_state == 2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "or": [
+            {
+              "test_eoc": "EOC_BERSERK_EARLY_HUNTS_CLOSED"
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_stage >= 1"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_FLORA_KNOWN_MANOR_VALID"
+                }
+              ]
             }
           ]
         }
