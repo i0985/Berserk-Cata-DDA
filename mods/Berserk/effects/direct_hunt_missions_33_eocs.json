@@ -1,0 +1,269 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_KNOWN_ROUTES_NOW",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_known_routes_retry_at = time('now') + 3600"
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_breach == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_BREACH"
+              }
+            },
+            {
+              "or": [
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_JOURNAL_VALID_BREACH"
+                  }
+                },
+                {
+                  "not": {
+                    "u_has_mission": "MISSION_BERSERK_BREACH"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_BREACH_LOCATE"
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_count == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_COUNT"
+              }
+            },
+            {
+              "or": [
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_JOURNAL_VALID_COUNT"
+                  }
+                },
+                {
+                  "not": {
+                    "u_has_mission": "MISSION_BERSERK_COUNT"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LOCATE_COUNT"
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_wyald == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_WYALD"
+              }
+            },
+            {
+              "or": [
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_JOURNAL_VALID_WYALD"
+                  }
+                },
+                {
+                  "not": {
+                    "u_has_mission": "MISSION_BERSERK_WYALD"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LOCATE_WYALD"
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_rosine == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_ROSINE"
+              }
+            },
+            {
+              "or": [
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_JOURNAL_VALID_ROSINE"
+                  }
+                },
+                {
+                  "not": {
+                    "u_has_mission": "MISSION_BERSERK_ROSINE"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LOCATE_ROSINE"
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_flora == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_FLORA"
+              }
+            },
+            {
+              "or": [
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_JOURNAL_VALID_FLORA"
+                  }
+                },
+                {
+                  "not": {
+                    "u_has_mission": "MISSION_BERSERK_FLORA"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LOCATE_FLORA"
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_grunbeld == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GRUNBELD"
+              }
+            },
+            {
+              "or": [
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_JOURNAL_VALID_GRUNBELD"
+                  }
+                },
+                {
+                  "not": {
+                    "u_has_mission": "MISSION_BERSERK_GRUNBELD"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_JOURNAL_LOCATE_GRUNBELD"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_trial_active != 1"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_KNOWN_ROUTES_RETRY",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_KNOWN_ROUTES_NOW"
+    },
+    "global": true,
+    "recurrence": "30 minutes",
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "math": [
+                "u_val('pos_z') == 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_known_routes_retry_at"
+          ]
+        }
+      ]
+    }
+  }
+]

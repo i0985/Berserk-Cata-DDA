@@ -1,52 +1,1745 @@
 [
   {
     "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_AFTER",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_KNIGHT_LINE_04063134DBD9",
+      "yes": {
+        "test_eoc": "EOC_BERSERK_KNIGHT_LINE_72438B4EB3A5",
+        "yes": "Was there something else you wanted to ask?",
+        "no": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS",
+          "yes": "You are on your feet, swordsman. After that night, that is no small thing.",
+          "no": "You can stand again. Then the time I won for you that night was not wasted."
+        }
+      },
+      "no": "I will hear your questions."
+    },
+    "responses": [
+      {
+        "text": "Was it you who carried me out?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_RESCUED",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_knight_greeted == 1"
+                    ]
+                  },
+                  {
+                    "compare_string": [
+                      "yes",
+                      {
+                        "u_val": "berserk_knight_spoken"
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_eclipse_rescue_state == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_eclipse_route != 2"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_greeted = 1"
+            ]
+          },
+          {
+            "u_add_var": "berserk_knight_spoken",
+            "value": "yes"
+          }
+        ]
+      },
+      {
+        "text": "I want to understand what happened.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_route != 2"
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_greeted = 1"
+            ]
+          },
+          {
+            "u_add_var": "berserk_knight_spoken",
+            "value": "yes"
+          }
+        ]
+      },
+      {
+        "text": "Tell me about the Brand and those who come at night.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND",
+        "condition": {
+          "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_greeted = 1"
+            ]
+          },
+          {
+            "u_add_var": "berserk_knight_spoken",
+            "value": "yes"
+          }
+        ]
+      },
+      {
+        "text": "Will you help me?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_HELP",
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_greeted = 1"
+            ]
+          },
+          {
+            "u_add_var": "berserk_knight_spoken",
+            "value": "yes"
+          }
+        ]
+      },
+      {
+        "text": "Where should I look for this evil now?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NOW",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_route != 2"
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_greeted = 1"
+            ]
+          },
+          {
+            "u_add_var": "berserk_knight_spoken",
+            "value": "yes"
+          }
+        ]
+      },
+      {
+        "text": "I found something among the remains.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_KNIGHT_HAS_MEMORY"
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_greeted = 1"
+            ]
+          },
+          {
+            "u_add_var": "berserk_knight_spoken",
+            "value": "yes"
+          }
+        ]
+      },
+      {
+        "text": "Who are you?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SELF",
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_greeted = 1"
+            ]
+          },
+          {
+            "u_add_var": "berserk_knight_spoken",
+            "value": "yes"
+          }
+        ]
+      },
+      {
+        "text": "It is time for me to go.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_FAREWELL",
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_greeted = 1"
+            ]
+          },
+          {
+            "u_add_var": "berserk_knight_spoken",
+            "value": "yes"
+          }
+        ]
+      },
+      {
+        "text": "That is enough for now. I will speak to you again.",
+        "topic": "TALK_DONE",
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_greeted = 1"
+            ]
+          },
+          {
+            "u_add_var": "berserk_knight_spoken",
+            "value": "yes"
+          }
+        ]
+      }
+    ],
+    "//": "Approved Skull Knight script 2026-10-22; ordinary close is not farewell."
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_RESCUED",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_FORGE_GUTS",
+      "yes": "I found an opening and carried you through before it closed. But carrying a body out of a place of sacrifice does not free it from the sacrifice itself.",
+      "no": {
+        "math": [
+          "u_berserk_godo_rescue_relocated == 1"
+        ],
+        "yes": "Yes. You were among those who were not meant to leave that ceremony alive. I carried you out. The people where you woke did the rest.",
+        "no": "I carried you somewhere I could leave you safely. We did not reach the woodland forge."
+      }
+    },
+    "responses": [
+      {
+        "text": "Because of this mark?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND",
+        "condition": {
+          "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+        }
+      },
+      {
+        "text": "Griffith. What became of him?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_GRIFFITH",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
+      },
+      {
+        "text": "What happened to me?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
+      },
+      {
+        "text": "Who are these people?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MASTERS",
+        "condition": {
+          "math": [
+            "u_berserk_godo_rescue_relocated == 1"
+          ]
+        }
+      },
+      {
+        "text": "Why did you help me?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PURPOSE"
+      },
+      {
+        "text": "What do I need to know first?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NOW"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_rescued = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_HELP",
+    "dynamic_line": "Was saving your life not help enough?",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MASTERS",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_godo_personally_met == 1"
+      ],
+      "yes": {
+        "math": [
+          "u_berserk_rickert_met == 1"
+        ],
+        "yes": "Godot and Rickert. You have already spoken with both of them. They sheltered you when I brought you here.",
+        "no": "You know Godot. The young craftsman at his forge is Rickert; you have yet to meet him yourself."
+      },
+      "no": "Godot is a smith. Rickert works beside him on crossbows and mechanisms. You will have to meet them for yourself."
+    },
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_masters = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE",
+    "dynamic_line": "You saw the boundary where greatness is bought with other lives. Those who rose above the crowd accepted that harvest. Those feasting beneath the throne merely did what they had been permitted.",
+    "responses": [
+      {
+        "text": "Were those creatures once human?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_APOSTLES"
+      },
+      {
+        "text": "And those who stood above them?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_GOD_HAND"
+      },
+      {
+        "text": "Why is this happening among our cities?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_WORLD_COLLISION"
+      },
+      {
+        "text": "Can things be put back as they were?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_RESTORE"
+      },
+      {
+        "text": "What became of Griffith?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_GRIFFITH",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
+      },
+      {
+        "text": "Can the one who presided over this do it again?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_LEADER",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+          }
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_eclipse = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_APOSTLES",
+    "dynamic_line": "Many were. They rejected their nature when an earthly existence was no longer enough. Their old failings and desires remained. Sometimes those human habits make the monsters recognizable. And vulnerable.",
+    "responses": [
+      {
+        "text": "Can they be destroyed?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_KILLABLE"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_apostles = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_KILLABLE",
+    "dynamic_line": "Their altered flesh can be destroyed. Do not mistake their bodies for true immortality. Nor should you look for human mercy where the abyss rules.",
+    "responses": [
+      {
+        "text": "How do I fight them with ordinary weapons?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_FIGHT"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_killable = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_FIGHT",
+    "dynamic_line": "Wait before you step forward. Study how the enemy moves, what it protects and when it must pause for breath. Know where you will retreat. Blind fury is no substitute for a way back.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_fight = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_GOD_HAND",
+    "dynamic_line": "The God Hand. Do not confuse them with the servants admitted to the feast. Killing an ordinary apostle does not bring their overthrow a step closer.",
+    "responses": [
+      {
+        "text": "Then resistance is pointless?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_RESIST"
+      },
+      {
+        "text": "I defeated his reflection. How could he be there again?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PROJECTIONS",
+        "condition": {
+          "math": [
+            "u_berserk_griffith_projection_defeated == 1"
+          ]
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_god_hand = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_RESIST",
+    "dynamic_line": "If I thought your struggle useless, I would not have carried you out of that hell.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_resist = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_WORLD_COLLISION",
+    "dynamic_line": "This land had already been wounded by its own end of the world. Another darkness seeps through the open wounds. The boundary has thinned, making your home accessible to hungrier predators.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_world_collision = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_RESTORE",
+    "dynamic_line": "The past cannot be restored, even if every passage is sealed. But you can keep the next traveler from meeting the same fate.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_restore = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_GRIFFITH",
+    "dynamic_line": "He took the throne offered to him. Your memories of the man cannot explain the abyss into which he was reborn.",
+    "responses": [
+      {
+        "text": "I do not care what he became. I will reach his throat.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_VENGEANCE"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_griffith = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_VENGEANCE",
+    "dynamic_line": "Then first learn to live until the next dawn. Otherwise your oath of vengeance will be no more than the last words of a man dying in the night.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_vengeance = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_LEADER",
+    "dynamic_line": "Do not expect what you witnessed to be the last expression of that will. Your concern now is to endure the threat already following you.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_leader = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_PROJECTIONS",
+    "dynamic_line": "You dispersed a reflection. It could take his shape and carry some of his power, but it was not the being you seek.",
+    "responses": [
+      {
+        "text": "Then that fight meant nothing?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PROJECTION_MEANING"
+      },
+      {
+        "text": "How can I distinguish a reflection from the original?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PROJECTION_PROOF"
+      },
+      {
+        "text": "Will there be more reflections?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PROJECTION_MORE"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_projections = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_PROJECTION_MEANING",
+    "dynamic_line": "The shape that stood before you will threaten no one else. That matters. But do not credit your victory with something it did not accomplish.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PROJECTIONS"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_projection_meaning = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_PROJECTION_PROOF",
+    "dynamic_line": "A face is not enough. Consider where it came from, what holds it here and what it leaves behind. A vanished shadow is not proof of an original death.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PROJECTIONS"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_projection_proof = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_PROJECTION_MORE",
+    "dynamic_line": "While the boundaries between worlds remain broken, I would not call that encounter the last.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PROJECTIONS"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_projection_more = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_BRAND",
+    "dynamic_line": "The Brand remains a mark of sacrifice. Beings beyond the boundary can discern it where a human eye sees nothing. Night makes their journey to you easier.",
+    "responses": [
+      {
+        "text": "Does it warn me of danger?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND_PAIN"
+      },
+      {
+        "text": "Will they come every night?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NIGHTS"
+      },
+      {
+        "text": "What should I do before dark?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PREPARE"
+      },
+      {
+        "text": "How can I protect my refuge?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD"
+      },
+      {
+        "text": "Will closing a breach remove the Brand?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_LOCAL_WOUNDS"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_brand = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_BRAND_PAIN",
+    "dynamic_line": "Pain and blood may come before a creature appears, especially a powerful one. Heed that warning, but do not expect it to name your enemy or show a safe road. The Brand is no friend to you. It simply is.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_brand_pain = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_NIGHTS",
+    "dynamic_line": "Not every night is the same. Sometimes you will hear only footsteps beyond a wall. Sometimes you will have to abandon your shelter and run. Silence does not mean they have forgotten you.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_nights = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_PREPARE",
+    "dynamic_line": "Find a place you can leave. Do not corner yourself for the imagined safety of walls. Prepare light, dressings and weapons. Keep what you need close: there will be no time to pack when you must flee.",
+    "responses": [
+      {
+        "text": "Will a locked door help?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_DOORS"
+      },
+      {
+        "text": "Will they disappear in the morning?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_DAWN"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_prepare = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_DOORS",
+    "dynamic_line": "Against some of them, yes. But an ordinary wall cannot keep out everything that comes from the darkness. Some creatures need no door.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_doors = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_DAWN",
+    "dynamic_line": "Dawn may end the pursuit itself. It does not promise to destroy those that already reached you. Look at what remains outside before opening the door.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_dawn = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_WARD",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_refuge_ready == 1"
+      ],
+      "yes": "You have already begun preparing. Wise. But do not mistake that sign for a fortress wall. It will not destroy a creature already beside you; it hinders the way here.",
+      "no": "There are signs that hinder their approach. I will leave you the instructions. But a sign cannot replace shelter: choose somewhere you can defend and leave."
+    },
+    "responses": [
+      {
+        "text": "Then I can sleep peacefully?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD_LIMITS"
+      },
+      {
+        "text": "Tell me how to arrange it.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD_BUILD"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_ward = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_WARD_LIMITS",
+    "dynamic_line": "More peacefully. Not carelessly. Even a protected place must have an exit. Never make the sign your last hope.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_ward_limits = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_WARD_BUILD",
+    "dynamic_line": "Arrange eight stones and four bones into a sign on clear ground. Keep it close to your sleeping place. Its protection stays on the same level; it will not drive away creatures already here.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_ward_build = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_LOCAL_WOUNDS",
+    "dynamic_line": "No. You will close one road into this world, and that matters to those who live nearby. The mark on your body belongs to another bond. Closing a breach does not break it.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_local_wounds = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_NOW",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_KNIGHT_HURT",
+      "yes": "First let your wounds close. Speak with the craftsmen, gather what you need and prepare for night. The road will not disappear while you learn to walk it without falling at the first step.",
+      "no": {
+        "math": [
+          "u_berserk_first_hunt_done != 1"
+        ],
+        "yes": "The trail leads to the forest hollow. The direction is already in your records. Prepare before following it; I will not choose your next step for you.",
+        "no": {
+          "math": [
+            "u_berserk_journal_read_berserk_apostle_burned_clue != 1"
+          ],
+          "yes": "Victory left you more than a dead enemy. Examine what remains in its lair. You may find why it came to these lands.",
+          "no": {
+            "test_eoc": "EOC_BERSERK_KNIGHT_LINE_481AF9211DC7",
+            "yes": "You have found the trail of a passage. Now deal with the wound itself. A fallen keeper does not always mean the road behind it has closed.",
+            "no": {
+              "test_eoc": "EOC_BERSERK_KNIGHT_UNFINISHED_KNOWN",
+              "yes": "The roads you learned are already marked. Follow an unfinished trail when you are ready. You need not take on every enemy at once.",
+              "no": "You have exhausted the trails you had. Revisit the evidence and speak with those you trust. The next road remains to be discovered; I will not point you toward something I do not know."
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_now = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_JUDEAU",
+    "dynamic_line": "Judeau saw other people even when everything around him was turning them into prey.",
+    "responses": [
+      {
+        "text": "I want him remembered.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_JUDEAU_429"
+      },
+      {
+        "text": "It was not enough.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_JUDEAU_428"
+      },
+      {
+        "text": "I wanted to ask about someone else who died.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_memory_judeau = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_PIPPIN",
+    "dynamic_line": "Sometimes a man knows he cannot hold the enemy. Still he stands between it and those who can escape.",
+    "responses": [
+      {
+        "text": "I should have been beside him.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_PIPPIN_437",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
+      },
+      {
+        "text": "You call that victory?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_PIPPIN_436"
+      },
+      {
+        "text": "I wanted to ask about someone else who died.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_memory_pippin = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_CORKUS",
+    "dynamic_line": "A victim has a life that cannot fit inside the word victim. Desires, failings, arguments. Do not give the monsters that part of him as well.",
+    "responses": [
+      {
+        "text": "He was no hero.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_CORKUS_445"
+      },
+      {
+        "text": "We often disagreed.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_CORKUS_444",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
+      },
+      {
+        "text": "I wanted to ask about someone else who died.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_memory_corkus = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_GASTON",
+    "dynamic_line": "Such hopes are easily lost behind banners and the names of commanders. To him that future mattered no less than another man's dream of a kingdom.",
+    "responses": [
+      {
+        "text": "What should I do with the keepsake?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_GASTON_453",
+        "condition": {
+          "u_has_item": "berserk_gaston_sewing_roll"
+        }
+      },
+      {
+        "text": "That makes it harder.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_GASTON_452"
+      },
+      {
+        "text": "I wanted to ask about someone else who died.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_memory_gaston = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES",
+    "dynamic_line": "Tell me what you found.",
+    "responses": [
+      {
+        "text": "I found judeau's traces. I remember him.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_JUDEAU",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_witness_judeau == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            }
+          ]
+        }
+      },
+      {
+        "text": "I found evidence about judeau.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_JUDEAU",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_witness_judeau == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I found pippin's traces. I remember him.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_PIPPIN",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_witness_pippin == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            }
+          ]
+        }
+      },
+      {
+        "text": "I found evidence about pippin.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_PIPPIN",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_witness_pippin == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I found corkus's traces. I remember him.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_CORKUS",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_witness_corkus == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            }
+          ]
+        }
+      },
+      {
+        "text": "I found evidence about corkus.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_CORKUS",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_witness_corkus == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I found gaston's traces. I remember him.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_GASTON",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_witness_gaston == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            }
+          ]
+        }
+      },
+      {
+        "text": "I found evidence about gaston.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_GASTON",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_witness_gaston == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_JUDEAU_428",
+    "dynamic_line": "Not enough to stop all that happened. But you do not know how much time his act gave someone else.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_JUDEAU"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_memory_judeau_428 = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_JUDEAU_429",
+    "dynamic_line": "Then preserve more than how he died. Preserve who he was.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_JUDEAU"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_memory_judeau_429 = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_PIPPIN_436",
+    "dynamic_line": "I call it an act that cannot be measured only by who remained standing.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_PIPPIN"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_memory_pippin_436 = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_PIPPIN_437",
+    "dynamic_line": "You may carry that thought all your life. It cannot put you beside him that night. Decide whom you will stand beside now.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_PIPPIN"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_memory_pippin_437 = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_CORKUS_444",
+    "dynamic_line": "Grief does not require that you agreed on everything in life.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_CORKUS"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_memory_corkus_444 = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_CORKUS_445",
+    "dynamic_line": "They did not need to become heroes to deserve their lives.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_CORKUS"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_memory_corkus_445 = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_GASTON_452",
+    "dynamic_line": "Yes. You see not only a death but everything that can never follow it.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_GASTON"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_memory_gaston_452 = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_GASTON_453",
+    "dynamic_line": "Keep it, give it to someone who knew him, or leave it in a worthy place. Memory does not demand you always carry its weight.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_GASTON"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_memory_gaston_453 = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_SELF",
+    "dynamic_line": "One who has long walked against them.",
+    "responses": [
+      {
+        "text": "That is no name.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NAME"
+      },
+      {
+        "text": "Why did you save me?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PURPOSE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_route != 2"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Why did you not save the others?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_OTHERS",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_route != 2"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Were you once human too?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_HUMAN"
+      },
+      {
+        "text": "Can fate be changed?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_FATE"
+      },
+      {
+        "text": "Why will you not stay?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_LEAVING"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_self = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_NAME",
+    "dynamic_line": "No. But for now it tells you more than a name.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SELF"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_name = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_PURPOSE",
+    "dynamic_line": "I had the chance to intervene. I took it.",
+    "responses": [
+      {
+        "text": "And you want nothing in return?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_DEBT"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SELF"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_purpose = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_DEBT",
+    "dynamic_line": "I did not carry you out of one bargain to immediately bind you to another.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SELF"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_debt = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_OTHERS",
+    "dynamic_line": "Because I could not.",
+    "responses": [
+      {
+        "text": "But you knew what was happening.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_KNEW"
+      },
+      {
+        "text": "I cannot accept that.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_ACCEPT"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SELF"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_others = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_KNEW",
+    "dynamic_line": "Knowing of a disaster and having the power to stop it are not the same.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SELF"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_knew = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_ACCEPT",
+    "dynamic_line": "I am not asking you to accept it. But do not base your next step on the belief that someone could have fixed everything with a single blow.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SELF"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_accept = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_HUMAN",
+    "dynamic_line": "Enough humanity remains in me to remember what I fight against.",
+    "responses": [
+      {
+        "text": "And the rest?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_PAST"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SELF"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_human = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_PAST",
+    "dynamic_line": "Not every story needs to be told at another man's threshold.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SELF"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_past = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_FATE",
+    "dynamic_line": "You are alive and asking that question. Begin there.",
+    "responses": [
+      {
+        "text": "Then everything depends on my choice?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_CHOICE"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SELF"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_fate = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_CHOICE",
+    "dynamic_line": "No. But your choice still belongs to you. Do not give it away merely because you cannot rule everything else.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SELF"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_choice = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_LEAVING",
+    "dynamic_line": "I have my own road. Our enemies will not wait for you to recover.",
+    "responses": [
+      {
+        "text": "Will we meet again?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEET_AGAIN"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SELF"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_leaving = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_MEET_AGAIN",
+    "dynamic_line": "Perhaps. But do not build your life around waiting for me.",
+    "responses": [
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SELF"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_knight_read_meet_again = 1"
+        ]
+      }
+    }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_FAREWELL",
+    "dynamic_line": {
+      "math": [
+        "u_berserk_knight_farewell_warned == 1"
+      ],
+      "yes": "Have you finished?",
+      "no": "Then know this: I will continue my journey. If you still have questions, ask them now. Do not expect me to return to this threshold."
+    },
+    "responses": [
+      {
+        "text": "Wait. I have more questions.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER",
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_farewell_warned = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Remind me of the essentials.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_SUMMARY",
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_farewell_warned = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "I understand. Farewell.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_FINAL",
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_farewell_warned = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_KNIGHT_FAREWELL"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_SUMMARY",
+    "dynamic_line": {
+      "u_has_bionics": "bio_berserk_brand_of_sacrifice",
+      "yes": "Prepare for night. Ask the craftsmen for what you lack. Then follow a trail you know. Do not try to settle your whole war in a single battle.",
+      "no": "Recover before another fight. Prepare what you need, and follow a trail you already know."
+    },
+    "responses": [
+      {
+        "text": "I still have questions.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
+      },
+      {
+        "text": "Farewell.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_FINAL",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_KNIGHT_FAREWELL"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_SKULL_KNIGHT_FINAL",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_FORGE_GUTS",
+      "yes": "Then preserve the life with which you intend to continue.",
+      "no": "Live on. What kind of life it will be is yours to decide."
+    },
+    "responses": [
+      {
+        "text": "Watch the rider leave.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_RESCUE",
     "dynamic_line": "'The Eclipse has not claimed you yet. I will cut a way out. Stay close.' Beyond his shoulder, the darkness recoils from his blade.",
     "responses": [
       {
         "text": "What is happening?",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_RESCUE_REPLY"
-      },
-      {
-        "text": "I found Judeau's knife hilt. What happened to the Band?",
-        "condition": {
-          "u_has_items": {
-            "item": "berserk_judeau_knife_hilt",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_JUDEAU"
-      },
-      {
-        "text": "Pippin held the line. Could anyone else have escaped?",
-        "condition": {
-          "u_has_items": {
-            "item": "berserk_pippin_broken_clasp",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PIPPIN"
-      },
-      {
-        "text": "Corkus clutched this scabbard. Was there ever a way out?",
-        "condition": {
-          "u_has_items": {
-            "item": "berserk_corkus_scabbard_fragment",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_CORKUS"
-      },
-      {
-        "text": "Gaston kept this sewing roll. What became of his hopes?",
-        "condition": {
-          "u_has_items": {
-            "item": "berserk_gaston_sewing_roll",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_GASTON"
       },
       {
         "text": "Get me out of here.",
@@ -71,46 +1764,6 @@
     "dynamic_line": "'You broke the manifestation that held this ceremony together. Do not mistake that for killing one of the God Hand. The wound is closing: come with me, now.'",
     "responses": [
       {
-        "text": "I found Judeau's knife hilt. What happened to the Band?",
-        "condition": {
-          "u_has_items": {
-            "item": "berserk_judeau_knife_hilt",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_JUDEAU"
-      },
-      {
-        "text": "Pippin held the line. Could anyone else have escaped?",
-        "condition": {
-          "u_has_items": {
-            "item": "berserk_pippin_broken_clasp",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PIPPIN"
-      },
-      {
-        "text": "Corkus clutched this scabbard. Was there ever a way out?",
-        "condition": {
-          "u_has_items": {
-            "item": "berserk_corkus_scabbard_fragment",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_CORKUS"
-      },
-      {
-        "text": "Gaston kept this sewing roll. What became of his hopes?",
-        "condition": {
-          "u_has_items": {
-            "item": "berserk_gaston_sewing_roll",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_GASTON"
-      },
-      {
         "text": "Follow the Skull Knight out of the Eclipse.",
         "topic": "TALK_DONE"
       }
@@ -118,484 +1771,11 @@
   },
   {
     "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_AFTER",
-    "dynamic_line": {
-      "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE",
-      "yes": "The apostle fell, but you chose to carry its flesh within you. That choice does not erase what came before. I will answer your questions while I remain here; do not expect its power to make the other apostles loyal to you.",
-      "no": {
-        "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY",
-        "yes": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_DEMON_SURVIVOR",
-          "yes": "I did not carry you from that circle. You returned by its will, bearing its gift. I will hear you, but do not mistake this meeting for an alliance.",
-          "no": "You came back from the circle without its gift. The wounds it left are not the Brand. Ask what you need to know before I ride on."
-        },
-        "no": {
-          "math": [
-            "u_berserk_godo_rescue_relocated == 1"
-          ],
-          "yes": "You are under the smith's roof now. The life you brought out of the sacrifice is still yours. Ask what you need to know before I ride on.",
-          "no": "You escaped the Eclipse. What follows is yours to decide. Ask what you need to know before I ride on."
-        }
-      }
-    },
-    "speaker_effect": {
-      "sentinel": "berserk_knight_first_conversation",
-      "effect": {
-        "u_add_var": "berserk_knight_spoken",
-        "value": "yes"
-      }
-    },
-    "responses": [
-      {
-        "text": "What remains for someone who came back as I did?",
-        "topic": "TALK_BERSERK_APOSTOL_KNIGHT",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-        }
-      },
-      {
-        "text": "Why did you not take me to the forge?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_RESCUE_REFUGE",
-        "condition": {
-          "and": [
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-              }
-            },
-            {
-              "math": [
-                "u_berserk_forge_rescue_fallback == 1"
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "text": "What should I do right now?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_NOW",
-        "condition": {
-          "and": [
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "text": "Tell me what happened.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE",
-        "condition": {
-          "and": [
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "text": "Tell me about the Brand and this world.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WORLD",
-        "condition": {
-          "and": [
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "text": "I need practical help.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PRACTICAL",
-        "condition": {
-          "and": [
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "text": "Help me choose a known road.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_NEXT",
-        "condition": {
-          "and": [
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "text": "I brought things from those who did not escape.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES",
-        "condition": {
-          "and": [
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-              }
-            },
-            {
-              "or": [
-                {
-                  "u_has_items": {
-                    "item": "berserk_judeau_knife_hilt",
-                    "count": 1
-                  }
-                },
-                {
-                  "u_has_items": {
-                    "item": "berserk_pippin_broken_clasp",
-                    "count": 1
-                  }
-                },
-                {
-                  "u_has_items": {
-                    "item": "berserk_corkus_scabbard_fragment",
-                    "count": 1
-                  }
-                },
-                {
-                  "u_has_items": {
-                    "item": "berserk_gaston_sewing_roll",
-                    "count": 1
-                  }
-                },
-                {
-                  "u_has_item": "berserk_wyald_command_orders"
-                },
-                {
-                  "u_has_item": "berserk_rosine_witness_note"
-                }
-              ]
-            }
-          ]
-        }
-      },
-      {
-        "text": "Review the roads and work I know.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL",
-        "effect": {
-          "run_eocs": "EOC_BERSERK_JOURNAL_REFRESH"
-        }
-      },
-      {
-        "text": "I need a new road journal.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER",
-        "condition": {
-          "not": {
-            "u_has_item": "berserk_campaign_journal"
-          }
-        },
-        "effect": {
-          "run_eocs": "EOC_BERSERK_JOURNAL_REPLACE_MISSING"
-        }
-      },
-      {
-        "text": "Why did you save me, and where will you go?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PURPOSE",
-        "condition": {
-          "and": [
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "text": "I need to go.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_FAREWELL"
-      },
-      {
-        "text": "What should I do with this change?",
-        "topic": "TALK_BERSERK_APOSTOL_FLESH_KNIGHT",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
-        }
-      },
-      {
-        "text": "I accepted an apostle’s pact. What remains mine?",
-        "topic": "TALK_BERSERK_APOSTOL_PAWN_KNIGHT",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE"
-        }
-      }
-    ]
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_NOW",
-    "dynamic_line": {
-      "math": [
-        "berserk_flora_stage == 2"
-      ],
-      "yes": "Leave the threatened grove through the western path or southern garden. Keep moving until you are clear of the trees.",
-      "no": {
-        "math": [
-          "u_berserk_first_hunt_done != 1"
-        ],
-        "yes": {
-          "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND",
-          "yes": "Tend your wounds and prepare for the forest hollow. Rickert can help replace the hand; Godot can help with a blade. The hunt can wait until you can retreat safely.",
-          "no": "Tend your wounds and prepare armor, dressings and a way back before the forest hollow. Godot can help with a blade. The hunt can wait until you can retreat safely."
-        },
-        "no": {
-          "test_eoc": "EOC_BERSERK_DIALOGUE_DISPLAY_8",
-          "yes": "Examine the first apostle’s remains and read what you recover. The next trail has to begin with evidence.",
-          "no": {
-            "test_eoc": "EOC_BERSERK_DIALOGUE_DISPLAY_7",
-            "yes": {
-              "math": [
-                "berserk_hunt_first_breach_state >= 3"
-              ],
-              "yes": "The ashen keeper has fallen. Examine the wound and close it before following another trail.",
-              "no": "Follow the recovered trail to the ashen wound. After its keeper falls, examine the opening."
-            },
-            "no": {
-              "test_eoc": "EOC_BERSERK_DIALOGUE_DISPLAY_6",
-              "yes": "Seek counsel at the spiritual tree. If you are already there, rest and ask Flora what help she can offer.",
-              "no": {
-                "test_eoc": "EOC_BERSERK_DIALOGUE_DISPLAY_5",
-                "yes": {
-                  "math": [
-                    "berserk_hunt_grunbeld_state >= 4"
-                  ],
-                  "yes": "Collect the relic at Grunbeld’s stronghold. The wound there is already closed.",
-                  "no": {
-                    "math": [
-                      "berserk_hunt_grunbeld_state >= 3"
-                    ],
-                    "yes": "The breach at Grunbeld’s stronghold has lost its keeper. Examine the wound before leaving.",
-                    "no": "Prepare for the stronghold recorded in your journal. Bring protection against heat and a way to retreat."
-                  }
-                },
-                "no": {
-                  "test_eoc": "EOC_BERSERK_DIALOGUE_DISPLAY_4",
-                  "yes": {
-                    "math": [
-                      "berserk_hunt_rosine_state >= 4"
-                    ],
-                    "yes": "Collect the relic at the misty valley. The wound there is already closed.",
-                    "no": {
-                      "math": [
-                        "berserk_hunt_rosine_state >= 3"
-                      ],
-                      "yes": "The breach at the misty valley has lost its keeper. Examine the wound before leaving.",
-                      "no": "Follow the known trail to the misty valley. Study the approaches before entering its deeper woods."
-                    }
-                  },
-                  "no": {
-                    "test_eoc": "EOC_BERSERK_DIALOGUE_DISPLAY_3",
-                    "yes": {
-                      "math": [
-                        "berserk_hunt_wyald_state >= 4"
-                      ],
-                      "yes": "Collect the relic at the Black Dogs’ camp. The wound there is already closed.",
-                      "no": {
-                        "math": [
-                          "berserk_hunt_wyald_state >= 3"
-                        ],
-                        "yes": "The breach at the Black Dogs’ camp has lost its keeper. Examine the wound before leaving.",
-                        "no": "Prepare for the Black Dogs’ camp. Look for a route that leaves you room to withdraw."
-                      }
-                    },
-                    "no": {
-                      "test_eoc": "EOC_BERSERK_DIALOGUE_DISPLAY_2",
-                      "yes": {
-                        "math": [
-                          "berserk_hunt_count_state >= 4"
-                        ],
-                        "yes": "Collect the relic at the Count’s residence. The wound there is already closed.",
-                        "no": {
-                          "math": [
-                            "berserk_hunt_count_state >= 3"
-                          ],
-                          "yes": "The breach at the Count’s residence has lost its keeper. Examine the wound before leaving.",
-                          "no": "Follow the known trail to the Count’s residence. Examine the grounds before descending."
-                        }
-                      },
-                      "no": "Recover, then choose an unfinished road you know. There is no need to pursue every trail at once."
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "responses": [
-      {
-        "text": "Look at the current entry in my journal.",
-        "topic": "TALK_BERSERK_JOURNAL_CURRENT",
-        "effect": {
-          "run_eocs": "EOC_BERSERK_JOURNAL_REFRESH"
-        }
-      },
-      {
-        "text": "How do I make that shelter useful?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD",
-        "condition": {
-          "math": [
-            "u_berserk_first_hunt_done != 1"
-          ]
-        }
-      },
-      {
-        "text": "Tell me about the forge.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_GODO",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_godo == 1"
-          ]
-        }
-      },
-      {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
-      }
-    ]
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE",
-    "dynamic_line": "'The Behelit opened a place of sacrifice along the boundary where our worlds collided. Your Eclipse widened those wounds; it did not create this world's first catastrophe. I could not undo the sacrifice. I cut a way out while someone remained to save.'",
-    "responses": [
-      {
-        "text": "What did the Behelit do?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_BEHELIT"
-      },
-      {
-        "text": "Why did you help me?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PURPOSE"
-      },
-      {
-        "text": "Why can you not close every wound?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WOUNDS"
-      },
-      {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
-      }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_eclipse = 1"
-        ]
-      }
-    }
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_BRAND",
-    "dynamic_line": "'The Brand marks a survivor of the sacrifice. Its pain warns you when demons draw near; a stronger presence hurts more. At night, expect them to seek you out. Find cover and leave yourself a way to flee.'",
-    "responses": [
-      {
-        "text": "Can I quiet it long enough to sleep?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD"
-      },
-      {
-        "text": "Does every demon follow it?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_SOURCES"
-      },
-      {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WORLD"
-      }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_brand = 1"
-        ]
-      }
-    }
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_APOSTLES",
-    "dynamic_line": "'Apostles are monstrous beings with wills and bodies of their own. The God Hand stand apart: they preside over the sacrifice. Void and Griffith are not ordinary apostles. Do not mistake surviving an encounter for defeating them.'",
-    "responses": [
-      {
-        "text": "Why are beings from another world still alive here?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WORLD_COLLISION"
-      },
-      {
-        "text": "Why did the creature I fought before the Eclipse return?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PROJECTIONS",
-        "condition": {
-          "math": [
-            "u_berserk_griffith_projection_defeated == 1"
-          ]
-        }
-      },
-      {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
-      }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_apostles = 1"
-        ]
-      }
-    }
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_PROJECTIONS",
-    "dynamic_line": "'Some things you met before were projections: an echo formed around a Behelit. Breaking the echo leaves the true being untouched. The Behelit itself was real.'",
-    "responses": [
-      {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
-      }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_projections = 1"
-        ]
-      }
-    }
-  },
-  {
-    "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_INJURIES",
-    "dynamic_line": {
-      "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND",
-      "yes": {
-        "test_eoc": "EOC_BERSERK_DIALOGUE_DISPLAY_16",
-        "yes": "You are missing your left hand and an eye. The grip and sight you relied on have changed. Rickert can help with the hand; neither he nor a blade can replace the lost eye. Rest before asking your body for another battle.",
-        "no": "Your left hand is missing. Rickert can help you replace it. Give your other wounds time to recover before returning to the hunt."
-      },
-      "no": "Tend the wounds you carry before returning to the hunt. Rest and dressings matter as much as the next weapon."
-    },
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "How can I replace my hand?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_HAND",
-        "condition": {
-          "u_has_bionics": "bio_berserk_hand_stump"
-        }
-      },
-      {
-        "text": "Ask something else.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -603,118 +1783,21 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_HAND",
-    "dynamic_line": {
-      "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND",
-      "yes": "A skilled metalworker can make the cannon: fabrication 8, mechanics 4 and the proper tools. Rickert builds that mechanism at Godot's forge if you bring the materials. Either way, fit the finished cannon by activating it in your inventory.",
-      "no": "The smiths can help you prepare a blade and mend your equipment."
-    },
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "Show me the craftsman.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_GODO"
-      },
-      {
-        "text": "Must I hold the cannon to attach it?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_HAND_MOUNT",
-        "condition": {
-          "u_has_bionics": "bio_berserk_hand_stump"
-        }
-      },
-      {
-        "text": "Ask something else.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_hand = 1"
-        ]
-      },
-      "condition": {
-        "u_has_bionics": "bio_berserk_hand_stump"
-      }
-    }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_NEXT",
-    "dynamic_line": "We can consider the roads you already know. Choose one, and leave yourself a way to return.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "First hunt",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_FIRST",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_first == 1"
-          ]
-        }
-      },
-      {
-        "text": "The ashen breach",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_BREACH",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_breach == 1"
-          ]
-        }
-      },
-      {
-        "text": "The Count’s residence",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_COUNT",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_count == 1"
-          ]
-        }
-      },
-      {
-        "text": "The Black Dogs’ camp",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_WYALD",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_wyald == 1"
-          ]
-        }
-      },
-      {
-        "text": "The misty valley",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_ROSINE",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_rosine == 1"
-          ]
-        }
-      },
-      {
-        "text": "Flora’s grove",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_FLORA",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_flora == 1"
-          ]
-        }
-      },
-      {
-        "text": "Grunbeld’s stronghold",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_GRUNBELD",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_grunbeld == 1"
-          ]
-        }
-      },
-      {
-        "text": "The woodland forge",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_GODO",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_godo == 1"
-          ]
-        }
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -722,14 +1805,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_JUDEAU",
-    "dynamic_line": "'He bought a few breaths for those who followed him. Do not let this place turn that choice into nothing.' The Skull Knight glances at the ruined hilt.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "There is another memory I want to ask about.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES"
-      },
-      {
-        "text": "Ask something else.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -737,14 +1816,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_PIPPIN",
-    "dynamic_line": "'He stood where others would have fled. I cannot undo his death, but you can carry the memory of it beyond this field.'",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "There is another memory I want to ask about.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES"
-      },
-      {
-        "text": "Ask something else.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -752,10 +1827,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_COUNT",
-    "dynamic_line": "\"The Count is no projection. His fortified residence shelters men he remade with his flesh. Explore the wings, clear the servants, then descend beneath the northeastern execution hall. His death exposes one local wound; each apostle and each breach must be answered separately.\"",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "Ask something else.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -763,14 +1838,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_FLORA",
-    "dynamic_line": "\"The trails you have followed converge on a sheltered grove. Flora tends the old tree there. Ask her about the Brand and what it costs to wield cursed armor. I can leave you the directions so you need not depend on finding me again.\"",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "What should I ask her first?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_FLORA_COUNSEL"
-      },
-      {
-        "text": "Ask something else.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -778,46 +1849,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_NAMED_HUNTS",
-    "dynamic_line": "Follow the evidence you have found. Each keeper holds a different wound; closing one gives its surroundings a respite.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "The Count’s residence",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_COUNT",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_count == 1"
-          ]
-        }
-      },
-      {
-        "text": "The Black Dogs’ camp",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_WYALD",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_wyald == 1"
-          ]
-        }
-      },
-      {
-        "text": "The misty valley",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_ROSINE",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_rosine == 1"
-          ]
-        }
-      },
-      {
-        "text": "Grunbeld’s stronghold",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_GRUNBELD",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_grunbeld == 1"
-          ]
-        }
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -825,71 +1860,21 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_FIRST_HUNT",
-    "dynamic_line": {
-      "math": [
-        "u_berserk_first_hunt_done == 1"
-      ],
-      "yes": "Look through what the apostle left behind. The recovered traces may tell you where its prey disappeared.",
-      "no": "A lesser apostle holds the marked forest hollow. Prepare armor, dressings and a way to retreat before entering the low ground. The directions in your notes lead to the same place."
-    },
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "First hunt",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_FIRST",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_first == 1"
-          ]
-        }
-      },
-      {
-        "text": "The ashen breach",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_BREACH",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_breach == 1"
-          ]
-        }
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_WORLD_COLLISION",
-    "dynamic_line": "The collision broke more than the ground. Some lives were drawn away from the deaths that awaited them. That does not make every being here a projection. Kill a living original and that life ends; breaking a reflection leaves its source untouched.",
-    "responses": [
-      {
-        "text": "How do I tell an original from a reflection?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_APOSTLES"
-      },
-      {
-        "text": "Ask something else.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
-      }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_world_collision = 1"
-        ]
-      }
-    }
-  },
-  {
-    "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_CORKUS",
-    "dynamic_line": "'The ceremony used hope as another snare. Remember him as a man who wanted to live, not merely as another body in the feast.'",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "There is another memory I want to ask about.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES"
-      },
-      {
-        "text": "Ask something else.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -897,14 +1882,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_GASTON",
-    "dynamic_line": "'He carried the tools of a life beyond war. Taking them out of this darkness does not mend what was lost, but it denies the feast the last word.'",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "There is another memory I want to ask about.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES"
-      },
-      {
-        "text": "Ask something else.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -912,10 +1893,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_WYALD_ORDERS",
-    "dynamic_line": "'The crossing did not bring every life along the same path. In his world, Wyald's fate had already been cut short. Here that thread turned aside. The camp's master is no projection; destroying him ends this hunt, but leaves the other wounds of the world open.'",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "I have another question.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -923,75 +1904,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_MISTVALE_WITNESS",
-    "dynamic_line": "'A promise of paradise can become a prison. You may stop a shell from releasing its creature, and you may keep a small memory of those lost. That is not a cure for transformation. The searcher followed those who vanished, and returned with a warning rather than the people they sought.'",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "I have another question.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
-      }
-    ]
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES",
-    "dynamic_line": "What you carry is not merely spoil. Tell me whose memory you brought out of the dark.",
-    "responses": [
-      {
-        "text": "I found Judeau's knife hilt. What happened to the Band?",
-        "condition": {
-          "u_has_items": {
-            "item": "berserk_judeau_knife_hilt",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_JUDEAU"
-      },
-      {
-        "text": "Pippin held the line. Could anyone else have escaped?",
-        "condition": {
-          "u_has_items": {
-            "item": "berserk_pippin_broken_clasp",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PIPPIN"
-      },
-      {
-        "text": "Corkus clutched this scabbard. Was there ever a way out?",
-        "condition": {
-          "u_has_items": {
-            "item": "berserk_corkus_scabbard_fragment",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_CORKUS"
-      },
-      {
-        "text": "Gaston kept this sewing roll. What became of his hopes?",
-        "condition": {
-          "u_has_items": {
-            "item": "berserk_gaston_sewing_roll",
-            "count": 1
-          }
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_GASTON"
-      },
-      {
-        "text": "These orders call Wyald alive. How can that be?",
-        "condition": {
-          "u_has_item": "berserk_wyald_command_orders"
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WYALD_ORDERS"
-      },
-      {
-        "text": "The Mistvale searcher could not save those in the cocoons.",
-        "condition": {
-          "u_has_item": "berserk_rosine_witness_note"
-        },
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_MISTVALE_WITNESS"
-      },
-      {
-        "text": "Ask something else.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -999,88 +1915,32 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_WOUNDS",
-    "dynamic_line": "A sword can cut a path through the boundary; it cannot mend every place where two worlds have torn one another open. I act where I can. You survived to do more than follow the next blow.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "Then what can one survivor change?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_NEXT"
-      },
-      {
-        "text": "Ask something else.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
   },
   {
     "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_WARD",
-    "dynamic_line": "A sign of stone and bone quiets the Brand’s new night summons within eight tiles on the same level. It does not stop roaming demons, zombies or attacks. Place your bed within its reach; prepare water, light and an escape route. The sign needs no fuel, but its protection ends when you leave its reach.",
-    "responses": [
-      {
-        "text": "How do I build it?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD_BUILD"
-      },
-      {
-        "text": "What else should I prepare?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PREPARE"
-      },
-      {
-        "text": "Which dangers remain?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_SOURCES"
-      },
-      {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PRACTICAL"
-      }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_ward = 1"
-        ]
-      }
-    }
-  },
-  {
-    "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_HAND_MOUNT",
-    "dynamic_line": {
-      "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND",
-      "yes": "Carry the finished prosthetic arm cannon in your inventory and activate it there. The mount where your left hand used to be must still be empty. You need not wield the cannon or find an autodoc to attach it.",
-      "no": "The smiths can help you prepare a blade and mend your equipment."
-    },
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "What should I prepare for the night?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_NOW"
-      },
-      {
-        "text": "Ask something else.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_hand_mount = 1"
-        ]
-      },
-      "condition": {
-        "u_has_bionics": "bio_berserk_hand_stump"
-      }
-    }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_FLORA_COUNSEL",
-    "dynamic_line": "Ask what the Brand has done to you and how to endure its nights. If you carry cursed armor, let her see it. Learn its price before relying on it; counsel costs you less than another wound.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "And the local breach?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_FIRST_HUNT"
-      },
-      {
-        "text": "Ask something else.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -1088,30 +1948,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_WORLD",
-    "dynamic_line": "Ask about the wound you carry, or about the beings that cross it. One answer will not explain every creature in this changed world.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "Why does the Brand call to them?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
-      },
-      {
-        "text": "Who are the apostles and the God Hand?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_APOSTLES"
-      },
-      {
-        "text": "What changed when the worlds collided?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WORLD_COLLISION"
-      },
-      {
-        "text": "Does every demon follow the Brand?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_SOURCES"
-      },
-      {
-        "text": "What can closing a wound change?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_LOCAL_WOUNDS"
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -1119,46 +1959,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_PRACTICAL",
-    "dynamic_line": "First protect the life that escaped. We can speak of shelter, your injuries, or a craftsman who can help replace what was lost.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "How do I prepare a refuge?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD"
-      },
-      {
-        "text": "What should I prepare before leaving?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PREPARE"
-      },
-      {
-        "text": "What did the Eclipse do to my body?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_INJURIES"
-      },
-      {
-        "text": "Who can make a prosthetic and a weapon?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_GODO",
-        "condition": {
-          "u_has_bionics": "bio_berserk_hand_stump"
-        }
-      },
-      {
-        "text": "Who can help with a weapon?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_GODO",
-        "condition": {
-          "not": {
-            "u_has_bionics": "bio_berserk_hand_stump"
-          }
-        }
-      },
-      {
-        "text": "How should I approach a lair?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_HUNT_APPROACH"
-      },
-      {
-        "text": "How do I keep track of the roads?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_JOURNAL_HELP"
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -1166,286 +1970,65 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_GODO",
-    "dynamic_line": {
-      "u_at_om_location": "berserk_godo_workshop",
-      "yes": "I brought you to Godot's forge. The old master works on blades; Rickert builds mechanisms. Speak with them inside. Neither can remove the Brand, but they can help you face what follows.",
-      "no": "Godot keeps a woodland forge with Rickert beside him. The old master makes blades; his apprentice works on mechanisms and crossbows. Bring useful metal rather than promises. If you already carry their work, ask for repairs. These directions will remain in your notes after we part."
-    },
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "Look up the road to the forge.",
-        "topic": "TALK_BERSERK_JOURNAL_PLACE_GODO",
-        "effect": {
-          "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GODO"
-        }
-      },
-      {
-        "text": "How can I replace my hand?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_HAND",
-        "condition": {
-          "u_has_bionics": "bio_berserk_hand_stump"
-        }
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
-      }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_GODO"
-      }
-    }
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_FAREWELL",
-    "dynamic_line": "When we part, I ride on. Ask now about the Brand, shelter, the smiths or the roads you know. I will not be waiting here when you return. The directions and advice you have written in your road journal will remain with you.",
-    "responses": [
-      {
-        "text": "I still have questions.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
-      },
-      {
-        "text": "I understand. Farewell, Skull Knight.",
-        "topic": "TALK_DONE",
-        "effect": {
-          "run_eocs": "EOC_BERSERK_KNIGHT_FAREWELL"
-        }
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_BEHELIT",
-    "dynamic_line": "The Behelit was a key to a place of sacrifice. The lives offered there were not a toll that bought your safety. You escaped because a way out was cut while you still lived. Do not seek another ceremony as a cure for what it left you.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "Why did you help me?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PURPOSE"
-      },
-      {
-        "text": "What is the Brand?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_BRAND"
-      },
-      {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_ECLIPSE"
-      }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_behelit = 1"
-        ]
-      }
-    }
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_PURPOSE",
-    "dynamic_line": "I follow a war older than your wounds. When I can deny the sacrifice another life, I do. That does not make your road mine to command. Keep the life I carried out of the dark; decide what is worth protecting with it.",
-    "responses": [
-      {
-        "text": "What can I change?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_LOCAL_WOUNDS"
-      },
-      {
-        "text": "Why can you not close every wound?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WOUNDS"
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_purpose = 1"
-        ]
-      }
-    }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_SOURCES",
-    "dynamic_line": "Not every demon follows your Brand. Some have crossed the wounds between worlds and roam on their own; the Brand draws another hunt toward you at night. Quieting its call does not remove creatures already near your bed. A closed wound does not silence the Brand.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "How does a ward help?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD"
-      },
-      {
-        "text": "What changes after a hunt?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_LOCAL_WOUNDS"
-      },
-      {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WORLD"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_sources = 1"
-        ]
-      }
-    }
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_LOCAL_WOUNDS",
-    "dynamic_line": "A keeper holds a particular wound open. When it falls, examine that wound; a victory alone may leave the opening behind. Closing it restrains new crossings nearby. Creatures that have already crossed remain, and distant wounds still feed the dark. Take the evidence with you and read it before choosing another road.",
-    "responses": [
-      {
-        "text": "How should I approach a lair?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_HUNT_APPROACH"
-      },
-      {
-        "text": "How do I keep track of the roads?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_JOURNAL_HELP"
-      },
-      {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WORLD"
-      }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_local_wounds = 1"
-        ]
-      }
-    }
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_PREPARE",
-    "dynamic_line": "Choose a place you can leave as well as defend. Dress your wounds, keep drinking water and bandages near your bed, and leave room to reach the door. Light helps you see what is coming; it is not a ward. Rest before testing your strength against an apostle. A weapon cannot give you back the breath spent running.",
-    "responses": [
-      {
-        "text": "How do I build the protective sign?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD_BUILD"
-      },
-      {
-        "text": "Who can help with equipment?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_GODO"
-      },
-      {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PRACTICAL"
-      }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_prepare = 1"
-        ]
-      }
-    }
-  },
-  {
-    "type": "talk_topic",
-    "id": "TALK_BERSERK_SKULL_KNIGHT_WARD_BUILD",
-    "dynamic_line": "Set eight stones and four bones into a protective sign on clear ground. A little wilderness knowledge is enough to arrange it; allow about twenty minutes. Keep your bed within eight steps on the same level. Walls and a clear escape route must do what the sign cannot: shelter you from creatures already here.",
-    "responses": [
-      {
-        "text": "Will it keep out every demon?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_SOURCES"
-      },
-      {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_WARD"
-      }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_ward_build = 1"
-        ]
-      }
-    }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_HUNT_APPROACH",
-    "dynamic_line": "Walk the outer ground first. Look for cover, lesser creatures and a way back before entering the keeper’s ground. Watch a heavy attack begin; move aside rather than trade blows through it. A retreat is not a broken oath. Return when your wounds and your equipment allow it, then examine what the fight uncovered.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "Tell me about the first hunt.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_FIRST_HUNT",
-        "condition": {
-          "math": [
-            "u_berserk_journal_knows_first == 1"
-          ]
-        }
-      },
-      {
-        "text": "What remains after the keeper falls?",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_LOCAL_WOUNDS"
-      },
-      {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PRACTICAL"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_hunt_approach = 1"
-        ]
-      }
-    }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_JOURNAL_HELP",
-    "dynamic_line": "Keep one road journal for the directions you have learned, the smiths’ orders and the accounts you have read. Read a recovered letter before setting it aside; a sealed page has told you nothing. If a road is uncertain, keep its entry and return to the evidence. When we part, those notes will remain with you.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "Open the journal.",
-        "topic": "TALK_BERSERK_ROAD_JOURNAL",
-        "effect": {
-          "run_eocs": "EOC_BERSERK_JOURNAL_REFRESH"
-        }
-      },
-      {
-        "text": "Let us consider the roads I know.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_NEXT"
-      },
-      {
-        "text": "Back to the topics.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_PRACTICAL"
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
-    ],
-    "speaker_effect": {
-      "effect": {
-        "math": [
-          "u_berserk_knight_advice_journal_help = 1"
-        ]
-      }
-    }
+    ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_RESCUE_REFUGE",
-    "dynamic_line": {
-      "math": [
-        "u_berserk_forge_rescue_reason == 3"
-      ],
-      "yes": "Fire or poison had reached the forge. I would not leave you there. This place will give you room to breathe. I cannot tell you what became of its people; keep the road you know, and judge it when you can.",
-      "no": {
-        "math": [
-          "has_var(berserk_godo_location)"
-        ],
-        "yes": "I could not find a safe place for you inside the forge. I brought you out here instead. That does not tell us what became of its masters. The road is still known; return when you are able, and see what remains.",
-        "no": "I could not reach the woodland forge with you in time. Getting you out came first. There are masters who may still help you. Ask about the road before I leave; the account will remain in your journal."
-      }
-    },
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -1453,24 +2036,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_KNIGHT",
-    "dynamic_line": "Prepare for the road before testing what the ceremony left you. The ashen wound you remember can be closed, but it will not change your body back. Other wounds and their keepers remain. Decide which known trail is yours to follow; strength alone will not decide it.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "Are other apostles now my allies?",
-        "topic": "TALK_BERSERK_APOSTOL_KNIGHT_KIN",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_DEMON_SURVIVOR"
-        }
-      },
-      {
-        "text": "Let me keep these directions in my journal.",
-        "topic": "TALK_BERSERK_APOSTOL_KNIGHT",
-        "effect": {
-          "run_eocs": "EOC_BERSERK_JOURNAL_REPLACE_MISSING"
-        }
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -1478,14 +2047,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_KNIGHT_KIN",
-    "dynamic_line": "No. You have received power, not their loyalty. An apostle can turn on another apostle. The people you meet will judge the shape before them and the deeds they witness. Choose what you show them.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "Back.",
-        "topic": "TALK_BERSERK_APOSTOL_KNIGHT"
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -1493,14 +2058,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_FLESH_KNIGHT",
-    "dynamic_line": "Learn the body you have chosen: its hunger, its recovery and where it leaves you vulnerable. You have gained strength, not an answer to every wound in the world. Your known roads remain; prepare before following them.",
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "Are other apostles now my allies?",
-        "topic": "TALK_BERSERK_APOSTOL_KNIGHT_KIN"
-      },
-      {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -1508,14 +2069,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_PAWN_KNIGHT",
-    "dynamic_line": {
-      "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_BOND_LOST",
-      "yes": "The bond no longer answers. Your will remains, and so does the lesser flesh you accepted. Neither a broken oath nor a dead master restores humanity or grants their full strength. Choose the next road with the body you truly have.",
-      "no": "Your will remains. The master holds a power you accepted, not every deed you may choose. Breaking the pact ends the shelter it offered; it will not return your old flesh. Nor does killing its giver make you their equal. Learn your limits before another battle."
-    },
+    "dynamic_line": "What else did you want to ask?",
     "responses": [
       {
-        "text": "Back to the topics.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]

@@ -536,20 +536,35 @@
     "id": "EOC_BERSERK_KNIGHT_FAREWELL",
     "condition": {
       "and": [
-        "has_beta",
-        "npc_is_monster",
         {
-          "math": [
-            "u_berserk_eclipse_rescue_state == 2"
+          "and": [
+            "has_beta",
+            "npc_is_monster",
+            {
+              "math": [
+                "n_monsters_nearby('mon_skull_knight_rescuer', 'radius': 0, 'attitude': 'both') > 0"
+              ]
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_route != 2"
+              ]
+            }
           ]
         },
         {
           "math": [
-            "n_monsters_nearby('mon_skull_knight_rescuer', 'radius': 0, 'attitude': 'both') > 0"
+            "u_berserk_knight_farewell_confirmed != 1"
           ]
-        },
-        {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
         }
       ]
     },

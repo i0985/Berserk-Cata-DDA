@@ -3293,83 +3293,356 @@
         "condition": {
           "or": [
             {
-              "math": [
-                "u_berserk_knight_advice_eclipse == 1"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_knight_advice_eclipse == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_behelit == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_brand == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_sources == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_ward == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_ward_build == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_prepare == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_hunt_approach == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_local_wounds == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_world_collision == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_apostles == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_projections == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_hand == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_hand_mount == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_journal_help == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_advice_purpose == 1"
+                  ]
+                }
               ]
             },
             {
-              "math": [
-                "u_berserk_knight_advice_behelit == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_brand == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_sources == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_ward == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_ward_build == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_prepare == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_hunt_approach == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_local_wounds == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_world_collision == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_apostles == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_projections == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_hand == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_hand_mount == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_journal_help == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_knight_advice_purpose == 1"
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_knight_read_rescued == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_masters == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_eclipse == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_apostles == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_killable == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_fight == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_god_hand == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_resist == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_world_collision == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_restore == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_griffith == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_vengeance == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_leader == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_projections == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_projection_meaning == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_projection_proof == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_projection_more == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_brand == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_brand_pain == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_nights == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_prepare == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_doors == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_dawn == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_ward == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_ward_limits == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_ward_build == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_local_wounds == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_now == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_memory_judeau == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_memory_pippin == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_memory_corkus == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_memory_gaston == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_memory_judeau_428 == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_memory_judeau_429 == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_memory_pippin_436 == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_memory_pippin_437 == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_memory_corkus_444 == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_memory_corkus_445 == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_memory_gaston_452 == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_memory_gaston_453 == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_self == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_name == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_purpose == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_debt == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_others == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_knew == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_accept == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_human == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_past == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_fate == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_choice == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_leaving == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_knight_read_meet_again == 1"
+                  ]
+                }
               ]
             }
           ]
@@ -3579,168 +3852,850 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_JOURNAL_KNIGHT_ADVICE",
-    "dynamic_line": "Advice you wrote down while speaking with the Skull Knight.",
-    "responses": [
-      {
-        "text": "The Eclipse and escape.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_ECLIPSE",
-        "condition": {
+    "dynamic_line": {
+      "concatenate": [
+        "Words recorded after speaking with the Skull Knight.",
+        {
+          "math": [
+            "u_berserk_knight_read_rescued == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "The Knight carried me out of the sacrifice. Escape did not undo its consequences."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_masters == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Godot works on blades; Rickert works on crossbows and mechanisms at the woodland forge."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_eclipse == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "You saw the boundary where greatness is bought with other lives. Those who rose above the crowd accepted that harvest. Those feasting beneath the throne merely did what they had been permitted."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_apostles == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Many were. They rejected their nature when an earthly existence was no longer enough. Their old failings and desires remained. Sometimes those human habits make the monsters recognizable. And vulnerable."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_killable == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Their altered flesh can be destroyed. Do not mistake their bodies for true immortality. Nor should you look for human mercy where the abyss rules."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_fight == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Wait before you step forward. Study how the enemy moves, what it protects and when it must pause for breath. Know where you will retreat. Blind fury is no substitute for a way back."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_god_hand == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "The God Hand. Do not confuse them with the servants admitted to the feast. Killing an ordinary apostle does not bring their overthrow a step closer."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_resist == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "If I thought your struggle useless, I would not have carried you out of that hell."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_world_collision == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "This land had already been wounded by its own end of the world. Another darkness seeps through the open wounds. The boundary has thinned, making your home accessible to hungrier predators."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_restore == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "The past cannot be restored, even if every passage is sealed. But you can keep the next traveler from meeting the same fate."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_griffith == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "He took the throne offered to him. Your memories of the man cannot explain the abyss into which he was reborn."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_vengeance == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Then first learn to live until the next dawn. Otherwise your oath of vengeance will be no more than the last words of a man dying in the night."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_leader == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Do not expect what you witnessed to be the last expression of that will. Your concern now is to endure the threat already following you."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_projections == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "You dispersed a reflection. It could take his shape and carry some of his power, but it was not the being you seek."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_projection_meaning == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "The shape that stood before you will threaten no one else. That matters. But do not credit your victory with something it did not accomplish."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_projection_proof == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "A face is not enough. Consider where it came from, what holds it here and what it leaves behind. A vanished shadow is not proof of an original death."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_projection_more == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "While the boundaries between worlds remain broken, I would not call that encounter the last."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_brand == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "The Brand remains a mark of sacrifice. Beings beyond the boundary can discern it where a human eye sees nothing. Night makes their journey to you easier."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_brand_pain == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Pain and blood may come before a creature appears, especially a powerful one. Heed that warning, but do not expect it to name your enemy or show a safe road. The Brand is no friend to you. It simply is."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_nights == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Not every night is the same. Sometimes you will hear only footsteps beyond a wall. Sometimes you will have to abandon your shelter and run. Silence does not mean they have forgotten you."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_prepare == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Find a place you can leave. Do not corner yourself for the imagined safety of walls. Prepare light, dressings and weapons. Keep what you need close: there will be no time to pack when you must flee."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_doors == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Against some of them, yes. But an ordinary wall cannot keep out everything that comes from the darkness. Some creatures need no door."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_dawn == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Dawn may end the pursuit itself. It does not promise to destroy those that already reached you. Look at what remains outside before opening the door."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_ward == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "A bone and stone sign hinders the Brand's night summons nearby. It does not remove creatures already here and does not replace shelter."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_ward_limits == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "More peacefully. Not carelessly. Even a protected place must have an exit. Never make the sign your last hope."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_ward_build == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Arrange eight stones and four bones into a sign on clear ground. Keep it close to your sleeping place. Its protection stays on the same level; it will not drive away creatures already here."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_local_wounds == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "No. You will close one road into this world, and that matters to those who live nearby. The mark on your body belongs to another bond. Closing a breach does not break it."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_now == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Recover before a fight. Prepare for night, then follow a trail you know. Do not take on every enemy at once."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_memory_judeau == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Judeau saw other people even when everything around him was turning them into prey."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_memory_pippin == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Sometimes a man knows he cannot hold the enemy. Still he stands between it and those who can escape."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_memory_corkus == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "A victim has a life that cannot fit inside the word victim. Desires, failings, arguments. Do not give the monsters that part of him as well."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_memory_gaston == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Such hopes are easily lost behind banners and the names of commanders. To him that future mattered no less than another man's dream of a kingdom."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_memory_judeau_428 == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Not enough to stop all that happened. But you do not know how much time his act gave someone else."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_memory_judeau_429 == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Then preserve more than how he died. Preserve who he was."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_memory_pippin_436 == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "I call it an act that cannot be measured only by who remained standing."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_memory_pippin_437 == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "You may carry that thought all your life. It cannot put you beside him that night. Decide whom you will stand beside now."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_memory_corkus_444 == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Grief does not require that you agreed on everything in life."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_memory_corkus_445 == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "They did not need to become heroes to deserve their lives."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_memory_gaston_452 == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Yes. You see not only a death but everything that can never follow it."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_memory_gaston_453 == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Keep it, give it to someone who knew him, or leave it in a worthy place. Memory does not demand you always carry its weight."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_self == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "One who has long walked against them."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_name == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "No. But for now it tells you more than a name."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_purpose == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "I had the chance to intervene. I took it."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_debt == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "I did not carry you out of one bargain to immediately bind you to another."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_others == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Because I could not."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_knew == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Knowing of a disaster and having the power to stop it are not the same."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_accept == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "I am not asking you to accept it. But do not base your next step on the belief that someone could have fixed everything with a single blow."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_human == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Enough humanity remains in me to remember what I fight against."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_past == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Not every story needs to be told at another man's threshold."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_fate == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "You are alive and asking that question. Begin there."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_choice == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "No. But your choice still belongs to you. Do not give it away merely because you cannot rule everything else."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_leaving == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "I have my own road. Our enemies will not wait for you to recover."
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_read_meet_again == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Perhaps. But do not build your life around waiting for me."
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_eclipse == 1"
-          ]
-        }
-      },
-      {
-        "text": "What the Behelit opened.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_BEHELIT",
-        "condition": {
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "'The Behelit opened a place of sacrifice along the boundary where our worlds collided. Your Eclipse widened those wounds; it did not create this world's first catastrophe. I could not undo the sacrifice. I cut a way out while someone remained to save.'"
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_behelit == 1"
-          ]
-        }
-      },
-      {
-        "text": "The Brand and night summons.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_BRAND",
-        "condition": {
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "The Behelit was a key to a place of sacrifice. The lives offered there were not a toll that bought your safety. You escaped because a way out was cut while you still lived. Do not seek another ceremony as a cure for what it left you."
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_brand == 1"
-          ]
-        }
-      },
-      {
-        "text": "The different dangers.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_SOURCES",
-        "condition": {
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "'The Brand marks a survivor of the sacrifice. Its pain warns you when demons draw near; a stronger presence hurts more. At night, expect them to seek you out. Find cover and leave yourself a way to flee.'"
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_sources == 1"
-          ]
-        }
-      },
-      {
-        "text": "Protection and its limits.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_WARD",
-        "condition": {
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Not every demon follows your Brand. Some have crossed the wounds between worlds and roam on their own; the Brand draws another hunt toward you at night. Quieting its call does not remove creatures already near your bed. A closed wound does not silence the Brand."
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_ward == 1"
-          ]
-        }
-      },
-      {
-        "text": "Building a protective sign.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_WARD_BUILD",
-        "condition": {
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "A sign of stone and bone quiets the Brand’s new night summons within eight tiles on the same level. It does not stop roaming demons, zombies or attacks. Place your bed within its reach; prepare water, light and an escape route. The sign needs no fuel, but its protection ends when you leave its reach."
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_ward_build == 1"
-          ]
-        }
-      },
-      {
-        "text": "Preparing for the road.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_PREPARE",
-        "condition": {
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Set eight stones and four bones into a protective sign on clear ground. A little wilderness knowledge is enough to arrange it; allow about twenty minutes. Keep your bed within eight steps on the same level. Walls and a clear escape route must do what the sign cannot: shelter you from creatures already here."
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_prepare == 1"
-          ]
-        }
-      },
-      {
-        "text": "Approaching a lair.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_HUNT_APPROACH",
-        "condition": {
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Choose a place you can leave as well as defend. Dress your wounds, keep drinking water and bandages near your bed, and leave room to reach the door. Light helps you see what is coming; it is not a ward. Rest before testing your strength against an apostle. A weapon cannot give you back the breath spent running."
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_hunt_approach == 1"
-          ]
-        }
-      },
-      {
-        "text": "What a closed wound changes.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_LOCAL_WOUNDS",
-        "condition": {
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Walk the outer ground first. Look for cover, lesser creatures and a way back before entering the keeper’s ground. Watch a heavy attack begin; move aside rather than trade blows through it. A retreat is not a broken oath. Return when your wounds and your equipment allow it, then examine what the fight uncovered."
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_local_wounds == 1"
-          ]
-        }
-      },
-      {
-        "text": "The collision of worlds.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_WORLD_COLLISION",
-        "condition": {
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "A keeper holds a particular wound open. When it falls, examine that wound; a victory alone may leave the opening behind. Closing it restrains new crossings nearby. Creatures that have already crossed remain, and distant wounds still feed the dark. Take the evidence with you and read it before choosing another road."
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_world_collision == 1"
-          ]
-        }
-      },
-      {
-        "text": "Apostles and the God Hand.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_APOSTLES",
-        "condition": {
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "The collision broke more than the ground. Some lives were drawn away from the deaths that awaited them. That does not make every being here a projection. Kill a living original and that life ends; breaking a reflection leaves its source untouched."
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_apostles == 1"
-          ]
-        }
-      },
-      {
-        "text": "The defeated reflection.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_PROJECTIONS",
-        "condition": {
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "'Apostles are monstrous beings with wills and bodies of their own. The God Hand stand apart: they preside over the sacrifice. Void and Griffith are not ordinary apostles. Do not mistake surviving an encounter for defeating them.'"
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_projections == 1"
-          ]
-        }
-      },
-      {
-        "text": "Help with the missing hand.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_HAND",
-        "condition": {
-          "and": [
-            {
-              "math": [
-                "u_berserk_knight_advice_hand == 1"
-              ]
-            },
-            {
-              "u_has_bionics": "bio_berserk_hand_stump"
-            }
-          ]
-        }
-      },
-      {
-        "text": "Fitting the arm cannon.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_HAND_MOUNT",
-        "condition": {
-          "and": [
-            {
-              "math": [
-                "u_berserk_knight_advice_hand_mount == 1"
-              ]
-            },
-            {
-              "u_has_bionics": "bio_berserk_hand_stump"
-            }
-          ]
-        }
-      },
-      {
-        "text": "Keeping the roads together.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_JOURNAL_HELP",
-        "condition": {
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "'Some things you met before were projections: an echo formed around a Behelit. Breaking the echo leaves the true being untouched. The Behelit itself was real.'"
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_advice_hand == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              {
+                "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND",
+                "yes": "A skilled metalworker can make the cannon: fabrication 8, mechanics 4 and the proper tools. Rickert builds that mechanism at Godot's forge if you bring the materials. Either way, fit the finished cannon by activating it in your inventory.",
+                "no": "The smiths can help you prepare a blade and mend your equipment."
+              }
+            ]
+          },
+          "no": ""
+        },
+        {
+          "math": [
+            "u_berserk_knight_advice_hand_mount == 1"
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              {
+                "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND",
+                "yes": "Carry the finished prosthetic arm cannon in your inventory and activate it there. The mount where your left hand used to be must still be empty. You need not wield the cannon or find an autodoc to attach it.",
+                "no": "The smiths can help you prepare a blade and mend your equipment."
+              }
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_journal_help == 1"
-          ]
-        }
-      },
-      {
-        "text": "The Knight’s own road.",
-        "topic": "TALK_BERSERK_JOURNAL_KNIGHT_PURPOSE",
-        "condition": {
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "Keep one road journal for the directions you have learned, the smiths’ orders and the accounts you have read. Read a recovered letter before setting it aside; a sealed page has told you nothing. If a road is uncertain, keep its entry and return to the evidence. When we part, those notes will remain with you."
+            ]
+          },
+          "no": ""
+        },
+        {
           "math": [
             "u_berserk_knight_advice_purpose == 1"
-          ]
+          ],
+          "yes": {
+            "concatenate": [
+              "\n\n",
+              "I follow a war older than your wounds. When I can deny the sacrifice another life, I do. That does not make your road mine to command. Keep the life I carried out of the dark; decide what is worth protecting with it."
+            ]
+          },
+          "no": ""
         }
-      },
+      ]
+    },
+    "responses": [
       {
-        "text": "Back to the topics.",
+        "text": "Close the record.",
         "topic": "TALK_BERSERK_JOURNAL_RECORDS"
       }
     ]

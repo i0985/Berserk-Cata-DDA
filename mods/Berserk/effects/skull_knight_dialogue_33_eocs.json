@@ -1,0 +1,195 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_KNIGHT_LINE_72438B4EB3A5",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_knight_greeted == 1"
+          ]
+        },
+        {
+          "compare_string": [
+            "yes",
+            {
+              "u_val": "berserk_knight_spoken"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_KNIGHT_LINE_04063134DBD9",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_route != 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_KNIGHT_LINE_481AF9211DC7",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_journal_knows_breach == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_breach_sealed != 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_KNIGHT_HAS_MEMORY",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_godo_witness_judeau == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_witness_pippin == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_witness_corkus == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_godo_witness_gaston == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_KNIGHT_HURT",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_hp('head') < u_hp_max('head') / 2"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('torso') < u_hp_max('torso') / 2"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('arm_l') < u_hp_max('arm_l') / 2"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('arm_r') < u_hp_max('arm_r') / 2"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('leg_l') < u_hp_max('leg_l') / 2"
+          ]
+        },
+        {
+          "math": [
+            "u_hp('leg_r') < u_hp_max('leg_r') / 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_KNIGHT_UNFINISHED_KNOWN",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_count == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_COUNT"
+              }
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_wyald == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_WYALD"
+              }
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_rosine == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_ROSINE"
+              }
+            }
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_journal_knows_grunbeld == 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_JOURNAL_DONE_GRUNBELD"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+]

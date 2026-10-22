@@ -36,12 +36,7 @@
       },
       "then": [
         {
-          "run_eocs": "EOC_BERSERK_JOURNAL_REPLACE_MISSING"
-        },
-        {
-          "open_dialogue": {
-            "topic": "TALK_BERSERK_JOURNAL_PLACE_BREACH"
-          }
+          "run_eocs": "EOC_BERSERK_JOURNAL_BREACH_LOCATE"
         }
       ],
       "else": [
@@ -54,9 +49,6 @@
           "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_BREACH"
         },
         {
-          "run_eocs": "EOC_BERSERK_JOURNAL_REPLACE_MISSING"
-        },
-        {
           "run_eocs": "EOC_BERSERK_JOURNAL_BREACH_LOCATE"
         },
         {
@@ -66,16 +58,6 @@
         },
         {
           "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        },
-        {
-          "u_message": "A new entry has been added to your road journal.",
-          "type": "info",
-          "popup": false
-        },
-        {
-          "open_dialogue": {
-            "topic": "TALK_BERSERK_JOURNAL_PLACE_BREACH"
-          }
         }
       ]
     },
@@ -424,12 +406,12 @@
           "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
         },
         "then": {
-          "u_message": "The wound cools and its heartbeat stops. This place has grown quieter; the price of the ceremony remains with you. Among the defenders’ marks you find three roads: a fortified residence, the Black Dogs’ camp and a misty valley. You preserve them in your road journal.",
+          "u_message": "The wound cools and its heartbeat stops. This place is quieter. The defenders' surviving marks reveal three trails: the Count's residence, the Black Dogs' camp and a misty valley.",
           "type": "good",
           "popup": true
         },
         "else": {
-          "u_message": "The wound cools and its heartbeat stops. The surroundings have grown quieter, but your Brand remains. The defenders’ surviving marks name three trails: the Count’s residence, the Black Dogs’ camp and a misty valley. They are preserved in your road journal.",
+          "u_message": "The wound cools and its heartbeat stops. This place is quieter. The defenders' surviving marks reveal three trails: the Count's residence, the Black Dogs' camp and a misty valley.",
           "type": "good",
           "popup": true
         }
@@ -439,6 +421,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_JOURNAL_LEARN_NAMED"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_KNOWN_ROUTES_NOW"
       }
     ]
   },
