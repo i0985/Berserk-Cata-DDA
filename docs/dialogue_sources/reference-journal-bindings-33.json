@@ -3837,6 +3837,182 @@
             ]
           },
           "text": "Перестройка завершилась. Тело обрело свой новый облик. Теперь мне предстоит жить с ним, а не ждать, что ещё одна ночь вернёт прежнего меня."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_lineage == 10"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_pawn_master_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Граф мёртв. Он больше не отдаст приказа и не протянет руку помощи — да и некому теперь протягивать."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_lineage == 10"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_pawn_master_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Тело, которое вы получили от него, никуда не делось. Оно ваше — теперь уже по-настоящему, без хозяина за спиной."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_lineage == 11"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_pawn_master_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Уайлд мёртв. Его голос больше не созовёт стаю — она, наверное, уже рыщет сама по себе, без вожака."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_lineage == 11"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_pawn_master_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "То, что он вам дал, осталось при вас. Смерть того, кто изменил тебя, не отменяет самого изменения."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_lineage == 12"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_pawn_master_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Розины больше нет. Тот дом, что она обещала — теперь придётся понимать самому, своим умом, без её голоса за плечом."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_lineage == 12"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_pawn_master_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Человеческое тело назад не вернулось. И не вернётся."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_lineage == 13"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_pawn_master_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Грюнбельд мёртв. Новых приказов не будет — некому больше их отдавать."
+        },
+        {
+          "condition": {
+            "and": [
+              {
+                "math": [
+                  "u_berserk_apostol_path == 3"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_lineage == 13"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_apostol_pawn_master_dead == 1"
+                ]
+              }
+            ]
+          },
+          "text": "Панцирь, что он дал, остался частью вашей плоти. Так, как было."
         }
       ],
       "title_variants": []

@@ -176,7 +176,7 @@ def bind_effects(actor):
 
 
 def mechanics():
-    visible=[o['id'] for p in (MOD/'mutations').glob('apostol_*.json') for o in json.loads(p.read_text()) if o.get('type')=='mutation' and o['id'].endswith('_FORM')]
+    visible=sorted(o['id'] for p in (MOD/'mutations').glob('apostol_*.json') for o in json.loads(p.read_text()) if o.get('type')=='mutation' and o['id'].endswith('_FORM'))
     EOCS.append(eoc(E+'VISIBLE_BODY',[],either(*({'u_has_trait':x} for x in visible))))
     site=both(math('has_var('+HOME+')'),math("u_val('pos_z') == 0"),math(f"distance('u', {HOME}) < 72"))
     EOCS.append(eoc(E+'AT_SITE',[],site))

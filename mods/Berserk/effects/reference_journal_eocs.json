@@ -14910,6 +14910,158 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 3"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 10"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_pawn_master_dead == 1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 3"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 10"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_pawn_master_dead == 1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 3"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 11"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_pawn_master_dead == 1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 3"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 11"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_pawn_master_dead == 1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 3"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 12"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_pawn_master_dead == 1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 3"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 12"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_pawn_master_dead == 1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 3"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 13"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_pawn_master_dead == 1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_path == 3"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_lineage == 13"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_pawn_master_dead == 1"
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -16570,6 +16722,494 @@
             {
               "math": [
                 "u_berserk_ref_active_t01_34 = 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_path == 3"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 10"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_pawn_master_dead == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "if": {
+            "not": {
+              "math": [
+                "u_berserk_ref_active_t01_35 == 1"
+              ]
+            }
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_35 = 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "u_berserk_ref_active_t01_35 == 1"
+            ]
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_35 = 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_path == 3"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 10"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_pawn_master_dead == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "if": {
+            "not": {
+              "math": [
+                "u_berserk_ref_active_t01_36 == 1"
+              ]
+            }
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_36 = 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "u_berserk_ref_active_t01_36 == 1"
+            ]
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_36 = 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_path == 3"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 11"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_pawn_master_dead == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "if": {
+            "not": {
+              "math": [
+                "u_berserk_ref_active_t01_37 == 1"
+              ]
+            }
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_37 = 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "u_berserk_ref_active_t01_37 == 1"
+            ]
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_37 = 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_path == 3"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 11"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_pawn_master_dead == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "if": {
+            "not": {
+              "math": [
+                "u_berserk_ref_active_t01_38 == 1"
+              ]
+            }
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_38 = 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "u_berserk_ref_active_t01_38 == 1"
+            ]
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_38 = 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_path == 3"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 12"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_pawn_master_dead == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "if": {
+            "not": {
+              "math": [
+                "u_berserk_ref_active_t01_39 == 1"
+              ]
+            }
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_39 = 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "u_berserk_ref_active_t01_39 == 1"
+            ]
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_39 = 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_path == 3"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 12"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_pawn_master_dead == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "if": {
+            "not": {
+              "math": [
+                "u_berserk_ref_active_t01_40 == 1"
+              ]
+            }
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_40 = 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "u_berserk_ref_active_t01_40 == 1"
+            ]
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_40 = 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_path == 3"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 13"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_pawn_master_dead == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "if": {
+            "not": {
+              "math": [
+                "u_berserk_ref_active_t01_41 == 1"
+              ]
+            }
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_41 = 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "u_berserk_ref_active_t01_41 == 1"
+            ]
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_41 = 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_apostol_path == 3"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_lineage == 13"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_pawn_master_dead == 1"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "if": {
+            "not": {
+              "math": [
+                "u_berserk_ref_active_t01_42 == 1"
+              ]
+            }
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_42 = 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_t01 = u_berserk_ref_revision_t01 + 1"
+              ]
+            }
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "u_berserk_ref_active_t01_42 == 1"
+            ]
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_t01_42 = 0"
               ]
             },
             {

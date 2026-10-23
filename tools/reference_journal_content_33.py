@@ -287,6 +287,13 @@ def body():
     parts += [(allof(eq('u_berserk_apostol_path', 3), eq('u_berserk_apostol_pawn_oath_broken')), p('Т17', 0)),
               (allof(eq('u_berserk_apostol_path', 3), eq('u_berserk_apostol_pawn_master_dead')), p('Т17', 1)),
               (allof(anyof(test('APOSTOL_GIFT_COMPLETE'), test('APOSTOL_FLESH_COMPLETE')), fact('body_changed')), p('Т18', 0))]
+    # The accepted patron's death is personal knowledge, not a new quest/menu.
+    source = ROOT / 'docs/dialogue_sources/named-apostles-2026-10-23.json'
+    if source.exists():
+        paragraphs = json.loads(source.read_text())['paragraphs']
+        for number, indices in enumerate([(1232,1234),(1240,1242),(1248,1250),(1256,1258)],10):
+            proof = allof(eq('u_berserk_apostol_path',3),eq('u_berserk_apostol_lineage',number),eq('u_berserk_apostol_pawn_master_dead'))
+            parts += [(proof, paragraphs[str(i)]) for i in indices]
     record('Т01', 'past', parts, title='Моё тело')
 
 
