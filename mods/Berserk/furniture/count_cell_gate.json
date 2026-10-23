@@ -1,0 +1,167 @@
+[
+  {
+    "type": "terrain",
+    "id": "t_berserk_count_cell_gate_c",
+    "copy-from": "t_door_bar_locked",
+    "name": "запертая железная решётка",
+    "description": "Тяжёлая решётка из кованого железа. Замок удерживает её в каменном проёме.",
+    "looks_like": "t_bars",
+    "lockpick_result": "t_berserk_count_cell_gate_o",
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_COUNT33_OPEN_CELL"
+      ]
+    },
+    "roof": "t_floor",
+    "hacksaw": {
+      "result": "t_floor",
+      "duration": "15 minutes",
+      "message": "Вы заканчиваете перепиливать железные прутья.",
+      "byproducts": [
+        {
+          "item": "mc_steel_chunk",
+          "count": [
+            6,
+            12
+          ]
+        }
+      ]
+    },
+    "oxytorch": {
+      "result": "t_floor",
+      "duration": "14 seconds",
+      "byproducts": [
+        {
+          "item": "mc_steel_chunk",
+          "count": [
+            3,
+            8
+          ]
+        }
+      ]
+    },
+    "bash": {
+      "str_min": 45,
+      "str_max": 210,
+      "sound": "metal screeching!",
+      "sound_fail": "clang!",
+      "ter_set": "t_floor",
+      "items": [
+        {
+          "item": "mc_steel_chunk",
+          "count": [
+            3,
+            10
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_count_cell_gate_o",
+    "copy-from": "t_door_bar_o",
+    "name": "открытая железная решётка",
+    "description": "Железная решётка отведена в сторону. Проём свободен.",
+    "looks_like": "t_door_bar_o",
+    "close": "t_berserk_count_cell_gate_shut",
+    "roof": "t_floor",
+    "hacksaw": {
+      "result": "t_floor",
+      "duration": "15 minutes",
+      "message": "Вы заканчиваете перепиливать железные прутья.",
+      "byproducts": [
+        {
+          "item": "mc_steel_chunk",
+          "count": [
+            6,
+            12
+          ]
+        }
+      ]
+    },
+    "oxytorch": {
+      "result": "t_floor",
+      "duration": "14 seconds",
+      "byproducts": [
+        {
+          "item": "mc_steel_chunk",
+          "count": [
+            3,
+            8
+          ]
+        }
+      ]
+    },
+    "bash": {
+      "str_min": 45,
+      "str_max": 210,
+      "sound": "metal screeching!",
+      "sound_fail": "clang!",
+      "ter_set": "t_floor",
+      "items": [
+        {
+          "item": "mc_steel_chunk",
+          "count": [
+            3,
+            10
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_count_cell_gate_shut",
+    "copy-from": "t_door_bar_c",
+    "name": "железная решётка",
+    "description": "Тяжёлая железная решётка закрывает проём. Замок не заперт.",
+    "looks_like": "t_bars",
+    "open": "t_berserk_count_cell_gate_o",
+    "roof": "t_floor",
+    "hacksaw": {
+      "result": "t_floor",
+      "duration": "15 minutes",
+      "message": "Вы заканчиваете перепиливать железные прутья.",
+      "byproducts": [
+        {
+          "item": "mc_steel_chunk",
+          "count": [
+            6,
+            12
+          ]
+        }
+      ]
+    },
+    "oxytorch": {
+      "result": "t_floor",
+      "duration": "14 seconds",
+      "byproducts": [
+        {
+          "item": "mc_steel_chunk",
+          "count": [
+            3,
+            8
+          ]
+        }
+      ]
+    },
+    "bash": {
+      "str_min": 45,
+      "str_max": 210,
+      "sound": "metal screeching!",
+      "sound_fail": "clang!",
+      "ter_set": "t_floor",
+      "items": [
+        {
+          "item": "mc_steel_chunk",
+          "count": [
+            3,
+            10
+          ]
+        }
+      ]
+    }
+  }
+]

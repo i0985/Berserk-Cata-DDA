@@ -519,9 +519,10 @@ def knowledge_events_and_hooks():
     data = load('dialogue/apostle_count.json'); by = index(data)
     stamp_topics(by, ['TALK_BERSERK_COUNT_WITNESS'], ['prisoner_met', 'name_count'])
     stamp_topics(by, ['TALK_BERSERK_COUNT_ROUTE'], ['prisoner_help'])
-    # This conversation proves the individual captive survived the keeper.
-    # A global boss flag alone says nothing about the captive's fate.
-    stamp_topics(by, ['TALK_BERSERK_COUNT_AFTER'], ['prisoner_freed'])
+    # The legacy conversation only proved survival. The native captive now
+    # records release through observed movement or a later conversation.
+    if not (MOD/'npcs/count_prisoner.json').exists():
+        stamp_topics(by, ['TALK_BERSERK_COUNT_AFTER'], ['prisoner_freed'])
     write('dialogue/apostle_count.json', data)
     data = load('dialogue/apostol_ceremony.json'); by = index(data)
     stamp_topics(by, ['TALK_BERSERK_APOSTOL_OFFER', 'TALK_BERSERK_APOSTOL_PRICE'], ['circle_reached', 'gift_choice_explained'])
@@ -634,6 +635,8 @@ def knowledge_events_and_hooks():
         data = load(file)
         for actor, person in actors:
             obj = index(data)[actor]; expected = {'eoc': PREFIX + person + '_DEATH'}
+            if person == 'PRISONER' and (MOD/'npcs/count_prisoner.json').exists():
+                expected = {'eoc': 'EOC_BERSERK_COUNT33_LEGACY_DEATH'}
             if obj.get('death_function') not in [None, expected]:
                 raise ValueError(actor + ' already has an unrelated death function')
             obj['death_function'] = expected

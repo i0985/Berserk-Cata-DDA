@@ -2,36 +2,1122 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_WITNESS",
-    "dynamic_line": "\"Keep your voice down. I hid here when the Count remade the others. I can show you where he waits, but I will not go back down there.\"",
+    "dynamic_line": {
+      "math": [
+        "n_berserk_count33_met == 1"
+      ],
+      "yes": {
+        "math": [
+          "n_berserk_count33_escaped == 1"
+        ],
+        "yes": "Хорошо снова видеть тебя. Снаружи, не через решётку.",
+        "no": {
+          "test_eoc": "EOC_BERSERK_COUNT33_LINE_2975446D885F",
+          "yes": "Голос твой. Узнаю голос.\n\nНо что с тобой стало?",
+          "no": {
+            "test_eoc": "EOC_BERSERK_COUNT33_LINE_B9D512D6ABA5",
+            "yes": "Слышу тебя. Просто... постой пока чуть дальше, ладно?",
+            "no": {
+              "math": [
+                "n_berserk_count33_knows_death == 1"
+              ],
+              "yes": "Всё никак не привыкну к этой тишине. Странно это.",
+              "no": {
+                "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN",
+                "yes": "Я пока тут, никуда не делся. Что там с дорогой?",
+                "no": "Ты вернулся. Узнал что-нибудь?"
+              }
+            }
+          }
+        }
+      },
+      "no": {
+        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY",
+        "yes": "Не подходи. Пожалуйста, не подходи.",
+        "no": {
+          "math": [
+            "berserk_count_prisoner_legacy_map == 1"
+          ],
+          "yes": "Тихо… Я выбрался из камеры, но до ворот ещё надо добраться. Ты кто?",
+          "no": {
+            "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN",
+            "yes": "Открыл уже, вижу. А дальше-то что? До ворот ещё переть и переть, и не по прямой.",
+            "no": "Тихо... тихо ты.\n\nТы не из тех, кто жратву носит. Так кто? Чего надо?"
+          }
+        }
+      }
+    },
     "responses": [
       {
-        "text": "How do I reach him?",
-        "topic": "TALK_BERSERK_COUNT_ROUTE"
-      },
-      {
-        "text": "What are his servants?",
-        "topic": "TALK_BERSERK_COUNT_SERVANTS"
-      },
-      {
-        "text": "Why is the family room untouched?",
-        "topic": "TALK_BERSERK_COUNT_FAMILY"
-      },
-      {
-        "text": "He is dead. What about the opening below?",
+        "text": "Я не служу Графу.",
+        "topic": "TALK_BERSERK_COUNT_NOT_SERVANT",
         "condition": {
-          "math": [
-            "berserk_hunt_count_state >= 3"
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_met == 1"
+                ]
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+              }
+            }
           ]
         },
-        "topic": "TALK_BERSERK_COUNT_AFTER"
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_met = 1"
+            ]
+          },
+          {
+            "if": {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+              }
+            },
+            "then": {
+              "math": [
+                "n_berserk_count33_human_first = 1"
+              ]
+            }
+          },
+          {
+            "math": [
+              "u_berserk_ref_prisoner_met = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_REF_SYNC"
+          }
+        ]
       },
       {
-        "text": "Stay here. I will look around.",
-        "topic": "TALK_DONE"
+        "text": "Ищу хозяина этого места.",
+        "topic": "TALK_BERSERK_COUNT_SEEK_COUNT",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_met == 1"
+                ]
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_met = 1"
+            ]
+          },
+          {
+            "if": {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+              }
+            },
+            "then": {
+              "math": [
+                "n_berserk_count33_human_first = 1"
+              ]
+            }
+          },
+          {
+            "math": [
+              "u_berserk_ref_prisoner_met = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_REF_SYNC"
+          }
+        ]
+      },
+      {
+        "text": "Хочу тебя вытащить.",
+        "topic": "TALK_BERSERK_COUNT_RESCUE_INTRO",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_met == 1"
+                ]
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_met = 1"
+            ]
+          },
+          {
+            "if": {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+              }
+            },
+            "then": {
+              "math": [
+                "n_berserk_count33_human_first = 1"
+              ]
+            }
+          },
+          {
+            "math": [
+              "u_berserk_ref_prisoner_met = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_REF_SYNC"
+          }
+        ]
+      },
+      {
+        "text": "Сначала ответь мне на пару вопросов.",
+        "topic": "TALK_BERSERK_COUNT_QUESTIONS",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_met == 1"
+                ]
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_met = 1"
+            ]
+          },
+          {
+            "if": {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+              }
+            },
+            "then": {
+              "math": [
+                "n_berserk_count33_human_first = 1"
+              ]
+            }
+          },
+          {
+            "math": [
+              "u_berserk_ref_prisoner_met = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_REF_SYNC"
+          }
+        ]
+      },
+      {
+        "text": "Я не собираюсь тебя трогать.",
+        "topic": "TALK_BERSERK_COUNT_DEMON_PEACE",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_met == 1"
+                ]
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_met = 1"
+            ]
+          },
+          {
+            "if": {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+              }
+            },
+            "then": {
+              "math": [
+                "n_berserk_count33_human_first = 1"
+              ]
+            }
+          },
+          {
+            "math": [
+              "u_berserk_ref_prisoner_met = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_REF_SYNC"
+          },
+          {
+            "math": [
+              "n_berserk_count33_change_seen = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Мне нужны сведения о доме.",
+        "topic": "TALK_BERSERK_COUNT_DEMON_INFO",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_met == 1"
+                ]
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_met = 1"
+            ]
+          },
+          {
+            "if": {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+              }
+            },
+            "then": {
+              "math": [
+                "n_berserk_count33_human_first = 1"
+              ]
+            }
+          },
+          {
+            "math": [
+              "u_berserk_ref_prisoner_met = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_REF_SYNC"
+          },
+          {
+            "math": [
+              "n_berserk_count33_change_seen = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Я могу открыть клетку.",
+        "topic": "TALK_BERSERK_COUNT_DEMON_CELL",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_met == 1"
+                ]
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN"
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_met = 1"
+            ]
+          },
+          {
+            "if": {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+              }
+            },
+            "then": {
+              "math": [
+                "n_berserk_count33_human_first = 1"
+              ]
+            }
+          },
+          {
+            "math": [
+              "u_berserk_ref_prisoner_met = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_REF_SYNC"
+          },
+          {
+            "math": [
+              "n_berserk_count33_change_seen = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Правильно боишься.",
+        "topic": "TALK_BERSERK_COUNT_DEMON_THREAT",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_met == 1"
+                ]
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_met = 1"
+            ]
+          },
+          {
+            "if": {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+              }
+            },
+            "then": {
+              "math": [
+                "n_berserk_count33_human_first = 1"
+              ]
+            }
+          },
+          {
+            "math": [
+              "u_berserk_ref_prisoner_met = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_REF_SYNC"
+          },
+          {
+            "math": [
+              "n_berserk_count33_change_seen = 1"
+            ]
+          },
+          {
+            "math": [
+              "n_berserk_count33_intimidated = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Долгая история.",
+        "topic": "TALK_BERSERK_COUNT_CHANGE_STORY",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                },
+                {
+                  "math": [
+                    "n_berserk_count33_human_first == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "math": [
+                      "n_berserk_count33_change_seen == 1"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_change_seen = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Я всё ещё тот, кто открыл тебе дверь.",
+        "topic": "TALK_BERSERK_COUNT_CHANGE_REMEMBER",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                },
+                {
+                  "math": [
+                    "n_berserk_count33_human_first == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "math": [
+                      "n_berserk_count33_change_seen == 1"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_count33_door_help == 1"
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_change_seen = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Я всё ещё тот, с кем ты говорил.",
+        "topic": "TALK_BERSERK_COUNT_CHANGE_STORY",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                },
+                {
+                  "math": [
+                    "n_berserk_count33_human_first == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "math": [
+                      "n_berserk_count33_change_seen == 1"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_door_help == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_change_seen = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Теперь я сильнее Графа.",
+        "topic": "TALK_BERSERK_COUNT_CHANGE_STRONG",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                },
+                {
+                  "math": [
+                    "n_berserk_count33_human_first == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "math": [
+                      "n_berserk_count33_change_seen == 1"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_change_seen = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Кто ты?",
+        "topic": "TALK_BERSERK_COUNT_WHO",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                  },
+                  {
+                    "math": [
+                      "n_berserk_count33_human_first == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "n_berserk_count33_change_seen == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Что ты знаешь о резиденции?",
+        "topic": "TALK_BERSERK_COUNT_HOUSE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                  },
+                  {
+                    "math": [
+                      "n_berserk_count33_human_first == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "n_berserk_count33_change_seen == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Расскажи о Графе.",
+        "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                  },
+                  {
+                    "math": [
+                      "n_berserk_count33_human_first == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "n_berserk_count33_change_seen == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Все, кто здесь служит, такие же, как он?",
+        "topic": "TALK_BERSERK_COUNT_SERVANTS",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                  },
+                  {
+                    "math": [
+                      "n_berserk_count33_human_first == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "n_berserk_count33_change_seen == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Поможешь найти обход?",
+        "topic": "TALK_BERSERK_COUNT_ROUTE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Что нужно, чтобы ты выбрался?",
+        "topic": "TALK_BERSERK_COUNT_ESCAPE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Граф мёртв.",
+        "topic": "TALK_BERSERK_COUNT_DEATH_REPORT",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_count_state >= 3"
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_knows_death == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Я сражался с ним, но не знаю, чем всё кончилось.",
+        "topic": "TALK_BERSERK_COUNT_DEATH_UNCERTAIN",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "berserk_hunt_count_state >= 3"
+                ]
+              }
+            },
+            {
+              "math": [
+                "u_berserk_count33_fought == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Что будешь делать теперь?",
+        "topic": "TALK_BERSERK_COUNT_AFTER_PLANS",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_count33_escaped == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Ты свободен. Почему не радуешься?",
+        "topic": "TALK_BERSERK_COUNT_AFTER_JOY",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_count33_escaped == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Ты мне что-нибудь должен?",
+        "topic": "TALK_BERSERK_COUNT_AFTER_PAYMENT",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_count33_escaped == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Обсудим дальнейший путь.",
+        "topic": "TALK_FRIEND",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "npc_following"
+          ]
+        }
+      },
+      {
+        "text": "Мне пора.",
+        "topic": "TALK_BERSERK_COUNT_GOODBYE"
       }
     ],
     "speaker_effect": {
       "effect": [
+        {
+          "run_eocs": "EOC_BERSERK_COUNT33_DIALOGUE_BIND"
+        },
         {
           "math": [
             "u_berserk_ref_prisoner_met = 1"
@@ -50,12 +1136,413 @@
   },
   {
     "type": "talk_topic",
-    "id": "TALK_BERSERK_COUNT_ROUTE",
-    "dynamic_line": "\"The stairs are in the northeastern execution hall. Cross the open yard, approach through the kitchen and offices, or use the break in the western wall. The clerk's key opens a short barred passage, but you do not need it. Below, the exposed seam is in a separate northern alcove; leave space around the pillars during the fight.\"",
+    "id": "TALK_BERSERK_COUNT_NOT_SERVANT",
+    "dynamic_line": "Тогда нечего торчать на проходе столбом. Заметят — мне потом объясняться, с кем это я тут шушукался.",
     "responses": [
       {
-        "text": "Ask something else.",
+        "text": "Я хотел спросить о другом.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_SEEK_COUNT",
+    "dynamic_line": "Зачем — не спрашиваю.\n\nТолько пойми: он не человек. Запомни это. Не человек.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_RESCUE_INTRO",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN",
+      "yes": "Открыл уже, вижу. А дальше-то что? До ворот ещё переть и переть, и не по прямой.",
+      "no": "Хочу — и я тебе поверить. Правда хочу.\n\nДля начала глянь, как эта дрянь открывается. По тому и пойму, кто ты — болтун или нет."
+    },
+    "responses": [
+      {
+        "text": "Посмотрю, как тебе помочь.",
+        "topic": "TALK_BERSERK_COUNT_ESCAPE"
+      },
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_QUESTIONS",
+    "dynamic_line": "Валяй. Только тихо. Звук тут далеко бежит — и не всегда в нужную сторону.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_WHO",
+    "dynamic_line": "Припасы возил. Мешки, бочки — что скажут, то и вёз. Иногда оставался в кладовых разгружать, помогал по мелочи.\n\nЗнал, в какую дверь стучать. Кому мешки отдавать, а с кем лучше вообще не заговаривать. Думал — этого хватит, чтобы спокойно делать своё дело и уезжать домой.\n\nНе хватило.",
+    "responses": [
+      {
+        "text": "За что тебя заперли?",
+        "topic": "TALK_BERSERK_COUNT_WHY_LOCKED"
+      },
+      {
+        "text": "Что ты увидел?",
+        "topic": "TALK_BERSERK_COUNT_WHAT_SAW"
+      },
+      {
+        "text": "Почему не пытался бежать?",
+        "topic": "TALK_BERSERK_COUNT_WHY_STAYED"
+      },
+      {
+        "text": "У тебя есть куда идти?",
+        "topic": "TALK_BERSERK_COUNT_WHERE_GO"
+      },
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_WHY_LOCKED",
+    "dynamic_line": "Услышал крик. За дверью, куда нам соваться запрещали строго-настрого.\n\nНе ушёл сразу. Постоял. Этого хватило — заметили.",
+    "responses": [
+      {
+        "text": "И только за это?",
+        "topic": "TALK_BERSERK_COUNT_WHY_MORE"
+      },
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WHO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_WHY_MORE",
+    "dynamic_line": "Мне обвинений никто не зачитывал, не сомневайся. Врезали пару раз, обобрали до нитки, приволокли сюда — и всё, разговор окончен.\n\nХочешь знать точно, за что — спроси у них самих. А я лучше с ними больше вообще не разговаривать буду. Никогда.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WHO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_WHAT_SAW",
+    "dynamic_line": "Не так много, как мне теперь кажется по ночам, когда уснуть пытаюсь.\n\nВидел, как туда человека увели. Через время — одежду его вынесли. Пустую.\n\nСамого его я больше не видел. Что с ним стало — не знаю. Врать не буду, что знаю.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WHO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_WHY_STAYED",
+    "dynamic_line": "Пытался. Шатал решётку — пока шаги не услышал. Бросил.\n\nПотом снова начал. И опять бросил.\n\nВремени здесь много. На то, чтобы начинать сначала — хватает с избытком.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WHO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_WHERE_GO",
+    "dynamic_line": "Подальше отсюда. Куда именно — решу, когда окажусь снаружи и смогу хоть немного подумать, а не только дрожать.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WHO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_HOUSE",
+    "dynamic_line": "Хозяйственную часть знаю хорошо. Куда припасы носили, где инструмент держали, каким ходом слуги шастали, чтоб через главные комнаты не соваться лишний раз.\n\nА в покои меня не звали. Туда дорога не моя.",
+    "responses": [
+      {
+        "text": "Где искать Графа?",
+        "topic": "TALK_BERSERK_COUNT_WHERE_COUNT"
+      },
+      {
+        "text": "Как пройти незаметнее?",
+        "topic": "TALK_BERSERK_COUNT_ROUTE"
+      },
+      {
+        "text": "Где найти что-нибудь полезное?",
+        "topic": "TALK_BERSERK_COUNT_SUPPLIES"
+      },
+      {
+        "text": "Есть ещё пленники?",
+        "topic": "TALK_BERSERK_COUNT_OTHERS"
+      },
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_WHERE_COUNT",
+    "dynamic_line": "Принимал он обычно в зале казней, на северо-востоке. Оттуда лестница ведёт вниз. А где он сейчас — отсюда не разглядишь, сам понимаешь.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_HOUSE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_SUPPLIES",
+    "dynamic_line": "В юго-западной кухне есть кладовая. Там держали хлеб, сушёное мясо и воду для дома.\n\nЕсли, конечно, с тех пор не вынесли всё подчистую. Я-то давно там не был.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_HOUSE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_OTHERS",
+    "dynamic_line": "Бывали тут и другие, да. Сколько сейчас осталось — не знаю. Отсюда не разглядишь и не расслышишь толком.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_HOUSE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_ABOUT_COUNT",
+    "dynamic_line": "Что хочешь знать?",
+    "responses": [
+      {
+        "text": "Ты видел, на что он способен?",
+        "topic": "TALK_BERSERK_COUNT_COUNT_POWER"
+      },
+      {
+        "text": "Он всегда был таким?",
+        "topic": "TALK_BERSERK_COUNT_COUNT_PAST"
+      },
+      {
+        "text": "У него есть слабость?",
+        "topic": "TALK_BERSERK_COUNT_COUNT_WEAK"
+      },
+      {
+        "text": "Я уже побеждал подобных ему.",
+        "topic": "TALK_BERSERK_COUNT_COUNT_VICTORIES",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_flora33_projection_defeated == 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_wyald_state >= 3"
+              ]
+            },
+            {
+              "math": [
+                "berserk_hunt_rosine_state >= 3"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Его история закончится сегодня.",
+        "topic": "TALK_BERSERK_COUNT_COUNT_BOAST",
+        "condition": {
+          "not": {
+            "math": [
+              "berserk_hunt_count_state >= 3"
+            ]
+          }
+        }
+      },
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_COUNT_POWER",
+    "dynamic_line": "Видел. Достаточно, чтобы не принять тебя за спасителя только из-за того, что ты пришёл сюда.\n\nБыл один — нарушил что-то, не знаю что. Граф его… легко так. Будто мешок пустой с плеча скинул.\n\nДальше я уже не смотрел.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_COUNT_PAST",
+    "dynamic_line": "Я его другим не застал. Каким боюсь — таким и помню.\n\nКаким он был раньше — спрашивай у тех, кто знал его ближе меня. Я тут без году неделя, по местным меркам.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_COUNT_WEAK",
+    "dynamic_line": "Знал бы — всё равно не поручусь, что хватило бы духу этим воспользоваться.\n\nВрать не буду, лишь бы ты мне дверь открыл. Не знаю я слабостей таких, как он.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_COUNT_VICTORIES",
+    "dynamic_line": "Тогда, может, ты вправду понимаешь, куда забрёл.\n\nЯ — нет. Я одно знаю: хочу отсюда выбраться. Живым.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_COUNT_BOAST",
+    "dynamic_line": "Тише ты! Не ори такое из моего коридора — не хватало ещё, чтоб услышали и решили, с кем это я снюхался.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_SERVANTS",
+    "dynamic_line": "Не знаю. Правда не знаю.\n\nОдни били — просто так, от скуки, что ли. Другие отворачивались, делали вид, что меня тут нет. А один... один воды мне чуть больше оставлял, чем положено. Молча, слова не сказал ни разу.\n\nЧто у каждого из них под кожей — я тебе не скажу. Не знаю.",
+    "responses": [
+      {
+        "text": "С кем можно договориться?",
+        "topic": "TALK_BERSERK_COUNT_SERVANT_TRUST"
+      },
+      {
+        "text": "Они знают, что делает Граф?",
+        "topic": "TALK_BERSERK_COUNT_SERVANT_KNOW"
+      },
+      {
+        "text": "Как они ходят по дому?",
+        "topic": "TALK_BERSERK_COUNT_SERVANT_ROUTE"
+      },
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_SERVANT_TRUST",
+    "dynamic_line": "Нет. Не буду я тебе имена называть только за то, что кто-то меня разок не ударил.\n\nЗдесь человек может тебя пожалеть — и всё равно крикнуть стражу, едва ты отвернёшься. Такое место. Я на этом уже обжёгся однажды, второй раз не хочу.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_SERVANTS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_SERVANT_KNOW",
+    "dynamic_line": "Кто-то знает, наверное. А кто-то изо всех сил старается не знать — так проще жить.\n\nПрипасы носят. Двери запирают. Полы моют, как ни в чём не бывало. Дом живёт себе дальше, будто ничего такого в нём не происходит.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_SERVANTS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_SERVANT_ROUTE",
+    "dynamic_line": "Раньше ходили через канцелярскую часть западного крыла и узкий проход к залу. По шагам я уже научился узнавать, когда кто-то сюда направляется.\n\nНо это всё, что я слышу. Весь дом отсюда не разберёшь — ни кто где стоит сейчас, ни когда меняется охрана.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_SERVANTS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_ROUTE",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_COUNT33_BYPASS_KNOWN_OPEN",
+      "yes": "Хорошо. Одной преградой меньше, уже легче.",
+      "no": "Из канцелярской части западного крыла есть узкий служебный ход к залу казней. Его закрывает решётка. Можно пройти и через двор, если не хочешь возиться с замком."
+    },
+    "responses": [
+      {
+        "text": "Где искать ключ?",
+        "topic": "TALK_BERSERK_COUNT_KEY_PLACE",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_COUNT33_BYPASS_KNOWN_OPEN"
+          }
+        }
+      },
+      {
+        "text": "Там безопасно?",
+        "topic": "TALK_BERSERK_COUNT_ROUTE_SAFE"
+      },
+      {
+        "text": "Я уже прошёл там. Дверь открыта.",
+        "topic": "TALK_BERSERK_COUNT_ROUTE_OPEN",
+        "condition": {
+          "math": [
+            "u_berserk_count33_bypass_passed == 1"
+          ]
+        }
+      },
+      {
+        "text": "Мне этот обход не нужен.",
+        "topic": "TALK_BERSERK_COUNT_ROUTE_OTHER"
+      },
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_HOUSE"
       }
     ],
     "speaker_effect": {
@@ -73,11 +1560,196 @@
   },
   {
     "type": "talk_topic",
-    "id": "TALK_BERSERK_COUNT_SERVANTS",
-    "dynamic_line": "\"They were people. He forced his own flesh into them. There are only a few left here. Kill them separately if you must; they will not return, and he cannot call an endless army.\"",
+    "id": "TALK_BERSERK_COUNT_KEY_PLACE",
+    "dynamic_line": "Ключа у меня нет. Писарь прятал служебный ключ в своём сундуке, в северной комнате западного крыла. Им открывали эту решётку и ход к залу.\n\nЯ сам видел, куда он его клал. А вот проверял ли кто с тех пор — понятия не имею.",
     "responses": [
       {
-        "text": "Ask something else.",
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_ROUTE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_ROUTE_SAFE",
+    "dynamic_line": "Открытого места там меньше, это да. А безопасно ли сейчас — не скажу. Последний раз я по нему ходил ещё до того, как меня сюда приволокли. С тех пор многое могло измениться.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_ROUTE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_ROUTE_OTHER",
+    "dynamic_line": "Как знаешь. Я рассказал про дорогу, которой сам ходил — больше мне и предложить нечего.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_ROUTE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_ROUTE_OPEN",
+    "dynamic_line": "Хорошо. Одной преградой меньше, уже легче.\n\nА дальше там что? Что по дороге делается?",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_ROUTE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_ESCAPE",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN",
+      "yes": "Только я пока тут постою. Извини, если думал, что я сразу рвану к воротам — ноги у меня не те уже, да и голова.",
+      "no": "Для начала — дверь открыть. Это раз.\n\nА два — чтобы меня за ней не сцапали через десять шагов. Такое уже было, повторять неохота."
+    },
+    "responses": [
+      {
+        "text": "Поищу ключ.",
+        "topic": "TALK_BERSERK_COUNT_KEY_PLACE",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN"
+          }
+        }
+      },
+      {
+        "text": "Подожди. Я проверю дорогу.",
+        "topic": "TALK_BERSERK_COUNT_WAIT",
+        "condition": {
+          "and": [
+            {
+              "not": "npc_following"
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_dismissed == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Иди за мной.",
+        "topic": "TALK_BERSERK_COUNT_FOLLOW_READY",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN"
+            },
+            {
+              "not": "npc_following"
+            }
+          ]
+        }
+      },
+      {
+        "text": "Дальше решай сам.",
+        "topic": "TALK_BERSERK_COUNT_OWN_CHOICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN"
+        }
+      },
+      {
+        "text": "Иди за мной.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN"
+            },
+            "npc_following"
+          ]
+        }
+      },
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_WAIT",
+    "dynamic_line": "Хорошо. Я послушаю, что там слышно будет.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_ESCAPE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_FOLLOW_READY",
+    "dynamic_line": "Веди. Скажешь встать — встану. Спорить не буду, не до того мне сейчас.",
+    "responses": [
+      {
+        "text": "Пойдём.",
+        "topic": "TALK_DONE",
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_following_chosen = 1"
+            ]
+          },
+          "follow"
+        ]
+      },
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_ESCAPE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_OWN_CHOICE",
+    "dynamic_line": "Уже решаю. Потому и стою здесь, а не бегу очертя голову.",
+    "responses": [
+      {
+        "text": "Тогда беги, если решишься.",
+        "topic": "TALK_DONE",
+        "effect": [
+          {
+            "math": [
+              "n_berserk_count33_dismissed = 1"
+            ]
+          },
+          "flee"
+        ]
+      },
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_ESCAPE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_DEATH_REPORT",
+    "dynamic_line": "Ты сам видел? Не просто ранил и сбежал, пока он не очухался?",
+    "responses": [
+      {
+        "text": "Он больше не поднимется.",
+        "topic": "TALK_BERSERK_COUNT_AFTER",
+        "condition": {
+          "math": [
+            "berserk_hunt_count_state >= 3"
+          ]
+        }
+      },
+      {
+        "text": "Я хотел спросить о другом.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -85,10 +1757,32 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_AFTER",
-    "dynamic_line": "\"The exposed stone at the north end feeds this place. Examine it now that he cannot hold it open. It should quiet new incursions nearby. It will not undo your Brand or kill the things already outside.\"",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY",
+      "yes": "Ты убил его.\n\nСпасибо. Правда. Но мне всё равно... не по себе, когда ты рядом. Прости.",
+      "no": "Сколько раз я представлял себе эти слова...\n\nА всё равно жду шагов. Привычка такая, видно, быстро не пройдёт."
+    },
     "responses": [
       {
-        "text": "Ask something else.",
+        "text": "Помогу тебе выбраться.",
+        "topic": "TALK_BERSERK_COUNT_ESCAPE",
+        "condition": {
+          "not": {
+            "math": [
+              "n_berserk_count33_escaped == 1"
+            ]
+          }
+        }
+      },
+      {
+        "text": "Я не прошу тебя оставаться.",
+        "topic": "TALK_BERSERK_COUNT_DEMON_AFTER",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+        }
+      },
+      {
+        "text": "Я хотел спросить о другом.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ],
@@ -96,23 +1790,189 @@
       "effect": [
         {
           "math": [
-            "u_berserk_ref_prisoner_freed = 1"
+            "n_berserk_count33_knows_death = 1"
           ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_REF_SYNC"
         }
       ]
     }
   },
   {
     "type": "talk_topic",
-    "id": "TALK_BERSERK_COUNT_FAMILY",
-    "dynamic_line": "\"That is Theresia's room. He kept it free of what he did to the rest of us. It tells you something about him; it does not erase the execution lists. I do not know where she is now.\"",
+    "id": "TALK_BERSERK_COUNT_DEATH_UNCERTAIN",
+    "dynamic_line": "Тогда и я пока не поверю, что кончилось. Рано радоваться.",
     "responses": [
       {
-        "text": "Ask something else.",
+        "text": "Я хотел спросить о другом.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_AFTER_PLANS",
+    "dynamic_line": "Воды найду. Поем где-нибудь, где не надо ждать, пока мне дверь откроют.\n\nОстальное — потом решу. Пока мне и этого за счастье хватит.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_AFTER_JOY",
+    "dynamic_line": "Наверное, ещё не научился.\n\nДай немного времени. Я не привык, что дверь за спиной не захлопывается снова.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_AFTER_PAYMENT",
+    "dynamic_line": "У меня с собой почти ничего. Если тебе плата нужна была — не по адресу обратился.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_DEMON_PEACE",
+    "dynamic_line": "Тогда стой там, где стоишь. Я и оттуда тебя слышу — хорошо слышу, можешь не подходить ближе.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_DEMON_INFO",
+    "dynamic_line": "Отвечу. Спрашивай, только... только у двери не стой, ладно?",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_DEMON_CELL",
+    "dynamic_line": "Открой. Открой, да.\n\nТолько не проси сразу идти следом за тобой. Не сейчас. Дай мне хоть немного привыкнуть к мысли, кто меня выпустил.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_DEMON_THREAT",
+    "dynamic_line": "Чего тебе нужно?",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_CHANGE_STORY",
+    "dynamic_line": "Ладно. Не сейчас, не рассказывай.\n\nПросто скажи — зачем вернулся?",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_CHANGE_REMEMBER",
+    "dynamic_line": "Помню. Правда помню.\n\nДай мне только немного времени — привыкнуть смотреть на тебя таким. Это... непросто.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_CHANGE_STRONG",
+    "dynamic_line": "Мне и одного такого хозяина хватило на всю жизнь.\n\nДругого — не ищу. Даже такого, как ты.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_DEMON_AFTER",
+    "dynamic_line": "Тогда спасибо и за это тоже.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_WITNESS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_GOODBYE",
+    "dynamic_line": {
+      "math": [
+        "n_berserk_count33_escaped == 1"
+      ],
+      "yes": "Береги себя.\n\nЗнаю, как глупо это звучит — тебе, после всего, что ты натворил там, внутри. И всё равно. Береги себя.",
+      "no": {
+        "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN",
+        "yes": "Я подожду. Пока не смогу сам пройти — подожду здесь.",
+        "no": "Если будешь возвращаться этим путём... загляни. Не забудь про меня тут."
+      }
+    },
+    "responses": [
+      {
+        "text": "До встречи.",
+        "topic": "TALK_DONE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_FAMILY",
+    "dynamic_line": "А в покои меня не звали. Туда дорога не моя.",
+    "responses": [
+      {
+        "text": "Я хотел спросить о другом.",
+        "topic": "TALK_BERSERK_COUNT_HOUSE"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_COUNT_LEGACY",
+    "dynamic_line": "Человек поднимает голову на звук шагов.",
+    "responses": [
+      {
+        "text": "Я хочу поговорить.",
+        "topic": "TALK_DONE",
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_COUNT33_MIGRATE"
+          }
+        ]
       }
     ]
   }

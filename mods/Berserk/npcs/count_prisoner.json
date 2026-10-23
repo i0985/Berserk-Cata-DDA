@@ -1,0 +1,49 @@
+[
+  {
+    "type": "npc_class",
+    "id": "NC_BERSERK_COUNT_PRISONER",
+    "name": {
+      "str": "пленник Графа"
+    },
+    "common": false,
+    "sells_belongings": false,
+    "job_description": "Я только хочу выбраться отсюда живым.",
+    "skills": [
+      {
+        "skill": "ALL",
+        "level": {
+          "sum": [
+            {
+              "dice": [
+                3,
+                3
+              ]
+            },
+            {
+              "constant": -5
+            }
+          ]
+        }
+      }
+    ],
+    "worn_override": "naked_prisoner",
+    "carry_override": "naked_prisoner",
+    "weapon_override": "naked_prisoner"
+  },
+  {
+    "type": "npc",
+    "id": "berserk_count_prisoner",
+    "temp_suffix": "пленник Графа",
+    "gender": "male",
+    "class": "NC_BERSERK_COUNT_PRISONER",
+    "attitude": 0,
+    "mission": 7,
+    "chat": "TALK_BERSERK_COUNT_WITNESS",
+    "talk_friend": "TALK_BERSERK_COUNT_WITNESS",
+    "talk_friend_guard": "TALK_BERSERK_COUNT_WITNESS",
+    "faction": "no_faction",
+    "death_eocs": [
+      "EOC_BERSERK_COUNT33_NPC_DEATH"
+    ]
+  }
+]

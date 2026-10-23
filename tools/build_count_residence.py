@@ -6,17 +6,17 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1] / 'mods/Berserk'
 SECTIONS = [('berserk_count_prison', 0, 0), ('berserk_count_hall', 1, 0),
             ('berserk_count_west_yard', 0, 1), ('berserk_count_east_yard', 1, 1)]
-# Existing finite actors and witness; do not change their stats or multiply them.
+# Existing finite guards; the unique captive is placed as a native NPC.
 ACTORS = [('mon_berserk_count_servant', 9, 10), ('mon_berserk_count_servant', 18, 17),
-          ('mon_berserk_count_witness', 7, 18), ('mon_berserk_count_servant', 30, 9),
+          ('mon_berserk_count_servant', 30, 9),
           ('mon_berserk_count_servant', 40, 18), ('mon_berserk_count_servant', 13, 27),
           ('mon_berserk_count_servant', 36, 34)]
 PROPS = [
     ('f_berserk_count_notice', 24, 38),
-    ('f_berserk_location_count_property', 7, 7),
+    ('f_berserk_location_count_property', 7, 18),
     ('f_berserk_location_count_clerk', 18, 7),
     ('f_desk', 18, 9), ('f_chair', 18, 10), ('f_bookcase', 20, 7),
-    ('f_bed', 9, 18), ('f_bench', 7, 19), ('f_rubble', 6, 13),
+    ('f_bed', 6, 9), ('f_bench', 7, 19), ('f_rubble', 6, 13),
     ('f_berserk_location_count_physician', 30, 8),
     ('f_desk', 30, 7), ('f_bookcase', 32, 7), ('f_table', 31, 11),
     ('f_berserk_location_count_family', 40, 9),
@@ -108,6 +108,9 @@ def build_scene(omt, ox, oy, field):
            'palettes': ['berserk_count_palette']}
     obj['place_monster'] = [dict(monster=kind, x=x-x0, y=y-y0, one_or_none=True)
                             for kind, x, y in ACTORS if x0 <= x < x0+24 and y0 <= y < y0+24]
+    if (ox,oy)==(0,0):
+        obj['place_npcs']=[dict(class_='berserk_count_prisoner',x=7,y=11,unique_id='BERSERK_COUNT_PRISONER')]
+        obj['place_npcs'][0]['class']=obj['place_npcs'][0].pop('class_')
     obj['place_furniture'] = [dict(furn=kind, x=x-x0, y=y-y0)
                              for kind, x, y in PROPS if x0 <= x < x0+24 and y0 <= y < y0+24]
     return {'type': 'mapgen', 'om_terrain': [omt], 'object': obj}

@@ -1,0 +1,978 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_VISIBLE_BODY",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "u_has_trait": "BERSERK_WYALD_PAWN_FORM"
+        },
+        {
+          "u_has_trait": "BERSERK_ROSINE_PAWN_FORM"
+        },
+        {
+          "u_has_trait": "BERSERK_FEMTO_FORM"
+        },
+        {
+          "u_has_trait": "BERSERK_GRUNBELD_FLESH_FORM"
+        },
+        {
+          "u_has_trait": "BERSERK_VOID_FORM"
+        },
+        {
+          "u_has_trait": "BERSERK_COUNT_PAWN_FORM"
+        },
+        {
+          "u_has_trait": "BERSERK_WYALD_FLESH_FORM"
+        },
+        {
+          "u_has_trait": "BERSERK_COUNT_FLESH_FORM"
+        },
+        {
+          "u_has_trait": "BERSERK_UBIK_FORM"
+        },
+        {
+          "u_has_trait": "BERSERK_CONRAD_FORM"
+        },
+        {
+          "u_has_trait": "BERSERK_GRUNBELD_PAWN_FORM"
+        },
+        {
+          "u_has_trait": "BERSERK_ROSINE_FLESH_FORM"
+        },
+        {
+          "u_has_trait": "BERSERK_SLAN_FORM"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_AT_SITE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "has_var(berserk_count_prisoner_home)"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        },
+        {
+          "math": [
+            "distance('u', berserk_count_prisoner_home) < 72"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_CELL_OPEN",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "n_berserk_count33_escaped == 1"
+          ]
+        },
+        {
+          "math": [
+            "berserk_count_prisoner_legacy_map == 1"
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "has_var(berserk_count_prisoner_gate)"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_COUNT33_AT_SITE"
+            },
+            {
+              "or": [
+                {
+                  "map_terrain_id": "t_berserk_count_cell_gate_o",
+                  "loc": {
+                    "global_val": "berserk_count_prisoner_gate"
+                  }
+                },
+                {
+                  "map_terrain_id": "t_berserk_count_cell_gate_shut",
+                  "loc": {
+                    "global_val": "berserk_count_prisoner_gate"
+                  }
+                },
+                {
+                  "map_terrain_id": "t_door_bar_o",
+                  "loc": {
+                    "global_val": "berserk_count_prisoner_gate"
+                  }
+                },
+                {
+                  "map_terrain_id": "t_door_bar_c",
+                  "loc": {
+                    "global_val": "berserk_count_prisoner_gate"
+                  }
+                },
+                {
+                  "map_terrain_id": "t_floor",
+                  "loc": {
+                    "global_val": "berserk_count_prisoner_gate"
+                  }
+                },
+                {
+                  "map_terrain_id": "t_mdoor_frame",
+                  "loc": {
+                    "global_val": "berserk_count_prisoner_gate"
+                  }
+                },
+                {
+                  "map_terrain_id": "t_dirt",
+                  "loc": {
+                    "global_val": "berserk_count_prisoner_gate"
+                  }
+                },
+                {
+                  "map_terrain_id": "t_rubble",
+                  "loc": {
+                    "global_val": "berserk_count_prisoner_gate"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_BYPASS_KNOWN_OPEN",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_count33_bypass_seen == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_NPC_SCAN",
+    "effect": [
+      {
+        "math": [
+          "berserk_count_prisoner_spawned = 1"
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "has_var(berserk_count_prisoner_home)"
+                ]
+              }
+            },
+            {
+              "u_at_om_location": "berserk_count_prison"
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_location_variable": {
+              "global_val": "berserk_count_prisoner_home"
+            }
+          },
+          {
+            "math": [
+              "berserk_count_prisoner_home.x = floor(berserk_count_prisoner_home.x / 24) * 24"
+            ]
+          },
+          {
+            "math": [
+              "berserk_count_prisoner_home.y = floor(berserk_count_prisoner_home.y / 24) * 24"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "has_var(berserk_count_prisoner_home)"
+          ]
+        },
+        "then": [
+          {
+            "copy_var": {
+              "global_val": "berserk_count_prisoner_home"
+            },
+            "target_var": {
+              "global_val": "berserk_count_prisoner_gate"
+            }
+          },
+          {
+            "location_variable_adjust": {
+              "global_val": "berserk_count_prisoner_gate"
+            },
+            "x_adjust": 8,
+            "y_adjust": 11
+          },
+          {
+            "copy_var": {
+              "global_val": "berserk_count_prisoner_home"
+            },
+            "target_var": {
+              "global_val": "berserk_count_prisoner_grate"
+            }
+          },
+          {
+            "location_variable_adjust": {
+              "global_val": "berserk_count_prisoner_grate"
+            },
+            "x_adjust": 27,
+            "y_adjust": 16
+          }
+        ]
+      },
+      {
+        "u_location_variable": {
+          "context_val": "count33_actor_pos"
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "has_var(berserk_count_prisoner_home)"
+              ]
+            },
+            {
+              "math": [
+                "_count33_actor_pos.z == berserk_count_prisoner_home.z"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "math": [
+                    "_count33_actor_pos.x < berserk_count_prisoner_home.x + 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "_count33_actor_pos.x > berserk_count_prisoner_home.x + 45"
+                  ]
+                },
+                {
+                  "math": [
+                    "_count33_actor_pos.y < berserk_count_prisoner_home.y + 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "_count33_actor_pos.y > berserk_count_prisoner_home.y + 45"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_count33_escaped = 1"
+            ]
+          },
+          {
+            "math": [
+              "berserk_count_prisoner_escaped = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_count33_escaped == 1"
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_count33_escape_announced == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": [
+          {
+            "u_location_variable": {
+              "context_val": "count33_escape_pos"
+            }
+          },
+          {
+            "run_eocs": "EOC_BERSERK_COUNT33_ESCAPE_OBSERVED",
+            "alpha_talker": "avatar"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_npc",
+        {
+          "u_has_class": "NC_BERSERK_COUNT_PRISONER"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_DIALOGUE_BIND",
+    "effect": [
+      {
+        "math": [
+          "berserk_count_prisoner_spawned = 1"
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "has_var(berserk_count_prisoner_home)"
+                ]
+              }
+            },
+            {
+              "npc_at_om_location": "berserk_count_prison"
+            }
+          ]
+        },
+        "then": [
+          {
+            "npc_location_variable": {
+              "global_val": "berserk_count_prisoner_home"
+            }
+          },
+          {
+            "math": [
+              "berserk_count_prisoner_home.x = floor(berserk_count_prisoner_home.x / 24) * 24"
+            ]
+          },
+          {
+            "math": [
+              "berserk_count_prisoner_home.y = floor(berserk_count_prisoner_home.y / 24) * 24"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "has_var(berserk_count_prisoner_home)"
+          ]
+        },
+        "then": [
+          {
+            "copy_var": {
+              "global_val": "berserk_count_prisoner_home"
+            },
+            "target_var": {
+              "global_val": "berserk_count_prisoner_gate"
+            }
+          },
+          {
+            "location_variable_adjust": {
+              "global_val": "berserk_count_prisoner_gate"
+            },
+            "x_adjust": 8,
+            "y_adjust": 11
+          },
+          {
+            "copy_var": {
+              "global_val": "berserk_count_prisoner_home"
+            },
+            "target_var": {
+              "global_val": "berserk_count_prisoner_grate"
+            }
+          },
+          {
+            "location_variable_adjust": {
+              "global_val": "berserk_count_prisoner_grate"
+            },
+            "x_adjust": 27,
+            "y_adjust": 16
+          }
+        ]
+      },
+      {
+        "npc_location_variable": {
+          "context_val": "count33_actor_pos"
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "has_var(berserk_count_prisoner_home)"
+              ]
+            },
+            {
+              "math": [
+                "_count33_actor_pos.z == berserk_count_prisoner_home.z"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "math": [
+                    "_count33_actor_pos.x < berserk_count_prisoner_home.x + 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "_count33_actor_pos.x > berserk_count_prisoner_home.x + 45"
+                  ]
+                },
+                {
+                  "math": [
+                    "_count33_actor_pos.y < berserk_count_prisoner_home.y + 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "_count33_actor_pos.y > berserk_count_prisoner_home.y + 45"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "n_berserk_count33_escaped = 1"
+            ]
+          },
+          {
+            "math": [
+              "berserk_count_prisoner_escaped = 1"
+            ]
+          }
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_count33_opened_cell == 1"
+          ]
+        },
+        "then": {
+          "math": [
+            "n_berserk_count33_door_help = 1"
+          ]
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "n_berserk_count33_escaped == 1"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_ref_prisoner_freed = 1"
+          ]
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COUNT33_BYPASS_OBSERVE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_npc",
+        {
+          "npc_has_class": "NC_BERSERK_COUNT_PRISONER"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_ESCAPE_OBSERVED",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_ref_prisoner_freed = 1"
+        ]
+      },
+      {
+        "u_run_npc_eocs": [
+          "EOC_BERSERK_COUNT33_MARK_ESCAPE_OBSERVED"
+        ],
+        "unique_ids": [
+          "BERSERK_COUNT_PRISONER"
+        ],
+        "local": false
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_ref_prisoner_met == 1"
+          ]
+        },
+        {
+          "u_can_see_location": {
+            "context_val": "count33_escape_pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_MARK_ESCAPE_OBSERVED",
+    "effect": {
+      "math": [
+        "u_berserk_count33_escape_announced = 1"
+      ]
+    },
+    "condition": {
+      "and": [
+        "u_is_npc",
+        {
+          "u_has_class": "NC_BERSERK_COUNT_PRISONER"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_BYPASS_OBSERVE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_count33_bypass_seen = 1"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "distance('u', berserk_count_prisoner_grate) == 0"
+          ]
+        },
+        "then": {
+          "math": [
+            "u_berserk_count33_bypass_passed = 1"
+          ]
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "test_eoc": "EOC_BERSERK_COUNT33_AT_SITE"
+        },
+        {
+          "math": [
+            "distance('u', berserk_count_prisoner_grate) <= 2"
+          ]
+        },
+        {
+          "map_furniture_id": "f_berserk_count_service_grate_open",
+          "loc": {
+            "global_val": "berserk_count_prisoner_grate"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_TICK",
+    "effect": [
+      {
+        "u_run_npc_eocs": [
+          "EOC_BERSERK_COUNT33_NPC_SCAN"
+        ],
+        "unique_ids": [
+          "BERSERK_COUNT_PRISONER"
+        ],
+        "local": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COUNT33_BYPASS_OBSERVE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COUNT33_MIGRATE"
+      }
+    ],
+    "global": true,
+    "recurrence": "2 seconds",
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_NPC_DEATH",
+    "effect": [
+      {
+        "math": [
+          "berserk_count_prisoner_dead = 1"
+        ]
+      },
+      {
+        "u_location_variable": {
+          "context_val": "ref_death_pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_PRISONER_DEATH_OBSERVED",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": "u_is_npc"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_LEGACY_DEATH",
+    "effect": [
+      {
+        "math": [
+          "berserk_count_prisoner_dead = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_REF_PRISONER_DEATH"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_MARK_PRESENT",
+    "effect": {
+      "math": [
+        "berserk_count_prisoner_present = 1"
+      ]
+    },
+    "condition": {
+      "and": [
+        "u_is_npc",
+        {
+          "u_has_class": "NC_BERSERK_COUNT_PRISONER"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_REMOVE_LEGACY",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_COUNT33_RETIRE_LEGACY"
+      ],
+      "mtype_ids": [
+        "mon_berserk_count_witness"
+      ],
+      "monster_range": 32
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_RETIRE_LEGACY",
+    "effect": {
+      "u_die": {
+        "remove_from_creature_tracker": true
+      }
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_CAPTURE_LEGACY",
+    "effect": [
+      {
+        "u_location_variable": {
+          "global_val": "berserk_count_prisoner_legacy_pos"
+        }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_MIGRATE",
+    "effect": [
+      {
+        "math": [
+          "berserk_count_prisoner_present = 0"
+        ]
+      },
+      {
+        "u_run_npc_eocs": [
+          "EOC_BERSERK_COUNT33_MARK_PRESENT"
+        ],
+        "unique_ids": [
+          "BERSERK_COUNT_PRISONER"
+        ],
+        "local": false
+      },
+      {
+        "if": {
+          "math": [
+            "berserk_count_prisoner_present == 1"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_COUNT33_REMOVE_LEGACY"
+        },
+        "else": {
+          "if": {
+            "and": [
+              {
+                "math": [
+                  "berserk_count_prisoner_spawned == 0"
+                ]
+              },
+              {
+                "math": [
+                  "berserk_count_prisoner_dead == 0"
+                ]
+              }
+            ]
+          },
+          "then": [
+            {
+              "u_run_monster_eocs": [
+                "EOC_BERSERK_COUNT33_CAPTURE_LEGACY"
+              ],
+              "mtype_ids": [
+                "mon_berserk_count_witness"
+              ],
+              "monster_range": 32
+            },
+            {
+              "u_spawn_npc": "berserk_count_prisoner",
+              "unique_id": "BERSERK_COUNT_PRISONER",
+              "real_count": 1,
+              "target_var": {
+                "global_val": "berserk_count_prisoner_legacy_pos"
+              },
+              "min_radius": 1,
+              "max_radius": 2,
+              "true_eocs": [
+                "EOC_BERSERK_COUNT33_MIGRATION_COMMIT"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_count_prisoner_dead == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_monsters_nearby('mon_berserk_count_witness', 'radius': 32, 'attitude': 'both') > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_MIGRATION_COMMIT",
+    "effect": [
+      {
+        "math": [
+          "berserk_count_prisoner_spawned = 1"
+        ]
+      },
+      {
+        "math": [
+          "berserk_count_prisoner_legacy_map = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COUNT33_REMOVE_LEGACY"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_FOUGHT",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_count33_fought = 1"
+        ]
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "character_melee_attacks_monster",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "compare_string": [
+            {
+              "context_val": "victim_type"
+            },
+            "mon_berserk_apostle_count"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_OPEN_CELL",
+    "effect": {
+      "if": {
+        "u_has_item": "berserk_count_service_key"
+      },
+      "then": {
+        "if": {
+          "u_query": "Открыть решётку служебным ключом?",
+          "default": false
+        },
+        "then": [
+          {
+            "u_transform_radius": 0,
+            "ter_furn_transform": "berserk_count_cell_unlocked",
+            "target_var": {
+              "context_val": "pos"
+            }
+          },
+          {
+            "if": {
+              "map_terrain_id": "t_berserk_count_cell_gate_o",
+              "loc": {
+                "context_val": "pos"
+              }
+            },
+            "then": {
+              "math": [
+                "u_berserk_count33_opened_cell = 1"
+              ]
+            }
+          },
+          {
+            "turn_cost": "2 seconds"
+          },
+          {
+            "u_message": "Ключ поворачивается в замке. Решётка открыта.",
+            "type": "info",
+            "popup": false
+          }
+        ]
+      },
+      "else": {
+        "u_message": "Решётка заперта. Замок можно попробовать вскрыть отмычкой; железо поддастся только подходящему инструменту или сильным ударам.",
+        "type": "info",
+        "popup": false
+      }
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "distance('u', _pos) <= 1"
+          ]
+        },
+        {
+          "map_terrain_id": "t_berserk_count_cell_gate_c",
+          "loc": {
+            "context_val": "pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_count_cell_unlocked",
+    "terrain": [
+      {
+        "valid_terrain": [
+          "t_berserk_count_cell_gate_c"
+        ],
+        "result": "t_berserk_count_cell_gate_o"
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_LINE_B9D512D6ABA5",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+        },
+        {
+          "math": [
+            "n_berserk_count33_change_seen == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COUNT33_LINE_2975446D885F",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+        },
+        {
+          "math": [
+            "n_berserk_count33_human_first == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "n_berserk_count33_change_seen == 1"
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

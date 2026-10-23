@@ -46,19 +46,13 @@
           "x": 18,
           "y": 17,
           "one_or_none": true
-        },
-        {
-          "monster": "mon_berserk_count_witness",
-          "x": 7,
-          "y": 18,
-          "one_or_none": true
         }
       ],
       "place_furniture": [
         {
           "furn": "f_berserk_location_count_property",
           "x": 7,
-          "y": 7
+          "y": 18
         },
         {
           "furn": "f_berserk_location_count_clerk",
@@ -82,8 +76,8 @@
         },
         {
           "furn": "f_bed",
-          "x": 9,
-          "y": 18
+          "x": 6,
+          "y": 9
         },
         {
           "furn": "f_bench",
@@ -94,6 +88,14 @@
           "furn": "f_rubble",
           "x": 6,
           "y": 13
+        }
+      ],
+      "place_npcs": [
+        {
+          "class": "berserk_count_prisoner",
+          "x": 7,
+          "y": 11,
+          "unique_id": "BERSERK_COUNT_PRISONER"
         }
       ]
     }

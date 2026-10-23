@@ -401,6 +401,9 @@ class ReferenceBook(unittest.TestCase):
         f = Book(); f.values.update(u_berserk_ref_prisoner_met=1, u_berserk_ref_dead_count=1)
         f.sync(); self.assertNotIn('Власть Графа над ним закончилась', f.line('L05'))
         f.enter('TALK_BERSERK_COUNT_AFTER'); f.sync()
+        self.assertNotIn('Власть Графа над ним закончилась', f.line('L05'))
+        # Actual escape is exercised by the native-captive model, not a death report.
+        f.values['u_berserk_ref_prisoner_freed'] = 1; f.sync()
         self.assertIn('Власть Графа над ним закончилась', f.line('L05'))
         f.run('PRISONER_DEATH'); self.assertNotIn('Что он сделает с этой свободой', f.line('L05'))
 
@@ -474,7 +477,11 @@ class ReferenceBook(unittest.TestCase):
     def test_monster_death_uses_native_eoc_and_all_reference_targets_exist(self):
         data = json.loads((MOD / 'monsters/apostle_count.json').read_text())
         captive = next(x for x in data if x['id'] == 'mon_berserk_count_witness')
-        self.assertEqual(captive['death_function'], {'eoc': P + 'PRISONER_DEATH'})
+        death = 'EOC_BERSERK_COUNT33_LEGACY_DEATH'
+        self.assertEqual(captive['death_function'], {'eoc': death})
+        self.assertIn({'run_eocs': P + 'PRISONER_DEATH'}, EOCS[death]['effect'])
+        f = Book(); f.run(death)
+        self.assertEqual(f.values['berserk_count_prisoner_dead'], 1)
         for obj in EOCS.values():
             if not obj['id'].startswith(P): continue
             for node in walk(obj):
