@@ -15,6 +15,7 @@ BUILDERS=[
     'build_count_prisoner_dialogue_33.py',
     'build_named_apostle_dialogues_33.py',
     'build_godhand_dialogue_33.py',
+    'build_common_dialogue_33.py',
     'build_reference_journal_33.py',
     'apply_visual_fallbacks_33.py',
 ]

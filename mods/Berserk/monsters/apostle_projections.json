@@ -7,7 +7,7 @@
       "str": "Projection of Zodd",
       "str_pl": "Projections of Zodd"
     },
-    "description": "A scarred silhouette shaped like Nosferatu Zodd. Its blows are real, but the creature itself is only a fragment drawn into this world around a Behelit.",
+    "description": "An enormous beastlike figure. Its presence feels solid, but the edges of its body keep fading in and out.",
     "looks_like": "mon_nosferatu_zodd",
     "hp": 250,
     "regenerates": 0,
@@ -29,7 +29,7 @@
     "death_drops": "berserk_projection_behelit_drops",
     "death_function": {
       "corpse_type": "NO_CORPSE",
-      "message": "The %s unravels.",
+      "message": "The %s loses its outline and dissolves.",
       "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
     }
   },
@@ -41,7 +41,7 @@
       "str": "Reflection of Griffith",
       "str_pl": "Reflections of Griffith"
     },
-    "description": "A winged reflection of Griffith, drawn into the world around a Behelit. Destroying this apparition does not kill the being whose image it bears.",
+    "description": "A motionless winged image. Its face is clearer than the rest of its body.",
     "looks_like": "mon_griffith_reborn",
     "hp": 220,
     "regenerates": 0,
@@ -63,7 +63,7 @@
     "death_drops": "berserk_projection_behelit_drops",
     "death_function": {
       "corpse_type": "NO_CORPSE",
-      "message": "The %s unravels.",
+      "message": "The %s loses its outline and dissolves.",
       "eoc": "EOC_BERSERK_GRIFFITH_PROJECTION_DIES"
     }
   },
@@ -75,7 +75,7 @@
       "str": "Reflection of Void",
       "str_pl": "Reflections of Void"
     },
-    "description": "Void's likeness looms from a breach in reality. This dangerous reflection gathered around a Behelit, but its destruction cannot reach the original.",
+    "description": "An inhuman figure that seems to bend straight lines around it.",
     "looks_like": "mon_void_apostle",
     "hp": 200,
     "regenerates": 0,
@@ -104,7 +104,7 @@
     "death_drops": "berserk_projection_behelit_drops",
     "death_function": {
       "corpse_type": "NO_CORPSE",
-      "message": "The %s unravels.",
+      "message": "The %s loses its outline and dissolves.",
       "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
     }
   },
@@ -115,7 +115,7 @@
       "str": "Projection of the Count",
       "str_pl": "Projections of the Count"
     },
-    "description": "A swollen likeness fills the passage. Its heavy flesh wavers at the edges.",
+    "description": "A heavy figure with human features. Its edges tremble like an image in muddy water.",
     "looks_like": "",
     "default_faction": "berserk_eclipse_demons",
     "bodytype": "humanoid",
@@ -158,7 +158,7 @@
     "death_drops": "berserk_projection_behelit_drops",
     "death_function": {
       "corpse_type": "NO_CORPSE",
-      "message": "The %s unravels.",
+      "message": "The %s loses its outline and dissolves.",
       "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
     },
     "special_attacks": [
@@ -182,7 +182,7 @@
       "str": "Projection of Wyald",
       "str_pl": "Projections of Wyald"
     },
-    "description": "A grinning, beastlike likeness moves in sudden bounds.",
+    "description": "A beastlike figure with a broad grin. Its outline lags behind its sudden movements.",
     "looks_like": "",
     "default_faction": "berserk_eclipse_demons",
     "bodytype": "humanoid",
@@ -225,7 +225,7 @@
     "death_drops": "berserk_projection_behelit_drops",
     "death_function": {
       "corpse_type": "NO_CORPSE",
-      "message": "The %s unravels.",
+      "message": "The %s loses its outline and dissolves.",
       "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
     },
     "special_attacks": [
@@ -247,7 +247,7 @@
       "str": "Projection of Rosine",
       "str_pl": "Projections of Rosine"
     },
-    "description": "A delicate winged apparition darts above the ground.",
+    "description": "A winged silhouette hovers above the ground. The space behind it shows through the thin edges of its wings.",
     "looks_like": "",
     "default_faction": "berserk_eclipse_demons",
     "bodytype": "humanoid",
@@ -291,7 +291,7 @@
     "death_drops": "berserk_projection_behelit_drops",
     "death_function": {
       "corpse_type": "NO_CORPSE",
-      "message": "The %s unravels.",
+      "message": "The %s loses its outline and dissolves.",
       "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
     },
     "special_attacks": [
@@ -313,7 +313,7 @@
       "str": "Projection of Grunbeld",
       "str_pl": "Projections of Grunbeld"
     },
-    "description": "A heavy armored likeness radiates a brief, wavering heat.",
+    "description": "An image enclosed in a heavy carapace. Heat glimmers in its cracks without casting the light it should.",
     "looks_like": "",
     "default_faction": "berserk_eclipse_demons",
     "bodytype": "humanoid",
@@ -356,7 +356,7 @@
     "death_drops": "berserk_projection_behelit_drops",
     "death_function": {
       "corpse_type": "NO_CORPSE",
-      "message": "The %s unravels.",
+      "message": "The %s loses its outline and dissolves.",
       "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
     },
     "special_attacks": [
@@ -380,7 +380,7 @@
       "str": "Projection of Slan",
       "str_pl": "Projections of Slan"
     },
-    "description": "A crimson likeness of living flesh reaches through a thin place in the world.",
+    "description": "An image of living flesh held in an alien space. Its movements are too smooth for its blurred outline.",
     "looks_like": "",
     "default_faction": "berserk_eclipse_demons",
     "bodytype": "humanoid",
@@ -423,7 +423,7 @@
     "death_drops": "berserk_projection_behelit_drops",
     "death_function": {
       "corpse_type": "NO_CORPSE",
-      "message": "The %s unravels.",
+      "message": "The %s loses its outline and dissolves.",
       "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
     },
     "special_attacks": [
@@ -447,7 +447,7 @@
       "str": "Projection of Ubik",
       "str_pl": "Projections of Ubik"
     },
-    "description": "A small hovering image blurs whenever your gaze shifts.",
+    "description": "A small floating figure. Look away, and it becomes hard to remember exactly where it was.",
     "looks_like": "",
     "default_faction": "berserk_eclipse_demons",
     "bodytype": "humanoid",
@@ -491,7 +491,7 @@
     "death_drops": "berserk_projection_behelit_drops",
     "death_function": {
       "corpse_type": "NO_CORPSE",
-      "message": "The %s unravels.",
+      "message": "The %s loses its outline and dissolves.",
       "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
     },
     "special_attacks": [
@@ -515,7 +515,7 @@
       "str": "Projection of Conrad",
       "str_pl": "Projections of Conrad"
     },
-    "description": "A squat likeness gathers amid a bitter, drifting haze.",
+    "description": "A squat image amid a cloudy suspension. Its contours slowly emerge, then dissolve again.",
     "looks_like": "",
     "default_faction": "berserk_eclipse_demons",
     "bodytype": "humanoid",
@@ -558,7 +558,7 @@
     "death_drops": "berserk_projection_behelit_drops",
     "death_function": {
       "corpse_type": "NO_CORPSE",
-      "message": "The %s unravels.",
+      "message": "The %s loses its outline and dissolves.",
       "eoc": "EOC_BERSERK_BEHELIT_BOSS_DIES"
     },
     "special_attacks": [

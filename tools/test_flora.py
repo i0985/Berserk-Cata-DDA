@@ -279,8 +279,9 @@ class FloraStory(unittest.TestCase):
         self.assertNotIn('map_spawn_field',flora_text)
 
     def test_dialogue_topics_and_no_accidental_attack_on_acceptance(self):
-        topics = {t['id']:t for t in objects(MOD/'dialogue/flora.json')}
+        topics = {t['id']:t for p in (MOD/'dialogue').glob('*.json') for t in objects(p)}
         for t in topics.values():
+            if not t['id'].startswith('TALK_BERSERK_FLORA'):continue
             for r in t['responses']:
                 if r['topic'] != 'TALK_DONE':self.assertIn(r['topic'],topics)
         for id in ('BRAND','ARMOR','COST','APOSTLES','RELICS','NEXT','OWNED'):

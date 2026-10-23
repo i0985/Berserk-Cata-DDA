@@ -4,14 +4,59 @@
     "id": "EOC_BERSERK_ECLIPSE_SCENE_JUDEAU",
     "effect": [
       {
-        "u_message": "Three empty knife sheaths lie beside Judeau. His last throws bought someone a few breaths. Beyond him, the ash trail bends south between the pale sinews; the eastern branch leads to an abandoned satchel.",
-        "type": "info",
-        "popup": true
+        "if": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "u_berserk_common33_fallen_judeau == 1"
+                ]
+              }
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_godo_witness_judeau == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            "then": {
+              "u_message": "Среди разорванного снаряжения лежит обломанная рукоять метательного ножа. Дерево стёрто ладонью; у сломанного конца осталась тёмная нить.\n\nВы узнаёте её. Джудо умел замечать чужую нужду раньше, чем о ней просили. Теперь спросить его уже не о чем.",
+              "type": "info",
+              "popup": true
+            },
+            "else": {
+              "u_message": "Среди разорванного снаряжения лежит обломанная рукоять метательного ножа. Дерево стёрто ладонью; у сломанного конца осталась тёмная нить.\n\nИмя «Джудо» пока ничего вам не говорит. Здесь погиб человек; о его жизни вы ещё не знаете.",
+              "type": "info",
+              "popup": true
+            }
+          },
+          {
+            "math": [
+              "u_berserk_common33_fallen_judeau = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_godo_witness_judeau = 1"
+            ]
+          }
+        ],
+        "else": {
+          "u_message": "Вы уже осмотрели это место. Найденные сведения сохранены.",
+          "type": "info",
+          "popup": false
+        }
       },
       {
-        "math": [
-          "u_berserk_godo_witness_judeau = 1"
-        ]
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -20,14 +65,59 @@
     "id": "EOC_BERSERK_ECLIPSE_SCENE_PIPPIN",
     "effect": [
       {
-        "u_message": "Pippin lies across the narrowest gap in the ridge. Scrapes on his hammer show where he held back the first rush. You can continue south along the western scars or rejoin the ash trail to the east.",
-        "type": "info",
-        "popup": true
+        "if": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "u_berserk_common33_fallen_pippin == 1"
+                ]
+              }
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_godo_witness_pippin == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            "then": {
+              "u_message": "Тело крупного бойца осталось у тесного прохода. Рядом — тяжёлая застёжка, вырванная из разбитого доспеха. Свежие царапины пересекают старые следы молота.\n\nПиппин редко говорил лишнее. Рядом с ним обычно не требовалось спрашивать, прикроет ли он спину.",
+              "type": "info",
+              "popup": true
+            },
+            "else": {
+              "u_message": "Тело крупного бойца осталось у тесного прохода. Рядом — тяжёлая застёжка, вырванная из разбитого доспеха. Свежие царапины пересекают старые следы молота.\n\nИмя «Пиппин» пока ничего вам не говорит. Здесь погиб человек; о его жизни вы ещё не знаете.",
+              "type": "info",
+              "popup": true
+            }
+          },
+          {
+            "math": [
+              "u_berserk_common33_fallen_pippin = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_godo_witness_pippin = 1"
+            ]
+          }
+        ],
+        "else": {
+          "u_message": "Вы уже осмотрели это место. Найденные сведения сохранены.",
+          "type": "info",
+          "popup": false
+        }
       },
       {
-        "math": [
-          "u_berserk_godo_witness_pippin = 1"
-        ]
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -36,14 +126,59 @@
     "id": "EOC_BERSERK_ECLIPSE_SCENE_CORKUS",
     "effect": [
       {
-        "u_message": "A fragment of scabbard is clenched beside Corkus. Something that looked like an escape drew him into the feast. The outer eastern flank remains open: you need not approach the feeding hollows.",
-        "type": "info",
-        "popup": true
+        "if": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "u_berserk_common33_fallen_corkus == 1"
+                ]
+              }
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_godo_witness_corkus == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            "then": {
+              "u_message": "Рядом с телом — расколотый обломок ножен. Кожа залоснилась под пальцами прежнего владельца; в разошедшемся шве застрял пепел.\n\nВы вспоминаете его голос, раздражение, споры. Память возвращает живого человека, а не удобные слова о погибшем товарище.",
+              "type": "info",
+              "popup": true
+            },
+            "else": {
+              "u_message": "Рядом с телом — расколотый обломок ножен. Кожа залоснилась под пальцами прежнего владельца; в разошедшемся шве застрял пепел.\n\nИмя «Коркус» пока ничего вам не говорит. Здесь погиб человек; о его жизни вы ещё не знаете.",
+              "type": "info",
+              "popup": true
+            }
+          },
+          {
+            "math": [
+              "u_berserk_common33_fallen_corkus = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_godo_witness_corkus = 1"
+            ]
+          }
+        ],
+        "else": {
+          "u_message": "Вы уже осмотрели это место. Найденные сведения сохранены.",
+          "type": "info",
+          "popup": false
+        }
       },
       {
-        "math": [
-          "u_berserk_godo_witness_corkus = 1"
-        ]
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },
@@ -52,14 +187,59 @@
     "id": "EOC_BERSERK_ECLIPSE_SCENE_GASTON",
     "effect": [
       {
-        "u_message": "Gaston's sewing roll has spilled beneath the battered breastplate. Beyond him, the enormous ribs lean toward a still, luminous center. Follow their curve south to the last ceremony scar.",
-        "type": "info",
-        "popup": true
+        "if": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "u_berserk_common33_fallen_gaston == 1"
+                ]
+              }
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_godo_witness_gaston == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": [
+          {
+            "if": {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+            },
+            "then": {
+              "u_message": "Под помятым нагрудником рассыпались иглы и обрывки ткани из раздавленного швейного набора. Мелкие, аккуратные починки уцелели среди грубых разрывов.\n\nГастон говорил о жизни после войны. Вы узнаёте его швейный набор и вспоминаете, как всерьёз он строил эти планы.",
+              "type": "info",
+              "popup": true
+            },
+            "else": {
+              "u_message": "Под помятым нагрудником рассыпались иглы и обрывки ткани из раздавленного швейного набора. Мелкие, аккуратные починки уцелели среди грубых разрывов.\n\nШвейный набор не объясняет, кем был погибший. Но кто-то берёг эти иглы и находил время для аккуратной работы.",
+              "type": "info",
+              "popup": true
+            }
+          },
+          {
+            "math": [
+              "u_berserk_common33_fallen_gaston = 1"
+            ]
+          },
+          {
+            "math": [
+              "u_berserk_godo_witness_gaston = 1"
+            ]
+          }
+        ],
+        "else": {
+          "u_message": "Вы уже осмотрели это место. Найденные сведения сохранены.",
+          "type": "info",
+          "popup": false
+        }
       },
       {
-        "math": [
-          "u_berserk_godo_witness_gaston = 1"
-        ]
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },

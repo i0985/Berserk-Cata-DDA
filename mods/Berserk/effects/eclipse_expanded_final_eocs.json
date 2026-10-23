@@ -158,6 +158,9 @@
         "math": [
           "u_berserk_eclipse_final_spawned = 1"
         ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COMMON33_OBSERVE_NOW"
       }
     ],
     "condition": {
@@ -224,7 +227,7 @@
       ]
     },
     "effect": {
-      "u_message": "The center of the ceremony is blocked. Griffith could not appear; no confrontation has started. Clear the center and leave and re-enter the ceremony to retry.",
+      "u_message": "Среди тел не видно того, к кому ведёт тропа.",
       "type": "warning",
       "popup": true
     }

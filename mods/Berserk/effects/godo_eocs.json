@@ -606,7 +606,7 @@
       },
       {
         "if": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
         },
         "then": {
           "if": {
@@ -657,7 +657,7 @@
       },
       {
         "if": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
         },
         "then": {
           "if": {
@@ -708,7 +708,7 @@
       },
       {
         "if": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
         },
         "then": {
           "if": {
@@ -759,7 +759,7 @@
       },
       {
         "if": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
         },
         "then": {
           "if": {
@@ -810,7 +810,7 @@
       },
       {
         "if": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
         },
         "then": {
           "if": {
@@ -933,7 +933,7 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
         },
         {
           "and": [
@@ -1137,7 +1137,7 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
         },
         {
           "and": [
@@ -1207,7 +1207,7 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
         },
         {
           "and": [
@@ -1478,7 +1478,7 @@
                 },
                 {
                   "not": {
-                    "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+                    "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
                   }
                 }
               ]
@@ -1524,7 +1524,7 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_ALLOWED"
         },
         {
           "and": [
@@ -1580,7 +1580,7 @@
               "true_guts_sword"
             ],
             "condition": {
-              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+              "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
             }
           }
         ],
@@ -1964,6 +1964,9 @@
                           "math": [
                             "n_berserk_rickert_recruited == 1"
                           ]
+                        },
+                        {
+                          "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_CONCEALED"
                         }
                       ]
                     }
@@ -2469,7 +2472,7 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
         },
         {
           "and": [
@@ -2534,7 +2537,7 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
         },
         {
           "and": [
@@ -2640,7 +2643,7 @@
             },
             {
               "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+                "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
               }
             }
           ]
@@ -2697,7 +2700,7 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_ALLOWED"
         },
         {
           "and": [

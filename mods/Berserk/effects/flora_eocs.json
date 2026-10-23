@@ -41,7 +41,7 @@
         {
           "and": [
             {
-              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+              "test_eoc": "EOC_BERSERK_COMMON33_FLORA_ALLOWED"
             },
             {
               "and": [
@@ -439,9 +439,9 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_GIVE_ARMOR",
     "false_effect": {
-      "u_message": "Flora cannot offer another set now. You must have survived the Eclipse, speak to her in person, and not already possess a complete or packed set or have accepted her gift.",
+      "u_message": "Флора не протягивает вам свёрток. Сначала поговорите с ней о доспехе.",
       "type": "info",
-      "popup": true
+      "popup": false
     },
     "condition": {
       "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"

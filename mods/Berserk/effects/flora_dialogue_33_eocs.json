@@ -707,7 +707,9 @@
       "and": [
         {
           "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+            "not": {
+              "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+            }
           }
         },
         {
@@ -745,7 +747,9 @@
     "effect": [],
     "condition": {
       "not": {
-        "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+        "not": {
+          "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+        }
       }
     }
   },
@@ -756,7 +760,9 @@
     "condition": {
       "and": [
         {
-          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          "not": {
+            "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+          }
         },
         {
           "not": {

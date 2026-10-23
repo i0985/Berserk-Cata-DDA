@@ -13,6 +13,7 @@ class Forge:
     def __init__(self):
         self.eocs={r['id']:r for r in objects('effects/godo_eocs.json')}
         self.eocs.update({r['id']:r for r in objects('effects/apostol_human_equipment_eocs.json')})
+        self.eocs.update({r['id']:r for r in objects('effects/common_reactions_33_eocs.json')})
         self.topics={r['id']:r for r in objects('dialogue/godo.json')}
         self.vars=collections.defaultdict(int, {'berserk_eclipse_era':1});self.items=collections.Counter()
         self.profession='unemployed'
@@ -225,10 +226,20 @@ class Data(unittest.TestCase):
         ids={r['id'] for r in rows}
         for row in rows:
             if row['id'].startswith(('TALK_BERSERK_GODO','TALK_BERSERK_RICKERT','TALK_BERSERK_JOURNAL','TALK_BERSERK_ROAD','TALK_BERSERK_FLORA','TALK_BERSERK_SKULL')):
-                names=[r['text'] for r in row['responses']]
-                self.assertEqual(len(names),len(set(names)),row['id'])
+                groups=collections.defaultdict(list)
+                for r in row['responses']:groups[r['text']].append(r)
+                for namesake in groups.values():
+                    if len(namesake)>1:
+                        # A hidden-change question replaces a service response;
+                        # these identically worded choices cannot coexist.
+                        self.assertEqual(len(namesake),2,row['id'])
+                        a,b=(r['condition']['and'] for r in namesake)
+                        self.assertEqual(a[0],b[0],row['id'])
+                        self.assertEqual({'not':a[1]},b[1],row['id'])
                 for r in row['responses']:
-                    if r['topic'].startswith('TALK_BERSERK_'):self.assertIn(r['topic'],ids)
+                    targets=[r['topic']] if 'topic' in r else [r[k]['topic'] for k in ('success','failure')]
+                    for target in targets:
+                        if target.startswith('TALK_BERSERK_'):self.assertIn(target,ids)
     def test_routes_and_matching_stairs(self):
         data=json.loads((ROOT/'docs/location_projects/godo-3.2-02.json').read_text())
         for rows in data['floors'].values():

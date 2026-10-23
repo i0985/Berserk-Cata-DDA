@@ -615,14 +615,66 @@
         }
       },
       {
+        "text": "About the strange stone and the changes.",
+        "topic": "TALK_BERSERK_COMMON33_GODO_MENU",
+        "condition": {
+          "and": [
+            {
+              "or": [
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+                  }
+                },
+                {
+                  "u_has_item": "berserk_behelit"
+                },
+                {
+                  "u_has_item": "berserk_behelit_distorted"
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_outcome == 2"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_return_state == 2"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+            }
+          ]
+        }
+      },
+      {
+        "text": "You are looking at me strangely. Is something wrong?",
+        "topic": "TALK_BERSERK_COMMON33_GODO_SUSPICION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_PENDING"
+        }
+      },
+      {
         "text": "I will leave you to your work.",
         "topic": "TALK_BERSERK_GODO_FAREWELL"
       }
     ],
     "speaker_effect": {
-      "effect": {
-        "run_eocs": "EOC_BERSERK_GODO_DIALOGUE_SYNC"
-      }
+      "effect": [
+        {
+          "run_eocs": "EOC_BERSERK_GODO_DIALOGUE_SYNC"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_COMMON33_GODO_NOTICE"
+        }
+      ]
     },
     "//": "Approved Godo dialogue 2026-10-21"
   },
@@ -1371,7 +1423,7 @@
         "topic": "TALK_BERSERK_APOSTOL_GODO",
         "condition": {
           "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+            "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
           }
         },
         "effect": {
@@ -1385,7 +1437,7 @@
           "and": [
             {
               "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+                "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
               }
             },
             {
@@ -1409,6 +1461,20 @@
         "topic": "TALK_BERSERK_GODO_REPAIR",
         "condition": {
           "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+        }
+      },
+      {
+        "text": "I came to collect the finished blade.",
+        "topic": "TALK_BERSERK_COMMON33_GODO_SUSPICION",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_GODO_PENDING"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_GODO_SWORD_READY"
+            }
+          ]
         }
       },
       {
@@ -2015,20 +2081,29 @@
         "condition": {
           "and": [
             {
-              "not": {
-                "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
-              }
+              "and": [
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                  }
+                },
+                {
+                  "or": [
+                    {
+                      "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                    },
+                    {
+                      "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                    },
+                    "npc_following"
+                  ]
+                }
+              ]
             },
             {
-              "or": [
-                {
-                  "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
-                },
-                {
-                  "test_eoc": "EOC_BERSERK_FORGE_GUTS"
-                },
-                "npc_following"
-              ]
+              "not": {
+                "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING"
+              }
             }
           ]
         },
@@ -2546,6 +2621,81 @@
         }
       },
       {
+        "text": "About the strange stone and the changes.",
+        "topic": "TALK_BERSERK_COMMON33_RICKERT_MENU",
+        "condition": {
+          "and": [
+            {
+              "or": [
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+                  }
+                },
+                {
+                  "u_has_item": "berserk_behelit"
+                },
+                {
+                  "u_has_item": "berserk_behelit_distorted"
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_apostol_outcome == 2"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_apostol_return_state == 2"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+            }
+          ]
+        }
+      },
+      {
+        "text": "You are looking at me strangely. Is something wrong?",
+        "topic": "TALK_BERSERK_COMMON33_RICKERT_SUSPICION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING"
+        }
+      },
+      {
+        "text": "I found belongings among the dead.",
+        "topic": "TALK_BERSERK_COMMON33_RICKERT_FINDS",
+        "condition": {
+          "or": [
+            {
+              "math": [
+                "u_berserk_godo_witness_judeau == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_witness_pippin == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_witness_corkus == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_witness_gaston == 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
         "text": "I need to go.",
         "topic": "TALK_BERSERK_RICKERT_GOODBYE",
         "effect": {
@@ -2554,9 +2704,14 @@
       }
     ],
     "speaker_effect": {
-      "effect": {
-        "run_eocs": "EOC_BERSERK_RICKERT_SYNC"
-      }
+      "effect": [
+        {
+          "run_eocs": "EOC_BERSERK_RICKERT_SYNC"
+        },
+        {
+          "run_eocs": "EOC_BERSERK_COMMON33_RICKERT_NOTICE"
+        }
+      ]
     },
     "//": "Approved Rickert dialogue 2026-10-21"
   },
@@ -3869,7 +4024,7 @@
         "topic": "TALK_BERSERK_APOSTOL_GODO",
         "condition": {
           "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+            "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
           }
         },
         "effect": {
@@ -3883,7 +4038,7 @@
           "and": [
             {
               "not": {
-                "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+                "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
               }
             },
             {
@@ -3910,6 +4065,20 @@
             "item": "true_guts_early_sword",
             "count": 1
           }
+        }
+      },
+      {
+        "text": "I came to collect the finished blade.",
+        "topic": "TALK_BERSERK_COMMON33_GODO_SUSPICION",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_GODO_PENDING"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_GODO_EARLY_READY"
+            }
+          ]
         }
       },
       {
@@ -4432,7 +4601,29 @@
       },
       {
         "text": "I wanted to ask about something else.",
-        "topic": "TALK_BERSERK_RICKERT_ORDERS"
+        "topic": "TALK_BERSERK_COMMON33_RICKERT_SUSPICION",
+        "condition": {
+          "and": [
+            "u_is_avatar",
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING"
+            }
+          ]
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_RICKERT_ORDERS",
+        "condition": {
+          "and": [
+            "u_is_avatar",
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING"
+              }
+            }
+          ]
+        }
       }
     ],
     "speaker_effect": {
@@ -4497,7 +4688,7 @@
         "condition": {
           "and": [
             {
-              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+              "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
             },
             {
               "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
@@ -4537,7 +4728,7 @@
               ]
             },
             {
-              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+              "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
             }
           ]
         }
@@ -4631,7 +4822,7 @@
         "topic": "TALK_BERSERK_APOSTOL_GODO",
         "condition": {
           "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+            "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
           }
         }
       },
@@ -5309,6 +5500,15 @@
         "topic": "TALK_BERSERK_GODO_DEMON_STAY"
       },
       {
+        "text": "How do I live with this change?",
+        "topic": "TALK_BERSERK_COMMON33_GODO_MENU",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
@@ -5399,6 +5599,15 @@
         },
         "effect": {
           "run_eocs": "EOC_BERSERK_RICKERT_BREAK_COMPANIONSHIP"
+        }
+      },
+      {
+        "text": "How do I live with this change?",
+        "topic": "TALK_BERSERK_COMMON33_RICKERT_MENU",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
         }
       },
       {
@@ -8088,7 +8297,29 @@
     "responses": [
       {
         "text": "I wanted to ask about something else.",
-        "topic": "TALK_BERSERK_RICKERT_ORDERS"
+        "topic": "TALK_BERSERK_COMMON33_RICKERT_SUSPICION",
+        "condition": {
+          "and": [
+            "u_is_avatar",
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING"
+            }
+          ]
+        }
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_RICKERT_ORDERS",
+        "condition": {
+          "and": [
+            "u_is_avatar",
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING"
+              }
+            }
+          ]
+        }
       }
     ]
   },
@@ -10135,6 +10366,13 @@
         "topic": "TALK_BERSERK_RICKERT_ROAD_LATER"
       },
       {
+        "text": "Did you want to ask something before we set out?",
+        "topic": "TALK_BERSERK_COMMON33_RICKERT_SUSPICION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
@@ -10253,7 +10491,29 @@
       },
       {
         "text": "About our equipment.",
-        "topic": "TALK_BERSERK_RICKERT_ORDERS"
+        "topic": "TALK_BERSERK_COMMON33_RICKERT_SUSPICION",
+        "condition": {
+          "and": [
+            "u_is_avatar",
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING"
+            }
+          ]
+        }
+      },
+      {
+        "text": "About our equipment.",
+        "topic": "TALK_BERSERK_RICKERT_ORDERS",
+        "condition": {
+          "and": [
+            "u_is_avatar",
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING"
+              }
+            }
+          ]
+        }
       },
       {
         "text": "I just wanted to know how you are.",

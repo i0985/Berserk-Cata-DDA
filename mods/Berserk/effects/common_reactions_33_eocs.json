@@ -1,0 +1,1868 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_VISIBLE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        {
+          "or": [
+            {
+              "u_has_trait": "BERSERK_CONRAD_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_CONRAD_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_FLESH_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_FLESH_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_PAWN_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_COUNT_PAWN_PAWN"
+            },
+            {
+              "u_has_trait": "BERSERK_FEMTO_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_FEMTO_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_GRUNBELD_FLESH_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_GRUNBELD_FLESH_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_GRUNBELD_PAWN_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_GRUNBELD_PAWN_PAWN"
+            },
+            {
+              "u_has_trait": "BERSERK_ROSINE_FLESH_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_ROSINE_FLESH_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_ROSINE_PAWN_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_ROSINE_PAWN_PAWN"
+            },
+            {
+              "u_has_trait": "BERSERK_SLAN_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_SLAN_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_UBIK_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_UBIK_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_VOID_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_VOID_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_WYALD_FLESH_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_WYALD_FLESH_APOSTLE"
+            },
+            {
+              "u_has_trait": "BERSERK_WYALD_PAWN_FORM"
+            },
+            {
+              "u_has_trait": "BERSERK_WYALD_PAWN_PAWN"
+            },
+            {
+              "u_has_flag": "BERSERK_CONRAD_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_COUNT_FLESH_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_COUNT_PAWN_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_FEMTO_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_GRUNBELD_FLESH_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_GRUNBELD_PAWN_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_ROSINE_FLESH_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_ROSINE_PAWN_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_SLAN_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_UBIK_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_VOID_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_WYALD_FLESH_FORM_ACTIVE"
+            },
+            {
+              "u_has_flag": "BERSERK_WYALD_PAWN_FORM_ACTIVE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_HIDDEN",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_AT_FLORA",
+    "effect": [],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "math": [
+            "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_AT_KNIGHT",
+    "effect": [],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "math": [
+            "n_monsters_nearby('mon_skull_knight_rescuer', 'radius': 0, 'attitude': 'both') > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GODO_KNOWS",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        {
+          "or": [
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_apostol_godo_told == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_demon_refused == 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_common33_godo_disclosed == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GODO_CONCEALED",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
+        },
+        {
+          "not": {
+            "or": [
+              {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_apostol_godo_told == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_godo_demon_refused == 1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_common33_godo_disclosed == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+              }
+            ]
+          }
+        },
+        {
+          "math": [
+            "u_berserk_common33_godo_lie_passed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GODO_ALLOWED",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_CONCEALED"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+        },
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
+            },
+            {
+              "not": {
+                "or": [
+                  {
+                    "or": [
+                      {
+                        "math": [
+                          "u_berserk_apostol_godo_told == 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_godo_demon_refused == 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_common33_godo_disclosed == 1"
+                    ]
+                  },
+                  {
+                    "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GODO_PENDING",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
+        },
+        {
+          "not": {
+            "or": [
+              {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_apostol_godo_told == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_godo_demon_refused == 1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_common33_godo_disclosed == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+              }
+            ]
+          }
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_common33_godo_lie_passed == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GODO_TELL",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_common33_godo_disclosed = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_godo_told = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GODO_LIE_SUCCESS",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_common33_godo_lie_passed = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_PENDING"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GODO_LIE_FAILURE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_common33_godo_lie_failed = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COMMON33_GODO_TELL"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_GODO_PENDING"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GODO_NOTICE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_COMMON33_GODO_TELL"
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_RICKERT_KNOWS",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        {
+          "or": [
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_apostol_rickert_told == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_rickert_counsel == 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_common33_rickert_disclosed == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_RICKERT_CONCEALED",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
+        },
+        {
+          "not": {
+            "or": [
+              {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_apostol_rickert_told == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_apostol_rickert_counsel == 1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_common33_rickert_disclosed == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+              }
+            ]
+          }
+        },
+        {
+          "math": [
+            "u_berserk_common33_rickert_lie_passed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_RICKERT_ALLOWED",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_CONCEALED"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_RICKERT_WORK_OPEN",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+        },
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
+            },
+            {
+              "not": {
+                "or": [
+                  {
+                    "or": [
+                      {
+                        "math": [
+                          "u_berserk_apostol_rickert_told == 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_apostol_rickert_counsel == 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_common33_rickert_disclosed == 1"
+                    ]
+                  },
+                  {
+                    "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_RICKERT_PENDING",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
+        },
+        {
+          "not": {
+            "or": [
+              {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_apostol_rickert_told == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_apostol_rickert_counsel == 1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_common33_rickert_disclosed == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+              }
+            ]
+          }
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_common33_rickert_lie_passed == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_RICKERT_TELL",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_common33_rickert_disclosed = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_apostol_rickert_told = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_RICKERT_LIE_SUCCESS",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_common33_rickert_lie_passed = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_RICKERT_LIE_FAILURE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_common33_rickert_lie_failed = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COMMON33_RICKERT_TELL"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_RICKERT_NOTICE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_COMMON33_RICKERT_TELL"
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_FLORA_KNOWS",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        {
+          "or": [
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_berserk_flora33_demon_noticed == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_ref_flora_demon_counsel == 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_common33_flora_disclosed == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_FLORA_CONCEALED",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
+        },
+        {
+          "not": {
+            "or": [
+              {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_flora33_demon_noticed == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_ref_flora_demon_counsel == 1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_common33_flora_disclosed == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+              }
+            ]
+          }
+        },
+        {
+          "math": [
+            "u_berserk_common33_flora_lie_passed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_FLORA_ALLOWED",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_FLORA_CONCEALED"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_FLORA_WORK_OPEN",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+        },
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
+            },
+            {
+              "not": {
+                "or": [
+                  {
+                    "or": [
+                      {
+                        "math": [
+                          "u_berserk_flora33_demon_noticed == 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_ref_flora_demon_counsel == 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_common33_flora_disclosed == 1"
+                    ]
+                  },
+                  {
+                    "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_FLORA_PENDING",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
+        },
+        {
+          "not": {
+            "or": [
+              {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_flora33_demon_noticed == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_ref_flora_demon_counsel == 1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_common33_flora_disclosed == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+              }
+            ]
+          }
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_common33_flora_lie_passed == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_FLORA_TELL",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_common33_flora_disclosed = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_flora33_demon_noticed = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_AT_FLORA"
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_FLORA_LIE_SUCCESS",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_common33_flora_lie_passed = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_AT_FLORA"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_FLORA_PENDING"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_FLORA_LIE_FAILURE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_common33_flora_lie_failed = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COMMON33_FLORA_TELL"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_AT_FLORA"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_FLORA_PENDING"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_FLORA_NOTICE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_COMMON33_FLORA_TELL"
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_AT_FLORA"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_KNIGHT_KNOWS",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_common33_knight_disclosed == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_common33_knight_disclosed == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_KNIGHT_CONCEALED",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
+        },
+        {
+          "not": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_common33_knight_disclosed == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_common33_knight_disclosed == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+              }
+            ]
+          }
+        },
+        {
+          "math": [
+            "u_berserk_common33_knight_lie_passed == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_KNIGHT_ALLOWED",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_KNIGHT_CONCEALED"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_KNIGHT_WORK_OPEN",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+        },
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
+            },
+            {
+              "not": {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_common33_knight_disclosed == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_common33_knight_disclosed == 1"
+                    ]
+                  },
+                  {
+                    "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_KNIGHT_PENDING",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
+        },
+        {
+          "not": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_common33_knight_disclosed == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_common33_knight_disclosed == 1"
+                ]
+              },
+              {
+                "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+              }
+            ]
+          }
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_common33_knight_lie_passed == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_KNIGHT_TELL",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_common33_knight_disclosed = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_AT_KNIGHT"
+        },
+        {
+          "not": {
+            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_KNIGHT_LIE_SUCCESS",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_common33_knight_lie_passed = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_AT_KNIGHT"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_KNIGHT_PENDING"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_KNIGHT_LIE_FAILURE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_common33_knight_lie_failed = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COMMON33_KNIGHT_TELL"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_AT_KNIGHT"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_KNIGHT_PENDING"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_KNIGHT_NOTICE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_COMMON33_KNIGHT_TELL"
+    },
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_AT_KNIGHT"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_COMMON33_VISIBLE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_FLORA_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "berserk_eclipse_era == 1"
+                      ]
+                    },
+                    {
+                      "or": [
+                        {
+                          "math": [
+                            "u_berserk_eclipse_rescue_state == 2"
+                          ]
+                        },
+                        {
+                          "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    "has_beta",
+                    "npc_is_monster",
+                    {
+                      "math": [
+                        "n_monsters_nearby('mon_berserk_flora', 'radius': 0, 'attitude': 'both') > 0"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_flora_armor_resolved != 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_armor_claimed != 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+                  }
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "berserk_flora_stage <= 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "berserk_flora_siege_state <= 1"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_AT_REGISTERED_MANOR"
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA33_LATE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GODO_EARLY_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+            },
+            {
+              "math": [
+                "u_berserk_godo_early_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_godo_early_ready_at"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GODO_SWORD_READY",
+    "effect": [],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state == 3"
+                  ]
+                },
+                {
+                  "math": [
+                    "time('now') >= u_berserk_godo_sword_ready_at"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GRIFFITH_LOCATION",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "common33_actor_pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COMMON33_GRIFFITH_OBSERVED",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GRIFFITH_OBSERVED",
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        },
+        "then": {
+          "u_message": "Среди движущихся тел впереди видна неподвижная фигура. Остальные существа словно оставляют вокруг неё свободное пространство.\n\n«Гриффит!»\n\nФигура поворачивает голову.",
+          "type": "warning",
+          "popup": true
+        },
+        "else": {
+          "u_message": "Среди движущихся тел впереди видна неподвижная фигура. Остальные существа словно оставляют вокруг неё свободное пространство.\n\n«Ты управляешь ими?»\n\nОтвета нет. Но теперь вы чувствуете, что ваше приближение заметили.",
+          "type": "warning",
+          "popup": true
+        }
+      },
+      {
+        "math": [
+          "u_berserk_common33_scene_griffith = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_grasp_state == 0"
+              ]
+            }
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_common33_scene_griffith == 1"
+            ]
+          }
+        },
+        {
+          "u_can_see_location": {
+            "context_val": "common33_actor_pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_ZODD_LOCATION",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "common33_actor_pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COMMON33_ZODD_OBSERVED",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_ZODD_OBSERVED",
+    "effect": [
+      {
+        "if": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        },
+        "then": {
+          "u_message": "За внешним рубежом слышится тяжёлый удар. Между деревьями возникает огромная фигура.\n\nЗодд: «Зодд:— Покажи, как далеко ты дошёл, мечник.»",
+          "type": "warning",
+          "popup": false
+        },
+        "else": {
+          "u_message": "За внешним рубежом слышится тяжёлый удар. Между деревьями возникает огромная фигура.\n\nЗодд: «Зодд:— Отойди, если хочешь жить.»",
+          "type": "warning",
+          "popup": false
+        }
+      },
+      {
+        "math": [
+          "u_berserk_common33_scene_zodd = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_siege_state >= 2"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_siege_state <= 4"
+              ]
+            }
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_common33_scene_zodd == 1"
+            ]
+          }
+        },
+        {
+          "u_can_see_location": {
+            "context_val": "common33_actor_pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GRUNBELD_LOCATION",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "common33_actor_pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COMMON33_GRUNBELD_OBSERVED",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GRUNBELD_OBSERVED",
+    "effect": [
+      {
+        "u_message": "Грюнбельд останавливается у внешнего рубежа. «Отступите от дома».",
+        "type": "warning",
+        "popup": false
+      },
+      {
+        "math": [
+          "u_berserk_common33_scene_grunbeld = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "and": [
+            {
+              "math": [
+                "berserk_flora_siege_state >= 2"
+              ]
+            },
+            {
+              "math": [
+                "berserk_flora_siege_state <= 4"
+              ]
+            }
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_common33_scene_grunbeld == 1"
+            ]
+          }
+        },
+        {
+          "u_can_see_location": {
+            "context_val": "common33_actor_pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_OBSERVE",
+    "effect": [
+      {
+        "u_run_monster_eocs": [
+          "EOC_BERSERK_COMMON33_GRIFFITH_LOCATION"
+        ],
+        "mtype_ids": [
+          "mon_berserk_eclipse_griffith_active"
+        ],
+        "monster_range": 50
+      },
+      {
+        "u_run_monster_eocs": [
+          "EOC_BERSERK_COMMON33_ZODD_LOCATION"
+        ],
+        "mtype_ids": [
+          "mon_berserk_flora_zodd"
+        ],
+        "monster_range": 50
+      },
+      {
+        "u_run_monster_eocs": [
+          "EOC_BERSERK_COMMON33_GRUNBELD_LOCATION"
+        ],
+        "mtype_ids": [
+          "mon_berserk_flora_grunbeld"
+        ],
+        "monster_range": 50
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_OBSERVE_NOW",
+    "effect": [
+      {
+        "u_run_monster_eocs": [
+          "EOC_BERSERK_COMMON33_GRIFFITH_LOCATION"
+        ],
+        "mtype_ids": [
+          "mon_berserk_eclipse_griffith_active"
+        ],
+        "monster_range": 50
+      },
+      {
+        "u_run_monster_eocs": [
+          "EOC_BERSERK_COMMON33_ZODD_LOCATION"
+        ],
+        "mtype_ids": [
+          "mon_berserk_flora_zodd"
+        ],
+        "monster_range": 50
+      },
+      {
+        "u_run_monster_eocs": [
+          "EOC_BERSERK_COMMON33_GRUNBELD_LOCATION"
+        ],
+        "mtype_ids": [
+          "mon_berserk_flora_grunbeld"
+        ],
+        "monster_range": 50
+      }
+    ],
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_ZODD_HIT",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "common33_combat_pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COMMON33_ZODD_COMBAT",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "monster_takes_damage",
+    "condition": {
+      "and": [
+        "u_is_monster",
+        "has_beta",
+        {
+          "or": [
+            "npc_is_avatar",
+            "npc_following"
+          ]
+        },
+        {
+          "math": [
+            "u_monsters_nearby('mon_berserk_flora_zodd', 'radius': 0, 'attitude': 'both') > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_ZODD_COMBAT",
+    "effect": [
+      {
+        "u_message": "Зодд: «Зодд:— Значит, останешься.»",
+        "type": "warning",
+        "popup": false
+      },
+      {
+        "math": [
+          "u_berserk_common33_scene_zodd_combat = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "not": {
+            "math": [
+              "u_berserk_common33_scene_zodd_combat == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "berserk_flora_siege_state >= 2"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_siege_state <= 4"
+          ]
+        },
+        {
+          "u_can_see_location": {
+            "context_val": "common33_combat_pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GRUNBELD_HIT",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "common33_combat_pos"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_COMMON33_GRUNBELD_COMBAT",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "monster_takes_damage",
+    "condition": {
+      "and": [
+        "u_is_monster",
+        "has_beta",
+        {
+          "or": [
+            "npc_is_avatar",
+            "npc_following"
+          ]
+        },
+        {
+          "math": [
+            "u_monsters_nearby('mon_berserk_flora_grunbeld', 'radius': 0, 'attitude': 'both') > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_GRUNBELD_COMBAT",
+    "effect": [
+      {
+        "u_message": "Грюнбельд: «Грюнбельд:— Ты решил защищать его. Тогда держи удар.»",
+        "type": "warning",
+        "popup": false
+      },
+      {
+        "math": [
+          "u_berserk_common33_scene_grunbeld_combat = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "not": {
+            "math": [
+              "u_berserk_common33_scene_grunbeld_combat == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "berserk_flora_siege_state >= 2"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_siege_state <= 4"
+          ]
+        },
+        {
+          "u_can_see_location": {
+            "context_val": "common33_combat_pos"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_COMMON33_LINE_38463F2DBC47",
+    "effect": [],
+    "condition": "npc_following"
+  }
+]

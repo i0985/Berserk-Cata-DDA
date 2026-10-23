@@ -208,6 +208,39 @@
         ]
       },
       {
+        "text": "About the strange stone and the changes.",
+        "topic": "TALK_BERSERK_COMMON33_KNIGHT_MENU",
+        "condition": {
+          "or": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
+              }
+            },
+            {
+              "u_has_item": "berserk_behelit"
+            },
+            {
+              "u_has_item": "berserk_behelit_distorted"
+            },
+            {
+              "and": [
+                {
+                  "math": [
+                    "u_berserk_apostol_outcome == 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_apostol_return_state == 2"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      },
+      {
         "text": "That is enough for now. I will speak to you again.",
         "topic": "TALK_DONE",
         "effect": [
@@ -223,7 +256,14 @@
         ]
       }
     ],
-    "//": "Approved Skull Knight script 2026-10-22; ordinary close is not farewell."
+    "//": "Approved Skull Knight script 2026-10-22; ordinary close is not farewell.",
+    "speaker_effect": {
+      "effect": [
+        {
+          "run_eocs": "EOC_BERSERK_COMMON33_KNIGHT_NOTICE"
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",

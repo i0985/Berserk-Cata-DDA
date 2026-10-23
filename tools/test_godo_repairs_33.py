@@ -65,6 +65,11 @@ class Repair:
         if 'u_has_items' in obj:
             x = obj['u_has_items']; return self.items[x['item']] >= x['count']
         if 'test_eoc' in obj:
+            if obj['test_eoc']=='EOC_BERSERK_COMMON33_GODO_WORK_OPEN':
+                from test_recovery_33 import StateGraph
+                graph=StateGraph();graph.values.update(self.vars)
+                graph.overrides['EOC_BERSERK_APOSTOL_FORM_VISIBLE']=False
+                return graph.condition(obj)
             if obj['test_eoc'] == 'EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED':
                 return not (self.vars['u_berserk_apostol_path'] or self.vars['u_berserk_apostol_human_equipment_locked'])
             assert obj['test_eoc'] == 'EOC_BERSERK_GODO_AT_SMITH'
@@ -247,7 +252,7 @@ class Repairs(unittest.TestCase):
         self.assertEqual(f.floor[0]['hp'], 4000)
 
     def test_demonic_path_refuses_new_dragonslayer_work_but_honors_existing_order(self):
-        f = Repair(); f.vars['u_berserk_apostol_path'] = 1; f.blade(id='true_guts_sword')
+        f = Repair(); f.vars['u_berserk_apostol_path'] = 1;f.vars['u_berserk_apostol_godo_told']=1; f.blade(id='true_guts_sword')
         f.run('PICK'); self.assertEqual(len(f.carried),1); self.assertFalse(f.floor)
         self.assertEqual(f.items['steel_lump'],3)
         f.vars['u_berserk_apostol_path']=0; f.run('PICK')

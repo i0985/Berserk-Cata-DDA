@@ -184,7 +184,7 @@ class HumanEquipment(unittest.TestCase):
         self.assertEqual(before, g.inventory)
 
     def test_early_paid_order_refunds_once_without_awarding_a_sword(self):
-        g = StateGraph(); g.values.update(u_berserk_apostol_path=3, u_berserk_godo_early_state=2)
+        g = StateGraph(); g.values.update(u_berserk_apostol_path=3, u_berserk_godo_early_state=2,u_berserk_apostol_godo_told=1)
         g.run('EOC_BERSERK_GODO_EARLY_CLAIM')
         self.assertFalse(g.inventory)
         g.run('EOC_BERSERK_GODO_EARLY_REFUND'); before = g.inventory.copy()
@@ -196,7 +196,7 @@ class HumanEquipment(unittest.TestCase):
 
     def test_dragonslayer_refunds_actual_partial_and_full_payments_once(self):
         for state, paid in [(1,8), (2,32), (3,32)]:
-            g = StateGraph(); g.values.update(u_berserk_apostol_path=2,
+            g = StateGraph(); g.values.update(u_berserk_apostol_path=2,u_berserk_apostol_godo_told=1,
                 u_berserk_godo_sword_state=state, u_berserk_godo_sword_iron_given=paid)
             g.run('EOC_BERSERK_GODO_SWORD_CLAIM'); self.assertFalse(g.inventory)
             g.run('EOC_BERSERK_GODO_SWORD_REFUND'); before = g.inventory.copy()
@@ -211,8 +211,10 @@ class HumanEquipment(unittest.TestCase):
         for suffix in ['START_SWORD','SWORD_IRON','SWORD_TEMPER','SWORD_CLAIM',
                        'START_EARLY_SWORD','EARLY_MATERIALS','EARLY_CLAIM']:
             condition = g.eocs['EOC_BERSERK_GODO_' + suffix]['condition']
-            self.assertIn({'test_eoc': self.allowed}, list(walk(condition)))
-        self.assertIn({'test_eoc': self.allowed}, list(walk(g.eocs['EOC_BERSERK_FLORA_CAN_RECEIVE']['condition'])))
+            gate='EOC_BERSERK_COMMON33_GODO_ALLOWED' if suffix.endswith('CLAIM') else 'EOC_BERSERK_COMMON33_GODO_WORK_OPEN'
+            self.assertIn({'test_eoc':gate},list(walk(condition)))
+            self.assertIn({'test_eoc':self.allowed},list(walk(g.eocs[gate]['condition'])))
+        self.assertIn({'test_eoc':'EOC_BERSERK_COMMON33_FLORA_ALLOWED'}, list(walk(g.eocs['EOC_BERSERK_FLORA_CAN_RECEIVE']['condition'])))
         ready = g.eocs['EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE']['condition']
         # Continuation now works without an armor grant for human refusal,
         # existing owners and demon paths. Only the reward tests the lock.

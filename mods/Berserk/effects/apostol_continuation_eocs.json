@@ -495,25 +495,7 @@
     "id": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT",
     "effect": [],
     "condition": {
-      "and": [
-        {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
-          }
-        },
-        {
-          "or": [
-            {
-              "math": [
-                "u_berserk_apostol_godo_told == 1"
-              ]
-            },
-            {
-              "test_eoc": "EOC_BERSERK_APOSTOL_FORM_VISIBLE"
-            }
-          ]
-        }
-      ]
+      "test_eoc": "EOC_BERSERK_COMMON33_GODO_KNOWS"
     }
   },
   {
@@ -521,25 +503,7 @@
     "id": "EOC_BERSERK_APOSTOL_RICKERT_KNOWS_GIFT",
     "effect": [],
     "condition": {
-      "and": [
-        {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
-          }
-        },
-        {
-          "or": [
-            {
-              "math": [
-                "u_berserk_apostol_rickert_told == 1"
-              ]
-            },
-            {
-              "test_eoc": "EOC_BERSERK_APOSTOL_FORM_VISIBLE"
-            }
-          ]
-        }
-      ]
+      "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_KNOWS"
     }
   },
   {

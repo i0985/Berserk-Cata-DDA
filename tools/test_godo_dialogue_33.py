@@ -161,7 +161,8 @@ class Dialogue(unittest.TestCase):
     def test_hidden_gift_does_not_make_godot_omniscient_and_refund_survives(self):
         f=Conversation();f.demon();f.values.update(u_berserk_godo_sword_state=1,u_berserk_godo_sword_iron_given=8)
         self.assertNotIn('body',f.line(''))
-        self.assertIn('tell me before we continue',f.line('SWORD'))
+        self.assertTrue(f.condition({'test_eoc':'EOC_BERSERK_COMMON33_GODO_PENDING'}))
+        self.assertNotIn('no new blade',f.line('SWORD'))
         f.choose('','TALK_BERSERK_APOSTOL_GODO')
         self.assertEqual(f.values['u_berserk_apostol_godo_told'],1)
         self.assertIn('no new blade',f.line('SWORD'))

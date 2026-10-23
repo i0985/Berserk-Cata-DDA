@@ -43,6 +43,10 @@ class GraspGraph(HuntGraph):
         return super().condition(value)
 
     def run(self, id):
+        if id == 'EOC_BERSERK_COMMON33_OBSERVE_NOW':
+            # This fixture supplies no avatar sight. Actual visible/unseen
+            # scene callbacks are exercised in test_common_dialogue_33.
+            return
         e = self.eocs[id]
         key = 'effect' if 'condition' not in e or self.condition(e['condition']) else 'false_effect'
         if key in e:

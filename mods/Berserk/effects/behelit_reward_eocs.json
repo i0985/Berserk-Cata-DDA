@@ -88,6 +88,27 @@
             ]
           }
         ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "distance('u', _berserk_behelit_drop_pos) <= 3"
+              ]
+            },
+            {
+              "u_can_see_location": {
+                "context_val": "berserk_behelit_drop_pos"
+              }
+            }
+          ]
+        },
+        "then": {
+          "u_message": "Там, где исчезла фигура, остался странный камень.",
+          "type": "info",
+          "popup": false
+        }
       }
     ]
   },

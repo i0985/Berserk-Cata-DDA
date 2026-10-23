@@ -93,6 +93,7 @@ class FloraDialogue(unittest.TestCase):
         self.assertEqual(f.values['u_berserk_flora33_queued'],1)
     def test_demon_notice_has_three_answers_and_armor_is_forbidden(self):
         f=Flora();f.values.update(u_berserk_apostol_path=1,u_berserk_apostol_human_equipment_locked=1)
+        f.traits.add('BERSERK_SLAN_FORM')  # Visible truth; hidden gifts now have a LIE trial.
         self.assertIn(tid('APOSTOL_PRIVATE'),f.targets('TALK_BERSERK_FLORA'))
         f.pick('TALK_BERSERK_FLORA','APOSTOL_PRIVATE')
         self.assertEqual(f.values['u_berserk_flora33_demon_noticed'],1)
