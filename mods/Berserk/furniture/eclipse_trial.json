@@ -22,14 +22,20 @@
     "type": "furniture",
     "id": "f_berserk_eclipse_arrival_scar",
     "name": "sealed Eclipse passage",
-    "description": "The Behelit has dissolved into this scar of flesh. There is no passage back.",
+    "description": "Рубец там, где сомкнулся проход. Живая ткань подрагивает под ногами.",
     "symbol": "O",
     "color": "dark_gray",
     "move_cost_mod": 0,
     "required_str": -1,
     "flags": [
       "TRANSPARENT"
-    ]
+    ],
+    "examine_action": {
+      "type": "effect_on_condition",
+      "effect_on_conditions": [
+        "EOC_BERSERK_HAND33_START_USE"
+      ]
+    }
   },
   {
     "type": "furniture",

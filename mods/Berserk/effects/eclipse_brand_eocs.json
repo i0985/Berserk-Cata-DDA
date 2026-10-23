@@ -81,37 +81,48 @@
     "condition": {
       "and": [
         {
-          "u_has_bionics": "bio_berserk_brand_of_sacrifice"
-        },
-        {
-          "math": [
-            "berserk_eclipse_era == 1"
-          ]
-        },
-        {
-          "math": [
-            "u_val('pos_z') == 0"
-          ]
-        },
-        {
-          "math": [
-            "u_berserk_eclipse_trial_active != 1"
+          "and": [
+            {
+              "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+            },
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_val('pos_z') == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_SOLAR_DAY"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FLORA_NIGHT_QUIET"
+              }
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_brand_night_next_attempt"
+              ]
+            }
           ]
         },
         {
           "not": {
-            "test_eoc": "EOC_BERSERK_SOLAR_DAY"
+            "math": [
+              "berserk_godhand_defeated == 1"
+            ]
           }
-        },
-        {
-          "not": {
-            "test_eoc": "EOC_BERSERK_FLORA_NIGHT_QUIET"
-          }
-        },
-        {
-          "math": [
-            "time('now') >= u_berserk_brand_night_next_attempt"
-          ]
         }
       ]
     },

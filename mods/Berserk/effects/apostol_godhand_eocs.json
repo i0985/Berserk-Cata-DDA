@@ -3,13 +3,20 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_HAND_ATTACK_CHARACTER_MELEE_ATTACKS_MONSTER",
     "effect": {
-      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_RAGE"
+      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_RAGE",
+      "alpha_talker": "avatar"
     },
     "eoc_type": "EVENT",
     "required_event": "character_melee_attacks_monster",
     "condition": {
       "and": [
-        "u_is_avatar",
+        {
+          "or": [
+            "u_is_avatar",
+            "u_following",
+            "u_friend"
+          ]
+        },
         "has_beta",
         {
           "npc_has_species": "BERSERK_GODHAND"
@@ -21,13 +28,20 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_HAND_ATTACK_CHARACTER_RANGED_ATTACKS_MONSTER",
     "effect": {
-      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_RAGE"
+      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_RAGE",
+      "alpha_talker": "avatar"
     },
     "eoc_type": "EVENT",
     "required_event": "character_ranged_attacks_monster",
     "condition": {
       "and": [
-        "u_is_avatar",
+        {
+          "or": [
+            "u_is_avatar",
+            "u_following",
+            "u_friend"
+          ]
+        },
         "has_beta",
         {
           "npc_has_species": "BERSERK_GODHAND"
@@ -40,7 +54,8 @@
     "id": "EOC_BERSERK_APOSTOL_HAND_DAMAGE",
     "effect": {
       "run_eocs": "EOC_BERSERK_APOSTOL_HAND_RAGE",
-      "alpha_talker": "avatar"
+      "alpha_talker": "avatar",
+      "beta_talker": "u"
     },
     "eoc_type": "EVENT",
     "required_event": "monster_takes_damage",
@@ -51,7 +66,13 @@
           "u_has_species": "BERSERK_GODHAND"
         },
         "has_beta",
-        "npc_is_avatar"
+        {
+          "or": [
+            "npc_is_avatar",
+            "npc_following",
+            "npc_friend"
+          ]
+        }
       ]
     }
   },
@@ -78,17 +99,37 @@
         "monster_range": 80
       },
       {
-        "u_message": "The five voices fall silent. The figures turn toward you.",
-        "type": "bad"
+        "run_eocs": "EOC_BERSERK_HAND33_COMBAT_LINES"
       }
     ],
     "condition": {
       "and": [
-        "u_is_avatar",
         {
-          "math": [
-            "u_berserk_apostol_godhand_attacked == 0"
+          "and": [
+            "u_is_avatar",
+            {
+              "math": [
+                "u_berserk_eclipse_route == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 0"
+              ]
+            }
           ]
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_apostol_godhand_attacked == 1"
+            ]
+          }
         },
         {
           "u_at_om_location": "berserk_eclipse_apostol_ceremony"
@@ -133,9 +174,25 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_HAND_VOID_DIED",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_VOID_INTRODUCED",
-      "alpha_talker": "avatar"
+    "effect": [
+      {
+        "npc_location_variable": {
+          "context_val": "hand33_dead_point"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_VOID_DEATH_RECORD",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_GODHAND"
+        }
+      ]
     }
   },
   {
@@ -167,9 +224,25 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_HAND_SLAN_DIED",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_SLAN_INTRODUCED",
-      "alpha_talker": "avatar"
+    "effect": [
+      {
+        "npc_location_variable": {
+          "context_val": "hand33_dead_point"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_SLAN_DEATH_RECORD",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_GODHAND"
+        }
+      ]
     }
   },
   {
@@ -201,9 +274,25 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_HAND_UBIK_DIED",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_UBIK_INTRODUCED",
-      "alpha_talker": "avatar"
+    "effect": [
+      {
+        "npc_location_variable": {
+          "context_val": "hand33_dead_point"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_UBIK_DEATH_RECORD",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_GODHAND"
+        }
+      ]
     }
   },
   {
@@ -235,9 +324,25 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_HAND_CONRAD_DIED",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_CONRAD_INTRODUCED",
-      "alpha_talker": "avatar"
+    "effect": [
+      {
+        "npc_location_variable": {
+          "context_val": "hand33_dead_point"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_CONRAD_DEATH_RECORD",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_GODHAND"
+        }
+      ]
     }
   },
   {
@@ -269,9 +374,25 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_HAND_FEMTO_DIED",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_APOSTOL_HAND_FEMTO_INTRODUCED",
-      "alpha_talker": "avatar"
+    "effect": [
+      {
+        "npc_location_variable": {
+          "context_val": "hand33_dead_point"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_FEMTO_DEATH_RECORD",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": {
+      "and": [
+        "has_beta",
+        "npc_is_monster",
+        {
+          "npc_has_species": "BERSERK_GODHAND"
+        }
+      ]
     }
   },
   {
@@ -438,6 +559,9 @@
             ]
           }
         }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_INTRO"
       }
     ],
     "condition": {

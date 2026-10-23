@@ -227,6 +227,11 @@
         },
         "then": [
           {
+            "u_location_variable": {
+              "u_val": "berserk_hand33_arrival"
+            }
+          },
+          {
             "math": [
               "u_berserk_eclipse_route = 2"
             ]
@@ -301,36 +306,37 @@
       {
         "if": {
           "math": [
-            "u_berserk_apostol_return_state == 1"
+            "u_berserk_apostol_godhand_attacked == 1"
           ]
         },
         "then": {
-          "run_eocs": "EOC_BERSERK_APOSTOL_RETURN"
+          "u_message": "Впереди нет выхода. Разорванный проход остался там, где вы вошли в это поле.",
+          "type": "warning",
+          "popup": false
         },
         "else": {
           "if": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+            "math": [
+              "u_berserk_apostol_return_state == 1"
+            ]
           },
           "then": {
+            "run_eocs": "EOC_BERSERK_APOSTOL_RETURN"
+          },
+          "else": {
             "if": {
-              "math": [
-                "u_berserk_apostol_refusal_seen == 1"
-              ]
+              "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
             },
             "then": {
               "open_dialogue": {
-                "topic": "TALK_BERSERK_APOSTOL_LAST_CHOICE"
+                "topic": "TALK_BERSERK_APOSTOL_OFFER"
               }
             },
             "else": {
-              "open_dialogue": {
-                "topic": "TALK_BERSERK_APOSTOL_OFFER"
-              }
+              "u_message": "Круг молчит.",
+              "type": "neutral",
+              "popup": false
             }
-          },
-          "else": {
-            "u_message": "The circle is silent.",
-            "type": "neutral"
           }
         }
       }
@@ -913,6 +919,16 @@
               "math": [
                 "u_berserk_apostol_outcome == 2"
               ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_outcome == 3"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_outcome == 4"
+              ]
             }
           ]
         }
@@ -935,41 +951,77 @@
       },
       {
         "math": [
-          "berserk_eclipse_era = 1"
+          "berserk_eclipse_happened = 1"
         ]
-      },
-      {
-        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
       },
       {
         "if": {
           "math": [
-            "u_berserk_apostol_outcome == 1"
+            "u_berserk_apostol_outcome == 4"
           ]
         },
-        "then": [
-          {
-            "run_eocs": "EOC_BERSERK_APOSTOL_GIFT_BEGIN"
+        "then": {
+          "run_eocs": "EOC_BERSERK_HAND33_VICTORY_COMMIT"
+        },
+        "else": {
+          "if": {
+            "math": [
+              "u_berserk_apostol_outcome == 3"
+            ]
           },
-          {
-            "u_message": "Вы вернулись в мир живых. Перед глазами всё ещё стоят разбитая дорога и пепельная рана. Этот след не забыт. Найдите еду и место для отдыха, прежде чем идти дальше.",
-            "type": "warning",
-            "popup": true
-          }
-        ],
-        "else": [
-          {
-            "run_eocs": "EOC_BERSERK_APOSTOL_APPLY_REFUSAL_SCAR"
+          "then": {
+            "run_eocs": "EOC_BERSERK_HAND33_ESCAPE_COMMIT"
           },
-          {
-            "u_message": "Вы вернулись в мир живых. Перед глазами всё ещё стоят разбитая дорога и пепельная рана. Этот след не забыт. Найдите еду и место для отдыха, прежде чем идти дальше.",
-            "type": "warning",
-            "popup": true
-          }
-        ]
-      },
-      {
-        "run_eocs": "EOC_BERSERK_APOSTOL_CONTINUATION_BEGIN"
+          "else": [
+            {
+              "if": {
+                "not": {
+                  "math": [
+                    "berserk_godhand_defeated == 1"
+                  ]
+                }
+              },
+              "then": {
+                "math": [
+                  "berserk_eclipse_era = 1"
+                ]
+              }
+            },
+            {
+              "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+            },
+            {
+              "if": {
+                "math": [
+                  "u_berserk_apostol_outcome == 1"
+                ]
+              },
+              "then": [
+                {
+                  "run_eocs": "EOC_BERSERK_APOSTOL_GIFT_BEGIN"
+                },
+                {
+                  "u_message": "Вы снова стоите под знакомым небом. Внутри шевелится нечто чужое. Принятое не осталось за порогом.",
+                  "type": "warning",
+                  "popup": true
+                }
+              ],
+              "else": [
+                {
+                  "run_eocs": "EOC_BERSERK_APOSTOL_APPLY_REFUSAL_SCAR"
+                },
+                {
+                  "u_message": "Вы вернулись человеком. Но тишина не приносит покоя: что-то из пережитого осталось с вами.",
+                  "type": "warning",
+                  "popup": true
+                }
+              ]
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_CONTINUATION_BEGIN"
+            }
+          ]
+        }
       },
       {
         "run_eocs": "EOC_BERSERK_REF_SYNC"
@@ -1294,7 +1346,16 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_CHOOSE_GIFT",
     "condition": {
-      "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        },
+        {
+          "math": [
+            "u_berserk_hand33_choice_confirmed == 1"
+          ]
+        }
+      ]
     },
     "effect": [
       {

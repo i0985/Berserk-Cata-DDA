@@ -638,9 +638,18 @@
         ]
       },
       {
-        "math": [
-          "berserk_eclipse_era = 1"
-        ]
+        "if": {
+          "not": {
+            "math": [
+              "berserk_godhand_defeated == 1"
+            ]
+          }
+        },
+        "then": {
+          "math": [
+            "berserk_eclipse_era = 1"
+          ]
+        }
       },
       {
         "math": [

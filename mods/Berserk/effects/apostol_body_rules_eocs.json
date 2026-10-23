@@ -221,9 +221,18 @@
     "id": "EOC_BERSERK_APOSTOL_RESTORE_WORLD_ERA",
     "effect": [
       {
-        "math": [
-          "berserk_eclipse_era = 1"
-        ]
+        "if": {
+          "not": {
+            "math": [
+              "berserk_godhand_defeated == 1"
+            ]
+          }
+        },
+        "then": {
+          "math": [
+            "berserk_eclipse_era = 1"
+          ]
+        }
       },
       {
         "run_eocs": "EOC_BERSERK_REF_SYNC"

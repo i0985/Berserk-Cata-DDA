@@ -2422,13 +2422,22 @@
     "condition": {
       "or": [
         {
-          "math": [
-            "berserk_eclipse_era == 1"
+          "or": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            }
           ]
         },
         {
           "math": [
-            "u_berserk_eclipse_rescue_state == 2"
+            "berserk_eclipse_happened == 1"
           ]
         }
       ]

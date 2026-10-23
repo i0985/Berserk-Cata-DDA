@@ -1,0 +1,903 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_VOID_DEATH_RECORD",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_hand33_void_dead = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_CHECK_VICTORY"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "math": [
+                "u_berserk_eclipse_route == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_godhand_attacked == 1"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_eclipse_apostol_ceremony",
+          "point": {
+            "context_val": "hand33_dead_point"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_SLAN_DEATH_RECORD",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_hand33_slan_dead = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_CHECK_VICTORY"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "math": [
+                "u_berserk_eclipse_route == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_godhand_attacked == 1"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_eclipse_apostol_ceremony",
+          "point": {
+            "context_val": "hand33_dead_point"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_UBIK_DEATH_RECORD",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_hand33_ubik_dead = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_CHECK_VICTORY"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "math": [
+                "u_berserk_eclipse_route == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_godhand_attacked == 1"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_eclipse_apostol_ceremony",
+          "point": {
+            "context_val": "hand33_dead_point"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_CONRAD_DEATH_RECORD",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_hand33_conrad_dead = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_CHECK_VICTORY"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "math": [
+                "u_berserk_eclipse_route == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_godhand_attacked == 1"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_eclipse_apostol_ceremony",
+          "point": {
+            "context_val": "hand33_dead_point"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_FEMTO_DEATH_RECORD",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_hand33_femto_dead = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_CHECK_VICTORY"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "math": [
+                "u_berserk_eclipse_route == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_godhand_attacked == 1"
+          ]
+        },
+        {
+          "overmap_at_point": "berserk_eclipse_apostol_ceremony",
+          "point": {
+            "context_val": "hand33_dead_point"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_INTRO",
+    "effect": [
+      {
+        "u_message": "Тропа обрывается резко — не постепенно, а так, будто мир сам решил, где ей закончиться. Пространство впереди не похоже ни на лес, ни на пещеру, ни вообще на что-то знакомое: свет здесь идёт ниоткуда и отовсюду сразу, не отбрасывая теней.\n\nПять фигур стоят полукругом. Ни одна не делает шага навстречу — ждут, будто это герою решать, подходить или нет.\n\nТяжёлый пульс отдаётся в ладони, хотя камня в ней больше нет.\n\nВойд: «Зов услышан. Ты дошёл до места, где можешь дать ответ.»",
+        "type": "warning",
+        "popup": true
+      },
+      {
+        "math": [
+          "u_berserk_hand33_scene_seen = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_hand33_scene_seen == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_COMBAT_LINES",
+    "effect": {
+      "if": {
+        "and": [
+          "has_beta",
+          "npc_is_monster",
+          {
+            "math": [
+              "n_monsters_nearby('mon_berserk_godhand_void', 'radius': 0, 'attitude': 'both') > 0"
+            ]
+          }
+        ]
+      },
+      "then": {
+        "u_message": "Войд: Ты обратил действие против тех, чей ответ ещё ожидал.\n\nПять голосов умолкают. У начала тропы разрывается сомкнувшийся проход.",
+        "type": "bad",
+        "popup": false
+      },
+      "else": {
+        "if": {
+          "and": [
+            "has_beta",
+            "npc_is_monster",
+            {
+              "math": [
+                "n_monsters_nearby('mon_berserk_godhand_slan', 'radius': 0, 'attitude': 'both') > 0"
+              ]
+            }
+          ]
+        },
+        "then": {
+          "u_message": "Слан: Значит, вот как ты решил выразить своё желание. Что ж — посмотрим.\n\nПять голосов умолкают. У начала тропы разрывается сомкнувшийся проход.",
+          "type": "bad",
+          "popup": false
+        },
+        "else": {
+          "if": {
+            "and": [
+              "has_beta",
+              "npc_is_monster",
+              {
+                "math": [
+                  "n_monsters_nearby('mon_berserk_godhand_ubik', 'radius': 0, 'attitude': 'both') > 0"
+                ]
+              }
+            ]
+          },
+          "then": {
+            "u_message": "Убик: Теперь посмотрим, сумеешь ли ты добраться до дороги назад.\n\nПять голосов умолкают. У начала тропы разрывается сомкнувшийся проход.",
+            "type": "bad",
+            "popup": false
+          },
+          "else": {
+            "if": {
+              "and": [
+                "has_beta",
+                "npc_is_monster",
+                {
+                  "math": [
+                    "n_monsters_nearby('mon_berserk_godhand_conrad', 'radius': 0, 'attitude': 'both') > 0"
+                  ]
+                }
+              ]
+            },
+            "then": {
+              "u_message": "Поворачивается к герою всем корпусом — медленно, как и всё, что он делает. Больше не произносит ни слова.\n\nПять голосов умолкают. У начала тропы разрывается сомкнувшийся проход.",
+              "type": "bad",
+              "popup": false
+            },
+            "else": {
+              "if": {
+                "and": [
+                  "has_beta",
+                  "npc_is_monster",
+                  {
+                    "math": [
+                      "n_monsters_nearby('mon_berserk_godhand_femto', 'radius': 0, 'attitude': 'both') > 0"
+                    ]
+                  }
+                ]
+              },
+              "then": {
+                "u_message": "Фемто: Недостаточно.\n\nПять голосов умолкают. У начала тропы разрывается сомкнувшийся проход.",
+                "type": "bad",
+                "popup": false
+              },
+              "else": {
+                "u_message": "Пять голосов умолкают. У начала тропы разрывается сомкнувшийся проход.",
+                "type": "bad",
+                "popup": false
+              }
+            }
+          }
+        }
+      }
+    },
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "math": [
+                "u_berserk_eclipse_route == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_godhand_attacked == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_CHECK_VICTORY",
+    "effect": [
+      {
+        "math": [
+          "berserk_godhand_defeated = 1"
+        ]
+      },
+      {
+        "math": [
+          "berserk_eclipse_era = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_hand33_victory_earned = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_VICTORY_REWARD"
+      },
+      {
+        "u_message": "Пятая фигура распадается. Давление исчезает. За мёртвым полем снова чувствуется мир живых; путь назад открыт у начала тропы.",
+        "type": "good",
+        "popup": true
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "math": [
+                "u_berserk_eclipse_route == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_godhand_attacked == 1"
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_hand33_void_dead == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_hand33_slan_dead == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_hand33_ubik_dead == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_hand33_conrad_dead == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_hand33_femto_dead == 1"
+              ]
+            }
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_godhand_defeated == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_START_AVAILABLE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "math": [
+                "u_berserk_eclipse_route == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 0"
+              ]
+            }
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_godhand_attacked == 1"
+          ]
+        },
+        {
+          "u_at_om_location": "berserk_eclipse_apostol_arrival"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_START_USE",
+    "effect": [
+      {
+        "if": {
+          "math": [
+            "u_berserk_apostol_return_state == 1"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_APOSTOL_RETURN"
+        },
+        "else": {
+          "if": {
+            "test_eoc": "EOC_BERSERK_HAND33_START_AVAILABLE"
+          },
+          "then": [
+            {
+              "if": {
+                "math": [
+                  "berserk_godhand_defeated == 1"
+                ]
+              },
+              "then": {
+                "math": [
+                  "u_berserk_apostol_outcome = 4"
+                ]
+              },
+              "else": {
+                "math": [
+                  "u_berserk_apostol_outcome = 3"
+                ]
+              }
+            },
+            {
+              "math": [
+                "u_berserk_apostol_return_state = 1"
+              ]
+            },
+            {
+              "run_eocs": "EOC_BERSERK_APOSTOL_RETURN"
+            }
+          ],
+          "else": {
+            "u_message": "Живая ткань сомкнулась. Проход не отвечает.",
+            "type": "neutral",
+            "popup": false
+          }
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_at_om_location": "berserk_eclipse_apostol_arrival"
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_route == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_godhand_attacked == 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_ESCAPE_COMMIT",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_eclipse_route = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_eclipse_rescue_state = 1"
+        ]
+      },
+      {
+        "copy_var": {
+          "u_val": "berserk_apostol_origin"
+        },
+        "target_var": {
+          "u_val": "berserk_eclipse_return_origin"
+        }
+      },
+      {
+        "u_message": "Вы вырываетесь из прохода. Боль прожигает кожу. Прежде чем тьма успевает сомкнуться снова, между вами и ней возникает всадник в черепообразном шлеме.",
+        "type": "warning",
+        "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_STABILIZE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_ECLIPSE_RESCUE_RETURN"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_apostol_outcome == 3"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_return_state == 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_VICTORY_COMMIT",
+    "effect": [
+      {
+        "math": [
+          "berserk_eclipse_era = 0"
+        ]
+      },
+      {
+        "math": [
+          "berserk_godhand_defeated = 1"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_VICTORY_REWARD"
+      },
+      {
+        "u_message": "Нить оборвалась. Вы стоите под небом прежнего мира. Из прохода за вами никто не вышел.",
+        "type": "good",
+        "popup": true
+      },
+      {
+        "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_apostol_outcome == 4"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_apostol_return_state == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_hand33_victory_earned == 1"
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_hand33_void_dead == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_hand33_slan_dead == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_hand33_ubik_dead == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_hand33_conrad_dead == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_hand33_femto_dead == 1"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_VICTORY_REWARD",
+    "effect": [
+      {
+        "if": {
+          "not": {
+            "u_has_trait": "BERSERK_THREADBREAKER"
+          }
+        },
+        "then": {
+          "u_add_trait": "BERSERK_THREADBREAKER"
+        }
+      },
+      {
+        "math": [
+          "u_berserk_hand33_reward_given = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_hand33_victory_earned == 1"
+          ]
+        },
+        {
+          "and": [
+            {
+              "math": [
+                "u_berserk_hand33_void_dead == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_hand33_slan_dead == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_hand33_ubik_dead == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_hand33_conrad_dead == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_hand33_femto_dead == 1"
+              ]
+            }
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_hand33_reward_given == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_FEMTO_PROJECTION_KILLED",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_griffith_projection_defeated == 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_FEMTO_PROJECTION_SEEN",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "test_eoc": "EOC_BERSERK_HAND33_FEMTO_PROJECTION_KILLED"
+        },
+        {
+          "math": [
+            "u_berserk_hand33_femto_projection_seen == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_OBSERVE_PROJECTION",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_HAND33_PROJECTION_LOCATION"
+      ],
+      "mtype_ids": [
+        "mon_berserk_projection_griffith"
+      ],
+      "monster_range": 40
+    },
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "not": {
+            "math": [
+              "u_berserk_hand33_femto_projection_seen == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_PROJECTION_LOCATION",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "hand33_projection_point"
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_HAND33_PROJECTION_OBSERVED",
+        "alpha_talker": "avatar"
+      }
+    ],
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_HAND33_PROJECTION_OBSERVED",
+    "effect": {
+      "math": [
+        "u_berserk_hand33_femto_projection_seen = 1"
+      ]
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_can_see_location": {
+            "context_val": "hand33_projection_point"
+          }
+        }
+      ]
+    }
+  }
+]

@@ -8,37 +8,48 @@
     "condition": {
       "and": [
         {
-          "math": [
-            "berserk_eclipse_era == 1"
-          ]
-        },
-        {
-          "math": [
-            "u_val('pos_z') == 0"
-          ]
-        },
-        {
-          "math": [
-            "u_berserk_eclipse_trial_active != 1"
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_val('pos_z') == 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_trial_active != 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_breach_sealed == 1"
+                    ]
+                  },
+                  {
+                    "u_near_om_location": "berserk_local_breach",
+                    "range": 2
+                  },
+                  {
+                    "math": [
+                      "u_berserk_first_breach_registered != 1"
+                    ]
+                  }
+                ]
+              }
+            }
           ]
         },
         {
           "not": {
-            "and": [
-              {
-                "math": [
-                  "u_berserk_breach_sealed == 1"
-                ]
-              },
-              {
-                "u_near_om_location": "berserk_local_breach",
-                "range": 2
-              },
-              {
-                "math": [
-                  "u_berserk_first_breach_registered != 1"
-                ]
-              }
+            "math": [
+              "berserk_godhand_defeated == 1"
             ]
           }
         }
@@ -919,6 +930,13 @@
           }
         ]
       }
-    ]
+    ],
+    "condition": {
+      "not": {
+        "math": [
+          "berserk_godhand_defeated == 1"
+        ]
+      }
+    }
   }
 ]

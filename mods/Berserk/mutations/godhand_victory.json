@@ -1,0 +1,49 @@
+[
+  {
+    "type": "mutation",
+    "id": "BERSERK_THREADBREAKER",
+    "name": {
+      "str": "Разорвавший нить"
+    },
+    "description": "Вы пережили невозможную битву и сохранили человеческую природу. Сила +8, ловкость, интеллект и восприятие +4, скорость +25; запас здоровья и выносливости увеличен наполовину. Этот след победы останется с вами.",
+    "points": 0,
+    "valid": false,
+    "starting_trait": false,
+    "purifiable": false,
+    "enchantments": [
+      {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STRENGTH",
+            "add": 8
+          },
+          {
+            "value": "DEXTERITY",
+            "add": 4
+          },
+          {
+            "value": "INTELLIGENCE",
+            "add": 4
+          },
+          {
+            "value": "PERCEPTION",
+            "add": 4
+          },
+          {
+            "value": "SPEED",
+            "add": 25
+          },
+          {
+            "value": "MAX_HP",
+            "multiply": 0.5
+          },
+          {
+            "value": "MAX_STAMINA",
+            "multiply": 0.5
+          }
+        ]
+      }
+    ]
+  }
+]
