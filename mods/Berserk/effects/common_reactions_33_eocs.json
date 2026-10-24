@@ -1448,12 +1448,12 @@
           "test_eoc": "EOC_BERSERK_FORGE_GUTS"
         },
         "then": {
-          "u_message": "Среди движущихся тел впереди видна неподвижная фигура. Остальные существа словно оставляют вокруг неё свободное пространство.\n\n«Гриффит!»\n\nФигура поворачивает голову.",
+          "u_message": "A motionless figure stands among the moving bodies ahead. The other creatures seem to leave a space clear around it.\n\n\"Griffith!\"\n\nThe figure turns its head.",
           "type": "warning",
           "popup": true
         },
         "else": {
-          "u_message": "Среди движущихся тел впереди видна неподвижная фигура. Остальные существа словно оставляют вокруг неё свободное пространство.\n\n«Ты управляешь ими?»\n\nОтвета нет. Но теперь вы чувствуете, что ваше приближение заметили.",
+          "u_message": "A motionless figure stands among the moving bodies ahead. The other creatures seem to leave a space clear around it.\n\n\"Are you controlling them?\"\n\nThere is no answer. But now you feel that your approach has been noticed.",
           "type": "warning",
           "popup": true
         }
@@ -1524,12 +1524,12 @@
           "test_eoc": "EOC_BERSERK_FORGE_GUTS"
         },
         "then": {
-          "u_message": "За внешним рубежом слышится тяжёлый удар. Между деревьями возникает огромная фигура.\n\nЗодд: «Зодд:— Покажи, как далеко ты дошёл, мечник.»",
+          "u_message": "A heavy impact sounds beyond the outer boundary. An enormous figure appears between the trees.\n\nZodd: \"Show me how far you've come, swordsman.\"",
           "type": "warning",
           "popup": false
         },
         "else": {
-          "u_message": "За внешним рубежом слышится тяжёлый удар. Между деревьями возникает огромная фигура.\n\nЗодд: «Зодд:— Отойди, если хочешь жить.»",
+          "u_message": "A heavy impact sounds beyond the outer boundary. An enormous figure appears between the trees.\n\nZodd: \"Step aside if you want to live.\"",
           "type": "warning",
           "popup": false
         }
@@ -1593,7 +1593,7 @@
     "id": "EOC_BERSERK_COMMON33_GRUNBELD_OBSERVED",
     "effect": [
       {
-        "u_message": "Грюнбельд останавливается у внешнего рубежа. «Отступите от дома».",
+        "u_message": "Grunbeld stops at the outer boundary. \"Step away from the house.\"",
         "type": "warning",
         "popup": false
       },
@@ -1744,7 +1744,7 @@
     "id": "EOC_BERSERK_COMMON33_ZODD_COMBAT",
     "effect": [
       {
-        "u_message": "Зодд: «Зодд:— Значит, останешься.»",
+        "u_message": "Zodd: \"So you're staying.\"",
         "type": "warning",
         "popup": false
       },
@@ -1821,7 +1821,7 @@
     "id": "EOC_BERSERK_COMMON33_GRUNBELD_COMBAT",
     "effect": [
       {
-        "u_message": "Грюнбельд: «Грюнбельд:— Ты решил защищать его. Тогда держи удар.»",
+        "u_message": "Grunbeld: \"You chose to defend it. Then withstand the blow.\"",
         "type": "warning",
         "popup": false
       },

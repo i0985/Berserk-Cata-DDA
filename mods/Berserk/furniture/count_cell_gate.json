@@ -3,8 +3,8 @@
     "type": "terrain",
     "id": "t_berserk_count_cell_gate_c",
     "copy-from": "t_door_bar_locked",
-    "name": "запертая железная решётка",
-    "description": "Тяжёлая решётка из кованого железа. Замок удерживает её в каменном проёме.",
+    "name": "locked iron grille",
+    "description": "A heavy wrought-iron grille. A lock holds it in the stone doorway.",
     "looks_like": "t_bars",
     "lockpick_result": "t_berserk_count_cell_gate_o",
     "examine_action": {
@@ -17,7 +17,7 @@
     "hacksaw": {
       "result": "t_floor",
       "duration": "15 minutes",
-      "message": "Вы заканчиваете перепиливать железные прутья.",
+      "message": "You finish sawing through the iron bars.",
       "byproducts": [
         {
           "item": "mc_steel_chunk",
@@ -62,15 +62,15 @@
     "type": "terrain",
     "id": "t_berserk_count_cell_gate_o",
     "copy-from": "t_door_bar_o",
-    "name": "открытая железная решётка",
-    "description": "Железная решётка отведена в сторону. Проём свободен.",
+    "name": "open iron grille",
+    "description": "The iron grille has been pushed aside. The doorway is clear.",
     "looks_like": "t_door_bar_o",
     "close": "t_berserk_count_cell_gate_shut",
     "roof": "t_floor",
     "hacksaw": {
       "result": "t_floor",
       "duration": "15 minutes",
-      "message": "Вы заканчиваете перепиливать железные прутья.",
+      "message": "You finish sawing through the iron bars.",
       "byproducts": [
         {
           "item": "mc_steel_chunk",
@@ -115,15 +115,15 @@
     "type": "terrain",
     "id": "t_berserk_count_cell_gate_shut",
     "copy-from": "t_door_bar_c",
-    "name": "железная решётка",
-    "description": "Тяжёлая железная решётка закрывает проём. Замок не заперт.",
+    "name": "iron grille",
+    "description": "A heavy iron grille blocks the doorway. Its lock is unfastened.",
     "looks_like": "t_bars",
     "open": "t_berserk_count_cell_gate_o",
     "roof": "t_floor",
     "hacksaw": {
       "result": "t_floor",
       "duration": "15 minutes",
-      "message": "Вы заканчиваете перепиливать железные прутья.",
+      "message": "You finish sawing through the iron bars.",
       "byproducts": [
         {
           "item": "mc_steel_chunk",

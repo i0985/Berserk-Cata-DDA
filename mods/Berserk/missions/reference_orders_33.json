@@ -2,8 +2,8 @@
   {
     "type": "mission_definition",
     "id": "MISSION_BERSERK_GODO_REPAIR_COLLECT",
-    "name": "Забрать отремонтированный клинок",
-    "description": "Клинок оставлен у Годо. Вернитесь в лесную кузницу через два часа после передачи и попросите вернуть оружие. Материалы уже переданы.",
+    "name": "Collect the Repaired Blade",
+    "description": "You left your blade with Godo. Return to the forest forge two hours after handing it over and ask for your weapon back. The materials have already been supplied.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [
@@ -30,8 +30,8 @@
   {
     "type": "mission_definition",
     "id": "MISSION_BERSERK_RICKERT_BOLTS_MATERIALS",
-    "name": "Материалы для болтов",
-    "description": "Для десяти арбалетных болтов Рикерту нужны: 1 кусок стали, 1 палка, 20 ниток, 10 перьев и 50 древесного угля. Передайте весь набор самому Рикерту в лесной кузнице. После передачи работа займёт полчаса.",
+    "name": "Materials for Crossbow Bolts",
+    "description": "To make ten crossbow bolts, Rickert needs 1 lump of steel, 1 stick, 20 units of thread, 10 feathers and 50 units of charcoal. Give the full set to Rickert himself at the forest forge. The work will take half an hour after delivery.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "or": [
@@ -67,8 +67,8 @@
   {
     "type": "mission_definition",
     "id": "MISSION_BERSERK_RICKERT_BOLTS_COLLECT",
-    "name": "Забрать болты у Рикерта",
-    "description": "Рикерт получил материалы для десяти болтов. Вернитесь к нему в лесную кузницу через полчаса после передачи и заберите готовую работу.",
+    "name": "Collect Rickert's Bolts",
+    "description": "Rickert has the materials for ten bolts. Return to him at the forest forge half an hour after delivery and collect the finished work.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "and": [

@@ -3,11 +3,11 @@
     "type": "npc_class",
     "id": "NC_BERSERK_COUNT_PRISONER",
     "name": {
-      "str": "пленник Графа"
+      "str": "the Count's prisoner"
     },
     "common": false,
     "sells_belongings": false,
-    "job_description": "Я только хочу выбраться отсюда живым.",
+    "job_description": "I just want to get out of here alive.",
     "skills": [
       {
         "skill": "ALL",
@@ -33,7 +33,7 @@
   {
     "type": "npc",
     "id": "berserk_count_prisoner",
-    "temp_suffix": "пленник Графа",
+    "temp_suffix": "the Count's prisoner",
     "gender": "male",
     "class": "NC_BERSERK_COUNT_PRISONER",
     "attitude": 0,

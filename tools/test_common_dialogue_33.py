@@ -180,8 +180,8 @@ class CommonDialogue(unittest.TestCase):
     def test_original_short_manifestation_and_existing_story_wounds_remain_separate(self):
         obj=EOCS['EOC_BERSERK_ECLIPSE_GRASP_BEGIN']
         msgs=[n['u_message'] for n in walk(obj) if 'u_message' in n]
-        self.assertTrue(all('Чужие конечности' in m for m in msgs))
-        self.assertNotIn('человек с Бехелитом',json.dumps(obj,ensure_ascii=False))
+        self.assertTrue(all('Alien limbs' in m for m in msgs))
+        self.assertNotIn('human with a Behelit',json.dumps(obj,ensure_ascii=False))
         self.assertIn('EOC_BERSERK_ECLIPSE_APPLY_STORY_WOUNDS',json.dumps(EOCS['EOC_BERSERK_ECLIPSE_GRASP_RESOLVE']))
     def test_projections_keep_reward_callbacks_and_have_no_contract_topics(self):
         data=json.loads((MOD/'monsters/apostle_projections.json').read_text());self.assertEqual(len(data),10)

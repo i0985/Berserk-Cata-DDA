@@ -10,22 +10,22 @@
         "math": [
           "n_berserk_count33_escaped == 1"
         ],
-        "yes": "Хорошо снова видеть тебя. Снаружи, не через решётку.",
+        "yes": "Good to see you again. Outside, not through the bars.",
         "no": {
           "test_eoc": "EOC_BERSERK_COUNT33_LINE_2975446D885F",
-          "yes": "Голос твой. Узнаю голос.\n\nНо что с тобой стало?",
+          "yes": "It's your voice. I recognize your voice.\n\nBut what happened to you?",
           "no": {
             "test_eoc": "EOC_BERSERK_COUNT33_LINE_B9D512D6ABA5",
-            "yes": "Слышу тебя. Просто... постой пока чуть дальше, ладно?",
+            "yes": "I hear you. Just... stay a little farther away for now, all right?",
             "no": {
               "math": [
                 "n_berserk_count33_knows_death == 1"
               ],
-              "yes": "Всё никак не привыкну к этой тишине. Странно это.",
+              "yes": "Still can't get used to this quiet. Feels strange.",
               "no": {
                 "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN",
-                "yes": "Я пока тут, никуда не делся. Что там с дорогой?",
-                "no": "Ты вернулся. Узнал что-нибудь?"
+                "yes": "I'm still here. Haven't gone anywhere. How's the road?",
+                "no": "You're back. Learn anything?"
               }
             }
           }
@@ -33,23 +33,23 @@
       },
       "no": {
         "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY",
-        "yes": "Не подходи. Пожалуйста, не подходи.",
+        "yes": "Stay back. Please, stay back.",
         "no": {
           "math": [
             "berserk_count_prisoner_legacy_map == 1"
           ],
-          "yes": "Тихо… Я выбрался из камеры, но до ворот ещё надо добраться. Ты кто?",
+          "yes": "Quiet... I got out of the cell, but I still have to reach the gates. Who are you?",
           "no": {
             "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN",
-            "yes": "Открыл уже, вижу. А дальше-то что? До ворот ещё переть и переть, и не по прямой.",
-            "no": "Тихо... тихо ты.\n\nТы не из тех, кто жратву носит. Так кто? Чего надо?"
+            "yes": "I see you've opened it already. What now? It's still a long way to the gates, and not a straight one.",
+            "no": "Quiet... keep it down.\n\nYou're not one of the ones bringing food. So who are you? What do you want?"
           }
         }
       }
     },
     "responses": [
       {
-        "text": "Я не служу Графу.",
+        "text": "I don't serve the Count.",
         "topic": "TALK_BERSERK_COUNT_NOT_SERVANT",
         "condition": {
           "and": [
@@ -96,7 +96,7 @@
         ]
       },
       {
-        "text": "Ищу хозяина этого места.",
+        "text": "I'm looking for the master of this place.",
         "topic": "TALK_BERSERK_COUNT_SEEK_COUNT",
         "condition": {
           "and": [
@@ -143,7 +143,7 @@
         ]
       },
       {
-        "text": "Хочу тебя вытащить.",
+        "text": "I want to get you out.",
         "topic": "TALK_BERSERK_COUNT_RESCUE_INTRO",
         "condition": {
           "and": [
@@ -190,7 +190,7 @@
         ]
       },
       {
-        "text": "Сначала ответь мне на пару вопросов.",
+        "text": "Answer a couple of questions first.",
         "topic": "TALK_BERSERK_COUNT_QUESTIONS",
         "condition": {
           "and": [
@@ -237,7 +237,7 @@
         ]
       },
       {
-        "text": "Я не собираюсь тебя трогать.",
+        "text": "I'm not going to hurt you.",
         "topic": "TALK_BERSERK_COUNT_DEMON_PEACE",
         "condition": {
           "and": [
@@ -287,7 +287,7 @@
         ]
       },
       {
-        "text": "Мне нужны сведения о доме.",
+        "text": "I need information about the house.",
         "topic": "TALK_BERSERK_COUNT_DEMON_INFO",
         "condition": {
           "and": [
@@ -337,7 +337,7 @@
         ]
       },
       {
-        "text": "Я могу открыть клетку.",
+        "text": "I can open the cage.",
         "topic": "TALK_BERSERK_COUNT_DEMON_CELL",
         "condition": {
           "and": [
@@ -392,7 +392,7 @@
         ]
       },
       {
-        "text": "Правильно боишься.",
+        "text": "You're right to be afraid.",
         "topic": "TALK_BERSERK_COUNT_DEMON_THREAT",
         "condition": {
           "and": [
@@ -447,7 +447,7 @@
         ]
       },
       {
-        "text": "Долгая история.",
+        "text": "It's a long story.",
         "topic": "TALK_BERSERK_COUNT_CHANGE_STORY",
         "condition": {
           "and": [
@@ -486,7 +486,7 @@
         ]
       },
       {
-        "text": "Я всё ещё тот, кто открыл тебе дверь.",
+        "text": "I'm still the one who opened the door for you.",
         "topic": "TALK_BERSERK_COUNT_CHANGE_REMEMBER",
         "condition": {
           "and": [
@@ -530,7 +530,7 @@
         ]
       },
       {
-        "text": "Я всё ещё тот, с кем ты говорил.",
+        "text": "I'm still the one you spoke to.",
         "topic": "TALK_BERSERK_COUNT_CHANGE_STORY",
         "condition": {
           "and": [
@@ -576,7 +576,7 @@
         ]
       },
       {
-        "text": "Теперь я сильнее Графа.",
+        "text": "I'm stronger than the Count now.",
         "topic": "TALK_BERSERK_COUNT_CHANGE_STRONG",
         "condition": {
           "and": [
@@ -615,7 +615,7 @@
         ]
       },
       {
-        "text": "Кто ты?",
+        "text": "Who are you, then?",
         "topic": "TALK_BERSERK_COUNT_WHO",
         "condition": {
           "and": [
@@ -649,7 +649,7 @@
         }
       },
       {
-        "text": "Что ты знаешь о резиденции?",
+        "text": "What do you know about the residence?",
         "topic": "TALK_BERSERK_COUNT_HOUSE",
         "condition": {
           "and": [
@@ -683,7 +683,7 @@
         }
       },
       {
-        "text": "Расскажи о Графе.",
+        "text": "Tell me about the Count.",
         "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT",
         "condition": {
           "and": [
@@ -717,7 +717,7 @@
         }
       },
       {
-        "text": "Все, кто здесь служит, такие же, как он?",
+        "text": "Is everyone serving here like him?",
         "topic": "TALK_BERSERK_COUNT_SERVANTS",
         "condition": {
           "and": [
@@ -751,7 +751,7 @@
         }
       },
       {
-        "text": "Поможешь найти обход?",
+        "text": "Will you help me find a way around?",
         "topic": "TALK_BERSERK_COUNT_ROUTE",
         "condition": {
           "and": [
@@ -796,7 +796,7 @@
         }
       },
       {
-        "text": "Что нужно, чтобы ты выбрался?",
+        "text": "What will it take to get you out?",
         "topic": "TALK_BERSERK_COUNT_ESCAPE",
         "condition": {
           "and": [
@@ -841,7 +841,7 @@
         }
       },
       {
-        "text": "Граф мёртв.",
+        "text": "The Count is dead.",
         "topic": "TALK_BERSERK_COUNT_DEATH_REPORT",
         "condition": {
           "and": [
@@ -891,7 +891,7 @@
         }
       },
       {
-        "text": "Я сражался с ним, но не знаю, чем всё кончилось.",
+        "text": "I fought him, but I don't know how it ended.",
         "topic": "TALK_BERSERK_COUNT_DEATH_UNCERTAIN",
         "condition": {
           "and": [
@@ -941,7 +941,7 @@
         }
       },
       {
-        "text": "Что будешь делать теперь?",
+        "text": "What will you do now?",
         "topic": "TALK_BERSERK_COUNT_AFTER_PLANS",
         "condition": {
           "and": [
@@ -984,7 +984,7 @@
         }
       },
       {
-        "text": "Ты свободен. Почему не радуешься?",
+        "text": "You're free. Why aren't you happy?",
         "topic": "TALK_BERSERK_COUNT_AFTER_JOY",
         "condition": {
           "and": [
@@ -1027,7 +1027,7 @@
         }
       },
       {
-        "text": "Ты мне что-нибудь должен?",
+        "text": "Do you owe me anything?",
         "topic": "TALK_BERSERK_COUNT_AFTER_PAYMENT",
         "condition": {
           "and": [
@@ -1070,7 +1070,7 @@
         }
       },
       {
-        "text": "Обсудим дальнейший путь.",
+        "text": "Let's discuss the way onward.",
         "topic": "TALK_FRIEND",
         "condition": {
           "and": [
@@ -1109,7 +1109,7 @@
         }
       },
       {
-        "text": "Мне пора.",
+        "text": "I should be going.",
         "topic": "TALK_BERSERK_COUNT_GOODBYE"
       }
     ],
@@ -1137,10 +1137,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_NOT_SERVANT",
-    "dynamic_line": "Тогда нечего торчать на проходе столбом. Заметят — мне потом объясняться, с кем это я тут шушукался.",
+    "dynamic_line": "Then don't stand rooted in the passage. If they notice, I'll have to explain who I was whispering with.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1148,10 +1148,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_SEEK_COUNT",
-    "dynamic_line": "Зачем — не спрашиваю.\n\nТолько пойми: он не человек. Запомни это. Не человек.",
+    "dynamic_line": "I won't ask why.\n\nJust understand: he's not human. Remember that. Not human.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1161,16 +1161,16 @@
     "id": "TALK_BERSERK_COUNT_RESCUE_INTRO",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN",
-      "yes": "Открыл уже, вижу. А дальше-то что? До ворот ещё переть и переть, и не по прямой.",
-      "no": "Хочу — и я тебе поверить. Правда хочу.\n\nДля начала глянь, как эта дрянь открывается. По тому и пойму, кто ты — болтун или нет."
+      "yes": "I see you've opened it already. What now? It's still a long way to the gates, and not a straight one.",
+      "no": "And I want to believe you. I really do.\n\nFirst, have a look at how this damned thing opens. Then I'll know whether you're all talk."
     },
     "responses": [
       {
-        "text": "Посмотрю, как тебе помочь.",
+        "text": "I'll see how I can help.",
         "topic": "TALK_BERSERK_COUNT_ESCAPE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1178,10 +1178,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_QUESTIONS",
-    "dynamic_line": "Валяй. Только тихо. Звук тут далеко бежит — и не всегда в нужную сторону.",
+    "dynamic_line": "Go ahead. Just quietly. Sound travels far here, and not always in the direction you want.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1189,26 +1189,26 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_WHO",
-    "dynamic_line": "Припасы возил. Мешки, бочки — что скажут, то и вёз. Иногда оставался в кладовых разгружать, помогал по мелочи.\n\nЗнал, в какую дверь стучать. Кому мешки отдавать, а с кем лучше вообще не заговаривать. Думал — этого хватит, чтобы спокойно делать своё дело и уезжать домой.\n\nНе хватило.",
+    "dynamic_line": "Hauled supplies. Sacks, barrels, whatever they told me. Sometimes stayed in the storerooms to unload, helped with little things.\n\nKnew which door to knock on. Who to give the sacks to, who not to speak to at all. Thought that was enough to do my job in peace and go home.\n\nIt wasn't.",
     "responses": [
       {
-        "text": "За что тебя заперли?",
+        "text": "Why did they lock you up?",
         "topic": "TALK_BERSERK_COUNT_WHY_LOCKED"
       },
       {
-        "text": "Что ты увидел?",
+        "text": "What did you see?",
         "topic": "TALK_BERSERK_COUNT_WHAT_SAW"
       },
       {
-        "text": "Почему не пытался бежать?",
+        "text": "Why didn't you try to escape?",
         "topic": "TALK_BERSERK_COUNT_WHY_STAYED"
       },
       {
-        "text": "У тебя есть куда идти?",
+        "text": "Do you have somewhere to go?",
         "topic": "TALK_BERSERK_COUNT_WHERE_GO"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1216,14 +1216,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_WHY_LOCKED",
-    "dynamic_line": "Услышал крик. За дверью, куда нам соваться запрещали строго-настрого.\n\nНе ушёл сразу. Постоял. Этого хватило — заметили.",
+    "dynamic_line": "Heard a scream. Behind a door we'd been strictly told to stay away from.\n\nDidn't leave right away. Stood there. That was enough. They noticed.",
     "responses": [
       {
-        "text": "И только за это?",
+        "text": "Just for that?",
         "topic": "TALK_BERSERK_COUNT_WHY_MORE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WHO"
       }
     ]
@@ -1231,10 +1231,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_WHY_MORE",
-    "dynamic_line": "Мне обвинений никто не зачитывал, не сомневайся. Врезали пару раз, обобрали до нитки, приволокли сюда — и всё, разговор окончен.\n\nХочешь знать точно, за что — спроси у них самих. А я лучше с ними больше вообще не разговаривать буду. Никогда.",
+    "dynamic_line": "Nobody read me any charges, don't you worry. Hit me a few times, stripped me of everything, dragged me here. End of the conversation.\n\nIf you want to know exactly why, ask them yourself. Me, I'd rather never speak to them again. Ever.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WHO"
       }
     ]
@@ -1242,10 +1242,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_WHAT_SAW",
-    "dynamic_line": "Не так много, как мне теперь кажется по ночам, когда уснуть пытаюсь.\n\nВидел, как туда человека увели. Через время — одежду его вынесли. Пустую.\n\nСамого его я больше не видел. Что с ним стало — не знаю. Врать не буду, что знаю.",
+    "dynamic_line": "Not as much as it feels like at night, when I'm trying to sleep.\n\nSaw them take a man in there. Later they brought his clothes out. Empty.\n\nNever saw him again. Don't know what happened to him. I won't lie and say I do.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WHO"
       }
     ]
@@ -1253,10 +1253,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_WHY_STAYED",
-    "dynamic_line": "Пытался. Шатал решётку — пока шаги не услышал. Бросил.\n\nПотом снова начал. И опять бросил.\n\nВремени здесь много. На то, чтобы начинать сначала — хватает с избытком.",
+    "dynamic_line": "I tried. Shook the bars until I heard footsteps. Stopped.\n\nThen started again. And stopped again.\n\nThere's plenty of time here. More than enough for starting over.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WHO"
       }
     ]
@@ -1264,10 +1264,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_WHERE_GO",
-    "dynamic_line": "Подальше отсюда. Куда именно — решу, когда окажусь снаружи и смогу хоть немного подумать, а не только дрожать.",
+    "dynamic_line": "Away from here. I'll decide exactly where once I'm outside and can think a little instead of just shaking.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WHO"
       }
     ]
@@ -1275,26 +1275,26 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_HOUSE",
-    "dynamic_line": "Хозяйственную часть знаю хорошо. Куда припасы носили, где инструмент держали, каким ходом слуги шастали, чтоб через главные комнаты не соваться лишний раз.\n\nА в покои меня не звали. Туда дорога не моя.",
+    "dynamic_line": "I know the service areas well. Where supplies went, where tools were kept, which passage the servants used to avoid the main rooms.\n\nI wasn't invited into the private chambers. That wasn't my road.",
     "responses": [
       {
-        "text": "Где искать Графа?",
+        "text": "Where should I look for the Count?",
         "topic": "TALK_BERSERK_COUNT_WHERE_COUNT"
       },
       {
-        "text": "Как пройти незаметнее?",
+        "text": "How can I get through less conspicuously?",
         "topic": "TALK_BERSERK_COUNT_ROUTE"
       },
       {
-        "text": "Где найти что-нибудь полезное?",
+        "text": "Where can I find something useful?",
         "topic": "TALK_BERSERK_COUNT_SUPPLIES"
       },
       {
-        "text": "Есть ещё пленники?",
+        "text": "Are there other prisoners?",
         "topic": "TALK_BERSERK_COUNT_OTHERS"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1302,10 +1302,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_WHERE_COUNT",
-    "dynamic_line": "Принимал он обычно в зале казней, на северо-востоке. Оттуда лестница ведёт вниз. А где он сейчас — отсюда не разглядишь, сам понимаешь.",
+    "dynamic_line": "He usually held court in the execution hall, to the northeast. Stairs lead down from there. But where he is now, I can't see from here, as you understand.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_HOUSE"
       }
     ]
@@ -1313,10 +1313,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_SUPPLIES",
-    "dynamic_line": "В юго-западной кухне есть кладовая. Там держали хлеб, сушёное мясо и воду для дома.\n\nЕсли, конечно, с тех пор не вынесли всё подчистую. Я-то давно там не был.",
+    "dynamic_line": "There's a pantry in the southwest kitchen. They kept bread, dried meat and water for the house there.\n\nUnless they've carried it all off since. I haven't been there in a long time.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_HOUSE"
       }
     ]
@@ -1324,10 +1324,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_OTHERS",
-    "dynamic_line": "Бывали тут и другие, да. Сколько сейчас осталось — не знаю. Отсюда не разглядишь и не расслышишь толком.",
+    "dynamic_line": "There were others here, yes. How many remain now, I don't know. Can't see or hear much from here.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_HOUSE"
       }
     ]
@@ -1335,22 +1335,22 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_ABOUT_COUNT",
-    "dynamic_line": "Что хочешь знать?",
+    "dynamic_line": "What do you want to know?",
     "responses": [
       {
-        "text": "Ты видел, на что он способен?",
+        "text": "Have you seen what he can do?",
         "topic": "TALK_BERSERK_COUNT_COUNT_POWER"
       },
       {
-        "text": "Он всегда был таким?",
+        "text": "Has he always been like this?",
         "topic": "TALK_BERSERK_COUNT_COUNT_PAST"
       },
       {
-        "text": "У него есть слабость?",
+        "text": "Does he have a weakness?",
         "topic": "TALK_BERSERK_COUNT_COUNT_WEAK"
       },
       {
-        "text": "Я уже побеждал подобных ему.",
+        "text": "I've beaten things like him before.",
         "topic": "TALK_BERSERK_COUNT_COUNT_VICTORIES",
         "condition": {
           "or": [
@@ -1378,7 +1378,7 @@
         }
       },
       {
-        "text": "Его история закончится сегодня.",
+        "text": "His story ends today.",
         "topic": "TALK_BERSERK_COUNT_COUNT_BOAST",
         "condition": {
           "not": {
@@ -1389,7 +1389,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1397,10 +1397,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_COUNT_POWER",
-    "dynamic_line": "Видел. Достаточно, чтобы не принять тебя за спасителя только из-за того, что ты пришёл сюда.\n\nБыл один — нарушил что-то, не знаю что. Граф его… легко так. Будто мешок пустой с плеча скинул.\n\nДальше я уже не смотрел.",
+    "dynamic_line": "I've seen enough not to mistake you for a savior just because you came here.\n\nThere was a man who broke some rule, I don't know which. The Count took him... so easily. Like tossing an empty sack off his shoulder.\n\nI stopped watching after that.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT"
       }
     ]
@@ -1408,10 +1408,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_COUNT_PAST",
-    "dynamic_line": "Я его другим не застал. Каким боюсь — таким и помню.\n\nКаким он был раньше — спрашивай у тех, кто знал его ближе меня. Я тут без году неделя, по местным меркам.",
+    "dynamic_line": "I never knew him any other way. The way I fear him is the way I remember him.\n\nAsk someone who knew him better what he used to be. By this place's standards, I've barely arrived.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT"
       }
     ]
@@ -1419,10 +1419,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_COUNT_WEAK",
-    "dynamic_line": "Знал бы — всё равно не поручусь, что хватило бы духу этим воспользоваться.\n\nВрать не буду, лишь бы ты мне дверь открыл. Не знаю я слабостей таких, как он.",
+    "dynamic_line": "Even if I knew, I couldn't swear I'd have the nerve to use it.\n\nI won't lie just to get you to open my door. I don't know the weaknesses of things like him.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT"
       }
     ]
@@ -1430,10 +1430,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_COUNT_VICTORIES",
-    "dynamic_line": "Тогда, может, ты вправду понимаешь, куда забрёл.\n\nЯ — нет. Я одно знаю: хочу отсюда выбраться. Живым.",
+    "dynamic_line": "Then maybe you really understand where you've wandered.\n\nI don't. I know one thing: I want to get out. Alive.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT"
       }
     ]
@@ -1441,10 +1441,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_COUNT_BOAST",
-    "dynamic_line": "Тише ты! Не ори такое из моего коридора — не хватало ещё, чтоб услышали и решили, с кем это я снюхался.",
+    "dynamic_line": "Keep your voice down! Don't shout that from my corridor. All I need is for them to hear and decide who I've been conspiring with.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT"
       }
     ]
@@ -1452,22 +1452,22 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_SERVANTS",
-    "dynamic_line": "Не знаю. Правда не знаю.\n\nОдни били — просто так, от скуки, что ли. Другие отворачивались, делали вид, что меня тут нет. А один... один воды мне чуть больше оставлял, чем положено. Молча, слова не сказал ни разу.\n\nЧто у каждого из них под кожей — я тебе не скажу. Не знаю.",
+    "dynamic_line": "I don't know. I really don't.\n\nSome hit me for no reason, out of boredom maybe. Others looked away, pretended I wasn't there. And one... one left a little more water than he was supposed to. Quietly. Never said a word.\n\nI can't tell you what's under each one's skin. I don't know.",
     "responses": [
       {
-        "text": "С кем можно договориться?",
+        "text": "Can any of them be reasoned with?",
         "topic": "TALK_BERSERK_COUNT_SERVANT_TRUST"
       },
       {
-        "text": "Они знают, что делает Граф?",
+        "text": "Do they know what the Count does?",
         "topic": "TALK_BERSERK_COUNT_SERVANT_KNOW"
       },
       {
-        "text": "Как они ходят по дому?",
+        "text": "How do they move around the house?",
         "topic": "TALK_BERSERK_COUNT_SERVANT_ROUTE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1475,10 +1475,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_SERVANT_TRUST",
-    "dynamic_line": "Нет. Не буду я тебе имена называть только за то, что кто-то меня разок не ударил.\n\nЗдесь человек может тебя пожалеть — и всё равно крикнуть стражу, едва ты отвернёшься. Такое место. Я на этом уже обжёгся однажды, второй раз не хочу.",
+    "dynamic_line": "No. I won't give you names just because someone didn't hit me once.\n\nHere a man can pity you and still call the guards as soon as your back is turned. It's that kind of place. I've been burned once already. I don't want a second time.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_SERVANTS"
       }
     ]
@@ -1486,10 +1486,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_SERVANT_KNOW",
-    "dynamic_line": "Кто-то знает, наверное. А кто-то изо всех сил старается не знать — так проще жить.\n\nПрипасы носят. Двери запирают. Полы моют, как ни в чём не бывало. Дом живёт себе дальше, будто ничего такого в нём не происходит.",
+    "dynamic_line": "Some probably know. Others try as hard as they can not to. Easier to live that way.\n\nThey carry supplies. Lock doors. Wash floors as though nothing's wrong. The house goes on living as though none of it were happening.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_SERVANTS"
       }
     ]
@@ -1497,10 +1497,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_SERVANT_ROUTE",
-    "dynamic_line": "Раньше ходили через канцелярскую часть западного крыла и узкий проход к залу. По шагам я уже научился узнавать, когда кто-то сюда направляется.\n\nНо это всё, что я слышу. Весь дом отсюда не разберёшь — ни кто где стоит сейчас, ни когда меняется охрана.",
+    "dynamic_line": "They used to go through the west-wing records office and the narrow passage to the hall. I've learned by the footsteps when someone's coming this way.\n\nBut that's all I hear. Can't make out the whole house from here: who's standing where now, or when the guards change.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_SERVANTS"
       }
     ]
@@ -1510,12 +1510,12 @@
     "id": "TALK_BERSERK_COUNT_ROUTE",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_COUNT33_BYPASS_KNOWN_OPEN",
-      "yes": "Хорошо. Одной преградой меньше, уже легче.",
-      "no": "Из канцелярской части западного крыла есть узкий служебный ход к залу казней. Его закрывает решётка. Можно пройти и через двор, если не хочешь возиться с замком."
+      "yes": "Good. One less obstacle. That's something.",
+      "no": "A narrow service passage leads from the west-wing records office to the execution hall. A grille blocks it. You can go through the courtyard instead if you don't want to bother with the lock."
     },
     "responses": [
       {
-        "text": "Где искать ключ?",
+        "text": "Where should I look for the key?",
         "topic": "TALK_BERSERK_COUNT_KEY_PLACE",
         "condition": {
           "not": {
@@ -1524,11 +1524,11 @@
         }
       },
       {
-        "text": "Там безопасно?",
+        "text": "Is it safe there?",
         "topic": "TALK_BERSERK_COUNT_ROUTE_SAFE"
       },
       {
-        "text": "Я уже прошёл там. Дверь открыта.",
+        "text": "I've already been through. The door is open.",
         "topic": "TALK_BERSERK_COUNT_ROUTE_OPEN",
         "condition": {
           "math": [
@@ -1537,11 +1537,11 @@
         }
       },
       {
-        "text": "Мне этот обход не нужен.",
+        "text": "I don't need that detour.",
         "topic": "TALK_BERSERK_COUNT_ROUTE_OTHER"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_HOUSE"
       }
     ],
@@ -1561,10 +1561,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_KEY_PLACE",
-    "dynamic_line": "Ключа у меня нет. Писарь прятал служебный ключ в своём сундуке, в северной комнате западного крыла. Им открывали эту решётку и ход к залу.\n\nЯ сам видел, куда он его клал. А вот проверял ли кто с тех пор — понятия не имею.",
+    "dynamic_line": "I don't have a key. The scribe hid the service key in his chest, in the northern room of the west wing. It opened this grille and the passage to the hall.\n\nI saw where he put it myself. Whether anyone's checked since, I have no idea.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ROUTE"
       }
     ]
@@ -1572,10 +1572,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_ROUTE_SAFE",
-    "dynamic_line": "Открытого места там меньше, это да. А безопасно ли сейчас — не скажу. Последний раз я по нему ходил ещё до того, как меня сюда приволокли. С тех пор многое могло измениться.",
+    "dynamic_line": "Less open ground, yes. Safe now? Couldn't say. The last time I used it was before they dragged me here. A lot could have changed.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ROUTE"
       }
     ]
@@ -1583,10 +1583,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_ROUTE_OTHER",
-    "dynamic_line": "Как знаешь. Я рассказал про дорогу, которой сам ходил — больше мне и предложить нечего.",
+    "dynamic_line": "As you wish. I told you about the road I used myself. That's all I have to offer.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ROUTE"
       }
     ]
@@ -1594,10 +1594,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_ROUTE_OPEN",
-    "dynamic_line": "Хорошо. Одной преградой меньше, уже легче.\n\nА дальше там что? Что по дороге делается?",
+    "dynamic_line": "Good. One less obstacle. That's something.\n\nWhat's farther on? What's happening along the way?",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ROUTE"
       }
     ]
@@ -1607,12 +1607,12 @@
     "id": "TALK_BERSERK_COUNT_ESCAPE",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN",
-      "yes": "Только я пока тут постою. Извини, если думал, что я сразу рвану к воротам — ноги у меня не те уже, да и голова.",
-      "no": "Для начала — дверь открыть. Это раз.\n\nА два — чтобы меня за ней не сцапали через десять шагов. Такое уже было, повторять неохота."
+      "yes": "But I'll stand here for now. Sorry if you thought I'd dash straight for the gates. My legs aren't what they were, nor my head.",
+      "no": "First, open the door. That's one.\n\nTwo: make sure they don't grab me ten steps beyond it. That's happened before. Don't fancy doing it again."
     },
     "responses": [
       {
-        "text": "Поищу ключ.",
+        "text": "I'll look for the key.",
         "topic": "TALK_BERSERK_COUNT_KEY_PLACE",
         "condition": {
           "not": {
@@ -1621,7 +1621,7 @@
         }
       },
       {
-        "text": "Подожди. Я проверю дорогу.",
+        "text": "Wait here. I'll check the way.",
         "topic": "TALK_BERSERK_COUNT_WAIT",
         "condition": {
           "and": [
@@ -1639,7 +1639,7 @@
         }
       },
       {
-        "text": "Иди за мной.",
+        "text": "Follow me.",
         "topic": "TALK_BERSERK_COUNT_FOLLOW_READY",
         "condition": {
           "and": [
@@ -1653,14 +1653,14 @@
         }
       },
       {
-        "text": "Дальше решай сам.",
+        "text": "Decide for yourself from here.",
         "topic": "TALK_BERSERK_COUNT_OWN_CHOICE",
         "condition": {
           "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN"
         }
       },
       {
-        "text": "Иди за мной.",
+        "text": "Follow me.",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -1672,7 +1672,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1680,10 +1680,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_WAIT",
-    "dynamic_line": "Хорошо. Я послушаю, что там слышно будет.",
+    "dynamic_line": "All right. I'll listen for what's happening out there.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ESCAPE"
       }
     ]
@@ -1691,10 +1691,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_FOLLOW_READY",
-    "dynamic_line": "Веди. Скажешь встать — встану. Спорить не буду, не до того мне сейчас.",
+    "dynamic_line": "Lead on. Tell me to stop, I'll stop. Won't argue. Not in any state for that.",
     "responses": [
       {
-        "text": "Пойдём.",
+        "text": "Let's go.",
         "topic": "TALK_DONE",
         "effect": [
           {
@@ -1706,7 +1706,7 @@
         ]
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ESCAPE"
       }
     ]
@@ -1714,10 +1714,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_OWN_CHOICE",
-    "dynamic_line": "Уже решаю. Потому и стою здесь, а не бегу очертя голову.",
+    "dynamic_line": "I'm deciding already. That's why I'm standing here instead of running headlong.",
     "responses": [
       {
-        "text": "Тогда беги, если решишься.",
+        "text": "Then run when you're ready.",
         "topic": "TALK_DONE",
         "effect": [
           {
@@ -1729,7 +1729,7 @@
         ]
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ESCAPE"
       }
     ]
@@ -1737,10 +1737,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_DEATH_REPORT",
-    "dynamic_line": "Ты сам видел? Не просто ранил и сбежал, пока он не очухался?",
+    "dynamic_line": "Did you see it yourself? You didn't just wound him and run before he recovered?",
     "responses": [
       {
-        "text": "Он больше не поднимется.",
+        "text": "He won't get up again.",
         "topic": "TALK_BERSERK_COUNT_AFTER",
         "condition": {
           "math": [
@@ -1749,7 +1749,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1759,12 +1759,12 @@
     "id": "TALK_BERSERK_COUNT_AFTER",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY",
-      "yes": "Ты убил его.\n\nСпасибо. Правда. Но мне всё равно... не по себе, когда ты рядом. Прости.",
-      "no": "Сколько раз я представлял себе эти слова...\n\nА всё равно жду шагов. Привычка такая, видно, быстро не пройдёт."
+      "yes": "You killed him.\n\nThank you. Really. But I still feel... uneasy with you nearby. I'm sorry.",
+      "no": "How many times I imagined those words...\n\nAnd I'm still waiting for footsteps. A habit like that won't fade quickly, I suppose."
     },
     "responses": [
       {
-        "text": "Помогу тебе выбраться.",
+        "text": "I'll help you get out.",
         "topic": "TALK_BERSERK_COUNT_ESCAPE",
         "condition": {
           "not": {
@@ -1775,14 +1775,14 @@
         }
       },
       {
-        "text": "Я не прошу тебя оставаться.",
+        "text": "I'm not asking you to stay.",
         "topic": "TALK_BERSERK_COUNT_DEMON_AFTER",
         "condition": {
           "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ],
@@ -1799,10 +1799,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_DEATH_UNCERTAIN",
-    "dynamic_line": "Тогда и я пока не поверю, что кончилось. Рано радоваться.",
+    "dynamic_line": "Then I won't believe it's over yet either. Too early to celebrate.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1810,10 +1810,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_AFTER_PLANS",
-    "dynamic_line": "Воды найду. Поем где-нибудь, где не надо ждать, пока мне дверь откроют.\n\nОстальное — потом решу. Пока мне и этого за счастье хватит.",
+    "dynamic_line": "Find water. Eat somewhere I don't have to wait for someone to open the door.\n\nThe rest, I'll decide later. For now, that alone will be happiness enough.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1821,10 +1821,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_AFTER_JOY",
-    "dynamic_line": "Наверное, ещё не научился.\n\nДай немного времени. Я не привык, что дверь за спиной не захлопывается снова.",
+    "dynamic_line": "Maybe I haven't learned how yet.\n\nGive me a little time. I'm not used to the door behind me staying open.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1832,10 +1832,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_AFTER_PAYMENT",
-    "dynamic_line": "У меня с собой почти ничего. Если тебе плата нужна была — не по адресу обратился.",
+    "dynamic_line": "I've got almost nothing on me. If you wanted payment, you've come to the wrong man.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1843,10 +1843,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_DEMON_PEACE",
-    "dynamic_line": "Тогда стой там, где стоишь. Я и оттуда тебя слышу — хорошо слышу, можешь не подходить ближе.",
+    "dynamic_line": "Then stand where you are. I can hear you from there, perfectly well. You needn't come closer.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1854,10 +1854,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_DEMON_INFO",
-    "dynamic_line": "Отвечу. Спрашивай, только... только у двери не стой, ладно?",
+    "dynamic_line": "I'll answer. Ask, just... just don't stand in the doorway, all right?",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1865,10 +1865,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_DEMON_CELL",
-    "dynamic_line": "Открой. Открой, да.\n\nТолько не проси сразу идти следом за тобой. Не сейчас. Дай мне хоть немного привыкнуть к мысли, кто меня выпустил.",
+    "dynamic_line": "Open it. Open it, yes.\n\nJust don't ask me to follow you right away. Not now. Give me a little time to get used to who let me out.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1876,10 +1876,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_DEMON_THREAT",
-    "dynamic_line": "Чего тебе нужно?",
+    "dynamic_line": "What is it you want?",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1887,10 +1887,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_CHANGE_STORY",
-    "dynamic_line": "Ладно. Не сейчас, не рассказывай.\n\nПросто скажи — зачем вернулся?",
+    "dynamic_line": "All right. Not now, don't tell me.\n\nJust say why you came back.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1898,10 +1898,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_CHANGE_REMEMBER",
-    "dynamic_line": "Помню. Правда помню.\n\nДай мне только немного времени — привыкнуть смотреть на тебя таким. Это... непросто.",
+    "dynamic_line": "I remember. I really do.\n\nJust give me a little time to get used to seeing you like this. It's... not easy.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1909,10 +1909,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_CHANGE_STRONG",
-    "dynamic_line": "Мне и одного такого хозяина хватило на всю жизнь.\n\nДругого — не ищу. Даже такого, как ты.",
+    "dynamic_line": "One master like that was enough for a lifetime.\n\nI'm not looking for another. Not even one like you.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1920,10 +1920,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_DEMON_AFTER",
-    "dynamic_line": "Тогда спасибо и за это тоже.",
+    "dynamic_line": "Then thank you for that too.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
     ]
@@ -1935,16 +1935,16 @@
       "math": [
         "n_berserk_count33_escaped == 1"
       ],
-      "yes": "Береги себя.\n\nЗнаю, как глупо это звучит — тебе, после всего, что ты натворил там, внутри. И всё равно. Береги себя.",
+      "yes": "Take care of yourself.\n\nI know how foolish that sounds, saying it to you after everything you did in there. Still. Take care.",
       "no": {
         "test_eoc": "EOC_BERSERK_COUNT33_CELL_OPEN",
-        "yes": "Я подожду. Пока не смогу сам пройти — подожду здесь.",
-        "no": "Если будешь возвращаться этим путём... загляни. Не забудь про меня тут."
+        "yes": "I'll wait. Until I can walk out on my own, I'll wait here.",
+        "no": "If you come back this way... look in. Don't forget me here."
       }
     },
     "responses": [
       {
-        "text": "До встречи.",
+        "text": "Until next time.",
         "topic": "TALK_DONE"
       }
     ]
@@ -1952,10 +1952,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_FAMILY",
-    "dynamic_line": "А в покои меня не звали. Туда дорога не моя.",
+    "dynamic_line": "I wasn't invited into the private chambers. That wasn't my road.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_HOUSE"
       }
     ]
@@ -1963,10 +1963,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_LEGACY",
-    "dynamic_line": "Человек поднимает голову на звук шагов.",
+    "dynamic_line": "The man raises his head at the sound of footsteps.",
     "responses": [
       {
-        "text": "Я хочу поговорить.",
+        "text": "I want to talk.",
         "topic": "TALK_DONE",
         "effect": [
           {

@@ -249,7 +249,7 @@
     "id": "EOC_BERSERK_HAND33_INTRO",
     "effect": [
       {
-        "u_message": "Тропа обрывается резко — не постепенно, а так, будто мир сам решил, где ей закончиться. Пространство впереди не похоже ни на лес, ни на пещеру, ни вообще на что-то знакомое: свет здесь идёт ниоткуда и отовсюду сразу, не отбрасывая теней.\n\nПять фигур стоят полукругом. Ни одна не делает шага навстречу — ждут, будто это герою решать, подходить или нет.\n\nТяжёлый пульс отдаётся в ладони, хотя камня в ней больше нет.\n\nВойд: «Зов услышан. Ты дошёл до места, где можешь дать ответ.»",
+        "u_message": "The path ends abruptly, as though the world itself decided where to stop it. The space ahead resembles neither forest nor cave nor anything familiar: light comes from nowhere and everywhere at once, casting no shadows.\n\nFive figures stand in a semicircle. None steps forward. They wait, as though approaching were your decision.\n\nA heavy pulse beats in your palm, though the stone is no longer there.\n\nVoid: \"The call was heard. You have reached the place where you may give your answer.\"",
         "type": "warning",
         "popup": true
       },
@@ -290,7 +290,7 @@
         ]
       },
       "then": {
-        "u_message": "Войд: Ты обратил действие против тех, чей ответ ещё ожидал.\n\nПять голосов умолкают. У начала тропы разрывается сомкнувшийся проход.",
+        "u_message": "Void: You turned your actions against those whose answer you still awaited.\n\nThe five voices fall silent. At the beginning of the path, the closed passage tears open.",
         "type": "bad",
         "popup": false
       },
@@ -307,7 +307,7 @@
           ]
         },
         "then": {
-          "u_message": "Слан: Значит, вот как ты решил выразить своё желание. Что ж — посмотрим.\n\nПять голосов умолкают. У начала тропы разрывается сомкнувшийся проход.",
+          "u_message": "Slan: So that is how you chose to express your desire. Very well. We shall see.\n\nThe five voices fall silent. At the beginning of the path, the closed passage tears open.",
           "type": "bad",
           "popup": false
         },
@@ -324,7 +324,7 @@
             ]
           },
           "then": {
-            "u_message": "Убик: Теперь посмотрим, сумеешь ли ты добраться до дороги назад.\n\nПять голосов умолкают. У начала тропы разрывается сомкнувшийся проход.",
+            "u_message": "Ubik: Now we'll see whether you can reach the road back.\n\nThe five voices fall silent. At the beginning of the path, the closed passage tears open.",
             "type": "bad",
             "popup": false
           },
@@ -341,7 +341,7 @@
               ]
             },
             "then": {
-              "u_message": "Поворачивается к герою всем корпусом — медленно, как и всё, что он делает. Больше не произносит ни слова.\n\nПять голосов умолкают. У начала тропы разрывается сомкнувшийся проход.",
+              "u_message": "He turns his whole body toward you, slowly, like everything he does. He speaks no further word.\n\nThe five voices fall silent. At the beginning of the path, the closed passage tears open.",
               "type": "bad",
               "popup": false
             },
@@ -358,12 +358,12 @@
                 ]
               },
               "then": {
-                "u_message": "Фемто: Недостаточно.\n\nПять голосов умолкают. У начала тропы разрывается сомкнувшийся проход.",
+                "u_message": "Femto: Not enough.\n\nThe five voices fall silent. At the beginning of the path, the closed passage tears open.",
                 "type": "bad",
                 "popup": false
               },
               "else": {
-                "u_message": "Пять голосов умолкают. У начала тропы разрывается сомкнувшийся проход.",
+                "u_message": "The five voices fall silent. At the beginning of the path, the closed passage tears open.",
                 "type": "bad",
                 "popup": false
               }
@@ -425,7 +425,7 @@
         "run_eocs": "EOC_BERSERK_HAND33_VICTORY_REWARD"
       },
       {
-        "u_message": "Пятая фигура распадается. Давление исчезает. За мёртвым полем снова чувствуется мир живых; путь назад открыт у начала тропы.",
+        "u_message": "The fifth figure comes apart. The pressure vanishes. Beyond the dead field, the living world can be felt again; the way back is open at the beginning of the path.",
         "type": "good",
         "popup": true
       }
@@ -578,7 +578,7 @@
             }
           ],
           "else": {
-            "u_message": "Живая ткань сомкнулась. Проход не отвечает.",
+            "u_message": "The living tissue has closed. The passage does not respond.",
             "type": "neutral",
             "popup": false
           }
@@ -641,7 +641,7 @@
         }
       },
       {
-        "u_message": "Вы вырываетесь из прохода. Боль прожигает кожу. Прежде чем тьма успевает сомкнуться снова, между вами и ней возникает всадник в черепообразном шлеме.",
+        "u_message": "You wrench free of the passage. Pain burns through your skin. Before the darkness can close again, a rider in a skull-shaped helmet appears between you and it.",
         "type": "warning",
         "popup": true
       },
@@ -686,7 +686,7 @@
         "run_eocs": "EOC_BERSERK_HAND33_VICTORY_REWARD"
       },
       {
-        "u_message": "Нить оборвалась. Вы стоите под небом прежнего мира. Из прохода за вами никто не вышел.",
+        "u_message": "The thread has broken. You stand beneath the sky of your former world. No one emerged from the passage behind you.",
         "type": "good",
         "popup": true
       },

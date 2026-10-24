@@ -267,7 +267,7 @@
           ]
         },
         "then": {
-          "u_message": "Граф: Ты поднял руку на то, что принадлежит мне.\nИ пришёл сюда снова — будто у тебя ещё есть право о чём-то просить?",
+          "u_message": "The Count: You raised your hand against what belongs to me.\nAnd came here again, as though you still had the right to ask for anything?",
           "type": "bad",
           "popup": false
         },
@@ -280,18 +280,18 @@
               "u_has_bionics": "bio_berserk_brand_of_sacrifice"
             },
             "then": {
-              "u_message": "Граф: Клеймёный. Сам пришёл в мой дом.",
+              "u_message": "The Count: Branded one. You came to my house yourself.",
               "type": "warning",
               "popup": false
             },
             "else": {
-              "u_message": "Граф: Ты пришёл в мои владения. Защищайся.",
+              "u_message": "The Count: You entered my domain. Defend yourself.",
               "type": "warning",
               "popup": false
             }
           },
           "else": {
-            "u_message": "Граф: Время просить место при дворе прошло.",
+            "u_message": "The Count: The time to ask for a place at court has passed.",
             "type": "warning",
             "popup": false
           }
@@ -586,7 +586,7 @@
           ]
         },
         "then": {
-          "u_message": "Уайлд: На меня зубы поднял?\nДавно пора было проверить, чего они стоят на самом деле!",
+          "u_message": "Wyald: Baring your teeth at me?\nAbout time we found out what they're really worth!",
           "type": "bad",
           "popup": false
         },
@@ -595,12 +595,12 @@
             "test_eoc": "EOC_BERSERK_FORGE_GUTS"
           },
           "then": {
-            "u_message": "Уайлд: Ну давай, мечник. Покажи, зачем ты пришёл.",
+            "u_message": "Wyald: Come on, swordsman. Show me why you're here.",
             "type": "warning",
             "popup": false
           },
           "else": {
-            "u_message": "Уайлд: Ну давай! Показывай, чего стоят твои слова!",
+            "u_message": "Wyald: Come on! Show me what your words are worth!",
             "type": "warning",
             "popup": false
           }
@@ -895,7 +895,7 @@
           ]
         },
         "then": {
-          "u_message": "Розина: Я впустила тебя. Ты знал, где мы живём.\nИ всё равно сделал это?",
+          "u_message": "Rosine: I let you in. You knew where we lived.\nAnd you still did this?",
           "type": "bad",
           "popup": false
         },
@@ -904,12 +904,12 @@
             "test_eoc": "EOC_BERSERK_FORGE_GUTS"
           },
           "then": {
-            "u_message": "Розина: Ты пришёл разрушить мой дом?",
+            "u_message": "Rosine: Have you come to destroy my home?",
             "type": "warning",
             "popup": false
           },
           "else": {
-            "u_message": "Розина: Не подходи к нам!",
+            "u_message": "Rosine: Stay away from us!",
             "type": "warning",
             "popup": false
           }
@@ -1204,7 +1204,7 @@
           ]
         },
         "then": {
-          "u_message": "Грюнбельд: Ты нарушил клятву действием. Объяснения уже ничего не изменят.",
+          "u_message": "Grunbeld: You broke your oath by your actions. Explanations will change nothing now.",
           "type": "bad",
           "popup": false
         },
@@ -1213,12 +1213,12 @@
             "test_eoc": "EOC_BERSERK_FORGE_GUTS"
           },
           "then": {
-            "u_message": "Грюнбельд: Подними оружие. Твой путь дальше проходит через меня.",
+            "u_message": "Grunbeld: Raise your weapon. Your road onward goes through me.",
             "type": "warning",
             "popup": false
           },
           "else": {
-            "u_message": "Грюнбельд: Разговор окончен.",
+            "u_message": "Grunbeld: The conversation is over.",
             "type": "warning",
             "popup": false
           }

@@ -1,10 +1,10 @@
 # Berserk translations
 
-Current development version: **3.0.0-dev** (4 October 2026).
-The new descriptions and mod summary are included in both locale catalogs.
-The stage G package compiles catalogs without running catalog checks or CDDA.
-Russian and Chinese runtime display and an editorial review of Chinese remain
-part of the later manual acceptance; compilation does not confirm gameplay.
+Current development branch: **3.3-apostol-test** (24 October 2026).
+Every runtime JSON text has an English base. The approved Russian dialogue is
+preserved in the Russian catalog. Existing Chinese translations are retained;
+untranslated Chinese content falls back to English. Chinese coverage is partial.
+Catalog compilation and data checks do not replace a native CDDA playtest.
 
 English is the base language used by the mod's JSON source files. Runtime translations are provided for:
 
@@ -29,6 +29,13 @@ old copy before reinstalling; leave saves and configuration untouched.
 Restart the game after adding or replacing translation catalogs.
 
 ## Updating a translation
+
+Run the canonical rebuild with `python tools/build_story_33.py` from the
+repository root. Its final English pass rejects untranslated Russian draft
+strings. Add their real English versions to `tools/translations/english_33.json`;
+do not publish intermediate manuscript-builder output. English source text
+belongs in JSON, and Russian text belongs in gettext. Documentation and the
+owner's source manuscripts may remain Russian.
 
 1. Open the locale's `.po` file in Poedit.
 2. Review or update the translations.

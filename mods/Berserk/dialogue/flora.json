@@ -8,36 +8,36 @@
       ],
       "yes": {
         "concatenate": [
-          "Ты вернулся. Как прошла дорога?",
+          "You've come back. How was the road?",
           "\n",
           {
             "test_eoc": "EOC_BERSERK_FLORA33_HURT",
-            "yes": "Ранен: «Сядь прежде, чем начнёшь рассказывать. Ты бережёшь рану — я вижу это по тому, как ты двигаешься».",
+            "yes": "Wounded: \"Sit down before you start telling me. You're favoring a wound; I can see it in the way you move.\"",
             "no": {
               "math": [
                 "u_berserk_flora33_greeted_brand == 1"
               ],
-              "yes": "Без значительных изменений: «Твоё место у очага свободно».",
+              "yes": "No significant change: \"Your place by the hearth is free.\"",
               "no": {
                 "u_has_bionics": "bio_berserk_brand_of_sacrifice",
-                "yes": "Впервые вернулся с Клеймом: «С нашей прошлой встречи с тобой произошло нечто тяжёлое. Расскажешь, когда будешь готов — не раньше».",
+                "yes": "First return with the Brand: \"Something terrible has happened to you since we last met. Tell me when you're ready, and not before.\"",
                 "no": {
                   "math": [
                     "u_berserk_flora_armor_resolved == 1"
                   ],
-                  "yes": "Получил доспех у неё: «Как ты справляешься с доспехом? Он даётся тебе непросто, я знаю».",
-                  "no": "Без значительных изменений: «Твоё место у очага свободно»."
+                  "yes": "Received her armor: \"How are you managing with the armor? It isn't easy on you, I know.\"",
+                  "no": "No significant change: \"Your place by the hearth is free.\""
                 }
               }
             }
           }
         ]
       },
-      "no": "Входи. У порога можно оставить грязь и дорожные тревоги. Хотя со вторым обычно труднее справиться."
+      "no": "Come in. You can leave the mud and your road-weary worries at the door. Though the latter are usually harder to shed."
     },
     "responses": [
       {
-        "text": "Меня зовут Гатс. Мне сказали, что ты можешь помочь.",
+        "text": "My name is Guts. I was told you could help.",
         "topic": "TALK_BERSERK_FLORA_INTRO_GUTS",
         "condition": {
           "and": [
@@ -55,7 +55,7 @@
         }
       },
       {
-        "text": "Я не ожидал найти здесь жилой дом.",
+        "text": "I didn't expect to find a home here.",
         "topic": "TALK_BERSERK_FLORA_INTRO_STRANGER",
         "condition": {
           "and": [
@@ -75,7 +75,7 @@
         }
       },
       {
-        "text": "Мне сказали, что здесь живёт ведьма по имени Флора.",
+        "text": "I was told a witch named Flora lives here.",
         "topic": "TALK_BERSERK_FLORA_INTRO_SOURCE",
         "condition": {
           "and": [
@@ -100,7 +100,7 @@
         }
       },
       {
-        "text": "Я хотел поговорить.",
+        "text": "I wanted to talk.",
         "topic": "TALK_BERSERK_FLORA",
         "condition": {
           "math": [
@@ -109,7 +109,7 @@
         }
       },
       {
-        "text": "Мне нужно идти.",
+        "text": "I need to go.",
         "topic": "TALK_DONE"
       }
     ],
@@ -127,22 +127,22 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_INTRO_STRANGER",
-    "dynamic_line": "А я не каждого путника ожидаю увидеть на этой тропе. Меня зовут Флора. Ты заблудился или кого-то ищешь?",
+    "dynamic_line": "And I don't expect every traveler to appear on this path. My name is Flora. Are you lost, or looking for someone?",
     "responses": [
       {
-        "text": "Искал укрытие.",
+        "text": "I was looking for shelter.",
         "topic": "TALK_BERSERK_FLORA_INTRO_SHELTER"
       },
       {
-        "text": "Увидел дерево и решил подойти.",
+        "text": "I saw the tree and decided to come closer.",
         "topic": "TALK_BERSERK_FLORA_INTRO_TREE"
       },
       {
-        "text": "Мне нужна помощь.",
+        "text": "I need help.",
         "topic": "TALK_BERSERK_FLORA_INTRO_HELP"
       },
       {
-        "text": "Ты живёшь здесь одна?",
+        "text": "Do you live here alone?",
         "topic": "TALK_BERSERK_FLORA_INTRO_ALONE"
       }
     ],
@@ -170,10 +170,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_INTRO_SHELTER",
-    "dynamic_line": "Тогда сначала отдохни. Вопросы легче задавать, когда перестаёшь прислушиваться к каждому шороху за спиной.",
+    "dynamic_line": "Then rest first. Questions come more easily when you stop listening for every rustle behind you.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -181,10 +181,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_INTRO_TREE",
-    "dynamic_line": "Оно привлекает внимание тех, кто умеет смотреть по сторонам, а не только себе под ноги. Надеюсь, дорога сюда была к тебе милостива.",
+    "dynamic_line": "It draws the attention of those who look around them, rather than only at their own feet. I hope the road here treated you kindly.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -192,10 +192,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_INTRO_HELP",
-    "dynamic_line": "Расскажи, какая. Не обещаю решить всё на свете, но выслушать тебя я могу.",
+    "dynamic_line": "Tell me what kind. I can't promise to solve everything in the world, but I can listen.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -203,10 +203,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_INTRO_ALONE",
-    "dynamic_line": "Этот дом редко бывает совсем одиноким. Но сейчас ты говоришь именно с его хозяйкой.",
+    "dynamic_line": "This house is rarely entirely alone. But right now you're speaking to its mistress.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -214,10 +214,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_INTRO_GUTS",
-    "dynamic_line": "Я Флора. Садись, Гатс. Ты держишься так, будто даже здесь ожидаешь удара.",
+    "dynamic_line": "I'm Flora. Sit down, Guts. You're holding yourself as though you expect a blow even here.",
     "responses": [
       {
-        "text": "Привычка.",
+        "text": "Habit.",
         "topic": "TALK_BERSERK_FLORA_INTRO_HABIT"
       }
     ],
@@ -245,10 +245,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_INTRO_HABIT",
-    "dynamic_line": "Полезная в дороге. Здесь можешь ненадолго дать ей отдохнуть.",
+    "dynamic_line": "A useful one on the road. You can let it rest for a little while here.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -256,10 +256,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_INTRO_SOURCE",
-    "dynamic_line": "Значит, ты пришёл по адресу. Кто указал тебе дорогу?",
+    "dynamic_line": "Then you've come to the right place. Who showed you the way?",
     "responses": [
       {
-        "text": "Я нашёл запись с твоим именем.",
+        "text": "I found a note with your name in it.",
         "topic": "TALK_BERSERK_FLORA_INTRO_RECORD",
         "condition": {
           "or": [
@@ -277,11 +277,11 @@
         }
       },
       {
-        "text": "Мне рассказали о тебе в дороге.",
+        "text": "Someone told me about you on the road.",
         "topic": "TALK_BERSERK_FLORA_INTRO_RUMOR"
       },
       {
-        "text": "Мне нужно идти.",
+        "text": "I need to go.",
         "topic": "TALK_DONE"
       }
     ],
@@ -309,10 +309,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_INTRO_RECORD",
-    "dynamic_line": "Покажешь, если захочешь. Иногда чужая запись проходит долгий путь, прежде чем приводит кого-то к моей двери.",
+    "dynamic_line": "Show me, if you wish. Sometimes another person's words travel a long way before bringing someone to my door.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -329,10 +329,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_INTRO_RUMOR",
-    "dynamic_line": "Тогда посмотрим, насколько слухи оказались добры к нам обоим.",
+    "dynamic_line": "Then we'll see how kindly those rumors have treated us both.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -351,20 +351,20 @@
     "id": "TALK_BERSERK_FLORA",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_FLORA33_P_6A66D3F13D15",
-      "yes": "Не стой. Путь пока держится.",
+      "yes": "Don't linger. The path is still holding.",
       "no": {
         "test_eoc": "EOC_BERSERK_FLORA33_P_2C9C82C811FA",
-        "yes": "С тобой связано присутствие, которого я не ожидала. Это больше, чем след чужого прикосновения. Ты принял предложенную силу?",
+        "yes": "There is a presence bound to you that I did not expect. More than the trace of someone else's touch. Did you accept the power you were offered?",
         "no": {
           "test_eoc": "EOC_BERSERK_FLORA33_P_7C9D040B2A0F",
-          "yes": "Не обязательно приходить ко мне с бедой. Иногда довольно и простого любопытства.",
-          "no": "О чём ты хотел поговорить?"
+          "yes": "You needn't bring a misfortune to my door. Sometimes simple curiosity is enough.",
+          "no": "What did you want to talk about?"
         }
       }
     },
     "responses": [
       {
-        "text": "Ты чувствуешь то, что со мной произошло?",
+        "text": "Can you sense what happened to me?",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_NOTICE",
         "condition": {
           "and": [
@@ -398,7 +398,7 @@
         }
       },
       {
-        "text": "Да.",
+        "text": "Yes.",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_YES",
         "condition": {
           "and": [
@@ -434,7 +434,7 @@
         }
       },
       {
-        "text": "Я сделал это, чтобы выжить.",
+        "text": "I did it to survive.",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_SURVIVE",
         "condition": {
           "and": [
@@ -470,7 +470,7 @@
         }
       },
       {
-        "text": "Это моё дело.",
+        "text": "That's my business.",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_PRIVATE",
         "condition": {
           "and": [
@@ -506,7 +506,7 @@
         }
       },
       {
-        "text": "Я хочу спросить о Клейме.",
+        "text": "I want to ask about the Brand.",
         "topic": "TALK_BERSERK_FLORA_BRAND",
         "condition": {
           "and": [
@@ -569,7 +569,7 @@
         }
       },
       {
-        "text": "Что за существа приходят из другого мира?",
+        "text": "What are these creatures from another world?",
         "topic": "TALK_BERSERK_FLORA_WORLD",
         "condition": {
           "and": [
@@ -625,7 +625,7 @@
         }
       },
       {
-        "text": "Поговорим о доспехе.",
+        "text": "Let's talk about the armor.",
         "topic": "TALK_BERSERK_FLORA_ARMOR",
         "condition": {
           "and": [
@@ -688,7 +688,7 @@
         }
       },
       {
-        "text": "Мне нужна помощь.",
+        "text": "I need help.",
         "topic": "TALK_BERSERK_FLORA_AID",
         "condition": {
           "and": [
@@ -744,7 +744,7 @@
         }
       },
       {
-        "text": "Расскажи об этом доме и дереве.",
+        "text": "Tell me about this house and the tree.",
         "topic": "TALK_BERSERK_FLORA_HOME",
         "condition": {
           "and": [
@@ -800,7 +800,7 @@
         }
       },
       {
-        "text": "Я узнал об одной опасности…",
+        "text": "I learned of a danger...",
         "topic": "TALK_BERSERK_FLORA_DANGERS",
         "condition": {
           "and": [
@@ -863,7 +863,7 @@
         }
       },
       {
-        "text": "Можно спросить о тебе?",
+        "text": "May I ask about you?",
         "topic": "TALK_BERSERK_FLORA_PERSONAL",
         "condition": {
           "and": [
@@ -919,7 +919,7 @@
         }
       },
       {
-        "text": "Со мной произошло нечто странное.",
+        "text": "Something strange has happened to me.",
         "topic": "TALK_BERSERK_FLORA_REFUSED",
         "condition": {
           "and": [
@@ -989,7 +989,7 @@
         }
       },
       {
-        "text": "Я закончил приготовления. Давай продолжим.",
+        "text": "I've finished preparing. Let's continue.",
         "topic": "TALK_DONE",
         "condition": {
           "and": [
@@ -1050,7 +1050,7 @@
         ]
       },
       {
-        "text": "Что происходит?",
+        "text": "What is happening?",
         "topic": "TALK_BERSERK_FLORA_SIEGE_WHAT",
         "condition": {
           "and": [
@@ -1106,7 +1106,7 @@
         }
       },
       {
-        "text": "Куда идти?",
+        "text": "Which way should I go?",
         "topic": "TALK_BERSERK_FLORA_SIEGE_WAY",
         "condition": {
           "and": [
@@ -1162,7 +1162,7 @@
         }
       },
       {
-        "text": "Я останусь и буду сражаться.",
+        "text": "I'll stay and fight.",
         "topic": "TALK_BERSERK_FLORA_SIEGE_FIGHT",
         "condition": {
           "and": [
@@ -1218,7 +1218,7 @@
         }
       },
       {
-        "text": "А ты?",
+        "text": "And you?",
         "topic": "TALK_BERSERK_FLORA_SIEGE_FLORA",
         "condition": {
           "and": [
@@ -1274,7 +1274,7 @@
         }
       },
       {
-        "text": "Я могу что-нибудь спасти?",
+        "text": "Can I save anything?",
         "topic": "TALK_BERSERK_FLORA_SIEGE_SAVE",
         "condition": {
           "and": [
@@ -1402,7 +1402,7 @@
         }
       },
       {
-        "text": "Мне нужно идти.",
+        "text": "I need to go.",
         "topic": "TALK_DONE"
       }
     ],
@@ -1417,18 +1417,18 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_APOSTOL_NOTICE",
-    "dynamic_line": "С тобой связано присутствие, которого я не ожидала. Это больше, чем след чужого прикосновения. Ты принял предложенную силу?",
+    "dynamic_line": "There is a presence bound to you that I did not expect. More than the trace of someone else's touch. Did you accept the power you were offered?",
     "responses": [
       {
-        "text": "Да.",
+        "text": "Yes.",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_YES"
       },
       {
-        "text": "Я сделал это, чтобы выжить.",
+        "text": "I did it to survive.",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_SURVIVE"
       },
       {
-        "text": "Это моё дело.",
+        "text": "That's my business.",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_PRIVATE"
       }
     ],
@@ -1445,10 +1445,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_APOSTOL_YES",
-    "dynamic_line": "Спасибо, что ответил прямо. Тогда нам придётся говорить и о том, что теперь меняется — для тебя и для того, чем я готова помочь.",
+    "dynamic_line": "Thank you for answering honestly. Then we'll have to talk about what is changing now, both for you and for the help I am willing to offer.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -1475,10 +1475,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_APOSTOL_SURVIVE",
-    "dynamic_line": "Я не знаю всего, через что ты прошёл. Но последствия всё равно придётся встретить тебе — не мне судить, оправдывает ли цена сделанное.",
+    "dynamic_line": "I don't know everything you have been through. But it is you who must face the consequences. It isn't for me to judge whether the price justifies what was done.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -1505,10 +1505,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_APOSTOL_PRIVATE",
-    "dynamic_line": "Твой выбор. Но за помощь, которую оказываю здесь, отвечаю я — и мне придётся решать, что я готова дать, а что нет.",
+    "dynamic_line": "Your choice. But I am responsible for the help I give here, and I must decide what I am willing to offer and what I am not.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -1539,28 +1539,28 @@
       "math": [
         "u_berserk_flora33_heard_brand == 1"
       ],
-      "yes": "Что тебя беспокоит в Клейме?",
-      "no": "Этот знак связывает тебя с тем, что произошло во время жертвоприношения. Он остаётся различимым для существ, которых обычный человек может даже не заметить."
+      "yes": "What troubles you about the Brand?",
+      "no": "That mark binds you to what happened during the sacrifice. It remains visible to beings an ordinary person might not even notice."
     },
     "responses": [
       {
-        "text": "Поэтому они находят меня?",
+        "text": "Is that how they find me?",
         "topic": "TALK_BERSERK_FLORA_BRAND_FIND"
       },
       {
-        "text": "Ты можешь его снять?",
+        "text": "Can you remove it?",
         "topic": "TALK_BERSERK_FLORA_BRAND_REMOVE"
       },
       {
-        "text": "Почему рядом с одними существами боль сильнее?",
+        "text": "Why does it hurt more around some creatures?",
         "topic": "TALK_BERSERK_FLORA_BRAND_PAIN"
       },
       {
-        "text": "Почему здесь спокойнее?",
+        "text": "Why is it quieter here?",
         "topic": "TALK_BERSERK_FLORA_WARD"
       },
       {
-        "text": "У меня уже есть защитный знак.",
+        "text": "I already have a protective sign.",
         "topic": "TALK_BERSERK_FLORA_WARD_OWNED",
         "condition": {
           "math": [
@@ -1569,7 +1569,7 @@
         }
       },
       {
-        "text": "Закрытый прорыв ничего не изменил? Клеймо осталось.",
+        "text": "Did closing the breach change nothing? The Brand is still there.",
         "topic": "TALK_BERSERK_FLORA_BRAND_BREACH",
         "condition": {
           "math": [
@@ -1578,7 +1578,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -1603,10 +1603,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_BRAND_FIND",
-    "dynamic_line": "Да. Особенно когда ночь делает границу между вашим миром и их присутствием менее ощутимой.",
+    "dynamic_line": "Yes. Especially when night makes the boundary between your world and their presence less distinct.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ]
@@ -1614,18 +1614,18 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_BRAND_REMOVE",
-    "dynamic_line": "Нет. Я могу помочь тебе защищаться и лучше понимать происходящее. Но обещать снять Клеймо было бы жестоко с моей стороны.",
+    "dynamic_line": "No. I can help you protect yourself and better understand what is happening. But promising to remove the Brand would be cruel of me.",
     "responses": [
       {
-        "text": "Значит, это навсегда?",
+        "text": "Does that mean it's forever?",
         "topic": "TALK_BERSERK_FLORA_BRAND_FOREVER"
       },
       {
-        "text": "Хотя бы боль можно уменьшить?",
+        "text": "Can you at least ease the pain?",
         "topic": "TALK_BERSERK_FLORA_BRAND_EASE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ]
@@ -1633,10 +1633,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_BRAND_FOREVER",
-    "dynamic_line": "Я не знаю способа освободить тебя от него. Это предел моего знания, а не причина перестать заботиться о твоей жизни.",
+    "dynamic_line": "I know no way to free you from it. That is the limit of my knowledge, not a reason to stop caring for your life.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ]
@@ -1644,10 +1644,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_BRAND_EASE",
-    "dynamic_line": "Иногда можно уменьшить опасность, которая её вызывает. Но не стоит заглушать каждое предупреждение только потому, что оно мучительно — боль порой единственное, что успевает тебя предупредить.",
+    "dynamic_line": "Sometimes the danger causing it can be reduced. But don't silence every warning merely because it hurts. Pain is sometimes the only warning that reaches you in time.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ]
@@ -1655,14 +1655,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_BRAND_PAIN",
-    "dynamic_line": "Их присутствие различается. Некоторые едва касаются нашего мира. Другие приносят с собой такую силу, что твоё тело чувствует её раньше, чем ты успеваешь увидеть источник.",
+    "dynamic_line": "Their presence varies. Some barely touch our world. Others bring such power that your body senses it before you can see its source.",
     "responses": [
       {
-        "text": "Значит, по боли можно понять, насколько враг силён?",
+        "text": "So the pain tells me how strong an enemy is?",
         "topic": "TALK_BERSERK_FLORA_BRAND_MEASURE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ],
@@ -1687,10 +1687,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_BRAND_MEASURE",
-    "dynamic_line": "Можно понять, что следует быть осторожнее. Но боль — плохой измерительный инструмент. Не пытайся проверить её пределы собственной жизнью.",
+    "dynamic_line": "It tells you to be more careful. But pain is a poor measuring instrument. Don't test its limits with your life.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ]
@@ -1698,18 +1698,18 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WARD",
-    "dynamic_line": "Дерево и защита вокруг дома затрудняют приближение многих существ. Я долго заботилась об этом месте — не одно десятилетие, если говорить начистоту.",
+    "dynamic_line": "The tree and the wards around the house make it harder for many beings to approach. I have tended this place for a long time; decades, to be quite honest.",
     "responses": [
       {
-        "text": "Здесь мне ничего не угрожает?",
+        "text": "Am I safe here?",
         "topic": "TALK_BERSERK_FLORA_WARD_SAFE"
       },
       {
-        "text": "Как подготовить защиту в другом месте?",
+        "text": "How can I prepare protection somewhere else?",
         "topic": "TALK_BERSERK_FLORA_WARD_BUILD"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ],
@@ -1729,10 +1729,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WARD_SAFE",
-    "dynamic_line": "Здесь можно отдохнуть. Но я не назову ни один дом недоступным для любой силы — это было бы самонадеянно с моей стороны.",
+    "dynamic_line": "You can rest here. But I wouldn't call any house beyond the reach of every power. That would be presumptuous of me.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ]
@@ -1740,10 +1740,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WARD_BUILD",
-    "dynamic_line": "Знак из камня и костей затрудняет путь существам, которых зовёт Клеймо. Держи его рядом с местом отдыха. Он не прогонит тех, кто уже пришёл, и не заменит пути отхода.",
+    "dynamic_line": "A sign of stone and bone hinders the beings the Brand calls. Keep it near your resting place. It won't drive away those already here, or replace a way out.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ],
@@ -1760,14 +1760,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WARD_OWNED",
-    "dynamic_line": "Тогда ты сделал важную вещь: подготовил место, куда можно вернуться.",
+    "dynamic_line": "Then you have done something important: prepared a place to return to.",
     "responses": [
       {
-        "text": "Этого достаточно?",
+        "text": "Is that enough?",
         "topic": "TALK_BERSERK_FLORA_WARD_LIMITS"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ]
@@ -1775,10 +1775,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WARD_LIMITS",
-    "dynamic_line": "Знак не заменяет стен, внимательности и пути отхода. Особенно если существо уже оказалось рядом. Защита лучше служит тому, кто понимает её пределы, а не тому, кто слепо на неё полагается.",
+    "dynamic_line": "The sign is no substitute for walls, vigilance or a way out, especially once a creature is already close. Protection serves those who understand its limits better than those who rely on it blindly.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ]
@@ -1786,14 +1786,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_BRAND_BREACH",
-    "dynamic_line": "Изменил. Ты лишил существ одного пути сюда. Люди поблизости могут никогда не узнать, почему стало тише — но это не делает твой труд напрасным.",
+    "dynamic_line": "It did change something. You denied those creatures one way in. The people nearby may never know why things grew quieter, but that doesn't make your work futile.",
     "responses": [
       {
-        "text": "А для меня?",
+        "text": "And for me?",
         "topic": "TALK_BERSERK_FLORA_BRAND_BREACH_SELF"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ]
@@ -1801,10 +1801,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_BRAND_BREACH_SELF",
-    "dynamic_line": "Для тебя остаётся Клеймо. Закрытая рана мира и знак на твоём теле — разные вещи. Одно не отменяет другого.",
+    "dynamic_line": "For you, the Brand remains. A closed wound in the world and the mark on your body are different things. One does not undo the other.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ]
@@ -1812,26 +1812,26 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WORLD",
-    "dynamic_line": "Человеческие чувства показывают лишь часть того, что существует. Есть существа и силы, для которых привычные нам стены, расстояния и даже облик значат не совсем то же самое, что для нас.",
+    "dynamic_line": "Human senses show only a part of what exists. There are beings and powers for which our familiar walls, distances and even shapes don't mean quite what they mean to us.",
     "responses": [
       {
-        "text": "Другой мир, спрятанный внутри нашего?",
+        "text": "Another world hidden inside ours?",
         "topic": "TALK_BERSERK_FLORA_WORLD_INSIDE"
       },
       {
-        "text": "Все его обитатели опасны?",
+        "text": "Are all its inhabitants dangerous?",
         "topic": "TALK_BERSERK_FLORA_WORLD_PEOPLE"
       },
       {
-        "text": "Почему теперь всё смешалось?",
+        "text": "Why is everything mixing together now?",
         "topic": "TALK_BERSERK_FLORA_WORLD_COLLISION"
       },
       {
-        "text": "Можно закрыть все разломы?",
+        "text": "Can all the rifts be closed?",
         "topic": "TALK_BERSERK_FLORA_WORLD_WOUNDS"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -1856,10 +1856,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WORLD_INSIDE",
-    "dynamic_line": "Для начала можно представить и так. Только не думай о нём как о соседней комнате, в которую всегда ведёт одна и та же дверь.",
+    "dynamic_line": "That is one way to begin imagining it. Just don't think of it as a neighboring room always reached through the same door.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_WORLD"
       }
     ]
@@ -1867,10 +1867,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WORLD_PEOPLE",
-    "dynamic_line": "Нет. Но незнакомое добро и незнакомая опасность могут выглядеть одинаково непонятными на первый взгляд. Поэтому любопытство должно идти рядом с осторожностью, а не впереди неё.",
+    "dynamic_line": "No. But unfamiliar kindness and unfamiliar danger can look equally puzzling at first. That is why curiosity should walk beside caution, not ahead of it.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_WORLD"
       }
     ]
@@ -1878,14 +1878,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WORLD_COLLISION",
-    "dynamic_line": "Мир, в котором ты жил, уже пережил катастрофу. Теперь мы видим, как через его повреждённые границы проникает иное. Я изучаю это давно, но у меня ещё нет объяснения каждому отдельному случаю.",
+    "dynamic_line": "The world you lived in has already suffered a catastrophe. Now we are seeing something else penetrate its damaged boundaries. I have studied this for a long time, but I still cannot explain every case.",
     "responses": [
       {
-        "text": "Ты тоже не знаешь, что будет дальше?",
+        "text": "So you don't know what comes next either?",
         "topic": "TALK_BERSERK_FLORA_WORLD_UNKNOWN"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_WORLD"
       }
     ],
@@ -1910,10 +1910,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WORLD_UNKNOWN",
-    "dynamic_line": "Не знаю. Знание начинается не с уверенного голоса, а с готовности признать, где заканчивается понимание.",
+    "dynamic_line": "I don't. Knowledge begins with a willingness to admit where understanding ends, rather than with a confident voice.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_WORLD"
       }
     ]
@@ -1921,14 +1921,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WORLD_WOUNDS",
-    "dynamic_line": "Это потребует огромного труда. Найти их, понять, что удерживает каждый открытым, добраться до тех, что скрыты от глаз. Одному человеку не следует принимать такую задачу за короткую дорогу — она может растянуться на всю жизнь, и не факт, что хватит даже её.",
+    "dynamic_line": "It would take an immense effort. Find them, understand what keeps each open, reach those hidden from sight. No one should mistake that task for a short journey. It could take a lifetime, and even that might not be enough.",
     "responses": [
       {
-        "text": "Тогда с чего начинать?",
+        "text": "Where should I begin, then?",
         "topic": "TALK_BERSERK_FLORA_WORLD_START"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_WORLD"
       }
     ]
@@ -1936,10 +1936,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WORLD_START",
-    "dynamic_line": "С того места, о котором тебе уже известно. Помоги там, где можешь действовать по-настоящему, а не только представлять всю тяжесть будущего — от одних лишь мыслей о ней мир легче не станет.",
+    "dynamic_line": "With the place you already know about. Help where you can truly act, instead of only imagining the weight of all that lies ahead. Thinking about that weight alone won't lighten the world's burden.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_WORLD"
       }
     ]
@@ -1951,24 +1951,24 @@
       "math": [
         "u_berserk_flora33_heard_armor == 1"
       ],
-      "yes": "О чём ты хочешь поговорить: о его действии, о последствиях или о том, как тебе с ним справляться?",
-      "no": "Доспех, который позволяет владельцу продолжать бой, когда собственное тело уже требует остановиться."
+      "yes": "What do you want to discuss: what it does, its consequences, or how to manage it?",
+      "no": "Armor that lets its wearer keep fighting when their own body is already demanding that they stop."
     },
     "responses": [
       {
-        "text": "Как он действует?",
+        "text": "How does it work?",
         "topic": "TALK_BERSERK_FLORA_ARMOR_PROPERTIES"
       },
       {
-        "text": "Какую цену?",
+        "text": "At what price?",
         "topic": "TALK_BERSERK_FLORA_COST"
       },
       {
-        "text": "Почему ты его хранишь?",
+        "text": "Why do you keep it?",
         "topic": "TALK_BERSERK_FLORA_ARMOR_KEEP"
       },
       {
-        "text": "Ты позволишь мне взять его?",
+        "text": "Will you let me take it?",
         "topic": "TALK_BERSERK_FLORA_OFFER",
         "condition": {
           "and": [
@@ -1984,14 +1984,14 @@
         }
       },
       {
-        "text": "У меня уже есть доспех.",
+        "text": "I already have the armor.",
         "topic": "TALK_BERSERK_FLORA_OWNED",
         "condition": {
           "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
         }
       },
       {
-        "text": "Я потерял части, которые ты передала.",
+        "text": "I lost the pieces you gave me.",
         "topic": "TALK_BERSERK_FLORA_UNAVAILABLE",
         "condition": {
           "and": [
@@ -2009,7 +2009,7 @@
         }
       },
       {
-        "text": "Поможешь собрать недостающие части?",
+        "text": "Will you help me complete the set?",
         "topic": "TALK_BERSERK_FLORA_PARTIAL",
         "condition": {
           "and": [
@@ -2023,7 +2023,7 @@
         }
       },
       {
-        "text": "Можно получить доспех?",
+        "text": "May I have the armor?",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_ARMOR",
         "condition": {
           "not": {
@@ -2048,7 +2048,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -2078,14 +2078,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_PROPERTIES",
-    "dynamic_line": "Боль и страх удерживают нас от некоторых движений — это защита, данная телу не просто так. Доспех помогает переступить эти пределы. Но повреждение не исчезает оттого, что ты перестал его чувствовать.",
+    "dynamic_line": "Pain and fear keep us from making certain movements. The body has those safeguards for a reason. The armor helps you cross those limits. But an injury doesn't vanish because you can no longer feel it.",
     "responses": [
       {
-        "text": "Он лечит раны?",
+        "text": "Does it heal wounds?",
         "topic": "TALK_BERSERK_FLORA_ARMOR_HEAL"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ],
@@ -2115,10 +2115,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_HEAL",
-    "dynamic_line": "Не принимай возможность двигаться за исцеление. После боя телу всё равно придётся пережить то, что с ним произошло — отсрочка не отмена.",
+    "dynamic_line": "Don't mistake being able to move for being healed. After the battle, the body must still endure what happened to it. A delay is no reprieve.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2126,17 +2126,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_COST",
-    "dynamic_line": "Сначала тебе может показаться, что цена невелика: усталость, боль, которую ты почувствуешь позже, когда всё закончится. Опаснее другое — привыкнуть считать любое повреждение допустимым, пока остаётся враг. Эта привычка опаснее самой боли.",
+    "dynamic_line": "At first the price may seem small: fatigue, pain that you will feel later, once it is over. The greater danger is growing used to treating any injury as acceptable while an enemy remains. That habit is more dangerous than the pain itself.",
     "responses": [
       {
-        "text": "Иногда остановиться нельзя.",
+        "text": "Sometimes stopping isn't an option.",
         "topic": "TALK_BERSERK_FLORA_COST_GUTS",
         "condition": {
           "test_eoc": "EOC_BERSERK_FORGE_GUTS"
         }
       },
       {
-        "text": "А если пользоваться им только в крайнем случае?",
+        "text": "What if I use it only as a last resort?",
         "topic": "TALK_BERSERK_FLORA_COST_LAST",
         "condition": {
           "not": {
@@ -2145,11 +2145,11 @@
         }
       },
       {
-        "text": "Я перестану отличать своих от врагов?",
+        "text": "Will I stop telling friends from enemies?",
         "topic": "TALK_BERSERK_FLORA_COST_CONTROL"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ],
@@ -2174,10 +2174,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_COST_GUTS",
-    "dynamic_line": "Я знаю. Поэтому и хочу, чтобы ты умел различать необходимость и просто желание продолжать — это не одно и то же, хотя в пылу боя разница стирается.",
+    "dynamic_line": "I know. That is why I want you to distinguish necessity from merely wanting to continue. They are not the same, though the heat of battle blurs the difference.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2185,10 +2185,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_COST_LAST",
-    "dynamic_line": "Тогда заранее реши, что для тебя крайний случай. Во время самого боя это определение имеет свойство незаметно меняться.",
+    "dynamic_line": "Then decide what counts as a last resort beforehand. In the fight itself, that definition has a way of quietly changing.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2196,14 +2196,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_COST_CONTROL",
-    "dynamic_line": "Ярость сужает мир. Всё, что мешает ей достичь цели, начинает казаться препятствием — неважно, друг это или нет. Не жди, пока это произойдёт, чтобы задуматься о тех, кто будет рядом с тобой в бою.",
+    "dynamic_line": "Rage narrows the world. Anything that keeps it from its goal begins to look like an obstacle, friend or otherwise. Don't wait for that to happen before thinking of those who will fight beside you.",
     "responses": [
       {
-        "text": "Что поможет удержаться?",
+        "text": "What will help me hold on?",
         "topic": "TALK_BERSERK_FLORA_COST_ANCHOR"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ],
@@ -2223,10 +2223,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_COST_ANCHOR",
-    "dynamic_line": "Помнить, ради чего ты возвращаешься из боя. Слушать тех, кому доверяешь. И замечать момент, когда уже не хочешь останавливаться, хотя причина сражаться давно исчезла.",
+    "dynamic_line": "Remember why you come back from a battle. Listen to those you trust. And notice the moment when you no longer want to stop, though the reason for fighting is long gone.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2234,10 +2234,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_KEEP",
-    "dynamic_line": "Потому что существуют опасности, против которых обычных средств может не хватить. Опасную вещь недостаточно просто спрятать и считать вопрос решённым. Нужно ещё понимать, кому и зачем она может понадобиться по-настоящему.",
+    "dynamic_line": "Because there are dangers ordinary means may not be enough to face. Hiding a dangerous thing and calling the matter settled is not enough. You must understand who might truly need it, and why.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2245,10 +2245,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_OFFER",
-    "dynamic_line": "Позволю, если ты понимаешь, что просишь. Я не требую обещания, будто ты никогда не ошибёшься. Но хочу услышать, зачем тебе эта сила.",
+    "dynamic_line": "I will, if you understand what you're asking. I don't demand a promise that you will never make a mistake. But I want to hear why you need that strength.",
     "responses": [
       {
-        "text": "Чтобы выдержать то, с чем обычная броня не справляется.",
+        "text": "To endure what ordinary armor can't.",
         "topic": "TALK_BERSERK_FLORA_ARMOR_REASON_ENDURE",
         "effect": [
           {
@@ -2259,7 +2259,7 @@
         ]
       },
       {
-        "text": "Чтобы защитить тех, кто ещё жив.",
+        "text": "To protect those who are still alive.",
         "topic": "TALK_BERSERK_FLORA_ARMOR_REASON_PROTECT",
         "effect": [
           {
@@ -2270,7 +2270,7 @@
         ]
       },
       {
-        "text": "Чтобы добраться до того, кто всё это сделал.",
+        "text": "To reach the one who did all this.",
         "topic": "TALK_BERSERK_FLORA_ARMOR_REASON_REVENGE",
         "condition": {
           "math": [
@@ -2286,11 +2286,11 @@
         ]
       },
       {
-        "text": "Я ещё не решил.",
+        "text": "I haven't decided yet.",
         "topic": "TALK_BERSERK_FLORA_ARMOR_LATER"
       },
       {
-        "text": "Я пойду дальше без доспеха.",
+        "text": "I'll go on without the armor.",
         "topic": "TALK_BERSERK_FLORA_ARMOR_DECLINE"
       }
     ],
@@ -2315,14 +2315,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_REASON_ENDURE",
-    "dynamic_line": "Тогда помни: выстоять и вернуться — не всегда одно и то же. Заботься о втором не меньше, чем о первом.",
+    "dynamic_line": "Then remember: standing your ground and coming back are not always the same. Care about the second as much as the first.",
     "responses": [
       {
-        "text": "Я понимаю.",
+        "text": "I understand.",
         "topic": "TALK_BERSERK_FLORA_ARMOR_CONFIRM"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2330,14 +2330,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_REASON_PROTECT",
-    "dynamic_line": "Сохрани эти слова. Особенно в тот день, когда враг покажется тебе важнее тех, кого ты защищаешь.",
+    "dynamic_line": "Hold on to those words. Especially on the day your enemy seems more important than those you're protecting.",
     "responses": [
       {
-        "text": "Я понимаю.",
+        "text": "I understand.",
         "topic": "TALK_BERSERK_FLORA_ARMOR_CONFIRM"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2345,14 +2345,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_REASON_REVENGE",
-    "dynamic_line": "Я слышу твою решимость. Но не позволю себе назвать месть защитой от цены доспеха — это разные вещи, как бы тебе ни хотелось их смешать.",
+    "dynamic_line": "I hear your resolve. But I won't call revenge a protection from the armor's price. Those are different things, however much you wish to make them one.",
     "responses": [
       {
-        "text": "Я понимаю.",
+        "text": "I understand.",
         "topic": "TALK_BERSERK_FLORA_ARMOR_CONFIRM"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2360,10 +2360,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_LATER",
-    "dynamic_line": "Тогда не торопись. Можешь остаться здесь и подумать, сколько потребуется.",
+    "dynamic_line": "Then take your time. You can stay here and think for as long as you need.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2371,10 +2371,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_DECLINE",
-    "dynamic_line": "Теперь поговорим о другом. О том, куда ты пойдёшь дальше — с бронёй ли, без неё.",
+    "dynamic_line": "Now let's talk about something else. Where you will go next, with armor or without it.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -2391,10 +2391,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_CONFIRM",
-    "dynamic_line": "Хорошо. Я помогу тебе с доспехом. Не уходи, пока не убедишься, что знаешь, как с ним обращаться.",
+    "dynamic_line": "All right. I will help you with the armor. Don't leave before you're sure you know how to handle it.",
     "responses": [
       {
-        "text": "Я готов принять его.",
+        "text": "I'm ready to accept it.",
         "topic": "TALK_DONE",
         "condition": {
           "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
@@ -2406,7 +2406,7 @@
         ]
       },
       {
-        "text": "Сначала ещё один вопрос.",
+        "text": "One more question first.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       },
       {
@@ -2424,7 +2424,7 @@
         }
       },
       {
-        "text": "Я вернусь к этому позже.",
+        "text": "I'll return to this later.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -2432,10 +2432,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PARTIAL",
-    "dynamic_line": "Ты принёс часть доспеха. Дай мне посмотреть, чего недостаёт.\n\nС тем, чего у тебя ещё нет, я могу помочь. И мы поговорим о целом доспехе, прежде чем ты решишь на него положиться.",
+    "dynamic_line": "You brought a piece of the armor. Let me see what's missing.\n\nI can help with what you still lack. And we'll discuss the whole suit before you decide to rely on it.",
     "responses": [
       {
-        "text": "Я готов принять недостающие части.",
+        "text": "I'm ready to accept the missing pieces.",
         "topic": "TALK_DONE",
         "condition": {
           "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
@@ -2461,7 +2461,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2473,8 +2473,8 @@
       "concatenate": [
         {
           "test_eoc": "EOC_BERSERK_FLORA33_P_97502AC24A5F",
-          "yes": "Доспех уже у тебя. Я не стану делать вид, будто могу отменить всё, что произошло. Но прошу: не считай две опасные силы лекарством друг от друга — вместе они могут обойтись тебе куда дороже, чем порознь.",
-          "no": "Доспех уже у тебя. Но получить его — ещё не значит научиться ему противостоять. Если хочешь, поговорим о том, что он потребует взамен."
+          "yes": "You already have the armor. I won't pretend I can undo everything that has happened. But please don't treat two dangerous powers as cures for each other. Together, they may cost you far more than either alone.",
+          "no": "You already have the armor. But obtaining it doesn't mean you have learned to stand against it. If you wish, we can discuss what it will demand in return."
         },
         {
           "test_eoc": "EOC_BERSERK_FLORA33_P_D5EFD4C1D4CB",
@@ -2487,13 +2487,13 @@
             "math": [
               "u_berserk_flora33_motive == 1"
             ],
-            "yes": "Тогда помни: выстоять и вернуться — не всегда одно и то же. Заботься о втором не меньше, чем о первом.",
+            "yes": "Then remember: standing your ground and coming back are not always the same. Care about the second as much as the first.",
             "no": {
               "math": [
                 "u_berserk_flora33_motive == 2"
               ],
-              "yes": "Сохрани эти слова. Особенно в тот день, когда враг покажется тебе важнее тех, кого ты защищаешь.",
-              "no": "Я слышу твою решимость. Но не позволю себе назвать месть защитой от цены доспеха — это разные вещи, как бы тебе ни хотелось их смешать."
+              "yes": "Hold on to those words. Especially on the day your enemy seems more important than those you're protecting.",
+              "no": "I hear your resolve. But I won't call revenge a protection from the armor's price. Those are different things, however much you wish to make them one."
             }
           },
           "no": ""
@@ -2502,15 +2502,15 @@
     },
     "responses": [
       {
-        "text": "Что я должен замечать в себе?",
+        "text": "What should I watch for in myself?",
         "topic": "TALK_BERSERK_FLORA_COST_CONTROL"
       },
       {
-        "text": "Что делать после тяжёлого боя?",
+        "text": "What should I do after a hard battle?",
         "topic": "TALK_BERSERK_FLORA_ARMOR_RECOVER"
       },
       {
-        "text": "Я уже испытал его.",
+        "text": "I've already used it.",
         "topic": "TALK_BERSERK_FLORA_ARMOR_USED",
         "condition": {
           "math": [
@@ -2519,7 +2519,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ],
@@ -2549,10 +2549,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_RECOVER",
-    "dynamic_line": "Не принимай возможность двигаться за исцеление. После боя телу всё равно придётся пережить то, что с ним произошло — отсрочка не отмена.\n\nСначала тебе может показаться, что цена невелика: усталость, боль, которую ты почувствуешь позже, когда всё закончится. Опаснее другое — привыкнуть считать любое повреждение допустимым, пока остаётся враг. Эта привычка опаснее самой боли.",
+    "dynamic_line": "Don't mistake being able to move for being healed. After the battle, the body must still endure what happened to it. A delay is no reprieve.\n\nAt first the price may seem small: fatigue, pain that you will feel later, once it is over. The greater danger is growing used to treating any injury as acceptable while an enemy remains. That habit is more dangerous than the pain itself.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2560,18 +2560,18 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_USED",
-    "dynamic_line": "Тогда скажи: тебе было труднее начать сражаться или закончить?",
+    "dynamic_line": "Then tell me: was it harder to start fighting, or to stop?",
     "responses": [
       {
-        "text": "Закончить.",
+        "text": "To stop.",
         "topic": "TALK_BERSERK_FLORA_ARMOR_STOP"
       },
       {
-        "text": "Я сохранял контроль.",
+        "text": "I stayed in control.",
         "topic": "TALK_BERSERK_FLORA_ARMOR_CONTROL"
       },
       {
-        "text": "Не хочу об этом говорить.",
+        "text": "I don't want to talk about it.",
         "topic": "TALK_BERSERK_FLORA_ARMOR_SILENCE"
       }
     ]
@@ -2579,10 +2579,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_STOP",
-    "dynamic_line": "Хорошо, что ты это заметил. Не отмахивайся от этого чувства, когда раны заживут — оно вернётся снова, и в следующий раз может оказаться сильнее.",
+    "dynamic_line": "It is good that you noticed. Don't dismiss that feeling once the wounds heal. It will return, and next time it may be stronger.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2590,10 +2590,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_CONTROL",
-    "dynamic_line": "Пусть так будет и дальше. Только не считай один удачный бой обещанием для всех последующих.",
+    "dynamic_line": "May it stay that way. Just don't treat one successful battle as a promise for every one that follows.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2601,10 +2601,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_SILENCE",
-    "dynamic_line": "Не нужно. Но самому себе всё же ответь — рано или поздно придётся.",
+    "dynamic_line": "You needn't tell me. But answer it for yourself. Sooner or later, you must.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2612,10 +2612,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_UNAVAILABLE",
-    "dynamic_line": "Я уже передала тебе то, что могла. Другого такого комплекта у меня нет.",
+    "dynamic_line": "I've already given you what I could. I don't have another set like it.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2623,22 +2623,22 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_APOSTOL_ARMOR",
-    "dynamic_line": "Доспех я тебе не передам. Ты уже позволил иной силе менять твоё тело. Добавлять к этому ещё одну власть над ним я не стану.",
+    "dynamic_line": "I will not give you the armor. You have already allowed another power to change your body. I won't add another will's hold over it.",
     "responses": [
       {
-        "text": "Ты считаешь меня чудовищем?",
+        "text": "Do you think I'm a monster?",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_MONSTER"
       },
       {
-        "text": "Но я всё ещё могу защищать людей.",
+        "text": "But I can still protect people.",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_PROTECT"
       },
       {
-        "text": "Тогда мне здесь нечего делать?",
+        "text": "Then there's nothing for me here?",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_DOOR"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ],
@@ -2660,10 +2660,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_APOSTOL_MONSTER",
-    "dynamic_line": "Я говорю о том, чему не хочу помогать — не о том, кто ты есть. Ты пришёл сюда мирно, и я продолжаю с тобой разговаривать. Это уже кое-что значит.",
+    "dynamic_line": "I am speaking of what I do not wish to aid, not of who you are. You came here in peace, and I am still talking to you. That already means something.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2671,10 +2671,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_APOSTOL_PROTECT",
-    "dynamic_line": "Можешь. И надеюсь, будешь. Для этого я не обязана отдавать тебе каждую опасную вещь, которая есть в моём доме.",
+    "dynamic_line": "You can. And I hope you will. That doesn't oblige me to give you every dangerous thing in my house.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2682,10 +2682,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_APOSTOL_DOOR",
-    "dynamic_line": "Здесь можно отдохнуть, задать вопросы и решить, куда идти дальше. Моя дверь не была открыта только ради доспеха — и для тебя она остаётся открытой.",
+    "dynamic_line": "You can rest here, ask questions and decide where to go. My door was not opened only for the sake of the armor, and it remains open to you.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ]
@@ -2693,14 +2693,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_REFUSED",
-    "dynamic_line": "Отказ не всегда оставляет человека невредимым. Но рана, которую тебе нанесли, не означает, что ты согласился на неё.",
+    "dynamic_line": "Refusal does not always leave a person unhurt. But a wound inflicted on you doesn't mean you agreed to it.",
     "responses": [
       {
-        "text": "Ты можешь это исправить?",
+        "text": "Can you put this right?",
         "topic": "TALK_BERSERK_FLORA_REFUSED_HELP"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -2708,10 +2708,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_REFUSED_HELP",
-    "dynamic_line": "Я могу выслушать и помочь тебе разобраться с тем, что изменилось. Обещать исцеление, которого не знаю, не буду — это было бы ложью.",
+    "dynamic_line": "I can listen and help you understand what has changed. I won't promise a healing I do not know. That would be a lie.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -2719,10 +2719,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_AID",
-    "dynamic_line": "Расскажи, какая помощь тебе нужна.",
+    "dynamic_line": "Tell me what help you need.",
     "responses": [
       {
-        "text": "Есть ли у тебя что-то, что поможет против апостолов?",
+        "text": "Do you have anything that might help against apostles?",
         "topic": "TALK_BERSERK_FLORA_ARMOR",
         "condition": {
           "and": [
@@ -2738,7 +2738,7 @@
         }
       },
       {
-        "text": "Можно взять припасы в дорогу?",
+        "text": "May I take supplies for the road?",
         "topic": "TALK_BERSERK_FLORA_HELP",
         "condition": {
           "not": {
@@ -2749,7 +2749,7 @@
         }
       },
       {
-        "text": "О приготовленных припасах.",
+        "text": "About the prepared supplies.",
         "topic": "TALK_BERSERK_FLORA_HELP_TAKEN",
         "condition": {
           "math": [
@@ -2758,11 +2758,11 @@
         }
       },
       {
-        "text": "Что мне делать дальше?",
+        "text": "What should I do next?",
         "topic": "TALK_BERSERK_FLORA_NEXT"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -2770,10 +2770,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_HELP",
-    "dynamic_line": "Для тебя приготовлены свёртки в кухне, мастерской и южной галерее. Возьми их, если они помогут в дороге. Остальные вещи оставь на своих местах.",
+    "dynamic_line": "There are bundles prepared for you in the kitchen, workshop and south gallery. Take them if they will help you on the road. Leave the other things where they are.",
     "responses": [
       {
-        "text": "Спасибо. Возьму только приготовленное.",
+        "text": "Thank you. I'll take only what you've set aside.",
         "topic": "TALK_BERSERK_FLORA",
         "effect": [
           {
@@ -2782,7 +2782,7 @@
         ]
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_AID"
       }
     ]
@@ -2790,10 +2790,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_HELP_TAKEN",
-    "dynamic_line": "Ты можешь взять те свёртки, что я приготовила. Новых припасов на их месте не появится — распоряжайся ими бережно.",
+    "dynamic_line": "You may take the bundles I prepared. No new supplies will appear in their place, so use them carefully.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_AID"
       }
     ]
@@ -2801,30 +2801,30 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_HOME",
-    "dynamic_line": "Потому что рядом с ним это место стало возможным. Я строила дом, стараясь не спорить с корнями. Где-то получилось удачнее, где-то пришлось переделывать — дерево своенравнее любого заказчика.",
+    "dynamic_line": "Because this place became possible beside it. I built the house trying not to quarrel with the roots. Some parts worked better than others; some had to be rebuilt. The tree is more headstrong than any customer.",
     "responses": [
       {
-        "text": "Оно защищает тебя?",
+        "text": "Does it protect you?",
         "topic": "TALK_BERSERK_FLORA_TREE"
       },
       {
-        "text": "Это обычное дерево?",
+        "text": "Is it an ordinary tree?",
         "topic": "TALK_BERSERK_FLORA_TREE_OTHER"
       },
       {
-        "text": "Здесь всё выглядит слишком обычным.",
+        "text": "Everything here looks too ordinary.",
         "topic": "TALK_BERSERK_FLORA_HOME_ORDINARY"
       },
       {
-        "text": "Зачем тебе столько книг?",
+        "text": "Why do you need so many books?",
         "topic": "TALK_BERSERK_FLORA_BOOKS"
       },
       {
-        "text": "Ты давно здесь живёшь?",
+        "text": "Have you lived here long?",
         "topic": "TALK_BERSERK_FLORA_HOME_AGE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -2832,10 +2832,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_TREE",
-    "dynamic_line": "Оно участвует в защите этого места. А я забочусь о нём. Мне нравится думать, что соседство должно быть взаимным, а не односторонним.",
+    "dynamic_line": "It helps protect this place. And I care for it. I like to think being neighbors should mean giving as well as taking.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_HOME"
       }
     ]
@@ -2843,14 +2843,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_TREE_OTHER",
-    "dynamic_line": "Оно живёт сразу в большем числе связей, чем дерево, которое ты привык видеть у дороги. Его корни касаются не только земли.",
+    "dynamic_line": "It lives within more connections at once than the trees you are used to seeing by the road. Its roots touch more than earth.",
     "responses": [
       {
-        "text": "С ним можно говорить?",
+        "text": "Can you talk to it?",
         "topic": "TALK_BERSERK_FLORA_TREE_SPEAK"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_HOME"
       }
     ]
@@ -2858,10 +2858,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_TREE_SPEAK",
-    "dynamic_line": "Можно начать с того, чтобы спокойно посидеть рядом. Не всякий разговор требует человеческих слов.",
+    "dynamic_line": "You can start by sitting quietly beside it. Not every conversation needs human words.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_HOME"
       }
     ]
@@ -2869,18 +2869,18 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_HOME_ORDINARY",
-    "dynamic_line": "Ты ожидал увидеть больше черепов и кипящих котлов?",
+    "dynamic_line": "Were you expecting more skulls and bubbling cauldrons?",
     "responses": [
       {
-        "text": "Наверное.",
+        "text": "Probably.",
         "topic": "TALK_BERSERK_FLORA_HOME_POTS"
       },
       {
-        "text": "Просто снаружи всё иначе.",
+        "text": "It's just that everything is different outside.",
         "topic": "TALK_BERSERK_FLORA_HOME_OUTSIDE"
       },
       {
-        "text": "Мне здесь нравится.",
+        "text": "I like it here.",
         "topic": "TALK_BERSERK_FLORA_HOME_LIKE"
       }
     ]
@@ -2888,10 +2888,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_HOME_POTS",
-    "dynamic_line": "Боюсь разочаровать. Котёл мне чаще нужен для ужина, чем для чего-то более зловещего.",
+    "dynamic_line": "I'm afraid I must disappoint you. My cauldron is more often needed for supper than for anything sinister.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_HOME"
       }
     ]
@@ -2899,10 +2899,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_HOME_OUTSIDE",
-    "dynamic_line": "Поэтому здесь особенно важно, чтобы можно было найти чашку, сухое полотенце и место у огня. Контраст — тоже своего рода защита.",
+    "dynamic_line": "That makes it all the more important to find a cup, a dry towel and a place by the fire here. That difference offers a kind of protection too.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_HOME"
       }
     ]
@@ -2910,10 +2910,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_HOME_LIKE",
-    "dynamic_line": "Тогда дом справляется со своей работой.",
+    "dynamic_line": "Then the house is doing its job.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_HOME"
       }
     ]
@@ -2921,10 +2921,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_BOOKS",
-    "dynamic_line": "Чтобы реже принимать собственную память за безошибочную. И потому, что некоторые собеседники оставляют после себя только книги — больше ничего не остаётся.",
+    "dynamic_line": "So I mistake my own memory for something infallible a little less often. And because some people leave only books behind them. Nothing else remains.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_HOME"
       }
     ]
@@ -2932,14 +2932,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_HOME_AGE",
-    "dynamic_line": "Достаточно давно, чтобы перестать замечать некоторые скрипучие половицы. Гости напоминают о них лучше любых часов.",
+    "dynamic_line": "Long enough to stop noticing some of the creaking floorboards. Guests remind me of them better than any clock.",
     "responses": [
       {
-        "text": "Ты уходишь от ответа.",
+        "text": "You're avoiding the question.",
         "topic": "TALK_BERSERK_FLORA_HOME_AGE_MORE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_HOME"
       }
     ]
@@ -2947,10 +2947,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_HOME_AGE_MORE",
-    "dynamic_line": "Немного. Привычка пожилого человека, которому иногда хочется поговорить о чём-нибудь, кроме собственного возраста.",
+    "dynamic_line": "A little. An old person's habit, when she sometimes wants to talk about something other than her age.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_HOME"
       }
     ]
@@ -2958,18 +2958,18 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PERSONAL",
-    "dynamic_line": "Спрашивай.",
+    "dynamic_line": "Ask.",
     "responses": [
       {
-        "text": "Ты меня не боишься?",
+        "text": "Aren't you afraid of me?",
         "topic": "TALK_BERSERK_FLORA_PERSONAL_FEAR"
       },
       {
-        "text": "Почему ты помогаешь незнакомым людям?",
+        "text": "Why do you help strangers?",
         "topic": "TALK_BERSERK_FLORA_PERSONAL_HELP"
       },
       {
-        "text": "Ты знаешь Рыцаря-Черепа?",
+        "text": "Do you know the Skull Knight?",
         "topic": "TALK_BERSERK_FLORA_PERSONAL_KNIGHT",
         "condition": {
           "math": [
@@ -2978,14 +2978,14 @@
         }
       },
       {
-        "text": "Мне некогда сидеть у очага.",
+        "text": "I don't have time to sit by the hearth.",
         "topic": "TALK_BERSERK_FLORA_PERSONAL_GUTS",
         "condition": {
           "test_eoc": "EOC_BERSERK_FORGE_GUTS"
         }
       },
       {
-        "text": "Я не понимаю, за что мне всё это.",
+        "text": "I don't understand why this is happening to me.",
         "topic": "TALK_BERSERK_FLORA_PERSONAL_STRANGER",
         "condition": {
           "and": [
@@ -3010,11 +3010,11 @@
         }
       },
       {
-        "text": "Если я уйду, я смогу вернуться?",
+        "text": "If I leave, can I come back?",
         "topic": "TALK_BERSERK_FLORA_PERSONAL_RETURN"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3024,12 +3024,12 @@
     "id": "TALK_BERSERK_FLORA_PERSONAL_FEAR",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_FLORA33_P_97502AC24A5F",
-      "yes": "Сила рядом с тобой — опасная. Я это чувствую, можешь не притворяться.\n\nНо я смотрю не только на неё. Смотрю, как ты с ней обращаешься.\n\nНе вынуждай меня выбирать между гостем и этим домом. Такой выбор я сделаю быстро — и не в твою пользу.",
-      "no": "Боюсь?\n\nТы пришёл в мой дом. Попросил выслушать. Пока это весомее любого страха."
+      "yes": "The power beside you is dangerous. I can feel it; there's no need to pretend.\n\nBut it isn't the only thing I look at. I watch how you use it.\n\nDon't force me to choose between a guest and this house. I would make that choice quickly, and not in your favor.",
+      "no": "Afraid?\n\nYou came into my home. You asked me to listen. For now, that matters more than any fear."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_PERSONAL"
       }
     ]
@@ -3037,10 +3037,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PERSONAL_HELP",
-    "dynamic_line": "Незнакомые — это пока. Сегодня чужой, завтра — уже нет.\n\nА иногда дело проще. Им просто некуда больше идти.",
+    "dynamic_line": "Strangers for now. A stranger today needn't be one tomorrow.\n\nAnd sometimes it's simpler than that. They have nowhere else to go.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_PERSONAL"
       }
     ]
@@ -3048,22 +3048,22 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PERSONAL_KNIGHT",
-    "dynamic_line": "Знаю. Давно уже.",
+    "dynamic_line": "I do. For a long time now.",
     "responses": [
       {
-        "text": "Ему можно доверять?",
+        "text": "Can he be trusted?",
         "topic": "TALK_BERSERK_FLORA_KNIGHT_TRUST"
       },
       {
-        "text": "Он всегда так разговаривает?",
+        "text": "Does he always talk like that?",
         "topic": "TALK_BERSERK_FLORA_KNIGHT_SPEECH"
       },
       {
-        "text": "Кем он был?",
+        "text": "Who was he?",
         "topic": "TALK_BERSERK_FLORA_KNIGHT_PAST"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_PERSONAL"
       }
     ]
@@ -3071,10 +3071,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_KNIGHT_TRUST",
-    "dynamic_line": "Он не рассказывает всего. Никогда. Даже если спросишь трижды.\n\nНо если он вытащил тебя — не обесценивай это только потому, что не получил ответов впридачу.",
+    "dynamic_line": "He doesn't tell everything. Ever. Even if you ask three times.\n\nBut if he pulled you out, don't belittle that just because answers didn't come with it.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_PERSONAL"
       }
     ]
@@ -3082,10 +3082,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_KNIGHT_SPEECH",
-    "dynamic_line": "Полагаю, у него не так много выбора. Привычка — штука цепкая.",
+    "dynamic_line": "I suppose he has little choice. Habit is a tenacious thing.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_PERSONAL"
       }
     ]
@@ -3097,12 +3097,12 @@
       "math": [
         "u_berserk_knight_farewell_confirmed == 1"
       ],
-      "yes": "Это его история. Не моя. Когда-нибудь он сам решит, кому её рассказать. Я пересказывать не буду.",
-      "no": "Это его история. Не моя. Хочешь знать — спроси его. Я пересказывать не буду."
+      "yes": "That is his story, not mine. One day he'll decide whom to tell. I won't tell it for him.",
+      "no": "That is his story, not mine. If you want to know, ask him. I won't tell it for him."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_PERSONAL"
       }
     ]
@@ -3110,14 +3110,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PERSONAL_GUTS",
-    "dynamic_line": "Может быть.\n\nНо ты сидишь.",
+    "dynamic_line": "Perhaps.\n\nBut you're sitting here.",
     "responses": [
       {
-        "text": "Недолго.",
+        "text": "Not for long.",
         "topic": "TALK_BERSERK_FLORA_PERSONAL_GUTS_MORE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_PERSONAL"
       }
     ]
@@ -3125,10 +3125,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PERSONAL_GUTS_MORE",
-    "dynamic_line": "С недолгого обычно и начинается.",
+    "dynamic_line": "That's usually how it starts.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_PERSONAL"
       }
     ]
@@ -3136,10 +3136,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PERSONAL_STRANGER",
-    "dynamic_line": "Я не знаю слов, которые сделали бы это справедливым. Таких слов, наверное, нет вовсе.\n\nНо здесь тебе не нужно ничего доказывать. Ни что справляешься, ни что держишься. Можешь просто быть.",
+    "dynamic_line": "I know no words that would make this fair. Perhaps there are none.\n\nBut here you needn't prove anything. Not that you're coping, nor that you're holding on. You can simply be.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_PERSONAL"
       }
     ]
@@ -3147,10 +3147,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PERSONAL_RETURN",
-    "dynamic_line": "Пока этот дом стоит и принимает гостей — тебе здесь всегда найдётся место.",
+    "dynamic_line": "As long as this house stands and welcomes guests, there will always be a place for you here.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_PERSONAL"
       }
     ]
@@ -3158,10 +3158,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_KNOWN_COUNT",
-    "dynamic_line": "Рассказывай. Не какой он с виду — это и дурак заметит. Что вокруг него делается. Кто бежит, кто остаётся, что земля с этим местом делает.\n\nКогда пойдёшь туда снова — гляди не только на него. На то, что он сделал с местом вокруг. Выжженная земля, обвалившиеся дома, тишина, в которой даже птицы не каркают — это говорит больше, чем любое прозвище, которым его окрестили со страху.",
+    "dynamic_line": "Tell me. Not what it looks like; any fool can see that. What happens around it. Who runs, who stays, what the land does in that place.\n\nWhen you go there again, look beyond the creature itself. Look at what it has done to its surroundings. Scorched earth, fallen houses, silence without even a crow's call: these say more than any name people gave it out of fear.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
       }
     ]
@@ -3169,10 +3169,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_KNOWN_WYALD",
-    "dynamic_line": "Рассказывай. Не какой он с виду — это и дурак заметит. Что вокруг него делается. Кто бежит, кто остаётся, что земля с этим местом делает.\n\nКогда пойдёшь туда снова — гляди не только на него. На то, что он сделал с местом вокруг. Выжженная земля, обвалившиеся дома, тишина, в которой даже птицы не каркают — это говорит больше, чем любое прозвище, которым его окрестили со страху.",
+    "dynamic_line": "Tell me. Not what it looks like; any fool can see that. What happens around it. Who runs, who stays, what the land does in that place.\n\nWhen you go there again, look beyond the creature itself. Look at what it has done to its surroundings. Scorched earth, fallen houses, silence without even a crow's call: these say more than any name people gave it out of fear.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
       }
     ]
@@ -3180,10 +3180,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_KNOWN_ROSINE",
-    "dynamic_line": "Рассказывай. Не какой он с виду — это и дурак заметит. Что вокруг него делается. Кто бежит, кто остаётся, что земля с этим местом делает.\n\nКогда пойдёшь туда снова — гляди не только на него. На то, что он сделал с местом вокруг. Выжженная земля, обвалившиеся дома, тишина, в которой даже птицы не каркают — это говорит больше, чем любое прозвище, которым его окрестили со страху.",
+    "dynamic_line": "Tell me. Not what it looks like; any fool can see that. What happens around it. Who runs, who stays, what the land does in that place.\n\nWhen you go there again, look beyond the creature itself. Look at what it has done to its surroundings. Scorched earth, fallen houses, silence without even a crow's call: these say more than any name people gave it out of fear.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
       }
     ]
@@ -3191,10 +3191,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_KNOWN_GRUNBELD",
-    "dynamic_line": "Рассказывай. Не какой он с виду — это и дурак заметит. Что вокруг него делается. Кто бежит, кто остаётся, что земля с этим местом делает.\n\nКогда пойдёшь туда снова — гляди не только на него. На то, что он сделал с местом вокруг. Выжженная земля, обвалившиеся дома, тишина, в которой даже птицы не каркают — это говорит больше, чем любое прозвище, которым его окрестили со страху.",
+    "dynamic_line": "Tell me. Not what it looks like; any fool can see that. What happens around it. Who runs, who stays, what the land does in that place.\n\nWhen you go there again, look beyond the creature itself. Look at what it has done to its surroundings. Scorched earth, fallen houses, silence without even a crow's call: these say more than any name people gave it out of fear.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
       }
     ]
@@ -3202,10 +3202,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_DANGERS",
-    "dynamic_line": "Расскажи, что тебе известно.",
+    "dynamic_line": "Tell me what you know.",
     "responses": [
       {
-        "text": "Я кое-что знаю о Графе.",
+        "text": "I know something about the Count.",
         "topic": "TALK_BERSERK_FLORA_KNOWN_COUNT",
         "condition": {
           "math": [
@@ -3214,7 +3214,7 @@
         }
       },
       {
-        "text": "Я кое-что знаю о Уайлде.",
+        "text": "I know something about Wyald.",
         "topic": "TALK_BERSERK_FLORA_KNOWN_WYALD",
         "condition": {
           "math": [
@@ -3223,7 +3223,7 @@
         }
       },
       {
-        "text": "Я кое-что знаю о Розине.",
+        "text": "I know something about Rosine.",
         "topic": "TALK_BERSERK_FLORA_KNOWN_ROSINE",
         "condition": {
           "math": [
@@ -3232,7 +3232,7 @@
         }
       },
       {
-        "text": "Я кое-что знаю о Грюнбельде.",
+        "text": "I know something about Grunbeld.",
         "topic": "TALK_BERSERK_FLORA_KNOWN_GRUNBELD",
         "condition": {
           "math": [
@@ -3241,7 +3241,7 @@
         }
       },
       {
-        "text": "Я закрыл прорыв.",
+        "text": "I closed a breach.",
         "topic": "TALK_BERSERK_FLORA_DANGER_BREACH",
         "condition": {
           "math": [
@@ -3250,7 +3250,7 @@
         }
       },
       {
-        "text": "Я убил его отражение — или что это было.",
+        "text": "I killed its reflection, or whatever it was.",
         "topic": "TALK_BERSERK_FLORA_DANGER_PROJECTION",
         "condition": {
           "math": [
@@ -3259,11 +3259,11 @@
         }
       },
       {
-        "text": "Куда мне идти дальше?",
+        "text": "Where should I go next?",
         "topic": "TALK_BERSERK_FLORA_NEXT"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3271,10 +3271,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_DANGER_BREACH",
-    "dynamic_line": "Хорошее дело. Трудное.\n\nТолько не путай тишину с пустотой. Прорыв закрылся — а то, что через него уже прошло... осталось. По эту сторону. Где-то.\n\nТак что не расслабляйся раньше времени.",
+    "dynamic_line": "Good work. Hard work.\n\nJust don't mistake quiet for emptiness. The breach closed, but what had already come through it stayed. On this side. Somewhere.\n\nSo don't lower your guard too soon.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
       }
     ]
@@ -3282,14 +3282,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_DANGER_PROJECTION",
-    "dynamic_line": "Больно от него было настоящее, да?",
+    "dynamic_line": "It hurt you for real, didn't it?",
     "responses": [
       {
-        "text": "Да.",
+        "text": "Yes.",
         "topic": "TALK_BERSERK_FLORA_PROJECTION_ANSWER"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
       }
     ]
@@ -3297,10 +3297,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PROJECTION_ANSWER",
-    "dynamic_line": "То, что ты изрубил, — отражение. Оно ранит по-настоящему. Но его гибель ещё ничего не говорит о судьбе оригинала.",
+    "dynamic_line": "What you cut down was a reflection. It can wound you for real. But its death alone tells you nothing about the fate of the original.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
       }
     ],
@@ -3319,23 +3319,23 @@
     "id": "TALK_BERSERK_FLORA_NEXT",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_FLORA33_P_C8F07FE2CEA9",
-      "yes": "У тебя есть известная дорога: лесная низина.\n\nВопрос не в том, куда. Вопрос — готов ли ты туда идти прямо сейчас, или сперва надо отлежаться и доесть.",
+      "yes": "You have a known road: the forest hollow.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
       "no": {
         "test_eoc": "EOC_BERSERK_FLORA33_P_678E2F36C17F",
-        "yes": "У тебя есть известная дорога: пепельный разрыв.\n\nВопрос не в том, куда. Вопрос — готов ли ты туда идти прямо сейчас, или сперва надо отлежаться и доесть.",
+        "yes": "You have a known road: the ashen rift.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
         "no": {
           "test_eoc": "EOC_BERSERK_FLORA33_P_C402274F96B9",
-          "yes": "У тебя есть известная дорога: резиденция Графа.\n\nВопрос не в том, куда. Вопрос — готов ли ты туда идти прямо сейчас, или сперва надо отлежаться и доесть.",
+          "yes": "You have a known road: the Count's residence.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
           "no": {
             "test_eoc": "EOC_BERSERK_FLORA33_P_DAB0685D7713",
-            "yes": "У тебя есть известная дорога: лагерь Чёрных Псов.\n\nВопрос не в том, куда. Вопрос — готов ли ты туда идти прямо сейчас, или сперва надо отлежаться и доесть.",
+            "yes": "You have a known road: the Black Dogs' camp.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
             "no": {
               "test_eoc": "EOC_BERSERK_FLORA33_P_79E9E9DAA827",
-              "yes": "У тебя есть известная дорога: туманная долина.\n\nВопрос не в том, куда. Вопрос — готов ли ты туда идти прямо сейчас, или сперва надо отлежаться и доесть.",
+              "yes": "You have a known road: the misty valley.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
               "no": {
                 "test_eoc": "EOC_BERSERK_FLORA33_P_6E47DB6C2FDD",
-                "yes": "У тебя есть известная дорога: крепость Грюнбельда.\n\nВопрос не в том, куда. Вопрос — готов ли ты туда идти прямо сейчас, или сперва надо отлежаться и доесть.",
-                "no": "У тебя пусто. Не дорог нет — знаний нет.\n\nИди разберись в том, что уже нашёл, прежде чем соваться дальше наугад. Наугад — это как в прорубь головой: может, вынырнешь, а может, нет."
+                "yes": "You have a known road: Grunbeld's fortress.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
+                "no": "You have nothing. Not no roads; no knowledge.\n\nGo and make sense of what you've already found before stumbling farther at random. Going blindly is like diving headfirst into an ice hole. You might surface, or you might not."
               }
             }
           }
@@ -3344,7 +3344,7 @@
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_AID"
       }
     ]
@@ -3352,10 +3352,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_SIEGE_WHAT",
-    "dynamic_line": "Прошли первый рубеж. Стражи держат — пока. Не трать это время на вопросы.",
+    "dynamic_line": "They've passed the first boundary. The guardians are holding, for now. Don't spend that time on questions.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3363,10 +3363,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_SIEGE_WAY",
-    "dynamic_line": "Через сад на запад или через южный выход. Смотри, куда ещё можно пройти: огонь не будет ждать.",
+    "dynamic_line": "Through the garden to the west, or through the south exit. Watch where you can still get through. The fire won't wait.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3374,10 +3374,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_SIEGE_FIGHT",
-    "dynamic_line": "Сдержи врагов, если можешь. Но не стой тут из гордости. Уйти — не значит проиграть.",
+    "dynamic_line": "Hold back the enemies if you can. But don't stay out of pride. Leaving doesn't mean losing.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3385,10 +3385,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_SIEGE_FLORA",
-    "dynamic_line": "Я остаюсь. Дом — моё дело.\n\nТвоё дело сейчас — выйти.",
+    "dynamic_line": "I'm staying. The house is my concern.\n\nYours, right now, is getting out.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3396,14 +3396,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_SIEGE_SAVE",
-    "dynamic_line": "На столе в библиотеке — рукопись. Если дорога туда ещё цела, забери. Нет — бросай и беги.\n\nЧерез огонь за ней не лезь. Слышишь? Не лезь.",
+    "dynamic_line": "There's a manuscript on the library table. If the way is still clear, take it. If not, leave it and run.\n\nDon't go through fire for it. Do you hear me? Don't.",
     "responses": [
       {
-        "text": "Попробую.",
+        "text": "I'll try.",
         "topic": "TALK_BERSERK_FLORA"
       },
       {
-        "text": "Туда уже не пройти.",
+        "text": "There's no way through anymore.",
         "topic": "TALK_BERSERK_FLORA_SIEGE_SAVE_NO"
       }
     ]
@@ -3411,10 +3411,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_SIEGE_SAVE_NO",
-    "dynamic_line": "Тогда и не думай об этом больше. Бумага — бумага. Ты — нет.",
+    "dynamic_line": "Then think no more of it. Paper is paper. You are not.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3422,26 +3422,26 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_APOSTLES",
-    "dynamic_line": "Человеческие чувства показывают лишь часть того, что существует. Есть существа и силы, для которых привычные нам стены, расстояния и даже облик значат не совсем то же самое, что для нас.",
+    "dynamic_line": "Human senses show only a part of what exists. There are beings and powers for which our familiar walls, distances and even shapes don't mean quite what they mean to us.",
     "responses": [
       {
-        "text": "Другой мир, спрятанный внутри нашего?",
+        "text": "Another world hidden inside ours?",
         "topic": "TALK_BERSERK_FLORA_WORLD_INSIDE"
       },
       {
-        "text": "Все его обитатели опасны?",
+        "text": "Are all its inhabitants dangerous?",
         "topic": "TALK_BERSERK_FLORA_WORLD_PEOPLE"
       },
       {
-        "text": "Почему теперь всё смешалось?",
+        "text": "Why is everything mixing together now?",
         "topic": "TALK_BERSERK_FLORA_WORLD_COLLISION"
       },
       {
-        "text": "Можно закрыть все разломы?",
+        "text": "Can all the rifts be closed?",
         "topic": "TALK_BERSERK_FLORA_WORLD_WOUNDS"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -3458,10 +3458,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_RELICS",
-    "dynamic_line": "Расскажи, что тебе известно.",
+    "dynamic_line": "Tell me what you know.",
     "responses": [
       {
-        "text": "Я кое-что знаю о Графе.",
+        "text": "I know something about the Count.",
         "topic": "TALK_BERSERK_FLORA_KNOWN_COUNT",
         "condition": {
           "math": [
@@ -3470,7 +3470,7 @@
         }
       },
       {
-        "text": "Я кое-что знаю о Уайлде.",
+        "text": "I know something about Wyald.",
         "topic": "TALK_BERSERK_FLORA_KNOWN_WYALD",
         "condition": {
           "math": [
@@ -3479,7 +3479,7 @@
         }
       },
       {
-        "text": "Я кое-что знаю о Розине.",
+        "text": "I know something about Rosine.",
         "topic": "TALK_BERSERK_FLORA_KNOWN_ROSINE",
         "condition": {
           "math": [
@@ -3488,7 +3488,7 @@
         }
       },
       {
-        "text": "Я кое-что знаю о Грюнбельде.",
+        "text": "I know something about Grunbeld.",
         "topic": "TALK_BERSERK_FLORA_KNOWN_GRUNBELD",
         "condition": {
           "math": [
@@ -3497,7 +3497,7 @@
         }
       },
       {
-        "text": "Я закрыл прорыв.",
+        "text": "I closed a breach.",
         "topic": "TALK_BERSERK_FLORA_DANGER_BREACH",
         "condition": {
           "math": [
@@ -3506,7 +3506,7 @@
         }
       },
       {
-        "text": "Я убил его отражение — или что это было.",
+        "text": "I killed its reflection, or whatever it was.",
         "topic": "TALK_BERSERK_FLORA_DANGER_PROJECTION",
         "condition": {
           "math": [
@@ -3515,11 +3515,11 @@
         }
       },
       {
-        "text": "Куда мне идти дальше?",
+        "text": "Where should I go next?",
         "topic": "TALK_BERSERK_FLORA_NEXT"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3527,10 +3527,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_RECEIVED",
-    "dynamic_line": "Хорошо. Я помогу тебе с доспехом. Не уходи, пока не убедишься, что знаешь, как с ним обращаться.",
+    "dynamic_line": "All right. I will help you with the armor. Don't leave before you're sure you know how to handle it.",
     "responses": [
       {
-        "text": "Я готов принять его.",
+        "text": "I'm ready to accept it.",
         "topic": "TALK_DONE",
         "condition": {
           "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
@@ -3542,11 +3542,11 @@
         ]
       },
       {
-        "text": "Сначала ещё один вопрос.",
+        "text": "One more question first.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       },
       {
-        "text": "Я вернусь к этому позже.",
+        "text": "I'll return to this later.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3554,10 +3554,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_SIEGE_CONFIRM",
-    "dynamic_line": "Расскажи, какая помощь тебе нужна.",
+    "dynamic_line": "Tell me what help you need.",
     "responses": [
       {
-        "text": "Есть ли у тебя что-то, что поможет против апостолов?",
+        "text": "Do you have anything that might help against apostles?",
         "topic": "TALK_BERSERK_FLORA_ARMOR",
         "condition": {
           "and": [
@@ -3573,7 +3573,7 @@
         }
       },
       {
-        "text": "Можно взять припасы в дорогу?",
+        "text": "May I take supplies for the road?",
         "topic": "TALK_BERSERK_FLORA_HELP",
         "condition": {
           "not": {
@@ -3584,7 +3584,7 @@
         }
       },
       {
-        "text": "О приготовленных припасах.",
+        "text": "About the prepared supplies.",
         "topic": "TALK_BERSERK_FLORA_HELP_TAKEN",
         "condition": {
           "math": [
@@ -3593,11 +3593,11 @@
         }
       },
       {
-        "text": "Что мне делать дальше?",
+        "text": "What should I do next?",
         "topic": "TALK_BERSERK_FLORA_NEXT"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3605,10 +3605,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_SIEGE_OWNER_CONFIRM",
-    "dynamic_line": "Расскажи, какая помощь тебе нужна.",
+    "dynamic_line": "Tell me what help you need.",
     "responses": [
       {
-        "text": "Есть ли у тебя что-то, что поможет против апостолов?",
+        "text": "Do you have anything that might help against apostles?",
         "topic": "TALK_BERSERK_FLORA_ARMOR",
         "condition": {
           "and": [
@@ -3624,7 +3624,7 @@
         }
       },
       {
-        "text": "Можно взять припасы в дорогу?",
+        "text": "May I take supplies for the road?",
         "topic": "TALK_BERSERK_FLORA_HELP",
         "condition": {
           "not": {
@@ -3635,7 +3635,7 @@
         }
       },
       {
-        "text": "О приготовленных припасах.",
+        "text": "About the prepared supplies.",
         "topic": "TALK_BERSERK_FLORA_HELP_TAKEN",
         "condition": {
           "math": [
@@ -3644,11 +3644,11 @@
         }
       },
       {
-        "text": "Что мне делать дальше?",
+        "text": "What should I do next?",
         "topic": "TALK_BERSERK_FLORA_NEXT"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3658,23 +3658,23 @@
     "id": "TALK_BERSERK_FLORA_STATUS",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_FLORA33_P_C8F07FE2CEA9",
-      "yes": "У тебя есть известная дорога: лесная низина.\n\nВопрос не в том, куда. Вопрос — готов ли ты туда идти прямо сейчас, или сперва надо отлежаться и доесть.",
+      "yes": "You have a known road: the forest hollow.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
       "no": {
         "test_eoc": "EOC_BERSERK_FLORA33_P_678E2F36C17F",
-        "yes": "У тебя есть известная дорога: пепельный разрыв.\n\nВопрос не в том, куда. Вопрос — готов ли ты туда идти прямо сейчас, или сперва надо отлежаться и доесть.",
+        "yes": "You have a known road: the ashen rift.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
         "no": {
           "test_eoc": "EOC_BERSERK_FLORA33_P_C402274F96B9",
-          "yes": "У тебя есть известная дорога: резиденция Графа.\n\nВопрос не в том, куда. Вопрос — готов ли ты туда идти прямо сейчас, или сперва надо отлежаться и доесть.",
+          "yes": "You have a known road: the Count's residence.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
           "no": {
             "test_eoc": "EOC_BERSERK_FLORA33_P_DAB0685D7713",
-            "yes": "У тебя есть известная дорога: лагерь Чёрных Псов.\n\nВопрос не в том, куда. Вопрос — готов ли ты туда идти прямо сейчас, или сперва надо отлежаться и доесть.",
+            "yes": "You have a known road: the Black Dogs' camp.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
             "no": {
               "test_eoc": "EOC_BERSERK_FLORA33_P_79E9E9DAA827",
-              "yes": "У тебя есть известная дорога: туманная долина.\n\nВопрос не в том, куда. Вопрос — готов ли ты туда идти прямо сейчас, или сперва надо отлежаться и доесть.",
+              "yes": "You have a known road: the misty valley.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
               "no": {
                 "test_eoc": "EOC_BERSERK_FLORA33_P_6E47DB6C2FDD",
-                "yes": "У тебя есть известная дорога: крепость Грюнбельда.\n\nВопрос не в том, куда. Вопрос — готов ли ты туда идти прямо сейчас, или сперва надо отлежаться и доесть.",
-                "no": "У тебя пусто. Не дорог нет — знаний нет.\n\nИди разберись в том, что уже нашёл, прежде чем соваться дальше наугад. Наугад — это как в прорубь головой: может, вынырнешь, а может, нет."
+                "yes": "You have a known road: Grunbeld's fortress.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
+                "no": "You have nothing. Not no roads; no knowledge.\n\nGo and make sense of what you've already found before stumbling farther at random. Going blindly is like diving headfirst into an ice hole. You might surface, or you might not."
               }
             }
           }
@@ -3683,7 +3683,7 @@
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_AID"
       }
     ]
@@ -3691,10 +3691,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PREPARATION",
-    "dynamic_line": "Расскажи, какая помощь тебе нужна.",
+    "dynamic_line": "Tell me what help you need.",
     "responses": [
       {
-        "text": "Есть ли у тебя что-то, что поможет против апостолов?",
+        "text": "Do you have anything that might help against apostles?",
         "topic": "TALK_BERSERK_FLORA_ARMOR",
         "condition": {
           "and": [
@@ -3710,7 +3710,7 @@
         }
       },
       {
-        "text": "Можно взять припасы в дорогу?",
+        "text": "May I take supplies for the road?",
         "topic": "TALK_BERSERK_FLORA_HELP",
         "condition": {
           "not": {
@@ -3721,7 +3721,7 @@
         }
       },
       {
-        "text": "О приготовленных припасах.",
+        "text": "About the prepared supplies.",
         "topic": "TALK_BERSERK_FLORA_HELP_TAKEN",
         "condition": {
           "math": [
@@ -3730,11 +3730,11 @@
         }
       },
       {
-        "text": "Что мне делать дальше?",
+        "text": "What should I do next?",
         "topic": "TALK_BERSERK_FLORA_NEXT"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3742,10 +3742,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PREPARED",
-    "dynamic_line": "Расскажи, какая помощь тебе нужна.",
+    "dynamic_line": "Tell me what help you need.",
     "responses": [
       {
-        "text": "Есть ли у тебя что-то, что поможет против апостолов?",
+        "text": "Do you have anything that might help against apostles?",
         "topic": "TALK_BERSERK_FLORA_ARMOR",
         "condition": {
           "and": [
@@ -3761,7 +3761,7 @@
         }
       },
       {
-        "text": "Можно взять припасы в дорогу?",
+        "text": "May I take supplies for the road?",
         "topic": "TALK_BERSERK_FLORA_HELP",
         "condition": {
           "not": {
@@ -3772,7 +3772,7 @@
         }
       },
       {
-        "text": "О приготовленных припасах.",
+        "text": "About the prepared supplies.",
         "topic": "TALK_BERSERK_FLORA_HELP_TAKEN",
         "condition": {
           "math": [
@@ -3781,11 +3781,11 @@
         }
       },
       {
-        "text": "Что мне делать дальше?",
+        "text": "What should I do next?",
         "topic": "TALK_BERSERK_FLORA_NEXT"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3793,14 +3793,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_RELIC_LIMITS",
-    "dynamic_line": "Изменил. Ты лишил существ одного пути сюда. Люди поблизости могут никогда не узнать, почему стало тише — но это не делает твой труд напрасным.",
+    "dynamic_line": "It did change something. You denied those creatures one way in. The people nearby may never know why things grew quieter, but that doesn't make your work futile.",
     "responses": [
       {
-        "text": "А для меня?",
+        "text": "And for me?",
         "topic": "TALK_BERSERK_FLORA_BRAND_BREACH_SELF"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
     ]
@@ -3808,10 +3808,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_SMITH",
-    "dynamic_line": "Расскажи, какая помощь тебе нужна.",
+    "dynamic_line": "Tell me what help you need.",
     "responses": [
       {
-        "text": "Есть ли у тебя что-то, что поможет против апостолов?",
+        "text": "Do you have anything that might help against apostles?",
         "topic": "TALK_BERSERK_FLORA_ARMOR",
         "condition": {
           "and": [
@@ -3827,7 +3827,7 @@
         }
       },
       {
-        "text": "Можно взять припасы в дорогу?",
+        "text": "May I take supplies for the road?",
         "topic": "TALK_BERSERK_FLORA_HELP",
         "condition": {
           "not": {
@@ -3838,7 +3838,7 @@
         }
       },
       {
-        "text": "О приготовленных припасах.",
+        "text": "About the prepared supplies.",
         "topic": "TALK_BERSERK_FLORA_HELP_TAKEN",
         "condition": {
           "math": [
@@ -3847,11 +3847,11 @@
         }
       },
       {
-        "text": "Что мне делать дальше?",
+        "text": "What should I do next?",
         "topic": "TALK_BERSERK_FLORA_NEXT"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3859,18 +3859,18 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_FLORA",
-    "dynamic_line": "С тобой связано присутствие, которого я не ожидала. Это больше, чем след чужого прикосновения. Ты принял предложенную силу?",
+    "dynamic_line": "There is a presence bound to you that I did not expect. More than the trace of someone else's touch. Did you accept the power you were offered?",
     "responses": [
       {
-        "text": "Да.",
+        "text": "Yes.",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_YES"
       },
       {
-        "text": "Я сделал это, чтобы выжить.",
+        "text": "I did it to survive.",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_SURVIVE"
       },
       {
-        "text": "Это моё дело.",
+        "text": "That's my business.",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_PRIVATE"
       }
     ],
@@ -3895,10 +3895,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_FLORA_CHOICE",
-    "dynamic_line": "Спасибо, что ответил прямо. Тогда нам придётся говорить и о том, что теперь меняется — для тебя и для того, чем я готова помочь.",
+    "dynamic_line": "Thank you for answering honestly. Then we'll have to talk about what is changing now, both for you and for the help I am willing to offer.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -3925,22 +3925,22 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_FLORA_ARMOR",
-    "dynamic_line": "Доспех я тебе не передам. Ты уже позволил иной силе менять твоё тело. Добавлять к этому ещё одну власть над ним я не стану.",
+    "dynamic_line": "I will not give you the armor. You have already allowed another power to change your body. I won't add another will's hold over it.",
     "responses": [
       {
-        "text": "Ты считаешь меня чудовищем?",
+        "text": "Do you think I'm a monster?",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_MONSTER"
       },
       {
-        "text": "Но я всё ещё могу защищать людей.",
+        "text": "But I can still protect people.",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_PROTECT"
       },
       {
-        "text": "Тогда мне здесь нечего делать?",
+        "text": "Then there's nothing for me here?",
         "topic": "TALK_BERSERK_FLORA_APOSTOL_DOOR"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
     ],
@@ -3965,10 +3965,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_KNOWN_SMITH",
-    "dynamic_line": "Расскажи, какая помощь тебе нужна.",
+    "dynamic_line": "Tell me what help you need.",
     "responses": [
       {
-        "text": "Есть ли у тебя что-то, что поможет против апостолов?",
+        "text": "Do you have anything that might help against apostles?",
         "topic": "TALK_BERSERK_FLORA_ARMOR",
         "condition": {
           "and": [
@@ -3984,7 +3984,7 @@
         }
       },
       {
-        "text": "Можно взять припасы в дорогу?",
+        "text": "May I take supplies for the road?",
         "topic": "TALK_BERSERK_FLORA_HELP",
         "condition": {
           "not": {
@@ -3995,7 +3995,7 @@
         }
       },
       {
-        "text": "О приготовленных припасах.",
+        "text": "About the prepared supplies.",
         "topic": "TALK_BERSERK_FLORA_HELP_TAKEN",
         "condition": {
           "math": [
@@ -4004,11 +4004,11 @@
         }
       },
       {
-        "text": "Что мне делать дальше?",
+        "text": "What should I do next?",
         "topic": "TALK_BERSERK_FLORA_NEXT"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]

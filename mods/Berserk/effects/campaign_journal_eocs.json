@@ -113,7 +113,7 @@
         "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
       },
       {
-        "set_string_var": "Прежде чем продолжать известные дороги, найдите место для отдыха.",
+        "set_string_var": "Find a place to rest before continuing along the known roads.",
         "target_var": {
           "context_val": "flora_next"
         },
@@ -126,7 +126,7 @@
           ]
         },
         "then": {
-          "set_string_var": "В дыму вы потеряли его из виду. Жив он или нет — неизвестно. Пустое место не значит мёртвое тело.",
+          "set_string_var": "You lost sight of him in the smoke. Whether he lives or is dead is unknown. An empty place is not a dead body.",
           "target_var": {
             "context_val": "flora_next"
           },
@@ -140,7 +140,7 @@
           ]
         },
         "then": {
-          "set_string_var": "Грюнбельд мёртв. Но связанные с ним раны не исчезли вместе с ним.",
+          "set_string_var": "Grunbeld is dead. But the wounds bound to him did not disappear with him.",
           "target_var": {
             "context_val": "flora_next"
           },
@@ -159,14 +159,14 @@
               ]
             },
             "then": {
-              "set_string_var": "Грюнбельд выжил. Уцелевший след ведёт к его крепости. Прежде чем продолжать дорогу, можно восстановить силы.",
+              "set_string_var": "Grunbeld survived. The remaining trail leads to his fortress. You can recover your strength before continuing.",
               "target_var": {
                 "context_val": "flora_next"
               },
               "i18n": true
             },
             "else": {
-              "set_string_var": "Грюнбельд выжил и исчез в дыму. Куда он делся после боя, ещё предстоит выяснить.",
+              "set_string_var": "Grunbeld survived and vanished in the smoke. Where he went after the battle remains to be discovered.",
               "target_var": {
                 "context_val": "flora_next"
               },
@@ -176,7 +176,7 @@
         }
       },
       {
-        "u_message": "Дым ест глаза раньше, чем вы успеваете понять, что уже снаружи. Деревья расступаются — и вот оно, дерево, огромное, чёрное на фоне пламени. Там, где раньше были окна, теперь только оранжевые провалы, и в них что-то шевелится — то ли жар, то ли то, что осталось от крыши.\n\nВы стояли у этого очага. Разговаривали с хозяйкой и узнавали этот дом. Теперь дом горит, и идти больше некуда — только вперёд.\n\nЗакрытые прорывы дали земле передышку — не больше. Тьма продолжает сочиться в мир, который и без того не оправился от Катаклизма. Сколько ещё предстоит сделать, чтобы хоть немного залатать эти раны, вы пока даже примерно представить не можете.\n\nСегодня вы остались живы. Пока этого достаточно.\n\n<context_val:flora_next>",
+        "u_message": "Smoke stings your eyes before you realize you are outside. The trees part, and there it is: the great tree, black against the flames. Where windows once stood are only orange hollows, with something moving within them: heat, perhaps, or what remains of the roof.\n\nYou stood by that hearth. Spoke with its mistress and came to know this house. Now it burns, and there is nowhere left to go but forward.\n\nThe closed breaches gave the land a respite, no more. Darkness still seeps into a world that had not recovered from the Cataclysm. You cannot yet begin to imagine how much remains to be done to mend even a little of these wounds.\n\nToday, you stayed alive. For now, that is enough.\n\n<context_val:flora_next>",
         "type": "warning",
         "popup": true
       },

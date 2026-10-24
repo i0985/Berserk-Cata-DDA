@@ -310,7 +310,7 @@
           ]
         },
         "then": {
-          "u_message": "Впереди нет выхода. Разорванный проход остался там, где вы вошли в это поле.",
+          "u_message": "There is no exit ahead. The torn passage remains where you entered this field.",
           "type": "warning",
           "popup": false
         },
@@ -333,7 +333,7 @@
               }
             },
             "else": {
-              "u_message": "Круг молчит.",
+              "u_message": "The circle is silent.",
               "type": "neutral",
               "popup": false
             }
@@ -1001,7 +1001,7 @@
                   "run_eocs": "EOC_BERSERK_APOSTOL_GIFT_BEGIN"
                 },
                 {
-                  "u_message": "Вы снова стоите под знакомым небом. Внутри шевелится нечто чужое. Принятое не осталось за порогом.",
+                  "u_message": "You stand beneath familiar skies again. Something foreign stirs within. What you accepted did not stay behind the threshold.",
                   "type": "warning",
                   "popup": true
                 }
@@ -1011,7 +1011,7 @@
                   "run_eocs": "EOC_BERSERK_APOSTOL_APPLY_REFUSAL_SCAR"
                 },
                 {
-                  "u_message": "Вы вернулись человеком. Но тишина не приносит покоя: что-то из пережитого осталось с вами.",
+                  "u_message": "You returned human. But silence brings no peace: something of what you endured has stayed with you.",
                   "type": "warning",
                   "popup": true
                 }

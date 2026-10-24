@@ -4,12 +4,12 @@
     "id": "TALK_BERSERK_COMMON33_GODO_SUSPICION",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_COMMON33_GODO_PENDING",
-      "yes": "С тобой что-то не так? Смотришь мимо, будто слышишь кого-то за моей спиной. Прежде чем продолжим — скажи, что происходит.",
-      "no": "Мы уже поговорили об этом."
+      "yes": "Is something wrong with you? You're looking past me, as if you hear someone behind my back. Before we go on, tell me what's happening.",
+      "no": "We've already discussed this."
     },
     "responses": [
       {
-        "text": "Я принял чужую силу. Она меняет меня.",
+        "text": "I accepted a foreign power. It's changing me.",
         "topic": "TALK_BERSERK_COMMON33_GODO_CONFESS",
         "condition": {
           "test_eoc": "EOC_BERSERK_COMMON33_GODO_PENDING"
@@ -21,7 +21,7 @@
         ]
       },
       {
-        "text": "Всё нормально. С чего ты взял?",
+        "text": "Everything's fine. What makes you think that?",
         "condition": {
           "test_eoc": "EOC_BERSERK_COMMON33_GODO_PENDING"
         },
@@ -47,7 +47,7 @@
         }
       },
       {
-        "text": "Не сейчас. Мне нужно идти.",
+        "text": "Not now. I need to leave.",
         "topic": "TALK_DONE"
       }
     ]
@@ -55,10 +55,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_GODO_LIE_PASSED",
-    "dynamic_line": "Ладно. Тогда вернёмся к работе.",
+    "dynamic_line": "All right. Back to work, then.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ]
@@ -66,10 +66,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_GODO_LIE_FAILED",
-    "dynamic_line": "Не держи меня за дурака. Я не знаю, что ты впустил в себя, но вижу, что ты пытаешься это скрыть. Новый клинок я тебе не отдам. За внесёнными материалами можешь обратиться — они твои.",
+    "dynamic_line": "Don't take me for a fool. I don't know what you let into yourself, but I can see you're trying to hide it. I won't give you a new blade. You can ask for your materials back. They're yours.",
     "responses": [
       {
-        "text": "Я расскажу.",
+        "text": "I'll tell you.",
         "topic": "TALK_BERSERK_COMMON33_GODO_MENU",
         "condition": {
           "not": {
@@ -78,7 +78,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ]
@@ -86,10 +86,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_GODO_CONFESS",
-    "dynamic_line": "А ты уже решил, что с ней делать?",
+    "dynamic_line": "Have you decided what to do with it?",
     "responses": [
       {
-        "text": "Поговорим об этом.",
+        "text": "Let's talk about it.",
         "topic": "TALK_BERSERK_COMMON33_GODO_MENU",
         "condition": {
           "not": {
@@ -98,7 +98,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ]
@@ -108,12 +108,12 @@
     "id": "TALK_BERSERK_COMMON33_RICKERT_SUSPICION",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING",
-      "yes": "С тобой что-то не так? Ты всё время прислушиваешься. Это после того места, откуда ты вернулся?",
-      "no": "Мы уже поговорили об этом."
+      "yes": "Is something wrong with you? You keep listening for something. Is it because of that place you came back from?",
+      "no": "We've already discussed this."
     },
     "responses": [
       {
-        "text": "Я принял чужую силу. Она меняет меня.",
+        "text": "I accepted a foreign power. It's changing me.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_CONFESS",
         "condition": {
           "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING"
@@ -125,7 +125,7 @@
         ]
       },
       {
-        "text": "Всё нормально. С чего ты взял?",
+        "text": "Everything's fine. What makes you think that?",
         "condition": {
           "test_eoc": "EOC_BERSERK_COMMON33_RICKERT_PENDING"
         },
@@ -151,7 +151,7 @@
         }
       },
       {
-        "text": "Не сейчас. Мне нужно идти.",
+        "text": "Not now. I need to leave.",
         "topic": "TALK_DONE"
       }
     ]
@@ -159,10 +159,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_RICKERT_LIE_PASSED",
-    "dynamic_line": "Хорошо. Если понадобится помощь — скажи.",
+    "dynamic_line": "All right. Tell me if you need help.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ]
@@ -170,10 +170,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_RICKERT_LIE_FAILED",
-    "dynamic_line": "Не надо. Лучше скажи прямо, чем мне потом гадать, насколько рядом с тобой безопасно. О работе мы ещё поговорим. Но прежде я хочу услышать правду.",
+    "dynamic_line": "Don't. I'd rather you told me plainly than left me wondering how safe it is to stand beside you. We'll still talk about work. But first I want to hear the truth.",
     "responses": [
       {
-        "text": "Я расскажу.",
+        "text": "I'll tell you.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_MENU",
         "condition": {
           "not": {
@@ -182,7 +182,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ]
@@ -190,10 +190,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_RICKERT_CONFESS",
-    "dynamic_line": "Ты говоришь, это продолжится само?",
+    "dynamic_line": "You're saying it will continue on its own?",
     "responses": [
       {
-        "text": "Поговорим об этом.",
+        "text": "Let's talk about it.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_MENU",
         "condition": {
           "not": {
@@ -202,7 +202,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ]
@@ -212,12 +212,12 @@
     "id": "TALK_BERSERK_COMMON33_FLORA_SUSPICION",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_COMMON33_FLORA_PENDING",
-      "yes": "С тобой что-то не так? Я чувствую беспокойство, но не хочу решать за тебя, что оно означает. Ты ничего не хочешь рассказать?",
-      "no": "Мы уже поговорили об этом."
+      "yes": "Is something wrong with you? I sense unease, but I don't wish to decide for you what it means. Is there anything you want to tell me?",
+      "no": "We've already discussed this."
     },
     "responses": [
       {
-        "text": "Я принял чужую силу. Она меняет меня.",
+        "text": "I accepted a foreign power. It's changing me.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_CONFESS",
         "condition": {
           "test_eoc": "EOC_BERSERK_COMMON33_FLORA_PENDING"
@@ -229,7 +229,7 @@
         ]
       },
       {
-        "text": "Всё нормально. С чего ты взяла?",
+        "text": "Everything is fine. Why do you ask?",
         "condition": {
           "test_eoc": "EOC_BERSERK_COMMON33_FLORA_PENDING"
         },
@@ -255,7 +255,7 @@
         }
       },
       {
-        "text": "Не сейчас. Мне нужно идти.",
+        "text": "Not now. I need to leave.",
         "topic": "TALK_DONE"
       }
     ]
@@ -263,10 +263,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_FLORA_LIE_PASSED",
-    "dynamic_line": "Пусть так. О чём ты хотел поговорить?",
+    "dynamic_line": "Very well. What did you want to discuss?",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -274,10 +274,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_FLORA_LIE_FAILED",
-    "dynamic_line": "Нет. За этими словами есть то, что ты прячешь. Я не стану передавать тебе доспех, пока ты идёшь этим путём. Но дверь перед тобой не закрыта.",
+    "dynamic_line": "No. There is something behind those words that you're hiding. I won't pass you the armor while you follow this path. But my door remains open.",
     "responses": [
       {
-        "text": "Я расскажу.",
+        "text": "I'll tell you.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_MENU",
         "condition": {
           "not": {
@@ -286,7 +286,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -294,10 +294,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_FLORA_CONFESS",
-    "dynamic_line": "Спасибо, что сказал. Начало перемены ещё можно скрыть от взгляда. От себя — вряд ли.",
+    "dynamic_line": "Thank you for telling me. The beginning of a change can still be hidden from the eye. From yourself, perhaps not.",
     "responses": [
       {
-        "text": "Поговорим об этом.",
+        "text": "Let's talk about it.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_MENU",
         "condition": {
           "not": {
@@ -306,7 +306,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -314,10 +314,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_GODO_MENU",
-    "dynamic_line": "Что ты хочешь обсудить?",
+    "dynamic_line": "What would you like to discuss?",
     "responses": [
       {
-        "text": "Посмотри на этот камень.",
+        "text": "Look at this stone.",
         "topic": "TALK_BERSERK_COMMON33_GODO_STONE",
         "condition": {
           "or": [
@@ -331,7 +331,7 @@
         }
       },
       {
-        "text": "Я принял силу. Но внешне почти ничего не изменилось.",
+        "text": "I accepted the power. But I hardly look any different.",
         "topic": "TALK_BERSERK_COMMON33_GODO_EARLY",
         "condition": {
           "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
@@ -343,7 +343,7 @@
         ]
       },
       {
-        "text": "Тело уже начало меняться.",
+        "text": "My body has begun to change.",
         "topic": "TALK_BERSERK_COMMON33_GODO_BODY",
         "condition": {
           "and": [
@@ -359,7 +359,7 @@
         }
       },
       {
-        "text": "Я научился ещё кое-чему.",
+        "text": "I've learned something else.",
         "topic": "TALK_BERSERK_COMMON33_GODO_POWER",
         "condition": {
           "and": [
@@ -375,7 +375,7 @@
         }
       },
       {
-        "text": "Кажется, тело больше не меняется.",
+        "text": "I think my body has stopped changing.",
         "topic": "TALK_BERSERK_COMMON33_GODO_COMPLETE",
         "condition": {
           "and": [
@@ -391,7 +391,7 @@
         }
       },
       {
-        "text": "Я поглотил плоть побеждённого апостола.",
+        "text": "I consumed the flesh of a fallen apostle.",
         "topic": "TALK_BERSERK_COMMON33_GODO_FLESH",
         "condition": {
           "and": [
@@ -414,7 +414,7 @@
         ]
       },
       {
-        "text": "О договоре с тем, кто меня изменил.",
+        "text": "About my pact with the one who changed me.",
         "topic": "TALK_BERSERK_COMMON33_GODO_PACT",
         "condition": {
           "and": [
@@ -437,7 +437,7 @@
         ]
       },
       {
-        "text": "Я нарушил договор.",
+        "text": "I broke the pact.",
         "topic": "TALK_BERSERK_COMMON33_GODO_BROKEN",
         "condition": {
           "and": [
@@ -458,7 +458,7 @@
         }
       },
       {
-        "text": "Того, кому я служил, больше нет.",
+        "text": "The one I served is gone.",
         "topic": "TALK_BERSERK_COMMON33_GODO_DEAD",
         "condition": {
           "and": [
@@ -479,7 +479,7 @@
         }
       },
       {
-        "text": "Я отказался от дара, но последствия остались.",
+        "text": "I refused the gift, but the consequences remain.",
         "topic": "TALK_BERSERK_COMMON33_GODO_REFUSED",
         "condition": {
           "and": [
@@ -497,7 +497,7 @@
         }
       },
       {
-        "text": "Из-за крыльев стало тесно.",
+        "text": "My wings are getting in the way.",
         "topic": "TALK_BERSERK_COMMON33_GODO_WINGS",
         "condition": {
           "or": [
@@ -514,7 +514,7 @@
         }
       },
       {
-        "text": "О панцире.",
+        "text": "About the shell.",
         "topic": "TALK_BERSERK_COMMON33_GODO_SHELL",
         "condition": {
           "or": [
@@ -528,14 +528,14 @@
         }
       },
       {
-        "text": "Моё тело стало тяжелее.",
+        "text": "My body has grown heavier.",
         "topic": "TALK_BERSERK_COMMON33_GODO_HEAVY",
         "condition": {
           "u_has_trait": "BERSERK_COUNT_FLESH_FORM"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ]
@@ -547,24 +547,24 @@
       "math": [
         "u_berserk_common33_godo_read_early == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "А ты уже решил, что с ней делать?"
+      "yes": "I remember our conversation. What else?",
+      "no": "Have you decided what to do with it?"
     },
     "responses": [
       {
-        "text": "Я хотел выжить.",
+        "text": "I wanted to survive.",
         "topic": "TALK_BERSERK_COMMON33_GODO_SURVIVE"
       },
       {
-        "text": "Стать сильнее любого врага.",
+        "text": "To become stronger than any enemy.",
         "topic": "TALK_BERSERK_COMMON33_GODO_STRONG"
       },
       {
-        "text": "Я не хочу об этом говорить.",
+        "text": "I'd rather not talk about it.",
         "topic": "TALK_BERSERK_COMMON33_GODO_QUIET"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -585,12 +585,12 @@
       "math": [
         "u_berserk_common33_godo_read_survive == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "Тогда начни с того, чтобы не считать себя неуязвимым."
+      "yes": "I remember our conversation. What else?",
+      "no": "Then start by not thinking you're invulnerable."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -611,12 +611,12 @@
       "math": [
         "u_berserk_common33_godo_read_strong == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "Всех врагов ты ещё не видел. А собой уже расплатился."
+      "yes": "I remember our conversation. What else?",
+      "no": "You haven't seen all your enemies yet. But you've already paid with yourself."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -637,12 +637,12 @@
       "math": [
         "u_berserk_common33_godo_read_quiet == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "Не говори. Только не жди, что молчание что-нибудь отменит."
+      "yes": "I remember our conversation. What else?",
+      "no": "Then don't. Just don't expect silence to undo anything."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -663,12 +663,12 @@
       "math": [
         "u_berserk_common33_godo_read_body == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "Двигаешься иначе. Сам-то уже понял, на что теперь способен?"
+      "yes": "I remember our conversation. What else?",
+      "no": "You move differently. Have you worked out what you can do now?"
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -689,12 +689,12 @@
       "math": [
         "u_berserk_common33_godo_read_power == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "Проверяй подальше от кузни. И сначала выясни, как остановиться."
+      "yes": "I remember our conversation. What else?",
+      "no": "Test it well away from the forge. And find out how to stop first."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -715,12 +715,12 @@
       "math": [
         "u_berserk_common33_godo_read_complete == 1"
       ],
-      "yes": "Я помню. Как ты справляешься теперь?",
-      "no": "Тогда учись с ним жить. Становление закончилось, дела остались."
+      "yes": "I remember. How are you managing now?",
+      "no": "Then learn to live with it. The changing is over; there's still work to do."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -741,20 +741,20 @@
       "math": [
         "u_berserk_common33_godo_read_flesh == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "Убить его тебе оказалось мало?"
+      "yes": "I remember our conversation. What else?",
+      "no": "Killing him wasn't enough for you?"
     },
     "responses": [
       {
-        "text": "Мне нужна была его сила.",
+        "text": "I needed his strength.",
         "topic": "TALK_BERSERK_COMMON33_GODO_FLESH_POWER"
       },
       {
-        "text": "Я хотел стать лучше него.",
+        "text": "I wanted to become better than him.",
         "topic": "TALK_BERSERK_COMMON33_GODO_FLESH_BETTER"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -775,12 +775,12 @@
       "math": [
         "u_berserk_common33_godo_read_flesh_power == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "Теперь она у тебя. Не вздумай потом свалить на мёртвого то, что сделаешь сам."
+      "yes": "I remember our conversation. What else?",
+      "no": "You have it now. Don't you dare blame a dead man later for what you do yourself."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -801,12 +801,12 @@
       "math": [
         "u_berserk_common33_godo_read_flesh_better == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "Тогда начни с чего-нибудь, кроме силы."
+      "yes": "I remember our conversation. What else?",
+      "no": "Then start with something besides strength."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -827,12 +827,12 @@
       "math": [
         "u_berserk_common33_godo_read_pact == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "Значит, у этой силы есть хозяин. Он уже сказал, чего захочет от тебя?"
+      "yes": "I remember our conversation. What else?",
+      "no": "So this power has a master. Has he told you what he'll want from you?"
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -853,12 +853,12 @@
       "math": [
         "u_berserk_common33_godo_read_broken == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "Ты перестал ему служить. Хорошо. С тем, что осталось от сделки, всё равно придётся жить."
+      "yes": "I remember our conversation. What else?",
+      "no": "You've stopped serving him. Good. You'll still have to live with what's left of that bargain."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -879,12 +879,12 @@
       "math": [
         "u_berserk_common33_godo_read_dead == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "Теперь он ничего от тебя не потребует. Чем займёшься без его голоса над ухом?"
+      "yes": "I remember our conversation. What else?",
+      "no": "He won't demand anything of you now. What will you do without his voice in your ear?"
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -905,12 +905,12 @@
       "math": [
         "u_berserk_common33_godo_read_refused == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "Отказался — значит, отказался. Не позволяй им записать тебя в согласившиеся только потому, что тебе досталось."
+      "yes": "I remember our conversation. What else?",
+      "no": "You refused, so you refused. Don't let them count you among those who agreed just because you suffered for it."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -931,16 +931,16 @@
       "math": [
         "u_berserk_common33_godo_read_stone == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "Вижу. Лицо у него неприятное. От меня чего хочешь?"
+      "yes": "I remember our conversation. What else?",
+      "no": "I see it. An ugly face on it. What do you want from me?"
     },
     "responses": [
       {
-        "text": "Знаешь, что это?",
+        "text": "Do you know what it is?",
         "topic": "TALK_BERSERK_COMMON33_GODO_STONE_MORE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -959,12 +959,12 @@
     "id": "TALK_BERSERK_COMMON33_GODO_STONE_MORE",
     "dynamic_line": {
       "u_has_item": "berserk_behelit_distorted",
-      "yes": "Нет. Я умею работать с железом. Не обязан понимать каждую дрянь, которую приносят с дороги.\n\nИ убери его с верстака. Здесь работают.",
-      "no": "Нет. Я умею работать с железом. Не обязан понимать каждую дрянь, которую приносят с дороги."
+      "yes": "No. I work iron. I don't have to understand every piece of filth someone brings off the road.\n\nAnd get it off the workbench. People work here.",
+      "no": "No. I work iron. I don't have to understand every piece of filth someone brings off the road."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -981,10 +981,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_RICKERT_MENU",
-    "dynamic_line": "Что ты хочешь обсудить?",
+    "dynamic_line": "What would you like to discuss?",
     "responses": [
       {
-        "text": "Посмотри на этот камень.",
+        "text": "Look at this stone.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_STONE",
         "condition": {
           "or": [
@@ -998,7 +998,7 @@
         }
       },
       {
-        "text": "Я принял силу. Но внешне почти ничего не изменилось.",
+        "text": "I accepted the power. But I hardly look any different.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_EARLY",
         "condition": {
           "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
@@ -1010,7 +1010,7 @@
         ]
       },
       {
-        "text": "Тело уже начало меняться.",
+        "text": "My body has begun to change.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_BODY",
         "condition": {
           "and": [
@@ -1026,7 +1026,7 @@
         }
       },
       {
-        "text": "Я научился ещё кое-чему.",
+        "text": "I've learned something else.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_POWER",
         "condition": {
           "and": [
@@ -1042,7 +1042,7 @@
         }
       },
       {
-        "text": "Кажется, тело больше не меняется.",
+        "text": "I think my body has stopped changing.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_COMPLETE",
         "condition": {
           "and": [
@@ -1058,7 +1058,7 @@
         }
       },
       {
-        "text": "Я поглотил плоть побеждённого апостола.",
+        "text": "I consumed the flesh of a fallen apostle.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_FLESH",
         "condition": {
           "and": [
@@ -1081,7 +1081,7 @@
         ]
       },
       {
-        "text": "О договоре с тем, кто меня изменил.",
+        "text": "About my pact with the one who changed me.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_PACT",
         "condition": {
           "and": [
@@ -1104,7 +1104,7 @@
         ]
       },
       {
-        "text": "Я нарушил договор.",
+        "text": "I broke the pact.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_BROKEN",
         "condition": {
           "and": [
@@ -1125,7 +1125,7 @@
         }
       },
       {
-        "text": "Того, кому я служил, больше нет.",
+        "text": "The one I served is gone.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_DEAD",
         "condition": {
           "and": [
@@ -1146,7 +1146,7 @@
         }
       },
       {
-        "text": "Я отказался от дара, но последствия остались.",
+        "text": "I refused the gift, but the consequences remain.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_REFUSED",
         "condition": {
           "and": [
@@ -1164,7 +1164,7 @@
         }
       },
       {
-        "text": "Из-за крыльев стало тесно.",
+        "text": "My wings are getting in the way.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_WINGS",
         "condition": {
           "or": [
@@ -1181,14 +1181,14 @@
         }
       },
       {
-        "text": "Мне трудно говорить.",
+        "text": "It's hard for me to speak.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_SPEECH",
         "condition": {
           "u_has_trait": "BERSERK_ROSINE_PAWN_SEED"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ]
@@ -1200,20 +1200,20 @@
       "math": [
         "u_berserk_common33_rickert_read_early == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "Ты говоришь, это продолжится само?"
+      "yes": "I remember. Has anything changed?",
+      "no": "You're saying it will continue on its own?"
     },
     "responses": [
       {
-        "text": "Да. И я скажу, если что-нибудь станет опасным.",
+        "text": "Yes. And I'll tell you if anything becomes dangerous.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_PROMISE"
       },
       {
-        "text": "Я сам справлюсь.",
+        "text": "I can handle it myself.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_ALONE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1230,10 +1230,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_RICKERT_PROMISE",
-    "dynamic_line": "Тогда скажи мне, если заметишь что-нибудь опасное. Особенно если мы будем рядом. Я не хочу узнавать об этом, когда уже не успею отойти.",
+    "dynamic_line": "Then tell me if you notice anything dangerous, especially if we're nearby. I don't want to learn about it when it's too late to step away.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1254,12 +1254,12 @@
       "math": [
         "u_berserk_common33_rickert_read_alone == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "Надеюсь. Но если последствия коснутся меня, я тоже должен знать."
+      "yes": "I remember. Has anything changed?",
+      "no": "I hope so. But if the consequences affect me, I need to know too."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1280,20 +1280,20 @@
       "math": [
         "u_berserk_common33_rickert_read_body == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "Это появилось после нашей прошлой встречи? Болит?"
+      "yes": "I remember. Has anything changed?",
+      "no": "Did that appear since we last met? Does it hurt?"
     },
     "responses": [
       {
-        "text": "Болит.",
+        "text": "It hurts.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_PAINFUL"
       },
       {
-        "text": "Нет. Просто непривычно.",
+        "text": "No. It just feels unfamiliar.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_UNFAMILIAR"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1314,12 +1314,12 @@
       "math": [
         "u_berserk_common33_rickert_read_painful == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "Я могу помочь с обычной перевязкой, если она нужна. Но не стану делать вид, что понимаю, как лечить само превращение."
+      "yes": "I remember. Has anything changed?",
+      "no": "I can help with an ordinary dressing, if you need one. But I won't pretend I know how to treat the transformation itself."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1340,12 +1340,12 @@
       "math": [
         "u_berserk_common33_rickert_read_unfamiliar == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "Тогда не торопись. То, что не болит, тоже может мешать двигаться."
+      "yes": "I remember. Has anything changed?",
+      "no": "Then take it slowly. Even something that doesn't hurt can get in the way of moving."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1366,12 +1366,12 @@
       "math": [
         "u_berserk_common33_rickert_read_power == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "Сначала расскажи, что произойдёт. И куда мне лучше отойти."
+      "yes": "I remember. Has anything changed?",
+      "no": "Tell me what will happen first. And where I should stand to keep clear."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1392,12 +1392,12 @@
       "math": [
         "u_berserk_common33_rickert_read_complete == 1"
       ],
-      "yes": "Я помню. Как ты справляешься теперь?",
-      "no": "Ты уверен? Хорошо, что теперь хоть знаешь, чего ждать от собственного тела. Мне всё ещё нужно немного времени."
+      "yes": "I remember. How are you managing now?",
+      "no": "Are you sure? It's good that you at least know what to expect from your own body now. I still need a little time."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1418,16 +1418,16 @@
       "math": [
         "u_berserk_common33_rickert_read_flesh == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "Ты знал, что это с тобой сделает?"
+      "yes": "I remember. Has anything changed?",
+      "no": "Did you know what it would do to you?"
     },
     "responses": [
       {
-        "text": "Я знал не всё.",
+        "text": "I didn't know everything.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_FLESH_PRICE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1446,12 +1446,12 @@
     "id": "TALK_BERSERK_COMMON33_RICKERT_FLESH_PRICE",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_COMMON33_LINE_38463F2DBC47",
-      "yes": "Вот это меня и пугает. Ты решился, не зная всего, а теперь нам приходится выяснять последствия.",
-      "no": "…а теперь тебе приходится выяснять последствия."
+      "yes": "That's what frightens me. You chose without knowing everything, and now we have to find out the consequences.",
+      "no": "...and now you have to find out the consequences."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ]
@@ -1463,20 +1463,20 @@
       "math": [
         "u_berserk_common33_rickert_read_pact == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "Я хочу сразу понять одну вещь. Его приказы будут касаться и меня?"
+      "yes": "I remember. Has anything changed?",
+      "no": "I want to be clear about one thing. Will his orders involve me too?"
     },
     "responses": [
       {
-        "text": "Нет. Ты сам решаешь.",
+        "text": "No. You make your own decisions.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_PACT_RESPECT"
       },
       {
-        "text": "Если идёшь со мной, придётся слушаться.",
+        "text": "If you're coming with me, you'll have to obey.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_PACT_COMMAND"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1497,12 +1497,12 @@
       "math": [
         "u_berserk_common33_rickert_read_pact_respect == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "Тогда помни это, если однажды он потребует другого."
+      "yes": "I remember. Has anything changed?",
+      "no": "Then remember that if he ever demands otherwise."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1519,10 +1519,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_RICKERT_PACT_COMMAND",
-    "dynamic_line": "Нет. Я не соглашался служить ему через тебя.",
+    "dynamic_line": "No. I never agreed to serve him through you.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1547,12 +1547,12 @@
       "math": [
         "u_berserk_common33_rickert_read_broken == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "Тогда давай хотя бы мы будем понимать, что теперь изменилось."
+      "yes": "I remember. Has anything changed?",
+      "no": "Then let's at least make sure we understand what's changed."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1573,12 +1573,12 @@
       "math": [
         "u_berserk_common33_rickert_read_dead == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "Он больше не сможет тебе приказать. Но я вижу, что тело осталось прежним… То есть тем, каким стало после него."
+      "yes": "I remember. Has anything changed?",
+      "no": "He can't order you about anymore. But I can see your body is still the same... I mean, the way it became because of him."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1597,12 +1597,12 @@
     "id": "TALK_BERSERK_COMMON33_RICKERT_REFUSED",
     "dynamic_line": {
       "u_has_trait": "BERSERK_ECLIPSE_SCAR_HEARING",
-      "yes": "Мне говорить громче? Или лучше стоять так, чтобы ты видел лицо?",
-      "no": "Скажи, что именно стало труднее. Я не хочу каждый раз угадывать, когда тебе нужна помощь."
+      "yes": "Should I speak louder? Or stand where you can see my face?",
+      "no": "Tell me exactly what's become harder. I don't want to guess every time you need help."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1623,16 +1623,16 @@
       "math": [
         "u_berserk_common33_rickert_read_stone == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "Сначала подумал, что резьба. Но эти черты… Он всегда так выглядел?"
+      "yes": "I remember. Has anything changed?",
+      "no": "At first I thought it was a carving. But those features... Has it always looked like that?"
     },
     "responses": [
       {
-        "text": "Знаешь, что это?",
+        "text": "Do you know what it is?",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_STONE_MORE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1653,12 +1653,12 @@
       "math": [
         "u_berserk_common33_rickert_read_stone_more == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "Я тоже не знаю, что это. Лучше спросить того, кто понимает такие вещи."
+      "yes": "I remember. Has anything changed?",
+      "no": "I don't know what it is either. Better ask someone who understands these things."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -1675,10 +1675,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_FLORA_MENU",
-    "dynamic_line": "Что ты хочешь обсудить?",
+    "dynamic_line": "What would you like to discuss?",
     "responses": [
       {
-        "text": "Посмотри на этот камень.",
+        "text": "Look at this stone.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_STONE",
         "condition": {
           "or": [
@@ -1692,7 +1692,7 @@
         }
       },
       {
-        "text": "Я принял силу. Но внешне почти ничего не изменилось.",
+        "text": "I accepted the power. But I hardly look any different.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_EARLY",
         "condition": {
           "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
@@ -1704,7 +1704,7 @@
         ]
       },
       {
-        "text": "Тело уже начало меняться.",
+        "text": "My body has begun to change.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_BODY",
         "condition": {
           "and": [
@@ -1720,7 +1720,7 @@
         }
       },
       {
-        "text": "Я научился ещё кое-чему.",
+        "text": "I've learned something else.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_POWER",
         "condition": {
           "and": [
@@ -1736,7 +1736,7 @@
         }
       },
       {
-        "text": "Кажется, тело больше не меняется.",
+        "text": "I think my body has stopped changing.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_COMPLETE",
         "condition": {
           "and": [
@@ -1752,7 +1752,7 @@
         }
       },
       {
-        "text": "Я поглотил плоть побеждённого апостола.",
+        "text": "I consumed the flesh of a fallen apostle.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_FLESH",
         "condition": {
           "and": [
@@ -1775,7 +1775,7 @@
         ]
       },
       {
-        "text": "О договоре с тем, кто меня изменил.",
+        "text": "About my pact with the one who changed me.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_PACT",
         "condition": {
           "and": [
@@ -1798,7 +1798,7 @@
         ]
       },
       {
-        "text": "Я нарушил договор.",
+        "text": "I broke the pact.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_BROKEN",
         "condition": {
           "and": [
@@ -1819,7 +1819,7 @@
         }
       },
       {
-        "text": "Того, кому я служил, больше нет.",
+        "text": "The one I served is gone.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_DEAD",
         "condition": {
           "and": [
@@ -1840,7 +1840,7 @@
         }
       },
       {
-        "text": "Я отказался от дара, но последствия остались.",
+        "text": "I refused the gift, but the consequences remain.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_REFUSED",
         "condition": {
           "and": [
@@ -1858,7 +1858,7 @@
         }
       },
       {
-        "text": "О панцире.",
+        "text": "About the shell.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_SHELL",
         "condition": {
           "or": [
@@ -1872,14 +1872,14 @@
         }
       },
       {
-        "text": "Мне трудно говорить.",
+        "text": "It's hard for me to speak.",
         "topic": "TALK_BERSERK_COMMON33_FLORA_SPEECH",
         "condition": {
           "u_has_trait": "BERSERK_ROSINE_PAWN_SEED"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -1891,12 +1891,12 @@
       "math": [
         "u_berserk_common33_flora_read_early == 1"
       ],
-      "yes": "Мы уже говорили об этом. Есть что-нибудь ещё?",
-      "no": "Начало не всегда заметно снаружи. Не считай эту тишину возможностью отменить принятое."
+      "yes": "We have spoken about this. Is there anything else?",
+      "no": "The beginning isn't always visible from outside. Don't mistake this quiet for a chance to undo what you accepted."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -1917,12 +1917,12 @@
       "math": [
         "u_berserk_common33_flora_read_body == 1"
       ],
-      "yes": "Мы уже говорили об этом. Есть что-нибудь ещё?",
-      "no": "Попробуй рассказать, что изменилось, прежде чем назвать это улучшением или потерей. Что ты чувствуешь? Что стало труднее?"
+      "yes": "We have spoken about this. Is there anything else?",
+      "no": "Try describing what has changed before calling it an improvement or a loss. What do you feel? What has become harder?"
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -1943,16 +1943,16 @@
       "math": [
         "u_berserk_common33_flora_read_power == 1"
       ],
-      "yes": "Мы уже говорили об этом. Есть что-нибудь ещё?",
-      "no": "Новая возможность легко становится первым ответом на любую трудность. Попробуй сохранить и остальные."
+      "yes": "We have spoken about this. Is there anything else?",
+      "no": "A new ability can easily become your first answer to every difficulty. Try to keep your other answers too."
     },
     "responses": [
       {
-        "text": "Ты предлагаешь не пользоваться силой?",
+        "text": "Are you suggesting I shouldn't use the power?",
         "topic": "TALK_BERSERK_COMMON33_FLORA_POWER_CHOICE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -1973,12 +1973,12 @@
       "math": [
         "u_berserk_common33_flora_read_power_choice == 1"
       ],
-      "yes": "Мы уже говорили об этом. Есть что-нибудь ещё?",
-      "no": "Я предлагаю замечать момент, когда ты перестаёшь выбирать."
+      "yes": "We have spoken about this. Is there anything else?",
+      "no": "I am suggesting you notice when you stop choosing."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -1999,12 +1999,12 @@
       "math": [
         "u_berserk_common33_flora_read_complete == 1"
       ],
-      "yes": "Я помню. Как ты справляешься теперь?",
-      "no": "Изменение обрело устойчивую форму. Теперь тебе предстоит узнать её в обычной жизни: в усталости, голоде, работе, рядом с другими людьми."
+      "yes": "I remember. How are you managing now?",
+      "no": "The change has settled into a stable form. Now you must learn it in daily life: in fatigue, hunger, work, and alongside other people."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -2025,12 +2025,12 @@
       "math": [
         "u_berserk_common33_flora_read_flesh == 1"
       ],
-      "yes": "Мы уже говорили об этом. Есть что-нибудь ещё?",
-      "no": "Ты принёс в собственное тело то, что осталось от побеждённого существа. Победа над ним не делает такое принятие безопасным."
+      "yes": "We have spoken about this. Is there anything else?",
+      "no": "You brought what remained of a defeated being into your own body. Defeating it does not make that acceptance safe."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -2051,12 +2051,12 @@
       "math": [
         "u_berserk_common33_flora_read_pact == 1"
       ],
-      "yes": "Мы уже говорили об этом. Есть что-нибудь ещё?",
-      "no": "Ты принял не только изменение тела, но и обязательство перед тем, кто его дал. Что именно ты обещал?"
+      "yes": "We have spoken about this. Is there anything else?",
+      "no": "You accepted more than a bodily change. You took on an obligation to the one who gave it. What exactly did you promise?"
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -2077,12 +2077,12 @@
       "math": [
         "u_berserk_common33_flora_read_broken == 1"
       ],
-      "yes": "Мы уже говорили об этом. Есть что-нибудь ещё?",
-      "no": "Поддержка прекратилась. Преображение осталось. Это разные последствия одного решения."
+      "yes": "We have spoken about this. Is there anything else?",
+      "no": "The support has ended. The transformation remains. They are different consequences of the same decision."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -2103,12 +2103,12 @@
       "math": [
         "u_berserk_common33_flora_read_dead == 1"
       ],
-      "yes": "Мы уже говорили об этом. Есть что-нибудь ещё?",
-      "no": "Его смерть прекратила ваши отношения. Она не обращает вспять то, что уже произошло с твоей плотью."
+      "yes": "We have spoken about this. Is there anything else?",
+      "no": "His death ended your relationship. It does not reverse what has already happened to your flesh."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -2129,12 +2129,12 @@
       "math": [
         "u_berserk_common33_flora_read_refused == 1"
       ],
-      "yes": "Мы уже говорили об этом. Есть что-нибудь ещё?",
-      "no": "Ты перенёс последствия встречи. Это не означает, что принял дар. Мы будем говорить о том, что с тобой случилось, не приписывая тебе чужого решения."
+      "yes": "We have spoken about this. Is there anything else?",
+      "no": "You endured the consequences of the encounter. That does not mean you accepted the gift. We will talk about what happened to you without attributing someone else's decision to you."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -2155,16 +2155,16 @@
       "math": [
         "u_berserk_common33_flora_read_stone == 1"
       ],
-      "yes": "Мы уже говорили об этом. Есть что-нибудь ещё?",
-      "no": "Бехелит. Где ты его нашёл?"
+      "yes": "We have spoken about this. Is there anything else?",
+      "no": "A Behelit. Where did you find it?"
     },
     "responses": [
       {
-        "text": "Знаешь, что это?",
+        "text": "Do you know what it is?",
         "topic": "TALK_BERSERK_COMMON33_FLORA_STONE_MORE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -2183,12 +2183,12 @@
     "id": "TALK_BERSERK_COMMON33_FLORA_STONE_MORE",
     "dynamic_line": {
       "u_has_item": "berserk_behelit_distorted",
-      "yes": "Тогда остановись прежде, чем пойдёшь дальше. Изменённый камень ещё не изменил тебя.",
-      "no": "Услышать зов ещё не значит ответить. Не путай возможность открыть дверь с необходимостью через неё пройти."
+      "yes": "Then pause before going further. The changed stone has not yet changed you.",
+      "no": "Hearing a call does not mean answering it. Don't confuse the ability to open a door with the need to step through it."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -2205,10 +2205,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_KNIGHT_MENU",
-    "dynamic_line": "Что ты хочешь обсудить?",
+    "dynamic_line": "What would you like to discuss?",
     "responses": [
       {
-        "text": "Посмотри на этот камень.",
+        "text": "Look at this stone.",
         "topic": "TALK_BERSERK_COMMON33_KNIGHT_STONE",
         "condition": {
           "or": [
@@ -2222,7 +2222,7 @@
         }
       },
       {
-        "text": "Я принял силу. Но внешне почти ничего не изменилось.",
+        "text": "I accepted the power. But I hardly look any different.",
         "topic": "TALK_BERSERK_COMMON33_KNIGHT_EARLY",
         "condition": {
           "test_eoc": "EOC_BERSERK_COMMON33_HIDDEN"
@@ -2234,7 +2234,7 @@
         ]
       },
       {
-        "text": "Тело уже начало меняться.",
+        "text": "My body has begun to change.",
         "topic": "TALK_BERSERK_COMMON33_KNIGHT_BODY",
         "condition": {
           "and": [
@@ -2250,7 +2250,7 @@
         }
       },
       {
-        "text": "Я научился ещё кое-чему.",
+        "text": "I've learned something else.",
         "topic": "TALK_BERSERK_COMMON33_KNIGHT_POWER",
         "condition": {
           "and": [
@@ -2266,7 +2266,7 @@
         }
       },
       {
-        "text": "Кажется, тело больше не меняется.",
+        "text": "I think my body has stopped changing.",
         "topic": "TALK_BERSERK_COMMON33_KNIGHT_COMPLETE",
         "condition": {
           "and": [
@@ -2282,7 +2282,7 @@
         }
       },
       {
-        "text": "Я поглотил плоть побеждённого апостола.",
+        "text": "I consumed the flesh of a fallen apostle.",
         "topic": "TALK_BERSERK_COMMON33_KNIGHT_FLESH",
         "condition": {
           "and": [
@@ -2305,7 +2305,7 @@
         ]
       },
       {
-        "text": "О договоре с тем, кто меня изменил.",
+        "text": "About my pact with the one who changed me.",
         "topic": "TALK_BERSERK_COMMON33_KNIGHT_PACT",
         "condition": {
           "and": [
@@ -2328,7 +2328,7 @@
         ]
       },
       {
-        "text": "Я нарушил договор.",
+        "text": "I broke the pact.",
         "topic": "TALK_BERSERK_COMMON33_KNIGHT_BROKEN",
         "condition": {
           "and": [
@@ -2349,7 +2349,7 @@
         }
       },
       {
-        "text": "Того, кому я служил, больше нет.",
+        "text": "The one I served is gone.",
         "topic": "TALK_BERSERK_COMMON33_KNIGHT_DEAD",
         "condition": {
           "and": [
@@ -2370,7 +2370,7 @@
         }
       },
       {
-        "text": "Я отказался от дара, но последствия остались.",
+        "text": "I refused the gift, but the consequences remain.",
         "topic": "TALK_BERSERK_COMMON33_KNIGHT_REFUSED",
         "condition": {
           "and": [
@@ -2388,7 +2388,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ]
@@ -2400,12 +2400,12 @@
       "math": [
         "u_berserk_common33_knight_read_early == 1"
       ],
-      "yes": "Я помню сказанное. Продолжай.",
-      "no": "Тогда позаботься о том, чтобы это было видно по твоим поступкам. Прежнее тело тебе уже не обещано."
+      "yes": "I remember what was said. Continue.",
+      "no": "Then make sure your actions show it. Your former body is no longer promised to you."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ],
@@ -2426,12 +2426,12 @@
       "math": [
         "u_berserk_common33_knight_read_body == 1"
       ],
-      "yes": "Я помню сказанное. Продолжай.",
-      "no": "Изменение стало видимым. Теперь другие будут судить о тебе ещё до первого слова."
+      "yes": "I remember what was said. Continue.",
+      "no": "The change has become visible. Others will now judge you before your first word."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ],
@@ -2452,12 +2452,12 @@
       "math": [
         "u_berserk_common33_knight_read_power == 1"
       ],
-      "yes": "Я помню сказанное. Продолжай.",
-      "no": "Ты научился применять её. Теперь узнай пределы, прежде чем враг заставит тебя сделать это в бою."
+      "yes": "I remember what was said. Continue.",
+      "no": "You have learned to use it. Learn its limits now, before an enemy forces you to do so in battle."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ],
@@ -2478,18 +2478,18 @@
       "math": [
         "u_berserk_common33_knight_read_complete == 1"
       ],
-      "yes": "Я помню. Как ты справляешься теперь?",
+      "yes": "I remember. How are you managing now?",
       "no": {
         "math": [
           "u_berserk_apostol_path == 1"
         ],
-        "yes": "Ты стал тем, чьё начало принял в круге. Это не делает тебя равным тем, кто предложил дар.",
-        "no": "Тело перестало меняться. Это не освобождает тебя от ответственности за то, как ты распорядишься им."
+        "yes": "You have become what you accepted the beginnings of in the circle. That does not make you equal to those who offered the gift.",
+        "no": "Your body has stopped changing. That does not free you from responsibility for how you use it."
       }
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ],
@@ -2510,12 +2510,12 @@
       "math": [
         "u_berserk_common33_knight_read_flesh == 1"
       ],
-      "yes": "Я помню сказанное. Продолжай.",
-      "no": "Ты уничтожил носителя силы и решил сохранить её в себе."
+      "yes": "I remember what was said. Continue.",
+      "no": "You destroyed the bearer of a power and chose to preserve it within yourself."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ],
@@ -2536,12 +2536,12 @@
       "math": [
         "u_berserk_common33_knight_read_pact == 1"
       ],
-      "yes": "Я помню сказанное. Продолжай.",
-      "no": "Служение не заканчивается в тот миг, когда получена награда."
+      "yes": "I remember what was said. Continue.",
+      "no": "Service does not end the moment a reward is received."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ],
@@ -2562,12 +2562,12 @@
       "math": [
         "u_berserk_common33_knight_read_broken == 1"
       ],
-      "yes": "Я помню сказанное. Продолжай.",
-      "no": "Ты отказался продолжать службу. Но прежнее согласие уже изменило тебя. Не жди, что разрыв отменит прошлое."
+      "yes": "I remember what was said. Continue.",
+      "no": "You refused to continue serving. But your earlier consent has already changed you. Don't expect the break to undo the past."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ],
@@ -2588,12 +2588,12 @@
       "math": [
         "u_berserk_common33_knight_read_dead == 1"
       ],
-      "yes": "Я помню сказанное. Продолжай.",
-      "no": "Хозяина больше нет. Осталась твоя жизнь. Не трать её на ожидание нового."
+      "yes": "I remember what was said. Continue.",
+      "no": "The master is gone. Your life remains. Don't waste it waiting for another."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ],
@@ -2614,12 +2614,12 @@
       "math": [
         "u_berserk_common33_knight_read_refused == 1"
       ],
-      "yes": "Я помню сказанное. Продолжай.",
-      "no": "Ты отказался, зная, что уйдёшь не невредимым. Теперь тебе предстоит продолжать с последствиями этого выбора."
+      "yes": "I remember what was said. Continue.",
+      "no": "You refused, knowing you would not leave unharmed. Now you must go on with the consequences of that choice."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ],
@@ -2640,16 +2640,16 @@
       "math": [
         "u_berserk_common33_knight_read_stone == 1"
       ],
-      "yes": "Я помню сказанное. Продолжай.",
-      "no": "Ты носишь возможность встречи, последствия которой ещё не знаешь."
+      "yes": "I remember what was said. Continue.",
+      "no": "You carry the possibility of an encounter whose consequences you do not yet know."
     },
     "responses": [
       {
-        "text": "Знаешь, что это?",
+        "text": "Do you know what it is?",
         "topic": "TALK_BERSERK_COMMON33_KNIGHT_STONE_MORE"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ],
@@ -2670,12 +2670,12 @@
       "math": [
         "u_berserk_common33_knight_read_stone_more == 1"
       ],
-      "yes": "Я помню сказанное. Продолжай.",
-      "no": "Владение камнем не является согласием. Не отдавай свой ответ раньше, чем поймёшь вопрос."
+      "yes": "I remember what was said. Continue.",
+      "no": "Possessing the stone is not consent. Don't give your answer before you understand the question."
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
     ],
@@ -2696,12 +2696,12 @@
       "math": [
         "u_berserk_common33_godo_read_wings == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "«У двери сложи их, если можешь. Здесь горн, а не поле»."
+      "yes": "I remember our conversation. What else?",
+      "no": "\"Fold them at the door, if you can. This is a forge, not a field.\""
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -2722,12 +2722,12 @@
       "math": [
         "u_berserk_common33_rickert_read_wings == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "«С ремнями теперь сложнее. Не затягивай их наугад: сначала посмотри, где мешают двигаться»."
+      "yes": "I remember. Has anything changed?",
+      "no": "\"The straps will be harder to manage now. Don't tighten them blindly. First check where they restrict movement.\""
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -2748,12 +2748,12 @@
       "math": [
         "u_berserk_common33_godo_read_shell == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "«Вижу, обычный доспех на тебе уже не сядет как раньше»."
+      "yes": "I remember our conversation. What else?",
+      "no": "\"I see ordinary armor won't fit you the way it used to.\""
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -2774,12 +2774,12 @@
       "math": [
         "u_berserk_common33_flora_read_shell == 1"
       ],
-      "yes": "Мы уже говорили об этом. Есть что-нибудь ещё?",
-      "no": "«Защита стала частью тела. Значит, и обращаться с ней придётся как с телом, а не как со снятыми латами»."
+      "yes": "We have spoken about this. Is there anything else?",
+      "no": "\"Your protection has become part of your body. Then you must treat it as a body, not as a suit of plate you can take off.\""
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -2800,12 +2800,12 @@
       "math": [
         "u_berserk_common33_rickert_read_speech == 1"
       ],
-      "yes": "Я помню. Что-нибудь изменилось?",
-      "no": "«Не спеши. Я постараюсь понять. Если трудно — покажи»."
+      "yes": "I remember. Has anything changed?",
+      "no": "\"Take your time. I'll try to understand. If it's hard, show me.\""
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -2826,12 +2826,12 @@
       "math": [
         "u_berserk_common33_flora_read_speech == 1"
       ],
-      "yes": "Мы уже говорили об этом. Есть что-нибудь ещё?",
-      "no": "«Я слышу, что тебе трудно говорить. Не нужно торопиться ради моего удобства»."
+      "yes": "We have spoken about this. Is there anything else?",
+      "no": "\"I hear that speaking is difficult for you. You needn't hurry for my convenience.\""
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ],
@@ -2852,12 +2852,12 @@
       "math": [
         "u_berserk_common33_godo_read_heavy == 1"
       ],
-      "yes": "Я помню наш разговор. Что ещё?",
-      "no": "«Лавка может не выдержать. Лучше встань здесь, у стены»."
+      "yes": "I remember our conversation. What else?",
+      "no": "\"The bench might not hold. Better stand here, by the wall.\""
     },
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
     ],
@@ -2874,10 +2874,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_RICKERT_FINDS",
-    "dynamic_line": "Покажи, что нашёл, или опиши. Я постараюсь вспомнить.",
+    "dynamic_line": "Show me what you found, or describe it. I'll try to remember.",
     "responses": [
       {
-        "text": "У останков найдена рукоять метательного ножа.",
+        "text": "A throwing knife's hilt was found beside the remains.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_FIND_JUDEAU",
         "condition": {
           "math": [
@@ -2886,7 +2886,7 @@
         }
       },
       {
-        "text": "У останков найдена сорванная застёжка доспеха.",
+        "text": "A torn armor clasp was found beside the remains.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_FIND_PIPPIN",
         "condition": {
           "math": [
@@ -2895,7 +2895,7 @@
         }
       },
       {
-        "text": "У останков найдена расколотый фрагмент ножен.",
+        "text": "A broken piece of scabbard was found beside the remains.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_FIND_CORKUS",
         "condition": {
           "math": [
@@ -2904,7 +2904,7 @@
         }
       },
       {
-        "text": "У останков найдена раздавленный швейный набор.",
+        "text": "A crushed sewing kit was found beside the remains.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_FIND_GASTON",
         "condition": {
           "math": [
@@ -2913,7 +2913,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ]
@@ -2921,14 +2921,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_RICKERT_FIND_JUDEAU",
-    "dynamic_line": "Джудо. Он часто перебирал ножи в руке, даже когда разговаривал. Если рядом лежала такая рукоять… Спасибо, что рассказал.",
+    "dynamic_line": "Judeau. He used to turn his knives over in his hand, even while talking. If a hilt like that was lying beside him... Thank you for telling me.",
     "responses": [
       {
-        "text": "Расскажи о нём.",
+        "text": "Tell me about him.",
         "topic": "TALK_BERSERK_RICKERT_REMEMBER_JUDEAU"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -2958,14 +2958,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_RICKERT_FIND_PIPPIN",
-    "dynamic_line": "Пиппин. Я чинил его снаряжение. Он приносил сломанную вещь, молча ждал — и всегда помогал убрать после работы.",
+    "dynamic_line": "Pippin. I repaired his equipment. He would bring a broken thing, wait quietly, and always help tidy up afterward.",
     "responses": [
       {
-        "text": "Расскажи о нём.",
+        "text": "Tell me about him.",
         "topic": "TALK_BERSERK_RICKERT_REMEMBER_PIPPIN"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -2995,14 +2995,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_RICKERT_FIND_CORKUS",
-    "dynamic_line": "Коркус. Вечно ворчал на ножны, ремни, дорогу. Теперь даже его ворчания не хватает.",
+    "dynamic_line": "Corkus. Always grumbling about scabbards, straps, the road. Now I even miss his grumbling.",
     "responses": [
       {
-        "text": "Расскажи о нём.",
+        "text": "Tell me about him.",
         "topic": "TALK_BERSERK_RICKERT_REMEMBER_CORKUS"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],
@@ -3032,14 +3032,14 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_RICKERT_FIND_GASTON",
-    "dynamic_line": "Гастон. Он умел работать с тканью и говорил о деле, которым займётся после войны. Такие разговоры давали нам всем надежду.",
+    "dynamic_line": "Gaston. He knew how to work cloth, and talked about the business he would start after the war. Talks like that gave all of us hope.",
     "responses": [
       {
-        "text": "Расскажи о нём.",
+        "text": "Tell me about him.",
         "topic": "TALK_BERSERK_RICKERT_REMEMBER_GASTON"
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
     ],

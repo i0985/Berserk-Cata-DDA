@@ -21,6 +21,8 @@ EOCS = {x['id']: x for p in (MOD / 'effects').glob('*.json') for x in json.loads
 TOPICS = {x['id']: x for p in (MOD / 'dialogue').glob('*.json') for x in json.loads(p.read_text())}
 CATALOG = json.loads((MOD.parents[1] / 'docs/dialogue_sources/road-journal-legacy-33.json').read_text())
 MANIFEST = json.loads((MOD.parents[1] / 'docs/dialogue_sources/reference-journal-bindings-33.json').read_text())
+with open(MOD / 'lang/mo/ru/LC_MESSAGES/Berserk.mo', 'rb') as stream:
+    RUSSIAN = gettext.GNUTranslations(stream)
 
 
 def walk(v):
@@ -147,7 +149,9 @@ class Book:
             k, v = next(iter(x['target_var'].items()))
             self.values[{'u_val': 'u_', 'global_val': '', 'context_val': '_'}[k] + v] = self.getvar(x['copy_var'])
         elif 'open_dialogue' in x: self.opened.append(x['open_dialogue']['topic'])
-        elif 'u_message' in x: self.messages.append(copy.deepcopy(x))
+        elif 'u_message' in x:
+            rendered = copy.deepcopy(x); rendered['u_message'] = RUSSIAN.gettext(x['u_message'])
+            self.messages.append(rendered)
         elif 'u_spawn_item' in x: self.inventory[x['u_spawn_item']] += x.get('count', 1)
         elif 'u_learn_recipe' in x: self.learned.add(x['u_learn_recipe'])
         elif 'assign_mission' in x:
@@ -158,9 +162,9 @@ class Book:
             self.finished.append((id_, x.get('success', True))); self.missions.pop(id_)
         else: raise AssertionError('Unexpected book/source effect: ' + str(x))
 
-    def line(self, id_):
+    def line(self, id_, language='ru'):
         def resolve(x):
-            if isinstance(x, str): return x
+            if isinstance(x, str): return RUSSIAN.gettext(x) if x and language == 'ru' else x
             if 'concatenate' in x: return ''.join(resolve(y) for y in x['concatenate'])
             return resolve(x['yes'] if self.condition({k: v for k, v in x.items() if k not in ['yes', 'no']}) else x.get('no', ''))
         return resolve(TOPICS[id_ if id_.startswith('TALK_') else T + id_]['dynamic_line'])
@@ -173,7 +177,7 @@ class Book:
         out = []
         for r in self.available(section.upper()):
             if 'truefalsetext' in r:
-                x = r['truefalsetext']; out.append(x['true' if self.condition(x['condition']) else 'false'])
+                x = r['truefalsetext']; out.append(RUSSIAN.gettext(x['true' if self.condition(x['condition']) else 'false']))
         return out
 
     def enter(self, id_):
@@ -253,7 +257,7 @@ class ReferenceBook(unittest.TestCase):
             self.assertEqual([x['topic'] for x in options], [T + r['section'].upper(), 'TALK_DONE'])
             self.assertNotIn('effect', options[-1])
         for s in ['ROOT', 'PLACES', 'PEOPLE', 'PAST']:
-            self.assertEqual(TOPICS[T + s]['responses'][-1], {'text': 'Закрыть журнал', 'topic': 'TALK_DONE'})
+            self.assertEqual(TOPICS[T + s]['responses'][-1], {'text': 'Close the journal', 'topic': 'TALK_DONE'})
 
     def test_book_loss_and_restoration_preserve_progress_and_do_not_repeat_initial_issue(self):
         f = Book(); f.source('road_caravan_note'); f.inventory.clear(); f.values['u_berserk_godo_sword_iron_given'] = 16
@@ -338,10 +342,11 @@ class ReferenceBook(unittest.TestCase):
 
     def test_knight_archive_has_only_heard_answers_and_no_progression_effects(self):
         f = Book(); f.values.update(u_berserk_eclipse_rescue_state=2, u_berserk_eclipse_route=1); f.sync()
-        self.assertNotIn('The God Hand', f.line('L03'))
+        self.assertNotIn('The God Hand', f.line('L03', 'en'))
         f.values['u_berserk_knight_read_god_hand'] = 1; f.sync()
-        self.assertIn('The God Hand', f.line('L03'))
-        self.assertNotIn('come every night', f.line('L03'))
+        self.assertIn('The God Hand', f.line('L03', 'en'))
+        self.assertIn('Рука Бога', f.line('L03'))
+        self.assertNotIn('come every night', f.line('L03', 'en'))
         f.values['u_berserk_knight_farewell_confirmed'] = 1; f.sync()
         self.assertIn('продолжил свой путь', f.line('L03'))
 

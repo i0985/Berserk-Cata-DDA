@@ -865,7 +865,7 @@
       },
       "then": {
         "if": {
-          "u_query": "Открыть решётку служебным ключом?",
+          "u_query": "Open the grille with the service key?",
           "default": false
         },
         "then": [
@@ -893,14 +893,14 @@
             "turn_cost": "2 seconds"
           },
           {
-            "u_message": "Ключ поворачивается в замке. Решётка открыта.",
+            "u_message": "The key turns in the lock. The grille is open.",
             "type": "info",
             "popup": false
           }
         ]
       },
       "else": {
-        "u_message": "Решётка заперта. Замок можно попробовать вскрыть отмычкой; железо поддастся только подходящему инструменту или сильным ударам.",
+        "u_message": "The grille is locked. You can try picking the lock; the iron will yield only to a suitable tool or heavy blows.",
         "type": "info",
         "popup": false
       }

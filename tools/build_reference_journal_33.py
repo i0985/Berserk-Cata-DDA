@@ -28,8 +28,8 @@ GENERATED = []
 
 
 def tr(ru, en=None):
-    # The owner's exact Russian prose is a valid gettext source. Do not replace
-    # it with fabricated English IDs that would be visible on a missing .mo.
+    # Preserve the approved manuscript while assembling the draft. The final
+    # canonical English pass requires a real translation, never a dummy ID.
     key = en or ru
     STRINGS[key] = ru
     return key

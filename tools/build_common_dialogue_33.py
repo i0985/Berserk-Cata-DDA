@@ -55,7 +55,16 @@ def leaf(k,s,ids,extra=None):
 def say(text,kind='info',popup=False):return {'u_message':tr(text),'type':kind,'popup':popup}
 def add_effect(o,value):
     if not isinstance(o.get('effect'),list):o['effect']=[] if 'effect' not in o else [o['effect']]
-    if value not in o['effect']:o['effect'].append(value)
+    # Rebuilding over English output must recognize the same Russian draft
+    # message, rather than adding a second copy of its gameplay callback.
+    from apply_english_source_33 import convert, translations
+    mapping=translations();expected=convert(value,mapping);found=False;kept=[]
+    for old in o['effect']:
+        if convert(old,mapping)==expected:
+            if found:continue
+            found=True
+        kept.append(old)
+    o['effect']=kept if found else kept+[value]
 def replace(node,old,new):
     if node==old:return copy.deepcopy(new)
     if isinstance(node,dict):return {k:replace(v,old,new) for k,v in node.items()}

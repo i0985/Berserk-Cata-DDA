@@ -4,62 +4,62 @@
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL",
-      "yes": "Вернулся. Надеюсь, с результатом.",
+      "yes": "You've returned. With results, I hope.",
       "no": {
         "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING",
         "yes": {
           "math": [
             "u_berserk_contract33_count_intro_seen == 1"
           ],
-          "yes": "За этими стенами — хаос. Люди грызут друг друга за горсть зерна, за глоток воды.\n\nЗдесь — хозяин. Здесь — порядок. Мне нужны те, кто способен его удерживать.",
-          "no": "&Граф приподнимает тяжёлое тело над полом подземелья и преграждает путь.\n\n«Довольно. Стоишь передо мной, а не валяешься на полу. Значит, либо ты чего-то стоишь, либо просто ещё не понял, где находишься»."
+          "yes": "Beyond these walls lies chaos. People tear at one another for a handful of grain, a mouthful of water.\n\nHere, there is a master. Here, there is order. I need those capable of upholding it.",
+          "no": "&The Count raises his heavy body above the dungeon floor and bars your way.\n\n\"Enough. You stand before me instead of lying on the floor. So either you are worth something, or you have yet to understand where you are.\""
         },
         "no": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_LINE_FE7DEDA6608E",
-          "yes": "Ты поднял руку на то, что принадлежит мне.\n\nИ пришёл сюда снова — будто у тебя ещё есть право о чём-то просить?",
+          "yes": "You raised your hand against what belongs to me.\n\nAnd came here again, as though you still had the right to ask for anything?",
           "no": {
             "test_eoc": "EOC_BERSERK_FORGE_GUTS",
             "yes": {
               "u_has_bionics": "bio_berserk_brand_of_sacrifice",
-              "yes": "Клеймёный. Сам пришёл в мой дом.",
-              "no": "С пустыми руками или с железом — ты всё равно пришёл в мои владения."
+              "yes": "Branded one. You came to my house yourself.",
+              "no": "Empty-handed or bearing steel, you have entered my domain all the same."
             },
-            "no": "Время просить место при дворе прошло."
+            "no": "The time to ask for a place at court has passed."
           }
         }
       }
     },
     "responses": [
       {
-        "text": "Я слушаю.",
+        "text": "I'm listening.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_OFFER",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Мне не нужно твоё разрешение.",
+        "text": "I don't need your permission.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DEFY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Я пришёл положить конец твоему правлению.",
+        "text": "I've come to end your rule.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_REFUSAL",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Что ты требуешь?",
+        "text": "What do you demand?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SERVICE",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
         }
       },
       {
-        "text": "Я принёс требуемое.",
+        "text": "I brought what you asked for.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_PAID",
         "condition": {
           "and": [
@@ -86,7 +86,7 @@
         ]
       },
       {
-        "text": "Я ещё не закончил.",
+        "text": "I'm not finished yet.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_LATE",
         "condition": {
           "and": [
@@ -102,7 +102,7 @@
         }
       },
       {
-        "text": "Твоя помощь перестала действовать.",
+        "text": "Your help has worn off.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SUPPORT_GONE",
         "condition": {
           "and": [
@@ -118,7 +118,7 @@
         }
       },
       {
-        "text": "Твоя помощь ещё со мной.",
+        "text": "Your help is still with me.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SUPPORT_ACTIVE",
         "condition": {
           "and": [
@@ -132,14 +132,14 @@
         }
       },
       {
-        "text": "А новая природа останется со мной?",
+        "text": "Will my new nature remain?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -168,26 +168,26 @@
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_OFFER",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING",
-      "yes": "За этими стенами — хаос. Люди грызут друг друга за горсть зерна, за глоток воды.\n\nЗдесь — хозяин. Здесь — порядок. Мне нужны те, кто способен его удерживать.",
-      "no": "Время просить место при дворе прошло."
+      "yes": "Beyond these walls lies chaos. People tear at one another for a handful of grain, a mouthful of water.\n\nHere, there is a master. Here, there is order. I need those capable of upholding it.",
+      "no": "The time to ask for a place at court has passed."
     },
     "responses": [
       {
-        "text": "Ты предлагаешь мне службу?",
+        "text": "Are you offering me service?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Я уже решил.",
+        "text": "I've made up my mind.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DECISION",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -200,52 +200,52 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS",
-    "dynamic_line": "Я предлагаю тебе перестать быть бродягой, которого можно вышвырнуть на дорогу одним пинком.\n\nПрими мою искру — и в этом доме у тебя будет место. Настоящее. Не милостыня.",
+    "dynamic_line": "I am offering you an end to being a vagabond who can be kicked back onto the road.\n\nAccept my spark, and you will have a place in this house. A real one. Not charity.",
     "responses": [
       {
-        "text": "Что значит служить тебе?",
+        "text": "What does serving you mean?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DUTY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Что ты сделаешь со мной?",
+        "text": "What will you do to me?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_CHANGE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Кого ты здесь защищаешь?",
+        "text": "Who do you protect here?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_PROTECT",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Почему именно я?",
+        "text": "Why me in particular?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_WHY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Что стало с твоими слугами?",
+        "text": "What happened to your servants?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SERVANTS",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Я решил.",
+        "text": "I've decided.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DECISION",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -258,10 +258,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DEFY",
-    "dynamic_line": "Пока ты стоишь в моих чертогах, тебе нужно гораздо больше, чем кажется.\n\nЯ всё ещё даю тебе выбор. Пользуйся, пока даю.",
+    "dynamic_line": "While you stand in my halls, you need far more than you imagine.\n\nI am still giving you a choice. Use it while I do.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_OFFER"
       }
     ]
@@ -269,10 +269,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DECISION",
-    "dynamic_line": "Решай.",
+    "dynamic_line": "Decide.",
     "responses": [
       {
-        "text": "Я приму твою искру. Буду служить. Меняй меня.",
+        "text": "I'll accept your spark. I'll serve. Change me.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ACCEPTED",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
@@ -284,28 +284,28 @@
         ]
       },
       {
-        "text": "Я хочу ещё кое-что спросить.",
+        "text": "I want to ask something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Я не стану твоим подчинённым.",
+        "text": "I will not be your subordinate.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_REFUSAL",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Я заберу твой дар. Посмотрим, кто распорядится им лучше.",
+        "text": "I'll take your gift. Let's see who can use it better.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_CHALLENGE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -320,26 +320,26 @@
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ACCEPTED",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL",
-      "yes": "Подойди.\n\nТеперь у тебя есть место.\n\nВот теперь можно поговорить о твоих обязанностях.",
-      "no": "Ты ещё не дал согласия. Решение остаётся за тобой."
+      "yes": "Come closer.\n\nNow you have a place.\n\nNow we can discuss your duties.",
+      "no": "You have not yet agreed. The decision remains yours."
     },
     "responses": [
       {
-        "text": "Поговорим о моих обязанностях.",
+        "text": "Let's discuss my duties.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
         }
       },
       {
-        "text": "Мне нужно идти.",
+        "text": "I need to go.",
         "topic": "TALK_DONE",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
         }
       },
       {
-        "text": "Вернёмся к моим вопросам.",
+        "text": "Back to my questions.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
@@ -350,10 +350,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_REFUSAL",
-    "dynamic_line": "Тогда ты слишком долго испытывал моё терпение одним своим присутствием.",
+    "dynamic_line": "Then your very presence has tested my patience long enough.",
     "responses": [
       {
-        "text": "Защищайся.",
+        "text": "Defend yourself.",
         "topic": "TALK_DONE",
         "effect": [
           {
@@ -371,10 +371,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_CHALLENGE",
-    "dynamic_line": "Ты всё ещё стоишь здесь только потому, что я позволял тебе говорить.",
+    "dynamic_line": "You still stand here only because I permitted you to speak.",
     "responses": [
       {
-        "text": "Посмотрим, кто останется стоять.",
+        "text": "We'll see who is left standing.",
         "topic": "TALK_DONE",
         "effect": [
           {
@@ -392,10 +392,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SERVICE",
-    "dynamic_line": "Мне нужны два куска кожи для домашних запасов. Принесёшь сюда. Тогда сможешь вновь призвать силу отростка.",
+    "dynamic_line": "I need two pieces of leather for the household stores. Bring them here. Then you will be able to call on the tendril's strength again.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
       }
     ]
@@ -403,17 +403,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_PRICE",
-    "dynamic_line": "Дам твоему телу то, чего оно не получило бы за всю свою жалкую человеческую жизнь. Выдержишь больше. Сможешь больше.",
+    "dynamic_line": "I will give your body what it could not gain in its whole miserable human life. You will endure more. Be capable of more.",
     "responses": [
       {
-        "text": "А прежний облик?",
+        "text": "And my former shape?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_OLD_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
     ]
@@ -421,10 +421,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_LATE",
-    "dynamic_line": "Тогда зачем отвлекаешь меня пустыми словами?",
+    "dynamic_line": "Then why waste my time with empty words?",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
       }
     ]
@@ -432,10 +432,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_BODY",
-    "dynamic_line": "Нет. Твоя природа уже не та, что была.\n\nНе надейся избавиться от этого, забыв об обязанностях. Так не работает.",
+    "dynamic_line": "No. Your nature is no longer what it was.\n\nDon't hope to shed it by forgetting your duties. It does not work that way.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
       }
     ]
@@ -443,10 +443,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_PAID",
-    "dynamic_line": "Положи.\n\nХорошо. Вижу, ты помнишь своё место.",
+    "dynamic_line": "Put it down.\n\nGood. I see you remember your place.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
       }
     ]
@@ -454,10 +454,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SUPPORT_GONE",
-    "dynamic_line": "Сила требует верности. Я не обещал кормить тебя силой за одно удачное решение в прошлом.",
+    "dynamic_line": "Strength demands loyalty. I never promised to feed you power forever for one fortunate decision in the past.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
       }
     ]
@@ -465,10 +465,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SUPPORT_ACTIVE",
-    "dynamic_line": "Я помню свою часть уговора. Пока помощь действует, новой поставки не требуется.",
+    "dynamic_line": "I remember my part of the bargain. While the aid lasts, no further delivery is required.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
       }
     ]
@@ -478,58 +478,58 @@
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL",
-      "yes": "Ну? С чем пришёл?",
+      "yes": "Well? What brings you here?",
       "no": {
         "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING",
         "yes": {
           "math": [
             "u_berserk_contract33_wyald_intro_seen == 1"
           ],
-          "yes": "Оставайся с Псами. Сила, добыча, веселье — не та жизнь, где ты у кого-то разрешения просишь пройти.\n\nСам будешь решать, кого пропускать, а кого — в землю зарыть.",
-          "no": "&Уайлд оскаливается, упираясь огромными лапами в землю.\n\n«Эй! Не спеши раскисать. Спросить хочу. Тебе ещё не надоело дрожать от каждой тени на дороге?»"
+          "yes": "Stay with the Dogs. Strength, plunder, fun. Not a life spent asking permission to pass.\n\nYou'll decide who gets past, and who gets buried.",
+          "no": "&Wyald bares his teeth, bracing his enormous limbs against the ground.\n\n\"Hey! Don't go soft on me yet. Got a question. Aren't you tired of shaking at every shadow on the road?\""
         },
         "no": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_LINE_C534203CD206",
-          "yes": "На меня зубы поднял?\n\nДавно пора было проверить, чего они стоят на самом деле!",
+          "yes": "Baring your teeth at me?\n\nAbout time we found out what they're really worth!",
           "no": {
             "test_eoc": "EOC_BERSERK_FORGE_GUTS",
-            "yes": "Ну давай, мечник. Покажи, зачем ты пришёл.",
-            "no": "Ну давай! Показывай, чего стоят твои слова!"
+            "yes": "Come on, swordsman. Show me why you're here.",
+            "no": "Come on! Show me what your words are worth!"
           }
         }
       }
     },
     "responses": [
       {
-        "text": "Смотря что ты предлагаешь.",
+        "text": "Depends on what you're offering.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_OFFER",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Я тебя не боюсь.",
+        "text": "I'm not afraid of you.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DEFY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Отойди с дороги.",
+        "text": "Get out of my way.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_REFUSAL",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Какое дело?",
+        "text": "What business?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SERVICE",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
         }
       },
       {
-        "text": "Я принёс требуемое.",
+        "text": "I brought what you asked for.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_PAID",
         "condition": {
           "and": [
@@ -556,7 +556,7 @@
         ]
       },
       {
-        "text": "Пока ничего.",
+        "text": "Nothing yet.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_LATE",
         "condition": {
           "and": [
@@ -572,7 +572,7 @@
         }
       },
       {
-        "text": "Твоя помощь перестала действовать.",
+        "text": "Your help has worn off.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SUPPORT_GONE",
         "condition": {
           "and": [
@@ -588,7 +588,7 @@
         }
       },
       {
-        "text": "Твоя помощь ещё со мной.",
+        "text": "Your help is still with me.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SUPPORT_ACTIVE",
         "condition": {
           "and": [
@@ -602,14 +602,14 @@
         }
       },
       {
-        "text": "А новая природа останется со мной?",
+        "text": "Will my new nature remain?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -638,26 +638,26 @@
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_OFFER",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING",
-      "yes": "Оставайся с Псами. Сила, добыча, веселье — не та жизнь, где ты у кого-то разрешения просишь пройти.\n\nСам будешь решать, кого пропускать, а кого — в землю зарыть.",
-      "no": "Ну давай! Показывай, чего стоят твои слова!"
+      "yes": "Stay with the Dogs. Strength, plunder, fun. Not a life spent asking permission to pass.\n\nYou'll decide who gets past, and who gets buried.",
+      "no": "Come on! Show me what your words are worth!"
     },
     "responses": [
       {
-        "text": "И что тебе с этого?",
+        "text": "And what's in it for you?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Я уже решил.",
+        "text": "I've made up my mind.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -670,59 +670,59 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS",
-    "dynamic_line": "Ещё один клык в стаю. Хороший клык — это всегда хорошо.",
+    "dynamic_line": "Another fang for the pack. A good fang is always welcome.",
     "responses": [
       {
-        "text": "Что ты считаешь силой?",
+        "text": "What do you call strength?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_STRENGTH",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Какое место ты мне отдашь?",
+        "text": "What place will you give me?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_PLACE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Что станет с моим обликом?",
+        "text": "What will happen to my appearance?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_CHANGE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "А слабые?",
+        "text": "What about the weak?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_WEAK",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Чего ты потребуешь?",
+        "text": "What will you demand?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DUTY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Почему предлагаешь мне, а не просто избавишься от меня?",
+        "text": "Why offer me this instead of just getting rid of me?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_WHY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Я решил.",
+        "text": "I've decided.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -735,10 +735,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DEFY",
-    "dynamic_line": "Во, годное начало.\n\nПосмотрим, чем дальше кончишь.",
+    "dynamic_line": "Now that's a good start.\n\nLet's see how you finish.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_OFFER"
       }
     ]
@@ -746,10 +746,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
-    "dynamic_line": "Решай.",
+    "dynamic_line": "Decide.",
     "responses": [
       {
-        "text": "Я в твоей стае. Давай силу. Назад просить не буду.",
+        "text": "I'm in your pack. Give me strength. I won't ask to go back.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ACCEPTED",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
@@ -761,28 +761,28 @@
         ]
       },
       {
-        "text": "Я хочу ещё кое-что спросить.",
+        "text": "I want to ask something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Оставь свою стаю себе.",
+        "text": "Keep your pack.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_REFUSAL",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Мне не нужна твоя подачка. Я заберу свою долю силы прямо из твоих рук.",
+        "text": "I don't need your handout. I'll take my share of power straight from your hands.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_CHALLENGE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -797,26 +797,26 @@
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ACCEPTED",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL",
-      "yes": "Вот это разговор!\n\nХа! Ну-ка, попробуй для начала просто на ногах устоять.\n\nПсы смотрят. Не опозорь меня сразу.",
-      "no": "Ты ещё не дал согласия. Решение остаётся за тобой."
+      "yes": "That's more like it!\n\nHa! Try staying on your feet first.\n\nThe Dogs are watching. Don't embarrass me already.",
+      "no": "You have not yet agreed. The decision remains yours."
     },
     "responses": [
       {
-        "text": "Поговорим о моих обязанностях.",
+        "text": "Let's discuss my duties.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
         }
       },
       {
-        "text": "Мне нужно идти.",
+        "text": "I need to go.",
         "topic": "TALK_DONE",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
         }
       },
       {
-        "text": "Вернёмся к моим вопросам.",
+        "text": "Back to my questions.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
@@ -827,10 +827,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_REFUSAL",
-    "dynamic_line": "Ну наконец-то. А я уж думал, ты меня словами до смерти заговоришь.",
+    "dynamic_line": "Finally. I thought you'd talk me to death.",
     "responses": [
       {
-        "text": "Защищайся.",
+        "text": "Defend yourself.",
         "topic": "TALK_DONE",
         "effect": [
           {
@@ -848,10 +848,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_CHALLENGE",
-    "dynamic_line": "А вот теперь ты мне нравишься!",
+    "dynamic_line": "Now I like you!",
     "responses": [
       {
-        "text": "Посмотрим, кто останется стоять.",
+        "text": "We'll see who is left standing.",
         "topic": "TALK_DONE",
         "effect": [
           {
@@ -869,10 +869,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SERVICE",
-    "dynamic_line": "Притащи двенадцать кусков металлолома для снаряжения Псов. Хочу глянуть, умеешь ли ты возвращаться с добычей, а не только языком трепать. С моей помощью сможешь рвануть вперёд и смести тех, кто окажется рядом.",
+    "dynamic_line": "Bring twelve pieces of scrap metal to equip the Dogs. Let's see if you can bring back spoils instead of just running your mouth. With my help, you can charge ahead and sweep aside anyone nearby.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
       }
     ]
@@ -880,17 +880,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_PRICE",
-    "dynamic_line": "Перестанет быть таким хлипким. Поймёшь, сколько в нём было лишнего — всякой мягкости, которая только мешала.",
+    "dynamic_line": "It'll stop being so flimsy. You'll see how much of it was useless. All that softness just getting in the way.",
     "responses": [
       {
-        "text": "Назад дороги не будет?",
+        "text": "There'll be no going back?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_OLD_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
     ]
@@ -898,10 +898,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_LATE",
-    "dynamic_line": "Тогда не загораживай мне вид.",
+    "dynamic_line": "Then stop blocking my view.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
       }
     ]
@@ -909,10 +909,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_BODY",
-    "dynamic_line": "Не-а. С этим теперь жить.\n\nНе нравится — злись. Может, хоть толк какой выйдет из этой злости.",
+    "dynamic_line": "Nope. You've got to live with it now.\n\nDon't like it? Get angry. Maybe that anger will be good for something.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
       }
     ]
@@ -920,10 +920,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_PAID",
-    "dynamic_line": "Ага! Уже лучше. С таким и поговорить приятно.",
+    "dynamic_line": "Yeah! Better already. Someone like that is worth talking to.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
       }
     ]
@@ -931,10 +931,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SUPPORT_GONE",
-    "dynamic_line": "Моей помощи, что ли, захотел?\n\nПринеси что-то стоящее. За красивые глаза я никого не подкармливаю.",
+    "dynamic_line": "Want my help, do you?\n\nBring something worthwhile. I don't feed anyone for their pretty eyes.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
       }
     ]
@@ -942,10 +942,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SUPPORT_ACTIVE",
-    "dynamic_line": "Я помню свою часть уговора. Пока помощь действует, новой поставки не требуется.",
+    "dynamic_line": "I remember my part of the bargain. While the aid lasts, no further delivery is required.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
       }
     ]
@@ -955,58 +955,58 @@
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL",
-      "yes": "Ты вернулся! Что там, за деревьями?",
+      "yes": "You're back! What's out there, beyond the trees?",
       "no": {
         "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING",
         "yes": {
           "math": [
             "u_berserk_contract33_rosine_intro_seen == 1"
           ],
-          "yes": "Здесь можно остаться. Не возвращаться к ним.\n\nОни только пугают. Приказывают. Делают больно — а потом ещё и удивляются, почему им не доверяют.",
-          "no": "&Между деревьями мелькают крылья. Розина зависает над тропой, разглядывая вас.\n\n«Ты оттуда? Из мест, где дома полны мёртвых?»"
+          "yes": "You can stay here. You don't have to go back to them.\n\nThey only frighten you. Order you around. Hurt you, and then wonder why you don't trust them.",
+          "no": "&Wings flicker between the trees. Rosine hovers over the path, studying you.\n\n\"Are you from there? From the places where the houses are full of the dead?\""
         },
         "no": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_LINE_B5FC4D555682",
-          "yes": "Я впустила тебя. Ты знал, где мы живём.\n\nИ всё равно сделал это?",
+          "yes": "I let you in. You knew where we lived.\n\nAnd you still did this?",
           "no": {
             "test_eoc": "EOC_BERSERK_FORGE_GUTS",
-            "yes": "Ты пришёл разрушить мой дом?",
-            "no": "Не подходи к нам!"
+            "yes": "Have you come to destroy my home?",
+            "no": "Stay away from us!"
           }
         }
       }
     },
     "responses": [
       {
-        "text": "Да.",
+        "text": "Yes.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Я ищу того, кто живёт в этой долине.",
+        "text": "I'm looking for whoever lives in this valley.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Что здесь происходит?",
+        "text": "What is happening here?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Что тебе нужно?",
+        "text": "What do you need?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SERVICE",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
         }
       },
       {
-        "text": "Я принёс требуемое.",
+        "text": "I brought what you asked for.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_PAID",
         "condition": {
           "and": [
@@ -1033,7 +1033,7 @@
         ]
       },
       {
-        "text": "Я ещё не нашёл.",
+        "text": "I haven't found it yet.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_LATE",
         "condition": {
           "and": [
@@ -1049,7 +1049,7 @@
         }
       },
       {
-        "text": "Твоя помощь перестала действовать.",
+        "text": "Your help has worn off.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SUPPORT_GONE",
         "condition": {
           "and": [
@@ -1065,7 +1065,7 @@
         }
       },
       {
-        "text": "Твоя помощь ещё со мной.",
+        "text": "Your help is still with me.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SUPPORT_ACTIVE",
         "condition": {
           "and": [
@@ -1079,21 +1079,21 @@
         }
       },
       {
-        "text": "А новая природа останется со мной?",
+        "text": "Will my new nature remain?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
         }
       },
       {
-        "text": "Мне нужно побыть одному.",
+        "text": "I need to be alone.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ALONE",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -1122,26 +1122,26 @@
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING",
-      "yes": "Здесь можно остаться. Не возвращаться к ним.\n\nОни только пугают. Приказывают. Делают больно — а потом ещё и удивляются, почему им не доверяют.",
-      "no": "Не подходи к нам!"
+      "yes": "You can stay here. You don't have to go back to them.\n\nThey only frighten you. Order you around. Hurt you, and then wonder why you don't trust them.",
+      "no": "Stay away from us!"
     },
     "responses": [
       {
-        "text": "И что нужно, чтобы остаться?",
+        "text": "What do I need to do to stay?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Я уже решил.",
+        "text": "I've made up my mind.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DECISION",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -1154,45 +1154,45 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS",
-    "dynamic_line": "Стать одним из нас. Тогда поймёшь, как здесь хорошо на самом деле.",
+    "dynamic_line": "Become one of us. Then you'll understand how good it really is here.",
     "responses": [
       {
-        "text": "Кто живёт в долине?",
+        "text": "Who lives in the valley?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_VALLEY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Что значит стать одним из вас?",
+        "text": "What does becoming one of you mean?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_CHANGE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Я смогу уйти?",
+        "text": "Will I be able to leave?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_LEAVE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Почему ты хочешь оставить меня?",
+        "text": "Why do you want to keep me here?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_WHY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "А если мне здесь не понравится?",
+        "text": "What if I don't like it here?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DISLIKE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Что находится в коконах?",
+        "text": "What's inside the cocoons?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_COCOONS",
         "condition": {
           "and": [
@@ -1208,14 +1208,14 @@
         }
       },
       {
-        "text": "Я решил.",
+        "text": "I've decided.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DECISION",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -1228,10 +1228,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DECISION",
-    "dynamic_line": "Так ты останешься?",
+    "dynamic_line": "So will you stay?",
     "responses": [
       {
-        "text": "Я останусь. Понимаю, что человеком уже не вернусь. Меняй меня.",
+        "text": "I'll stay. I understand I won't return to being human. Change me.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ACCEPTED",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
@@ -1243,28 +1243,28 @@
         ]
       },
       {
-        "text": "Я хочу ещё кое-что спросить.",
+        "text": "I want to ask something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Нет. Я не позволю тебе меня менять.",
+        "text": "No. I won't let you change me.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_REFUSAL",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Я заберу твою силу сам. Из твоей плоти.",
+        "text": "I'll take your strength myself. From your flesh.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_CHALLENGE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -1279,26 +1279,26 @@
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ACCEPTED",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL",
-      "yes": "Тогда не бойся. Я рядом.\n\nВот. Теперь ты свой.",
-      "no": "Ты ещё не дал согласия. Решение остаётся за тобой."
+      "yes": "Then don't be afraid. I'm here.\n\nThere. Now you're one of us.",
+      "no": "You have not yet agreed. The decision remains yours."
     },
     "responses": [
       {
-        "text": "Поговорим о моих обязанностях.",
+        "text": "Let's discuss my duties.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
         }
       },
       {
-        "text": "Мне нужно идти.",
+        "text": "I need to go.",
         "topic": "TALK_DONE",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
         }
       },
       {
-        "text": "Вернёмся к моим вопросам.",
+        "text": "Back to my questions.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
@@ -1309,10 +1309,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_REFUSAL",
-    "dynamic_line": "Тогда зачем ты вообще пришёл? Посмотреть на нас? А после вернуться с остальными — и с огнём?\n\nЯ слышала.",
+    "dynamic_line": "Then why did you come at all? To look at us? And then return with the others, and with fire?\n\nI heard you.",
     "responses": [
       {
-        "text": "Защищайся.",
+        "text": "Defend yourself.",
         "topic": "TALK_DONE",
         "effect": [
           {
@@ -1330,10 +1330,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_CHALLENGE",
-    "dynamic_line": "Ты такой же, как они.\n\nТолько хотя бы не притворяешься.",
+    "dynamic_line": "You're just like them.\n\nAt least you aren't pretending.",
     "responses": [
       {
-        "text": "Посмотрим, кто останется стоять.",
+        "text": "We'll see who is left standing.",
         "topic": "TALK_DONE",
         "effect": [
           {
@@ -1351,10 +1351,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SERVICE",
-    "dynamic_line": "Принеси четыре куска мяса для гнезда. Тогда я помогу тебе двигаться легче: на короткое время уходить от чужих ударов.",
+    "dynamic_line": "Bring four pieces of meat for the nest. Then I'll help you move more lightly, slipping away from others' blows for a little while.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
       }
     ]
@@ -1362,17 +1362,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_PRICE",
-    "dynamic_line": "Тело станет другим. Ты перестанешь смотреть на долину чужими глазами — человечьими.",
+    "dynamic_line": "Your body will be different. You'll stop seeing the valley through an outsider's eyes. Human eyes.",
     "responses": [
       {
-        "text": "А я останусь собой?",
+        "text": "Will I still be myself?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SELF",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
     ]
@@ -1380,10 +1380,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_LATE",
-    "dynamic_line": "Тогда поищи ещё. Ты ведь знаешь, где нас найти — дорога не забудется.",
+    "dynamic_line": "Then keep looking. You know where to find us. You won't forget the way.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
       }
     ]
@@ -1391,10 +1391,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_BODY",
-    "dynamic_line": "Ты всё ещё один из нас. Это никуда не денется — что бы ты сейчас ни чувствовал.",
+    "dynamic_line": "You're still one of us. That won't go away, whatever you're feeling now.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
       }
     ]
@@ -1402,10 +1402,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_PAID",
-    "dynamic_line": "Да, это подойдёт.\n\nОстанься рядом.",
+    "dynamic_line": "Yes, that will do.\n\nStay close.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
       }
     ]
@@ -1413,10 +1413,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SUPPORT_GONE",
-    "dynamic_line": "Без мяса для гнезда я не смогу продолжать. Принеси — и я помогу снова.",
+    "dynamic_line": "I can't keep going without meat for the nest. Bring some, and I'll help again.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
       }
     ]
@@ -1424,10 +1424,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SUPPORT_ACTIVE",
-    "dynamic_line": "Я помню свою часть уговора. Пока помощь действует, новой поставки не требуется.",
+    "dynamic_line": "I remember my part of the bargain. While the aid lasts, no further delivery is required.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
       }
     ]
@@ -1435,10 +1435,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ALONE",
-    "dynamic_line": "Хорошо...\n\nТолько не говори потом, что тебя здесь не ждали.",
+    "dynamic_line": "All right...\n\nJust don't say afterward that you weren't welcome here.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
       }
     ]
@@ -1448,58 +1448,58 @@
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL",
-      "yes": "Докладывай.",
+      "yes": "Report.",
       "no": {
         "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING",
         "yes": {
           "math": [
             "u_berserk_contract33_grunbeld_intro_seen == 1"
           ],
-          "yes": "Ты прошёл достаточно далеко, чтобы я счёл тебя воином, а не случайным безумцем.\n\nЯ могу предложить службу. Силу, с которой выдержишь то, что ломает обычные человеческие пределы.",
-          "no": "&Грюнбельд поворачивается всем корпусом. Молот остаётся опущенным.\n\n«Остановись. Ещё шаг — и это будет значить, что ты пришёл драться»."
+          "yes": "You have come far enough for me to consider you a warrior rather than a passing madman.\n\nI can offer you service. Strength to endure what breaks ordinary human limits.",
+          "no": "&Grunbeld turns his whole body toward you. His hammer stays lowered.\n\n\"Stop. One more step will mean you came to fight.\""
         },
         "no": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_LINE_A60196621804",
-          "yes": "Ты нарушил клятву действием. Объяснения уже ничего не изменят.",
+          "yes": "You broke your oath by your actions. Explanations will change nothing now.",
           "no": {
             "test_eoc": "EOC_BERSERK_FORGE_GUTS",
-            "yes": "Подними оружие. Твой путь дальше проходит через меня.",
-            "no": "Разговор окончен."
+            "yes": "Raise your weapon. Your road onward goes through me.",
+            "no": "The conversation is over."
           }
         }
       }
     },
     "responses": [
       {
-        "text": "Я выслушаю тебя.",
+        "text": "I will hear you out.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_OFFER",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Ты знаешь, зачем я пришёл.",
+        "text": "You know why I've come.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_REFUSAL",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Говори.",
+        "text": "Speak.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_OFFER",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Каково поручение?",
+        "text": "What is the assignment?",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_SERVICE",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
         }
       },
       {
-        "text": "Я принёс требуемое.",
+        "text": "I brought what you asked for.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_PAID",
         "condition": {
           "and": [
@@ -1526,7 +1526,7 @@
         ]
       },
       {
-        "text": "Я не справился.",
+        "text": "I failed.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_LATE",
         "condition": {
           "and": [
@@ -1542,7 +1542,7 @@
         }
       },
       {
-        "text": "Твоя помощь перестала действовать.",
+        "text": "Your help has worn off.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_SUPPORT_GONE",
         "condition": {
           "and": [
@@ -1558,7 +1558,7 @@
         }
       },
       {
-        "text": "Твоя помощь ещё со мной.",
+        "text": "Your help is still with me.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_SUPPORT_ACTIVE",
         "condition": {
           "and": [
@@ -1572,14 +1572,14 @@
         }
       },
       {
-        "text": "А новая природа останется со мной?",
+        "text": "Will my new nature remain?",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -1608,26 +1608,26 @@
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_OFFER",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING",
-      "yes": "Ты прошёл достаточно далеко, чтобы я счёл тебя воином, а не случайным безумцем.\n\nЯ могу предложить службу. Силу, с которой выдержишь то, что ломает обычные человеческие пределы.",
-      "no": "Разговор окончен."
+      "yes": "You have come far enough for me to consider you a warrior rather than a passing madman.\n\nI can offer you service. Strength to endure what breaks ordinary human limits.",
+      "no": "The conversation is over."
     },
     "responses": [
       {
-        "text": "И подчинение тебе.",
+        "text": "And submission to you.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Я уже решил.",
+        "text": "I've made up my mind.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DECISION",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -1640,45 +1640,45 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS",
-    "dynamic_line": "Да.\n\nЯ не дарю силу без обязательств. Так не бывает — и не должно быть.",
+    "dynamic_line": "Yes.\n\nI do not give strength without obligations. It does not happen, and should not.",
     "responses": [
       {
-        "text": "Что ты требуешь от вассала?",
+        "text": "What do you require of a vassal?",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DUTY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Какова цена этой брони?",
+        "text": "What is the price of this armor?",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_CHANGE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Что означает клятва?",
+        "text": "What does the oath mean?",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_OATH",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Ты запрещаешь отступать?",
+        "text": "Do you forbid retreat?",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_RETREAT",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Почему выбрал меня?",
+        "text": "Why did you choose me?",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_WHY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Я видел тебя у обители Флоры.",
+        "text": "I saw you at Flora's home.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_FLORA",
         "condition": {
           "and": [
@@ -1708,14 +1708,14 @@
         }
       },
       {
-        "text": "Я решил.",
+        "text": "I've decided.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DECISION",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -1728,10 +1728,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DECISION",
-    "dynamic_line": "Решай.",
+    "dynamic_line": "Decide.",
     "responses": [
       {
-        "text": "Я принимаю службу и клянусь исполнить её условия. Дай мне новую природу.",
+        "text": "I accept service and swear to fulfill its terms. Give me a new nature.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ACCEPTED",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
@@ -1743,28 +1743,28 @@
         ]
       },
       {
-        "text": "Я хочу ещё кое-что спросить.",
+        "text": "I want to ask something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Я не принесу тебе клятву.",
+        "text": "I will not swear an oath to you.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_REFUSAL",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Я заберу твою силу после боя. Без клятвы.",
+        "text": "I'll take your strength after the battle. Without an oath.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_CHALLENGE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Закончить разговор.",
+        "text": "End the conversation.",
         "topic": "TALK_DONE",
         "condition": {
           "not": {
@@ -1779,26 +1779,26 @@
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ACCEPTED",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL",
-      "yes": "Клятва услышана.\n\nПривыкни к своей силе.\n\nПосле — приступишь к делу. Не раньше.",
-      "no": "Ты ещё не дал согласия. Решение остаётся за тобой."
+      "yes": "Your oath is heard.\n\nGrow accustomed to your strength.\n\nThen begin the work. Not before.",
+      "no": "You have not yet agreed. The decision remains yours."
     },
     "responses": [
       {
-        "text": "Поговорим о моих обязанностях.",
+        "text": "Let's discuss my duties.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
         }
       },
       {
-        "text": "Мне нужно идти.",
+        "text": "I need to go.",
         "topic": "TALK_DONE",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
         }
       },
       {
-        "text": "Вернёмся к моим вопросам.",
+        "text": "Back to my questions.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
@@ -1809,10 +1809,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_REFUSAL",
-    "dynamic_line": "Тогда между нами остаётся та причина, с которой ты сюда пришёл вооружённым.\n\nГотовься.",
+    "dynamic_line": "Then what remains between us is the reason you came here armed.\n\nPrepare yourself.",
     "responses": [
       {
-        "text": "Защищайся.",
+        "text": "Defend yourself.",
         "topic": "TALK_DONE",
         "effect": [
           {
@@ -1830,10 +1830,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_CHALLENGE",
-    "dynamic_line": "Сначала одержи победу.",
+    "dynamic_line": "Win first.",
     "responses": [
       {
-        "text": "Посмотрим, кто останется стоять.",
+        "text": "We'll see who is left standing.",
         "topic": "TALK_DONE",
         "effect": [
           {
@@ -1851,10 +1851,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_SERVICE",
-    "dynamic_line": "Доставь четыре куска стали. Они нужны для ремонта доспехов. Взамен я помогу тебе на короткое время укрепить панцирь; двигаться под ударами станет тяжелее.",
+    "dynamic_line": "Deliver four lumps of steel. They are needed to repair armor. In return, I will help you harden your shell for a short time; moving under blows will become harder.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
       }
     ]
@@ -1862,17 +1862,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_PRICE",
-    "dynamic_line": "Она станет частью твоей сущности. Даст стойкость, какой не даст обычная сталь, выкованная человеческими руками.",
+    "dynamic_line": "It will become part of your being. It will give you endurance no ordinary steel forged by human hands can provide.",
     "responses": [
       {
-        "text": "Я смогу от неё избавиться?",
+        "text": "Will I be able to get rid of it?",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_OLD_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
     ]
@@ -1880,10 +1880,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_LATE",
-    "dynamic_line": "Назови причину.\n\nИсправь то, что в твоих силах исправить. И не докладывай о выполнении раньше времени — это хуже, чем промедление.",
+    "dynamic_line": "State the reason.\n\nSet right what is within your power. And do not report success before it is achieved. That is worse than delay.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
       }
     ]
@@ -1891,10 +1891,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_BODY",
-    "dynamic_line": "Нет.\n\nНовая природа останется с тобой при любых обстоятельствах. Речь о помощи, которую я оказываю сверх этого, по собственной воле.",
+    "dynamic_line": "No.\n\nYour new nature will stay with you whatever happens. We are speaking of the aid I choose to give beyond that.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
       }
     ]
@@ -1902,10 +1902,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_PAID",
-    "dynamic_line": "Предъяви доставленное.\n\nПринято. Обещанную помощь получишь.",
+    "dynamic_line": "Present what you have brought.\n\nAccepted. You will receive the promised aid.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
       }
     ]
@@ -1913,10 +1913,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_SUPPORT_GONE",
-    "dynamic_line": "Она требует возобновления. Условия тебе известны — я их не скрывал.",
+    "dynamic_line": "It must be renewed. You know the terms. I did not conceal them.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
       }
     ]
@@ -1924,10 +1924,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_SUPPORT_ACTIVE",
-    "dynamic_line": "Я помню свою часть уговора. Пока помощь действует, новой поставки не требуется.",
+    "dynamic_line": "I remember my part of the bargain. While the aid lasts, no further delivery is required.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
       }
     ]
@@ -1935,17 +1935,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DUTY",
-    "dynamic_line": "Исполнять волю. Охранять то, что моё. Приносить то, что я потребую.\n\nИ не заставлять меня повторять дважды.",
+    "dynamic_line": "Carry out my will. Guard what is mine. Bring what I demand.\n\nAnd do not make me repeat myself.",
     "responses": [
       {
-        "text": "А если я не соглашусь с твоей волей?",
+        "text": "What if I disagree with your will?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DISOBEY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
     ]
@@ -1953,10 +1953,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DISOBEY",
-    "dynamic_line": "Тогда стоило остаться по ту сторону ворот.",
+    "dynamic_line": "Then you should have remained beyond the gates.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
     ]
@@ -1964,17 +1964,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_CHANGE",
-    "dynamic_line": "Дам твоему телу то, чего оно не получило бы за всю свою жалкую человеческую жизнь. Выдержишь больше. Сможешь больше.",
+    "dynamic_line": "I will give your body what it could not gain in its whole miserable human life. You will endure more. Be capable of more.",
     "responses": [
       {
-        "text": "А прежний облик?",
+        "text": "And my former shape?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_OLD_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
     ]
@@ -1982,10 +1982,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_OLD_BODY",
-    "dynamic_line": "Сам просишь оставить его позади. Или рассчитывал примерить мой дар, как чужой плащ — на вечер, а после вернуть?",
+    "dynamic_line": "You are asking to leave it behind yourself. Or did you expect to try on my gift like someone else's cloak, wear it for an evening, then return it?",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
     ]
@@ -1993,17 +1993,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SERVANTS",
-    "dynamic_line": "Они получили возможность быть полезнее, чем были.",
+    "dynamic_line": "They were given the chance to be more useful than before.",
     "responses": [
       {
-        "text": "Не все выглядят довольными.",
+        "text": "They don't all look pleased.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_HAPPY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
     ]
@@ -2011,10 +2011,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_HAPPY",
-    "dynamic_line": "Довольство подчинённых — не мера крепости власти.",
+    "dynamic_line": "The contentment of servants is no measure of the strength of rule.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
     ]
@@ -2022,10 +2022,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_PROTECT",
-    "dynamic_line": "Тех, кто мне служит.",
+    "dynamic_line": "Those who serve me.",
     "responses": [
       {
-        "text": "Пленников ты тоже так называешь?",
+        "text": "Is that what you call your prisoners too?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_PRISONERS",
         "condition": {
           "and": [
@@ -2050,7 +2050,7 @@
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
     ]
@@ -2058,10 +2058,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_PRISONERS",
-    "dynamic_line": "Они под моей властью. Не путай положение соратника с положением того, кого приволокли в цепях.",
+    "dynamic_line": "They are under my authority. Do not confuse the standing of a companion with that of someone dragged here in chains.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
     ]
@@ -2069,10 +2069,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_WHY",
-    "dynamic_line": "Потому что ты дошёл сюда своими ногами. Большинство приводят под конвоем, волоком.\n\nПосмотрим, достанет ли тебе ума воспользоваться этой разницей.",
+    "dynamic_line": "Because you came here on your own feet. Most are escorted or dragged.\n\nLet us see if you have the sense to make use of that difference.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
     ]
@@ -2080,17 +2080,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_STRENGTH",
-    "dynamic_line": "Взять, чего хочешь. Удержать, когда за этим придут с ответным визитом.",
+    "dynamic_line": "Take what you want. Hold it when someone comes to take it back.",
     "responses": [
       {
-        "text": "Даже если придётся забрать чужое?",
+        "text": "Even if I have to take what's someone else's?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_TAKE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
     ]
@@ -2098,10 +2098,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_TAKE",
-    "dynamic_line": "Схватываешь быстро. Мне нравится.",
+    "dynamic_line": "You're catching on fast. I like it.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
     ]
@@ -2109,17 +2109,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_PLACE",
-    "dynamic_line": "Сам найдёшь. Покажешь зубы, притащишь добычу — заметят, не переживай.",
+    "dynamic_line": "Find it yourself. Show your teeth, bring in spoils, and they'll notice. Don't worry.",
     "responses": [
       {
-        "text": "А ты?",
+        "text": "And you?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_LEADER",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
     ]
@@ -2127,10 +2127,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_LEADER",
-    "dynamic_line": "А я тут главный. Это даже проверять не советую.",
+    "dynamic_line": "And I'm the one in charge. Wouldn't even suggest testing that.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
     ]
@@ -2138,17 +2138,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_CHANGE",
-    "dynamic_line": "Перестанет быть таким хлипким. Поймёшь, сколько в нём было лишнего — всякой мягкости, которая только мешала.",
+    "dynamic_line": "It'll stop being so flimsy. You'll see how much of it was useless. All that softness just getting in the way.",
     "responses": [
       {
-        "text": "Назад дороги не будет?",
+        "text": "There'll be no going back?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_OLD_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
     ]
@@ -2156,10 +2156,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_OLD_BODY",
-    "dynamic_line": "Захочешь назад — будешь выть. Просто уже по-другому выть.",
+    "dynamic_line": "Want to go back, and you'll howl. Just a different kind of howling.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
     ]
@@ -2167,17 +2167,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_WEAK",
-    "dynamic_line": "Прячутся. Бегают. Иногда от них бывает польза — ровно пока она есть.",
+    "dynamic_line": "They hide. Run. Sometimes they're useful. Exactly as long as they're useful.",
     "responses": [
       {
-        "text": "И своих так же бросаешь?",
+        "text": "Do you abandon your own just as easily?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ABANDON",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
     ]
@@ -2185,10 +2185,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ABANDON",
-    "dynamic_line": "Не отставай от стаи — и не придётся узнавать на себе.",
+    "dynamic_line": "Keep up with the pack, and you won't have to find out.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
     ]
@@ -2196,10 +2196,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DUTY",
-    "dynamic_line": "Добычу. Дело. Чтоб в драке от тебя шуму было больше, чем потом нытья.\n\nИ когда зову — приходишь. Без разговоров.",
+    "dynamic_line": "Plunder. Deeds. More noise from you in a fight than whining afterward.\n\nAnd when I call, you come. No arguing.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
     ]
@@ -2207,10 +2207,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_WHY",
-    "dynamic_line": "Прикончить всегда успею, дело не хитрое.\n\nА вдруг из тебя выйдет что-то забавное? Жалко упускать такое просто так.",
+    "dynamic_line": "Plenty of time to finish you off. Nothing hard about that.\n\nBut what if you turn out to be amusing? A shame to throw that away for nothing.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
     ]
@@ -2218,17 +2218,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_VALLEY",
-    "dynamic_line": "Те, кому больше не нужно возвращаться туда.\n\nЗдесь у них теперь другой дом.",
+    "dynamic_line": "Those who no longer have to go back there.\n\nThey have a different home here now.",
     "responses": [
       {
-        "text": "Они сами захотели?",
+        "text": "Did they want this themselves?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_WANTED",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
     ]
@@ -2236,10 +2236,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_WANTED",
-    "dynamic_line": "Они хотели, чтобы стало лучше. А я помогла. Это ведь не одно и то же — нет?",
+    "dynamic_line": "They wanted things to get better. And I helped. Those aren't the same thing, are they?",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
     ]
@@ -2247,17 +2247,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_CHANGE",
-    "dynamic_line": "Тело станет другим. Ты перестанешь смотреть на долину чужими глазами — человечьими.",
+    "dynamic_line": "Your body will be different. You'll stop seeing the valley through an outsider's eyes. Human eyes.",
     "responses": [
       {
-        "text": "А я останусь собой?",
+        "text": "Will I still be myself?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SELF",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
     ]
@@ -2265,17 +2265,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SELF",
-    "dynamic_line": "Ты ведь пришёл сюда, потому что тебе было плохо — таким, какой ты сейчас?",
+    "dynamic_line": "You came here because it hurt to be the way you are now, didn't you?",
     "responses": [
       {
-        "text": "Я не это спросил.",
+        "text": "That isn't what I asked.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SELF_MORE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
     ]
@@ -2283,10 +2283,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SELF_MORE",
-    "dynamic_line": "Я не умею оставить всё как есть — и одновременно сделать иначе. Так не бывает.",
+    "dynamic_line": "I can't leave everything as it is and make it different at the same time. It doesn't work like that.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
     ]
@@ -2294,17 +2294,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_LEAVE",
-    "dynamic_line": "Зачем?",
+    "dynamic_line": "Why?",
     "responses": [
       {
-        "text": "Если захочу.",
+        "text": "If I want to.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_LEAVE_MORE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
     ]
@@ -2312,10 +2312,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_LEAVE_MORE",
-    "dynamic_line": "За ними всё то же самое, что было. Даже если уйдёшь — человеком обратно не станешь.",
+    "dynamic_line": "Everything beyond them is the same as before. Even if you leave, you won't become human again.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
     ]
@@ -2323,17 +2323,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_COCOONS",
-    "dynamic_line": "Там меняются. Сначала нужна тишина. Немного.",
+    "dynamic_line": "They change in there. First they need quiet. A little.",
     "responses": [
       {
-        "text": "Им страшно?",
+        "text": "Are they afraid?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_FEAR",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
     ]
@@ -2341,10 +2341,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_FEAR",
-    "dynamic_line": "Иногда им страшно. Ещё помнят слишком много.\n\nЭто пройдёт.",
+    "dynamic_line": "Sometimes they're afraid. They still remember too much.\n\nThat will pass.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
     ]
@@ -2352,10 +2352,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_WHY",
-    "dynamic_line": "Потому что ты ещё слушаешь. Обычно приходят с огнём. Или с железом.\n\nА ты можешь просто остаться. Это редкость.",
+    "dynamic_line": "Because you're still listening. Usually they come with fire. Or with iron.\n\nYou could simply stay. That's rare.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
     ]
@@ -2363,10 +2363,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DISLIKE",
-    "dynamic_line": "Ты ещё даже не попробовал. А уже говоришь, как они.",
+    "dynamic_line": "You haven't even tried yet. And you already sound like them.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
     ]
@@ -2374,17 +2374,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DUTY",
-    "dynamic_line": "Исполнять порученное. Беречь вверенное. Являться на призыв.\n\nНе прятать неудачу за ложью. Это я не прощаю.",
+    "dynamic_line": "Carry out your orders. Protect what is entrusted to you. Answer the summons.\n\nDo not hide failure behind a lie. I will not forgive that.",
     "responses": [
       {
-        "text": "А если приказ мне противен?",
+        "text": "What if an order disgusts me?",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DISOBEY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
     ]
@@ -2392,10 +2392,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DISOBEY",
-    "dynamic_line": "Решай это до клятвы, не после.\n\nВозражение я выслушаю. Но решение останется за мной — таков порядок, и иначе служба не имеет смысла.",
+    "dynamic_line": "Decide that before the oath, not afterward.\n\nI will hear an objection. But the decision remains mine. That is the order of things; otherwise service is meaningless.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
     ]
@@ -2403,17 +2403,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_CHANGE",
-    "dynamic_line": "Она станет частью твоей сущности. Даст стойкость, какой не даст обычная сталь, выкованная человеческими руками.",
+    "dynamic_line": "It will become part of your being. It will give you endurance no ordinary steel forged by human hands can provide.",
     "responses": [
       {
-        "text": "Я смогу от неё избавиться?",
+        "text": "Will I be able to get rid of it?",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_OLD_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
     ]
@@ -2421,10 +2421,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_OLD_BODY",
-    "dynamic_line": "Нет.\n\nПодумай об этом сейчас, а не после того, как попросишь такую силу.",
+    "dynamic_line": "No.\n\nThink about that now, before asking for such strength.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
     ]
@@ -2432,17 +2432,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_OATH",
-    "dynamic_line": "Что на твоё слово можно положиться даже тогда, когда исполнить его тяжело. Особенно тогда.",
+    "dynamic_line": "That your word can be relied on even when keeping it is hard. Especially then.",
     "responses": [
       {
-        "text": "А если я уйду?",
+        "text": "What if I leave?",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_LEAVE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
     ]
@@ -2450,10 +2450,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_LEAVE",
-    "dynamic_line": "Самовольный уход от порученного не становится свободой только потому, что ты назовёшь его так.",
+    "dynamic_line": "Abandoning your duty does not become freedom merely because you call it that.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
     ]
@@ -2461,10 +2461,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_RETREAT",
-    "dynamic_line": "Напрасная гибель не доказывает стойкости.\n\nВоин может отступить, чтобы продолжить бой после. Но тот, кто бросает доверенный ему рубеж и соратников рядом с собой — отвечает за этот выбор сам.",
+    "dynamic_line": "A needless death proves no endurance.\n\nA warrior may retreat to fight again. But one who abandons an entrusted line and the companions beside him answers for that choice himself.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
     ]
@@ -2472,10 +2472,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_WHY",
-    "dynamic_line": "Ты стоял передо мной, имея возможность повернуть назад, и не сделал этого.\n\nДля предложения этого достаточно. Для уважения — потребуется больше.",
+    "dynamic_line": "You stood before me with the chance to turn back, and did not.\n\nThat is enough for an offer. Respect will require more.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
     ]
@@ -2483,17 +2483,17 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_FLORA",
-    "dynamic_line": "Тогда ты знаешь, что я исполнял приказ.",
+    "dynamic_line": "Then you know I was carrying out an order.",
     "responses": [
       {
-        "text": "Там был мирный кров. Люди могли там остаться жить.",
+        "text": "That was a peaceful home. People could have stayed and lived there.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_FLORA_PRICE",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
     ]
@@ -2501,24 +2501,24 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_FLORA_PRICE",
-    "dynamic_line": "Ты пришёл требовать за это ответа?",
+    "dynamic_line": "Have you come to demand an answer for that?",
     "responses": [
       {
-        "text": "Да. Защищайся.",
+        "text": "Yes. Defend yourself.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_REFUSAL",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Я хочу понять, чего будет стоить служба тебе.",
+        "text": "I want to understand what serving you will cost.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_FLORA_DUTY",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }
       },
       {
-        "text": "Я услышал достаточно.",
+        "text": "I've heard enough.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DECISION",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
@@ -2529,10 +2529,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_FLORA_DUTY",
-    "dynamic_line": "В том числе — приказов, которые ты бы сам не выбрал.\n\nТеперь ты не сможешь сказать, что не понимал этого заранее.",
+    "dynamic_line": "Including orders you would not have chosen yourself.\n\nNow you cannot say you did not understand that beforehand.",
     "responses": [
       {
-        "text": "Я хотел спросить о другом.",
+        "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
     ]
