@@ -153,14 +153,16 @@ class RescueAndFarewell(unittest.TestCase):
         self.assertNotIn('effect', confirm[0]); self.assertEqual(confirm[0]['topic'], 'TALK_BERSERK_SKULL_KNIGHT_AFTER')
         self.assertEqual(confirm[1]['topic'], 'TALK_DONE')
 
-    def test_new_anchors_are_passable_and_existing_health_policy_retained(self):
+    def test_new_anchors_are_passable_and_rescue_heals_minor_parts_too(self):
         p = json.loads((MOD.parents[1] / 'docs/location_projects/godo-3.2-02.json').read_text())
         for id in ['rescue_arrival', 'knight_wait']:
             x, y, z = p['anchors'][id]; self.assertEqual(z, 0)
             self.assertIn(p['floors']['ground'][y][x], ',p')
         e = Scene().eocs['EOC_BERSERK_ECLIPSE_RETURN_RECOVER']
         hp = [x['math'][0] for x in e['effect'] if 'math' in x and x['math'][0].startswith('u_hp(')]
-        self.assertEqual(len(hp), 6); self.assertTrue(all('* 0.5' in x for x in hp))
+        self.assertEqual(len(hp),12)
+        for part in ['head','torso','arm_l','arm_r','leg_l','leg_r','eyes','mouth','hand_l','hand_r','foot_l','foot_r']:
+            self.assertIn("u_hp('%s') = u_hp_max('%s')" % (part,part), hp)
 
     def test_temporary_knight_in_eclipse_does_not_replace_the_forge_guide(self):
         s = Scene(known=True); s.run('EOC_BERSERK_ECLIPSE_RESCUE_RETURN')

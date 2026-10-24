@@ -3,7 +3,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_BREACH",
     "name": "Close the ashen breach",
-    "description": "Defeat the keeper at the marked breach, then examine the wound at its center. Closing the passage will not destroy creatures which have already crossed. Study the surviving marks for further trails.",
+    "description": "Reach the marked ashen breach and defeat its guardian. Then examine the exposed wound in the earth to close it. Examine the quieted mark afterward to collect what remains. Closing this passage reveals the next known hunts in your mission list.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "math": [
@@ -59,7 +59,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_COUNT",
     "name": "The Count's residence",
-    "description": "Explore the marked residence and the rooms below its execution hall. The trail leads to the Count and a passage held open beneath his house. Deal with the keeper, examine the wound and recover what remains after it is sealed.",
+    "description": "Reach the Count's residence and confront him below the execution hall. After defeating him, examine the exposed breach in the dungeon, then examine the sealed mark to take the relic. The prisoner and written evidence are optional help; neither is required to close the breach.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "or": [
@@ -96,7 +96,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_WYALD",
     "name": "The Black Dogs' camp",
-    "description": "Follow the trail to the Black Dogs' camp. Inspect its stores, prisoners' traces and paths of retreat. Wyald holds this place; after confronting him, find the wound linked to the camp and examine what remains when it closes.",
+    "description": "Reach the Black Dogs' camp and confront Wyald in its final clearing. After defeating him, examine the exposed breach in the northern part of that clearing to close it. Then examine the sealed mark to collect the relic.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "or": [
@@ -133,7 +133,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_ROSINE",
     "name": "The misty valley",
-    "description": "Follow the marked trail into the valley. The evidence names Rosine. Study the flowers, cocoons and paths before confronting her. Examine the wound linked to this place and recover the surviving relic after it closes.",
+    "description": "Reach the misty valley and confront Rosine among the great roots. After defeating her, examine the exposed wound at her nest to close the passage. Then examine the sealed mark to collect the relic. You can leave cocoons behind; clearing every creature is not required.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "or": [
@@ -170,7 +170,7 @@
     "type": "mission_definition",
     "id": "MISSION_BERSERK_GRUNBELD",
     "name": "Grunbeld's stronghold",
-    "description": "The surviving trail leads to the stronghold. Explore the fortifications and the passage linked to this place. Examine the traces Grunbeld left here, close the wound and recover what remains.",
+    "description": "Reach the marked stronghold and follow the passage to the crucible. Deal with its keeper if he is still alive. Once the wound is exposed, examine the breach north of the crucible to close it, then examine the sealed mark to recover the relic.",
     "goal": "MGOAL_CONDITION",
     "goal_condition": {
       "or": [

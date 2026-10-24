@@ -54,11 +54,11 @@
       "GLOBALLY_UNIQUE"
     ],
     "occurrences": [
-      1,
-      1
+      0,
+      0
     ],
     "rotate": false,
-    "//": "One globally unique site may generate naturally. Directions reuse it or request native placement when absent. Saved coordinates are never moved; travel distances are soft design targets.",
+    "//": "Story placement after the Eclipse only. Existing sites and coordinates are retained.",
     "overmaps": [
       {
         "point": [
@@ -68,7 +68,7 @@
         ],
         "overmap": "berserk_wyald_approach",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -79,7 +79,7 @@
         ],
         "overmap": "berserk_wyald_camp",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -90,7 +90,7 @@
         ],
         "overmap": "berserk_wyald_quarry",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -101,9 +101,12 @@
         ],
         "overmap": "berserk_wyald_ring",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       }
+    ],
+    "locations": [
+      "forest"
     ]
   },
   {
@@ -161,11 +164,11 @@
       "GLOBALLY_UNIQUE"
     ],
     "occurrences": [
-      1,
-      1
+      0,
+      0
     ],
     "rotate": false,
-    "//": "One globally unique site may generate naturally. Directions reuse it or request native placement when absent. Saved coordinates are never moved; travel distances are soft design targets.",
+    "//": "Story placement after the Eclipse only. Existing sites and coordinates are retained.",
     "overmaps": [
       {
         "point": [
@@ -186,7 +189,7 @@
         ],
         "overmap": "berserk_rosine_cocoons",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -197,7 +200,7 @@
         ],
         "overmap": "berserk_rosine_gully",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -208,9 +211,12 @@
         ],
         "overmap": "berserk_rosine_nest",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       }
+    ],
+    "locations": [
+      "forest"
     ]
   }
 ]

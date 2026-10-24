@@ -3230,18 +3230,20 @@
               ]
             },
             {
-              "or": [
-                {
-                  "math": [
-                    "u_berserk_rickert_eclipse_story == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_rickert_eclipse_story == 3"
-                  ]
-                }
-              ]
+              "not": {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_rickert_eclipse_story == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_rickert_eclipse_story == 2"
+                    ]
+                  }
+                ]
+              }
             }
           ]
         },
@@ -3273,18 +3275,20 @@
                   ]
                 },
                 {
-                  "or": [
-                    {
-                      "math": [
-                        "u_berserk_rickert_eclipse_story == 0"
-                      ]
-                    },
-                    {
-                      "math": [
-                        "u_berserk_rickert_eclipse_story == 3"
-                      ]
-                    }
-                  ]
+                  "not": {
+                    "or": [
+                      {
+                        "math": [
+                          "u_berserk_rickert_eclipse_story == 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_rickert_eclipse_story == 2"
+                        ]
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -3321,18 +3325,20 @@
                   ]
                 },
                 {
-                  "or": [
-                    {
-                      "math": [
-                        "u_berserk_rickert_eclipse_story == 0"
-                      ]
-                    },
-                    {
-                      "math": [
-                        "u_berserk_rickert_eclipse_story == 3"
-                      ]
-                    }
-                  ]
+                  "not": {
+                    "or": [
+                      {
+                        "math": [
+                          "u_berserk_rickert_eclipse_story == 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_rickert_eclipse_story == 2"
+                        ]
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -3365,18 +3371,20 @@
               ]
             },
             {
-              "or": [
-                {
-                  "math": [
-                    "u_berserk_rickert_eclipse_story == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_rickert_eclipse_story == 3"
-                  ]
-                }
-              ]
+              "not": {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_rickert_eclipse_story == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_rickert_eclipse_story == 2"
+                    ]
+                  }
+                ]
+              }
             }
           ]
         },
@@ -3404,18 +3412,20 @@
               ]
             },
             {
-              "or": [
-                {
-                  "math": [
-                    "u_berserk_rickert_eclipse_story == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_rickert_eclipse_story == 3"
-                  ]
-                }
-              ]
+              "not": {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_rickert_eclipse_story == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_rickert_eclipse_story == 2"
+                    ]
+                  }
+                ]
+              }
             }
           ]
         },
@@ -3494,6 +3504,10 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
+      },
+      {
+        "text": "What do you remember of the Band?",
+        "topic": "TALK_BERSERK_RICKERT_BAND"
       },
       {
         "text": "Enough for today.",
@@ -7172,12 +7186,21 @@
     "dynamic_line": "Tell me about one of them, if you want. Who they were before that day. Remember people alive, not torn apart.",
     "responses": [
       {
-        "text": "About Judeau.",
+        "text": "Judeau always noticed when someone needed help. He taught me things without making me feel a fool.",
         "topic": "TALK_BERSERK_GODO_MEMORY_JUDEAU",
         "condition": {
-          "or": [
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
+      },
+      {
+        "text": "I found a trace of Judeau. I did not know him.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_JUDEAU",
+        "condition": {
+          "and": [
             {
-              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
             },
             {
               "math": [
@@ -7188,12 +7211,21 @@
         }
       },
       {
-        "text": "About Pippin.",
+        "text": "Pippin hardly spoke. But if he stood behind you, you knew your back was covered.",
         "topic": "TALK_BERSERK_GODO_MEMORY_PIPPIN",
         "condition": {
-          "or": [
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
+      },
+      {
+        "text": "I found a trace of Pippin. I did not know him.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_PIPPIN",
+        "condition": {
+          "and": [
             {
-              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
             },
             {
               "math": [
@@ -7204,12 +7236,21 @@
         }
       },
       {
-        "text": "About Corkus.",
+        "text": "Corkus and I argued all the time. Now I catch myself wishing I could hear him grumble again.",
         "topic": "TALK_BERSERK_GODO_MEMORY_CORKUS",
         "condition": {
-          "or": [
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
+      },
+      {
+        "text": "I found a trace of Corkus. I did not know him.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_CORKUS",
+        "condition": {
+          "and": [
             {
-              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
             },
             {
               "math": [
@@ -7220,12 +7261,21 @@
         }
       },
       {
-        "text": "About Gaston.",
+        "text": "Gaston wanted to leave the war and open a shop. I keep remembering how certain he sounded.",
         "topic": "TALK_BERSERK_GODO_MEMORY_GASTON",
         "condition": {
-          "or": [
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
+      },
+      {
+        "text": "I found a trace of Gaston. I did not know him.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_GASTON",
+        "condition": {
+          "and": [
             {
-              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              "not": {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              }
             },
             {
               "math": [
@@ -7247,14 +7297,50 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_MEMORY_JUDEAU",
-    "dynamic_line": "He looked after the people beside him. Tell me about that, not just the way he died.",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_FORGE_GUTS",
+      "yes": "Then remember him doing that. You said he made things easier for others. His last moments do not take that away.",
+      "no": "Then speak of what you found. Neither of us knew his life. We can at least leave room for it, instead of inventing one."
+    },
     "responses": [
       {
-        "text": "I remember him.",
-        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES"
+        "text": "I am afraid I will forget their voices.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_KEEP",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
       },
       {
-        "text": "Thank you. Enough for today.",
+        "text": "Should I tell Rickert what I found?",
+        "topic": "TALK_BERSERK_GODO_MEMORY_KEEP",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+          }
+        }
+      },
+      {
+        "text": "And I am here, alive.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_SURVIVED"
+      },
+      {
+        "text": "There is someone else I want to remember.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
+      },
+      {
+        "text": "I found other traces too.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+          }
+        }
+      },
+      {
+        "text": "Enough for today. Thank you for listening.",
         "topic": "TALK_BERSERK_GODO",
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
@@ -7265,14 +7351,50 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_MEMORY_PIPPIN",
-    "dynamic_line": "A man who stood between danger and his companions. That is worth remembering.",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_FORGE_GUTS",
+      "yes": "Some men spend their whole lives promising that. He did it. You have something worth remembering.",
+      "no": "Then speak of what you found. Neither of us knew his life. We can at least leave room for it, instead of inventing one."
+    },
     "responses": [
       {
-        "text": "I remember him.",
-        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES"
+        "text": "I am afraid I will forget their voices.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_KEEP",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
       },
       {
-        "text": "Thank you. Enough for today.",
+        "text": "Should I tell Rickert what I found?",
+        "topic": "TALK_BERSERK_GODO_MEMORY_KEEP",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+          }
+        }
+      },
+      {
+        "text": "And I am here, alive.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_SURVIVED"
+      },
+      {
+        "text": "There is someone else I want to remember.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
+      },
+      {
+        "text": "I found other traces too.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+          }
+        }
+      },
+      {
+        "text": "Enough for today. Thank you for listening.",
         "topic": "TALK_BERSERK_GODO",
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
@@ -7283,14 +7405,50 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_MEMORY_CORKUS",
-    "dynamic_line": "A man has more to him than a sharp tongue. What did he hope for?",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_FORGE_GUTS",
+      "yes": "You need not turn him into a saint to miss him. Remember the arguments too. That was a living man, not a statue.",
+      "no": "Then speak of what you found. Neither of us knew his life. We can at least leave room for it, instead of inventing one."
+    },
     "responses": [
       {
-        "text": "I remember him.",
-        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES"
+        "text": "I am afraid I will forget their voices.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_KEEP",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
       },
       {
-        "text": "Thank you. Enough for today.",
+        "text": "Should I tell Rickert what I found?",
+        "topic": "TALK_BERSERK_GODO_MEMORY_KEEP",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+          }
+        }
+      },
+      {
+        "text": "And I am here, alive.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_SURVIVED"
+      },
+      {
+        "text": "There is someone else I want to remember.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
+      },
+      {
+        "text": "I found other traces too.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+          }
+        }
+      },
+      {
+        "text": "Enough for today. Thank you for listening.",
         "topic": "TALK_BERSERK_GODO",
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
@@ -7301,14 +7459,50 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_MEMORY_GASTON",
-    "dynamic_line": "A life beyond battle. Work, a place of his own. Not a foolish dream.",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_FORGE_GUTS",
+      "yes": "A shop, a roof, work of his own. I understand that wish. Do not let the way he died swallow the life he wanted.",
+      "no": "Then speak of what you found. Neither of us knew his life. We can at least leave room for it, instead of inventing one."
+    },
     "responses": [
       {
-        "text": "I remember him.",
-        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES"
+        "text": "I am afraid I will forget their voices.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_KEEP",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
       },
       {
-        "text": "Thank you. Enough for today.",
+        "text": "Should I tell Rickert what I found?",
+        "topic": "TALK_BERSERK_GODO_MEMORY_KEEP",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+          }
+        }
+      },
+      {
+        "text": "And I am here, alive.",
+        "topic": "TALK_BERSERK_GODO_MEMORY_SURVIVED"
+      },
+      {
+        "text": "There is someone else I want to remember.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+        }
+      },
+      {
+        "text": "I found other traces too.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES",
+        "condition": {
+          "not": {
+            "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+          }
+        }
+      },
+      {
+        "text": "Enough for today. Thank you for listening.",
         "topic": "TALK_BERSERK_GODO",
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
@@ -9195,18 +9389,20 @@
                   ]
                 },
                 {
-                  "or": [
-                    {
-                      "math": [
-                        "u_berserk_rickert_eclipse_story == 0"
-                      ]
-                    },
-                    {
-                      "math": [
-                        "u_berserk_rickert_eclipse_story == 3"
-                      ]
-                    }
-                  ]
+                  "not": {
+                    "or": [
+                      {
+                        "math": [
+                          "u_berserk_rickert_eclipse_story == 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_rickert_eclipse_story == 2"
+                        ]
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -9241,18 +9437,20 @@
                   ]
                 },
                 {
-                  "or": [
-                    {
-                      "math": [
-                        "u_berserk_rickert_eclipse_story == 0"
-                      ]
-                    },
-                    {
-                      "math": [
-                        "u_berserk_rickert_eclipse_story == 3"
-                      ]
-                    }
-                  ]
+                  "not": {
+                    "or": [
+                      {
+                        "math": [
+                          "u_berserk_rickert_eclipse_story == 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "u_berserk_rickert_eclipse_story == 2"
+                        ]
+                      }
+                    ]
+                  }
                 }
               ]
             },
@@ -9287,18 +9485,20 @@
               ]
             },
             {
-              "or": [
-                {
-                  "math": [
-                    "u_berserk_rickert_eclipse_story == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_rickert_eclipse_story == 3"
-                  ]
-                }
-              ]
+              "not": {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_rickert_eclipse_story == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_rickert_eclipse_story == 2"
+                    ]
+                  }
+                ]
+              }
             }
           ]
         },
@@ -9326,18 +9526,20 @@
               ]
             },
             {
-              "or": [
-                {
-                  "math": [
-                    "u_berserk_rickert_eclipse_story == 0"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_rickert_eclipse_story == 3"
-                  ]
-                }
-              ]
+              "not": {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_rickert_eclipse_story == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_rickert_eclipse_story == 2"
+                    ]
+                  }
+                ]
+              }
             }
           ]
         },
@@ -11016,5 +11218,47 @@
         }
       ]
     }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_MEMORY_KEEP",
+    "dynamic_line": {
+      "math": [
+        "berserk_rickert_dead == 1"
+      ],
+      "yes": "Then tell me. I did not know their voices, but I can listen. Say one thing you remember, then another.",
+      "no": "Tell the boy, if you can. He knew them. Say one thing you remember, then another. You do not have to carry every voice alone."
+    },
+    "responses": [
+      {
+        "text": "I want to remember someone else.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES"
+      },
+      {
+        "text": "Thank you. I need some time.",
+        "topic": "TALK_BERSERK_GODO",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_MEMORY_SURVIVED",
+    "dynamic_line": "Yes. That is what we have to work with. Eat, mend what can be mended, and decide how to live tomorrow. You owe the dead more than another body.",
+    "responses": [
+      {
+        "text": "I want to remember someone else.",
+        "topic": "TALK_BERSERK_GODO_TRAUMA_VOICES"
+      },
+      {
+        "text": "Thank you. I need some time.",
+        "topic": "TALK_BERSERK_GODO",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_END_TRAUMA"
+        }
+      }
+    ]
   }
 ]

@@ -1,0 +1,38 @@
+[
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_RECOVERY_HAND",
+    "name": "First, get help from Rickert",
+    "description": "Speak to Rickert at the forest forge about replacing your lost left hand. He can build a prosthetic arm cannon if you bring the materials; ask him what is needed and deliver them to him. You may pursue the hunts with your own equipment, but restoring your grip will make the road much easier. Install the finished device from your inventory.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "not": {
+        "and": [
+          {
+            "u_has_bionics": "bio_berserk_hand_stump"
+          },
+          {
+            "not": {
+              "u_has_bionics": "bio_berserk_arm_cannon"
+            }
+          }
+        ]
+      }
+    },
+    "difficulty": 2,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "has_generic_rewards": false,
+    "invisible_on_complete": false,
+    "start": {
+      "assign_mission_target": {
+        "var": {
+          "global_val": "berserk_godo_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  }
+]

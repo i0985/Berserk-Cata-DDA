@@ -454,18 +454,20 @@
           ]
         },
         {
-          "or": [
-            {
-              "math": [
-                "u_berserk_rickert_eclipse_story == 0"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_rickert_eclipse_story == 3"
-              ]
-            }
-          ]
+          "not": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_rickert_eclipse_story == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_rickert_eclipse_story == 2"
+                ]
+              }
+            ]
+          }
         }
       ]
     }
@@ -508,18 +510,20 @@
           ]
         },
         {
-          "or": [
-            {
-              "math": [
-                "u_berserk_rickert_eclipse_story == 0"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_rickert_eclipse_story == 3"
-              ]
-            }
-          ]
+          "not": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_rickert_eclipse_story == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_rickert_eclipse_story == 2"
+                ]
+              }
+            ]
+          }
         }
       ]
     }
@@ -557,18 +561,20 @@
           ]
         },
         {
-          "or": [
-            {
-              "math": [
-                "u_berserk_rickert_eclipse_story == 0"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_rickert_eclipse_story == 3"
-              ]
-            }
-          ]
+          "not": {
+            "or": [
+              {
+                "math": [
+                  "u_berserk_rickert_eclipse_story == 1"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_rickert_eclipse_story == 2"
+                ]
+              }
+            ]
+          }
         }
       ]
     }

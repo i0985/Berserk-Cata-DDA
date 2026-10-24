@@ -59,6 +59,10 @@ class HuntGraph(RewardGraph):
         return eval(expr, {'__builtins__': {}}, names)
 
     def condition(self, value):
+        if value=='has_beta':return self.victim is not None
+        if value=='npc_is_monster':
+            assert self.victim is not None, 'invalid beta talker'
+            return True  # This fixture's explicit victim is a monster.
         if 'overmap_at_point' in value:
             p=self.resolve(value['point'])
             return any((q[0]//24,q[1]//24,q[2])==(p[0]//24,p[1]//24,p[2]) and t==value['overmap_at_point']

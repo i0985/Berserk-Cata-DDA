@@ -219,7 +219,12 @@
           "run_eocs": "EOC_BERSERK_SITE_WYALD_MESSAGE"
         }
       }
-    ]
+    ],
+    "condition": {
+      "math": [
+        "berserk_eclipse_era == 1"
+      ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -661,8 +666,26 @@
         },
         "then": [
           {
-            "npc_location_variable": {
-              "global_val": "berserk_hunt_wyald_location"
+            "if": {
+              "math": [
+                "has_var(_berserk_apostol_remain_position)"
+              ]
+            },
+            "then": {
+              "copy_var": {
+                "context_val": "berserk_apostol_remain_position"
+              },
+              "target_var": {
+                "global_val": "berserk_hunt_wyald_location"
+              }
+            },
+            "else": {
+              "if": "has_beta",
+              "then": {
+                "npc_location_variable": {
+                  "global_val": "berserk_hunt_wyald_location"
+                }
+              }
             }
           },
           {
@@ -681,8 +704,27 @@
       }
     ],
     "condition": {
-      "math": [
-        "berserk_apostle_wyald_dead != 1"
+      "and": [
+        {
+          "math": [
+            "berserk_apostle_wyald_dead != 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "has_var(_berserk_apostol_remain_position)"
+              ]
+            },
+            {
+              "and": [
+                "has_beta",
+                "npc_is_monster"
+              ]
+            }
+          ]
+        }
       ]
     }
   },
@@ -1187,7 +1229,12 @@
           "run_eocs": "EOC_BERSERK_SITE_ROSINE_MESSAGE"
         }
       }
-    ]
+    ],
+    "condition": {
+      "math": [
+        "berserk_eclipse_era == 1"
+      ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -1629,8 +1676,26 @@
         },
         "then": [
           {
-            "npc_location_variable": {
-              "global_val": "berserk_hunt_rosine_location"
+            "if": {
+              "math": [
+                "has_var(_berserk_apostol_remain_position)"
+              ]
+            },
+            "then": {
+              "copy_var": {
+                "context_val": "berserk_apostol_remain_position"
+              },
+              "target_var": {
+                "global_val": "berserk_hunt_rosine_location"
+              }
+            },
+            "else": {
+              "if": "has_beta",
+              "then": {
+                "npc_location_variable": {
+                  "global_val": "berserk_hunt_rosine_location"
+                }
+              }
             }
           },
           {
@@ -1649,8 +1714,27 @@
       }
     ],
     "condition": {
-      "math": [
-        "berserk_apostle_rosine_dead != 1"
+      "and": [
+        {
+          "math": [
+            "berserk_apostle_rosine_dead != 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "has_var(_berserk_apostol_remain_position)"
+              ]
+            },
+            {
+              "and": [
+                "has_beta",
+                "npc_is_monster"
+              ]
+            }
+          ]
+        }
       ]
     }
   },

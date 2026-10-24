@@ -63,11 +63,11 @@
     "type": "overmap_special",
     "id": "berserk_count_residence_special",
     "occurrences": [
-      1,
-      1
+      0,
+      0
     ],
     "rotate": false,
-    "//": "One globally unique site may generate naturally. Directions reuse it or request native placement when absent. Saved coordinates are never moved; travel distances are soft design targets.",
+    "//": "Story placement after the Eclipse only. Existing sites and coordinates are retained.",
     "overmaps": [
       {
         "point": [
@@ -77,7 +77,7 @@
         ],
         "overmap": "berserk_count_prison",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -88,7 +88,7 @@
         ],
         "overmap": "berserk_count_hall",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -99,7 +99,7 @@
         ],
         "overmap": "berserk_count_west_yard",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -110,7 +110,7 @@
         ],
         "overmap": "berserk_count_east_yard",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -127,6 +127,9 @@
     ],
     "flags": [
       "GLOBALLY_UNIQUE"
+    ],
+    "locations": [
+      "forest"
     ]
   }
 ]

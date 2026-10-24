@@ -109,10 +109,11 @@
               },
               "target_params": {
                 "om_terrain": "berserk_local_breach",
-                "om_special": "berserk_local_breach_special",
-                "search_range": 24,
+                "om_terrain_replace": "forest_thick",
                 "random": true,
-                "min_distance": 0,
+                "cant_see": true,
+                "min_distance": 24,
+                "search_range": 48,
                 "z": 0
               },
               "true_eocs": [
@@ -128,10 +129,11 @@
               },
               "target_params": {
                 "om_terrain": "berserk_local_breach",
-                "om_special": "berserk_local_breach_special",
-                "search_range": 48,
+                "om_terrain_replace": "forest_thick",
                 "random": true,
-                "min_distance": 0,
+                "cant_see": true,
+                "min_distance": 24,
+                "search_range": 48,
                 "z": 0
               },
               "true_eocs": [
@@ -147,7 +149,12 @@
           "run_eocs": "EOC_BERSERK_SITE_BREACH_MESSAGE"
         }
       }
-    ]
+    ],
+    "condition": {
+      "math": [
+        "berserk_eclipse_era == 1"
+      ]
+    }
   },
   {
     "type": "effect_on_condition",

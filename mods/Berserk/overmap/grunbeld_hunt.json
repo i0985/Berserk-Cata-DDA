@@ -75,8 +75,8 @@
     "type": "overmap_special",
     "id": "berserk_grunbeld_stronghold_special",
     "occurrences": [
-      1,
-      1
+      0,
+      0
     ],
     "flags": [
       "GLOBALLY_UNIQUE"
@@ -91,7 +91,7 @@
         ],
         "overmap": "berserk_grunbeld_approach",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -102,7 +102,7 @@
         ],
         "overmap": "berserk_grunbeld_ramparts",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -113,7 +113,7 @@
         ],
         "overmap": "berserk_grunbeld_quarry",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -124,7 +124,7 @@
         ],
         "overmap": "berserk_grunbeld_barracks",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -135,7 +135,7 @@
         ],
         "overmap": "berserk_grunbeld_ruins",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       },
       {
@@ -146,10 +146,13 @@
         ],
         "overmap": "berserk_grunbeld_crucible",
         "locations": [
-          "wilderness"
+          "forest"
         ]
       }
     ],
-    "//": "One globally unique site may generate naturally. Directions reuse it or request native placement when absent. Saved coordinates are never moved; travel distances are soft design targets."
+    "//": "Story placement after the Eclipse only. Existing sites and coordinates are retained.",
+    "locations": [
+      "forest"
+    ]
   }
 ]

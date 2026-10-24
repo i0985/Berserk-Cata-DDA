@@ -57,6 +57,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_REF_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX24_HAND_GOAL"
       }
     ],
     "condition": {
@@ -131,37 +134,67 @@
     "effect": [
       {
         "math": [
+          "u_hp('head') = u_hp_max('head')"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('eyes') = u_hp_max('eyes')"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('mouth') = u_hp_max('mouth')"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('torso') = u_hp_max('torso')"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('arm_l') = u_hp_max('arm_l')"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('arm_r') = u_hp_max('arm_r')"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('hand_l') = u_hp_max('hand_l')"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('hand_r') = u_hp_max('hand_r')"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('leg_l') = u_hp_max('leg_l')"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('leg_r') = u_hp_max('leg_r')"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('foot_l') = u_hp_max('foot_l')"
+        ]
+      },
+      {
+        "math": [
+          "u_hp('foot_r') = u_hp_max('foot_r')"
+        ]
+      },
+      {
+        "math": [
           "u_berserk_eclipse_return_recovered = 1"
-        ]
-      },
-      {
-        "math": [
-          "u_hp('head') = min(u_hp_max('head'), u_hp('head') + floor(u_hp_max('head') * 0.5))"
-        ]
-      },
-      {
-        "math": [
-          "u_hp('torso') = min(u_hp_max('torso'), u_hp('torso') + floor(u_hp_max('torso') * 0.5))"
-        ]
-      },
-      {
-        "math": [
-          "u_hp('arm_l') = min(u_hp_max('arm_l'), u_hp('arm_l') + floor(u_hp_max('arm_l') * 0.5))"
-        ]
-      },
-      {
-        "math": [
-          "u_hp('arm_r') = min(u_hp_max('arm_r'), u_hp('arm_r') + floor(u_hp_max('arm_r') * 0.5))"
-        ]
-      },
-      {
-        "math": [
-          "u_hp('leg_l') = min(u_hp_max('leg_l'), u_hp('leg_l') + floor(u_hp_max('leg_l') * 0.5))"
-        ]
-      },
-      {
-        "math": [
-          "u_hp('leg_r') = min(u_hp_max('leg_r'), u_hp('leg_r') + floor(u_hp_max('leg_r') * 0.5))"
         ]
       },
       {
@@ -215,9 +248,14 @@
       },
       {
         "run_eocs": "EOC_BERSERK_REF_SYNC"
+      },
+      {
+        "math": [
+          "u_berserk_rescue_anatomy_v24 = 1"
+        ]
       }
     ],
-    "//": "Successful one-time rescue restores combat damage and transient disablement. Does not remove story bionics, the Brand, curse progress or the three-day Berserk recovery."
+    "//": "One-time rescue heals main and minor HP. Story hand/eye bionics, Brand and armor consequences remain."
   },
   {
     "type": "effect_on_condition",
@@ -385,15 +423,53 @@
             ]
           },
           {
-            "u_message": "The Skull Knight waits outside the door. He wanted to speak with you before leaving.",
-            "type": "info",
-            "popup": true
+            "if": {
+              "and": [
+                {
+                  "u_has_bionics": "bio_berserk_hand_stump"
+                },
+                {
+                  "not": {
+                    "u_has_bionics": "bio_berserk_arm_cannon"
+                  }
+                }
+              ]
+            },
+            "then": {
+              "u_message": "The Skull Knight waits outside the door. He wanted to speak with you before leaving. If you need a replacement hand, speak to Rickert first. His help is listed in your missions.",
+              "type": "info",
+              "popup": true
+            },
+            "else": {
+              "u_message": "The Skull Knight waits outside the door. He wanted to speak with you before leaving.",
+              "type": "info",
+              "popup": true
+            }
           }
         ],
         "else": {
-          "u_message": "The Skull Knight waits nearby. He wanted to speak with you before leaving.",
-          "type": "info",
-          "popup": true
+          "if": {
+            "and": [
+              {
+                "u_has_bionics": "bio_berserk_hand_stump"
+              },
+              {
+                "not": {
+                  "u_has_bionics": "bio_berserk_arm_cannon"
+                }
+              }
+            ]
+          },
+          "then": {
+            "u_message": "The Skull Knight waits nearby. He wanted to speak with you before leaving. If you need a replacement hand, speak to Rickert first. His help is listed in your missions.",
+            "type": "info",
+            "popup": true
+          },
+          "else": {
+            "u_message": "The Skull Knight waits nearby. He wanted to speak with you before leaving.",
+            "type": "info",
+            "popup": true
+          }
         }
       },
       {

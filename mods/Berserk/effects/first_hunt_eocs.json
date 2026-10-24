@@ -249,52 +249,7 @@
         }
       },
       {
-        "if": {
-          "math": [
-            "u_berserk_first_hunt_search_attempts == 1"
-          ]
-        },
-        "then": {
-          "u_location_variable": {
-            "context_val": "berserk_first_hunt_candidate"
-          },
-          "target_params": {
-            "om_terrain": "berserk_first_hunt_lair",
-            "random": true,
-            "min_distance": 0,
-            "search_range": 16,
-            "z": 0,
-            "om_special": "berserk_first_hunt_special"
-          },
-          "true_eocs": [
-            "EOC_BERSERK_FIRST_HUNT_VALIDATE"
-          ],
-          "false_eocs": [
-            "EOC_BERSERK_FIRST_HUNT_SEARCH_FAILED"
-          ]
-        },
-        "else": {
-          "u_location_variable": {
-            "context_val": "berserk_first_hunt_candidate"
-          },
-          "target_params": {
-            "om_terrain": "berserk_first_hunt_lair",
-            "random": true,
-            "min_distance": 0,
-            "search_range": 32,
-            "z": 0,
-            "om_special": "berserk_first_hunt_special"
-          },
-          "true_eocs": [
-            "EOC_BERSERK_FIRST_HUNT_VALIDATE"
-          ],
-          "false_eocs": [
-            "EOC_BERSERK_FIRST_HUNT_SEARCH_FAILED"
-          ]
-        }
-      },
-      {
-        "run_eocs": "EOC_BERSERK_REF_SYNC"
+        "run_eocs": "EOC_BERSERK_FIX24_FIRST_CREATE"
       }
     ]
   },

@@ -1660,8 +1660,26 @@
         },
         "then": [
           {
-            "npc_location_variable": {
-              "global_val": "berserk_hunt_grunbeld_location"
+            "if": {
+              "math": [
+                "has_var(_berserk_apostol_remain_position)"
+              ]
+            },
+            "then": {
+              "copy_var": {
+                "context_val": "berserk_apostol_remain_position"
+              },
+              "target_var": {
+                "global_val": "berserk_hunt_grunbeld_location"
+              }
+            },
+            "else": {
+              "if": "has_beta",
+              "then": {
+                "npc_location_variable": {
+                  "global_val": "berserk_hunt_grunbeld_location"
+                }
+              }
             }
           },
           {
@@ -1677,8 +1695,26 @@
         ]
       },
       {
-        "npc_location_variable": {
-          "context_val": "berserk_grunbeld_siege_body"
+        "if": {
+          "math": [
+            "has_var(_berserk_apostol_remain_position)"
+          ]
+        },
+        "then": {
+          "copy_var": {
+            "context_val": "berserk_apostol_remain_position"
+          },
+          "target_var": {
+            "context_val": "berserk_grunbeld_siege_body"
+          }
+        },
+        "else": {
+          "if": "has_beta",
+          "then": {
+            "npc_location_variable": {
+              "context_val": "berserk_grunbeld_siege_body"
+            }
+          }
         }
       },
       {
@@ -1696,13 +1732,32 @@
     "condition": {
       "and": [
         {
-          "math": [
-            "berserk_grunbeld_grove_withdrawn != 1"
+          "and": [
+            {
+              "math": [
+                "berserk_grunbeld_grove_withdrawn != 1"
+              ]
+            },
+            {
+              "math": [
+                "berserk_apostle_grunbeld_dead != 1"
+              ]
+            }
           ]
         },
         {
-          "math": [
-            "berserk_apostle_grunbeld_dead != 1"
+          "or": [
+            {
+              "math": [
+                "has_var(_berserk_apostol_remain_position)"
+              ]
+            },
+            {
+              "and": [
+                "has_beta",
+                "npc_is_monster"
+              ]
+            }
           ]
         }
       ]

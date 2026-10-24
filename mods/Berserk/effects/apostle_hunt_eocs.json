@@ -206,7 +206,12 @@
           "run_eocs": "EOC_BERSERK_SITE_COUNT_MESSAGE"
         }
       }
-    ]
+    ],
+    "condition": {
+      "math": [
+        "berserk_eclipse_era == 1"
+      ]
+    }
   },
   {
     "type": "effect_on_condition",
@@ -283,30 +288,71 @@
     "//": "Monster death uses beta for the dying monster in 0.I-1. Record the site even if an NPC or another monster struck the last blow.",
     "effect": [
       {
-        "npc_location_variable": {
-          "global_val": "berserk_hunt_count_location"
-        },
-        "x_adjust": {
+        "if": {
           "math": [
-            "floor(n_val('pos_x') / 24) * 24 - n_val('pos_x')"
+            "has_var(_berserk_apostol_remain_position)"
           ]
         },
-        "y_adjust": {
-          "math": [
-            "floor(n_val('pos_y') / 24) * 24 - n_val('pos_y')"
-          ]
+        "then": {
+          "copy_var": {
+            "context_val": "berserk_apostol_remain_position"
+          },
+          "target_var": {
+            "global_val": "berserk_hunt_count_location"
+          }
         },
-        "z_override": true,
-        "z_adjust": 0
+        "else": {
+          "if": "has_beta",
+          "then": {
+            "npc_location_variable": {
+              "global_val": "berserk_hunt_count_location"
+            }
+          }
+        }
+      },
+      {
+        "math": [
+          "berserk_hunt_count_location.x = floor(berserk_hunt_count_location.x / 24) * 24"
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_count_location.y = floor(berserk_hunt_count_location.y / 24) * 24"
+        ]
+      },
+      {
+        "math": [
+          "berserk_hunt_count_location.z = 0"
+        ]
       },
       {
         "run_eocs": "EOC_BERSERK_COUNT_DEFEATED",
-        "alpha_talker": "avatar"
+        "alpha_talker": "avatar",
+        "beta_talker": ""
       }
     ],
     "condition": {
-      "math": [
-        "berserk_hunt_count_state < 3"
+      "and": [
+        {
+          "math": [
+            "berserk_hunt_count_state < 3"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "has_var(_berserk_apostol_remain_position)"
+              ]
+            },
+            {
+              "and": [
+                "has_beta",
+                "npc_is_monster"
+              ]
+            }
+          ]
+        }
       ]
     }
   },

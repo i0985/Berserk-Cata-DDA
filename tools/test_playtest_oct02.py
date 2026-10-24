@@ -11,13 +11,15 @@ from test_committed_apostle_attacks import Actor, CommittedGraph
 import test_flora_dialogue_states as flora_states
 
 class OctoberSecondPlaytest(unittest.TestCase):
-    def test_actual_healing_expressions_add_half_max_and_cap_each_part(self):
+    def test_rescue_heals_all_main_and_minor_parts_to_their_maximum(self):
         e=next(e for e in objects(MOD/'effects/eclipse_aftermath_eocs.json') if e['id']=='EOC_BERSERK_ECLIPSE_RETURN_RECOVER')
         expressions=[v['math'][0] for v in e['effect'] if 'math' in v and v['math'][0].startswith('u_hp(')]
-        self.assertEqual(len(expressions),6)
+        self.assertEqual(len(expressions),12)
+        self.assertTrue(any("u_hp('eyes')" in x for x in expressions))
+        self.assertTrue(any("u_hp('hand_r')" in x for x in expressions))
         for expr in expressions:
             rhs=expr.split(' = ')[1]
-            for current,maximum,expected in [(1,100,51),(30,100,80),(80,100,100),(100,100,100),(1,99,50)]:
+            for current,maximum,expected in [(0,100,100),(1,100,100),(30,100,100),(100,100,100),(1,99,99)]:
                 with self.subTest(expr=expr,current=current,maximum=maximum):
                     result=eval(rhs,{'__builtins__':{}},{'u_hp':lambda _:current,'u_hp_max':lambda _:maximum,'min':min,'floor':math.floor})
                     self.assertEqual(result,expected)
