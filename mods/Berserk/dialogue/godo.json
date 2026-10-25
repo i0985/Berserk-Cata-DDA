@@ -2151,6 +2151,54 @@
         "condition": {
           "and": [
             {
+              "and": [
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                  }
+                },
+                {
+                  "or": [
+                    {
+                      "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                    },
+                    {
+                      "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                    },
+                    "npc_following"
+                  ]
+                }
+              ]
+            },
+            {
+              "or": [
+                {
+                  "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                },
+                {
+                  "math": [
+                    "u_berserk_rickert_knows_band == 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_berserk_rickert_eclipse_story > 0"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_RICKERT"
+        }
+      },
+      {
+        "text": "How have you been?",
+        "topic": "TALK_BERSERK_RICKERT_RECENT_DAYS",
+        "condition": {
+          "and": [
+            {
               "not": {
                 "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
               }
@@ -3506,8 +3554,8 @@
         "topic": "TALK_BERSERK_RICKERT"
       },
       {
-        "text": "What do you remember of the Band?",
-        "topic": "TALK_BERSERK_RICKERT_BAND"
+        "text": "How have you been holding up?",
+        "topic": "TALK_BERSERK_RICKERT_RECENT_DAYS"
       },
       {
         "text": "Enough for today.",
@@ -11260,5 +11308,31 @@
         }
       }
     ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_RECENT_DAYS",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_RICKERT_LINE_A46CEFDB802C",
+      "yes": "I keep finding work for my hands. It is quieter here than it was with the Band of the Hawk. I miss their voices.",
+      "no": "There is always something to mend. When I stop, I start thinking about the Band of the Hawk. I miss the people, even the noise around the campfire."
+    },
+    "responses": [
+      {
+        "text": "The Band of the Hawk? Will you tell me about it?",
+        "topic": "TALK_BERSERK_RICKERT_BAND"
+      },
+      {
+        "text": "I wanted to ask about something else.",
+        "topic": "TALK_BERSERK_RICKERT"
+      }
+    ],
+    "speaker_effect": {
+      "effect": {
+        "math": [
+          "u_berserk_rickert_knows_band = 1"
+        ]
+      }
+    }
   }
 ]

@@ -234,6 +234,11 @@ def helpers():
     # The farewell handler remains callable only by the real rescue actor.
     aftermath=read('effects/eclipse_aftermath_eocs.json');by=index(aftermath)
     by['EOC_BERSERK_KNIGHT_FAREWELL']['condition']=both(actual,NORMAL,val('farewell_confirmed','!=',1))
+    # Quietly retire the actual conversation actor immediately. Do not erase
+    # its tracker entry while dialogue still holds beta. Native cleanup owns it.
+    body=by['EOC_BERSERK_KNIGHT_FAREWELL']['effect']
+    body[:]=[x for x in body if x.get('run_eocs')!='EOC_BERSERK_KNIGHT_DEPART' and 'npc_die' not in x]
+    body.append({'npc_die':{'remove_corpse':True,'supress_message':True}})
     write('effects/eclipse_aftermath_eocs.json',aftermath)
     write('effects/skull_knight_dialogue_33_eocs.json',list(HELPERS.values()))
 

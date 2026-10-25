@@ -211,18 +211,14 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_CHAPEL_RECORD",
     "effect": {
-      "u_message": "The first entries list names, meal portions and borrowed blankets. A later hand has written the hours of a vigil beside the red stone over the relief rota. Near the bottom, a volunteer added: We still have water in the sacristy. Please stop bringing the sick to the altar.",
-      "type": "info",
-      "popup": true
+      "run_eocs": "EOC_BERSERK_READ_CHAPEL_RELIEF_ROSTER"
     }
   },
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_EXPEDITION_RECORD",
     "effect": {
-      "u_message": "Day two: the case was moved to the northeastern tent after three people reported the same face in their dreams. Day three: Pavel was attacked between the tents. Day four: Lena brought the wounded to the medical tent. The final transport request is unsigned. Most of the equipment was left packed, as if departure was only minutes away.",
-      "type": "info",
-      "popup": true
+      "run_eocs": "EOC_BERSERK_READ_EXPEDITION_TRANSFER_NOTE"
     }
   }
 ]

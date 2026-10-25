@@ -1,0 +1,578 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX25_HINT_CARAVAN",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_hint_point"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_hint_point"
+        },
+        "overmap_tile": true
+      },
+      {
+        "if": {
+          "not": {
+            "and": [
+              {
+                "math": [
+                  "has_var(u_berserk_hint_caravan)"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_hint_caravan.x == _berserk_hint_point.x"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_hint_caravan.y == _berserk_hint_point.y"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_hint_caravan.z == _berserk_hint_point.z"
+                ]
+              }
+            ]
+          }
+        },
+        "then": [
+          {
+            "copy_var": {
+              "context_val": "berserk_hint_point"
+            },
+            "target_var": {
+              "u_val": "berserk_hint_caravan"
+            }
+          },
+          {
+            "u_message": "Supplies and a bundle of papers show beneath the broken wagon. You could approach the wreckage and examine what is still there.",
+            "type": "info",
+            "popup": true
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "or": [
+            {
+              "u_at_om_location": "berserk_road_caravan"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX25_HINT_EXPEDITION",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_hint_point"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_hint_point"
+        },
+        "overmap_tile": true
+      },
+      {
+        "if": {
+          "not": {
+            "and": [
+              {
+                "math": [
+                  "has_var(u_berserk_hint_expedition)"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_hint_expedition.x == _berserk_hint_point.x"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_hint_expedition.y == _berserk_hint_point.y"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_hint_expedition.z == _berserk_hint_point.z"
+                ]
+              }
+            ]
+          }
+        },
+        "then": [
+          {
+            "copy_var": {
+              "context_val": "berserk_hint_point"
+            },
+            "target_var": {
+              "u_val": "berserk_hint_expedition"
+            }
+          },
+          {
+            "u_message": "A field log is pinned to the table in the northwestern tent. Its pages are still legible; you could examine the abandoned equipment beside it.",
+            "type": "info",
+            "popup": true
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "or": [
+            {
+              "u_at_om_location": "berserk_lost_expedition"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX25_HINT_CHAPEL",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_hint_point"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_hint_point"
+        },
+        "overmap_tile": true
+      },
+      {
+        "if": {
+          "u_at_om_location": "berserk_desecrated_chapel_nave"
+        },
+        "then": {
+          "location_variable_adjust": {
+            "context_val": "berserk_hint_point"
+          },
+          "overmap_tile": true,
+          "y_adjust": -1
+        }
+      },
+      {
+        "if": {
+          "not": {
+            "and": [
+              {
+                "math": [
+                  "has_var(u_berserk_hint_chapel)"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_hint_chapel.x == _berserk_hint_point.x"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_hint_chapel.y == _berserk_hint_point.y"
+                ]
+              },
+              {
+                "math": [
+                  "u_berserk_hint_chapel.z == _berserk_hint_point.z"
+                ]
+              }
+            ]
+          }
+        },
+        "then": [
+          {
+            "copy_var": {
+              "context_val": "berserk_hint_point"
+            },
+            "target_var": {
+              "u_val": "berserk_hint_chapel"
+            }
+          },
+          {
+            "u_message": "An old list of travelers and donated supplies survives near the southern entrance. Some writing remains beneath the later scratches.",
+            "type": "info",
+            "popup": true
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "or": [
+            {
+              "u_at_om_location": "berserk_desecrated_chapel_nave"
+            },
+            {
+              "u_at_om_location": "berserk_desecrated_chapel_reliquary"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX25_ARRIVAL",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FIX25_HINT_CARAVAN"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX25_HINT_EXPEDITION"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX25_HINT_CHAPEL"
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX25_PREPARE_RING",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "berserk_prefetch_point"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_prefetch_point"
+        },
+        "overmap_tile": true,
+        "x_adjust": -80,
+        "y_adjust": -80
+      },
+      {
+        "if": {
+          "overmap_at_point": "forest",
+          "point": {
+            "context_val": "berserk_prefetch_point"
+          }
+        },
+        "then": {
+          "math": [
+            "_berserk_prefetch_checked = 1"
+          ]
+        },
+        "else": {
+          "math": [
+            "_berserk_prefetch_checked = 0"
+          ]
+        }
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_prefetch_point"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_prefetch_point"
+        },
+        "overmap_tile": true,
+        "x_adjust": -80,
+        "y_adjust": 80
+      },
+      {
+        "if": {
+          "overmap_at_point": "forest",
+          "point": {
+            "context_val": "berserk_prefetch_point"
+          }
+        },
+        "then": {
+          "math": [
+            "_berserk_prefetch_checked = 1"
+          ]
+        },
+        "else": {
+          "math": [
+            "_berserk_prefetch_checked = 0"
+          ]
+        }
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_prefetch_point"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_prefetch_point"
+        },
+        "overmap_tile": true,
+        "x_adjust": 80,
+        "y_adjust": -80
+      },
+      {
+        "if": {
+          "overmap_at_point": "forest",
+          "point": {
+            "context_val": "berserk_prefetch_point"
+          }
+        },
+        "then": {
+          "math": [
+            "_berserk_prefetch_checked = 1"
+          ]
+        },
+        "else": {
+          "math": [
+            "_berserk_prefetch_checked = 0"
+          ]
+        }
+      },
+      {
+        "u_location_variable": {
+          "context_val": "berserk_prefetch_point"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "berserk_prefetch_point"
+        },
+        "overmap_tile": true,
+        "x_adjust": 80,
+        "y_adjust": 80
+      },
+      {
+        "if": {
+          "overmap_at_point": "forest",
+          "point": {
+            "context_val": "berserk_prefetch_point"
+          }
+        },
+        "then": {
+          "math": [
+            "_berserk_prefetch_checked = 1"
+          ]
+        },
+        "else": {
+          "math": [
+            "_berserk_prefetch_checked = 0"
+          ]
+        }
+      }
+    ],
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX25_FIRST_RETRY",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_first_hunt_retry_at = time('now') + 3600"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_first_hunt_search_attempts = 0"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIRST_HUNT_REQUEST"
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            "u_is_avatar",
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_val('pos_z') == 0"
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_first_hunt_done == 1"
+                ]
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+            }
+          ]
+        },
+        {
+          "not": {
+            "and": [
+              {
+                "math": [
+                  "has_var(u_berserk_first_hunt_location)"
+                ]
+              },
+              {
+                "overmap_at_point": "berserk_first_hunt_lair",
+                "point": {
+                  "u_val": "berserk_first_hunt_location"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_first_hunt_retry_at"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX25_LOAD",
+    "effect": [
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_hunt_repair_v25 == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_hunt_repair_v25 = 1"
+            ]
+          },
+          {
+            "if": {
+              "not": {
+                "and": [
+                  {
+                    "math": [
+                      "has_var(u_berserk_first_hunt_location)"
+                    ]
+                  },
+                  {
+                    "overmap_at_point": "berserk_first_hunt_lair",
+                    "point": {
+                      "u_val": "berserk_first_hunt_location"
+                    }
+                  }
+                ]
+              }
+            },
+            "then": {
+              "math": [
+                "u_berserk_first_hunt_retry_at = 0"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX25_FIRST_RETRY"
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "game_load",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_first_hunt_done == 1"
+            ]
+          }
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX25_WATCH",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_FIX25_FIRST_RETRY"
+    },
+    "eoc_type": "RECURRING",
+    "recurrence": "10 minutes",
+    "global": true,
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 2"
+          ]
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_first_hunt_done == 1"
+            ]
+          }
+        },
+        {
+          "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_ROUTE"
+        }
+      ]
+    }
+  }
+]

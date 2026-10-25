@@ -2,7 +2,16 @@
   {
     "type": "mod_tileset",
     "compatibility": [
-      "UltimateCataclysm"
+      "UltimateCataclysm",
+      "Chibi_Ultica",
+      "MshockXottoplus",
+      "MshockXottoplus12",
+      "MSXotto+",
+      "MXplus12_for_cosmetics",
+      "MSX++DEAD_PEOPLE",
+      "UNDEAD_PEOPLE",
+      "UNDEAD_PEOPLE_BASE",
+      "UNDEAD_PEOPLE_LEGACY"
     ],
     "tiles-new": [
       {
@@ -13,7 +22,10 @@
         "sprite_offset_y": -32,
         "tiles": [
           {
-            "id": "mon_berserk_eclipse_butcher",
+            "id": [
+              "mon_berserk_eclipse_butcher",
+              "mon_berserk_chapel_guardian"
+            ],
             "fg": 0
           }
         ]

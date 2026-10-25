@@ -694,11 +694,13 @@
         "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
       },
       {
-        "run_eocs": "EOC_BERSERK_KNIGHT_DEPART",
-        "time_in_future": "1 second"
+        "run_eocs": "EOC_BERSERK_REF_SYNC"
       },
       {
-        "run_eocs": "EOC_BERSERK_REF_SYNC"
+        "npc_die": {
+          "remove_corpse": true,
+          "supress_message": true
+        }
       }
     ]
   },

@@ -18,7 +18,7 @@ class Conversation(Base):
         for p in (MOD/'dialogue').glob('*.json'):
             for o in json.loads(p.read_text()):self.topics[o['id']]=o
         self.values.update(u_berserk_eclipse_rescue_state=2,u_berserk_eclipse_route=1,u_berserk_godo_rescue_relocated=1)
-        self.health=100;self.rescuer=True;self.scheduled=[];self.calls=[]
+        self.health=100;self.rescuer=True;self.scheduled=[];self.calls=[];self.retired=0
     def evaluate(self,s):
         s=re.sub(r"u_hp\('[^']+'\)",str(self.health),s)
         s=re.sub(r"u_hp_max\('[^']+'\)",'100',s)
@@ -34,6 +34,10 @@ class Conversation(Base):
         super().run(name)
     def effect(self,x):
         if isinstance(x,dict):
+            if 'npc_die' in x:
+                assert 'remove_from_creature_tracker' not in x['npc_die']
+                assert x['npc_die']['remove_corpse'] and x['npc_die']['supress_message']
+                self.retired+=1;self.rescuer=False;return
             if 'u_add_var'in x:self.values['u_'+x['u_add_var']]=x['value'];return
             if 'run_eocs'in x and 'time_in_future'in x:self.scheduled.append(x['run_eocs']);return
         super().effect(x)
@@ -125,8 +129,8 @@ class Knight(unittest.TestCase):
     def test_confirmed_farewell_is_saved_once_without_extra_popup(self):
         f=Conversation();f.choose('AFTER','FAREWELL');f.choose('FAREWELL','FINAL')
         self.assertEqual(f.values['u_berserk_knight_farewell_confirmed'],1)
-        self.assertEqual(f.scheduled,['EOC_BERSERK_KNIGHT_DEPART']);self.assertFalse(f.messages)
-        f.run('EOC_BERSERK_KNIGHT_FAREWELL');self.assertEqual(len(f.scheduled),1)
+        self.assertEqual(f.retired,1);self.assertFalse(f.scheduled);self.assertFalse(f.messages)
+        f.run('EOC_BERSERK_KNIGHT_FAREWELL');self.assertEqual(f.retired,1)
         self.assertIn('Live on',f.line('FINAL'))
 
     def test_farewell_cannot_remove_an_unrelated_actor_or_alternative_rescue(self):

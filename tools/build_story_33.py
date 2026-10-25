@@ -18,6 +18,7 @@ BUILDERS=[
     'build_common_dialogue_33.py',
     'build_reference_journal_33.py',
     'build_playtest_fixes_20261024.py',
+    'build_playtest_fixes_20261025.py',
     'apply_visual_fallbacks_33.py',
     'apply_english_source_33.py',
 ]

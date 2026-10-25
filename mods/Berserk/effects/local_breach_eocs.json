@@ -48,6 +48,9 @@
     "id": "EOC_BERSERK_BREACH_FIND",
     "effect": [
       {
+        "run_eocs": "EOC_BERSERK_FIX25_PREPARE_RING"
+      },
+      {
         "if": {
           "or": [
             {
@@ -109,7 +112,7 @@
               },
               "target_params": {
                 "om_terrain": "berserk_local_breach",
-                "om_terrain_replace": "forest_thick",
+                "om_terrain_replace": "forest",
                 "random": true,
                 "cant_see": true,
                 "min_distance": 24,
@@ -129,7 +132,7 @@
               },
               "target_params": {
                 "om_terrain": "berserk_local_breach",
-                "om_terrain_replace": "forest_thick",
+                "om_terrain_replace": "forest",
                 "random": true,
                 "cant_see": true,
                 "min_distance": 24,

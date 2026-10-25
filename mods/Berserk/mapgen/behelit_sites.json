@@ -264,11 +264,11 @@
         "........................",
         "........................",
         "........................",
-        ".....##############.....",
-        "....#___#__________#....",
-        "...#____#___________#.h.",
-        "...#____#___A_______#...",
-        "...#____#___________#...",
+        "....################....",
+        "...##___#______#___##...",
+        "...#____#______#____#.h.",
+        "...#____#___A__#____#...",
+        "...#____#______###+##...",
         ".T.#____#___________#...",
         "...#____#___________#...",
         "...#____#___________#...",
@@ -291,49 +291,9 @@
       ],
       "place_furniture": [
         {
-          "furn": "f_berserk_chapel_altar",
-          "x": 10,
-          "y": 9
-        },
-        {
-          "furn": "f_berserk_chapel_altar",
-          "x": 11,
-          "y": 9
-        },
-        {
-          "furn": "f_berserk_chapel_altar",
-          "x": 12,
-          "y": 9
-        },
-        {
-          "furn": "f_berserk_chapel_altar",
-          "x": 13,
-          "y": 9
-        },
-        {
-          "furn": "f_berserk_chapel_altar",
-          "x": 14,
-          "y": 9
-        },
-        {
           "furn": "f_berserk_chapel_scene",
           "x": 13,
           "y": 7
-        },
-        {
-          "furn": "f_bookcase",
-          "x": 18,
-          "y": 14
-        },
-        {
-          "furn": "f_bookcase",
-          "x": 18,
-          "y": 15
-        },
-        {
-          "furn": "f_table",
-          "x": 17,
-          "y": 16
         },
         {
           "furn": "f_berserk_chapel_vigil",
@@ -341,48 +301,112 @@
           "y": 8
         },
         {
-          "furn": "f_rack_wood",
+          "furn": "f_berserk_chapel_stone_pillar",
+          "x": 9,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_chapel_stone_pillar",
+          "x": 14,
+          "y": 16
+        },
+        {
+          "furn": "f_berserk_chapel_stone_pillar",
+          "x": 9,
+          "y": 21
+        },
+        {
+          "furn": "f_berserk_chapel_stone_pillar",
+          "x": 14,
+          "y": 21
+        },
+        {
+          "furn": "f_bookcase",
           "x": 5,
-          "y": 6
+          "y": 4
         },
         {
-          "furn": "f_table",
+          "furn": "f_bookcase",
           "x": 6,
-          "y": 8
+          "y": 4
         },
         {
-          "furn": "f_chair",
+          "furn": "f_bookcase",
+          "x": 7,
+          "y": 4
+        },
+        {
+          "furn": "f_bookcase",
+          "x": 4,
+          "y": 9
+        },
+        {
+          "furn": "f_bookcase",
           "x": 5,
           "y": 9
         },
         {
-          "furn": "f_berserk_chapel_stone_pillar",
-          "x": 9,
+          "furn": "f_table",
+          "x": 4,
+          "y": 14
+        },
+        {
+          "furn": "f_chair",
+          "x": 5,
+          "y": 14
+        },
+        {
+          "furn": "f_rack_wood",
+          "x": 4,
+          "y": 20
+        },
+        {
+          "furn": "f_rack_wood",
+          "x": 5,
+          "y": 20
+        },
+        {
+          "furn": "f_bookcase",
+          "x": 19,
+          "y": 13
+        },
+        {
+          "furn": "f_bookcase",
+          "x": 19,
+          "y": 14
+        },
+        {
+          "furn": "f_bookcase",
+          "x": 19,
+          "y": 15
+        },
+        {
+          "furn": "f_bookcase",
+          "x": 19,
           "y": 16
         },
         {
-          "furn": "f_berserk_chapel_stone_pillar",
-          "x": 14,
-          "y": 16
+          "furn": "f_bookcase",
+          "x": 19,
+          "y": 17
         },
         {
-          "furn": "f_berserk_chapel_stone_pillar",
-          "x": 9,
-          "y": 21
+          "furn": "f_rack_wood",
+          "x": 19,
+          "y": 19
         },
         {
-          "furn": "f_berserk_chapel_stone_pillar",
-          "x": 14,
-          "y": 21
+          "furn": "f_rack_wood",
+          "x": 19,
+          "y": 20
+        },
+        {
+          "furn": "f_rack_wood",
+          "x": 19,
+          "y": 23
         }
       ],
       "place_loot": [
-        {
-          "item": "berserk_chapel_ritual_note",
-          "x": 17,
-          "y": 16,
-          "chance": 100
-        },
         {
           "item": "berserk_chapel_last_vigil",
           "x": 16,
@@ -410,7 +434,7 @@
       "place_items": [
         {
           "item": "religious_books",
-          "x": 18,
+          "x": 19,
           "y": 14,
           "chance": 60
         }
@@ -431,17 +455,17 @@
         "...#____#______#____#...",
         ".h.#____#______+____#...",
         "...w____#______#____#...",
-        "...#____#______##+###...",
-        "...#____#______#____#...",
-        "...#____#______#____#...",
-        "...#____#______#____#.T.",
-        "...###+##______#____#...",
-        "...#_____#__________#...",
-        ".G./_____#__________#...",
-        ".../_____+#++##_____#...",
+        "...#___##______##+###...",
+        "...#___##______#____#...",
+        "...#___##______#____#...",
+        "...#___##______#____#.T.",
+        "...###+###_____#____#...",
+        "...#_____#_____#____#...",
+        ".G./_____#_____#____#...",
+        ".../_____##++###____#...",
         ".G.#__N__#__________#...",
-        "...#_____#__?_______#...",
-        ".G.#________________#...",
+        "...#_____+__?_______#...",
+        ".G.#_____#__________#...",
         "...########++########...",
         "...........,,...........",
         "...........,,...........",
@@ -504,46 +528,6 @@
           "y": 9
         },
         {
-          "furn": "f_rack_wood",
-          "x": 17,
-          "y": 1
-        },
-        {
-          "furn": "f_rack_wood",
-          "x": 18,
-          "y": 1
-        },
-        {
-          "furn": "f_berserk_location_chapel_pantry",
-          "x": 18,
-          "y": 3
-        },
-        {
-          "furn": "f_table",
-          "x": 16,
-          "y": 12
-        },
-        {
-          "furn": "f_chair",
-          "x": 17,
-          "y": 12
-        },
-        {
-          "furn": "f_makeshift_bed",
-          "x": 18,
-          "y": 14
-        },
-        {
-          "furn": "f_makeshift_bed",
-          "x": 18,
-          "y": 15
-        },
-        {
-          "furn": "f_berserk_location_chapel_aid",
-          "x": 17,
-          "y": 13
-        },
-        {
           "furn": "f_crate_o",
           "x": 5,
           "y": 16
@@ -557,9 +541,45 @@
           "furn": "f_rubble",
           "x": 10,
           "y": 10
+        },
+        {
+          "furn": "f_bookcase",
+          "x": 4,
+          "y": 2
+        },
+        {
+          "furn": "f_bookcase",
+          "x": 5,
+          "y": 2
+        },
+        {
+          "furn": "f_berserk_location_chapel_aid",
+          "x": 4,
+          "y": 10
+        },
+        {
+          "furn": "f_berserk_location_chapel_pantry",
+          "x": 19,
+          "y": 0
+        },
+        {
+          "furn": "f_table",
+          "x": 19,
+          "y": 1
+        },
+        {
+          "furn": "f_chair",
+          "x": 18,
+          "y": 1
         }
       ],
       "place_loot": [
+        {
+          "item": "berserk_chapel_ritual_note",
+          "x": 19,
+          "y": 1,
+          "chance": 100
+        },
         {
           "item": "blanket",
           "x": 18,

@@ -656,11 +656,13 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
     for package, objects_by_file in objects_by_package.items():
         mod_id = next(key for key, value in packages_by_id.items() if value == package)
         expected = BASE_TILESET_IDS if mod_id == CONTENT_MOD_ID else expected_extra
+        authored_policy = read_json(ROOT / 'docs/authored-common-sprites-2026-10-25.json')
+        authored_defs = {x['definition'] for x in authored_policy['sheets']}
         for path, objects in objects_by_file.items():
             for entry in objects:
                 if entry.get("type") == "mod_tileset":
                     sheets, tiles = validate_tileset(
-                        package, path, entry, expected, known_ids
+                        package, path, entry, (authored_policy['compatibility'] if mod_id == CONTENT_MOD_ID and path.name in authored_defs else expected), known_ids
                     )
                     tileset_count += 1
                     sheet_count += sheets

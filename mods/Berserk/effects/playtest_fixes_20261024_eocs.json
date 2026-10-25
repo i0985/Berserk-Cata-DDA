@@ -353,26 +353,58 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FIX24_FIRST_CREATE",
-    "effect": {
-      "u_location_variable": {
-        "context_val": "berserk_first_hunt_candidate"
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FIX25_PREPARE_RING"
       },
-      "target_params": {
-        "om_terrain": "berserk_first_hunt_lair",
-        "om_terrain_replace": "forest_thick",
-        "random": true,
-        "cant_see": true,
-        "min_distance": 24,
-        "search_range": 48,
-        "z": 0
-      },
-      "true_eocs": [
-        "EOC_BERSERK_FIRST_HUNT_VALIDATE"
-      ],
-      "false_eocs": [
-        "EOC_BERSERK_FIRST_HUNT_SEARCH_FAILED"
-      ]
-    },
+      {
+        "if": {
+          "math": [
+            "u_berserk_first_hunt_search_attempts == 1"
+          ]
+        },
+        "then": {
+          "u_location_variable": {
+            "context_val": "berserk_first_hunt_candidate"
+          },
+          "target_params": {
+            "om_terrain": "berserk_first_hunt_lair",
+            "om_terrain_replace": "forest",
+            "random": true,
+            "cant_see": true,
+            "min_distance": 24,
+            "search_range": 48,
+            "z": 0
+          },
+          "true_eocs": [
+            "EOC_BERSERK_FIRST_HUNT_VALIDATE"
+          ],
+          "false_eocs": [
+            "EOC_BERSERK_FIRST_HUNT_SEARCH_FAILED"
+          ]
+        },
+        "else": {
+          "u_location_variable": {
+            "context_val": "berserk_first_hunt_candidate"
+          },
+          "target_params": {
+            "om_terrain": "berserk_first_hunt_lair",
+            "om_terrain_replace": "forest",
+            "random": true,
+            "cant_see": true,
+            "min_distance": 24,
+            "search_range": 80,
+            "z": 0
+          },
+          "true_eocs": [
+            "EOC_BERSERK_FIRST_HUNT_VALIDATE"
+          ],
+          "false_eocs": [
+            "EOC_BERSERK_FIRST_HUNT_SEARCH_FAILED"
+          ]
+        }
+      }
+    ],
     "condition": {
       "and": [
         "u_is_avatar",

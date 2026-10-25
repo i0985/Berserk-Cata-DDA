@@ -153,7 +153,8 @@ def menu_responses(c=None,effect=None):
         response(365,'Show me what you are working on.','MECHANISMS',c,effect),
         response(366,'I need help with equipment.','ORDERS',c,effect),
         response(367,'About my order.','ORDER_STATUS',withc(test('EOC_BERSERK_RICKERT_HAS_ORDER')),effect),
-        response(368,'Tell me about the Band of the Hawk.','BAND',c,effect),
+        response(368,'Tell me about the Band of the Hawk.','BAND',withc(either(G,val('knows_band'),val('eclipse_story','>',0))),effect),
+        response('Как у тебя дела?','How have you been?','RECENT_DAYS',c,effect),
         response(369,'About what happened...','ECLIPSE',withc(NORMAL_WITNESS),effect),
         response('О том месте, из которого я вернулся.','About the place I came back from.','CEREMONY_WITNESS',withc(both(WITNESS,neg(NORMAL_WITNESS))),effect),
         response(370,'I would like to know more about you.','PERSONAL',c,effect),
@@ -422,6 +423,12 @@ def memories():
 
 
 def personal():
+    topic('RECENT_DAYS',choose(either(val('eclipse_story','==',1),val('eclipse_story','==',2)),
+        tr('I keep finding work for my hands. It is quieter here than it was with the Band of the Hawk. I miss their voices.',
+           'Всё нахожу работу для рук. Здесь тише, чем было с Отрядом Сокола. Мне не хватает их голосов.'),
+        tr('There is always something to mend. When I stop, I start thinking about the Band of the Hawk. I miss the people, even the noise around the campfire.',
+           'Всегда найдётся что починить. А остановлюсь — вспоминаю Отряд Сокола. Скучаю по людям, даже по шуму у костра.')),
+        [response('Отряд Сокола? Расскажешь о нём?','The Band of the Hawk? Will you tell me about it?','BAND'),back()],setv('knows_band'))
     topic('PERSONAL',tr('Go ahead. Just mind the cloth with the parts on it.','Спрашивай. Только тряпку с деталями не зацепи.'),[
         response(1458,'Do you ever get frightened?','FEAR',once='fear'),
         response(1487,'If you could choose what to work on?','WISH',once='wish'),

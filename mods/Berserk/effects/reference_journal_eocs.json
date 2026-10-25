@@ -19330,6 +19330,11 @@
                   "math": [
                     "u_berserk_journal_read_berserk_expedition_transfer_note == 1"
                   ]
+                },
+                {
+                  "math": [
+                    "u_berserk_journal_read_berserk_expedition_transfer_note == 1"
+                  ]
                 }
               ]
             }
@@ -19432,6 +19437,53 @@
             {
               "math": [
                 "u_berserk_ref_active_p16_1 = 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_p16 = u_berserk_ref_revision_p16 + 1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_journal_read_berserk_expedition_transfer_note == 1"
+          ]
+        },
+        "then": {
+          "if": {
+            "not": {
+              "math": [
+                "u_berserk_ref_active_p16_2 == 1"
+              ]
+            }
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_p16_2 = 1"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_ref_revision_p16 = u_berserk_ref_revision_p16 + 1"
+              ]
+            }
+          ]
+        },
+        "else": {
+          "if": {
+            "math": [
+              "u_berserk_ref_active_p16_2 == 1"
+            ]
+          },
+          "then": [
+            {
+              "math": [
+                "u_berserk_ref_active_p16_2 = 0"
               ]
             },
             {

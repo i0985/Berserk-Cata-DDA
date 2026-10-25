@@ -2,7 +2,16 @@
   {
     "type": "mod_tileset",
     "compatibility": [
-      "UltimateCataclysm"
+      "UltimateCataclysm",
+      "Chibi_Ultica",
+      "MshockXottoplus",
+      "MshockXottoplus12",
+      "MSXotto+",
+      "MXplus12_for_cosmetics",
+      "MSX++DEAD_PEOPLE",
+      "UNDEAD_PEOPLE",
+      "UNDEAD_PEOPLE_BASE",
+      "UNDEAD_PEOPLE_LEGACY"
     ],
     "tiles-new": [
       {
@@ -11,7 +20,10 @@
         "sprite_height": 32,
         "tiles": [
           {
-            "id": "mon_berserk_eclipse_halfbreed",
+            "id": [
+              "mon_berserk_eclipse_halfbreed",
+              "mon_berserk_expedition_guardian"
+            ],
             "fg": 0
           }
         ]
