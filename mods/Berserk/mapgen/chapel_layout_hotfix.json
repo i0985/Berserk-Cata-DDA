@@ -1,0 +1,40 @@
+[
+  {
+    "type": "mapgen",
+    "update_mapgen_id": "berserk_chapel_remove_added_wall_v1",
+    "object": {
+      "set": [
+        {
+          "point": "terrain",
+          "id": "t_floor",
+          "x": 7,
+          "y": 7
+        },
+        {
+          "point": "terrain",
+          "id": "t_floor",
+          "x": 7,
+          "y": 8
+        },
+        {
+          "point": "terrain",
+          "id": "t_floor",
+          "x": 7,
+          "y": 9
+        },
+        {
+          "point": "terrain",
+          "id": "t_floor",
+          "x": 7,
+          "y": 10
+        },
+        {
+          "point": "furniture",
+          "id": "f_berserk_chapel_record_v2",
+          "x": 12,
+          "y": 16
+        }
+      ]
+    }
+  }
+]

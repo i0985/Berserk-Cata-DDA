@@ -1,0 +1,1022 @@
+{
+  "project_id": "chapel-3.3-02",
+  "layout_version": 2,
+  "size": [
+    24,
+    48
+  ],
+  "source": {
+    "filename": "image(20261025-104920).png",
+    "sha256": "2fb849ce279ebb8ed52818c036a1871d677e67f882953e5b25241a6280188700",
+    "previous_project": "chapel-3.3-01",
+    "instructions": "Owner correction: remove the four-cell wall added at the thin red stroke in the west aisle. Retain all other approved geometry and furniture."
+  },
+  "annotation": {
+    "wall_add": [
+      [
+        3,
+        4
+      ],
+      [
+        4,
+        3
+      ],
+      [
+        9,
+        35
+      ],
+      [
+        9,
+        38
+      ],
+      [
+        9,
+        39
+      ],
+      [
+        9,
+        41
+      ],
+      [
+        15,
+        4
+      ],
+      [
+        15,
+        5
+      ],
+      [
+        15,
+        6
+      ],
+      [
+        15,
+        7
+      ],
+      [
+        15,
+        35
+      ],
+      [
+        15,
+        36
+      ],
+      [
+        15,
+        37
+      ],
+      [
+        15,
+        38
+      ],
+      [
+        16,
+        7
+      ],
+      [
+        17,
+        7
+      ],
+      [
+        18,
+        7
+      ],
+      [
+        19,
+        3
+      ],
+      [
+        19,
+        7
+      ],
+      [
+        20,
+        4
+      ]
+    ],
+    "doors": [
+      [
+        18,
+        7
+      ],
+      [
+        9,
+        40
+      ]
+    ],
+    "furniture_remove": [
+      [
+        5,
+        6
+      ],
+      [
+        5,
+        9
+      ],
+      [
+        6,
+        8
+      ],
+      [
+        10,
+        9
+      ],
+      [
+        11,
+        9
+      ],
+      [
+        12,
+        9
+      ],
+      [
+        13,
+        9
+      ],
+      [
+        14,
+        9
+      ],
+      [
+        16,
+        36
+      ],
+      [
+        17,
+        16
+      ],
+      [
+        17,
+        25
+      ],
+      [
+        17,
+        36
+      ],
+      [
+        17,
+        37
+      ],
+      [
+        18,
+        14
+      ],
+      [
+        18,
+        15
+      ],
+      [
+        18,
+        25
+      ],
+      [
+        18,
+        27
+      ],
+      [
+        18,
+        38
+      ],
+      [
+        18,
+        39
+      ]
+    ],
+    "furniture_add": [
+      [
+        "f_bookcase",
+        5,
+        4
+      ],
+      [
+        "f_bookcase",
+        6,
+        4
+      ],
+      [
+        "f_bookcase",
+        7,
+        4
+      ],
+      [
+        "f_bookcase",
+        4,
+        9
+      ],
+      [
+        "f_bookcase",
+        5,
+        9
+      ],
+      [
+        "f_table",
+        4,
+        14
+      ],
+      [
+        "f_chair",
+        5,
+        14
+      ],
+      [
+        "f_rack_wood",
+        4,
+        20
+      ],
+      [
+        "f_rack_wood",
+        5,
+        20
+      ],
+      [
+        "f_bookcase",
+        4,
+        26
+      ],
+      [
+        "f_bookcase",
+        5,
+        26
+      ],
+      [
+        "f_berserk_location_chapel_aid",
+        4,
+        34
+      ],
+      [
+        "f_bookcase",
+        19,
+        13
+      ],
+      [
+        "f_bookcase",
+        19,
+        14
+      ],
+      [
+        "f_bookcase",
+        19,
+        15
+      ],
+      [
+        "f_bookcase",
+        19,
+        16
+      ],
+      [
+        "f_bookcase",
+        19,
+        17
+      ],
+      [
+        "f_rack_wood",
+        19,
+        19
+      ],
+      [
+        "f_rack_wood",
+        19,
+        20
+      ],
+      [
+        "f_rack_wood",
+        19,
+        23
+      ],
+      [
+        "f_berserk_location_chapel_pantry",
+        19,
+        24
+      ],
+      [
+        "f_table",
+        19,
+        25
+      ],
+      [
+        "f_chair",
+        18,
+        25
+      ]
+    ],
+    "wall_remove": [
+      [
+        7,
+        31
+      ],
+      [
+        7,
+        32
+      ],
+      [
+        7,
+        33
+      ],
+      [
+        7,
+        34
+      ]
+    ]
+  },
+  "rows": [
+    "........................",
+    "........................",
+    "........................",
+    "....################....",
+    "...##___#______#___##...",
+    "...#____#______#____#.h.",
+    "...#____#___A__#____#...",
+    "...#____#______###+##...",
+    ".T.#____#___________#...",
+    "...#____#___________#...",
+    "...#____#___________#...",
+    "...#____+___________#...",
+    "...#____#______##+###...",
+    "...#____#___________#.T.",
+    "...#____#______#____#...",
+    "...#____#______#____#...",
+    "...#____#______#____#...",
+    "...#____+______+____#...",
+    "...#____#______#____w...",
+    "...#____#______#____#...",
+    "...#____#______#____#...",
+    ".u.#____#______#____#...",
+    "...#____#______##+###...",
+    "...w____#______#____#...",
+    "...#____#______#____#...",
+    "...#____#______#____#...",
+    "...#____#______#____w...",
+    "...#____+______#____#...",
+    "...#____#______#____#...",
+    ".h.#____#______+____#...",
+    "...w____#______#____#...",
+    "...#____#______##+###...",
+    "...#____#______#____#...",
+    "...#____#______#____#...",
+    "...#____#______#____#.T.",
+    "...###+###_____#____#...",
+    "...#_____#_____#____#...",
+    ".G./_____#_____#____#...",
+    ".../_____##++###____#...",
+    ".G.#__N__#__________#...",
+    "...#_____+__?_______#...",
+    ".G.#_____#__________#...",
+    "...########++########...",
+    "...........,,...........",
+    "...........,,...........",
+    ".....G.....,,...........",
+    "..T....G...,,.......u...",
+    "...........,,..........."
+  ],
+  "furniture": [
+    {
+      "furn": "f_berserk_chapel_scene",
+      "x": 13,
+      "y": 7
+    },
+    {
+      "furn": "f_berserk_chapel_vigil",
+      "x": 16,
+      "y": 8
+    },
+    {
+      "furn": "f_berserk_chapel_stone_pillar",
+      "x": 9,
+      "y": 16
+    },
+    {
+      "furn": "f_berserk_chapel_stone_pillar",
+      "x": 14,
+      "y": 16
+    },
+    {
+      "furn": "f_berserk_chapel_stone_pillar",
+      "x": 9,
+      "y": 21
+    },
+    {
+      "furn": "f_berserk_chapel_stone_pillar",
+      "x": 14,
+      "y": 21
+    },
+    {
+      "furn": "f_bench_wooden",
+      "x": 9,
+      "y": 25
+    },
+    {
+      "furn": "f_bench_wooden",
+      "x": 10,
+      "y": 25
+    },
+    {
+      "furn": "f_bench_wooden",
+      "x": 13,
+      "y": 25
+    },
+    {
+      "furn": "f_bench_wooden",
+      "x": 14,
+      "y": 25
+    },
+    {
+      "furn": "f_bench_wooden",
+      "x": 9,
+      "y": 29
+    },
+    {
+      "furn": "f_bench_wooden",
+      "x": 10,
+      "y": 29
+    },
+    {
+      "furn": "f_bench_wooden",
+      "x": 13,
+      "y": 29
+    },
+    {
+      "furn": "f_bench_wooden",
+      "x": 14,
+      "y": 29
+    },
+    {
+      "furn": "f_bench_wooden",
+      "x": 10,
+      "y": 33
+    },
+    {
+      "furn": "f_bench_wooden",
+      "x": 13,
+      "y": 33
+    },
+    {
+      "furn": "f_crate_o",
+      "x": 5,
+      "y": 40
+    },
+    {
+      "furn": "f_rubble",
+      "x": 5,
+      "y": 38
+    },
+    {
+      "furn": "f_rubble",
+      "x": 10,
+      "y": 34
+    },
+    {
+      "furn": "f_bookcase",
+      "x": 5,
+      "y": 4
+    },
+    {
+      "furn": "f_bookcase",
+      "x": 6,
+      "y": 4
+    },
+    {
+      "furn": "f_bookcase",
+      "x": 7,
+      "y": 4
+    },
+    {
+      "furn": "f_bookcase",
+      "x": 4,
+      "y": 9
+    },
+    {
+      "furn": "f_bookcase",
+      "x": 5,
+      "y": 9
+    },
+    {
+      "furn": "f_table",
+      "x": 4,
+      "y": 14
+    },
+    {
+      "furn": "f_chair",
+      "x": 5,
+      "y": 14
+    },
+    {
+      "furn": "f_rack_wood",
+      "x": 4,
+      "y": 20
+    },
+    {
+      "furn": "f_rack_wood",
+      "x": 5,
+      "y": 20
+    },
+    {
+      "furn": "f_bookcase",
+      "x": 4,
+      "y": 26
+    },
+    {
+      "furn": "f_bookcase",
+      "x": 5,
+      "y": 26
+    },
+    {
+      "furn": "f_berserk_location_chapel_aid",
+      "x": 4,
+      "y": 34
+    },
+    {
+      "furn": "f_bookcase",
+      "x": 19,
+      "y": 13
+    },
+    {
+      "furn": "f_bookcase",
+      "x": 19,
+      "y": 14
+    },
+    {
+      "furn": "f_bookcase",
+      "x": 19,
+      "y": 15
+    },
+    {
+      "furn": "f_bookcase",
+      "x": 19,
+      "y": 16
+    },
+    {
+      "furn": "f_bookcase",
+      "x": 19,
+      "y": 17
+    },
+    {
+      "furn": "f_rack_wood",
+      "x": 19,
+      "y": 19
+    },
+    {
+      "furn": "f_rack_wood",
+      "x": 19,
+      "y": 20
+    },
+    {
+      "furn": "f_rack_wood",
+      "x": 19,
+      "y": 23
+    },
+    {
+      "furn": "f_berserk_location_chapel_pantry",
+      "x": 19,
+      "y": 24
+    },
+    {
+      "furn": "f_table",
+      "x": 19,
+      "y": 25
+    },
+    {
+      "furn": "f_chair",
+      "x": 18,
+      "y": 25
+    },
+    {
+      "furn": "f_berserk_chapel_record_v2",
+      "x": 12,
+      "y": 40
+    }
+  ],
+  "mapgen": [
+    {
+      "type": "mapgen",
+      "om_terrain": [
+        "berserk_desecrated_chapel_reliquary"
+      ],
+      "object": {
+        "rows": [
+          "........................",
+          "........................",
+          "........................",
+          ".....##############.....",
+          "....#___#__________#....",
+          "...#____#___________#.h.",
+          "...#____#___A_______#...",
+          "...#____#___________#...",
+          ".T.#____#___________#...",
+          "...#____#___________#...",
+          "...#____#___________#...",
+          "...#____+___________#...",
+          "...#____#______##+###...",
+          "...#____#___________#.T.",
+          "...#____#______#____#...",
+          "...#____#______#____#...",
+          "...#____#______#____#...",
+          "...#____+______+____#...",
+          "...#____#______#____w...",
+          "...#____#______#____#...",
+          "...#____#______#____#...",
+          ".u.#____#______#____#...",
+          "...#____#______##+###...",
+          "...w____#______#____#..."
+        ],
+        "palettes": [
+          "berserk_chapel_site_palette"
+        ],
+        "place_furniture": [
+          {
+            "furn": "f_berserk_chapel_altar",
+            "x": 10,
+            "y": 9
+          },
+          {
+            "furn": "f_berserk_chapel_altar",
+            "x": 11,
+            "y": 9
+          },
+          {
+            "furn": "f_berserk_chapel_altar",
+            "x": 12,
+            "y": 9
+          },
+          {
+            "furn": "f_berserk_chapel_altar",
+            "x": 13,
+            "y": 9
+          },
+          {
+            "furn": "f_berserk_chapel_altar",
+            "x": 14,
+            "y": 9
+          },
+          {
+            "furn": "f_berserk_chapel_scene",
+            "x": 13,
+            "y": 7
+          },
+          {
+            "furn": "f_bookcase",
+            "x": 18,
+            "y": 14
+          },
+          {
+            "furn": "f_bookcase",
+            "x": 18,
+            "y": 15
+          },
+          {
+            "furn": "f_table",
+            "x": 17,
+            "y": 16
+          },
+          {
+            "furn": "f_berserk_chapel_vigil",
+            "x": 16,
+            "y": 8
+          },
+          {
+            "furn": "f_rack_wood",
+            "x": 5,
+            "y": 6
+          },
+          {
+            "furn": "f_table",
+            "x": 6,
+            "y": 8
+          },
+          {
+            "furn": "f_chair",
+            "x": 5,
+            "y": 9
+          },
+          {
+            "furn": "f_berserk_chapel_stone_pillar",
+            "x": 9,
+            "y": 16
+          },
+          {
+            "furn": "f_berserk_chapel_stone_pillar",
+            "x": 14,
+            "y": 16
+          },
+          {
+            "furn": "f_berserk_chapel_stone_pillar",
+            "x": 9,
+            "y": 21
+          },
+          {
+            "furn": "f_berserk_chapel_stone_pillar",
+            "x": 14,
+            "y": 21
+          }
+        ],
+        "place_loot": [
+          {
+            "item": "berserk_chapel_ritual_note",
+            "x": 17,
+            "y": 16,
+            "chance": 100
+          },
+          {
+            "item": "berserk_chapel_last_vigil",
+            "x": 16,
+            "y": 8,
+            "chance": 100
+          }
+        ],
+        "place_monster": [
+          {
+            "monster": "mon_berserk_chapel_guardian",
+            "x": 12,
+            "y": 12,
+            "one_or_none": true
+          }
+        ],
+        "place_fields": [
+          {
+            "field": "fd_blood",
+            "x": 12,
+            "y": 10,
+            "intensity": 1,
+            "age": 0
+          }
+        ],
+        "place_items": [
+          {
+            "item": "religious_books",
+            "x": 18,
+            "y": 14,
+            "chance": 60
+          }
+        ]
+      }
+    },
+    {
+      "type": "mapgen",
+      "om_terrain": [
+        "berserk_desecrated_chapel_nave"
+      ],
+      "object": {
+        "rows": [
+          "...#____#______#____#...",
+          "...#____#______#____#...",
+          "...#____#______#____w...",
+          "...#____+______#____#...",
+          "...#____#______#____#...",
+          ".h.#____#______+____#...",
+          "...w____#______#____#...",
+          "...#____#______##+###...",
+          "...#____#______#____#...",
+          "...#____#______#____#...",
+          "...#____#______#____#.T.",
+          "...###+##______#____#...",
+          "...#_____#__________#...",
+          ".G./_____#__________#...",
+          ".../_____+#++##_____#...",
+          ".G.#__N__#__________#...",
+          "...#_____#__?_______#...",
+          ".G.#________________#...",
+          "...########++########...",
+          "...........,,...........",
+          "...........,,...........",
+          ".....G.....,,...........",
+          "..T....G...,,.......u...",
+          "...........,,..........."
+        ],
+        "palettes": [
+          "berserk_chapel_site_palette"
+        ],
+        "place_furniture": [
+          {
+            "furn": "f_bench_wooden",
+            "x": 9,
+            "y": 1
+          },
+          {
+            "furn": "f_bench_wooden",
+            "x": 10,
+            "y": 1
+          },
+          {
+            "furn": "f_bench_wooden",
+            "x": 13,
+            "y": 1
+          },
+          {
+            "furn": "f_bench_wooden",
+            "x": 14,
+            "y": 1
+          },
+          {
+            "furn": "f_bench_wooden",
+            "x": 9,
+            "y": 5
+          },
+          {
+            "furn": "f_bench_wooden",
+            "x": 10,
+            "y": 5
+          },
+          {
+            "furn": "f_bench_wooden",
+            "x": 13,
+            "y": 5
+          },
+          {
+            "furn": "f_bench_wooden",
+            "x": 14,
+            "y": 5
+          },
+          {
+            "furn": "f_bench_wooden",
+            "x": 10,
+            "y": 9
+          },
+          {
+            "furn": "f_bench_wooden",
+            "x": 13,
+            "y": 9
+          },
+          {
+            "furn": "f_rack_wood",
+            "x": 17,
+            "y": 1
+          },
+          {
+            "furn": "f_rack_wood",
+            "x": 18,
+            "y": 1
+          },
+          {
+            "furn": "f_berserk_location_chapel_pantry",
+            "x": 18,
+            "y": 3
+          },
+          {
+            "furn": "f_table",
+            "x": 16,
+            "y": 12
+          },
+          {
+            "furn": "f_chair",
+            "x": 17,
+            "y": 12
+          },
+          {
+            "furn": "f_makeshift_bed",
+            "x": 18,
+            "y": 14
+          },
+          {
+            "furn": "f_makeshift_bed",
+            "x": 18,
+            "y": 15
+          },
+          {
+            "furn": "f_berserk_location_chapel_aid",
+            "x": 17,
+            "y": 13
+          },
+          {
+            "furn": "f_crate_o",
+            "x": 5,
+            "y": 16
+          },
+          {
+            "furn": "f_rubble",
+            "x": 5,
+            "y": 14
+          },
+          {
+            "furn": "f_rubble",
+            "x": 10,
+            "y": 10
+          }
+        ],
+        "place_loot": [
+          {
+            "item": "blanket",
+            "x": 18,
+            "y": 14,
+            "chance": 100
+          },
+          {
+            "item": "blanket",
+            "x": 18,
+            "y": 15,
+            "chance": 100
+          },
+          {
+            "item": "scrap_cotton",
+            "x": 16,
+            "y": 12,
+            "chance": 100
+          },
+          {
+            "item": "scrap_cotton",
+            "x": 16,
+            "y": 12,
+            "chance": 100
+          },
+          {
+            "group": "berserk_location_chapel_candles",
+            "x": 5,
+            "y": 16,
+            "chance": 100
+          }
+        ],
+        "place_monster": [
+          {
+            "monster": "mon_berserk_eclipse_wretch",
+            "x": 13,
+            "y": 7,
+            "one_or_none": true
+          },
+          {
+            "monster": "mon_berserk_eclipse_wretch",
+            "x": 6,
+            "y": 1,
+            "one_or_none": true
+          }
+        ],
+        "place_fields": [
+          {
+            "field": "fd_blood",
+            "x": 11,
+            "y": 8,
+            "intensity": 1,
+            "age": 0
+          },
+          {
+            "field": "fd_blood",
+            "x": 4,
+            "y": 14,
+            "intensity": 1,
+            "age": 0
+          }
+        ]
+      }
+    }
+  ],
+  "anchors": {
+    "relic": [
+      12,
+      6
+    ],
+    "guardian": [
+      12,
+      12
+    ],
+    "main_entry": [
+      [
+        11,
+        42
+      ],
+      [
+        12,
+        42
+      ]
+    ],
+    "side_entry": [
+      [
+        3,
+        37
+      ],
+      [
+        3,
+        38
+      ]
+    ],
+    "ritual_note": [
+      17,
+      16
+    ],
+    "relief_record": [
+      12,
+      40
+    ]
+  },
+  "scene_moves": {
+    "ritual_note": [
+      19,
+      25
+    ],
+    "religious_books": [
+      19,
+      14
+    ],
+    "aid": [
+      4,
+      34
+    ],
+    "pantry": [
+      19,
+      24
+    ]
+  },
+  "layout_marker": {
+    "point": [
+      12,
+      40
+    ],
+    "furniture": "f_berserk_chapel_record_v2"
+  }
+}

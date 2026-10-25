@@ -67,10 +67,9 @@ def intro():
         response('Где сейчас искать это зло?','Where should I look for this evil now?','NOW',NORMAL),
         response('Я нашёл кое-что среди останков.','I found something among the remains.','MEMORIES',test('EOC_BERSERK_KNIGHT_HAS_MEMORY')),
         response('Кто ты такой?','Who are you?','SELF'),
-        response('Мне пора идти.','It is time for me to go.','FAREWELL'),
-        response('Пока достаточно. Я ещё подойду.','That is enough for now. I will speak to you again.','TALK_DONE')]
+        response('Пока всё. Этого достаточно.','That is enough. I am ready to say farewell.','FAREWELL')]
     for r in rs:r['effect']=[setv('greeted'),{'u_add_var':'berserk_knight_spoken','value':'yes'}]
-    topic('AFTER',hello,rs)['//']='Approved Skull Knight script 2026-10-22; ordinary close is not farewell.'
+    topic('AFTER',hello,rs)['//']='Approved Skull Knight script 2026-10-22; all explicit finish choices lead to the same farewell confirmation.'
     rescued=choose(G,line(18,'I found an opening and carried you through before it closed. But carrying a body out of a place of sacrifice does not free it from the sacrifice itself.'),
         choose(math('u_berserk_godo_rescue_relocated == 1'),line(41,'Yes. You were among those who were not meant to leave that ceremony alive. I carried you out. The people where you woke did the rest.'),
             line(64,'I carried you somewhere I could leave you safely. We did not reach the woodland forge.')))

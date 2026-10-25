@@ -193,21 +193,6 @@
         ]
       },
       {
-        "text": "It is time for me to go.",
-        "topic": "TALK_BERSERK_SKULL_KNIGHT_FAREWELL",
-        "effect": [
-          {
-            "math": [
-              "u_berserk_knight_greeted = 1"
-            ]
-          },
-          {
-            "u_add_var": "berserk_knight_spoken",
-            "value": "yes"
-          }
-        ]
-      },
-      {
         "text": "About the strange stone and the changes.",
         "topic": "TALK_BERSERK_COMMON33_KNIGHT_MENU",
         "condition": {
@@ -241,8 +226,8 @@
         }
       },
       {
-        "text": "That is enough for now. I will speak to you again.",
-        "topic": "TALK_DONE",
+        "text": "That is enough. I am ready to say farewell.",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_FAREWELL",
         "effect": [
           {
             "math": [
@@ -256,7 +241,7 @@
         ]
       }
     ],
-    "//": "Approved Skull Knight script 2026-10-22; ordinary close is not farewell.",
+    "//": "Approved Skull Knight script 2026-10-22; all explicit finish choices lead to the same farewell confirmation.",
     "speaker_effect": {
       "effect": [
         {

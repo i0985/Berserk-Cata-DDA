@@ -16,7 +16,7 @@ from test_rickert_dialogue_33 import Conversation as Rickert
 
 P='EOC_BERSERK_FIX25_'
 ROOT=MOD.parents[1]
-PROJECT=json.loads((ROOT/'docs/location_projects/chapel-3.3-01.json').read_text())
+PROJECT=json.loads((ROOT/'docs/location_projects/chapel-3.3-02.json').read_text())
 
 
 class World(StrictActors):
@@ -25,6 +25,9 @@ class World(StrictActors):
         self.pos=(179*24,0,0);self.values['u_berserk_eclipse_rescue_state']=2
         self.loaded={(0,0)};self.seen=set();self.local_maps={};self.searches=[]
         self.land={(219*24,30*24,0):'forest'}
+        self.special_at={self.pos:'berserk_godo_workshop_special'}
+        self.specials={o['id']:o for name in ['godo_workshop','first_hunt','local_breach']
+            for o in json.loads((MOD/'overmap'/f'{name}.json').read_text()) if o['type']=='overmap_special'}
     def region(self,p):return p[0]//(180*24),p[1]//(180*24)
     def condition(self,c):
         if isinstance(c,dict) and 'overmap_at_point' in c:
@@ -37,6 +40,18 @@ class World(StrictActors):
         return super().value(s)
     def native_target(self,params):
         origin=self.pos;kind=params['om_terrain'];replaced=False
+        if 'om_special' in params:
+            id_=params['om_special'];special=self.specials[id_]
+            for p,owner in self.special_at.items():
+                if owner==id_ and self.land.get(p)==kind:return p,False
+            radius=special['spawns']['radius'][1]
+            for p,t in self.land.items():
+                d=max(abs(p[i]//24-origin[i]//24) for i in [0,1])
+                if t not in ['forest','forest_thick'] or d>params['search_range'] or p in self.local_maps:continue
+                if any('SAFE_AT_WORLDGEN' in self.specials[owner].get('flags',[]) and
+                    max(abs(p[i]//24-safe[i]//24) for i in [0,1])<=radius for safe,owner in self.special_at.items()):continue
+                self.land[p]=kind;self.special_at[p]=id_;return p,True
+            return origin,False
         for existing_only in [True,False]:
             def candidates(terrain,only_existing):
                 out=[]
@@ -62,16 +77,23 @@ class World(StrictActors):
             self.local_maps.setdefault(p,self.land.get(p,'forge'))
             for id_ in x.get('true_eocs',[]):self.run(id_)
             return
+        if isinstance(x,dict) and x.get('mapgen_update')=='berserk_chapel_remove_added_wall_v1':
+            base=self.getvar(x['target_var'])
+            update=json.loads((MOD/'mapgen/chapel_layout_hotfix.json').read_text())[0]
+            for step in update['object']['set']:
+                data=self.furniture if step['point']=='furniture' else self.terrain
+                data[(base[0]+step['x'],base[1]+step['y'],base[2])]=step['id']
+            return
         return super().effect(x)
 
 
 class NativePlacement(unittest.TestCase):
     def test_cold_native_replace_can_return_unconverted_forest(self):
-        f=World();params=next(x['target_params'] for x in walk(EOCS['EOC_BERSERK_FIX24_FIRST_CREATE']) if 'target_params' in x)
+        f=World();params={'om_terrain':'berserk_first_hunt_lair','om_terrain_replace':'forest','min_distance':24,'search_range':48,'cant_see':True,'random':True}
         p,changed=f.native_target(params)
         self.assertFalse(changed);self.assertEqual(f.land[p],'forest')
 
-    def test_prewarmed_ring_generates_real_lair_and_mission_across_overmap_border(self):
+    def test_native_special_generates_real_lair_and_mission_across_overmap_border(self):
         f=World();f.run('EOC_BERSERK_FIRST_HUNT_REQUEST')
         p=f.values['u_berserk_first_hunt_location']
         self.assertEqual(f.land[p],'berserk_first_hunt_lair')
@@ -87,7 +109,7 @@ class NativePlacement(unittest.TestCase):
         before=copy.deepcopy(f.missions);n=len(f.searches)
         f.run(P+'LOAD');self.assertEqual(f.missions,before);self.assertEqual(len(f.searches),n)
 
-    def test_seen_terrain_and_other_local_maps_are_never_replaced(self):
+    def test_generated_local_maps_are_never_replaced(self):
         f=World();seen=(210*24,0,0);f.land[seen]='forest';f.seen.add(seen);f.local_maps[seen]='player_stash'
         f.run('EOC_BERSERK_FIRST_HUNT_REQUEST')
         self.assertEqual(f.land[seen],'forest');self.assertEqual(f.local_maps[seen],'player_stash')

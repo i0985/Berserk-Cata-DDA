@@ -120,7 +120,9 @@ class Knight(unittest.TestCase):
         self.assertIn(tid('PROJECTIONS'),f.targets('GOD_HAND'))
 
     def test_window_close_and_warning_do_not_remove_actor(self):
-        f=Conversation();f.choose('AFTER','TALK_DONE')
+        f=Conversation()
+        self.assertNotIn('TALK_DONE',f.targets('AFTER'))
+        self.assertEqual(f.targets('AFTER').count(tid('FAREWELL')),1)
         self.assertNotEqual(f.values.get('u_berserk_knight_farewell_confirmed'),1)
         f.choose('AFTER','FAREWELL');self.assertIn('continue my journey',f.line('FAREWELL'))
         f.choose('FAREWELL','AFTER');f.choose('AFTER','FAREWELL')

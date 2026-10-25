@@ -72,10 +72,10 @@ class StrictActors(Book):
                 var = x['location_variable_adjust']; v = self.getvar(var)
                 k, name = next(iter(var.items()))
                 key = {'u_val':'u_', 'global_val':'', 'context_val':'_'}[k] + name
-                if x.get('overmap_tile'):
-                    v = (v[0] // 24 * 24, v[1] // 24 * 24, v[2])
-                self.values[key] = tuple(v[i]+x.get(a+'_adjust',0)*(24 if x.get('overmap_tile') else 1)
-                                         for i,a in enumerate('xyz'))
+                scale=24 if x.get('overmap_tile') else 1
+                self.values[key]=(v[0]+x.get('x_adjust',0)*scale,
+                    v[1]+x.get('y_adjust',0)*scale,
+                    x.get('z_adjust',0) if x.get('z_override') else v[2]+x.get('z_adjust',0))
                 return
             if 'assign_mission' in x:
                 definitions={m['id']:m for p in (MOD/'missions').glob('*.json') for m in json.loads(p.read_text())}
@@ -208,14 +208,14 @@ class WorldAndConversations(unittest.TestCase):
         for x in sites:
             self.assertEqual(x['occurrences'],[1,100]);self.assertIn('OVERMAP_UNIQUE',x['flags'])
 
-    def test_new_single_omt_sites_use_real_replaceable_forest_ring(self):
+    def test_new_single_omt_sites_use_native_special_placement(self):
         calls=[x for x in walk(EOCS[P+'FIRST_CREATE']) if 'target_params' in x]
         calls += [x for x in walk(EOCS['EOC_BERSERK_BREACH_FIND']) if 'target_params' in x]
         for x in calls:
             params=x['target_params']
-            self.assertEqual(params['min_distance'],24);self.assertIn(params['search_range'],[48,80])
-            self.assertEqual(params['om_terrain_replace'],'forest')
-            self.assertNotIn('om_special',params);self.assertTrue(params['cant_see']);self.assertTrue(params['random'])
+            self.assertEqual(params['min_distance'],0);self.assertIn(params['search_range'],[48,80])
+            self.assertIn('om_special',params);self.assertNotIn('om_terrain_replace',params)
+            self.assertNotIn('cant_see',params);self.assertTrue(params['random'])
             maps=[m for p in (MOD/'mapgen').glob('*.json') for m in json.loads(p.read_text()) if m.get('om_terrain')]
             self.assertTrue(any(params['om_terrain'] in m['om_terrain'] for m in maps))
         # Persisted targets are checked before native creation, never moved.

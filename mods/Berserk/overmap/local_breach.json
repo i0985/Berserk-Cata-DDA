@@ -32,6 +32,21 @@
       0
     ],
     "rotate": false,
-    "//": "Story placement after the Eclipse only. Existing sites and coordinates are retained."
+    "//": "Story-only native placement; 24-OMT safe-site exclusion, zero population; generated local maps are never overwritten.",
+    "flags": [
+      "SAFE_AT_WORLDGEN",
+      "GLOBALLY_UNIQUE"
+    ],
+    "spawns": {
+      "group": "GROUP_BERSERK_STORY_PLACEMENT_BUFFER",
+      "population": [
+        0,
+        0
+      ],
+      "radius": [
+        24,
+        24
+      ]
+    }
   }
 ]

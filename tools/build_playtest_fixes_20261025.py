@@ -30,7 +30,9 @@ def authored_sprites():
 
 
 def chapel():
-    project=json.loads((ROOT/'docs/location_projects/chapel-3.3-01.json').read_text())
+    project=json.loads((ROOT/'docs/location_projects/chapel-3.3-02.json').read_text())
+    write('furniture/chapel_layout_version.json',[{'type':'furniture','id':'f_berserk_chapel_record_v2',
+        'copy-from':'f_berserk_chapel_record','looks_like':'f_berserk_chapel_record'}])
     maps=copy.deepcopy(project['mapgen'])
     loot=[{**item,'y':item['y']+i*24} for i,m in enumerate(maps) for item in m['object'].get('place_loot',[])]
     for item in loot:
@@ -85,8 +87,12 @@ def entry_hints():
         'У южного входа уцелел старый список путников и принесённых припасов. Под поздними царапинами ещё можно разобрать записи.')]
     for key,terrains,en,ru in hints:
         point={'context_val':'berserk_hint_point'};saved={'u_val':'berserk_hint_'+key.lower()}
-        same=both(math('has_var(u_berserk_hint_'+key.lower()+')'),*[math('u_berserk_hint_'+key.lower()+'.'+a+' == _berserk_hint_point.'+a) for a in 'xyz'])
-        actions=[{'u_location_variable':point},{'location_variable_adjust':point,'overmap_tile':True}]
+        same=both(math('has_var(u_berserk_hint_'+key.lower()+')'),
+            *[math('floor(u_berserk_hint_'+key.lower()+'.'+a+' / 24) == floor(_berserk_hint_point.'+a+' / 24)') for a in 'xy'],
+            math('u_berserk_hint_'+key.lower()+'.z == _berserk_hint_point.z'))
+        actions=[{'u_location_variable':point},
+            math('_berserk_hint_point.x = floor(_berserk_hint_point.x / 24) * 24'),
+            math('_berserk_hint_point.y = floor(_berserk_hint_point.y / 24) * 24')]
         if key=='CHAPEL':actions.append({'if':{'u_at_om_location':'berserk_desecrated_chapel_nave'},'then':{'location_variable_adjust':point,'overmap_tile':True,'y_adjust':-1}})
         actions.append({'if':neg(same),'then':[{'copy_var':point,'target_var':saved},{'u_message':tr(en,ru),'type':'info','popup':True}]})
         E.append(eoc(P+'HINT_'+key,actions,both('u_is_avatar',either(*[{'u_at_om_location':t} for t in terrains]))))
@@ -94,31 +100,45 @@ def entry_hints():
 
 
 def reliable_hunt():
-    # 0.I's replace branch searches existing overmaps, and mutates its search
-    # type before the second pass. Load the *overmaps*, not local forest maps,
-    # before replacement. All four corners cover the complete 80-OMT square.
-    point={'context_val':'berserk_prefetch_point'};actions=[]
-    for x,y in [(-80,-80),(-80,80),(80,-80),(80,80)]:
-        actions += [{'u_location_variable':point},
-            {'location_variable_adjust':point,'overmap_tile':True,'x_adjust':x,'y_adjust':y},
-            {'if':{'overmap_at_point':'forest','point':point},
-             'then':math('_berserk_prefetch_checked = 1'),'else':math('_berserk_prefetch_checked = 0')}]
-    E.append(eoc(P+'PREPARE_RING',actions,'u_is_avatar'))
-    rows=read('effects/playtest_fixes_20261024_eocs.json');by=index(rows)
-    obj=by['EOC_BERSERK_FIX24_FIRST_CREATE']
-    near=copy.deepcopy(obj['effect'][1]['then'] if isinstance(obj['effect'],list) else obj['effect']);near['target_params']['om_terrain_replace']='forest'
+    # Native special placement checks actual generated submaps, independently
+    # of overmap visibility. The zero-population radius uses the engine's
+    # SAFE_AT_WORLDGEN exclusion to keep the lair away from the forge; it
+    # neither spawns monsters nor pretends target_params.min_distance works
+    # for forced specials. Fixed GLOBALLY_UNIQUE sites are reused by native.
+    group='GROUP_BERSERK_STORY_PLACEMENT_BUFFER'
+    write('monstergroups/story_placement_buffer.json',[{'type':'monstergroup','id':group,
+        'default':'mon_berserk_eclipse_wretch','monsters':[]}])
+    for name in ['godo_workshop','first_hunt','local_breach']:
+        rows=read('overmap/'+name+'.json')
+        for obj in rows:
+            if obj.get('type')!='overmap_special':continue
+            flags=obj.setdefault('flags',[])
+            for flag in ['SAFE_AT_WORLDGEN','GLOBALLY_UNIQUE']:
+                if flag not in flags:flags.append(flag)
+            if name!='godo_workshop':
+                obj['spawns']={'group':group,'population':[0,0],'radius':[24,24]}
+                obj['//']='Story-only native placement; 24-OMT safe-site exclusion, zero population; generated local maps are never overwritten.'
+        write('overmap/'+name+'.json',rows)
+    E.append(eoc(P+'PREPARE_RING',[],'u_is_avatar'))  # Saved public alias.
+    rows=read('effects/playtest_fixes_20261024_eocs.json');obj=index(rows)['EOC_BERSERK_FIX24_FIRST_CREATE']
+    near={'u_location_variable':{'context_val':'berserk_first_hunt_candidate'},
+        'target_params':{'om_terrain':'berserk_first_hunt_lair','om_special':'berserk_first_hunt_special',
+            'random':True,'search_range':48,'min_distance':0,'z':0},
+        'true_eocs':['EOC_BERSERK_FIRST_HUNT_VALIDATE'],'false_eocs':['EOC_BERSERK_FIRST_HUNT_SEARCH_FAILED']}
     far=copy.deepcopy(near);far['target_params']['search_range']=80
-    obj['effect']=[run(P+'PREPARE_RING'),{'if':eq('u_berserk_first_hunt_search_attempts'),'then':near,'else':far}]
+    obj['effect']={'if':eq('u_berserk_first_hunt_search_attempts'),'then':near,'else':far}
     write('effects/playtest_fixes_20261024_eocs.json',rows)
     rows=read('effects/local_breach_eocs.json');obj=index(rows)['EOC_BERSERK_BREACH_FIND']
     def replace(x):
         if isinstance(x,dict):
-            if 'target_params' in x:x['target_params']['om_terrain_replace']='forest'
+            if 'target_params' in x:
+                x['target_params']={'om_terrain':'berserk_local_breach','om_special':'berserk_local_breach_special',
+                    'random':True,'search_range':80,'min_distance':0,'z':0}
             for v in x.values():replace(v)
         elif isinstance(x,list):
             for v in x:replace(v)
     replace(obj['effect'])
-    if obj['effect'][0]!=run(P+'PREPARE_RING'):obj['effect'].insert(0,run(P+'PREPARE_RING'))
+    obj['effect']=[x for x in obj['effect'] if x!=run(P+'PREPARE_RING')]
     write('effects/local_breach_eocs.json',rows)
     # Repair stalled October 24 saves once, without changing a real target.
     valid=both(math('has_var(u_berserk_first_hunt_location)'),{'overmap_at_point':'berserk_first_hunt_lair','point':{'u_val':'berserk_first_hunt_location'}})
@@ -129,14 +149,41 @@ def reliable_hunt():
         math('u_berserk_first_hunt_search_attempts = 0'),run('EOC_BERSERK_FIRST_HUNT_REQUEST')],
         both(eligible,neg(valid),math("time('now') >= u_berserk_first_hunt_retry_at"))))
     E.append(eoc(P+'LOAD',[
-        {'if':neg(eq('u_berserk_hunt_repair_v25')),'then':[math('u_berserk_hunt_repair_v25 = 1'),
+        {'if':neg(eq('u_berserk_hunt_repair_v25b')),'then':[math('u_berserk_hunt_repair_v25b = 1'),
             {'if':neg(valid),'then':math('u_berserk_first_hunt_retry_at = 0')}]},run(P+'FIRST_RETRY')],
         eligible,eoc_type='EVENT',required_event='game_load'))
     E.append(eoc(P+'WATCH',run(P+'FIRST_RETRY'),eligible,eoc_type='RECURRING',recurrence='10 minutes',**{'global':True}))
 
 
+def wall_hotfix():
+    # Narrow, once-per-instance repair for the erroneous visited chapel reported
+    # by the owner. No map rebuild, loot or NPC changes. The existing plaque's
+    # invisible layout variant marks each repaired instance, including saves.
+    point={'context_val':'berserk_chapel_south_omt'}
+    effects=[{'u_location_variable':point},
+        math('_berserk_chapel_south_omt.x = floor(_berserk_chapel_south_omt.x / 24) * 24'),
+        math('_berserk_chapel_south_omt.y = floor(_berserk_chapel_south_omt.y / 24) * 24')]
+    plaque={'context_val':'berserk_chapel_version_point'}
+    effects += [{'copy_var':point,'target_var':plaque},{'location_variable_adjust':plaque,'x_adjust':12,'y_adjust':16}]
+    checks=[{'map_furniture_id':'f_berserk_chapel_record','loc':plaque}]
+    fixed=[{'map_furniture_id':'f_berserk_chapel_record_v2','loc':plaque}]
+    for i,y in enumerate(range(7,11)):
+        pos={'context_val':'berserk_chapel_wall_'+str(i)}
+        effects += [{'copy_var':point,'target_var':pos},{'location_variable_adjust':pos,'x_adjust':7,'y_adjust':y}]
+        checks += [{'map_terrain_id':'t_wall','loc':pos},{'map_furniture_id':'f_null','loc':pos}]
+        fixed.append({'map_terrain_id':'t_floor','loc':pos})
+    E.append(eoc(P+'WALL_FIXED',math('berserk_chapel_wall_hotfix25b = 1'),both(*fixed)))
+    effects.append({'if':both(*checks),'then':[{'mapgen_update':'berserk_chapel_remove_added_wall_v1','target_var':point},run(P+'WALL_FIXED')]})
+    E.append(eoc(P+'WALL_HOTFIX',effects,both('u_is_avatar',{'u_at_om_location':'berserk_desecrated_chapel_nave'})))
+    write('mapgen/chapel_layout_hotfix.json',[{'type':'mapgen','update_mapgen_id':'berserk_chapel_remove_added_wall_v1',
+        'object':{'set':[{'point':'terrain','id':'t_floor','x':7,'y':y} for y in range(7,11)]+
+            [{'point':'furniture','id':'f_berserk_chapel_record_v2','x':12,'y':16}]}}])
+    E.append(eoc(P+'LOCAL_LOAD',[run(P+'HINT_CHAPEL'),run(P+'WALL_HOTFIX')],'u_is_avatar',eoc_type='EVENT',required_event='game_load'))
+    index(E)[P+'ARRIVAL']['effect'].append(run(P+'WALL_HOTFIX'))
+
+
 def main():
-    authored_sprites();chapel();physical_directions();entry_hints();reliable_hunt()
+    authored_sprites();chapel();physical_directions();entry_hints();reliable_hunt();wall_hotfix()
     write('effects/playtest_fixes_20261025_eocs.json',E);localize()
     print('25 October: real early leads, authored demon families, approved chapel and stalled hunt retry.')
 

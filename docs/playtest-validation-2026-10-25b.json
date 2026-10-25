@@ -1,0 +1,42 @@
+{
+  "parent": "9d7750bd629059e12c091eca074d8c74503a90ed",
+  "current_checks_passed": 338,
+  "series_33_checks": 326,
+  "new_owner_regression_tests": 13,
+  "recipe_checks": 5,
+  "dynamic_dialogue_checks": 7,
+  "asset_validation": {
+    "packages": 2,
+    "json_files": 387,
+    "mod_tilesets": 27,
+    "sprite_sheets": 29,
+    "tile_ids": 76,
+    "translation_catalogs": 4
+  },
+  "rebuild": {
+    "checked_files": 397,
+    "drift": []
+  },
+  "historical_full_suite": {
+    "total": 655,
+    "failures": 136,
+    "errors": 89,
+    "previous_failing_ids": 225,
+    "new_failing_test_ids": [],
+    "resolved_failing_test_ids": []
+  },
+  "native_game_test": false,
+  "native_loader_attempt": {
+    "release": "official Linux terminal 0.I (2026-06-06-1535)",
+    "help_completed": true,
+    "jsonverify_core_exit": 0,
+    "check_mods_berserk_completed": false,
+    "check_mods_core_control_completed": false,
+    "result": "not counted as a mod load or gameplay pass"
+  },
+  "placement_test": "JSON execution plus source-checked native special/submap and SAFE_AT_WORLDGEN placement fixture; revealed forest, dense forest, generated-map preservation, current save retry",
+  "coordinate_test": "Native overmap_tile scales x/y offsets without snapping; explicit floor and legacy cache covered across all 1152 chapel cells",
+  "authored_pngs_changed": false,
+  "old_generated_maps_changed": "Only exact four-cell legacy chapel repair, once per instance via existing inscription layout variant; all items and NPCs preserved",
+  "new_chapel_project": "docs/location_projects/chapel-3.3-02.json"
+}
