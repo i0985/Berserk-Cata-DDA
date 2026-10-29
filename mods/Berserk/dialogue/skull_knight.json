@@ -358,7 +358,13 @@
         "yes": "Godot and Rickert. You have already spoken with both of them. They sheltered you when I brought you here.",
         "no": "You know Godot. The young craftsman at his forge is Rickert; you have yet to meet him yourself."
       },
-      "no": "Godot is a smith. Rickert works beside him on crossbows and mechanisms. You will have to meet them for yourself."
+      "no": {
+        "math": [
+          "u_berserk_rickert_met == 1"
+        ],
+        "yes": "You know Rickert. Godot is the master of this forge. He took you in; you have yet to speak with him yourself.",
+        "no": "Godot is a smith. Rickert works beside him on crossbows and mechanisms. You will have to meet them for yourself."
+      }
     },
     "responses": [
       {
@@ -489,7 +495,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_GOD_HAND",
-    "dynamic_line": "The God Hand. Do not confuse them with the servants admitted to the feast. Killing an ordinary apostle does not bring their overthrow a step closer.",
+    "dynamic_line": "The God Hand. Do not confuse them with the apostles at their feast. Defeating an apostle does not mean you have learned how to strike at them.",
     "responses": [
       {
         "text": "Then resistance is pointless?",
@@ -942,22 +948,26 @@
       "test_eoc": "EOC_BERSERK_KNIGHT_HURT",
       "yes": "First let your wounds close. Speak with the craftsmen, gather what you need and prepare for night. The road will not disappear while you learn to walk it without falling at the first step.",
       "no": {
-        "math": [
-          "u_berserk_first_hunt_done != 1"
-        ],
-        "yes": "The trail leads to the forest hollow. The direction is already in your records. Prepare before following it; I will not choose your next step for you.",
+        "test_eoc": "EOC_BERSERK_REVIEW29_LINE_AFFFFE25EA58",
+        "yes": "Speak to Rickert first. He can make a replacement for the hand you lost. Regain a reliable grip before setting out on the known trail.",
         "no": {
           "math": [
-            "u_berserk_journal_read_berserk_apostle_burned_clue != 1"
+            "u_berserk_first_hunt_done != 1"
           ],
-          "yes": "Victory left you more than a dead enemy. Examine what remains in its lair. You may find why it came to these lands.",
+          "yes": "The trail leads to the forest hollow. The direction is already in your records. Prepare before following it; I will not choose your next step for you.",
           "no": {
-            "test_eoc": "EOC_BERSERK_KNIGHT_LINE_481AF9211DC7",
-            "yes": "You have found the trail of a passage. Now deal with the wound itself. A fallen keeper does not always mean the road behind it has closed.",
+            "math": [
+              "u_berserk_journal_read_berserk_apostle_burned_clue != 1"
+            ],
+            "yes": "Victory left you more than a dead enemy. Examine what remains in its lair. You may find why it came to these lands.",
             "no": {
-              "test_eoc": "EOC_BERSERK_KNIGHT_UNFINISHED_KNOWN",
-              "yes": "The roads you learned are already marked. Follow an unfinished trail when you are ready. You need not take on every enemy at once.",
-              "no": "You have exhausted the trails you had. Revisit the evidence and speak with those you trust. The next road remains to be discovered; I will not point you toward something I do not know."
+              "test_eoc": "EOC_BERSERK_KNIGHT_LINE_481AF9211DC7",
+              "yes": "You have found the trace of a passage. Now attend to the wound itself. A dead keeper does not mean the way behind it has closed.",
+              "no": {
+                "test_eoc": "EOC_BERSERK_KNIGHT_UNFINISHED_KNOWN",
+                "yes": "The roads you learned are already marked. Follow an unfinished trail when you are ready. You need not take on every enemy at once.",
+                "no": "You have exhausted the trails you had. Revisit the evidence and speak with those you trust. The next road remains to be discovered; I will not point you toward something I do not know."
+              }
             }
           }
         }
@@ -1112,7 +1122,7 @@
         }
       },
       {
-        "text": "I found evidence about judeau.",
+        "text": "I found traces of a wounded man who was still helping the others.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_JUDEAU",
         "condition": {
           "and": [
@@ -1146,7 +1156,7 @@
         }
       },
       {
-        "text": "I found evidence about pippin.",
+        "text": "Someone held the creatures back so the others could retreat.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_PIPPIN",
         "condition": {
           "and": [
@@ -1180,7 +1190,7 @@
         }
       },
       {
-        "text": "I found evidence about corkus.",
+        "text": "One of the dead had hoped to leave the war behind.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_CORKUS",
         "condition": {
           "and": [
@@ -1214,7 +1224,7 @@
         }
       },
       {
-        "text": "I found evidence about gaston.",
+        "text": "I found the belongings of someone who hoped to return to ordinary work after the war.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_GASTON",
         "condition": {
           "and": [
@@ -1330,7 +1340,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_CORKUS_445",
-    "dynamic_line": "They did not need to become heroes to deserve their lives.",
+    "dynamic_line": "He did not have to be a hero to deserve to live.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -1744,9 +1754,13 @@
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_SUMMARY",
     "dynamic_line": {
-      "u_has_bionics": "bio_berserk_brand_of_sacrifice",
-      "yes": "Prepare for night. Ask the craftsmen for what you lack. Then follow a trail you know. Do not try to settle your whole war in a single battle.",
-      "no": "Recover before another fight. Prepare what you need, and follow a trail you already know."
+      "test_eoc": "EOC_BERSERK_REVIEW29_LINE_AFFFFE25EA58",
+      "yes": "Ask Rickert about a replacement hand. Prepare a place for the night and keep your way out clear. The trail you already know will wait.",
+      "no": {
+        "u_has_bionics": "bio_berserk_brand_of_sacrifice",
+        "yes": "Prepare for night. Ask the craftsmen for what you lack. Then follow a trail you know. Do not try to settle your whole war in a single battle.",
+        "no": "Recover before another fight. Prepare what you need, and follow a trail you already know."
+      }
     },
     "responses": [
       {
@@ -1767,7 +1781,7 @@
     "id": "TALK_BERSERK_SKULL_KNIGHT_FINAL",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_FORGE_GUTS",
-      "yes": "Then preserve the life with which you intend to continue.",
+      "yes": "Then take care of the life you mean to live.",
       "no": "Live on. What kind of life it will be is yours to decide."
     },
     "responses": [
@@ -1806,7 +1820,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_SKULL_KNIGHT_VICTORY",
-    "dynamic_line": "'You broke the manifestation that held this ceremony together. Do not mistake that for killing one of the God Hand. The wound is closing: come with me, now.'",
+    "dynamic_line": "&The knight looks toward the narrowing tear. \"You broke the image that held this ceremony open. Do not mistake it for the death of its master. Come. We must leave now.\"",
     "responses": [
       {
         "text": "Follow the Skull Knight out of the Eclipse.",

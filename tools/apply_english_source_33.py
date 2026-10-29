@@ -106,6 +106,8 @@ def main():
     mapping = translations(); updates = []
     # Check every file before writing any; an unknown string aborts the build.
     for path in sorted(MOD.rglob('*.json')):
+        if any(part.startswith('.') for part in path.relative_to(MOD).parts):
+            continue  # Editor/synchronization internals are not mod sources.
         old = json.loads(path.read_text())
         new = convert(old, mapping, str(path.relative_to(ROOT)))
         if new != old:

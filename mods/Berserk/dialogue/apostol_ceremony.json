@@ -197,7 +197,7 @@
           "u_berserk_hand33_slan_greeted == 1"
         ],
         "yes": "Back again. Is there another question, or hope of a different answer to the old one?",
-        "no": "&Slan does not step back as you approach. Instead, she leans forward as if catching a scent. Her gaze travels over your face, your hands, the way you hold your body: appraising, almost hungry.\n\n\"You're still trembling.\n\nAnd yet you came closer. I like that, when the desire to live overcomes disgust.\""
+        "no": "&Slan leans toward you as though catching a scent. Her gaze lingers on your face and hands.\n\n\"You are still trembling. And yet you came closer. I like it when the desire to live overcomes disgust.\""
       },
       "no": "Only a heavy silence answers."
     },
@@ -378,7 +378,7 @@
           "yes": "Or perhaps one that makes refusal easier?",
           "no": "Well, have you found an explanation that makes agreeing easier?"
         },
-        "no": "&Ubik does not stand still like the others. He sways gently, as though the ground beneath him differs a little from everyone else's. His smile suggests he already knows your answer and finds it amusing.\n\n\"Here you are, then. Let's see what questions you brought along.\""
+        "no": "&Ubik rocks gently from side to side. His smile suggests he finds your questions amusing before you have even asked them.\n\n\"Here you are, then. What would you like to know?\""
       },
       "no": "Only a heavy silence answers."
     },
@@ -521,7 +521,7 @@
     "id": "TALK_BERSERK_APOSTOL_UBIK_PAUSE",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Then nothing has happened yet.",
+      "yes": "Take your time. I am curious which answer you will return with.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
@@ -710,7 +710,7 @@
     "id": "TALK_BERSERK_APOSTOL_CONRAD_PAUSE",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "(Conrad says nothing more. He simply becomes still again, as though the conversation had never happened.)",
+      "yes": "&Conrad falls silent again.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
@@ -742,7 +742,7 @@
           "u_berserk_hand33_femto_greeted == 1"
         ],
         "yes": "Are you ready to answer?",
-        "no": "&Femto does not stare at you as the others do. He seems to look through you, which is far more unsettling than any direct gaze. The air around him hangs motionless, as though it too dares not stir.\n\n\"You have arrived. Speak.\""
+        "no": "&Femto looks past you. The air around him hangs utterly still.\n\n\"You have arrived. Speak.\""
       },
       "no": "Only a heavy silence answers."
     },
@@ -899,7 +899,7 @@
     "id": "TALK_BERSERK_APOSTOL_FEMTO_PAUSE",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "(Femto does not answer. He simply becomes still again, gazing through space as though the conversation had never happened.)",
+      "yes": "&Femto looks past you without answering.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
@@ -953,7 +953,7 @@
     "id": "TALK_BERSERK_APOSTOL_VOID_STONE",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "The stone came into your hands. Not by chance, yet at no one's bidding but your own.\n\nYou heard the call. Answered with action. Now you see where that succession of steps has led.",
+      "yes": "Many causes brought the stone to your hand. You heard its call and answered. Your own step is part of the chain that led you here.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
@@ -1055,7 +1055,7 @@
     "id": "TALK_BERSERK_APOSTOL_VOID_DID_NOT_KNOW",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Now you are permitted to know enough to answer knowingly. There will be no greater knowledge, either before or after.",
+      "yes": "You may learn enough to answer. Do not expect to see every step of the life beyond this choice.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
@@ -1706,7 +1706,7 @@
     "id": "TALK_BERSERK_APOSTOL_UBIK_SURROUNDINGS",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "And rightly so.\n\nHere you should be careful of the habit of believing the first explanation you hear. It is rarely the last.",
+      "yes": "Mind your step. You can fall here quite as truly as anywhere else. Give the place a name later.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
@@ -1747,7 +1747,7 @@
     "id": "TALK_BERSERK_APOSTOL_UBIK_TRUST",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Especially if you like it. Check pleasing explanations twice.",
+      "yes": "You need not believe me. You will find plenty of comforting answers in your own head. Be just as careful with those.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
@@ -2040,7 +2040,7 @@
     "id": "TALK_BERSERK_APOSTOL_UBIK_LIE",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Are you afraid of hearing a lie? Or of hearing exactly what you've long wanted to hear?\n\n\"Enough answering with questions. Can the gift be undone?\"",
+      "yes": "Are you afraid of hearing a lie? Or of hearing exactly what you have wanted to hear for so long?",
       "no": "Only a heavy silence answers."
     },
     "responses": [
@@ -3143,7 +3143,7 @@
           "u_berserk_apostol_refusal_seen == 1"
         ],
         "yes": "You already know the consequences.\n\nDo you confirm your refusal?",
-        "no": "Then turn toward the life you intend to continue.\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance."
+        "no": "&Void says, \"Then turn toward the life you intend to continue.\"\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance."
       },
       "no": "Only a heavy silence answers."
     },
@@ -3206,7 +3206,7 @@
     "id": "TALK_BERSERK_APOSTOL_VOID_MEMORY_BIASED",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "&Ubik: So you remember other things too. Good.\n\nDecide with those in mind as well, not just what we slipped before you.",
+      "yes": "&Ubik smiles. \"So you remember something else as well. Good. Let us see which memories weigh more.\"",
       "no": "Only a heavy silence answers."
     },
     "responses": [
@@ -3287,7 +3287,7 @@
     "id": "TALK_BERSERK_APOSTOL_VOID_MEMORY_STOP",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "&The images fade at once, as though switched off. The five figures stand before you again, motionless and patient, as though there had been no pause.",
+      "yes": "&The images vanish all at once. The five figures stand before you again, motionless and patient, as though there had been no pause.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
@@ -3781,7 +3781,7 @@
           "u_berserk_apostol_refusal_seen == 1"
         ],
         "yes": "You already know the consequences.\n\nDo you confirm your refusal?",
-        "no": "You cling so tightly to what came before. Let us see what you are really holding on to.\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance."
+        "no": "&Slan says, \"You cling so tightly to what came before. Let us see what you are really holding on to.\"\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance."
       },
       "no": "Only a heavy silence answers."
     },
@@ -4412,7 +4412,7 @@
           "u_berserk_apostol_refusal_seen == 1"
         ],
         "yes": "You already know the consequences.\n\nDo you confirm your refusal?",
-        "no": "Of course. Only let's not remember it too selectively, shall we?\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance."
+        "no": "&Ubik says, \"Of course. Only let's not remember it too selectively, shall we?\"\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance."
       },
       "no": "Only a heavy silence answers."
     },
@@ -5043,7 +5043,7 @@
           "u_berserk_apostol_refusal_seen == 1"
         ],
         "yes": "You already know the consequences.\n\nDo you confirm your refusal?",
-        "no": "Remember.\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance."
+        "no": "&Conrad says, \"Remember.\"\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance."
       },
       "no": "Only a heavy silence answers."
     },
@@ -5674,7 +5674,7 @@
           "u_berserk_apostol_refusal_seen == 1"
         ],
         "yes": "You already know the consequences.\n\nDo you confirm your refusal?",
-        "no": "Look at what you are choosing.\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance."
+        "no": "&Femto says, \"Look at what you are choosing.\"\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance."
       },
       "no": "Only a heavy silence answers."
     },

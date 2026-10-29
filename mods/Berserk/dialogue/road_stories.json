@@ -4,8 +4,8 @@
     "id": "TALK_BERSERK_ROAD_CARAVAN",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_GODO_ROAD_CARAVAN_INTACT",
-      "yes": "*Most of the wagon has been stripped. A repair order lies under the lid of the iron-bound box. One dry bundle remains beneath it. You could recover the provisions or break the box for its fittings.",
-      "no": "*The wagon box has been searched. The repair order is still tucked beneath its lid."
+      "yes": "&Most of the wagon has been stripped. A repair order lies under the lid of the iron-bound box. One dry bundle remains beneath it. You could recover the provisions or break the box for its fittings.",
+      "no": "&The wagon box has been searched. The repair order is still tucked beneath its lid."
     },
     "responses": [
       {
@@ -107,7 +107,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_ROAD_SCOUT",
-    "dynamic_line": "*Boot prints end beside a slippery slope. The scout tied his pack to a root before descending, but never returned. A rope would let you recover the whole pack; without it, you can reach only the outer bundle.",
+    "dynamic_line": "&Boot prints end beside a slippery slope. The scout tied his pack to a root before descending, but never returned. A rope would let you recover the whole pack; without it, you can reach only the outer bundle.",
     "responses": [
       {
         "text": "Use a rope to recover the pack. Keep the rope.",
@@ -178,8 +178,8 @@
     "id": "TALK_BERSERK_ROAD_CAMP",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_GODO_ROAD_CAMP_INTACT",
-      "yes": "*The travelers left a dry windbreak and their last blanket. A water skin and a folded message lie beside it. You can prepare a bed here or take the blanket for the road.",
-      "no": "*The bedding and supplies have already been sorted. The traveler’s message remains beside the cold ashes."
+      "yes": "&The travelers left a dry windbreak and their last blanket. A water skin and a folded message lie beside it. You can prepare a bed here or take the blanket for the road.",
+      "no": "&The bedding and supplies have already been sorted. The traveler’s message remains beside the cold ashes."
     },
     "responses": [
       {

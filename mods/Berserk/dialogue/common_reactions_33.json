@@ -1447,7 +1447,7 @@
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_COMMON33_LINE_38463F2DBC47",
       "yes": "That's what frightens me. You chose without knowing everything, and now we have to find out the consequences.",
-      "no": "...and now you have to find out the consequences."
+      "no": "That is what frightens me. You chose without knowing what it would do. Now you have to live with the consequences."
     },
     "responses": [
       {
@@ -1574,7 +1574,7 @@
         "u_berserk_common33_rickert_read_dead == 1"
       ],
       "yes": "I remember. Has anything changed?",
-      "no": "He can't order you about anymore. But I can see your body is still the same... I mean, the way it became because of him."
+      "no": "He cannot order you about anymore. But the changes to your body are still there."
     },
     "responses": [
       {
@@ -2104,7 +2104,7 @@
         "u_berserk_common33_flora_read_dead == 1"
       ],
       "yes": "We have spoken about this. Is there anything else?",
-      "no": "His death ended your relationship. It does not reverse what has already happened to your flesh."
+      "no": "His will no longer binds you. But what has changed in your flesh remains."
     },
     "responses": [
       {
@@ -2130,7 +2130,7 @@
         "u_berserk_common33_flora_read_refused == 1"
       ],
       "yes": "We have spoken about this. Is there anything else?",
-      "no": "You endured the consequences of the encounter. That does not mean you accepted the gift. We will talk about what happened to you without attributing someone else's decision to you."
+      "no": "You refused the gift. What you suffered does not make that refusal any less real. Tell me what troubles you now."
     },
     "responses": [
       {
@@ -2895,7 +2895,7 @@
         }
       },
       {
-        "text": "A broken piece of scabbard was found beside the remains.",
+        "text": "I found a broken piece of a scabbard beside the remains.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_FIND_CORKUS",
         "condition": {
           "math": [
@@ -2904,7 +2904,7 @@
         }
       },
       {
-        "text": "A crushed sewing kit was found beside the remains.",
+        "text": "There was a crushed sewing kit beside the remains.",
         "topic": "TALK_BERSERK_COMMON33_RICKERT_FIND_GASTON",
         "condition": {
           "math": [

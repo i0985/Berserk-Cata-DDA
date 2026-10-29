@@ -23,7 +23,7 @@
             "test_eoc": "EOC_BERSERK_GODO_LINE_CF75A03BBE66",
             "yes": {
               "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE",
-              "yes": "If you want a forge, you have found it. Mind what you touch. I am not fond of strangers. Rickert can show you where to rest.",
+              "yes": "You found the forge. Shut the door and keep clear of the anvil. Tell me what you need.",
               "no": "&The smith turns the billet in his tongs. Only after a few hammer blows does he notice you. \"Close the door. And step away from that bucket.\""
             },
             "no": {
@@ -46,10 +46,10 @@
                     "yes": "Your great blade has not been forgotten. What do you need?",
                     "no": {
                       "test_eoc": "EOC_BERSERK_FORGE_GUTS",
-                      "yes": "Still alive, I see! Is your sword in one piece?",
+                      "yes": "Still alive, I see. Is your sword holding up?",
                       "no": {
                         "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE",
-                        "yes": "It has been a while. Heard what is happening? Even the daylight seems darker. Something bad has happened.",
+                        "yes": "Been a while. The woods have grown darker. What have you seen out there?",
                         "no": "Back again. What is it this time?"
                       }
                     }
@@ -715,7 +715,7 @@
     },
     "responses": [
       {
-        "text": "Iron. Fire. Sparks.",
+        "text": "The fire. Hot iron. Sparks.",
         "topic": "TALK_BERSERK_GODO_SPARKS_LIGHT",
         "condition": {
           "test_eoc": "EOC_BERSERK_GODO_CAN_SPARKS"
@@ -3688,7 +3688,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_ECLIPSE_LOSSES",
-    "dynamic_line": "I cannot give an honest count. No one called the roll afterwards. They are people to me, not a tally.",
+    "dynamic_line": "I cannot give you a number. There was no roll call afterward. I still catch myself waiting to hear their voices.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -3931,7 +3931,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_ECLIPSE_MEMORIES",
-    "dynamic_line": "Whom did you want to talk about?",
+    "dynamic_line": "Judeau, Pippin, Corkus, Gaston... They were all different. Whom would you like me to tell you about?",
     "responses": [
       {
         "text": "Tell me about Judeau.",
@@ -5170,7 +5170,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_MECHANISMS",
-    "dynamic_line": "With a crossbow I can help before the enemy reaches us. I am no swordsman. I choose a position early and try not to waste a shot; there may not be another.",
+    "dynamic_line": "A crossbow lets me help before the enemy reaches us. I am no swordsman, so I choose my position early and make the first shot count.",
     "responses": [
       {
         "text": "What if you miss?",
@@ -5194,7 +5194,19 @@
       },
       {
         "text": "Still working on that trigger?",
-        "topic": "TALK_BERSERK_RICKERT_INTRO_LOCK"
+        "topic": "TALK_BERSERK_RICKERT_INTRO_LOCK",
+        "condition": {
+          "not": {
+            "and": [
+              {
+                "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+              },
+              {
+                "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+              }
+            ]
+          }
+        }
       },
       {
         "text": "I need bolts.",
@@ -5235,7 +5247,11 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_ORDERS",
-    "dynamic_line": "Godot handles blades. I can make bolts; ask me about what you need.",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND",
+      "yes": "I can help with the replacement hand and crossbow bolts. For blades, ask Godot. What do you need?",
+      "no": "Crossbows, fittings and bolts are my work. For a blade, ask Godot. What do you need?"
+    },
     "responses": [
       {
         "text": "Can you do something about my hand?",
@@ -5302,7 +5318,7 @@
         "topic": "TALK_BERSERK_RICKERT_COMMANDER"
       },
       {
-        "text": "About Judeau, Pippin, Corkus and Gaston.",
+        "text": "Will you tell me about some of your comrades?",
         "topic": "TALK_BERSERK_RICKERT_ECLIPSE_MEMORIES"
       },
       {
@@ -5742,7 +5758,7 @@
     "id": "TALK_BERSERK_GODO_CHANGED_EARLY",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT",
-      "yes": "I will return everything you brought. I have no use for what is not mine. Come here and take it.",
+      "yes": "I will return what you brought. It is yours. Ask, and we will settle the account.",
       "no": "Something has been weighing on you. If it concerns this work, tell me before we continue."
     },
     "responses": [
@@ -6036,7 +6052,7 @@
       "math": [
         "u_berserk_knight_farewell_confirmed != 1"
       ],
-      "yes": "A knight. Tall, armored. He laid you down here and told us to prepare water. Ask him the rest; he is waiting outside.",
+      "yes": "A knight in heavy armor. He put you down here and told us to bring water. He is waiting outside; ask him yourself.",
       "no": "An armored knight brought you. Said you could recover here. He has gone on his way."
     },
     "responses": [
@@ -6189,7 +6205,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_WEAPON_LEAVE",
-    "dynamic_line": "Come back if you need something. Ask Rickert, too. He may have something useful for you. Not a sword, but useful all the same.",
+    "dynamic_line": "Come back when you know what you need. Rickert might have something useful for you too.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -6200,7 +6216,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_WEAPON_REASONABLE",
-    "dynamic_line": "There. You can listen after all. I can try, but you will have to bring the materials. I am too old to go looking for them.",
+    "dynamic_line": "That I can forge. Bring the steel and charcoal; I am too old to fetch them for you.",
     "responses": [
       {
         "text": "Will you take the work?",
@@ -6262,7 +6278,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_OWNER_UPGRADE",
-    "dynamic_line": "Not without changing its shape and finding the balance all over again. That would mean making a new sword.",
+    "dynamic_line": "Make it heavier and the balance goes. Grind it thinner and it may break. For a different job, you need a different blade.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -6345,7 +6361,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_COPY_PRAISE",
-    "dynamic_line": "Flattery makes a worse smith. Your life depends on the blade; one mistake can end it. Do not take offense.",
+    "dynamic_line": "A bad blade can get you killed. Flattery will not fix it. You want praise, make the next one better.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -6833,7 +6849,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_LIFE_IRON",
-    "dynamic_line": "Enough. Some of the rubbish I made when I was young still makes me ashamed.",
+    "dynamic_line": "Enough. Some of my early work still makes me wince to remember it.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -8123,7 +8139,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_SPARKS_GUTS_AFTER",
-    "dynamic_line": "Your anger got you out of the grave. But even here by the fire you sit as though you must spring up and run.",
+    "dynamic_line": "Anger got you back on your feet. But even here, by the forge, you sit as though you have to run straight into another fight.",
     "responses": [
       {
         "text": "While I sit here warming myself, he is out there. Alive.",
@@ -8176,7 +8192,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_SPARKS_DEMON",
-    "dynamic_line": "You chose to change your nature for strength. What will you hold on to with that changed body?",
+    "dynamic_line": "You changed yourself for strength. What are you going to hold on to now?",
     "responses": [
       {
         "text": "My own life. I want to protect it.",
@@ -8349,7 +8365,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_SPARKS_FREEDOM",
-    "dynamic_line": "Pride. Then you must answer for each step yourself. That takes more strength than empty threats.",
+    "dynamic_line": "Then answer for yourself. No master to blame when you hurt someone. Do not mistake that for an easy life.",
     "responses": [
       {
         "text": "I will remember.",
@@ -8464,7 +8480,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_INTRO_SMITH",
-    "dynamic_line": "He is at the forge. Wait until he puts down the hammer; otherwise he will not hear a thing. I am Rickert. I help him here.",
+    "dynamic_line": "He is at the forge. Wait until he puts the hammer down or he will not hear you. I help him with the smaller mechanisms.",
     "responses": [
       {
         "text": "Does he always greet people like that?",
@@ -8479,7 +8495,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_INTRO_GODO",
-    "dynamic_line": "You have not even spoken to him yet! Sometimes he barks so loudly you want to turn around. Then he takes work every other smith would refuse.",
+    "dynamic_line": "He can bark hard enough to make you turn around. Then he takes on work the other smiths would not even try.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -8813,7 +8829,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_MODERN_INTEREST",
-    "dynamic_line": "Very. Just bring things that are unloaded and cannot go off by themselves. I have to examine them with my hands.",
+    "dynamic_line": "Very. Just unload anything that can fire before you hand it over. I want to understand it, not set it off by accident.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -8958,7 +8974,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_ARM_LATER",
-    "dynamic_line": "All right. Come back to it when you decide. I will not hurry you.",
+    "dynamic_line": "All right. Come back when you are ready, and we will go over it again.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -9038,7 +9054,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_ARM_REFUNDED",
-    "dynamic_line": "Here is what you brought. Keep the device you already have.",
+    "dynamic_line": "Here is what you brought. I will not use any more of your materials.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -9185,7 +9201,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_CANNON_SHOT",
-    "dynamic_line": "There is little room and weight to spare. Another loading mechanism would take space the hand needs to grip. I chose the hand.",
+    "dynamic_line": "There is only room for one charge. A second barrel or a loading mechanism would leave less room for the hand itself. I wanted you to be able to hold things.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -9207,7 +9223,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_PRAISE_ADAPT",
-    "dynamic_line": "Would you show me how? It could help someone else in the same position.",
+    "dynamic_line": "Will you show me how you held the parts while fitting them? I would like to learn that trick.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -9218,7 +9234,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_PRAISE_TRIES",
-    "dynamic_line": "I believe it. Some parts are hard enough with two hands. The result matters more than how many tries it took.",
+    "dynamic_line": "I believe you. Some of those parts take several attempts even on a good day. What matters is that you got them working.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -9651,7 +9667,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_TRUTH_AFTER",
-    "dynamic_line": "I need time. I hear you. What I remember of him does not fit your words yet. That is not your fault.",
+    "dynamic_line": "I need time. I hear you. It is just hard to fit what I remember of him together with what you saw.",
     "responses": [
       {
         "text": "I understand what you mean.",
@@ -10860,7 +10876,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_COMPANION_SELF",
-    "dynamic_line": "Ah... I see. Not always well, honestly. Thank you for asking. Not everyone notices the difference.",
+    "dynamic_line": "Not always well, to be honest. I keep myself busy. It helps that you asked.",
     "responses": [
       {
         "text": "Want to talk?",

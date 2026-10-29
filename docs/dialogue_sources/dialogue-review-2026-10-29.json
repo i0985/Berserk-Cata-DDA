@@ -1,0 +1,995 @@
+{
+  "base_commit": "2c5704047282e8c5b39ccab6caf43656d3f2fac5",
+  "patches": [
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_ENTER",
+      "path": "/dynamic_line/no/no/no/yes/yes",
+      "before_en": "If you want a forge, you have found it. Mind what you touch. I am not fond of strangers. Rickert can show you where to rest.",
+      "before_ru": "Если ищешь кузницу — пришёл куда надо. Только смотри мне тут, не разгроми всё, я чужаков не люблю, если Рикерту понравишься, то можешь отдохнуть.",
+      "after_en": "You found the forge. Shut the door and keep clear of the anvil. Tell me what you need.",
+      "after_ru": "Кузницу нашёл. Дверь прикрой и от наковальни отойди. Говори, с чем пришёл.",
+      "reason": "Убрать бессвязное приветствие и условие отдыха через симпатию Рикерта."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_ENTER",
+      "path": "/dynamic_line/no/no/no/no/no/no/no/no/yes",
+      "before_en": "Still alive, I see! Is your sword in one piece?",
+      "before_ru": "О, вижу живой ещё! Твой меч целый?",
+      "after_en": "Still alive, I see. Is your sword holding up?",
+      "after_ru": "Живой, вижу. Клинок ещё держится?",
+      "reason": "Сократить повтор слов в приветствии."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_ENTER",
+      "path": "/dynamic_line/no/no/no/no/no/no/no/no/no/yes",
+      "before_en": "It has been a while. Heard what is happening? Even the daylight seems darker. Something bad has happened.",
+      "before_ru": "Давно тебя не было. Слышал, чего происходит? На улице будто темнее всё стало, случилось что-то плохое",
+      "after_en": "Been a while. The woods have grown darker. What have you seen out there?",
+      "after_ru": "Давно не заходил. Лес потемнел. Что ты там видел?",
+      "reason": "Исправить неграмотное повторное приветствие без знания чужих событий."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_SPARKS",
+      "path": "/responses/0/text",
+      "before_en": "Iron. Fire. Sparks.",
+      "before_ru": "Железо. Раскаленный огонь. Искры",
+      "after_en": "The fire. Hot iron. Sparks.",
+      "after_ru": "Огонь. Раскалённое железо. Искры.",
+      "reason": "Раскалённым бывает железо, а не огонь."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_WEAPON_LEAVE",
+      "path": "/dynamic_line",
+      "before_en": "Come back if you need something. Ask Rickert, too. He may have something useful for you. Not a sword, but useful all the same.",
+      "before_ru": "Если что-то понадобится то обращайся. Можешь у Рикерта спросить, он тоже сделать может тебе что нибудь полезное, не меч конечно, но тоже неплохо",
+      "after_en": "Come back when you know what you need. Rickert might have something useful for you too.",
+      "after_ru": "Решишь, что тебе нужно, — приходи. И у Рикерта спроси. Может, и он чем поможет.",
+      "reason": "Убрать сбивчивую длинную реплику и вернуть сдержанный голос Годо."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_WEAPON_REASONABLE",
+      "path": "/dynamic_line",
+      "before_en": "There. You can listen after all. I can try, but you will have to bring the materials. I am too old to go looking for them.",
+      "before_ru": "Вот, можно же тебя вразумить. Попробую тебе сделать, но надо будет тебе помочь с материалами, я уже стар ходить за этим всем.",
+      "after_en": "That I can forge. Bring the steel and charcoal; I am too old to fetch them for you.",
+      "after_ru": "Такой выкую. Сталь и уголь принесёшь сам — стар я за ними бегать.",
+      "reason": "Заменить неестественное обещание коротким ответом мастера."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_OWNER_UPGRADE",
+      "path": "/dynamic_line",
+      "before_en": "Not without changing its shape and finding the balance all over again. That would mean making a new sword.",
+      "before_ru": "Меч такого типа никак не усилить, форму другую надо будет меча делать, да и центр тяжести по новой подгонять придётся, тут только новый меч делать.",
+      "after_en": "Make it heavier and the balance goes. Grind it thinner and it may break. For a different job, you need a different blade.",
+      "after_ru": "Утяжелю — потеряешь равновесие. Сточу лишнее — сломается. Для другой работы нужен другой клинок.",
+      "reason": "Убрать повтор «меч делать» и объяснить предел переделки."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_COPY_PRAISE",
+      "path": "/dynamic_line",
+      "before_en": "Flattery makes a worse smith. Your life depends on the blade; one mistake can end it. Do not take offense.",
+      "before_ru": "Ковка дело такое, если льстить и врать только хуже сделаю, твоя жизнь от меча зависит, любая оплошность и конец, так что ты не обижайся на меня.",
+      "after_en": "A bad blade can get you killed. Flattery will not fix it. You want praise, make the next one better.",
+      "after_ru": "Плохой клинок тебя угробит. Похвала его не исправит. Хочешь похвалы — следующий сделай лучше.",
+      "reason": "Вернуть прямой голос кузнеца вместо оправданий за честную оценку."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_LIFE_IRON",
+      "path": "/dynamic_line",
+      "before_en": "Enough. Some of the rubbish I made when I was young still makes me ashamed.",
+      "before_ru": "Достаточно. Некоторый хлам, который у меня получался в юности, я до сих пор стыдом вспоминаю.",
+      "after_en": "Enough. Some of my early work still makes me wince to remember it.",
+      "after_ru": "Достаточно. Иной свой ранний клинок до сих пор со стыдом вспоминаю.",
+      "reason": "Исправить ошибку «стыдом вспоминаю»."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_WAKE_RIDER",
+      "path": "/dynamic_line/yes",
+      "before_en": "A knight. Tall, armored. He laid you down here and told us to prepare water. Ask him the rest; he is waiting outside.",
+      "before_ru": "Рыцарь. Высокий, в доспехах. Положил тебя здесь и велел приготовить воду. Об остальном спросишь его самого, он во дворе сказал будет.",
+      "after_en": "A knight in heavy armor. He put you down here and told us to bring water. He is waiting outside; ask him yourself.",
+      "after_ru": "Рыцарь в тяжёлых латах. Положил тебя здесь, велел воды принести. Ждёт снаружи — у него и спросишь.",
+      "reason": "Убрать косноязычное указание местонахождения Рыцаря."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_CHANGED_EARLY",
+      "path": "/dynamic_line/yes",
+      "before_en": "I will return everything you brought. I have no use for what is not mine. Come here and take it.",
+      "before_ru": "Всё, что ты успел мне передать, я верну. Мне чужого не надо. Подойди к верстаку и забери свое барахло.",
+      "after_en": "I will return what you brought. It is yours. Ask, and we will settle the account.",
+      "after_ru": "Что принёс — верну. Твоё оно. Скажешь — рассчитаемся.",
+      "reason": "Возврат выдаётся действием диалога, а не подбором вещей с верстака."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_SPARKS_GUTS_AFTER",
+      "path": "/dynamic_line",
+      "before_en": "Your anger got you out of the grave. But even here by the fire you sit as though you must spring up and run.",
+      "before_ru": "Твоя злость помогла тебе подняться из могилы и выжить. Я это вижу. Но ты даже здесь, у мирного костра, сидишь так, будто должен немедленно сорваться и куда-то бежать.",
+      "after_en": "Anger got you back on your feet. But even here, by the forge, you sit as though you have to run straight into another fight.",
+      "after_ru": "Злость тебя на ноги подняла. Но ты и здесь, у горна, сидишь так, будто надо немедленно бежать в новую драку.",
+      "reason": "Сцена проходит у горна, а не у случайного мирного костра."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_SPARKS_DEMON",
+      "path": "/dynamic_line",
+      "before_en": "You chose to change your nature for strength. What will you hold on to with that changed body?",
+      "before_ru": "Ты добровольно изменил свою природу ради силы. И за что собираешься удержаться этим изменённым телом?",
+      "after_en": "You changed yourself for strength. What are you going to hold on to now?",
+      "after_ru": "Ради силы себя переделал. А держаться теперь за что будешь?",
+      "reason": "Убрать тяжёлую абстрактную формулировку из речи Годо."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_GODO_SPARKS_FREEDOM",
+      "path": "/dynamic_line",
+      "before_en": "Pride. Then you must answer for each step yourself. That takes more strength than empty threats.",
+      "before_ru": "Гордыня. Значит, теперь тебе придется самому нести абсолютную ответственность за каждый свой шаг. А чтобы отвечать за поступки перед самим собой, душевной силы нужно куда больше, чем для пустых угроз окружающим",
+      "after_en": "Then answer for yourself. No master to blame when you hurt someone. Do not mistake that for an easy life.",
+      "after_ru": "Тогда сам за себя и отвечай. Некого будет винить, если кого покалечишь. Не думай, что это лёгкая жизнь.",
+      "reason": "Сохранить мысль об ответственности без философского канцелярита."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_MECHANISMS",
+      "path": "/dynamic_line",
+      "before_en": "With a crossbow I can help before the enemy reaches us. I am no swordsman. I choose a position early and try not to waste a shot; there may not be another.",
+      "before_ru": "С ним я успею помочь ещё до того, как враг до нас доберётся. В ближнем бою я не боец — себя не обманываю. Поэтому стараюсь заранее выбрать позицию и не тратить выстрел попусту — второго шанса может и не быть.",
+      "after_en": "A crossbow lets me help before the enemy reaches us. I am no swordsman, so I choose my position early and make the first shot count.",
+      "after_ru": "С арбалетом я успеваю помочь ещё до того, как враг доберётся до нас. Мечом я владею хуже, поэтому заранее выбираю позицию и стараюсь не промахнуться первым выстрелом.",
+      "reason": "Убрать ответ «С ним» без названного предмета и повтор оправданий."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_INTRO_SMITH",
+      "path": "/dynamic_line",
+      "before_en": "He is at the forge. Wait until he puts down the hammer; otherwise he will not hear a thing. I am Rickert. I help him here.",
+      "before_ru": "Он у горна. Советую подождать, пока сам не положит молот — иначе хоть кричи, не услышит. Меня зовут Рикерт. Помогаю ему тут… по мелочи, в основном.",
+      "after_en": "He is at the forge. Wait until he puts the hammer down or he will not hear you. I help him with the smaller mechanisms.",
+      "after_ru": "Он у горна. Подожди, пока положит молот, иначе не услышит. Я помогаю ему с мелкими механизмами.",
+      "reason": "Не представлять Рикерта повторно в соседней реплике."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_INTRO_GODO",
+      "path": "/dynamic_line",
+      "before_en": "You have not even spoken to him yet! Sometimes he barks so loudly you want to turn around. Then he takes work every other smith would refuse.",
+      "before_ru": "Ты ещё с ним даже словом не перекинулся — рано выводы делать. Бывает, рявкнет так, что хочется развернуться и уйти. А потом возьмётся за работу, от которой остальные кузнецы бы просто отмахнулись.",
+      "after_en": "He can bark hard enough to make you turn around. Then he takes on work the other smiths would not even try.",
+      "after_ru": "Рявкнет так, что хочется развернуться и уйти. А потом возьмётся за работу, от которой другие кузнецы отмахнулись.",
+      "reason": "Не утверждать, что герой ещё не говорил с Годо."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_ARM_LATER",
+      "path": "/dynamic_line",
+      "before_en": "All right. Come back to it when you decide. I will not hurry you.",
+      "before_ru": "Хорошо. Вернёмся к этому разговору, когда сам решишь. Спешить тут некуда — рука подождёт, лишь бы ты сам дозрел.",
+      "after_en": "All right. Come back when you are ready, and we will go over it again.",
+      "after_ru": "Хорошо. Будешь готов — вернись, ещё раз всё обсудим.",
+      "reason": "Убрать снисходительное «лишь бы ты дозрел» в разговоре о травме."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_PRAISE_ADAPT",
+      "path": "/dynamic_line",
+      "before_en": "Would you show me how? It could help someone else in the same position.",
+      "before_ru": "Покажешь, как именно? Это может пригодиться — вдруг придётся помогать ещё кому-то в таком же положении, а я понятия не имею, как подступиться к задаче без второй руки.",
+      "after_en": "Will you show me how you held the parts while fitting them? I would like to learn that trick.",
+      "after_ru": "Покажешь, как удерживал детали при подгонке? Хочу запомнить этот приём.",
+      "reason": "Самостоятельная сборка не доказывает изготовление одной рукой."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_PRAISE_TRIES",
+      "path": "/dynamic_line",
+      "before_en": "I believe it. Some parts are hard enough with two hands. The result matters more than how many tries it took.",
+      "before_ru": "Верю. Некоторые детали и двумя-то руками с первого раза не соберёшь, что уж говорить про одну. Главное — результат, а не количество попыток.",
+      "after_en": "I believe you. Some of those parts take several attempts even on a good day. What matters is that you got them working.",
+      "after_ru": "Верю. Некоторые детали и в хороший день не сразу подгонишь. Главное, что ты всё-таки добился, чтобы они работали.",
+      "reason": "Не приписывать потерю кисти всем изготовившим протез."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_CANNON_SHOT",
+      "path": "/dynamic_line",
+      "before_en": "There is little room and weight to spare. Another loading mechanism would take space the hand needs to grip. I chose the hand.",
+      "before_ru": "Потому что место и вес ограничены — физика, тут ничего не поделаешь. Ещё один механизм заряжания занял бы пространство, которое сейчас нужно самой кисти, чтобы она вообще могла хоть что-то держать и сжимать. Выбирай — либо рука, либо вторая пуля. Я выбрал руку.",
+      "after_en": "There is only room for one charge. A second barrel or a loading mechanism would leave less room for the hand itself. I wanted you to be able to hold things.",
+      "after_ru": "Места хватает на один заряд. Второй ствол или механизм подачи отняли бы место у самой кисти. А я хотел, чтобы ты мог держать вещи.",
+      "reason": "Убрать ложное противопоставление кисти второй пуле и лишнее назидание."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_MODERN_INTEREST",
+      "path": "/dynamic_line",
+      "before_en": "Very. Just bring things that are unloaded and cannot go off by themselves. I have to examine them with my hands.",
+      "before_ru": "Очень. Только, будь добр, приноси то, что уже разряжено и само собой ничего не натворит — мне проверять его придётся руками, а не чужими похоронами.",
+      "after_en": "Very. Just unload anything that can fire before you hand it over. I want to understand it, not set it off by accident.",
+      "after_ru": "Очень. Только всё, что может выстрелить, сначала разряди. Хочу разобраться, как оно устроено, а не сработает ли у меня в руках.",
+      "reason": "Заменить неестественное «проверять чужими похоронами»."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_TRUTH_AFTER",
+      "path": "/dynamic_line",
+      "before_en": "I need time. I hear you. What I remember of him does not fit your words yet. That is not your fault.",
+      "before_ru": "Мне нужно время. Я слышу тебя — правда слышу. Просто всё, что я помню о нём, пока не складывается с твоими словами. Это не твоя вина. Это моя.",
+      "after_en": "I need time. I hear you. It is just hard to fit what I remember of him together with what you saw.",
+      "after_ru": "Мне нужно время. Я тебя слышу. Просто трудно совместить того, кого я помню, с тем, что ты видел.",
+      "reason": "Не приписывать Рикерту вину за неспособность сразу принять предательство."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_ECLIPSE_LOSSES",
+      "path": "/dynamic_line",
+      "before_en": "I cannot give an honest count. No one called the roll afterwards. They are people to me, not a tally.",
+      "before_ru": "Честного числа я тебе не назову. Переклички после этого не было. Для меня это люди, а не счёт.",
+      "after_en": "I cannot give you a number. There was no roll call afterward. I still catch myself waiting to hear their voices.",
+      "after_ru": "Не могу назвать число. После этого переклички не было. Я всё ещё ловлю себя на том, что жду их голосов.",
+      "reason": "Сохранить неопределённость потерь без упрёка игроку за вопрос."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_ECLIPSE_MEMORIES",
+      "path": "/dynamic_line",
+      "before_en": "Whom did you want to talk about?",
+      "before_ru": "О ком хотел поговорить?",
+      "after_en": "Judeau, Pippin, Corkus, Gaston... They were all different. Whom would you like me to tell you about?",
+      "after_ru": "Джудо, Пиппин, Коркус, Гастон… Все были разные. О ком рассказать?",
+      "reason": "Сначала Рикерт называет имена, затем обычный герой выбирает вопрос."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_BAND",
+      "path": "/responses/3/text",
+      "before_en": "About Judeau, Pippin, Corkus and Gaston.",
+      "before_ru": "О Джудо, Пиппине, Коркусе и Гастоне.",
+      "after_en": "Will you tell me about some of your comrades?",
+      "after_ru": "Расскажешь о ком-нибудь из товарищей?",
+      "reason": "Обычному герою не нужно заранее знать четыре имени."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_ARM_REFUNDED",
+      "path": "/dynamic_line",
+      "before_en": "Here is what you brought. Keep the device you already have.",
+      "before_ru": "Вот то, что ты принёс. Пользуйся устройством, которое у тебя уже есть.",
+      "after_en": "Here is what you brought. I will not use any more of your materials.",
+      "after_ru": "Вот то, что ты принёс. Больше твои материалы расходовать не буду.",
+      "reason": "Ответ подходит и найденному протезу, и восстановившейся кисти."
+    },
+    {
+      "file": "dialogue/godo.json",
+      "topic": "TALK_BERSERK_RICKERT_COMPANION_SELF",
+      "path": "/dynamic_line",
+      "before_en": "Ah... I see. Not always well, honestly. Thank you for asking. Not everyone notices the difference.",
+      "before_ru": "А... Понял, о чём ты. Не всегда хорошо, если честно. Но спасибо, что спрашиваешь — не все замечают разницу.",
+      "after_en": "Not always well, to be honest. I keep myself busy. It helps that you asked.",
+      "after_ru": "Не всегда хорошо, если честно. Стараюсь чем-нибудь занять руки. Спасибо, что спросил.",
+      "reason": "Убрать ответ без понятного смысла «не все замечают разницу»."
+    },
+    {
+      "file": "dialogue/common_reactions_33.json",
+      "topic": "TALK_BERSERK_COMMON33_RICKERT_FLESH_PRICE",
+      "path": "/dynamic_line/no",
+      "before_en": "...and now you have to find out the consequences.",
+      "before_ru": "…а теперь тебе приходится выяснять последствия.",
+      "after_en": "That is what frightens me. You chose without knowing what it would do. Now you have to live with the consequences.",
+      "after_ru": "Вот это меня и пугает. Ты решился, не зная, что произойдёт. Теперь тебе с этим жить.",
+      "reason": "Оборванное «…а теперь» заменено самостоятельной репликой для не-спутника."
+    },
+    {
+      "file": "dialogue/common_reactions_33.json",
+      "topic": "TALK_BERSERK_COMMON33_RICKERT_DEAD",
+      "path": "/dynamic_line/no",
+      "before_en": "He can't order you about anymore. But I can see your body is still the same... I mean, the way it became because of him.",
+      "before_ru": "Он больше не сможет тебе приказать. Но я вижу, что тело осталось прежним… То есть тем, каким стало после него.",
+      "after_en": "He cannot order you about anymore. But the changes to your body are still there.",
+      "after_ru": "Он больше не сможет тебе приказывать. Но тело осталось таким, каким он его сделал.",
+      "reason": "Убрать ненужную самопоправку о прежнем теле."
+    },
+    {
+      "file": "dialogue/common_reactions_33.json",
+      "topic": "TALK_BERSERK_COMMON33_FLORA_REFUSED",
+      "path": "/dynamic_line/no",
+      "before_en": "You endured the consequences of the encounter. That does not mean you accepted the gift. We will talk about what happened to you without attributing someone else's decision to you.",
+      "before_ru": "Ты перенёс последствия встречи. Это не означает, что принял дар. Мы будем говорить о том, что с тобой случилось, не приписывая тебе чужого решения.",
+      "after_en": "You refused the gift. What you suffered does not make that refusal any less real. Tell me what troubles you now.",
+      "after_ru": "Ты отказался от дара. То, что тебе пришлось пережить, не отменяет этого отказа. Расскажи, что беспокоит тебя теперь.",
+      "reason": "Убрать техническое объяснение учёта выбора персонажа."
+    },
+    {
+      "file": "dialogue/common_reactions_33.json",
+      "topic": "TALK_BERSERK_COMMON33_FLORA_DEAD",
+      "path": "/dynamic_line/no",
+      "before_en": "His death ended your relationship. It does not reverse what has already happened to your flesh.",
+      "before_ru": "Его смерть прекратила ваши отношения. Она не обращает вспять то, что уже произошло с твоей плотью.",
+      "after_en": "His will no longer binds you. But what has changed in your flesh remains.",
+      "after_ru": "Его воля больше не связывает тебя. Но то, что изменилось в твоей плоти, осталось.",
+      "reason": "Отношения с погибшим хозяином заменены уместным описанием связи."
+    },
+    {
+      "file": "dialogue/common_reactions_33.json",
+      "topic": "TALK_BERSERK_COMMON33_RICKERT_FINDS",
+      "path": "/responses/2/text",
+      "before_en": "A broken piece of scabbard was found beside the remains.",
+      "before_ru": "У останков найдена расколотый фрагмент ножен.",
+      "after_en": "I found a broken piece of a scabbard beside the remains.",
+      "after_ru": "Возле останков я нашёл обломок ножен.",
+      "reason": "Исправить согласование и вернуть речь от первого лица."
+    },
+    {
+      "file": "dialogue/common_reactions_33.json",
+      "topic": "TALK_BERSERK_COMMON33_RICKERT_FINDS",
+      "path": "/responses/3/text",
+      "before_en": "A crushed sewing kit was found beside the remains.",
+      "before_ru": "У останков найдена раздавленный швейный набор.",
+      "after_en": "There was a crushed sewing kit beside the remains.",
+      "after_ru": "Возле останков лежал раздавленный швейный набор.",
+      "reason": "Исправить согласование."
+    },
+    {
+      "file": "dialogue/skull_knight.json",
+      "topic": "TALK_BERSERK_SKULL_KNIGHT_FINAL",
+      "path": "/dynamic_line/yes",
+      "before_en": "Then preserve the life with which you intend to continue.",
+      "before_ru": "Тогда береги жизнь, которой намерен продолжать.",
+      "after_en": "Then take care of the life you mean to live.",
+      "after_ru": "Тогда береги жизнь, которую намерен прожить.",
+      "reason": "Исправить грамматически оборванное прощание."
+    },
+    {
+      "file": "dialogue/skull_knight.json",
+      "topic": "TALK_BERSERK_SKULL_KNIGHT_GOD_HAND",
+      "path": "/dynamic_line",
+      "before_en": "The God Hand. Do not confuse them with the servants admitted to the feast. Killing an ordinary apostle does not bring their overthrow a step closer.",
+      "before_ru": "Рука Бога. Не путай их с прислужниками, которых они допустили к пиршеству. Победа над рядовым апостолом не приблизит тебя к их свержению ни на шаг.",
+      "after_en": "The God Hand. Do not confuse them with the apostles at their feast. Defeating an apostle does not mean you have learned how to strike at them.",
+      "after_ru": "Рука Бога. Не путай их с апостолами, допущенными к их пиршеству. Победа над апостолом ещё не означает, что ты знаешь, как нанести удар им самим.",
+      "reason": "Не обесценивать охоты и не противоречить последующему совету сопротивляться."
+    },
+    {
+      "file": "dialogue/skull_knight.json",
+      "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORY_CORKUS_445",
+      "path": "/dynamic_line",
+      "before_en": "They did not need to become heroes to deserve their lives.",
+      "before_ru": "Чтобы иметь право на жизнь, им не нужно было становиться.",
+      "after_en": "He did not have to be a hero to deserve to live.",
+      "after_ru": "Чтобы иметь право на жизнь, ему не нужно было становиться героем.",
+      "reason": "Восстановить пропущенное слово в ответе о Коркусе."
+    },
+    {
+      "file": "dialogue/skull_knight.json",
+      "topic": "TALK_BERSERK_SKULL_KNIGHT_NOW",
+      "path": "/dynamic_line/no/no/no/yes",
+      "before_en": "You have found the trail of a passage. Now deal with the wound itself. A fallen keeper does not always mean the road behind it has closed.",
+      "before_ru": "Ты уже нашёл след прохода. Теперь разберись с самой раной в этом мире. Убитый хранитель не всегда означает, что путь за ним закрылся следом за ним.",
+      "after_en": "You have found the trace of a passage. Now attend to the wound itself. A dead keeper does not mean the way behind it has closed.",
+      "after_ru": "Ты уже нашёл след прохода. Теперь займись самой раной. Гибель хранителя ещё не означает, что проход за ним закрылся.",
+      "reason": "Убрать повтор «за ним… следом за ним»."
+    },
+    {
+      "file": "dialogue/skull_knight.json",
+      "topic": "TALK_BERSERK_SKULL_KNIGHT_VICTORY",
+      "path": "/dynamic_line",
+      "before_en": "'You broke the manifestation that held this ceremony together. Do not mistake that for killing one of the God Hand. The wound is closing: come with me, now.'",
+      "before_ru": "«Ты разрушил проявление, удерживавшее эту церемонию. Это не смерть одного из Руки Бога. Разрыв закрывается: идём со мной, немедленно».",
+      "after_en": "&The knight looks toward the narrowing tear. \"You broke the image that held this ceremony open. Do not mistake it for the death of its master. Come. We must leave now.\"",
+      "after_ru": "&Рыцарь смотрит на сужающийся разрыв. «Ты разрушил образ, удерживавший церемонию. Не принимай это за смерть его хозяина. Идём. Уходить нужно сейчас».",
+      "reason": "Сценическая реплика без технического объяснения исхода."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_ENTER",
+      "path": "/dynamic_line/yes/concatenate/2/yes",
+      "before_en": "Wounded: \"Sit down before you start telling me. You're favoring a wound; I can see it in the way you move.\"",
+      "before_ru": "Ранен: «Сядь прежде, чем начнёшь рассказывать. Ты бережёшь рану — я вижу это по тому, как ты двигаешься».",
+      "after_en": "Sit down before you begin. I can see you are guarding a wound.",
+      "after_ru": "Сядь, прежде чем начнёшь рассказывать. Вижу, ты бережёшь рану.",
+      "reason": "Убрать авторскую пометку «Ранен» из реплики."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_ENTER",
+      "path": "/dynamic_line/yes/concatenate/2/no/yes",
+      "before_en": "No significant change: \"Your place by the hearth is free.\"",
+      "before_ru": "Без значительных изменений: «Твоё место у очага свободно».",
+      "after_en": "Your place by the hearth is free.",
+      "after_ru": "Твоё место у очага свободно.",
+      "reason": "Убрать авторскую пометку «Без значительных изменений»."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_ENTER",
+      "path": "/dynamic_line/yes/concatenate/2/no/no/no/no",
+      "before_en": "No significant change: \"Your place by the hearth is free.\"",
+      "before_ru": "Без значительных изменений: «Твоё место у очага свободно».",
+      "after_en": "Your place by the hearth is free.",
+      "after_ru": "Твоё место у очага свободно.",
+      "reason": "Убрать авторскую пометку «Без значительных изменений»."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_ENTER",
+      "path": "/dynamic_line/yes/concatenate/2/no/no/yes",
+      "before_en": "First return with the Brand: \"Something terrible has happened to you since we last met. Tell me when you're ready, and not before.\"",
+      "before_ru": "Впервые вернулся с Клеймом: «С нашей прошлой встречи с тобой произошло нечто тяжёлое. Расскажешь, когда будешь готов — не раньше».",
+      "after_en": "Something terrible has happened since we last met. Tell me when you are ready.",
+      "after_ru": "С нашей прошлой встречи с тобой произошло нечто тяжёлое. Расскажешь, когда будешь готов.",
+      "reason": "Убрать авторскую пометку о первом возвращении с Клеймом."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_ENTER",
+      "path": "/dynamic_line/yes/concatenate/2/no/no/no/yes",
+      "before_en": "Received her armor: \"How are you managing with the armor? It isn't easy on you, I know.\"",
+      "before_ru": "Получил доспех у неё: «Как ты справляешься с доспехом? Он даётся тебе непросто, я знаю».",
+      "after_en": "How are you managing with the armor? Have you noticed what it asks of you?",
+      "after_ru": "Как ты справляешься с доспехом? Уже заметил, чего он от тебя требует?",
+      "reason": "Убрать авторскую пометку о получении комплекта."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_ARMOR",
+      "path": "/responses/1/text",
+      "before_en": "At what price?",
+      "before_ru": "Какую цену?",
+      "after_en": "What price does the wearer pay?",
+      "after_ru": "Чем платит его владелец?",
+      "reason": "Вопрос должен быть понятен и без предыдущего упоминания цены."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_ARMOR_RECOVER",
+      "path": "/dynamic_line",
+      "before_en": "Don't mistake being able to move for being healed. After the battle, the body must still endure what happened to it. A delay is no reprieve.\n\nAt first the price may seem small: fatigue, pain that you will feel later, once it is over. The greater danger is growing used to treating any injury as acceptable while an enemy remains. That habit is more dangerous than the pain itself.",
+      "before_ru": "Не принимай возможность двигаться за исцеление. После боя телу всё равно придётся пережить то, что с ним произошло — отсрочка не отмена.\n\nСначала тебе может показаться, что цена невелика: усталость, боль, которую ты почувствуешь позже, когда всё закончится. Опаснее другое — привыкнуть считать любое повреждение допустимым, пока остаётся враг. Эта привычка опаснее самой боли.",
+      "after_en": "Once the fury has passed and it is safe, remove the armor and examine your wounds. Clean and bind them. Give yourself food, water and rest. Being able to stand does not mean you are ready for another fight.",
+      "after_ru": "Когда ярость отступит и станет безопасно, сними доспех и осмотри раны. Очисти и перевяжи их. Поешь, попей и отдохни. Если ты ещё способен стоять, это не значит, что пора снова сражаться.",
+      "reason": "Дать ответ о восстановлении после боя вместо повтора двух уже прочитанных объяснений."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_HELP_TAKEN",
+      "path": "/dynamic_line",
+      "before_en": "You may take the bundles I prepared. No new supplies will appear in their place, so use them carefully.",
+      "before_ru": "Ты можешь взять те свёртки, что я приготовила. Новых припасов на их месте не появится — распоряжайся ими бережно.",
+      "after_en": "Take any of the bundles I prepared that are still there. That is all I could spare for the road; use them carefully.",
+      "after_ru": "Возьми приготовленные свёртки, которые ещё остались. Это всё, что я смогла собрать для твоей дороги; распорядись ими бережно.",
+      "reason": "Убрать техническую фразу о непоявлении новых припасов."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_HOME",
+      "path": "/dynamic_line",
+      "before_en": "Because this place became possible beside it. I built the house trying not to quarrel with the roots. Some parts worked better than others; some had to be rebuilt. The tree is more headstrong than any customer.",
+      "before_ru": "Потому что рядом с ним это место стало возможным. Я строила дом, стараясь не спорить с корнями. Где-то получилось удачнее, где-то пришлось переделывать — дерево своенравнее любого заказчика.",
+      "after_en": "I built the house beside this tree, trying not to quarrel with its roots. In some places I managed; in others I had to begin again. A tree is more stubborn than any patron.",
+      "after_ru": "Я строила дом рядом с этим деревом, стараясь не спорить с корнями. Где-то получилось, где-то пришлось переделывать. Дерево своенравнее любого заказчика.",
+      "reason": "Ответ больше не начинается с «Потому что» на вопрос без «почему»."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_KNIGHT_SPEECH",
+      "path": "/dynamic_line",
+      "before_en": "I suppose he has little choice. Habit is a tenacious thing.",
+      "before_ru": "Полагаю, у него не так много выбора. Привычка — штука цепкая.",
+      "after_en": "He has had a long time to grow used to choosing his words carefully. I have learned not to hurry him.",
+      "after_ru": "У него было много времени, чтобы привыкнуть беречь слова. А я привыкла его не торопить.",
+      "reason": "Заменить непонятное объяснение манеры речи Рыцаря."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_KNOWN_COUNT",
+      "path": "/dynamic_line",
+      "before_en": "Tell me. Not what it looks like; any fool can see that. What happens around it. Who runs, who stays, what the land does in that place.\n\nWhen you go there again, look beyond the creature itself. Look at what it has done to its surroundings. Scorched earth, fallen houses, silence without even a crow's call: these say more than any name people gave it out of fear.",
+      "before_ru": "Рассказывай. Не какой он с виду — это и дурак заметит. Что вокруг него делается. Кто бежит, кто остаётся, что земля с этим местом делает.\n\nКогда пойдёшь туда снова — гляди не только на него. На то, что он сделал с местом вокруг. Выжженная земля, обвалившиеся дома, тишина, в которой даже птицы не каркают — это говорит больше, чем любое прозвище, которым его окрестили со страху.",
+      "after_en": "Tell me what you learned about his house. Fear can survive its master for a long time. Remember the people caught there, as well as the creature that held them.",
+      "after_ru": "Расскажи, что узнал о его доме. Страх порой надолго переживает хозяина. Помни о людях, оказавшихся там, а не только о существе, которое держало их в своей власти.",
+      "reason": "Вернуть спокойный голос Флоры; не называть героя дураком и не утверждать, что он уже был в резиденции."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_KNOWN_WYALD",
+      "path": "/dynamic_line",
+      "before_en": "Tell me. Not what it looks like; any fool can see that. What happens around it. Who runs, who stays, what the land does in that place.\n\nWhen you go there again, look beyond the creature itself. Look at what it has done to its surroundings. Scorched earth, fallen houses, silence without even a crow's call: these say more than any name people gave it out of fear.",
+      "before_ru": "Рассказывай. Не какой он с виду — это и дурак заметит. Что вокруг него делается. Кто бежит, кто остаётся, что земля с этим местом делает.\n\nКогда пойдёшь туда снова — гляди не только на него. На то, что он сделал с местом вокруг. Выжженная земля, обвалившиеся дома, тишина, в которой даже птицы не каркают — это говорит больше, чем любое прозвище, которым его окрестили со страху.",
+      "after_en": "What did you learn about the Black Dogs? Their commander is not the only danger. A cruel order can keep being obeyed long after the voice that gave it falls silent.",
+      "after_ru": "Что ты узнал о Чёрных Псах? Опасен не один их командир. Жестокий приказ могут продолжать исполнять и после того, как голос, отдавший его, умолкнет.",
+      "reason": "Разные известные опасности получают разные ответы, без утверждения живого или мёртвого исхода."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_KNOWN_ROSINE",
+      "path": "/dynamic_line",
+      "before_en": "Tell me. Not what it looks like; any fool can see that. What happens around it. Who runs, who stays, what the land does in that place.\n\nWhen you go there again, look beyond the creature itself. Look at what it has done to its surroundings. Scorched earth, fallen houses, silence without even a crow's call: these say more than any name people gave it out of fear.",
+      "before_ru": "Рассказывай. Не какой он с виду — это и дурак заметит. Что вокруг него делается. Кто бежит, кто остаётся, что земля с этим местом делает.\n\nКогда пойдёшь туда снова — гляди не только на него. На то, что он сделал с местом вокруг. Выжженная земля, обвалившиеся дома, тишина, в которой даже птицы не каркают — это говорит больше, чем любое прозвище, которым его окрестили со страху.",
+      "after_en": "Tell me about the valley. Beauty makes people slow to notice suffering. Look for what does not belong among the flowers, and do not mistake a changed body for a life restored.",
+      "after_ru": "Расскажи о долине. Среди красоты люди не сразу замечают чужую боль. Ищи то, чему не место среди цветов, и не принимай изменённое тело за возвращённую жизнь.",
+      "reason": "Дать собственный ответ о долине вместо копии ответа о Графе."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_KNOWN_GRUNBELD",
+      "path": "/dynamic_line",
+      "before_en": "Tell me. Not what it looks like; any fool can see that. What happens around it. Who runs, who stays, what the land does in that place.\n\nWhen you go there again, look beyond the creature itself. Look at what it has done to its surroundings. Scorched earth, fallen houses, silence without even a crow's call: these say more than any name people gave it out of fear.",
+      "before_ru": "Рассказывай. Не какой он с виду — это и дурак заметит. Что вокруг него делается. Кто бежит, кто остаётся, что земля с этим местом делает.\n\nКогда пойдёшь туда снова — гляди не только на него. На то, что он сделал с местом вокруг. Выжженная земля, обвалившиеся дома, тишина, в которой даже птицы не каркают — это говорит больше, чем любое прозвище, которым его окрестили со страху.",
+      "after_en": "What have you learned of Grunbeld? Strength joined to obedience can do terrible harm. The one carrying out an order still chooses to raise his weapon.",
+      "after_ru": "Что тебе известно о Грюнбельде? Сила, соединённая с покорностью, способна причинить страшный вред. Тот, кто исполняет приказ, всё же сам поднимает оружие.",
+      "reason": "Дать собственную оценку Грюнбельда вместо копии ответа о Графе."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_DANGERS",
+      "path": "/responses/1/text",
+      "before_en": "I know something about Wyald.",
+      "before_ru": "Я кое-что знаю о Уайлде.",
+      "after_en": "I learned something about Wyald.",
+      "after_ru": "Я кое-что узнал об Уайлде.",
+      "reason": "Исправить «о Уайлде»."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_DANGER_BREACH",
+      "path": "/dynamic_line",
+      "before_en": "Good work. Hard work.\n\nJust don't mistake quiet for emptiness. The breach closed, but what had already come through it stayed. On this side. Somewhere.\n\nSo don't lower your guard too soon.",
+      "before_ru": "Хорошее дело. Трудное.\n\nТолько не путай тишину с пустотой. Прорыв закрылся — а то, что через него уже прошло... осталось. По эту сторону. Где-то.\n\nТак что не расслабляйся раньше времени.",
+      "after_en": "You have done something difficult and worthwhile. But the creatures that crossed before it closed are still on this side. Take the quiet as a chance to recover, and remain careful.",
+      "after_ru": "Ты сделал трудное и нужное дело. Но существа, прошедшие до закрытия прорыва, остались по эту сторону. Воспользуйся тишиной, чтобы восстановить силы, и сохраняй осторожность.",
+      "reason": "Убрать рубленый голос другого персонажа и повторы предостережений."
+    },
+    {
+      "file": "dialogue/flora.json",
+      "topic": "TALK_BERSERK_FLORA_NEXT",
+      "path": "/dynamic_line/no/no/no/no/no/no",
+      "before_en": "You have nothing. Not no roads; no knowledge.\n\nGo and make sense of what you've already found before stumbling farther at random. Going blindly is like diving headfirst into an ice hole. You might surface, or you might not.",
+      "before_ru": "У тебя пусто. Не дорог нет — знаний нет.\n\nИди разберись в том, что уже нашёл, прежде чем соваться дальше наугад. Наугад — это как в прорубь головой: может, вынырнешь, а может, нет.",
+      "after_en": "I cannot point out a road you have not yet found. Return to the clues you already have. Someone you trust may help you make sense of them.",
+      "after_ru": "Я не могу указать дорогу, которой ты ещё не нашёл. Вернись к известным следам. Возможно, тот, кому ты доверяешь, поможет разобраться в них.",
+      "reason": "Убрать грубую отповедь и чуждое Флоре сравнение с прорубью."
+    },
+    {
+      "file": "dialogue/apostle_count.json",
+      "topic": "TALK_BERSERK_COUNT_RESCUE_INTRO",
+      "path": "/dynamic_line/no",
+      "before_en": "And I want to believe you. I really do.\n\nFirst, have a look at how this damned thing opens. Then I'll know whether you're all talk.",
+      "before_ru": "Хочу — и я тебе поверить. Правда хочу.\n\nДля начала глянь, как эта дрянь открывается. По тому и пойму, кто ты — болтун или нет.",
+      "after_en": "I want to believe you. I do. First, see how this thing opens. Then I will know you mean more than words.",
+      "after_ru": "Хочу тебе поверить. Правда хочу. Для начала посмотри, как эта дрянь открывается. Тогда пойму, что это не одни слова.",
+      "reason": "Исправить сломанное начало «Хочу — и я тебе поверить»."
+    },
+    {
+      "file": "dialogue/apostle_count.json",
+      "topic": "TALK_BERSERK_COUNT_GOODBYE",
+      "path": "/dynamic_line/yes",
+      "before_en": "Take care of yourself.\n\nI know how foolish that sounds, saying it to you after everything you did in there. Still. Take care.",
+      "before_ru": "Береги себя.\n\nЗнаю, как глупо это звучит — тебе, после всего, что ты натворил там, внутри. И всё равно. Береги себя.",
+      "after_en": "Take care of yourself. After everything you have been through in there... I mean it.",
+      "after_ru": "Береги себя. После всего, что тебе пришлось пережить там, внутри… Я серьёзно.",
+      "reason": "Не называть спасение пленника тем, что герой «натворил»."
+    },
+    {
+      "file": "dialogue/apostol_contracts.json",
+      "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_CHANGE",
+      "path": "/dynamic_line",
+      "before_en": "Here you will have wings and a place among us. You will not need those roads again. Stay, and I will show you.",
+      "before_ru": "Здесь у тебя будут крылья и место среди нас. Те дороги тебе больше не понадобятся. Останься — я покажу.",
+      "after_en": "You will have a place among us. You will not have to face those roads alone. Stay, and I will show you.",
+      "after_ru": "У тебя будет место среди нас. Больше не придётся одному бояться каждой дороги. Останься — я покажу.",
+      "reason": "Не обещать полноценные крылья форме, которая их не получает."
+    },
+    {
+      "file": "dialogue/apostol_contracts.json",
+      "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_WANTED",
+      "path": "/dynamic_line",
+      "before_en": "They wanted things to get better. And I helped. Those aren't the same thing, are they?",
+      "before_ru": "Они хотели, чтобы стало лучше. А я помогла. Это ведь не одно и то же — нет?",
+      "after_en": "They wanted things to be better. I helped them. What is so wrong with that?",
+      "after_ru": "Они хотели, чтобы стало лучше. А я помогла. Что в этом плохого?",
+      "reason": "Сохранить самооправдание Розины вместо нелогичного признания разницы между желанием и согласием."
+    },
+    {
+      "file": "dialogue/apostol_contracts.json",
+      "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DECISION",
+      "path": "/responses/0/text",
+      "before_en": "I'll accept your spark. I'll serve. Change me.",
+      "before_ru": "Я приму твою искру. Буду служить. Меняй меня.",
+      "after_en": "I accept your protection. I will serve.",
+      "after_ru": "Я принимаю твоё покровительство. Буду служить.",
+      "reason": "Убрать технически звучащее «Меняй меня»."
+    },
+    {
+      "file": "dialogue/apostol_contracts.json",
+      "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
+      "path": "/responses/0/text",
+      "before_en": "I'm in your pack. Give me strength. I won't ask to go back.",
+      "before_ru": "Я в твоей стае. Давай силу. Назад просить не буду.",
+      "after_en": "I am with the Dogs. Show me this strength of yours.",
+      "after_ru": "Я с Псами. Покажи, на что способна твоя сила.",
+      "reason": "Убрать реплику игрока, заранее объясняющую невозможность отката."
+    },
+    {
+      "file": "dialogue/apostol_contracts.json",
+      "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS",
+      "path": "/dynamic_line",
+      "before_en": "Another fang for the pack. A good fang is always welcome.",
+      "before_ru": "Ещё один клык в стаю. Хороший клык — это всегда хорошо.",
+      "after_en": "Another fang for the pack. One that bites instead of whining.",
+      "after_ru": "Ещё один клык в стаю. Чтобы кусал, а не скулил.",
+      "reason": "Убрать тавтологию «Хороший клык — это всегда хорошо»."
+    },
+    {
+      "file": "dialogue/apostol_contracts.json",
+      "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_SUPPORT_GONE",
+      "path": "/dynamic_line",
+      "before_en": "It must be renewed. You know the terms. I did not conceal them.",
+      "before_ru": "Она требует возобновления. Условия тебе известны — я их не скрывал.",
+      "after_en": "The protection I lent you has faded. Bring the steel, and I will renew it.",
+      "after_ru": "Дарованная мной защита ослабла. Доставь сталь — я укреплю её вновь.",
+      "reason": "Заменить безличное техническое «Она требует возобновления»."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_UBIK_SURROUNDINGS",
+      "path": "/dynamic_line/yes",
+      "before_en": "And rightly so.\n\nHere you should be careful of the habit of believing the first explanation you hear. It is rarely the last.",
+      "before_ru": "И правильно сделал.\n\nЗдесь стоит поосторожнее с привычкой верить первому же объяснению. Оно редко бывает последним.",
+      "after_en": "Mind your step. You can fall here quite as truly as anywhere else. Give the place a name later.",
+      "after_ru": "Смотри под ноги. Упасть здесь можно вполне по-настоящему. Название этому месту подберёшь потом.",
+      "reason": "Ответ на вопрос об окружающем мире вместо неуместного «И правильно сделал»."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_UBIK_TRUST",
+      "path": "/dynamic_line/yes",
+      "before_en": "Especially if you like it. Check pleasing explanations twice.",
+      "before_ru": "Особенно если оно тебе понравится. Приятные объяснения проверяй вдвойне.",
+      "after_en": "You need not believe me. You will find plenty of comforting answers in your own head. Be just as careful with those.",
+      "after_ru": "Можешь мне не верить. В собственной голове найдёшь немало утешительных ответов. С ними будь так же осторожен.",
+      "reason": "Ответить на вопрос о доверии, сохранив насмешливый голос Убика."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_UBIK_LIE",
+      "path": "/dynamic_line/yes",
+      "before_en": "Are you afraid of hearing a lie? Or of hearing exactly what you've long wanted to hear?\n\n\"Enough answering with questions. Can the gift be undone?\"",
+      "before_ru": "Ты боишься услышать ложь? Или боишься услышать именно то, что давно хотел услышать?\n\n«Хватит отвечать вопросами. Дар можно отменить?»",
+      "after_en": "Are you afraid of hearing a lie? Or of hearing exactly what you have wanted to hear for so long?",
+      "after_ru": "Ты боишься услышать ложь? Или именно то, что давно хотел услышать?",
+      "reason": "Убрать из ответа Убика случайно включённую реплику игрока."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_UBIK_PAUSE",
+      "path": "/dynamic_line/yes",
+      "before_en": "Then nothing has happened yet.",
+      "before_ru": "Тогда пока ничего и не произошло.",
+      "after_en": "Take your time. I am curious which answer you will return with.",
+      "after_ru": "Подумай. Любопытно, с каким ответом ты вернёшься.",
+      "reason": "Не обещать, что пережитая церемония пока не оставила следа."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_VOID_MEMORY_BIASED",
+      "path": "/dynamic_line/yes",
+      "before_en": "&Ubik: So you remember other things too. Good.\n\nDecide with those in mind as well, not just what we slipped before you.",
+      "before_ru": "&Убик: Значит, ты помнишь и другое. Вот и хорошо.\n\nРешай, учитывая и его тоже — а не только то, что мы тебе подсунули.",
+      "after_en": "&Ubik smiles. \"So you remember something else as well. Good. Let us see which memories weigh more.\"",
+      "after_ru": "&Убик улыбается. «Значит, ты помнишь и другое. Хорошо. Посмотрим, какие воспоминания перевесят».",
+      "reason": "Манипулятор не признаётся прямо, что подсунул удобную картину прошлого."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_VOID_DID_NOT_KNOW",
+      "path": "/dynamic_line/yes",
+      "before_en": "Now you are permitted to know enough to answer knowingly. There will be no greater knowledge, either before or after.",
+      "before_ru": "Теперь тебе позволено узнать достаточно, чтобы дать ответ осознанно. Большего знания не будет — ни раньше, ни позже.",
+      "after_en": "You may learn enough to answer. Do not expect to see every step of the life beyond this choice.",
+      "after_ru": "Тебе позволено узнать достаточно для ответа. Не жди, что заранее увидишь каждый шаг жизни за этим выбором.",
+      "reason": "Убрать абсолютное обещание, что больше знания не будет никогда."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_VOID_STONE",
+      "path": "/dynamic_line/yes",
+      "before_en": "The stone came into your hands. Not by chance, yet at no one's bidding but your own.\n\nYou heard the call. Answered with action. Now you see where that succession of steps has led.",
+      "before_ru": "Камень оказался в твоих руках. Не случайно — но и не по чьей-то указке, кроме твоей собственной.\n\nТы услышал зов. Ответил действием. Теперь видишь, куда привела эта последовательность шагов.",
+      "after_en": "Many causes brought the stone to your hand. You heard its call and answered. Your own step is part of the chain that led you here.",
+      "after_ru": "Множество причин привели камень в твою руку. Ты услышал зов и ответил. Твой собственный шаг — тоже звено цепи, которая привела тебя сюда.",
+      "reason": "Не сводить причинность Войда к утверждению, что всё произошло только по воле героя."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_CONRAD_PAUSE",
+      "path": "/dynamic_line/yes",
+      "before_en": "(Conrad says nothing more. He simply becomes still again, as though the conversation had never happened.)",
+      "before_ru": "(Конрад больше ничего не говорит — просто снова застывает, как будто разговора и не было.)",
+      "after_en": "&Conrad falls silent again.",
+      "after_ru": "&Конрад снова умолкает.",
+      "reason": "Действие рассказчика не должно выглядеть как произнесённая реплика."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_FEMTO_PAUSE",
+      "path": "/dynamic_line/yes",
+      "before_en": "(Femto does not answer. He simply becomes still again, gazing through space as though the conversation had never happened.)",
+      "before_ru": "(Фемто не отвечает — просто снова застывает, глядя сквозь пространство, как будто разговора никогда и не было.)",
+      "after_en": "&Femto looks past you without answering.",
+      "after_ru": "&Фемто смотрит сквозь вас, не отвечая.",
+      "reason": "Отделить ремарку рассказчика от речи персонажа."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_SLAN",
+      "path": "/dynamic_line/yes/no",
+      "before_en": "&Slan does not step back as you approach. Instead, she leans forward as if catching a scent. Her gaze travels over your face, your hands, the way you hold your body: appraising, almost hungry.\n\n\"You're still trembling.\n\nAnd yet you came closer. I like that, when the desire to live overcomes disgust.\"",
+      "before_ru": "&Слан не отступает ни на шаг назад, когда герой подходит ближе — наоборот, подаётся вперёд, будто принюхивается. Взгляд скользит по лицу, по рукам, по тому, как стоит тело — оценивающе, почти жадно.\n\n«Ты всё ещё дрожишь.\n\nИ всё же подошёл ближе. Мне нравится это — когда желание жить пересиливает отвращение.»",
+      "after_en": "&Slan leans toward you as though catching a scent. Her gaze lingers on your face and hands.\n\n\"You are still trembling. And yet you came closer. I like it when the desire to live overcomes disgust.\"",
+      "after_ru": "&Слан подаётся к вам, будто уловила запах. Её взгляд задерживается на лице и руках.\n\n«Ты всё ещё дрожишь. И всё же подошёл ближе. Мне нравится, когда желание жить пересиливает отвращение».",
+      "reason": "Сохранить повествование во втором лице."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_UBIK",
+      "path": "/dynamic_line/yes/no",
+      "before_en": "&Ubik does not stand still like the others. He sways gently, as though the ground beneath him differs a little from everyone else's. His smile suggests he already knows your answer and finds it amusing.\n\n\"Here you are, then. Let's see what questions you brought along.\"",
+      "before_ru": "&Убик не стоит ровно, как остальные — слегка покачивается, будто земля под ним немного другая, чем под всеми прочими. Улыбка у него такая, словно он уже знает ответ героя — и находит его забавным.\n\n«Ну вот и ты. Давай посмотрим, какие вопросы ты принёс с собой».",
+      "after_en": "&Ubik rocks gently from side to side. His smile suggests he finds your questions amusing before you have even asked them.\n\n\"Here you are, then. What would you like to know?\"",
+      "after_ru": "&Убик покачивается из стороны в сторону. Улыбается так, словно ваши вопросы забавляют его ещё до того, как вы их задали.\n\n«Ну вот и ты. Что хочешь узнать?»",
+      "reason": "Сохранить повествование во втором лице."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_FEMTO",
+      "path": "/dynamic_line/yes/no",
+      "before_en": "&Femto does not stare at you as the others do. He seems to look through you, which is far more unsettling than any direct gaze. The air around him hangs motionless, as though it too dares not stir.\n\n\"You have arrived. Speak.\"",
+      "before_ru": "&Фемто не смотрит на героя пристально, как остальные — скорее куда-то сквозь, и от этого становится не по себе гораздо сильнее, чем от любого прямого взгляда. Воздух вокруг него стоит неподвижно, будто даже сам не решается шевелиться.\n\n«Ты дошёл. Говори.»",
+      "after_en": "&Femto looks past you. The air around him hangs utterly still.\n\n\"You have arrived. Speak.\"",
+      "after_ru": "&Фемто смотрит сквозь вас. Воздух вокруг него совершенно неподвижен.\n\n«Ты дошёл. Говори».",
+      "reason": "Сохранить повествование во втором лице."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_VOID_MEMORY_STOP",
+      "path": "/dynamic_line/yes",
+      "before_en": "&The images fade at once, as though switched off. The five figures stand before you again, motionless and patient, as though there had been no pause.",
+      "before_ru": "&Образы гаснут разом, будто их выключили. Перед героем снова стоят пять фигур — неподвижные, терпеливые, как будто и не было никакой паузы.",
+      "after_en": "&The images vanish all at once. The five figures stand before you again, motionless and patient, as though there had been no pause.",
+      "after_ru": "&Образы гаснут разом, будто их выключили. Перед вами снова стоят пять фигур — неподвижные, терпеливые, как будто и не было никакой паузы.",
+      "reason": "Сохранить повествование во втором лице."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_VOID_REFUSE",
+      "path": "/dynamic_line/yes/no",
+      "before_en": "Then turn toward the life you intend to continue.\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance.",
+      "before_ru": "Тогда обратись к той жизни, которую намерен продолжить.\n\nКруг исчезает из виду, будто его и не было. На его месте — только память, вытащенная наружу против воли.\n\nОбрывки прежней жизни всплывают один за другим. Неясные места. Незаконченные мысли. Решения, к которым возвращались снова и снова, так и не находя покоя. Лица проступают и тут же гаснут, прежде чем удаётся рассмотреть их толком.\n\nВнимание цепляется именно за то, что хоть немного похоже на слабость: сомнение, которое не удалось преодолеть. Страх, который заставил промолчать. Шаг, который так и не был сделан. Всё остальное будто нарочно отодвигается в темноту, за пределы взгляда.\n\nНа миг проскальзывает мысль: неужели всё, что было до этого — настолько мало?\n\nНо даже сейчас, внутри этой мысли, заметно, как настойчиво её подталкивают именно к такому выводу. Слишком настойчиво, чтобы быть случайностью.",
+      "after_en": "&Void says, \"Then turn toward the life you intend to continue.\"\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance.",
+      "after_ru": "&Войд произносит: «Тогда обратись к той жизни, которую намерен продолжить.»\n\nКруг исчезает из виду, будто его и не было. На его месте — только память, вытащенная наружу против воли.\n\nОбрывки прежней жизни всплывают один за другим. Неясные места. Незаконченные мысли. Решения, к которым возвращались снова и снова, так и не находя покоя. Лица проступают и тут же гаснут, прежде чем удаётся рассмотреть их толком.\n\nВнимание цепляется именно за то, что хоть немного похоже на слабость: сомнение, которое не удалось преодолеть. Страх, который заставил промолчать. Шаг, который так и не был сделан. Всё остальное будто нарочно отодвигается в темноту, за пределы взгляда.\n\nНа миг проскальзывает мысль: неужели всё, что было до этого — настолько мало?\n\nНо даже сейчас, внутри этой мысли, заметно, как настойчиво её подталкивают именно к такому выводу. Слишком настойчиво, чтобы быть случайностью.",
+      "reason": "Воспоминание при отказе показывает рассказчик, а не произносит собеседник."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_SLAN_REFUSE",
+      "path": "/dynamic_line/yes/no",
+      "before_en": "You cling so tightly to what came before. Let us see what you are really holding on to.\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance.",
+      "before_ru": "Ты так крепко держишься за прежнее. Посмотрим, что ты там удерживаешь на самом деле.\n\nКруг исчезает из виду, будто его и не было. На его месте — только память, вытащенная наружу против воли.\n\nОбрывки прежней жизни всплывают один за другим. Неясные места. Незаконченные мысли. Решения, к которым возвращались снова и снова, так и не находя покоя. Лица проступают и тут же гаснут, прежде чем удаётся рассмотреть их толком.\n\nВнимание цепляется именно за то, что хоть немного похоже на слабость: сомнение, которое не удалось преодолеть. Страх, который заставил промолчать. Шаг, который так и не был сделан. Всё остальное будто нарочно отодвигается в темноту, за пределы взгляда.\n\nНа миг проскальзывает мысль: неужели всё, что было до этого — настолько мало?\n\nНо даже сейчас, внутри этой мысли, заметно, как настойчиво её подталкивают именно к такому выводу. Слишком настойчиво, чтобы быть случайностью.",
+      "after_en": "&Slan says, \"You cling so tightly to what came before. Let us see what you are really holding on to.\"\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance.",
+      "after_ru": "&Слан произносит: «Ты так крепко держишься за прежнее. Посмотрим, что ты там удерживаешь на самом деле.»\n\nКруг исчезает из виду, будто его и не было. На его месте — только память, вытащенная наружу против воли.\n\nОбрывки прежней жизни всплывают один за другим. Неясные места. Незаконченные мысли. Решения, к которым возвращались снова и снова, так и не находя покоя. Лица проступают и тут же гаснут, прежде чем удаётся рассмотреть их толком.\n\nВнимание цепляется именно за то, что хоть немного похоже на слабость: сомнение, которое не удалось преодолеть. Страх, который заставил промолчать. Шаг, который так и не был сделан. Всё остальное будто нарочно отодвигается в темноту, за пределы взгляда.\n\nНа миг проскальзывает мысль: неужели всё, что было до этого — настолько мало?\n\nНо даже сейчас, внутри этой мысли, заметно, как настойчиво её подталкивают именно к такому выводу. Слишком настойчиво, чтобы быть случайностью.",
+      "reason": "Воспоминание при отказе показывает рассказчик, а не произносит собеседник."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_UBIK_REFUSE",
+      "path": "/dynamic_line/yes/no",
+      "before_en": "Of course. Only let's not remember it too selectively, shall we?\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance.",
+      "before_ru": "Конечно. Только давай не будем вспоминать её слишком избирательно, хорошо?\n\nКруг исчезает из виду, будто его и не было. На его месте — только память, вытащенная наружу против воли.\n\nОбрывки прежней жизни всплывают один за другим. Неясные места. Незаконченные мысли. Решения, к которым возвращались снова и снова, так и не находя покоя. Лица проступают и тут же гаснут, прежде чем удаётся рассмотреть их толком.\n\nВнимание цепляется именно за то, что хоть немного похоже на слабость: сомнение, которое не удалось преодолеть. Страх, который заставил промолчать. Шаг, который так и не был сделан. Всё остальное будто нарочно отодвигается в темноту, за пределы взгляда.\n\nНа миг проскальзывает мысль: неужели всё, что было до этого — настолько мало?\n\nНо даже сейчас, внутри этой мысли, заметно, как настойчиво её подталкивают именно к такому выводу. Слишком настойчиво, чтобы быть случайностью.",
+      "after_en": "&Ubik says, \"Of course. Only let's not remember it too selectively, shall we?\"\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance.",
+      "after_ru": "&Убик произносит: «Конечно. Только давай не будем вспоминать её слишком избирательно, хорошо?»\n\nКруг исчезает из виду, будто его и не было. На его месте — только память, вытащенная наружу против воли.\n\nОбрывки прежней жизни всплывают один за другим. Неясные места. Незаконченные мысли. Решения, к которым возвращались снова и снова, так и не находя покоя. Лица проступают и тут же гаснут, прежде чем удаётся рассмотреть их толком.\n\nВнимание цепляется именно за то, что хоть немного похоже на слабость: сомнение, которое не удалось преодолеть. Страх, который заставил промолчать. Шаг, который так и не был сделан. Всё остальное будто нарочно отодвигается в темноту, за пределы взгляда.\n\nНа миг проскальзывает мысль: неужели всё, что было до этого — настолько мало?\n\nНо даже сейчас, внутри этой мысли, заметно, как настойчиво её подталкивают именно к такому выводу. Слишком настойчиво, чтобы быть случайностью.",
+      "reason": "Воспоминание при отказе показывает рассказчик, а не произносит собеседник."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_CONRAD_REFUSE",
+      "path": "/dynamic_line/yes/no",
+      "before_en": "Remember.\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance.",
+      "before_ru": "Вспомни.\n\nКруг исчезает из виду, будто его и не было. На его месте — только память, вытащенная наружу против воли.\n\nОбрывки прежней жизни всплывают один за другим. Неясные места. Незаконченные мысли. Решения, к которым возвращались снова и снова, так и не находя покоя. Лица проступают и тут же гаснут, прежде чем удаётся рассмотреть их толком.\n\nВнимание цепляется именно за то, что хоть немного похоже на слабость: сомнение, которое не удалось преодолеть. Страх, который заставил промолчать. Шаг, который так и не был сделан. Всё остальное будто нарочно отодвигается в темноту, за пределы взгляда.\n\nНа миг проскальзывает мысль: неужели всё, что было до этого — настолько мало?\n\nНо даже сейчас, внутри этой мысли, заметно, как настойчиво её подталкивают именно к такому выводу. Слишком настойчиво, чтобы быть случайностью.",
+      "after_en": "&Conrad says, \"Remember.\"\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance.",
+      "after_ru": "&Конрад произносит: «Вспомни.»\n\nКруг исчезает из виду, будто его и не было. На его месте — только память, вытащенная наружу против воли.\n\nОбрывки прежней жизни всплывают один за другим. Неясные места. Незаконченные мысли. Решения, к которым возвращались снова и снова, так и не находя покоя. Лица проступают и тут же гаснут, прежде чем удаётся рассмотреть их толком.\n\nВнимание цепляется именно за то, что хоть немного похоже на слабость: сомнение, которое не удалось преодолеть. Страх, который заставил промолчать. Шаг, который так и не был сделан. Всё остальное будто нарочно отодвигается в темноту, за пределы взгляда.\n\nНа миг проскальзывает мысль: неужели всё, что было до этого — настолько мало?\n\nНо даже сейчас, внутри этой мысли, заметно, как настойчиво её подталкивают именно к такому выводу. Слишком настойчиво, чтобы быть случайностью.",
+      "reason": "Воспоминание при отказе показывает рассказчик, а не произносит собеседник."
+    },
+    {
+      "file": "dialogue/apostol_ceremony.json",
+      "topic": "TALK_BERSERK_APOSTOL_FEMTO_REFUSE",
+      "path": "/dynamic_line/yes/no",
+      "before_en": "Look at what you are choosing.\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance.",
+      "before_ru": "Посмотри, что ты выбираешь.\n\nКруг исчезает из виду, будто его и не было. На его месте — только память, вытащенная наружу против воли.\n\nОбрывки прежней жизни всплывают один за другим. Неясные места. Незаконченные мысли. Решения, к которым возвращались снова и снова, так и не находя покоя. Лица проступают и тут же гаснут, прежде чем удаётся рассмотреть их толком.\n\nВнимание цепляется именно за то, что хоть немного похоже на слабость: сомнение, которое не удалось преодолеть. Страх, который заставил промолчать. Шаг, который так и не был сделан. Всё остальное будто нарочно отодвигается в темноту, за пределы взгляда.\n\nНа миг проскальзывает мысль: неужели всё, что было до этого — настолько мало?\n\nНо даже сейчас, внутри этой мысли, заметно, как настойчиво её подталкивают именно к такому выводу. Слишком настойчиво, чтобы быть случайностью.",
+      "after_en": "&Femto says, \"Look at what you are choosing.\"\n\nThe circle slips from sight as though it had never been there. In its place is only memory, drawn unwillingly into the open.\n\nFragments of a former life surface one after another. Indistinct places. Unfinished thoughts. Decisions revisited again and again without finding peace. Faces emerge and fade before you can see them clearly.\n\nYour attention catches precisely on anything resembling weakness: a doubt never overcome. Fear that made you keep silent. A step never taken. Everything else seems deliberately pushed into darkness, beyond your sight.\n\nFor an instant a thought slips through: was everything before this truly so little?\n\nYet even within that thought, you can feel how insistently it is being steered toward that conclusion. Too insistently to be chance.",
+      "after_ru": "&Фемто произносит: «Посмотри, что ты выбираешь.»\n\nКруг исчезает из виду, будто его и не было. На его месте — только память, вытащенная наружу против воли.\n\nОбрывки прежней жизни всплывают один за другим. Неясные места. Незаконченные мысли. Решения, к которым возвращались снова и снова, так и не находя покоя. Лица проступают и тут же гаснут, прежде чем удаётся рассмотреть их толком.\n\nВнимание цепляется именно за то, что хоть немного похоже на слабость: сомнение, которое не удалось преодолеть. Страх, который заставил промолчать. Шаг, который так и не был сделан. Всё остальное будто нарочно отодвигается в темноту, за пределы взгляда.\n\nНа миг проскальзывает мысль: неужели всё, что было до этого — настолько мало?\n\nНо даже сейчас, внутри этой мысли, заметно, как настойчиво её подталкивают именно к такому выводу. Слишком настойчиво, чтобы быть случайностью.",
+      "reason": "Воспоминание при отказе показывает рассказчик, а не произносит собеседник."
+    },
+    {
+      "file": "dialogue/road_journal.json",
+      "topic": "TALK_BERSERK_REF_C03",
+      "path": "/dynamic_line/concatenate/8/yes",
+      "before_en": "I managed to destroy the form holding the scene together. That was not the destruction of the entire God Hand.\n\n",
+      "before_ru": "Мне удалось разрушить удерживавший сцену облик. Это не было уничтожением всей Руки Бога.\n\n",
+      "after_en": "I broke the manifestation bound to the ceremony. That was not the destruction of the God Hand.\n\n",
+      "after_ru": "Мне удалось разрушить проявление, связанное с церемонией. Это не было уничтожением Руки Бога.\n\n",
+      "reason": "Убрать техническое слово «сцена» из личной записи."
+    },
+    {
+      "file": "dialogue/road_journal.json",
+      "topic": "TALK_BERSERK_REF_T01",
+      "path": "/dynamic_line/concatenate/38/yes",
+      "before_en": "The Count is dead. He will give no more orders or offer a helping hand. There is no one left to offer one.\n\n",
+      "before_ru": "Граф мёртв. Он больше не отдаст приказа и не протянет руку помощи — да и некому теперь протягивать.\n\n",
+      "after_en": "The Count is dead. He will give me no more orders.\n\n",
+      "after_ru": "Граф мёртв. Он больше не отдаст мне приказов.\n\n",
+      "reason": "Запись героя от первого лица без тавтологии и ложного «некому помогать»."
+    },
+    {
+      "file": "dialogue/road_journal.json",
+      "topic": "TALK_BERSERK_REF_T01",
+      "path": "/dynamic_line/concatenate/39/yes",
+      "before_en": "The body you received from him has not gone away. It is yours now, truly yours, with no master behind your back.\n\n",
+      "before_ru": "Тело, которое вы получили от него, никуда не делось. Оно ваше — теперь уже по-настоящему, без хозяина за спиной.\n\n",
+      "after_en": "The body I received from him has not gone away. It is mine to live with now.\n\n",
+      "after_ru": "Тело, которое я получил от него, осталось. Теперь мне самому решать, как с ним жить.\n\n",
+      "reason": "Убрать обращение справочника к игроку на «вы»."
+    },
+    {
+      "file": "dialogue/road_journal.json",
+      "topic": "TALK_BERSERK_REF_T01",
+      "path": "/dynamic_line/concatenate/40/yes",
+      "before_en": "Wyald is dead. His voice will no longer summon the pack. It is probably already prowling on its own, without a leader.\n\n",
+      "before_ru": "Уайлд мёртв. Его голос больше не созовёт стаю — она, наверное, уже рыщет сама по себе, без вожака.\n\n",
+      "after_en": "Wyald is dead. His voice will no longer summon the pack.\n\n",
+      "after_ru": "Уайлд мёртв. Его голос больше не созовёт стаю.\n\n",
+      "reason": "Не выдумывать неподтверждённую судьбу стаи."
+    },
+    {
+      "file": "dialogue/road_journal.json",
+      "topic": "TALK_BERSERK_REF_T01",
+      "path": "/dynamic_line/concatenate/41/yes",
+      "before_en": "What he gave you remains yours. The death of the one who changed you does not undo the change.\n\n",
+      "before_ru": "То, что он вам дал, осталось при вас. Смерть того, кто изменил тебя, не отменяет самого изменения.\n\n",
+      "after_en": "What he gave me remains. His death does not undo the change.\n\n",
+      "after_ru": "То, что он мне дал, осталось. Его смерть не отменяет перемены.\n\n",
+      "reason": "Сохранить первое лицо записей."
+    },
+    {
+      "file": "dialogue/road_journal.json",
+      "topic": "TALK_BERSERK_REF_T01",
+      "path": "/dynamic_line/concatenate/42/yes",
+      "before_en": "Rosine is gone. You must now make sense of the home she promised with your own mind, without her voice behind your shoulder.\n\n",
+      "before_ru": "Розины больше нет. Тот дом, что она обещала — теперь придётся понимать самому, своим умом, без её голоса за плечом.\n\n",
+      "after_en": "Rosine is gone. I must find my own meaning in the home she promised.\n\n",
+      "after_ru": "Розины больше нет. Мне самому предстоит понять, чем был обещанный ею дом.\n\n",
+      "reason": "Убрать обращение к читателю и тяжёлую тавтологию."
+    },
+    {
+      "file": "dialogue/road_journal.json",
+      "topic": "TALK_BERSERK_REF_T01",
+      "path": "/dynamic_line/concatenate/43/yes",
+      "before_en": "Your human body has not returned. And it will not.\n\n",
+      "before_ru": "Человеческое тело назад не вернулось. И не вернётся.\n\n",
+      "after_en": "My human body has not returned.\n\n",
+      "after_ru": "Прежнее человеческое тело не вернулось.\n\n",
+      "reason": "Краткая личная запись вместо повторной отповеди."
+    },
+    {
+      "file": "dialogue/road_journal.json",
+      "topic": "TALK_BERSERK_REF_T01",
+      "path": "/dynamic_line/concatenate/45/yes",
+      "before_en": "The shell he gave remains part of your flesh, just as before.\n\n",
+      "before_ru": "Панцирь, что он дал, остался частью вашей плоти. Так, как было.\n\n",
+      "after_en": "The shell he gave me remains part of my flesh.\n\n",
+      "after_ru": "Панцирь, который он мне дал, остался частью моего тела.\n\n",
+      "reason": "Исправить второе лицо в личной записи."
+    },
+    {
+      "file": "dialogue/skull_knight.json",
+      "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES",
+      "path": "/responses/1/text",
+      "before_en": "I found evidence about judeau.",
+      "before_ru": "Среди найденных следов упоминался Джудо. Похоже, он пытался помочь остальным",
+      "after_en": "I found traces of a wounded man who was still helping the others.",
+      "after_ru": "Я нашёл следы раненого человека, который всё ещё пытался помочь остальным.",
+      "reason": "Обычный герой рассказывает о находке без чужих воспоминаний и заранее узнанного имени."
+    },
+    {
+      "file": "dialogue/skull_knight.json",
+      "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES",
+      "path": "/responses/3/text",
+      "before_en": "I found evidence about pippin.",
+      "before_ru": "Судя по найденным следам, Пиппин защищал остальных",
+      "after_en": "Someone held the creatures back so the others could retreat.",
+      "after_ru": "Кто-то сдерживал тварей, чтобы остальные могли отойти.",
+      "reason": "Обычный герой рассказывает о находке без чужих воспоминаний и заранее узнанного имени."
+    },
+    {
+      "file": "dialogue/skull_knight.json",
+      "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES",
+      "path": "/responses/5/text",
+      "before_en": "I found evidence about corkus.",
+      "before_ru": "В свидетельстве был человек по имени Коркус. У него были совсем обычные надежды",
+      "after_en": "One of the dead had hoped to leave the war behind.",
+      "after_ru": "Один из погибших надеялся оставить войну позади.",
+      "reason": "Обычный герой рассказывает о находке без чужих воспоминаний и заранее узнанного имени."
+    },
+    {
+      "file": "dialogue/skull_knight.json",
+      "topic": "TALK_BERSERK_SKULL_KNIGHT_MEMORIES",
+      "path": "/responses/7/text",
+      "before_en": "I found evidence about gaston.",
+      "before_ru": "Я нашёл свидетельство о Гастоне. Он надеялся на обычную жизнь после войны",
+      "after_en": "I found the belongings of someone who hoped to return to ordinary work after the war.",
+      "after_ru": "Я нашёл вещи человека, который надеялся вернуться после войны к обычному труду.",
+      "reason": "Обычный герой рассказывает о находке без чужих воспоминаний и заранее узнанного имени."
+    },
+    {
+      "file": "dialogue/road_stories.json",
+      "topic": "TALK_BERSERK_ROAD_CARAVAN",
+      "path": "/dynamic_line/yes",
+      "before_en": "*Most of the wagon has been stripped. A repair order lies under the lid of the iron-bound box. One dry bundle remains beneath it. You could recover the provisions or break the box for its fittings.",
+      "before_ru": "*Обоз почти полностью разграблен. Под крышкой окованного короба лежит заказ на починку оружия. Ниже остался сухой свёрток. Можно достать припасы или разобрать короб ради креплений.",
+      "after_en": "&Most of the wagon has been stripped. A repair order lies under the lid of the iron-bound box. One dry bundle remains beneath it. You could recover the provisions or break the box for its fittings.",
+      "after_ru": "&Обоз почти полностью разграблен. Под крышкой окованного короба лежит заказ на починку оружия. Ниже остался сухой свёрток. Можно достать припасы или разобрать короб ради креплений.",
+      "reason": "Осмотр места не должен автоматически добавлять имя собеседника."
+    },
+    {
+      "file": "dialogue/road_stories.json",
+      "topic": "TALK_BERSERK_ROAD_CARAVAN",
+      "path": "/dynamic_line/no",
+      "before_en": "*The wagon box has been searched. The repair order is still tucked beneath its lid.",
+      "before_ru": "*Короб обоза уже разобран. Заказ на починку всё ещё лежит под крышкой.",
+      "after_en": "&The wagon box has been searched. The repair order is still tucked beneath its lid.",
+      "after_ru": "&Короб обоза уже разобран. Заказ на починку всё ещё лежит под крышкой.",
+      "reason": "Осмотр места не должен автоматически добавлять имя собеседника."
+    },
+    {
+      "file": "dialogue/road_stories.json",
+      "topic": "TALK_BERSERK_ROAD_SCOUT",
+      "path": "/dynamic_line",
+      "before_en": "*Boot prints end beside a slippery slope. The scout tied his pack to a root before descending, but never returned. A rope would let you recover the whole pack; without it, you can reach only the outer bundle.",
+      "before_ru": "*Следы сапог заканчиваются у скользкого склона. Перед спуском разведчик привязал ранец к корню, но не вернулся. С верёвкой можно достать весь ранец; без неё — только внешний свёрток.",
+      "after_en": "&Boot prints end beside a slippery slope. The scout tied his pack to a root before descending, but never returned. A rope would let you recover the whole pack; without it, you can reach only the outer bundle.",
+      "after_ru": "&Следы сапог заканчиваются у скользкого склона. Перед спуском разведчик привязал ранец к корню, но не вернулся. С верёвкой можно достать весь ранец; без неё — только внешний свёрток.",
+      "reason": "Осмотр места не должен автоматически добавлять имя собеседника."
+    },
+    {
+      "file": "dialogue/road_stories.json",
+      "topic": "TALK_BERSERK_ROAD_CAMP",
+      "path": "/dynamic_line/yes",
+      "before_en": "*The travelers left a dry windbreak and their last blanket. A water skin and a folded message lie beside it. You can prepare a bed here or take the blanket for the road.",
+      "before_ru": "*Путники оставили сухое укрытие от ветра и последнее одеяло. Рядом лежат бурдюк и сложенная записка. Можно устроить здесь постель или взять одеяло в дорогу.",
+      "after_en": "&The travelers left a dry windbreak and their last blanket. A water skin and a folded message lie beside it. You can prepare a bed here or take the blanket for the road.",
+      "after_ru": "&Путники оставили сухое укрытие от ветра и последнее одеяло. Рядом лежат бурдюк и сложенная записка. Можно устроить здесь постель или взять одеяло в дорогу.",
+      "reason": "Осмотр места не должен автоматически добавлять имя собеседника."
+    },
+    {
+      "file": "dialogue/road_stories.json",
+      "topic": "TALK_BERSERK_ROAD_CAMP",
+      "path": "/dynamic_line/no",
+      "before_en": "*The bedding and supplies have already been sorted. The traveler’s message remains beside the cold ashes.",
+      "before_ru": "*Постель и припасы уже разобраны. Запись путника осталась рядом с остывшим кострищем.",
+      "after_en": "&The bedding and supplies have already been sorted. The traveler’s message remains beside the cold ashes.",
+      "after_ru": "&Постель и припасы уже разобраны. Запись путника осталась рядом с остывшим кострищем.",
+      "reason": "Осмотр места не должен автоматически добавлять имя собеседника."
+    }
+  ]
+}

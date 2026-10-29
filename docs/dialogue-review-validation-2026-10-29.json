@@ -1,0 +1,56 @@
+{
+  "parent": "2c5704047282e8c5b39ccab6caf43656d3f2fac5",
+  "dialogue_files_reviewed": {
+    "apostle_count.json": 51,
+    "apostol_ceremony.json": 154,
+    "apostol_contracts.json": 100,
+    "common_reactions_33.json": 85,
+    "flora.json": 121,
+    "godo.json": 362,
+    "road_journal.json": 168,
+    "road_stories.json": 3,
+    "skull_knight.json": 90
+  },
+  "dialogue_topics": 1134,
+  "exact_en_ru_edits": 99,
+  "new_state_and_editorial_checks": 17,
+  "current_checks_passed": 403,
+  "series_33_checks": 391,
+  "recipe_checks": 5,
+  "dynamic_dialogue_checks": 7,
+  "asset_validation": {
+    "packages": 2,
+    "json_files": 397,
+    "mod_tilesets": 28,
+    "sprite_sheets": 30,
+    "tile_ids": 92,
+    "translation_catalogs": 4
+  },
+  "rebuild": {
+    "checked_files": 575,
+    "drift": []
+  },
+  "historical_full_suite": {
+    "total": 720,
+    "failures": 130,
+    "errors": 89,
+    "before": 219,
+    "after": 219,
+    "new": [],
+    "resolved": [],
+    "isolated_copy": true
+  },
+  "native_game_test": false,
+  "authored_pngs_changed": false,
+  "reward_or_order_eocs_changed": false,
+  "dialogue_ids_preserved": true,
+  "source": "docs/dialogue_sources/dialogue-review-2026-10-29.json",
+  "canonical_builder": "python tools/build_story_33.py",
+  "presentation_fixes": [
+    "Flora greeting priorities and one-time new Brand acknowledgement",
+    "Rickert crossbow questions mutually exclusive; hand service introduction uses existing anatomy gate",
+    "Knight knows the two acquaintances separately and prioritizes replacement hand advice",
+    "Reference death records merged without clearing knowledge flags; heard quotations mirror corrected source"
+  ],
+  "build_input_filter": "English finalizer skips editor/synchronization internals, which are not mod sources."
+}

@@ -1,0 +1,207 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REVIEW29_LINE_88C8191A6272",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_flora_armor_resolved == 1"
+          ]
+        },
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_FULL_SET"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REVIEW29_LINE_6811CF0FAECC",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_flora33_greeted_brand == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REVIEW29_LINE_AFFFFE25EA58",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "u_has_bionics": "bio_berserk_hand_stump"
+        },
+        {
+          "not": {
+            "u_has_bionics": "bio_berserk_arm_cannon"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REVIEW29_LINE_D936E586D773",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_ref_active_t01_35 == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_active_t01_36 == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REVIEW29_LINE_0CD82D3F7101",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_ref_active_t01_37 == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_active_t01_38 == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REVIEW29_LINE_2F5589682EA3",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_ref_active_t01_39 == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_active_t01_40 == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REVIEW29_LINE_180126FC1ACF",
+    "effect": [],
+    "condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_ref_active_t01_41 == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_ref_active_t01_42 == 1"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_REVIEW29_LINE_3D3AAB3F3F78",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "u_berserk_ref_active_t01_33 == 1"
+          ]
+        },
+        {
+          "not": {
+            "or": [
+              {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_ref_active_t01_35 == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_ref_active_t01_36 == 1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_ref_active_t01_37 == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_ref_active_t01_38 == 1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_ref_active_t01_39 == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_ref_active_t01_40 == 1"
+                    ]
+                  }
+                ]
+              },
+              {
+                "or": [
+                  {
+                    "math": [
+                      "u_berserk_ref_active_t01_41 == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_ref_active_t01_42 == 1"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

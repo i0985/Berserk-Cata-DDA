@@ -12,22 +12,14 @@
           "\n",
           {
             "test_eoc": "EOC_BERSERK_FLORA33_HURT",
-            "yes": "Wounded: \"Sit down before you start telling me. You're favoring a wound; I can see it in the way you move.\"",
+            "yes": "Sit down before you begin. I can see you are guarding a wound.",
             "no": {
-              "math": [
-                "u_berserk_flora33_greeted_brand == 1"
-              ],
-              "yes": "No significant change: \"Your place by the hearth is free.\"",
+              "test_eoc": "EOC_BERSERK_REVIEW29_LINE_6811CF0FAECC",
+              "yes": "Something terrible has happened since we last met. Tell me when you are ready.",
               "no": {
-                "u_has_bionics": "bio_berserk_brand_of_sacrifice",
-                "yes": "First return with the Brand: \"Something terrible has happened to you since we last met. Tell me when you're ready, and not before.\"",
-                "no": {
-                  "math": [
-                    "u_berserk_flora_armor_resolved == 1"
-                  ],
-                  "yes": "Received her armor: \"How are you managing with the armor? It isn't easy on you, I know.\"",
-                  "no": "No significant change: \"Your place by the hearth is free.\""
-                }
+                "test_eoc": "EOC_BERSERK_REVIEW29_LINE_88C8191A6272",
+                "yes": "How are you managing with the armor? Have you noticed what it asks of you?",
+                "no": "Your place by the hearth is free."
               }
             }
           }
@@ -120,6 +112,41 @@
         },
         {
           "run_eocs": "EOC_BERSERK_FLORA_REGISTER_HERE"
+        },
+        {
+          "if": {
+            "and": [
+              {
+                "and": [
+                  {
+                    "u_has_bionics": "bio_berserk_brand_of_sacrifice"
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_greeted_brand == 1"
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "not": {
+                  "test_eoc": "EOC_BERSERK_FLORA33_HURT"
+                }
+              },
+              {
+                "math": [
+                  "u_berserk_flora_met == 1"
+                ]
+              }
+            ]
+          },
+          "then": {
+            "math": [
+              "u_berserk_flora33_greeted_brand = 1"
+            ]
+          }
         }
       ]
     }
@@ -1960,7 +1987,7 @@
         "topic": "TALK_BERSERK_FLORA_ARMOR_PROPERTIES"
       },
       {
-        "text": "At what price?",
+        "text": "What price does the wearer pay?",
         "topic": "TALK_BERSERK_FLORA_COST"
       },
       {
@@ -2549,7 +2576,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_ARMOR_RECOVER",
-    "dynamic_line": "Don't mistake being able to move for being healed. After the battle, the body must still endure what happened to it. A delay is no reprieve.\n\nAt first the price may seem small: fatigue, pain that you will feel later, once it is over. The greater danger is growing used to treating any injury as acceptable while an enemy remains. That habit is more dangerous than the pain itself.",
+    "dynamic_line": "Once the fury has passed and it is safe, remove the armor and examine your wounds. Clean and bind them. Give yourself food, water and rest. Being able to stand does not mean you are ready for another fight.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -2790,7 +2817,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_HELP_TAKEN",
-    "dynamic_line": "You may take the bundles I prepared. No new supplies will appear in their place, so use them carefully.",
+    "dynamic_line": "Take any of the bundles I prepared that are still there. That is all I could spare for the road; use them carefully.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -2801,7 +2828,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_HOME",
-    "dynamic_line": "Because this place became possible beside it. I built the house trying not to quarrel with the roots. Some parts worked better than others; some had to be rebuilt. The tree is more headstrong than any customer.",
+    "dynamic_line": "I built the house beside this tree, trying not to quarrel with its roots. In some places I managed; in others I had to begin again. A tree is more stubborn than any patron.",
     "responses": [
       {
         "text": "Does it protect you?",
@@ -3082,7 +3109,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_KNIGHT_SPEECH",
-    "dynamic_line": "I suppose he has little choice. Habit is a tenacious thing.",
+    "dynamic_line": "He has had a long time to grow used to choosing his words carefully. I have learned not to hurry him.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -3158,7 +3185,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_KNOWN_COUNT",
-    "dynamic_line": "Tell me. Not what it looks like; any fool can see that. What happens around it. Who runs, who stays, what the land does in that place.\n\nWhen you go there again, look beyond the creature itself. Look at what it has done to its surroundings. Scorched earth, fallen houses, silence without even a crow's call: these say more than any name people gave it out of fear.",
+    "dynamic_line": "Tell me what you learned about his house. Fear can survive its master for a long time. Remember the people caught there, as well as the creature that held them.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -3169,7 +3196,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_KNOWN_WYALD",
-    "dynamic_line": "Tell me. Not what it looks like; any fool can see that. What happens around it. Who runs, who stays, what the land does in that place.\n\nWhen you go there again, look beyond the creature itself. Look at what it has done to its surroundings. Scorched earth, fallen houses, silence without even a crow's call: these say more than any name people gave it out of fear.",
+    "dynamic_line": "What did you learn about the Black Dogs? Their commander is not the only danger. A cruel order can keep being obeyed long after the voice that gave it falls silent.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -3180,7 +3207,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_KNOWN_ROSINE",
-    "dynamic_line": "Tell me. Not what it looks like; any fool can see that. What happens around it. Who runs, who stays, what the land does in that place.\n\nWhen you go there again, look beyond the creature itself. Look at what it has done to its surroundings. Scorched earth, fallen houses, silence without even a crow's call: these say more than any name people gave it out of fear.",
+    "dynamic_line": "Tell me about the valley. Beauty makes people slow to notice suffering. Look for what does not belong among the flowers, and do not mistake a changed body for a life restored.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -3191,7 +3218,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_KNOWN_GRUNBELD",
-    "dynamic_line": "Tell me. Not what it looks like; any fool can see that. What happens around it. Who runs, who stays, what the land does in that place.\n\nWhen you go there again, look beyond the creature itself. Look at what it has done to its surroundings. Scorched earth, fallen houses, silence without even a crow's call: these say more than any name people gave it out of fear.",
+    "dynamic_line": "What have you learned of Grunbeld? Strength joined to obedience can do terrible harm. The one carrying out an order still chooses to raise his weapon.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -3214,7 +3241,7 @@
         }
       },
       {
-        "text": "I know something about Wyald.",
+        "text": "I learned something about Wyald.",
         "topic": "TALK_BERSERK_FLORA_KNOWN_WYALD",
         "condition": {
           "math": [
@@ -3271,7 +3298,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_DANGER_BREACH",
-    "dynamic_line": "Good work. Hard work.\n\nJust don't mistake quiet for emptiness. The breach closed, but what had already come through it stayed. On this side. Somewhere.\n\nSo don't lower your guard too soon.",
+    "dynamic_line": "You have done something difficult and worthwhile. But the creatures that crossed before it closed are still on this side. Take the quiet as a chance to recover, and remain careful.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
@@ -3319,23 +3346,23 @@
     "id": "TALK_BERSERK_FLORA_NEXT",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_FLORA33_P_C8F07FE2CEA9",
-      "yes": "You have a known road: the forest hollow.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
+      "yes": "You already have a trail to the forest hollow. Rest and prepare what you need, then follow it. You need not take on every danger at once.",
       "no": {
         "test_eoc": "EOC_BERSERK_FLORA33_P_678E2F36C17F",
-        "yes": "You have a known road: the ashen rift.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
+        "yes": "You already have a trail to the ashen breach. Rest and prepare what you need, then follow it. You need not take on every danger at once.",
         "no": {
           "test_eoc": "EOC_BERSERK_FLORA33_P_C402274F96B9",
-          "yes": "You have a known road: the Count's residence.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
+          "yes": "You already have a trail to the Count's residence. Rest and prepare what you need, then follow it. You need not take on every danger at once.",
           "no": {
             "test_eoc": "EOC_BERSERK_FLORA33_P_DAB0685D7713",
-            "yes": "You have a known road: the Black Dogs' camp.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
+            "yes": "You already have a trail to the Black Dogs' camp. Rest and prepare what you need, then follow it. You need not take on every danger at once.",
             "no": {
               "test_eoc": "EOC_BERSERK_FLORA33_P_79E9E9DAA827",
-              "yes": "You have a known road: the misty valley.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
+              "yes": "You already have a trail to the misty valley. Rest and prepare what you need, then follow it. You need not take on every danger at once.",
               "no": {
                 "test_eoc": "EOC_BERSERK_FLORA33_P_6E47DB6C2FDD",
-                "yes": "You have a known road: Grunbeld's fortress.\n\nThe question isn't where. It's whether you're ready to go there now, or should first rest and eat.",
-                "no": "You have nothing. Not no roads; no knowledge.\n\nGo and make sense of what you've already found before stumbling farther at random. Going blindly is like diving headfirst into an ice hole. You might surface, or you might not."
+                "yes": "You already have a trail to Grunbeld's stronghold. Rest and prepare what you need, then follow it. You need not take on every danger at once.",
+                "no": "I cannot point out a road you have not yet found. Return to the clues you already have. Someone you trust may help you make sense of them."
               }
             }
           }
