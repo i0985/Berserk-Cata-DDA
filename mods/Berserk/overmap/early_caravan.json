@@ -1,0 +1,62 @@
+[
+  {
+    "type": "overmap_terrain",
+    "id": "berserk_early_caravan",
+    "name": "abandoned roadside wagon",
+    "sym": "?",
+    "color": "brown",
+    "see_cost": "high",
+    "travel_cost_type": "forest",
+    "flags": [
+      "NO_ROTATE"
+    ]
+  },
+  {
+    "type": "overmap_special",
+    "id": "berserk_early_caravan_special",
+    "overmaps": [
+      {
+        "point": [
+          0,
+          0,
+          0
+        ],
+        "overmap": "berserk_early_caravan"
+      }
+    ],
+    "connections": [
+      {
+        "point": [
+          0,
+          1,
+          0
+        ],
+        "terrain": "road",
+        "connection": "local_road",
+        "from": [
+          0,
+          0,
+          0
+        ],
+        "existing": true
+      }
+    ],
+    "locations": [
+      "forest",
+      "field"
+    ],
+    "city_distance": [
+      3,
+      -1
+    ],
+    "rotate": true,
+    "occurrences": [
+      0,
+      0
+    ],
+    "flags": [
+      "GLOBALLY_UNIQUE"
+    ],
+    "//": "Once per world, requested at the first surface start/exit. Existing road required."
+  }
+]

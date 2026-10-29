@@ -83,7 +83,7 @@
     "name": {
       "str": "Body: Carapace vassal"
     },
-    "description": "A heavy shell protects your body: bash 6, cut 10, stab 6; heat damage is reduced by 25%. Strength +2. Slow movement, increased hunger and rigid armor restrictions remain.",
+    "description": "A heavy shell protects your body: bash 6, cut 10, stab 6; heat damage is reduced by 25%. Strength +2. Slow movement, increased hunger and rigid armor restrictions remain.\n\nBody abilities: Hooked feet help you cross obstacles and walk along the bottom underwater. You still need air.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -112,6 +112,9 @@
             "type": "heat",
             "multiply": -0.25
           }
+        ],
+        "mutations": [
+          "SCUTTLE"
         ]
       }
     ],

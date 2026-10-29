@@ -65,7 +65,7 @@
     "name": {
       "str": "Body: cinder carapace"
     },
-    "description": "A fiery carapace grants strength +3 and protects against bash 12, cut 18 and stab 12. Heat damage is halved. Speed -15; hunger and slow recovery remain. Ordinary rigid armor no longer fits the shell. Fire is still dangerous.",
+    "description": "A fiery carapace grants strength +3 and protects against bash 12, cut 18 and stab 12. Heat damage is halved. Speed -15; hunger and slow recovery remain. Ordinary rigid armor no longer fits the shell. Fire is still dangerous.\n\nBody abilities: Hooked feet let you walk along the bottom underwater, but you still need air. Activate Roomy Shell in the mutation menu to shelter your head and limbs within the shell; leave that posture to move freely again. Your changed body remains.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -94,6 +94,10 @@
             "type": "heat",
             "multiply": -0.5
           }
+        ],
+        "mutations": [
+          "SCUTTLE",
+          "SHELL2"
         ]
       }
     ],

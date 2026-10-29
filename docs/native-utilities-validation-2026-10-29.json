@@ -1,0 +1,56 @@
+{
+  "parent": "5a2741fd96408bc26780590ecedf80a6f06c8c88",
+  "current_checks_passed": 378,
+  "series_33_checks": 366,
+  "new_regressions": 20,
+  "recipe_checks": 5,
+  "dynamic_dialogue_checks": 7,
+  "asset_validation": {
+    "packages": 2,
+    "json_files": 396,
+    "mod_tilesets": 28,
+    "sprite_sheets": 30,
+    "tile_ids": 92,
+    "translation_catalogs": 4
+  },
+  "rebuild": {
+    "checked_files": 418,
+    "drift": []
+  },
+  "historical_full_suite": {
+    "total": 695,
+    "failures": 130,
+    "errors": 89,
+    "before": 219,
+    "after": 219,
+    "new": [],
+    "resolved": [],
+    "isolated_copy": true
+  },
+  "native_game_test": false,
+  "native_ref": "CleverRaven/Cataclysm-DDA 0.I",
+  "native_sources_checked": [
+    "src/iexamine.cpp: WING_GLIDE opens real ledge menu",
+    "src/activity_actor.cpp: glide_activity_actor",
+    "src/character.cpp: FEATHER_FALL, cached mutation grants",
+    "src/mutation.cpp: active cached native traits and integrated weapons",
+    "src/mutation_data.cpp: gear destruction defaults false",
+    "src/avatar_action.cpp: native shell blocks movement",
+    "src/character_escape.cpp: native SLIMY grab escape",
+    "src/mission_util.cpp: failed search returns origin; special creation",
+    "src/npctalk.cpp: location true_eocs are not proof of terrain",
+    "data/json/overmap/overmap_special/specials.json: existing-road connections",
+    "data/json/mutations/mutations.json: ten reused utility traits",
+    "gfx/UltimateCataclysm: original body layers, indices and offset"
+  ],
+  "authored_pngs_changed": false,
+  "native_overlay_sheet_reproduced": true,
+  "body_mechanics": "Permanent FORM enchantments grant native cached traits; no new strength bonuses, no new story line, no dependency on living master.",
+  "placement_limits": "One unique roadside special before Eclipse; waits for z=0 and suitable surface/indoor land, radius 48 OMT, three attempts with 30-minute cooldown. Existing local maps retained. No suitable roads/land means no forced placement.",
+  "gameplay_still_required": [
+    "Native gliding from multiple floors and obstacle/collision handling",
+    "Native cached antennae, burrowing, fangs and shell in the target Windows build",
+    "New start generation and actual road/city placement",
+    "Male/female UltiCa layering with equipped items"
+  ]
+}

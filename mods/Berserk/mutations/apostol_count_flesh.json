@@ -61,7 +61,7 @@
     "name": {
       "str": "Body: pliant flesh"
     },
-    "description": "Thick pliant flesh protects you: bash 10, cut 14, stab 8. Strength +4; movement remains slower. Rigid torso and arm armor no longer fits. Use Draw flesh together to mend wounds.",
+    "description": "Thick pliant flesh protects you: bash 10, cut 14, stab 8. Strength +4; movement remains slower. Rigid torso and arm armor no longer fits. Use Draw flesh together to mend wounds.\n\nBody abilities: Slippery skin helps you escape grabs. Gills let you breathe underwater.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -80,6 +80,10 @@
             "value": "STRENGTH",
             "add": 4
           }
+        ],
+        "mutations": [
+          "SLIMY",
+          "GILLS"
         ]
       }
     ],

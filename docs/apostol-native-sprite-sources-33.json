@@ -1,0 +1,298 @@
+{
+  "source_repository": "CleverRaven/Cataclysm-DDA",
+  "source_ref": "0.I",
+  "source_file": "gfx/UltimateCataclysm/human_body.png",
+  "source_git_sha": "a32dbe8f921bb1e53f9d9562a6e30167be89e893",
+  "source_sha256": "d7bbca32bec6783e94e5f3aaedbba93d3784468442e7d748579fe4a1058fbc4a",
+  "license": "CC-BY-SA-3.0",
+  "sheet": "tileset/apostol_native_overlays.png",
+  "sha256": "09c6bff2d0dae2edf519e65e9004160fb93aa1225dc50f20df7e4a73761fd8ec",
+  "sprite_width": 32,
+  "sprite_height": 36,
+  "sprite_offset_x": 0,
+  "sprite_offset_y": -8,
+  "tiles": [
+    {
+      "id": "overlay_female_mutation_BERSERK_COUNT_PAWN_FORM",
+      "fg": 0
+    },
+    {
+      "id": "overlay_male_mutation_BERSERK_COUNT_PAWN_FORM",
+      "fg": 1
+    },
+    {
+      "id": "overlay_female_mutation_BERSERK_COUNT_FLESH_FORM",
+      "fg": 2
+    },
+    {
+      "id": "overlay_male_mutation_BERSERK_COUNT_FLESH_FORM",
+      "fg": 3
+    },
+    {
+      "id": "overlay_female_mutation_BERSERK_WYALD_PAWN_FORM",
+      "fg": 4
+    },
+    {
+      "id": "overlay_male_mutation_BERSERK_WYALD_PAWN_FORM",
+      "fg": 5
+    },
+    {
+      "id": "overlay_female_mutation_BERSERK_WYALD_FLESH_FORM",
+      "fg": 6
+    },
+    {
+      "id": "overlay_male_mutation_BERSERK_WYALD_FLESH_FORM",
+      "fg": 7
+    },
+    {
+      "id": "overlay_female_mutation_BERSERK_ROSINE_PAWN_FORM",
+      "fg": 8
+    },
+    {
+      "id": "overlay_male_mutation_BERSERK_ROSINE_PAWN_FORM",
+      "fg": 9
+    },
+    {
+      "id": "overlay_female_mutation_BERSERK_ROSINE_FLESH_FORM",
+      "fg": 10
+    },
+    {
+      "id": "overlay_male_mutation_BERSERK_ROSINE_FLESH_FORM",
+      "fg": 11
+    },
+    {
+      "id": "overlay_female_mutation_BERSERK_GRUNBELD_PAWN_FORM",
+      "fg": 12
+    },
+    {
+      "id": "overlay_male_mutation_BERSERK_GRUNBELD_PAWN_FORM",
+      "fg": 13
+    },
+    {
+      "id": "overlay_female_mutation_BERSERK_GRUNBELD_FLESH_FORM",
+      "fg": 14
+    },
+    {
+      "id": "overlay_male_mutation_BERSERK_GRUNBELD_FLESH_FORM",
+      "fg": 15
+    }
+  ],
+  "sources": [
+    {
+      "target": "COUNT_PAWN",
+      "sex": "female",
+      "native_overlay": "overlay_female_mutation_PATCHSKIN1",
+      "fg": 10173,
+      "rect": [
+        416,
+        1260,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "COUNT_PAWN",
+      "sex": "male",
+      "native_overlay": "overlay_male_mutation_PATCHSKIN1",
+      "fg": 10174,
+      "rect": [
+        448,
+        1260,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "COUNT_FLESH",
+      "sex": "female",
+      "native_overlay": "overlay_female_mutation_PATCHSKIN1",
+      "fg": 10173,
+      "rect": [
+        416,
+        1260,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "COUNT_FLESH",
+      "sex": "male",
+      "native_overlay": "overlay_male_mutation_PATCHSKIN1",
+      "fg": 10174,
+      "rect": [
+        448,
+        1260,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "WYALD_PAWN",
+      "sex": "female",
+      "native_overlay": "overlay_female_mutation_LUPINE_FUR",
+      "fg": 10160,
+      "rect": [
+        0,
+        1260,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "WYALD_PAWN",
+      "sex": "male",
+      "native_overlay": "overlay_male_mutation_LUPINE_FUR",
+      "fg": 10167,
+      "rect": [
+        224,
+        1260,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "WYALD_FLESH",
+      "sex": "female",
+      "native_overlay": "overlay_female_mutation_LUPINE_FUR",
+      "fg": 10160,
+      "rect": [
+        0,
+        1260,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "WYALD_FLESH",
+      "sex": "male",
+      "native_overlay": "overlay_male_mutation_LUPINE_FUR",
+      "fg": 10167,
+      "rect": [
+        224,
+        1260,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "ROSINE_PAWN",
+      "sex": "female",
+      "native_overlay": "overlay_female_mutation_CHITIN",
+      "fg": 10153,
+      "rect": [
+        288,
+        1224,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "ROSINE_PAWN",
+      "sex": "male",
+      "native_overlay": "overlay_male_mutation_CHITIN",
+      "fg": 10154,
+      "rect": [
+        320,
+        1224,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "ROSINE_FLESH",
+      "sex": "female",
+      "native_overlay": "overlay_female_mutation_WINGS_BAT",
+      "fg": 10147,
+      "rect": [
+        96,
+        1224,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "ROSINE_FLESH",
+      "sex": "female",
+      "native_overlay": "overlay_female_mutation_CHITIN2",
+      "fg": 10151,
+      "rect": [
+        224,
+        1224,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "ROSINE_FLESH",
+      "sex": "male",
+      "native_overlay": "overlay_male_mutation_WINGS_BAT",
+      "fg": 10148,
+      "rect": [
+        128,
+        1224,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "ROSINE_FLESH",
+      "sex": "male",
+      "native_overlay": "overlay_male_mutation_CHITIN2",
+      "fg": 10152,
+      "rect": [
+        256,
+        1224,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "GRUNBELD_PAWN",
+      "sex": "female",
+      "native_overlay": "overlay_female_mutation_CHITIN2",
+      "fg": 10151,
+      "rect": [
+        224,
+        1224,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "GRUNBELD_PAWN",
+      "sex": "male",
+      "native_overlay": "overlay_male_mutation_CHITIN2",
+      "fg": 10152,
+      "rect": [
+        256,
+        1224,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "GRUNBELD_FLESH",
+      "sex": "female",
+      "native_overlay": "overlay_female_mutation_SCALES",
+      "fg": 10177,
+      "rect": [
+        32,
+        1296,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "GRUNBELD_FLESH",
+      "sex": "male",
+      "native_overlay": "overlay_male_mutation_SCALES",
+      "fg": 10178,
+      "rect": [
+        64,
+        1296,
+        32,
+        36
+      ]
+    }
+  ]
+}

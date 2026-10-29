@@ -61,7 +61,7 @@
     "name": {
       "str": "Body: hunting beast"
     },
-    "description": "A beastlike body grants strength +4, melee damage +15% and dexterity -2. Thick hide protects against bash 4, cut 7 and stab 4. Stamina still recovers slowly; rigid gloves and footwear do not fit.",
+    "description": "A beastlike body grants strength +4, melee damage +15% and dexterity -2. Thick hide protects against bash 4, cut 7 and stab 4. Stamina still recovers slowly; rigid gloves and footwear do not fit.\n\nBody abilities: Padded feet soften your steps. Claws and fangs provide natural attacks. Activate Burrowing in the mutation menu to dig through suitable dirt and rubble.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -88,6 +88,12 @@
             "value": "MELEE_DAMAGE",
             "multiply": 0.15
           }
+        ],
+        "mutations": [
+          "PADDED_FEET",
+          "CLAWS_RAT",
+          "FANGS",
+          "BURROWLARGE"
         ]
       }
     ],

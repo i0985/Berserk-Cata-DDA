@@ -1,0 +1,111 @@
+{
+  "project_id": "early-caravan-3.3-01",
+  "layout_version": 1,
+  "size": [
+    24,
+    24
+  ],
+  "source_project": "road-stories-3.3-01",
+  "source_map": "berserk_road_caravan",
+  "instructions": "Reuse approved wagon clearing unchanged; add one physical repair order at the existing box. The special requires an existing adjacent road.",
+  "maps": [
+    {
+      "type": "mapgen",
+      "om_terrain": "berserk_early_caravan",
+      "object": {
+        "fill_ter": "t_grass",
+        "terrain": {
+          ".": "t_grass",
+          "p": "t_dirt",
+          "T": "t_tree",
+          "u": "t_underbrush",
+          "#": "t_rock",
+          "s": "t_dirt"
+        },
+        "rows": [
+          "uTTTTuTTTTuuuTTuTTTTuTTT",
+          "TTuTTTTuTTTuuTTTTuTTTTuT",
+          "TTTTuTTTTuTTTTuTTTTuTTTT",
+          "TuTTTTuTTTTuTTTTuTTTTuTT",
+          "TTTuTTTTuTTTTuTTTTuTTTTu",
+          "uTTTTuTTTT.....uTTTTuTTT",
+          "TTuTTTTu.........uTTTTuT",
+          "TTTTuTT...........TuTTTT",
+          "TuTTTT.............TTuTT",
+          "TTTuT...............TTTu",
+          "uTTTT...............uTTT",
+          "TTuTT...............TTuT",
+          "TTTT.................TTT",
+          "TuTTT...............TuTT",
+          "TTTuT...............TTTu",
+          "uTTTT...............uTTT",
+          "TTuTTT.............TTTuT",
+          "TTTTuTT...........TuTTTT",
+          "TuTTTTuT.........TTTTuTT",
+          "TTTuTTTTuT.....TTTuTTTTu",
+          "uTTTTuTTTTuTTTTuTTTTuTTT",
+          "TTuTTTTuTTTTuTTTTuTTTTuT",
+          "TTTTuTTTTuTuuTuTTTTuTTTT",
+          "TuTTTTuTTTTuuTTTuTTTTuTT"
+        ],
+        "place_furniture": [
+          {
+            "furn": "f_rubble",
+            "x": 15,
+            "y": 9
+          },
+          {
+            "furn": "f_rubble",
+            "x": 16,
+            "y": 9
+          },
+          {
+            "furn": "f_rubble",
+            "x": 15,
+            "y": 10
+          },
+          {
+            "furn": "f_berserk_road_caravan",
+            "x": 16,
+            "y": 10
+          },
+          {
+            "furn": "f_crate_o",
+            "x": 18,
+            "y": 9
+          },
+          {
+            "furn": "f_firering",
+            "x": 6,
+            "y": 12
+          }
+        ],
+        "place_item": [
+          {
+            "item": "splinter",
+            "x": 15,
+            "y": 11,
+            "amount": 3
+          },
+          {
+            "item": "berserk_road_caravan_note",
+            "x": 16,
+            "y": 10,
+            "amount": 1
+          }
+        ]
+      }
+    }
+  ],
+  "anchors": {
+    "repair_order": [
+      16,
+      10
+    ],
+    "road_connection": [
+      0,
+      1,
+      0
+    ]
+  }
+}

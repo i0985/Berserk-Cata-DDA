@@ -101,7 +101,7 @@
     "name": {
       "str": "Body: Child of the false valley"
     },
-    "description": "Chitin protects your body: bash 3, cut 6, stab 4. Dexterity +2, speed +12. Fragile joints and difficulties with speech and crafting remain. Rigid helmets and gloves no longer fit.",
+    "description": "Chitin protects your body: bash 3, cut 6, stab 4. Dexterity +2, speed +12. Fragile joints and difficulties with speech and crafting remain. Rigid helmets and gloves no longer fit.\n\nBody abilities: Antennae sense nearby creatures even behind obstacles. Toggle them in the mutation menu.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -124,6 +124,9 @@
             "value": "SPEED",
             "add": 12
           }
+        ],
+        "mutations": [
+          "ANTENNAE"
         ]
       }
     ],

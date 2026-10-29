@@ -1,0 +1,508 @@
+{
+  "source": {
+    "repository": "CleverRaven/Cataclysm-DDA",
+    "ref": "0.I",
+    "mutations_path": "data/json/mutations/mutations.json",
+    "enchantment_code": "src/character.cpp",
+    "mechanism": "Permanent FORM mutations grant native cached traits through enchantments. These are not removable doses or a second story line."
+  },
+  "bodies": {
+    "COUNT_PAWN": {
+      "traits": [
+        "SLIMY"
+      ],
+      "en": "Your slippery skin helps you escape grabs, especially where it is uncovered.",
+      "ru": "Скользкая кожа помогает вырываться из захватов, особенно на открытых участках тела.",
+      "sprite": "PATCHSKIN1"
+    },
+    "COUNT_FLESH": {
+      "traits": [
+        "SLIMY",
+        "GILLS"
+      ],
+      "en": "Slippery skin helps you escape grabs. Gills let you breathe underwater.",
+      "ru": "Скользкая кожа помогает вырываться из захватов. Жабры позволяют дышать под водой.",
+      "sprite": "PATCHSKIN1"
+    },
+    "WYALD_PAWN": {
+      "traits": [
+        "PADDED_FEET",
+        "CLAWS"
+      ],
+      "en": "Padded feet need no shoes and soften your footsteps. Uncovered claws serve as natural weapons.",
+      "ru": "Мягкие стопы позволяют обходиться без обуви и приглушают шаги. Открытые когти служат естественным оружием.",
+      "sprite": "LUPINE_FUR"
+    },
+    "WYALD_FLESH": {
+      "traits": [
+        "PADDED_FEET",
+        "CLAWS_RAT",
+        "FANGS",
+        "BURROWLARGE"
+      ],
+      "en": "Padded feet soften your steps. Claws and fangs provide natural attacks. Activate Burrowing in the mutation menu to dig through suitable dirt and rubble.",
+      "ru": "Мягкие стопы приглушают шаги. Когти и клыки дают естественные атаки. Способность «Рытьё» в меню мутаций позволяет копать подходящий грунт и завалы.",
+      "sprite": "LUPINE_FUR"
+    },
+    "ROSINE_PAWN": {
+      "traits": [
+        "ANTENNAE"
+      ],
+      "en": "Antennae sense nearby creatures even behind obstacles. Toggle them in the mutation menu.",
+      "ru": "Усики чувствуют ближайших существ даже за препятствиями. Их можно включать и выключать в меню мутаций.",
+      "sprite": "CHITIN"
+    },
+    "ROSINE_FLESH": {
+      "traits": [
+        "ANTENNAE"
+      ],
+      "en": "Antennae sense nearby creatures. Examine a roof edge or another ledge and choose to glide: your wings carry you down through open air without falling damage. Native gliding requires a light load and usable arms; your load must not exceed half your carrying capacity. Winged dive remains a separate short combat maneuver.",
+      "ru": "Усики чувствуют ближайших существ. Осмотрите край крыши или другой уступ и выберите планирование: крылья позволяют спускаться через открытый воздух без урона от падения. Для штатного планирования нужны рабочие руки и груз не тяжелее половины вашей грузоподъёмности. Боевое пикирование остаётся отдельным коротким манёвром.",
+      "sprite": "CHITIN2",
+      "back": "WINGS_BAT",
+      "flags": [
+        "WING_GLIDE",
+        "FEATHER_FALL"
+      ]
+    },
+    "GRUNBELD_PAWN": {
+      "traits": [
+        "SCUTTLE"
+      ],
+      "en": "Hooked feet help you cross obstacles and walk along the bottom underwater. You still need air.",
+      "ru": "Цепкие стопы помогают преодолевать препятствия и ходить по дну под водой. Воздух вам по-прежнему необходим.",
+      "sprite": "CHITIN2"
+    },
+    "GRUNBELD_FLESH": {
+      "traits": [
+        "SCUTTLE",
+        "SHELL2"
+      ],
+      "en": "Hooked feet let you walk along the bottom underwater, but you still need air. Activate Roomy Shell in the mutation menu to shelter your head and limbs within the shell; leave that posture to move freely again. Your changed body remains.",
+      "ru": "Цепкие стопы позволяют ходить по дну под водой, но воздух всё ещё нужен. Включите «Вместительный панцирь» в меню мутаций, чтобы укрыть голову и конечности; выйдите из этого положения, чтобы снова свободно двигаться. Изменённое тело остаётся.",
+      "sprite": "SCALES"
+    }
+  },
+  "native_traits": [
+    {
+      "type": "mutation",
+      "id": "GILLS",
+      "name": {
+        "str": "Gills"
+      },
+      "points": 2,
+      "vitamin_cost": 160,
+      "visibility": 5,
+      "ugliness": 3,
+      "description": "You've grown a set of gills in your neck, allowing you to breathe underwater.  Slightly increases wet benefits.",
+      "category": [
+        "FISH",
+        "BATRACHIAN",
+        "CRUSTACEAN"
+      ],
+      "threshreq": [
+        "THRESH_FISH",
+        "THRESH_BATRACHIAN",
+        "THRESH_CRUSTACEAN"
+      ],
+      "types": [
+        "GILLS"
+      ],
+      "flags": [
+        "GILLS"
+      ],
+      "wet_protection": [
+        {
+          "part": "head",
+          "good": 1
+        }
+      ]
+    },
+    {
+      "type": "mutation",
+      "id": "CLAWS",
+      "name": {
+        "str": "Claws"
+      },
+      "points": 2,
+      "vitamin_cost": 160,
+      "visibility": 3,
+      "ugliness": 2,
+      "integrated_armor": [
+        "integrated_claws"
+      ],
+      "description": "You have claws on the ends of your fingers.  If you aren't wearing gloves, your unarmed attacks deal a minor amount of cutting damage.",
+      "types": [
+        "CLAWS"
+      ],
+      "prereqs": [
+        "NAILS"
+      ],
+      "changes_to": [
+        "CLAWS_RETRACT",
+        "CLAWS_RAT"
+      ],
+      "category": [
+        "BEAST",
+        "RAT",
+        "URSINE",
+        "FELINE"
+      ],
+      "//": "No Lupine, wolf claws aren't long or sharp enough."
+    },
+    {
+      "type": "mutation",
+      "id": "CLAWS_RAT",
+      "name": {
+        "str": "Gnarled Claws"
+      },
+      "points": 3,
+      "vitamin_cost": 160,
+      "visibility": 3,
+      "ugliness": 4,
+      "integrated_armor": [
+        "integrated_claws_rat"
+      ],
+      "description": "Your claws have grown tougher and slightly gnarled.",
+      "types": [
+        "CLAWS"
+      ],
+      "prereqs": [
+        "CLAWS"
+      ],
+      "changes_to": [
+        "CLAWS_ST"
+      ],
+      "category": [
+        "RAT",
+        "URSINE"
+      ]
+    },
+    {
+      "type": "mutation",
+      "id": "PADDED_FEET",
+      "name": {
+        "str": "Padded Feet"
+      },
+      "points": 1,
+      "vitamin_cost": 60,
+      "visibility": 1,
+      "description": "The bottoms of your feet are strongly padded.  You receive no movement penalty for not wearing shoes, and your steps are significantly quieter, as added tissue dampens the noise.",
+      "types": [
+        "SOLES"
+      ],
+      "category": [
+        "BATRACHIAN",
+        "RABBIT",
+        "URSINE",
+        "FELINE",
+        "LUPINE",
+        "SPIDER",
+        "BEAST"
+      ],
+      "flags": [
+        "TOUGH_FEET"
+      ],
+      "enchantments": [
+        {
+          "condition": "ALWAYS",
+          "values": [
+            {
+              "value": "FOOTSTEP_NOISE",
+              "multiply": -0.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "mutation",
+      "id": "BURROWLARGE",
+      "name": {
+        "str": "Burrowing"
+      },
+      "//": "Since bears and wolves cannot get incisiors, but still burrow.",
+      "points": 10,
+      "vitamin_cost": 300,
+      "purifiable": false,
+      "description": "Your tough paws allow you to dig through dirt and rubble with ease.",
+      "prereqs": [
+        "PAWS",
+        "PAWS_LARGE"
+      ],
+      "threshreq": [
+        "THRESH_LUPINE",
+        "THRESH_URSINE"
+      ],
+      "category": [
+        "LUPINE",
+        "URSINE"
+      ],
+      "active": true
+    },
+    {
+      "type": "mutation",
+      "id": "ANTENNAE",
+      "name": {
+        "str": "Antennae"
+      },
+      "points": 1,
+      "vitamin_cost": 60,
+      "visibility": 9,
+      "ugliness": 4,
+      "description": "You have a pair of antennae.  They allow you to detect the presence of monsters up to a few tiles away, even if you can't see or hear them, but prevent wearing headwear that is not made of fabric.",
+      "types": [
+        "HORNS"
+      ],
+      "prereqs": [
+        "HEADBUMPS"
+      ],
+      "category": [
+        "INSECT"
+      ],
+      "active": true,
+      "starts_active": true,
+      "restricts_gear": [
+        "head_crown"
+      ],
+      "allow_soft_gear": true,
+      "enchantments": [
+        {
+          "condition": "ACTIVE",
+          "special_vision": [
+            {
+              "distance": 3,
+              "descriptions": [
+                {
+                  "id": "antennae_sense",
+                  "symbol": "?",
+                  "color": "c_white",
+                  "text": "You sense something here."
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "mutation",
+      "id": "SLIMY",
+      "name": {
+        "str": "Slimy"
+      },
+      "points": 2,
+      "vitamin_cost": 160,
+      "visibility": 7,
+      "ugliness": 6,
+      "description": "Your body is coated with a fine slime which makes uncovered skin harder to grab and protects from long-term effects of acid, though not short-term ones.  Greatly increases wet benefits.",
+      "types": [
+        "SECRETION"
+      ],
+      "leads_to": [
+        "SLIME_HANDS"
+      ],
+      "changes_to": [
+        "VISCOUS"
+      ],
+      "category": [
+        "FISH",
+        "SLIME",
+        "TROGLOBITE",
+        "CEPHALOPOD",
+        "GASTROPOD",
+        "BATRACHIAN"
+      ],
+      "flags": [
+        "IRRITANT_IMMUNE"
+      ],
+      "wet_protection": [
+        {
+          "part": "head",
+          "neutral": 3,
+          "good": 4
+        },
+        {
+          "part": "leg_l",
+          "neutral": 7,
+          "good": 14
+        },
+        {
+          "part": "leg_r",
+          "neutral": 7,
+          "good": 14
+        },
+        {
+          "part": "foot_l",
+          "neutral": 2,
+          "good": 4
+        },
+        {
+          "part": "foot_r",
+          "neutral": 2,
+          "good": 4
+        },
+        {
+          "part": "arm_l",
+          "neutral": 7,
+          "good": 12
+        },
+        {
+          "part": "arm_r",
+          "neutral": 7,
+          "good": 12
+        },
+        {
+          "part": "hand_l",
+          "neutral": 2,
+          "good": 3
+        },
+        {
+          "part": "hand_r",
+          "neutral": 2,
+          "good": 3
+        },
+        {
+          "part": "torso",
+          "neutral": 14,
+          "good": 26
+        }
+      ]
+    },
+    {
+      "type": "mutation",
+      "id": "SHELL2",
+      "name": {
+        "str": "Roomy Shell"
+      },
+      "points": 0,
+      "vitamin_cost": 160,
+      "visibility": 10,
+      "ugliness": 3,
+      "bodytemp_modifiers": [
+        500,
+        750
+      ],
+      "enchantments": [
+        {
+          "values": [
+            {
+              "value": "BODYTEMP_SLEEP",
+              "add": 0.4
+            }
+          ]
+        }
+      ],
+      "mixed_effect": true,
+      "description": "Your protective shell has grown large enough to accommodate--if need be--your whole body.  Activate to pull your head and limbs into your shell, trading mobility and vision for warmth and shelter.",
+      "types": [
+        "TORSO_ARMOR"
+      ],
+      "changes_to": [
+        "SHELL3"
+      ],
+      "prereqs": [
+        "SHELL"
+      ],
+      "threshreq": [
+        "THRESH_CEPHALOPOD",
+        "THRESH_GASTROPOD"
+      ],
+      "category": [
+        "CEPHALOPOD",
+        "GASTROPOD"
+      ],
+      "wet_protection": [
+        {
+          "part": "torso",
+          "ignored": 26
+        }
+      ],
+      "active": true,
+      "integrated_armor": [
+        "integrated_shell2"
+      ],
+      "comfort": [
+        {
+          "conditions": [
+            {
+              "type": "trait",
+              "id": "SHELL2",
+              "active": true
+            }
+          ],
+          "comfort": "sleep_aid",
+          "add_sleep_aids": true
+        }
+      ]
+    },
+    {
+      "type": "mutation",
+      "id": "SCUTTLE",
+      "name": {
+        "str": "Scuttle"
+      },
+      "points": 0,
+      "vitamin_cost": 160,
+      "visibility": 4,
+      "ugliness": 2,
+      "mixed_effect": true,
+      "description": "Your hook-shaped feet curl inward to grip the ground, allowing you to easily walk along the bottom when you're underwater.  They're also a bit quicker at climbing over obstacles, even on dry land.",
+      "prereqs": [
+        "CRAB_LEGS"
+      ],
+      "threshreq": [
+        "THRESH_CRUSTACEAN"
+      ],
+      "enchantments": [
+        {
+          "values": [
+            {
+              "value": "MOVECOST_OBSTACLE_MOD",
+              "multiply": -0.13
+            }
+          ]
+        }
+      ],
+      "category": [
+        "CRUSTACEAN"
+      ],
+      "flags": [
+        "WALK_UNDERWATER"
+      ]
+    },
+    {
+      "type": "mutation",
+      "id": "FANGS",
+      "name": {
+        "str": "Fangs"
+      },
+      "points": 2,
+      "vitamin_cost": 160,
+      "visibility": 2,
+      "ugliness": 2,
+      "description": "Your teeth have grown into long, sharp fangs.  If your mouth is uncovered, you'll sometimes bite your enemies.",
+      "types": [
+        "TEETH"
+      ],
+      "changes_to": [
+        "SABER_TEETH",
+        "SHARKTEETH",
+        "FANGS_VAMPIRE"
+      ],
+      "category": [
+        "LIZARD",
+        "FISH",
+        "LUPINE",
+        "FELINE",
+        "CHIMERA",
+        "CHIROPTERAN",
+        "URSINE",
+        "BEAST"
+      ],
+      "integrated_armor": [
+        "integrated_fangs"
+      ]
+    }
+  ]
+}

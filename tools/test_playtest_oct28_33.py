@@ -101,10 +101,10 @@ class Regression(unittest.TestCase):
 
 
 class EarlyHelp(unittest.TestCase):
- def test_shelter_paper_is_once_and_never_reads_itself(self):
+ def test_retired_shelter_handout_does_not_create_or_read_paper(self):
   f=World();f.om='shelter_1b_vandal';f.values['berserk_eclipse_era']=0;f.values['u_berserk_eclipse_rescue_state']=0
   f.run(P+'SHELTER_NOTICE');f.run(P+'SHELTER_NOTICE')
-  self.assertEqual(f.inventory['berserk_road_caravan_note'],1)
+  self.assertEqual(f.inventory['berserk_road_caravan_note'],0)
   self.assertNotIn('u_berserk_journal_knows_godo',f.values)
   self.assertFalse(f.missions)
  def test_injury_tip_follows_actual_anatomy_and_does_not_repeat(self):

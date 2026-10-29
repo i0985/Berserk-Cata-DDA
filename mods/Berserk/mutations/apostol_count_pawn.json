@@ -79,7 +79,7 @@
     "name": {
       "str": "Body: Servant of the Count"
     },
-    "description": "Heavy pliant flesh cushions blows: bash 4, cut 7, stab 4. Strength +2. Your slower movement and rigid torso armor restriction remain.",
+    "description": "Heavy pliant flesh cushions blows: bash 4, cut 7, stab 4. Strength +2. Your slower movement and rigid torso armor restriction remain.\n\nBody abilities: Your slippery skin helps you escape grabs, especially where it is uncovered.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -102,6 +102,9 @@
             "value": "SPEED",
             "add": -5
           }
+        ],
+        "mutations": [
+          "SLIMY"
         ]
       }
     ],

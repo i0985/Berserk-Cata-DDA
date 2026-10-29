@@ -407,6 +407,11 @@ def tile_ids(value: Any) -> Iterable[str]:
 
 
 def underlying_object_id(tile_id: str) -> str:
+    # Native character overlays may have separate male and female variants.
+    for prefix in ("overlay_female_", "overlay_male_"):
+        if tile_id.startswith(prefix):
+            tile_id = "overlay_" + tile_id.removeprefix(prefix)
+            break
     # CDDA 0.I-1 checks the empty-variant ID before the active-bionic base ID.
     if tile_id.startswith("overlay_mutation_active_") and tile_id.endswith("_var_"):
         tile_id = tile_id[:-5]

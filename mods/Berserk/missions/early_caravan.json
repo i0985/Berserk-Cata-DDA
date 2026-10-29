@@ -1,0 +1,37 @@
+[
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_EARLY_CARAVAN",
+    "name": "The abandoned wagon",
+    "description": "Examine the wagon box at the marked roadside stop. A repair order has survived beneath its lid. You can read it there even if you leave the paper behind.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "or": [
+        {
+          "math": [
+            "u_berserk_journal_read_berserk_road_caravan_note == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_journal_knows_godo == 1"
+          ]
+        }
+      ]
+    },
+    "difficulty": 1,
+    "value": 0,
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ],
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_early_caravan",
+        "var": {
+          "global_val": "berserk_early_caravan_location"
+        },
+        "reveal_radius": 1
+      }
+    }
+  }
+]
