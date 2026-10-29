@@ -51,7 +51,8 @@
     "type": "overmap_special",
     "id": "berserk_wyald_camp_special",
     "flags": [
-      "GLOBALLY_UNIQUE"
+      "GLOBALLY_UNIQUE",
+      "SAFE_AT_WORLDGEN"
     ],
     "occurrences": [
       0,
@@ -107,6 +108,21 @@
     ],
     "locations": [
       "forest"
+    ],
+    "spawns": {
+      "group": "GROUP_BERSERK_STORY_PLACEMENT_BUFFER",
+      "population": [
+        0,
+        0
+      ],
+      "radius": [
+        104,
+        104
+      ]
+    },
+    "city_distance": [
+      10,
+      -1
     ]
   },
   {
@@ -161,7 +177,8 @@
     "type": "overmap_special",
     "id": "berserk_rosine_valley_special",
     "flags": [
-      "GLOBALLY_UNIQUE"
+      "GLOBALLY_UNIQUE",
+      "SAFE_AT_WORLDGEN"
     ],
     "occurrences": [
       0,
@@ -217,6 +234,21 @@
     ],
     "locations": [
       "forest"
+    ],
+    "spawns": {
+      "group": "GROUP_BERSERK_STORY_PLACEMENT_BUFFER",
+      "population": [
+        0,
+        0
+      ],
+      "radius": [
+        104,
+        104
+      ]
+    },
+    "city_distance": [
+      10,
+      -1
     ]
   }
 ]

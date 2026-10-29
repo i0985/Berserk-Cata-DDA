@@ -101,7 +101,7 @@
     "name": {
       "str": "Body: Child of the false valley"
     },
-    "description": "Your permanent insectlike body grants +1 dexterity and +8 speed. Its fragility and difficulties with speech and crafting remain. Returning to human shape is impossible.\n\nClothing: The insectlike head and hands do not fit ordinary rigid helmets, masks or gloves.",
+    "description": "Chitin protects your body: bash 3, cut 6, stab 4. Dexterity +2, speed +12. Fragile joints and difficulties with speech and crafting remain. Rigid helmets and gloves no longer fit.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -118,11 +118,11 @@
         "values": [
           {
             "value": "DEXTERITY",
-            "add": 1
+            "add": 2
           },
           {
             "value": "SPEED",
-            "add": 8
+            "add": 12
           }
         ]
       }
@@ -136,7 +136,28 @@
     "allow_soft_gear": true,
     "destroys_gear": false,
     "visibility": 6,
-    "ugliness": 4
+    "ugliness": 4,
+    "armor": [
+      {
+        "parts": [
+          "head",
+          "eyes",
+          "mouth",
+          "torso",
+          "arm_l",
+          "arm_r",
+          "hand_l",
+          "hand_r",
+          "leg_l",
+          "leg_r",
+          "foot_l",
+          "foot_r"
+        ],
+        "bash": 3,
+        "cut": 6,
+        "stab": 4
+      }
+    ]
   },
   {
     "type": "mutation",

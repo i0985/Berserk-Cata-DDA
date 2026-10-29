@@ -1,0 +1,23 @@
+[
+  {
+    "type": "GENERIC",
+    "id": "berserk_forge_woodland_sketch",
+    "name": {
+      "str": "old woodland sketch"
+    },
+    "description": "A folded sketch of an unsettling place in the woods. Read the directions before setting out.",
+    "weight": "5 g",
+    "volume": "1 ml",
+    "symbol": "?",
+    "color": "brown",
+    "material": [
+      "paper"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "effect_on_conditions": [
+        "EOC_BERSERK_FIX28_BEHELIT_LEAD_READ"
+      ]
+    }
+  }
+]

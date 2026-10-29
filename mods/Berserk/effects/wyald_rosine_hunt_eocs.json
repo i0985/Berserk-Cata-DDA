@@ -185,7 +185,7 @@
                 "min_distance": 0,
                 "z": 0,
                 "om_special": "berserk_wyald_camp_special",
-                "search_range": 80
+                "search_range": 208
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_WYALD_VALIDATE"
@@ -204,7 +204,7 @@
                 "min_distance": 0,
                 "z": 0,
                 "om_special": "berserk_wyald_camp_special",
-                "search_range": 120
+                "search_range": 208
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_WYALD_VALIDATE"
@@ -871,6 +871,11 @@
       },
       {
         "run_eocs": "EOC_BERSERK_LATE_FLORA_CHECK"
+      },
+      {
+        "u_message": "Something remains in the quieted scar. Examine it once more to recover it.",
+        "type": "info",
+        "popup": false
       }
     ],
     "false_effect": {
@@ -1195,7 +1200,7 @@
                 "min_distance": 0,
                 "z": 0,
                 "om_special": "berserk_rosine_valley_special",
-                "search_range": 80
+                "search_range": 208
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_ROSINE_VALIDATE"
@@ -1214,7 +1219,7 @@
                 "min_distance": 0,
                 "z": 0,
                 "om_special": "berserk_rosine_valley_special",
-                "search_range": 120
+                "search_range": 208
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_ROSINE_VALIDATE"
@@ -1881,6 +1886,11 @@
       },
       {
         "run_eocs": "EOC_BERSERK_LATE_FLORA_CHECK"
+      },
+      {
+        "u_message": "Something remains in the quieted scar. Examine it once more to recover it.",
+        "type": "info",
+        "popup": false
       }
     ],
     "false_effect": {

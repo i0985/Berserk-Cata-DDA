@@ -382,6 +382,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_REF_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_COUNT_RELEASE"
       }
     ],
     "condition": {
@@ -686,6 +689,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_CONTRACT33_PARTY_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_COUNT_RELEASE"
       }
     ],
     "condition": {
@@ -1080,6 +1086,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_REF_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_WYALD_RELEASE"
       }
     ],
     "condition": {
@@ -1384,6 +1393,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_CONTRACT33_PARTY_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_WYALD_RELEASE"
       }
     ],
     "condition": {
@@ -1778,6 +1790,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_REF_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_ROSINE_RELEASE"
       }
     ],
     "condition": {
@@ -2085,6 +2100,9 @@
       },
       {
         "u_lose_effect": "berserk_apostol_pawn_flutter"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_ROSINE_RELEASE"
       }
     ],
     "condition": {
@@ -2482,6 +2500,9 @@
       },
       {
         "run_eocs": "EOC_BERSERK_REF_SYNC"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_GRUNBELD_RELEASE"
       }
     ],
     "condition": {
@@ -2789,6 +2810,9 @@
       },
       {
         "u_lose_effect": "berserk_apostol_pawn_brace"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_GRUNBELD_RELEASE"
       }
     ],
     "condition": {
@@ -3673,7 +3697,7 @@
     "effect": [
       {
         "if": {
-          "u_query": "Accept the gift? Your body will change immediately and forever. The master and his followers will leave you and your companions alone while you honor the pact. An attack from your side will break it.",
+          "u_query": "The creatures nearby bear little resemblance to the people they once were. Whatever is offered, it will change your body forever. Accept?",
           "default": false
         },
         "then": [
@@ -3923,7 +3947,7 @@
     "effect": [
       {
         "if": {
-          "u_query": "Accept the gift? Your body will change immediately and forever. The master and his followers will leave you and your companions alone while you honor the pact. An attack from your side will break it.",
+          "u_query": "The creatures nearby bear little resemblance to the people they once were. Whatever is offered, it will change your body forever. Accept?",
           "default": false
         },
         "then": [
@@ -4173,7 +4197,7 @@
     "effect": [
       {
         "if": {
-          "u_query": "Accept the gift? Your body will change immediately and forever. The master and his followers will leave you and your companions alone while you honor the pact. An attack from your side will break it.",
+          "u_query": "The creatures nearby bear little resemblance to the people they once were. Whatever is offered, it will change your body forever. Accept?",
           "default": false
         },
         "then": [
@@ -4423,7 +4447,7 @@
     "effect": [
       {
         "if": {
-          "u_query": "Accept the gift? Your body will change immediately and forever. The master and his followers will leave you and your companions alone while you honor the pact. An attack from your side will break it.",
+          "u_query": "The creatures nearby bear little resemblance to the people they once were. Whatever is offered, it will change your body forever. Accept?",
           "default": false
         },
         "then": [
@@ -5277,7 +5301,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_COUNT_PAWN_SEED"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_COUNT_PAWN_SEED"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_COUNT_PAWN_SEED"
+            },
+            {
+              "u_message": "Your body changes: Servant of the Count.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5287,7 +5325,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_COUNT_PAWN_SENSES"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_COUNT_PAWN_SENSES"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_COUNT_PAWN_SENSES"
+            },
+            {
+              "u_message": "Your body changes: Lesser senses: Servant of the Count.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5297,7 +5349,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_COUNT_PAWN_FORM"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_COUNT_PAWN_FORM"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_COUNT_PAWN_FORM"
+            },
+            {
+              "u_message": "Your body changes: Body: Servant of the Count.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5307,7 +5373,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_COUNT_PAWN_POWER"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_COUNT_PAWN_POWER"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_COUNT_PAWN_POWER"
+            },
+            {
+              "u_message": "Your body changes: Borrowed impulse: Servant of the Count.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5317,7 +5397,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_COUNT_PAWN_PAWN"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_COUNT_PAWN_PAWN"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_COUNT_PAWN_PAWN"
+            },
+            {
+              "u_message": "Your body changes: Pawn: Servant of the Count.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5366,7 +5460,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_WYALD_PAWN_SEED"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_WYALD_PAWN_SEED"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_WYALD_PAWN_SEED"
+            },
+            {
+              "u_message": "Your body changes: Beast of the Black Dogs.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5376,7 +5484,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_WYALD_PAWN_SENSES"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_WYALD_PAWN_SENSES"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_WYALD_PAWN_SENSES"
+            },
+            {
+              "u_message": "Your body changes: Lesser senses: Beast of the Black Dogs.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5386,7 +5508,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_WYALD_PAWN_FORM"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_WYALD_PAWN_FORM"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_WYALD_PAWN_FORM"
+            },
+            {
+              "u_message": "Your body changes: Body: Beast of the Black Dogs.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5396,7 +5532,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_WYALD_PAWN_POWER"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_WYALD_PAWN_POWER"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_WYALD_PAWN_POWER"
+            },
+            {
+              "u_message": "Your body changes: Borrowed impulse: Beast of the Black Dogs.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5406,7 +5556,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_WYALD_PAWN_PAWN"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_WYALD_PAWN_PAWN"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_WYALD_PAWN_PAWN"
+            },
+            {
+              "u_message": "Your body changes: Pawn: Beast of the Black Dogs.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5455,7 +5619,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_ROSINE_PAWN_SEED"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_ROSINE_PAWN_SEED"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_ROSINE_PAWN_SEED"
+            },
+            {
+              "u_message": "Your body changes: Child of the false valley.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5465,7 +5643,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_ROSINE_PAWN_SENSES"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_ROSINE_PAWN_SENSES"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_ROSINE_PAWN_SENSES"
+            },
+            {
+              "u_message": "Your body changes: Lesser senses: Child of the false valley.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5475,7 +5667,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_ROSINE_PAWN_FORM"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_ROSINE_PAWN_FORM"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_ROSINE_PAWN_FORM"
+            },
+            {
+              "u_message": "Your body changes: Body: Child of the false valley.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5485,7 +5691,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_ROSINE_PAWN_POWER"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_ROSINE_PAWN_POWER"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_ROSINE_PAWN_POWER"
+            },
+            {
+              "u_message": "Your body changes: Borrowed impulse: Child of the false valley.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5495,7 +5715,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_ROSINE_PAWN_PAWN"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_ROSINE_PAWN_PAWN"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_ROSINE_PAWN_PAWN"
+            },
+            {
+              "u_message": "Your body changes: Pawn: Child of the false valley.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5544,7 +5778,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_GRUNBELD_PAWN_SEED"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_GRUNBELD_PAWN_SEED"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_GRUNBELD_PAWN_SEED"
+            },
+            {
+              "u_message": "Your body changes: Carapace vassal.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5554,7 +5802,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_GRUNBELD_PAWN_SENSES"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_GRUNBELD_PAWN_SENSES"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_GRUNBELD_PAWN_SENSES"
+            },
+            {
+              "u_message": "Your body changes: Lesser senses: Carapace vassal.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5564,7 +5826,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_GRUNBELD_PAWN_FORM"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_GRUNBELD_PAWN_FORM"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_GRUNBELD_PAWN_FORM"
+            },
+            {
+              "u_message": "Your body changes: Body: Carapace vassal.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5574,7 +5850,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_GRUNBELD_PAWN_POWER"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_GRUNBELD_PAWN_POWER"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_GRUNBELD_PAWN_POWER"
+            },
+            {
+              "u_message": "Your body changes: Borrowed impulse: Carapace vassal.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -5584,7 +5874,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_GRUNBELD_PAWN_PAWN"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_GRUNBELD_PAWN_PAWN"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_GRUNBELD_PAWN_PAWN"
+            },
+            {
+              "u_message": "Your body changes: Pawn: Carapace vassal.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {

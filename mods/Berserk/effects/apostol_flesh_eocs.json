@@ -116,7 +116,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_COUNT_FLESH_SEED"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_COUNT_FLESH_SEED"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_COUNT_FLESH_SEED"
+            },
+            {
+              "u_message": "Your body changes: Seed: pliant flesh.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -173,7 +187,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_COUNT_FLESH_SENSES"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_SENSES"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_COUNT_FLESH_SENSES"
+                },
+                {
+                  "u_message": "Your body changes: Senses: pliant flesh.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -215,7 +243,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_COUNT_FLESH_FORM"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_FORM"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_COUNT_FLESH_FORM"
+                },
+                {
+                  "u_message": "Your body changes: Body: pliant flesh.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -252,7 +294,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_COUNT_FLESH_STRIKE"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_STRIKE"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_COUNT_FLESH_STRIKE"
+                },
+                {
+                  "u_message": "Your body changes: Pliant tendril.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -289,7 +345,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_COUNT_FLESH_MEND"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_MEND"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_COUNT_FLESH_MEND"
+                },
+                {
+                  "u_message": "Your body changes: Draw flesh together.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -299,7 +369,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_COUNT_FLESH_APOSTLE"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_COUNT_FLESH_APOSTLE"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_COUNT_FLESH_APOSTLE"
+                },
+                {
+                  "u_message": "Your body changes: Apostle: pliant flesh.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -412,7 +496,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_WYALD_FLESH_SEED"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_WYALD_FLESH_SEED"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_WYALD_FLESH_SEED"
+            },
+            {
+              "u_message": "Your body changes: Seed: hunting beast.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -469,7 +567,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_WYALD_FLESH_SENSES"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_SENSES"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_WYALD_FLESH_SENSES"
+                },
+                {
+                  "u_message": "Your body changes: Senses: hunting beast.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -511,7 +623,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_WYALD_FLESH_FORM"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_FORM"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_WYALD_FLESH_FORM"
+                },
+                {
+                  "u_message": "Your body changes: Body: hunting beast.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -548,7 +674,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_WYALD_FLESH_DASH"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_DASH"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_WYALD_FLESH_DASH"
+                },
+                {
+                  "u_message": "Your body changes: Beast rush.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -585,7 +725,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_WYALD_FLESH_GRIP"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_GRIP"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_WYALD_FLESH_GRIP"
+                },
+                {
+                  "u_message": "Your body changes: Beast grip.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -595,7 +749,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_WYALD_FLESH_APOSTLE"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_WYALD_FLESH_APOSTLE"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_WYALD_FLESH_APOSTLE"
+                },
+                {
+                  "u_message": "Your body changes: Apostle: hunting beast.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -708,7 +876,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_ROSINE_FLESH_SEED"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_ROSINE_FLESH_SEED"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_ROSINE_FLESH_SEED"
+            },
+            {
+              "u_message": "Your body changes: Seed: winged hunter.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -765,7 +947,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_ROSINE_FLESH_SENSES"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_SENSES"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_ROSINE_FLESH_SENSES"
+                },
+                {
+                  "u_message": "Your body changes: Senses: winged hunter.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -807,7 +1003,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_ROSINE_FLESH_FORM"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_FORM"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_ROSINE_FLESH_FORM"
+                },
+                {
+                  "u_message": "Your body changes: Body: winged hunter.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -844,7 +1054,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_ROSINE_FLESH_DIVE"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_DIVE"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_ROSINE_FLESH_DIVE"
+                },
+                {
+                  "u_message": "Your body changes: Winged dive.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -881,7 +1105,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_ROSINE_FLESH_FLUTTER"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_FLUTTER"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_ROSINE_FLESH_FLUTTER"
+                },
+                {
+                  "u_message": "Your body changes: Evasive wingbeats.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -891,7 +1129,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_ROSINE_FLESH_APOSTLE"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_APOSTLE"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_ROSINE_FLESH_APOSTLE"
+                },
+                {
+                  "u_message": "Your body changes: Apostle: winged hunter.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -1004,7 +1256,21 @@
           }
         },
         "then": {
-          "u_add_trait": "BERSERK_GRUNBELD_FLESH_SEED"
+          "if": {
+            "not": {
+              "u_has_trait": "BERSERK_GRUNBELD_FLESH_SEED"
+            }
+          },
+          "then": [
+            {
+              "u_add_trait": "BERSERK_GRUNBELD_FLESH_SEED"
+            },
+            {
+              "u_message": "Your body changes: Seed: cinder carapace.",
+              "type": "warning",
+              "popup": false
+            }
+          ]
         }
       },
       {
@@ -1061,7 +1327,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_GRUNBELD_FLESH_SENSES"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_SENSES"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_GRUNBELD_FLESH_SENSES"
+                },
+                {
+                  "u_message": "Your body changes: Senses: cinder carapace.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -1103,7 +1383,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_GRUNBELD_FLESH_FORM"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_FORM"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_GRUNBELD_FLESH_FORM"
+                },
+                {
+                  "u_message": "Your body changes: Body: cinder carapace.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -1140,7 +1434,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_GRUNBELD_FLESH_BREATH"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_BREATH"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_GRUNBELD_FLESH_BREATH"
+                },
+                {
+                  "u_message": "Your body changes: Cinder breath.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -1177,7 +1485,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_GRUNBELD_FLESH_BRACE"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_BRACE"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_GRUNBELD_FLESH_BRACE"
+                },
+                {
+                  "u_message": "Your body changes: Brace the shell.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -1187,7 +1509,21 @@
               }
             },
             "then": {
-              "u_add_trait": "BERSERK_GRUNBELD_FLESH_APOSTLE"
+              "if": {
+                "not": {
+                  "u_has_trait": "BERSERK_GRUNBELD_FLESH_APOSTLE"
+                }
+              },
+              "then": [
+                {
+                  "u_add_trait": "BERSERK_GRUNBELD_FLESH_APOSTLE"
+                },
+                {
+                  "u_message": "Your body changes: Apostle: cinder carapace.",
+                  "type": "warning",
+                  "popup": false
+                }
+              ]
             }
           },
           {
@@ -3083,19 +3419,22 @@
             }
           },
           {
-            "math": [
-              "u_berserk_apostol_cast_confirmed = 0"
-            ]
+            "copy_var": {
+              "u_val": "berserk_apostol_flesh_dash_origin"
+            },
+            "target_var": {
+              "context_val": "berserk_wing_landing"
+            }
           },
           {
-            "u_cast_spell": {
-              "id": "berserk_apostol_rosine_flesh_dash",
-              "hit_self": false
+            "u_query_tile": "anywhere",
+            "target_var": {
+              "context_val": "berserk_wing_landing"
             },
-            "targeted": true,
-            "true_eocs": [
-              "EOC_BERSERK_APOSTOL_ROSINE_FLESH_DIVE_RESULT"
-            ]
+            "z_level": true
+          },
+          {
+            "run_eocs": "EOC_BERSERK_FIX28_WING_CHECK"
           }
         ],
         "else": {

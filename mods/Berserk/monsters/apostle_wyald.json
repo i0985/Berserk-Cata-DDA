@@ -73,6 +73,7 @@
             {
               "not": {
                 "and": [
+                  "has_beta",
                   "npc_is_avatar",
                   {
                     "npc_has_trait": "BERSERK_WYALD_PAWN_LOYALTY"
@@ -107,6 +108,7 @@
             {
               "not": {
                 "and": [
+                  "has_beta",
                   "npc_is_avatar",
                   {
                     "npc_has_trait": "BERSERK_WYALD_PAWN_LOYALTY"

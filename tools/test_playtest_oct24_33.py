@@ -213,7 +213,7 @@ class WorldAndConversations(unittest.TestCase):
         calls += [x for x in walk(EOCS['EOC_BERSERK_BREACH_FIND']) if 'target_params' in x]
         for x in calls:
             params=x['target_params']
-            self.assertEqual(params['min_distance'],0);self.assertIn(params['search_range'],[48,80])
+            self.assertEqual(params['min_distance'],0);self.assertEqual(params['search_range'],96)
             self.assertIn('om_special',params);self.assertNotIn('om_terrain_replace',params)
             self.assertNotIn('cant_see',params);self.assertTrue(params['random'])
             maps=[m for p in (MOD/'mapgen').glob('*.json') for m in json.loads(p.read_text()) if m.get('om_terrain')]

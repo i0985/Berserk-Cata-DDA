@@ -287,8 +287,28 @@
         "text": "Who are these people?",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_MASTERS",
         "condition": {
-          "math": [
-            "u_berserk_godo_rescue_relocated == 1"
+          "and": [
+            {
+              "math": [
+                "u_berserk_godo_rescue_relocated == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "math": [
+                      "u_berserk_godo_personally_met == 1"
+                    ]
+                  },
+                  {
+                    "math": [
+                      "u_berserk_rickert_met == 1"
+                    ]
+                  }
+                ]
+              }
+            }
           ]
         }
       },

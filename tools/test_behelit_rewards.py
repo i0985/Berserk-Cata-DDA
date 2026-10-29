@@ -64,6 +64,9 @@ class RewardGraph:
             return self.variable(name) == int(expected)
         if "map_furniture_id" in value:
             return self.furniture.get(self.resolve(value["loc"])) == self.resolve(value["map_furniture_id"])
+        if "not" in value: return not self.condition(value["not"])
+        if "or" in value: return any(self.condition(v) for v in value["or"])
+        if "u_has_item" in value: return value["u_has_item"] in self.inventory
         raise AssertionError(f"Unsupported condition: {value}")
 
     def run(self, id):
@@ -145,7 +148,7 @@ class BehelitRewards(unittest.TestCase):
                     graph.run(f"EOC_BERSERK_CLAIM_{name.upper()}_BEHELIT")
                     graph.run(f"EOC_BERSERK_CLAIM_{name.upper()}_BEHELIT")
                     self.assertEqual(graph.inventory, ["berserk_behelit"])
-                    self.assertEqual(graph.furniture[pos], f"f_berserk_{name}_relic_empty")
+                    self.assertEqual(graph.furniture[pos], f"f_berserk_{name}_relic")
             graph = RewardGraph(flags)
             graph.victim = (71, -15, 0)
             graph.alpha = None
@@ -201,7 +204,10 @@ class BehelitRewards(unittest.TestCase):
         self.assertEqual(graph.inventory, ["berserk_behelit"])
         graph.cache("chapel", (24, 24, 0))
         graph.run("EOC_BERSERK_CLAIM_CHAPEL_BEHELIT")
-        self.assertEqual(graph.inventory, ["berserk_behelit", "berserk_behelit"])
+        self.assertEqual(graph.inventory, ["berserk_behelit"])
+        graph.inventory.clear()  # The first stone was left in storage.
+        graph.run("EOC_BERSERK_CLAIM_CHAPEL_BEHELIT")
+        self.assertEqual(graph.inventory, ["berserk_behelit"])
 
     def test_update_targets_cache_even_if_avatar_is_in_neighboring_omt(self):
         graph = RewardGraph()

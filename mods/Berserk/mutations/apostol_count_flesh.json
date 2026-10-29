@@ -61,7 +61,7 @@
     "name": {
       "str": "Body: pliant flesh"
     },
-    "description": "Your heavy, pliant body grants +3 strength and 3 points of natural protection. Your slower movement remains. This body is permanent; returning to human shape is impossible. It does not heal wounds.\n\nClothing: The swollen torso and arms cannot fit ordinary rigid armor.",
+    "description": "Thick pliant flesh protects you: bash 10, cut 14, stab 8. Strength +4; movement remains slower. Rigid torso and arm armor no longer fits. Use Draw flesh together to mend wounds.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -78,11 +78,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 3
-          },
-          {
-            "value": "ARMOR_ALL",
-            "add": -3
+            "add": 4
           }
         ]
       }
@@ -95,7 +91,28 @@
     "allow_soft_gear": true,
     "destroys_gear": false,
     "visibility": 8,
-    "ugliness": 5
+    "ugliness": 5,
+    "armor": [
+      {
+        "parts": [
+          "head",
+          "eyes",
+          "mouth",
+          "torso",
+          "arm_l",
+          "arm_r",
+          "hand_l",
+          "hand_r",
+          "leg_l",
+          "leg_r",
+          "foot_l",
+          "foot_r"
+        ],
+        "bash": 10,
+        "cut": 14,
+        "stab": 8
+      }
+    ]
   },
   {
     "type": "mutation",

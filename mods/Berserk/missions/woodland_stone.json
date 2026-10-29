@@ -1,0 +1,23 @@
+[
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_WOODLAND_STONE",
+    "name": "The place on the woodland sketch",
+    "description": "Reach the place marked on the old sketch and examine it.",
+    "goal": "MGOAL_GO_TO",
+    "difficulty": 2,
+    "value": 0,
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "forest",
+        "var": {
+          "u_val": "berserk_forge_behelit_route"
+        },
+        "reveal_radius": 2
+      }
+    },
+    "origins": [
+      "ORIGIN_SECONDARY"
+    ]
+  }
+]

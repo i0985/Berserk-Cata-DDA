@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "source": "Owner playtest 2026-10-28: enclosed forest clearings, no disconnected through-road.",
+  "size": [
+    24,
+    24
+  ],
+  "maps": [
+    {
+      "type": "mapgen",
+      "om_terrain": "berserk_road_caravan",
+      "object": {
+        "fill_ter": "t_grass",
+        "terrain": {
+          ".": "t_grass",
+          "p": "t_dirt",
+          "T": "t_tree",
+          "u": "t_underbrush",
+          "#": "t_rock",
+          "s": "t_dirt"
+        },
+        "rows": [
+          "uTTTTuTTTTuuuTTuTTTTuTTT",
+          "TTuTTTTuTTTuuTTTTuTTTTuT",
+          "TTTTuTTTTuTTTTuTTTTuTTTT",
+          "TuTTTTuTTTTuTTTTuTTTTuTT",
+          "TTTuTTTTuTTTTuTTTTuTTTTu",
+          "uTTTTuTTTT.....uTTTTuTTT",
+          "TTuTTTTu.........uTTTTuT",
+          "TTTTuTT...........TuTTTT",
+          "TuTTTT.............TTuTT",
+          "TTTuT...............TTTu",
+          "uTTTT...............uTTT",
+          "TTuTT...............TTuT",
+          "TTTT.................TTT",
+          "TuTTT...............TuTT",
+          "TTTuT...............TTTu",
+          "uTTTT...............uTTT",
+          "TTuTTT.............TTTuT",
+          "TTTTuTT...........TuTTTT",
+          "TuTTTTuT.........TTTTuTT",
+          "TTTuTTTTuT.....TTTuTTTTu",
+          "uTTTTuTTTTuTTTTuTTTTuTTT",
+          "TTuTTTTuTTTTuTTTTuTTTTuT",
+          "TTTTuTTTTuTuuTuTTTTuTTTT",
+          "TuTTTTuTTTTuuTTTuTTTTuTT"
+        ],
+        "place_furniture": [
+          {
+            "furn": "f_rubble",
+            "x": 15,
+            "y": 9
+          },
+          {
+            "furn": "f_rubble",
+            "x": 16,
+            "y": 9
+          },
+          {
+            "furn": "f_rubble",
+            "x": 15,
+            "y": 10
+          },
+          {
+            "furn": "f_berserk_road_caravan",
+            "x": 16,
+            "y": 10
+          },
+          {
+            "furn": "f_crate_o",
+            "x": 18,
+            "y": 9
+          },
+          {
+            "furn": "f_firering",
+            "x": 6,
+            "y": 12
+          }
+        ],
+        "place_item": [
+          {
+            "item": "splinter",
+            "x": 15,
+            "y": 11,
+            "amount": 3
+          }
+        ]
+      }
+    },
+    {
+      "type": "mapgen",
+      "om_terrain": "berserk_road_scout",
+      "object": {
+        "fill_ter": "t_grass",
+        "terrain": {
+          ".": "t_grass",
+          "p": "t_dirt",
+          "T": "t_tree",
+          "u": "t_underbrush",
+          "#": "t_rock",
+          "s": "t_dirt"
+        },
+        "rows": [
+          "TTuTTTTuTTTuuTTTTuTTTTuT",
+          "TTTTuTTTTuTuuTuTTTTuTTTT",
+          "TuTTTTuTTTTuTTTTuTTTTuTT",
+          "TTTuTTTTuTTTTuTTTTuTTTTu",
+          "uTTTTuTTTTuTTTTuTTTTuTTT",
+          "TTuTTTTuTT.....TTuTTTTuT",
+          "TTTTuTTT.........TTuTTTT",
+          "TuTTTTu...........TTTuTT",
+          "TTTuTT..........#..TTTTu",
+          "uTTTT...............uTTT",
+          "TTuTT...............TTuT",
+          "TTTTu.............#.TTTT",
+          "TuTT.................uTT",
+          "TTTuT...............TTTu",
+          "uTTTT...............uTTT",
+          "TTuTT...............TTuT",
+          "TTTTuT...........#.uTTTT",
+          "TuTTTTu...........TTTuTT",
+          "TTTuTTTT.........TuTTTTu",
+          "uTTTTuTTTT.....uTTTTuTTT",
+          "TTuTTTTuTTTTuTTTTuTTTTuT",
+          "TTTTuTTTTuTTTTuTTTTuTTTT",
+          "TuTTTTuTTTTuuTTTuTTTTuTT",
+          "TTTuTTTTuTTuuuTTTTuTTTTu"
+        ],
+        "place_furniture": [
+          {
+            "furn": "f_berserk_road_scout",
+            "x": 16,
+            "y": 13
+          }
+        ],
+        "place_item": [
+          {
+            "item": "scrap_cotton",
+            "x": 14,
+            "y": 7,
+            "amount": 1
+          }
+        ]
+      }
+    },
+    {
+      "type": "mapgen",
+      "om_terrain": "berserk_road_camp",
+      "object": {
+        "fill_ter": "t_grass",
+        "terrain": {
+          ".": "t_grass",
+          "p": "t_dirt",
+          "T": "t_tree",
+          "u": "t_underbrush",
+          "#": "t_rock",
+          "s": "t_dirt"
+        },
+        "rows": [
+          "TTTTuTTTTuTuuTuTTTTuTTTT",
+          "TuTTTTuTTTTuuTTTuTTTTuTT",
+          "TTTuTTTTuTTTTuTTTTuTTTTu",
+          "uTTTTuTTTTuTTTTuTTTTuTTT",
+          "TTuTTTTuTTTTuTTTTuTTTTuT",
+          "TTTTuTTTTu.....TTTTuTTTT",
+          "TuTTTTuT.........TTTTuTT",
+          "TTTuTTT...........uTTTTu",
+          "uTTTTu.............TuTTT",
+          "TTuTT...............TTuT",
+          "TTTTu...............TTTT",
+          "TuTTT...............TuTT",
+          "TTTu.................TTu",
+          "uTTTT...............uTTT",
+          "TTuTT...............TTuT",
+          "TTTTu...............TTTT",
+          "TuTTTT.............TTuTT",
+          "TTTuTTT...........uTTTTu",
+          "uTTTTuTT.........TTTuTTT",
+          "TTuTTTTuTT.....TTuTTTTuT",
+          "TTTTuTTTTuTTTTuTTTTuTTTT",
+          "TuTTTTuTTTTuTTTTuTTTTuTT",
+          "TTTuTTTTuTTuuuTTTTuTTTTu",
+          "uTTTTuTTTTuuuTTuTTTTuTTT"
+        ],
+        "place_furniture": [
+          {
+            "furn": "f_berserk_road_camp",
+            "x": 17,
+            "y": 10
+          },
+          {
+            "furn": "f_firering",
+            "x": 15,
+            "y": 13
+          },
+          {
+            "furn": "f_bench_wooden",
+            "x": 16,
+            "y": 14
+          }
+        ],
+        "place_item": [
+          {
+            "item": "stick",
+            "x": 15,
+            "y": 12,
+            "amount": 2
+          }
+        ]
+      }
+    }
+  ],
+  "anchors": {
+    "berserk_road_caravan": {
+      "find": [
+        16,
+        10
+      ]
+    },
+    "berserk_road_scout": {
+      "find": [
+        16,
+        13
+      ]
+    },
+    "berserk_road_camp": {
+      "find": [
+        17,
+        10
+      ]
+    }
+  }
+}

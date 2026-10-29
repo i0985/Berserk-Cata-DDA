@@ -237,7 +237,7 @@
                 "min_distance": 0,
                 "z": 0,
                 "om_special": "berserk_grunbeld_stronghold_special",
-                "search_range": 100
+                "search_range": 208
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_GRUNBELD_VALIDATE"
@@ -256,7 +256,7 @@
                 "min_distance": 0,
                 "z": 0,
                 "om_special": "berserk_grunbeld_stronghold_special",
-                "search_range": 140
+                "search_range": 208
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_GRUNBELD_VALIDATE"
@@ -1101,6 +1101,11 @@
       },
       {
         "run_eocs": "EOC_BERSERK_GRUNBELD_NEXT"
+      },
+      {
+        "u_message": "Something remains in the quieted scar. Examine it once more to recover it.",
+        "type": "info",
+        "popup": false
       }
     ],
     "false_effect": {

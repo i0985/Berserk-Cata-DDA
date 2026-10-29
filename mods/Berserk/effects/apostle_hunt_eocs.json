@@ -172,7 +172,7 @@
                 "min_distance": 0,
                 "z": 0,
                 "om_special": "berserk_count_residence_special",
-                "search_range": 80
+                "search_range": 208
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_COUNT_VALIDATE"
@@ -191,7 +191,7 @@
                 "min_distance": 0,
                 "z": 0,
                 "om_special": "berserk_count_residence_special",
-                "search_range": 120
+                "search_range": 208
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_COUNT_VALIDATE"
@@ -471,9 +471,16 @@
         }
       ]
     },
-    "effect": {
-      "run_eocs": "EOC_BERSERK_COUNT_REGISTER_SEAL"
-    }
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_COUNT_REGISTER_SEAL"
+      },
+      {
+        "u_message": "Something remains in the quieted scar. Examine it once more to recover it.",
+        "type": "info",
+        "popup": false
+      }
+    ]
   },
   {
     "type": "effect_on_condition",

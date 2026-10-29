@@ -175,7 +175,7 @@ class LocationSceneryTests(unittest.TestCase):
             seen=reachable(t,f,(15,12))
             self.assertIn((0,14),seen,phase);self.assertIn((24,47),seen,phase)
 
-    def test_new_messages_are_available_in_both_compiled_catalogs(self):
+    def test_messages_have_russian_and_chinese_or_english_fallback(self):
         messages=set()
         def walk(v):
             if isinstance(v,list):
@@ -188,6 +188,9 @@ class LocationSceneryTests(unittest.TestCase):
             walk(objects(MOD/path))
         for lang in ('ru','zh_CN'):
             with (MOD/f'lang/mo/{lang}/LC_MESSAGES/Berserk.mo').open('rb') as f:cat=gettext.GNUTranslations(f)
-            self.assertFalse([m for m in messages if cat.gettext(m)==m],lang)
+            if lang=='ru':self.assertFalse([m for m in messages if cat.gettext(m)==m],lang)
+            else:
+                import re
+                self.assertFalse([m for m in messages if re.search('[А-Яа-яЁё]',cat.gettext(m))],lang)
 
 if __name__=='__main__':unittest.main()

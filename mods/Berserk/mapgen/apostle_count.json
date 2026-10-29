@@ -97,6 +97,38 @@
           "y": 11,
           "unique_id": "BERSERK_COUNT_PRISONER"
         }
+      ],
+      "set": [
+        {
+          "point": "terrain",
+          "id": "t_door_bar_locked",
+          "x": 10,
+          "y": 14
+        },
+        {
+          "point": "terrain",
+          "id": "t_door_bar_locked",
+          "x": 17,
+          "y": 14
+        },
+        {
+          "point": "terrain",
+          "id": "t_door_bar_locked",
+          "x": 5,
+          "y": 17
+        },
+        {
+          "point": "terrain",
+          "id": "t_door_bar_locked",
+          "x": 11,
+          "y": 18
+        },
+        {
+          "point": "terrain",
+          "id": "t_door_bar_locked",
+          "x": 18,
+          "y": 21
+        }
       ]
     }
   },
@@ -234,6 +266,32 @@
           "furn": "f_rubble",
           "x": 20,
           "y": 6
+        }
+      ],
+      "set": [
+        {
+          "point": "terrain",
+          "id": "t_door_bar_locked",
+          "x": 7,
+          "y": 13
+        },
+        {
+          "point": "terrain",
+          "id": "t_door_bar_locked",
+          "x": 15,
+          "y": 13
+        },
+        {
+          "point": "terrain",
+          "id": "t_door_bar_locked",
+          "x": 12,
+          "y": 21
+        },
+        {
+          "point": "terrain",
+          "id": "t_door_bar_locked",
+          "x": 13,
+          "y": 21
         }
       ]
     }
@@ -456,7 +514,7 @@
         {
           "monster": "mon_berserk_apostle_count",
           "x": 12,
-          "y": 8,
+          "y": 18,
           "one_or_none": true
         },
         {

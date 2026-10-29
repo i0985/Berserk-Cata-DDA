@@ -73,6 +73,7 @@
             {
               "not": {
                 "and": [
+                  "has_beta",
                   "npc_is_avatar",
                   {
                     "npc_has_trait": "BERSERK_ROSINE_PAWN_LOYALTY"

@@ -29,8 +29,8 @@ def authored_sprites():
     write('monsters/behelit_site_guardians.json',rows)
 
 
-def chapel():
-    project=json.loads((ROOT/'docs/location_projects/chapel-3.3-02.json').read_text())
+def chapel(project_name="chapel-3.3-02.json"):
+    project=json.loads((ROOT/'docs/location_projects'/project_name).read_text())
     write('furniture/chapel_layout_version.json',[{'type':'furniture','id':'f_berserk_chapel_record_v2',
         'copy-from':'f_berserk_chapel_record','looks_like':'f_berserk_chapel_record'}])
     maps=copy.deepcopy(project['mapgen'])

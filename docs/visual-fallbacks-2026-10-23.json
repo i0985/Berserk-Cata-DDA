@@ -326,18 +326,6 @@
       "reason": "An interaction or note is not a kitchen counter."
     },
     {
-      "id": "f_berserk_chapel_relic",
-      "file": "furniture/behelit_sites.json",
-      "previous": "f_safe_c",
-      "reason": "Borrowed graphic depicts a different physical object or state."
-    },
-    {
-      "id": "f_berserk_chapel_relic_empty",
-      "file": "furniture/behelit_sites.json",
-      "previous": "f_safe_c",
-      "reason": "Borrowed graphic depicts a different physical object or state."
-    },
-    {
       "id": "f_berserk_chapel_noisemaker",
       "file": "furniture/behelit_sites.json",
       "previous": "f_counter",
@@ -414,12 +402,6 @@
       "file": "furniture/hunt_site_details.json",
       "previous": "f_rubble",
       "reason": "Writing and tracks are not a rubble pile."
-    },
-    {
-      "id": "f_berserk_chapel_altar",
-      "file": "furniture/behelit_adventure_details.json",
-      "previous": "f_table",
-      "reason": "Borrowed graphic depicts a different physical object or state."
     },
     {
       "id": "f_berserk_wyald_record",
@@ -667,5 +649,10 @@
       "previous": "f_counter",
       "reason": "An interaction or note is not a kitchen counter."
     }
-  ]
+  ],
+  "owner_amendment_20261028": {
+    "f_berserk_chapel_relic": "f_table",
+    "f_berserk_chapel_relic_empty": "f_table",
+    "f_berserk_chapel_altar": "f_table"
+  }
 }

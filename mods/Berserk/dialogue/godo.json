@@ -662,6 +662,31 @@
         }
       },
       {
+        "text": "Have you heard of anything strange in these woods?",
+        "topic": "TALK_BERSERK_FIX28_GODO_SKETCH",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "berserk_eclipse_era == 0"
+              ]
+            },
+            {
+              "not": {
+                "or": [
+                  {
+                    "u_has_item": "berserk_behelit"
+                  },
+                  {
+                    "u_has_item": "berserk_behelit_distorted"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I will leave you to your work.",
         "topic": "TALK_BERSERK_GODO_FAREWELL"
       }
@@ -11334,5 +11359,51 @@
         ]
       }
     }
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FIX28_GODO_SKETCH",
+    "dynamic_line": "People leave all kinds of nonsense with their orders. Someone drew this and never returned for it. Take it if you must. I would spend the daylight on a sound blade.",
+    "responses": [
+      {
+        "text": "Read the directions here.",
+        "topic": "TALK_BERSERK_GODO",
+        "effect": {
+          "run_eocs": "EOC_BERSERK_FIX28_BEHELIT_LEAD_READ"
+        }
+      },
+      {
+        "text": "Take the sketch with me.",
+        "topic": "TALK_BERSERK_GODO",
+        "condition": {
+          "not": {
+            "math": [
+              "u_berserk_forge_sketch_given == 1"
+            ]
+          }
+        },
+        "effect": [
+          {
+            "if": {
+              "not": {
+                "math": [
+                  "u_berserk_forge_sketch_given == 1"
+                ]
+              }
+            },
+            "then": [
+              {
+                "u_spawn_item": "berserk_forge_woodland_sketch"
+              },
+              {
+                "math": [
+                  "u_berserk_forge_sketch_given = 1"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 ]

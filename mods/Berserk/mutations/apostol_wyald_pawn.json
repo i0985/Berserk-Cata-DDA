@@ -79,7 +79,7 @@
     "name": {
       "str": "Body: Beast of the Black Dogs"
     },
-    "description": "Your permanent beastlike body grants +2 strength and -2 dexterity. Returning to human shape is impossible.\n\nClothing: The changed hands cannot fit ordinary rigid gloves.",
+    "description": "Dense hide protects you: bash 2, cut 4, stab 2. Strength +3 and melee damage +15%. Dexterity -2; stamina still recovers slowly. Rigid gloves and footwear do not fit.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -96,11 +96,15 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 2
+            "add": 3
           },
           {
             "value": "DEXTERITY",
             "add": -2
+          },
+          {
+            "value": "MELEE_DAMAGE",
+            "multiply": 0.15
           }
         ]
       }
@@ -112,7 +116,28 @@
     "allow_soft_gear": true,
     "destroys_gear": false,
     "visibility": 5,
-    "ugliness": 3
+    "ugliness": 3,
+    "armor": [
+      {
+        "parts": [
+          "head",
+          "eyes",
+          "mouth",
+          "torso",
+          "arm_l",
+          "arm_r",
+          "hand_l",
+          "hand_r",
+          "leg_l",
+          "leg_r",
+          "foot_l",
+          "foot_r"
+        ],
+        "bash": 2,
+        "cut": 4,
+        "stab": 2
+      }
+    ]
   },
   {
     "type": "mutation",

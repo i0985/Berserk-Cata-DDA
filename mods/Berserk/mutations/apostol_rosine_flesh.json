@@ -74,7 +74,7 @@
     "name": {
       "str": "Body: winged hunter"
     },
-    "description": "Your permanently grown insectlike wings grant +2 dexterity, +15 speed and half falling damage. Wings permit gliding with a light load and usable arms, not free ascent into the sky. Torso encumbrance above 20 prevents your wing abilities. Your fragile flesh remains. This body is permanent; returning to human shape is impossible.\n\nClothing: The wings need an open back; ordinary torso clothing gets in their way.",
+    "description": "Wings grant dexterity +2, speed +15 and halve falling damage. Chitin protects against bash 4, cut 8 and stab 5. Short flights require torso encumbrance no greater than 20. Your fragile tissues remain; rigid head, torso and hand armor does not fit.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -111,7 +111,28 @@
     "allow_soft_gear": false,
     "destroys_gear": false,
     "visibility": 8,
-    "ugliness": 5
+    "ugliness": 5,
+    "armor": [
+      {
+        "parts": [
+          "head",
+          "eyes",
+          "mouth",
+          "torso",
+          "arm_l",
+          "arm_r",
+          "hand_l",
+          "hand_r",
+          "leg_l",
+          "leg_r",
+          "foot_l",
+          "foot_r"
+        ],
+        "bash": 4,
+        "cut": 8,
+        "stab": 5
+      }
+    ]
   },
   {
     "type": "mutation",
@@ -134,7 +155,7 @@
     "name": {
       "str": "Winged dive"
     },
-    "description": "Dive up to 7 tiles and cut enemies around the landing for 36 damage. Costs 1500 stamina; recovers in 20 seconds. Heavy torso gear hinders the dive.",
+    "description": "Fly up to 7 tiles to a visible landing place, staying at the same height or descending one level. Walls and occupied landing places stop you. Costs 1500 stamina; recovers in 20 seconds. This is a short flight, not hovering.",
     "points": 0,
     "valid": false,
     "starting_trait": false,

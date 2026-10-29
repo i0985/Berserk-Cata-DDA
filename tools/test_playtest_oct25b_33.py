@@ -55,7 +55,7 @@ class NativeSpecialPlacement(unittest.TestCase):
             self.assertNotIn('om_terrain_replace',f.searches[0])
 
     def test_dense_forest_is_a_valid_special_location(self):
-        f=World();f.land={(219*24,30*24,0):'forest_thick'}
+        f=World();f.land={(249*24,30*24,0):'forest_thick'}
         f.run('EOC_BERSERK_FIRST_HUNT_REQUEST')
         self.assertIn('MISSION_BERSERK_FIRST_HUNT',f.missions)
 
@@ -68,11 +68,11 @@ class NativeSpecialPlacement(unittest.TestCase):
         for id_ in ['berserk_first_hunt_special','berserk_local_breach_special']:
             special=f.specials[id_]
             self.assertEqual(special['spawns']['population'],[0,0])
-            self.assertEqual(special['spawns']['radius'],[24,24])
+            self.assertEqual(special['spawns']['radius'],[48,48])
             self.assertIn('SAFE_AT_WORLDGEN',special['flags'])
 
     def test_debug_reveal_never_allows_overwriting_generated_local_map(self):
-        f=World();first=next(iter(f.land));second=(219*24,-30*24,0)
+        f=World();first=next(iter(f.land));second=(249*24,-30*24,0)
         f.land[second]='forest';f.seen=set(f.land);f.local_maps[first]='player_stash'
         f.run('EOC_BERSERK_FIRST_HUNT_REQUEST')
         self.assertEqual(f.local_maps[first],'player_stash')

@@ -1,0 +1,63 @@
+{
+  "parent": "4e337c200a4493be420dd7cb3b6a5a5c05410f48",
+  "current_checks_passed": 358,
+  "series_33_checks": 346,
+  "new_owner_regression_tests": 20,
+  "recipe_checks": 5,
+  "dynamic_dialogue_checks": 7,
+  "asset_validation": {
+    "packages": 2,
+    "json_files": 391,
+    "mod_tilesets": 27,
+    "sprite_sheets": 29,
+    "tile_ids": 76,
+    "translation_catalogs": 4
+  },
+  "rebuild": {
+    "checked_files": 412,
+    "drift": []
+  },
+  "historical_full_suite": {
+    "total": 675,
+    "failures": 130,
+    "errors": 89,
+    "previous_failing_ids": 225,
+    "current_failing_ids": 219,
+    "new_failing_test_ids": [],
+    "resolved_failing_test_ids": [
+      "test_absent_old_save_variables_allow_all_sources (test_behelit_rewards.BehelitRewards.test_absent_old_save_variables_allow_all_sources)",
+      "test_failed_update_cannot_award_item_and_retry_works (test_behelit_rewards.BehelitRewards.test_failed_update_cannot_award_item_and_retry_works)",
+      "test_guard_at_eight_tiles_blocks_but_nine_tiles_allows (test_behelit_rewards.BehelitRewards.test_guard_at_eight_tiles_blocks_but_nine_tiles_allows)",
+      "test_local_cache_state_survives_reload_and_does_not_block_other_sites (test_behelit_rewards.BehelitRewards.test_local_cache_state_survives_reload_and_does_not_block_other_sites)",
+      "test_old_chapel_and_camp_guardians_still_block_claim (test_behelit_rewards.BehelitRewards.test_old_chapel_and_camp_guardians_still_block_claim)",
+      "test_update_targets_cache_even_if_avatar_is_in_neighboring_omt (test_behelit_rewards.BehelitRewards.test_update_targets_cache_even_if_avatar_is_in_neighboring_omt)"
+    ]
+  },
+  "native_game_test": false,
+  "native_sources_checked": [
+    "0.I src/mattack_actors.cpp: leap, spell, melee actor scopes",
+    "0.I src/condition.cpp: has_beta, is_avatar, map flags, LOS, overmap type",
+    "0.I src/npctalk.cpp: tile query, teleport, weighted EOCs",
+    "0.I src/teleport.cpp: safe versus force_safe relocation",
+    "0.I src/overmap.cpp and src/overmapbuffer.cpp: zero population exclusion, generated maps, placement sectors",
+    "0.I doc/JSON/MUTATIONS.md: typed body armor",
+    "0.I overmap_terrain_military.json: 16 non-infested surface evacuation shelter variants"
+  ],
+  "crash_evidence": "Owner log stack const_actor -> f_is_avatar -> leap_actor::call. Guard regression uses absent beta, not a fabricated target.",
+  "flight_test": "Actual exported EOCs execute in a fixture: same height, one-level descent, cancellation, occupied cell, transparent window, unseen point, excessive distance and excessive depth; costs only on confirmed landing.",
+  "old_maps": "Narrow verified chapel v2-to-v3 patch only; existing camps, castles, targets, items and NPC fates retained.",
+  "authored_pngs_changed": false,
+  "fixture_updates": [
+    "Reward interpreter supports native possession/not/or; held Behelit leaves cache unopened",
+    "Saved chapel v3 geometry and increased native safe-site radius",
+    "Russian localization required; Chinese translation or English fallback allowed by project policy"
+  ],
+  "gameplay_still_required": [
+    "Wyald battle and pact turn processing",
+    "Count and servants aggression in actual AI",
+    "Native wing travel and targeting",
+    "New world generation distances and placement time",
+    "New castle gates and chapel appearance"
+  ],
+  "english_source_strings": 1521
+}

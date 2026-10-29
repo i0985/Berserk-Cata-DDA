@@ -83,7 +83,7 @@
     "name": {
       "str": "Body: Carapace vassal"
     },
-    "description": "Your permanent carapace grants +1 strength, 3 points of natural protection and 25% less heat damage, with another -8 speed. Returning to human shape is impossible.\n\nClothing: The carapace cannot fit beneath ordinary rigid torso or arm armor.",
+    "description": "A heavy shell protects your body: bash 6, cut 10, stab 6; heat damage is reduced by 25%. Strength +2. Slow movement, increased hunger and rigid armor restrictions remain.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -100,11 +100,7 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 1
-          },
-          {
-            "value": "ARMOR_ALL",
-            "add": -3
+            "add": 2
           },
           {
             "value": "SPEED",
@@ -127,7 +123,28 @@
     "allow_soft_gear": true,
     "destroys_gear": false,
     "visibility": 7,
-    "ugliness": 4
+    "ugliness": 4,
+    "armor": [
+      {
+        "parts": [
+          "head",
+          "eyes",
+          "mouth",
+          "torso",
+          "arm_l",
+          "arm_r",
+          "hand_l",
+          "hand_r",
+          "leg_l",
+          "leg_r",
+          "foot_l",
+          "foot_r"
+        ],
+        "bash": 6,
+        "cut": 10,
+        "stab": 6
+      }
+    ]
   },
   {
     "type": "mutation",

@@ -77,6 +77,7 @@
             {
               "not": {
                 "and": [
+                  "has_beta",
                   "npc_is_avatar",
                   {
                     "npc_has_trait": "BERSERK_GRUNBELD_PAWN_LOYALTY"
@@ -182,6 +183,7 @@
             {
               "not": {
                 "and": [
+                  "has_beta",
                   "npc_is_avatar",
                   {
                     "npc_has_trait": "BERSERK_GRUNBELD_PAWN_LOYALTY"

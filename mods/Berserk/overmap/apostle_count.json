@@ -126,10 +126,26 @@
       }
     ],
     "flags": [
-      "GLOBALLY_UNIQUE"
+      "GLOBALLY_UNIQUE",
+      "SAFE_AT_WORLDGEN"
     ],
     "locations": [
       "forest"
+    ],
+    "spawns": {
+      "group": "GROUP_BERSERK_STORY_PLACEMENT_BUFFER",
+      "population": [
+        0,
+        0
+      ],
+      "radius": [
+        104,
+        104
+      ]
+    },
+    "city_distance": [
+      10,
+      -1
     ]
   }
 ]

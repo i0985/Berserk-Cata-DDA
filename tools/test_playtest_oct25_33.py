@@ -16,7 +16,7 @@ from test_rickert_dialogue_33 import Conversation as Rickert
 
 P='EOC_BERSERK_FIX25_'
 ROOT=MOD.parents[1]
-PROJECT=json.loads((ROOT/'docs/location_projects/chapel-3.3-02.json').read_text())
+PROJECT=json.loads((ROOT/'docs/location_projects/chapel-3.3-03.json').read_text())
 
 
 class World(StrictActors):
@@ -24,7 +24,7 @@ class World(StrictActors):
         super().__init__();self.beta=None
         self.pos=(179*24,0,0);self.values['u_berserk_eclipse_rescue_state']=2
         self.loaded={(0,0)};self.seen=set();self.local_maps={};self.searches=[]
-        self.land={(219*24,30*24,0):'forest'}
+        self.land={(249*24,30*24,0):'forest'}
         self.special_at={self.pos:'berserk_godo_workshop_special'}
         self.specials={o['id']:o for name in ['godo_workshop','first_hunt','local_breach']
             for o in json.loads((MOD/'overmap'/f'{name}.json').read_text()) if o['type']=='overmap_special'}
@@ -89,7 +89,7 @@ class World(StrictActors):
 
 class NativePlacement(unittest.TestCase):
     def test_cold_native_replace_can_return_unconverted_forest(self):
-        f=World();params={'om_terrain':'berserk_first_hunt_lair','om_terrain_replace':'forest','min_distance':24,'search_range':48,'cant_see':True,'random':True}
+        f=World();f.land={(219*24,30*24,0):'forest'};params={'om_terrain':'berserk_first_hunt_lair','om_terrain_replace':'forest','min_distance':24,'search_range':48,'cant_see':True,'random':True}
         p,changed=f.native_target(params)
         self.assertFalse(changed);self.assertEqual(f.land[p],'forest')
 
@@ -118,7 +118,7 @@ class NativePlacement(unittest.TestCase):
         f=World();f.land={};f.run(P+'FIRST_RETRY');n=len(f.searches)
         self.assertFalse(f.missions)
         f.run(P+'FIRST_RETRY');self.assertEqual(len(f.searches),n)
-        f.now+=3601;f.land={(219*24,30*24,0):'forest'}
+        f.now+=3601;f.land={(249*24,30*24,0):'forest'}
         f.run(P+'FIRST_RETRY');self.assertIn('MISSION_BERSERK_FIRST_HUNT',f.missions)
 
 

@@ -99,11 +99,11 @@
   {
     "type": "furniture",
     "id": "f_berserk_chapel_relic",
-    "name": "sealed chapel reliquary",
-    "description": "A red stone face rests inside a cracked reliquary. The butcher guards the approach. Examine the case after defeating or distracting it.",
+    "name": "altar with a red stone",
+    "description": "A red stone with a human face rests in a shallow recess on the stone altar.",
     "symbol": "O",
     "color": "red",
-    "move_cost_mod": 0,
+    "move_cost_mod": -1,
     "required_str": 900,
     "flags": [
       "TRANSPARENT"
@@ -113,7 +113,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_CLAIM_CHAPEL_BEHELIT"
       ]
-    }
+    },
+    "looks_like": "f_table"
   },
   {
     "type": "furniture",
@@ -122,11 +123,12 @@
     "description": "The broken reliquary holds only dust. It will yield no Behelit.",
     "symbol": "O",
     "color": "dark_gray",
-    "move_cost_mod": 0,
+    "move_cost_mod": -1,
     "required_str": 900,
     "flags": [
       "TRANSPARENT"
-    ]
+    ],
+    "looks_like": "f_table"
   },
   {
     "type": "furniture",

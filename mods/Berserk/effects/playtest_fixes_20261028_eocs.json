@@ -1,0 +1,1317 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_COUNT_ALERT",
+    "effect": [
+      {
+        "u_lose_effect": "berserk_apostol_parley"
+      },
+      {
+        "math": [
+          "u_val('anger') = 100"
+        ]
+      },
+      {
+        "math": [
+          "u_val('morale') = 100"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_monster",
+        {
+          "u_has_species": "BERSERK_COUNT_PAWN_HOUSEHOLD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_COUNT_RELEASE",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_FIX28_COUNT_ALERT"
+      ],
+      "mtype_ids": [],
+      "monster_range": 45
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_WYALD_ALERT",
+    "effect": [
+      {
+        "u_lose_effect": "berserk_apostol_parley"
+      },
+      {
+        "math": [
+          "u_val('anger') = 100"
+        ]
+      },
+      {
+        "math": [
+          "u_val('morale') = 100"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_monster",
+        {
+          "u_has_species": "BERSERK_WYALD_PAWN_HOUSEHOLD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_WYALD_RELEASE",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_FIX28_WYALD_ALERT"
+      ],
+      "mtype_ids": [],
+      "monster_range": 45
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_ROSINE_ALERT",
+    "effect": [
+      {
+        "u_lose_effect": "berserk_apostol_parley"
+      },
+      {
+        "math": [
+          "u_val('anger') = 100"
+        ]
+      },
+      {
+        "math": [
+          "u_val('morale') = 100"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_monster",
+        {
+          "u_has_species": "BERSERK_ROSINE_PAWN_HOUSEHOLD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_ROSINE_RELEASE",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_FIX28_ROSINE_ALERT"
+      ],
+      "mtype_ids": [],
+      "monster_range": 45
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_GRUNBELD_ALERT",
+    "effect": [
+      {
+        "u_lose_effect": "berserk_apostol_parley"
+      },
+      {
+        "math": [
+          "u_val('anger') = 100"
+        ]
+      },
+      {
+        "math": [
+          "u_val('morale') = 100"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_monster",
+        {
+          "u_has_species": "BERSERK_GRUNBELD_PAWN_HOUSEHOLD"
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_GRUNBELD_RELEASE",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_FIX28_GRUNBELD_ALERT"
+      ],
+      "mtype_ids": [],
+      "monster_range": 45
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_apostol_grunbeld_pawn_encounter == 2"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_COUNT_COMBAT_FIX",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_COUNT_RELEASE"
+      },
+      {
+        "math": [
+          "u_berserk_count_alert28 = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_at_om_location": "berserk_count_dungeon"
+        },
+        {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 2"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_count_alert28 == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_BEHELIT_LEAD_READ",
+    "effect": [
+      {
+        "u_message": "An old woodland sketch marks a place the writer feared to approach. The turns are clear enough to follow.",
+        "type": "info",
+        "popup": false
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_forge_behelit_choice == 0"
+          ]
+        },
+        "then": {
+          "weighted_list_eocs": [
+            [
+              "EOC_BERSERK_FIX28_LEAD_OAK",
+              1
+            ],
+            [
+              "EOC_BERSERK_FIX28_LEAD_CAVE",
+              1
+            ]
+          ]
+        }
+      },
+      {
+        "if": {
+          "math": [
+            "u_berserk_forge_behelit_choice == 1"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_FIX28_FIND_OAK"
+        },
+        "else": {
+          "run_eocs": "EOC_BERSERK_FIX28_FIND_CAVE"
+        }
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "berserk_eclipse_era == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_LEAD_OAK",
+    "effect": {
+      "math": [
+        "u_berserk_forge_behelit_choice = 1"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_FIND_OAK",
+    "effect": {
+      "u_location_variable": {
+        "u_val": "berserk_forge_behelit_route"
+      },
+      "target_params": {
+        "om_terrain": "berserk_cursed_oak",
+        "om_special": "berserk_cursed_oak_special",
+        "random": false,
+        "z": 0
+      },
+      "true_eocs": [
+        "EOC_BERSERK_FIX28_LEAD_FOUND"
+      ],
+      "false_eocs": [
+        "EOC_BERSERK_FIX28_LEAD_FAILED"
+      ]
+    },
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_LEAD_CAVE",
+    "effect": {
+      "math": [
+        "u_berserk_forge_behelit_choice = 2"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_FIND_CAVE",
+    "effect": {
+      "u_location_variable": {
+        "u_val": "berserk_forge_behelit_route"
+      },
+      "target_params": {
+        "om_terrain": "berserk_echo_cave_entrance",
+        "om_special": "berserk_echo_cave_special",
+        "random": false,
+        "z": 0
+      },
+      "true_eocs": [
+        "EOC_BERSERK_FIX28_LEAD_FOUND"
+      ],
+      "false_eocs": [
+        "EOC_BERSERK_FIX28_LEAD_FAILED"
+      ]
+    },
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_LEAD_FOUND",
+    "effect": [
+      {
+        "reveal_map": {
+          "u_val": "berserk_forge_behelit_route"
+        },
+        "radius": 2
+      },
+      {
+        "if": {
+          "not": {
+            "math": [
+              "u_berserk_stone_route_issued == 1"
+            ]
+          }
+        },
+        "then": [
+          {
+            "assign_mission": "MISSION_BERSERK_WOODLAND_STONE"
+          },
+          {
+            "math": [
+              "u_berserk_stone_route_issued = 1"
+            ]
+          }
+        ]
+      }
+    ],
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_LEAD_FAILED",
+    "effect": {
+      "u_message": "The sketch is saved, but you cannot yet establish the route.",
+      "type": "info",
+      "popup": false
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_SHELTER_NOTICE",
+    "effect": [
+      {
+        "u_spawn_item": "berserk_road_caravan_note"
+      },
+      {
+        "math": [
+          "u_berserk_smith_notice28 = 1"
+        ]
+      },
+      {
+        "u_message": "Among the surviving papers is an order for a woodland smith. You keep it to read before leaving.",
+        "type": "info",
+        "popup": false
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "or": [
+            {
+              "u_at_om_location": "shelter"
+            },
+            {
+              "u_at_om_location": "shelter_vandal"
+            },
+            {
+              "u_at_om_location": "shelter_unfinished"
+            },
+            {
+              "u_at_om_location": "shelter_survivor"
+            },
+            {
+              "u_at_om_location": "shelter_1"
+            },
+            {
+              "u_at_om_location": "shelter_1_vandal"
+            },
+            {
+              "u_at_om_location": "shelter_1_unfinished"
+            },
+            {
+              "u_at_om_location": "shelter_1_survivor"
+            },
+            {
+              "u_at_om_location": "shelter_1b"
+            },
+            {
+              "u_at_om_location": "shelter_1b_vandal"
+            },
+            {
+              "u_at_om_location": "shelter_1b_unfinished"
+            },
+            {
+              "u_at_om_location": "shelter_1b_survivor"
+            },
+            {
+              "u_at_om_location": "shelter_2"
+            },
+            {
+              "u_at_om_location": "shelter_2_vandal"
+            },
+            {
+              "u_at_om_location": "shelter_2_unfinished"
+            },
+            {
+              "u_at_om_location": "shelter_2_survivor"
+            }
+          ]
+        },
+        {
+          "math": [
+            "berserk_eclipse_era == 0"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_smith_notice28 == 1"
+            ]
+          }
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_journal_knows_godo == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_WING_LAND",
+    "effect": [
+      {
+        "u_teleport": {
+          "context_val": "berserk_wing_landing"
+        },
+        "force_safe": false,
+        "fail_message": "There is no room to land there."
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "math": [
+                "u_val('pos_x') == _berserk_wing_landing.x"
+              ]
+            },
+            {
+              "math": [
+                "u_val('pos_y') == _berserk_wing_landing.y"
+              ]
+            },
+            {
+              "math": [
+                "u_val('pos_z') == _berserk_wing_landing.z"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_apostol_cast_confirmed = 1"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_DIVE_RESULT"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_LINE"
+                },
+                {
+                  "u_has_trait": "BERSERK_ROSINE_FLESH_DIVE"
+                },
+                {
+                  "u_has_flag": "BERSERK_ROSINE_FLESH_FORM_ACTIVE"
+                },
+                {
+                  "math": [
+                    "u_val('stamina') >= 1500"
+                  ]
+                },
+                {
+                  "math": [
+                    "time('now') >= u_berserk_apostol_rosine_flesh_dive_ready_at"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_encumbrance('torso') <= 20"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "distance(u_berserk_apostol_flesh_dash_origin, _berserk_wing_landing) > 0"
+              ]
+            },
+            {
+              "math": [
+                "distance(u_berserk_apostol_flesh_dash_origin, _berserk_wing_landing) <= 7"
+              ]
+            },
+            {
+              "math": [
+                "_berserk_wing_landing.z <= u_berserk_apostol_flesh_dash_origin.z"
+              ]
+            },
+            {
+              "math": [
+                "_berserk_wing_landing.z >= u_berserk_apostol_flesh_dash_origin.z - 1"
+              ]
+            },
+            {
+              "map_terrain_with_flag": "FLAT",
+              "loc": {
+                "context_val": "berserk_wing_landing"
+              }
+            },
+            {
+              "not": {
+                "map_terrain_with_flag": "NO_FLOOR",
+                "loc": {
+                  "context_val": "berserk_wing_landing"
+                }
+              }
+            },
+            {
+              "line_of_sight": 8,
+              "loc_1": {
+                "u_val": "berserk_apostol_flesh_dash_origin"
+              },
+              "loc_2": {
+                "context_val": "berserk_wing_landing"
+              },
+              "with_fields": false
+            }
+          ]
+        },
+        {
+          "u_can_see_location": {
+            "context_val": "berserk_wing_landing"
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WALL",
+            "loc": {
+              "context_val": "berserk_wing_path_1"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WINDOW",
+            "loc": {
+              "context_val": "berserk_wing_path_1"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "DOOR",
+            "loc": {
+              "context_val": "berserk_wing_path_1"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WALL",
+            "loc": {
+              "context_val": "berserk_wing_path_2"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WINDOW",
+            "loc": {
+              "context_val": "berserk_wing_path_2"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "DOOR",
+            "loc": {
+              "context_val": "berserk_wing_path_2"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WALL",
+            "loc": {
+              "context_val": "berserk_wing_path_3"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WINDOW",
+            "loc": {
+              "context_val": "berserk_wing_path_3"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "DOOR",
+            "loc": {
+              "context_val": "berserk_wing_path_3"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WALL",
+            "loc": {
+              "context_val": "berserk_wing_path_4"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WINDOW",
+            "loc": {
+              "context_val": "berserk_wing_path_4"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "DOOR",
+            "loc": {
+              "context_val": "berserk_wing_path_4"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WALL",
+            "loc": {
+              "context_val": "berserk_wing_path_5"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WINDOW",
+            "loc": {
+              "context_val": "berserk_wing_path_5"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "DOOR",
+            "loc": {
+              "context_val": "berserk_wing_path_5"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WALL",
+            "loc": {
+              "context_val": "berserk_wing_path_6"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WINDOW",
+            "loc": {
+              "context_val": "berserk_wing_path_6"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "DOOR",
+            "loc": {
+              "context_val": "berserk_wing_path_6"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WALL",
+            "loc": {
+              "context_val": "berserk_wing_path_7"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "WINDOW",
+            "loc": {
+              "context_val": "berserk_wing_path_7"
+            }
+          }
+        },
+        {
+          "not": {
+            "map_terrain_with_flag": "DOOR",
+            "loc": {
+              "context_val": "berserk_wing_path_7"
+            }
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_WING_CHECK",
+    "effect": [
+      {
+        "copy_var": {
+          "u_val": "berserk_apostol_flesh_dash_origin"
+        },
+        "target_var": {
+          "context_val": "berserk_wing_path_1"
+        }
+      },
+      {
+        "math": [
+          "_berserk_wing_path_1.x = u_berserk_apostol_flesh_dash_origin.x + floor((_berserk_wing_landing.x - u_berserk_apostol_flesh_dash_origin.x) * 1 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_1.y = u_berserk_apostol_flesh_dash_origin.y + floor((_berserk_wing_landing.y - u_berserk_apostol_flesh_dash_origin.y) * 1 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_1.z = u_berserk_apostol_flesh_dash_origin.z + floor((_berserk_wing_landing.z - u_berserk_apostol_flesh_dash_origin.z) * 1 / 7 + 0.5)"
+        ]
+      },
+      {
+        "copy_var": {
+          "u_val": "berserk_apostol_flesh_dash_origin"
+        },
+        "target_var": {
+          "context_val": "berserk_wing_path_2"
+        }
+      },
+      {
+        "math": [
+          "_berserk_wing_path_2.x = u_berserk_apostol_flesh_dash_origin.x + floor((_berserk_wing_landing.x - u_berserk_apostol_flesh_dash_origin.x) * 2 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_2.y = u_berserk_apostol_flesh_dash_origin.y + floor((_berserk_wing_landing.y - u_berserk_apostol_flesh_dash_origin.y) * 2 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_2.z = u_berserk_apostol_flesh_dash_origin.z + floor((_berserk_wing_landing.z - u_berserk_apostol_flesh_dash_origin.z) * 2 / 7 + 0.5)"
+        ]
+      },
+      {
+        "copy_var": {
+          "u_val": "berserk_apostol_flesh_dash_origin"
+        },
+        "target_var": {
+          "context_val": "berserk_wing_path_3"
+        }
+      },
+      {
+        "math": [
+          "_berserk_wing_path_3.x = u_berserk_apostol_flesh_dash_origin.x + floor((_berserk_wing_landing.x - u_berserk_apostol_flesh_dash_origin.x) * 3 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_3.y = u_berserk_apostol_flesh_dash_origin.y + floor((_berserk_wing_landing.y - u_berserk_apostol_flesh_dash_origin.y) * 3 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_3.z = u_berserk_apostol_flesh_dash_origin.z + floor((_berserk_wing_landing.z - u_berserk_apostol_flesh_dash_origin.z) * 3 / 7 + 0.5)"
+        ]
+      },
+      {
+        "copy_var": {
+          "u_val": "berserk_apostol_flesh_dash_origin"
+        },
+        "target_var": {
+          "context_val": "berserk_wing_path_4"
+        }
+      },
+      {
+        "math": [
+          "_berserk_wing_path_4.x = u_berserk_apostol_flesh_dash_origin.x + floor((_berserk_wing_landing.x - u_berserk_apostol_flesh_dash_origin.x) * 4 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_4.y = u_berserk_apostol_flesh_dash_origin.y + floor((_berserk_wing_landing.y - u_berserk_apostol_flesh_dash_origin.y) * 4 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_4.z = u_berserk_apostol_flesh_dash_origin.z + floor((_berserk_wing_landing.z - u_berserk_apostol_flesh_dash_origin.z) * 4 / 7 + 0.5)"
+        ]
+      },
+      {
+        "copy_var": {
+          "u_val": "berserk_apostol_flesh_dash_origin"
+        },
+        "target_var": {
+          "context_val": "berserk_wing_path_5"
+        }
+      },
+      {
+        "math": [
+          "_berserk_wing_path_5.x = u_berserk_apostol_flesh_dash_origin.x + floor((_berserk_wing_landing.x - u_berserk_apostol_flesh_dash_origin.x) * 5 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_5.y = u_berserk_apostol_flesh_dash_origin.y + floor((_berserk_wing_landing.y - u_berserk_apostol_flesh_dash_origin.y) * 5 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_5.z = u_berserk_apostol_flesh_dash_origin.z + floor((_berserk_wing_landing.z - u_berserk_apostol_flesh_dash_origin.z) * 5 / 7 + 0.5)"
+        ]
+      },
+      {
+        "copy_var": {
+          "u_val": "berserk_apostol_flesh_dash_origin"
+        },
+        "target_var": {
+          "context_val": "berserk_wing_path_6"
+        }
+      },
+      {
+        "math": [
+          "_berserk_wing_path_6.x = u_berserk_apostol_flesh_dash_origin.x + floor((_berserk_wing_landing.x - u_berserk_apostol_flesh_dash_origin.x) * 6 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_6.y = u_berserk_apostol_flesh_dash_origin.y + floor((_berserk_wing_landing.y - u_berserk_apostol_flesh_dash_origin.y) * 6 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_6.z = u_berserk_apostol_flesh_dash_origin.z + floor((_berserk_wing_landing.z - u_berserk_apostol_flesh_dash_origin.z) * 6 / 7 + 0.5)"
+        ]
+      },
+      {
+        "copy_var": {
+          "u_val": "berserk_apostol_flesh_dash_origin"
+        },
+        "target_var": {
+          "context_val": "berserk_wing_path_7"
+        }
+      },
+      {
+        "math": [
+          "_berserk_wing_path_7.x = u_berserk_apostol_flesh_dash_origin.x + floor((_berserk_wing_landing.x - u_berserk_apostol_flesh_dash_origin.x) * 7 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_7.y = u_berserk_apostol_flesh_dash_origin.y + floor((_berserk_wing_landing.y - u_berserk_apostol_flesh_dash_origin.y) * 7 / 7 + 0.5)"
+        ]
+      },
+      {
+        "math": [
+          "_berserk_wing_path_7.z = u_berserk_apostol_flesh_dash_origin.z + floor((_berserk_wing_landing.z - u_berserk_apostol_flesh_dash_origin.z) * 7 / 7 + 0.5)"
+        ]
+      },
+      {
+        "if": {
+          "math": [
+            "distance(u_berserk_apostol_flesh_dash_origin, _berserk_wing_landing) > 0"
+          ]
+        },
+        "then": {
+          "if": {
+            "test_eoc": "EOC_BERSERK_FIX28_WING_LAND"
+          },
+          "then": {
+            "run_eocs": "EOC_BERSERK_FIX28_WING_LAND"
+          },
+          "else": {
+            "u_message": "You cannot reach a clear landing place that way.",
+            "type": "info",
+            "popup": false
+          }
+        }
+      }
+    ],
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_INJURY_TIP",
+    "effect": [
+      {
+        "if": {
+          "u_has_bionics": "bio_berserk_hand_stump"
+        },
+        "then": {
+          "u_message": "You lost your left hand. Rickert can make a prosthesis; this is a good first step before another hunt. Read the injury and prosthesis descriptions in the Bionics menu.",
+          "type": "info",
+          "popup": true
+        }
+      },
+      {
+        "if": {
+          "u_has_bionics": "bio_berserk_lost_eye"
+        },
+        "then": {
+          "u_message": "Your lost eye also affects your sight. Its effects are described in the Bionics menu.",
+          "type": "info",
+          "popup": false
+        }
+      },
+      {
+        "math": [
+          "u_berserk_injury_tip28 = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "not": {
+            "math": [
+              "u_berserk_injury_tip28 == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_CHAPEL_MARK",
+    "effect": {
+      "mapgen_update": "berserk_chapel_owner28_mark",
+      "target_var": {
+        "context_val": "chapel28_south"
+      }
+    },
+    "condition": {
+      "and": [
+        {
+          "map_terrain_id": "t_wall",
+          "loc": {
+            "context_val": "chapel28_point_0"
+          }
+        },
+        {
+          "map_furniture_id": "f_bookcase",
+          "loc": {
+            "context_val": "chapel28_point_1"
+          }
+        },
+        {
+          "map_furniture_id": "f_bookcase",
+          "loc": {
+            "context_val": "chapel28_point_2"
+          }
+        },
+        {
+          "map_furniture_id": "f_bookcase",
+          "loc": {
+            "context_val": "chapel28_point_3"
+          }
+        },
+        {
+          "map_furniture_id": "f_bookcase",
+          "loc": {
+            "context_val": "chapel28_point_4"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_CHAPEL_UPGRADE",
+    "effect": [
+      {
+        "u_location_variable": {
+          "context_val": "chapel28_north"
+        }
+      },
+      {
+        "math": [
+          "_chapel28_north.x = floor(_chapel28_north.x / 24) * 24"
+        ]
+      },
+      {
+        "math": [
+          "_chapel28_north.y = floor(_chapel28_north.y / 24) * 24"
+        ]
+      },
+      {
+        "if": {
+          "u_at_om_location": "berserk_desecrated_chapel_nave"
+        },
+        "then": {
+          "location_variable_adjust": {
+            "context_val": "chapel28_north"
+          },
+          "y_adjust": -24
+        }
+      },
+      {
+        "copy_var": {
+          "context_val": "chapel28_north"
+        },
+        "target_var": {
+          "context_val": "chapel28_south"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "chapel28_south"
+        },
+        "y_adjust": 24
+      },
+      {
+        "copy_var": {
+          "context_val": "chapel28_south"
+        },
+        "target_var": {
+          "context_val": "chapel28_plaque"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "chapel28_plaque"
+        },
+        "x_adjust": 12,
+        "y_adjust": 16
+      },
+      {
+        "copy_var": {
+          "context_val": "chapel28_north"
+        },
+        "target_var": {
+          "context_val": "chapel28_point_0"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "chapel28_point_0"
+        },
+        "x_adjust": 15,
+        "y_adjust": 13
+      },
+      {
+        "copy_var": {
+          "context_val": "chapel28_north"
+        },
+        "target_var": {
+          "context_val": "chapel28_point_1"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "chapel28_point_1"
+        },
+        "x_adjust": 17,
+        "y_adjust": 4
+      },
+      {
+        "copy_var": {
+          "context_val": "chapel28_north"
+        },
+        "target_var": {
+          "context_val": "chapel28_point_2"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "chapel28_point_2"
+        },
+        "x_adjust": 18,
+        "y_adjust": 4
+      },
+      {
+        "copy_var": {
+          "context_val": "chapel28_north"
+        },
+        "target_var": {
+          "context_val": "chapel28_point_3"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "chapel28_point_3"
+        },
+        "x_adjust": 16,
+        "y_adjust": 5
+      },
+      {
+        "copy_var": {
+          "context_val": "chapel28_north"
+        },
+        "target_var": {
+          "context_val": "chapel28_point_4"
+        }
+      },
+      {
+        "location_variable_adjust": {
+          "context_val": "chapel28_point_4"
+        },
+        "x_adjust": 16,
+        "y_adjust": 6
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "map_furniture_id": "f_berserk_chapel_record_v2",
+              "loc": {
+                "context_val": "chapel28_plaque"
+              }
+            },
+            {
+              "map_terrain_id": "t_floor",
+              "loc": {
+                "context_val": "chapel28_point_0"
+              }
+            },
+            {
+              "map_furniture_id": "f_null",
+              "loc": {
+                "context_val": "chapel28_point_0"
+              }
+            },
+            {
+              "or": [
+                {
+                  "math": [
+                    "u_val('pos_x') != _chapel28_point_0.x"
+                  ]
+                },
+                {
+                  "math": [
+                    "u_val('pos_y') != _chapel28_point_0.y"
+                  ]
+                }
+              ]
+            },
+            {
+              "map_terrain_id": "t_floor",
+              "loc": {
+                "context_val": "chapel28_point_1"
+              }
+            },
+            {
+              "map_furniture_id": "f_null",
+              "loc": {
+                "context_val": "chapel28_point_1"
+              }
+            },
+            {
+              "map_terrain_id": "t_floor",
+              "loc": {
+                "context_val": "chapel28_point_2"
+              }
+            },
+            {
+              "map_furniture_id": "f_null",
+              "loc": {
+                "context_val": "chapel28_point_2"
+              }
+            },
+            {
+              "map_terrain_id": "t_floor",
+              "loc": {
+                "context_val": "chapel28_point_3"
+              }
+            },
+            {
+              "map_furniture_id": "f_null",
+              "loc": {
+                "context_val": "chapel28_point_3"
+              }
+            },
+            {
+              "map_terrain_id": "t_floor",
+              "loc": {
+                "context_val": "chapel28_point_4"
+              }
+            },
+            {
+              "map_furniture_id": "f_null",
+              "loc": {
+                "context_val": "chapel28_point_4"
+              }
+            }
+          ]
+        },
+        "then": [
+          {
+            "mapgen_update": "berserk_chapel_owner28_north",
+            "target_var": {
+              "context_val": "chapel28_north"
+            }
+          },
+          {
+            "run_eocs": "EOC_BERSERK_FIX28_CHAPEL_MARK"
+          }
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "or": [
+            {
+              "u_at_om_location": "berserk_desecrated_chapel_nave"
+            },
+            {
+              "u_at_om_location": "berserk_desecrated_chapel_reliquary"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FIX28_MOVE",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_COUNT_COMBAT_FIX"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_SHELTER_NOTICE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_CHAPEL_UPGRADE"
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": "u_is_avatar"
+  }
+]
