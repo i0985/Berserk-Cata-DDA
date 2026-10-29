@@ -91,6 +91,7 @@ class Regression(unittest.TestCase):
   self.assertEqual(cells[12,21],'t_door_bar_locked');self.assertEqual(cells[13,21],'t_door_bar_locked')
  def test_chapel_owner_red_square_and_shelves(self):
   p=json.loads((MOD.parents[1]/'docs/location_projects/chapel-3.3-03.json').read_text())
+  self.assertEqual(p['project_id'],'chapel-3.3-03');self.assertEqual(p['layout_version'],3)
   self.assertEqual(p['rows'][13][15],'#')
   self.assertNotIn('handprints on the altar', (MOD/'dialogue/road_journal.json').read_text())
   self.assertTrue(any(f['x']==16 and f['y']==5 and f['furn']=='f_bookcase' for f in p['furniture']))
