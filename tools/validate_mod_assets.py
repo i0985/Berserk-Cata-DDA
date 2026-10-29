@@ -43,6 +43,20 @@ def top_level_objects(path: Path) -> list[dict[str, Any]]:
     return objects
 
 
+def validate_legacy_item_types(path: Path, objects: list[dict[str, Any]]) -> None:
+    """Reject the legacy dispatch type from the owner's 0.I load failure.
+
+    This is a targeted loader guard, not a full native ITEM schema validator.
+    TOOL is an ITEM subtype, not the replacement top-level dispatch type.
+    """
+    for entry in objects:
+        if entry.get("type") == "GENERIC":
+            raise ValidationError(
+                f"{path.relative_to(ROOT)}: item {entry.get('id')!r} has unsupported "
+                "top-level type GENERIC in CDDA 0.I; use ITEM and any needed subtypes"
+            )
+
+
 def validate_mapgen_update_effects(path: Path, objects: list[dict[str, Any]]) -> None:
     """CDDA 0.I-1 only reads mapgen_update as a string or an array, not an object."""
     def visit(value: Any) -> None:
@@ -578,6 +592,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
         package_objects: dict[Path, list[dict[str, Any]]] = {}
         for path in sorted(package.rglob("*.json"), key=lambda p: (len(p.relative_to(package).parts), p.as_posix())):
             objects = top_level_objects(path)
+            validate_legacy_item_types(path, objects)
             validate_mapgen_method(path, objects)
             validate_mapgen_update_effects(path, objects)
             validate_furniture_required_fields(path, objects)

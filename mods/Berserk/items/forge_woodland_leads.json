@@ -1,6 +1,9 @@
 [
   {
-    "type": "GENERIC",
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
     "id": "berserk_forge_woodland_sketch",
     "name": {
       "str": "old woodland sketch"
@@ -13,8 +16,14 @@
     "material": [
       "paper"
     ],
+    "category": "tools",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
     "use_action": {
       "type": "effect_on_conditions",
+      "need_wielding": false,
       "effect_on_conditions": [
         "EOC_BERSERK_FIX28_BEHELIT_LEAD_READ"
       ]
