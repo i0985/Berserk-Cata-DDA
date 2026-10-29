@@ -16,8 +16,8 @@
   {
     "type": "furniture",
     "id": "f_berserk_cave_noisemaker",
-    "name": "loose stone chime",
-    "description": "A weighted stone chime hangs in a western acoustic side chamber, away from the relic. Wind it, then retreat behind the bends before its first burst in 20 seconds. Four bursts repeat every 15 seconds; it resets after 90 seconds. Noise does not make the guardian forget visible prey.",
+    "name": "loosened cave prop",
+    "description": "An old timber braces loose stones in the western side chamber. Its wedge is slipping. Loosen it to start a rockfall, then get behind the bend before the stones come down.",
     "symbol": "!",
     "color": "light_gray",
     "move_cost_mod": 0,
@@ -30,7 +30,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_CAVE_DISTRACTION"
       ]
-    }
+    },
+    "looks_like": "f_wooden_flagpole"
   },
   {
     "type": "furniture",

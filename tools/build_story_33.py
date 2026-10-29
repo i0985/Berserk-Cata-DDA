@@ -24,6 +24,7 @@ BUILDERS=[
     'build_playtest_fixes_20261028.py',
     'build_apostle_utilities_33.py',
     'build_dialogue_review_33.py',
+    'build_cave_rockfall_33.py',
     'apply_english_source_33.py',
 ]
 

@@ -29,8 +29,8 @@
   {
     "type": "furniture",
     "id": "f_berserk_cave_noisemaker_armed",
-    "name": "loose stone chime",
-    "description": "The delayed mechanism is wound. It will make four bursts of noise, then stop. It cannot be wound again until 90 seconds after activation.",
+    "name": "cracking cave prop",
+    "description": "The loosened timber is giving way. Stones scrape overhead. The collapse has already begun; move away from it.",
     "symbol": "!",
     "color": "light_gray",
     "move_cost_mod": 0,
@@ -43,7 +43,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_DISTRACTION_BUSY"
       ]
-    }
+    },
+    "looks_like": "f_wooden_flagpole"
   },
   {
     "type": "ter_furn_transform",
@@ -117,11 +118,38 @@
     "id": "berserk_noisemakers_reset",
     "furniture": [
       {
-        "result": "f_berserk_cave_noisemaker",
         "valid_furniture": [
           "f_berserk_cave_noisemaker_armed"
         ],
+        "result": "f_berserk_cave_rockfall_spent",
         "valid_flags": []
+      }
+    ]
+  },
+  {
+    "type": "furniture",
+    "id": "f_berserk_cave_rockfall_spent",
+    "name": "fallen cave stones",
+    "description": "The broken prop lies beneath a low pile of stones. Nothing here can be set off again.",
+    "looks_like": "f_rubble_rock",
+    "symbol": ":",
+    "color": "dark_gray",
+    "move_cost_mod": 1,
+    "required_str": -1,
+    "flags": [
+      "TRANSPARENT"
+    ],
+    "examine_action": "none"
+  },
+  {
+    "type": "ter_furn_transform",
+    "id": "berserk_cave_rockfall_finish",
+    "furniture": [
+      {
+        "valid_furniture": [
+          "f_berserk_cave_noisemaker_armed"
+        ],
+        "result": "f_berserk_cave_rockfall_spent"
       }
     ]
   }

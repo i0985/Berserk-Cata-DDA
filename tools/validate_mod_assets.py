@@ -57,6 +57,32 @@ def validate_legacy_item_types(path: Path, objects: list[dict[str, Any]]) -> Non
             )
 
 
+def validate_mission_dialogue(path: Path, objects: list[dict[str, Any]]) -> None:
+    """Mirror mission_type::load's NPC-origin dialogue requirement in 0.I.
+
+    Missing dialogue becomes an empty native JsonObject, hence the unhelpful
+    '<unknown source file> ... missing describe' error. Inherited definitions
+    can inherit these strings; resolving their parents is outside this guard.
+    """
+    npc_origins = {"ORIGIN_ANY_NPC", "ORIGIN_OPENER_NPC", "ORIGIN_SECONDARY"}
+    fields = ("describe", "offer", "accepted", "rejected", "advice", "inquire",
+              "success", "success_lie", "failure")
+    for entry in objects:
+        if entry.get("type") != "mission_definition" or "copy-from" in entry:
+            continue
+        if not npc_origins.intersection(entry.get("origins", [])):
+            continue
+        dialogue = entry.get("dialogue", {})
+        for field in fields:
+            value = dialogue.get(field) if isinstance(dialogue, dict) else None
+            translated = isinstance(value, dict) and isinstance(value.get("str"), str)
+            if not isinstance(value, str) and not translated:
+                raise ValidationError(
+                    f"{path.relative_to(ROOT)}: NPC-origin mission {entry.get('id')!r} "
+                    f"requires dialogue.{field} in CDDA 0.I"
+                )
+
+
 def validate_mapgen_update_effects(path: Path, objects: list[dict[str, Any]]) -> None:
     """CDDA 0.I-1 only reads mapgen_update as a string or an array, not an object."""
     def visit(value: Any) -> None:
@@ -593,6 +619,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
         for path in sorted(package.rglob("*.json"), key=lambda p: (len(p.relative_to(package).parts), p.as_posix())):
             objects = top_level_objects(path)
             validate_legacy_item_types(path, objects)
+            validate_mission_dialogue(path, objects)
             validate_mapgen_method(path, objects)
             validate_mapgen_update_effects(path, objects)
             validate_furniture_required_fields(path, objects)

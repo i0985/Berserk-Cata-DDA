@@ -61,7 +61,7 @@
     "copy-from": "t_tree",
     "name": "burned spiritual tree",
     "description": "The vast blackened trunk still marks the center of the ruined house. The living protection is gone.",
-    "looks_like": "",
+    "looks_like": "t_tree_dead",
     "color": "dark_gray"
   },
   {
@@ -70,7 +70,7 @@
     "copy-from": "t_tree",
     "name": "charred spiritual roots",
     "description": "Black roots trace the former garden and the foundations of the house.",
-    "looks_like": "",
+    "looks_like": "t_stump",
     "color": "dark_gray"
   },
   {
@@ -79,7 +79,7 @@
     "copy-from": "t_wall_log",
     "name": "charred tree-house wall",
     "description": "The timber shell preserves the shapes of rooms that once sheltered travelers.",
-    "looks_like": "",
+    "looks_like": "t_wall_burnt",
     "color": "dark_gray"
   },
   {
@@ -454,7 +454,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_FLORA_READ_ROOT_NICHE"
       ]
-    }
+    },
+    "looks_like": "f_rubble_rock"
   },
   {
     "type": "furniture",
@@ -496,7 +497,8 @@
     "required_str": -1,
     "flags": [
       "TRANSPARENT"
-    ]
+    ],
+    "looks_like": "f_rack_wood"
   },
   {
     "type": "furniture",
@@ -509,7 +511,8 @@
     "required_str": -1,
     "flags": [
       "TRANSPARENT"
-    ]
+    ],
+    "looks_like": "f_chamomile"
   },
   {
     "type": "furniture",
@@ -571,7 +574,7 @@
     "id": "f_berserk_flora_charred_books",
     "name": "ashes of the library",
     "description": "Blackened bindings still stand where the shelves once were.",
-    "looks_like": "f_rubble",
+    "looks_like": "f_ash",
     "symbol": "?",
     "color": "brown",
     "move_cost_mod": 0,
@@ -611,7 +614,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_FLORA_AID_PANTRY"
       ]
-    }
+    },
+    "looks_like": "f_crate_c"
   },
   {
     "type": "furniture",
@@ -630,7 +634,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_LOCATION_SEARCHED"
       ]
-    }
+    },
+    "looks_like": "f_crate_o"
   },
   {
     "type": "furniture",
@@ -649,7 +654,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_FLORA_AID_WORKSHOP"
       ]
-    }
+    },
+    "looks_like": "f_crate_c"
   },
   {
     "type": "furniture",
@@ -668,7 +674,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_LOCATION_SEARCHED"
       ]
-    }
+    },
+    "looks_like": "f_crate_o"
   },
   {
     "type": "furniture",
@@ -687,7 +694,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_FLORA_AID_WARD"
       ]
-    }
+    },
+    "looks_like": "f_crate_c"
   },
   {
     "type": "furniture",
@@ -706,7 +714,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_LOCATION_SEARCHED"
       ]
-    }
+    },
+    "looks_like": "f_crate_o"
   },
   {
     "type": "furniture",
@@ -805,7 +814,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_FLORA_RUIN_KEEPSAKE"
       ]
-    }
+    },
+    "looks_like": "f_rubble_rock"
   },
   {
     "type": "furniture",
@@ -824,7 +834,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_LOCATION_SEARCHED"
       ]
-    }
+    },
+    "looks_like": "f_rubble_rock"
   },
   {
     "type": "furniture",

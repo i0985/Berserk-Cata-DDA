@@ -468,7 +468,7 @@ class ReferenceBook(unittest.TestCase):
         for code in ['М02', 'М04', 'М05', 'П08', 'П09', 'П10', 'П13', 'П14', 'П16', 'П27', 'П28']:
             text = ' '.join(MANUSCRIPT[code]['paragraphs'])
             self.assertNotRegex(text.lower(), 'колокол|звон|отвлекал|подвеск')
-        self.assertIn('подвеск', ' '.join(MANUSCRIPT['П12']['paragraphs']))
+        self.assertIn('обвал', ' '.join(MANUSCRIPT['П12']['paragraphs']))
 
     def test_book_graph_is_read_only_and_no_visible_author_notes(self):
         for id_, obj in TOPICS.items():

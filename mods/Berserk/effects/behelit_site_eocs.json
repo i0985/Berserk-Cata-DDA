@@ -29,33 +29,20 @@
             ]
           },
           {
-            "u_message": "You wind the mechanism. The first noise will come from this device in 20 seconds; get behind cover. Four bursts will follow, then it will stop.",
-            "type": "info"
+            "u_message": "You loosen the wedge. The prop creaks and dust trickles from above. Get behind the bend before the stones fall.",
+            "type": "warning"
           },
           {
             "run_eocs": "EOC_BERSERK_CAVE_DISTRACTION_PULSE",
             "time_in_future": "20 seconds"
           },
           {
-            "run_eocs": "EOC_BERSERK_CAVE_DISTRACTION_PULSE",
-            "time_in_future": "35 seconds"
-          },
-          {
-            "run_eocs": "EOC_BERSERK_CAVE_DISTRACTION_PULSE",
-            "time_in_future": "50 seconds"
-          },
-          {
-            "run_eocs": "EOC_BERSERK_CAVE_DISTRACTION_PULSE",
-            "time_in_future": "65 seconds"
-          },
-          {
-            "//": "0.I-1 adds one second to delayed transform_radius; 89 + 1 resets at 90 seconds. This world timer survives loss of the activating character.",
             "u_transform_radius": 0,
-            "ter_furn_transform": "berserk_noisemakers_reset",
+            "ter_furn_transform": "berserk_cave_rockfall_finish",
             "target_var": {
               "context_val": "pos"
             },
-            "time_in_future": "89 seconds"
+            "time_in_future": "20 seconds"
           },
           {
             "turn_cost": "1 second"

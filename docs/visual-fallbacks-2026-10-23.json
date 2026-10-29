@@ -74,24 +74,6 @@
       "reason": "Borrowed graphic depicts a different physical object or state."
     },
     {
-      "id": "t_berserk_flora_charred_trunk",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "t_tree",
-      "reason": "Borrowed graphic depicts a different physical object or state."
-    },
-    {
-      "id": "t_berserk_flora_charred_roots",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "t_tree",
-      "reason": "Borrowed graphic depicts a different physical object or state."
-    },
-    {
-      "id": "t_berserk_flora_charred_timber",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "t_wall_log",
-      "reason": "Borrowed graphic depicts a different physical object or state."
-    },
-    {
       "id": "f_berserk_flora_treehouse_threshold",
       "file": "00_flora_treehouse_details.json",
       "previous": "f_bench",
@@ -122,27 +104,9 @@
       "reason": "Borrowed graphic depicts a different physical object or state."
     },
     {
-      "id": "f_berserk_flora_root_niche",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_rubble",
-      "reason": "Borrowed graphic depicts a different physical object or state."
-    },
-    {
       "id": "f_berserk_flora_reading_lamp",
       "file": "00_flora_treehouse_details.json",
       "previous": "f_table",
-      "reason": "Borrowed graphic depicts a different physical object or state."
-    },
-    {
-      "id": "f_berserk_flora_drying_herbs",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_rack_wood",
-      "reason": "Borrowed graphic depicts a different physical object or state."
-    },
-    {
-      "id": "f_berserk_flora_herb_bed",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_flower_tulip",
       "reason": "Borrowed graphic depicts a different physical object or state."
     },
     {
@@ -152,63 +116,9 @@
       "reason": "An interaction or note is not a kitchen counter."
     },
     {
-      "id": "f_berserk_flora_aid_pantry",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_counter",
-      "reason": "A prepared bundle is not an additional counter or rack."
-    },
-    {
-      "id": "f_berserk_flora_aid_pantry_empty",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_counter",
-      "reason": "A prepared bundle is not an additional counter or rack."
-    },
-    {
-      "id": "f_berserk_flora_aid_workshop",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_rack_wood",
-      "reason": "A prepared bundle is not an additional counter or rack."
-    },
-    {
-      "id": "f_berserk_flora_aid_workshop_empty",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_rack_wood",
-      "reason": "A prepared bundle is not an additional counter or rack."
-    },
-    {
-      "id": "f_berserk_flora_aid_ward",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_rack_wood",
-      "reason": "A prepared bundle is not an additional counter or rack."
-    },
-    {
-      "id": "f_berserk_flora_aid_ward_empty",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_rack_wood",
-      "reason": "A prepared bundle is not an additional counter or rack."
-    },
-    {
-      "id": "f_berserk_flora_ruin_keepsake",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_rubble",
-      "reason": "Borrowed graphic depicts a different physical object or state."
-    },
-    {
-      "id": "f_berserk_flora_ruin_keepsake_empty",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_rubble",
-      "reason": "Borrowed graphic depicts a different physical object or state."
-    },
-    {
       "id": "f_berserk_flora_garden_arch",
       "file": "00_household_furnishings.json",
       "previous": "f_sign",
-      "reason": "Borrowed graphic depicts a different physical object or state."
-    },
-    {
-      "id": "t_berserk_rosine_root_screen",
-      "file": "00_hunt_location_details.json",
-      "previous": "t_tree",
       "reason": "Borrowed graphic depicts a different physical object or state."
     },
     {
@@ -296,12 +206,6 @@
       "reason": "Borrowed graphic depicts a different physical object or state."
     },
     {
-      "id": "t_berserk_flora_charred_wall",
-      "file": "mapgen/flora_siege_terrain.json",
-      "previous": "t_wall",
-      "reason": "Borrowed graphic depicts a different physical object or state."
-    },
-    {
       "id": "f_berserk_apostol_circle",
       "file": "furniture/apostol_ceremony.json",
       "previous": "f_berserk_eclipse_escape_rift",
@@ -315,12 +219,6 @@
     },
     {
       "id": "f_berserk_oak_noisemaker",
-      "file": "furniture/behelit_sites.json",
-      "previous": "f_counter",
-      "reason": "An interaction or note is not a kitchen counter."
-    },
-    {
-      "id": "f_berserk_cave_noisemaker",
       "file": "furniture/behelit_sites.json",
       "previous": "f_counter",
       "reason": "An interaction or note is not a kitchen counter."
@@ -441,12 +339,6 @@
     },
     {
       "id": "f_berserk_oak_noisemaker_armed",
-      "file": "furniture/behelit_distractions.json",
-      "previous": "f_counter",
-      "reason": "An interaction or note is not a kitchen counter."
-    },
-    {
-      "id": "f_berserk_cave_noisemaker_armed",
       "file": "furniture/behelit_distractions.json",
       "previous": "f_counter",
       "reason": "An interaction or note is not a kitchen counter."
@@ -654,5 +546,47 @@
     "f_berserk_chapel_relic": "f_table",
     "f_berserk_chapel_relic_empty": "f_table",
     "f_berserk_chapel_altar": "f_table"
+  },
+  "owner_amendment_20261030": {
+    "t_berserk_flora_wood_floor": "t_floor",
+    "t_berserk_flora_woven_rug": "t_carpet_yellow",
+    "t_berserk_flora_root_window": "t_window_domestic",
+    "f_berserk_flora_root_niche": "f_rubble_rock",
+    "f_berserk_flora_ruin_keepsake": "f_rubble_rock",
+    "f_berserk_flora_ruin_keepsake_empty": "f_rubble_rock",
+    "f_berserk_flora_drying_herbs": "f_rack_wood",
+    "f_berserk_flora_herb_bed": "f_chamomile",
+    "t_berserk_flora_charred_trunk": "t_tree_dead",
+    "t_berserk_flora_charred_roots": "t_stump",
+    "t_berserk_flora_charred_timber": "t_wall_burnt",
+    "t_berserk_flora_charred_wall": "t_wall_burnt",
+    "t_berserk_flora_ash_floor": "t_dirt",
+    "t_berserk_flora_escape_path": "t_dirt",
+    "t_berserk_flora_scorched_root_path": "t_dirt",
+    "f_berserk_flora_charred_bedroom": "f_rubble",
+    "f_berserk_flora_charred_fittings": "f_rubble",
+    "f_berserk_flora_charred_books": "f_ash",
+    "f_berserk_flora_aid_lost": "f_rubble",
+    "f_berserk_flora_charred_archive": "f_rubble",
+    "f_berserk_flora_saved_archive": "f_rubble",
+    "f_berserk_flora_held_embers": "f_ash",
+    "f_berserk_flora_ruined_ward": "f_ash",
+    "t_berserk_mistvale_petals": "t_grass",
+    "t_berserk_rosine_root_screen": "t_tree",
+    "f_berserk_cave_broken_support": "f_plank_stack_short",
+    "f_berserk_cave_noisemaker": "f_wooden_flagpole",
+    "f_berserk_cave_noisemaker_armed": "f_wooden_flagpole",
+    "t_berserk_grunbeld_wall": "t_stone_masonry_wall_whitewashed",
+    "t_berserk_grunbeld_cover": "t_stone_masonry_wall_whitewashed",
+    "t_berserk_grunbeld_flagstones": "t_rock_floor",
+    "t_berserk_grunbeld_scorched_inside": "t_rock_floor",
+    "t_berserk_grunbeld_scorched_court": "t_rock_floor",
+    "t_berserk_grunbeld_quarry_floor": "t_rock_floor",
+    "f_berserk_flora_aid_pantry": "f_crate_c",
+    "f_berserk_flora_aid_pantry_empty": "f_crate_o",
+    "f_berserk_flora_aid_workshop": "f_crate_c",
+    "f_berserk_flora_aid_workshop_empty": "f_crate_o",
+    "f_berserk_flora_aid_ward": "f_crate_c",
+    "f_berserk_flora_aid_ward_empty": "f_crate_o"
   }
 }

@@ -20,7 +20,7 @@
     "id": "f_berserk_flora_held_embers",
     "name": "ward-bound embers",
     "description": "Glowing embers held inside a ring of Flora's dying ward. They give light but cannot spread fire; the escape paths remain clear.",
-    "looks_like": "f_rubble",
+    "looks_like": "f_ash",
     "symbol": "*",
     "color": "red",
     "move_cost_mod": 0,
@@ -35,7 +35,7 @@
     "id": "f_berserk_flora_ruined_ward",
     "name": "Flora's broken ward",
     "description": "The protective mark has burned cold. The Brand is no longer quieted here.",
-    "looks_like": "f_berserk_flora_ward",
+    "looks_like": "f_ash",
     "symbol": "O",
     "color": "dark_gray",
     "move_cost_mod": 0,
@@ -64,7 +64,7 @@
     "copy-from": "t_wall",
     "name": "charred sanctuary wall",
     "description": "The blackened shell of Flora's sanctuary. The walls no longer protect a peaceful haven.",
-    "looks_like": "",
+    "looks_like": "t_wall_burnt",
     "color": "dark_gray"
   }
 ]

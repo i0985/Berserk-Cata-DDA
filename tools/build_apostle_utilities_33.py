@@ -142,7 +142,7 @@ def early_caravan():
         'goal': 'MGOAL_CONDITION',
         'goal_condition': either(eq('u_berserk_journal_read_berserk_road_caravan_note'),
                                  eq('u_berserk_journal_knows_godo')),
-        'difficulty': 1, 'value': 0, 'origins': ['ORIGIN_SECONDARY'],
+        'difficulty': 1, 'value': 0, 'origins': ['ORIGIN_GAME_START'],
         'start': {'assign_mission_target': {'om_terrain': 'berserk_early_caravan', 'var': loc, 'reveal_radius': 1}}
     }])
 

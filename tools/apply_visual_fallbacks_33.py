@@ -8,7 +8,13 @@ POLICY=ROOT/'docs/visual-fallbacks-2026-10-23.json'
 
 
 def main():
-    denied={x['id'] for x in json.loads(POLICY.read_text())['removed']}
+    policy=json.loads(POLICY.read_text())
+    denied={x['id'] for x in policy['removed']}
+    approved={}
+    for key,value in policy.items():
+        if key.startswith('owner_amendment_'):
+            approved.update(value)
+    assert not denied.intersection(approved), denied.intersection(approved)
     authored=set()
     for path in (ROOT/'mods').rglob('*.json'):
         data=json.loads(path.read_text());data=data if isinstance(data,list) else [data]
@@ -23,6 +29,10 @@ def main():
         data=json.loads(path.read_text());objects=data if isinstance(data,list) else [data]
         dirty=False
         for obj in objects:
+            if obj.get('id') in approved:
+                if obj.get('looks_like')!=approved[obj['id']]:
+                    obj['looks_like']=approved[obj['id']];dirty=True
+                continue
             if obj.get('id') not in denied:continue
             if 'copy-from' in obj:
                 if obj.get('looks_like')!='':obj['looks_like']='';dirty=True
