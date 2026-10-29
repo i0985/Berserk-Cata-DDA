@@ -1,6 +1,71 @@
 [
   {
     "type": "effect_on_condition",
+    "id": "EOC_BERSERK_UTILITY29_EARLY_LAND_MIGRATION",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_early_caravan_attempts = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_early_caravan_retry_at = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_early_caravan_land_v2 = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "and": [
+            {
+              "math": [
+                "u_val('pos_z') == 0"
+              ]
+            },
+            {
+              "or": [
+                {
+                  "u_at_om_location": "field"
+                },
+                {
+                  "u_at_om_location": "forest"
+                },
+                {
+                  "u_at_om_location": "forest_thick"
+                },
+                {
+                  "u_at_om_location": "road"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_early_caravan_placed == 1"
+            ]
+          }
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_early_caravan_land_v2 == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
     "id": "EOC_BERSERK_UTILITY29_EARLY_REQUEST",
     "effect": [
       {
@@ -26,33 +91,44 @@
         ]
       },
       {
-        "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_FIND"
+        "if": {
+          "math": [
+            "u_berserk_early_caravan_attempts > 1"
+          ]
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_FIND_WIDE"
+        },
+        "else": {
+          "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_FIND"
+        }
       }
     ],
     "condition": {
       "and": [
         "u_is_avatar",
         {
-          "math": [
-            "u_val('pos_z') == 0"
-          ]
-        },
-        {
-          "or": [
+          "and": [
             {
-              "not": "u_is_outside"
+              "math": [
+                "u_val('pos_z') == 0"
+              ]
             },
             {
-              "u_at_om_location": "field"
-            },
-            {
-              "u_at_om_location": "forest"
-            },
-            {
-              "u_at_om_location": "forest_thick"
-            },
-            {
-              "u_at_om_location": "road"
+              "or": [
+                {
+                  "u_at_om_location": "field"
+                },
+                {
+                  "u_at_om_location": "forest"
+                },
+                {
+                  "u_at_om_location": "forest_thick"
+                },
+                {
+                  "u_at_om_location": "road"
+                }
+              ]
             }
           ]
         },
@@ -105,6 +181,26 @@
   },
   {
     "type": "effect_on_condition",
+    "id": "EOC_BERSERK_UTILITY29_EARLY_FIND_WIDE",
+    "effect": {
+      "u_location_variable": {
+        "context_val": "early_caravan_candidate"
+      },
+      "target_params": {
+        "om_terrain": "berserk_early_caravan",
+        "om_special": "berserk_early_caravan_special",
+        "random": true,
+        "search_range": 96,
+        "z": 0
+      },
+      "true_eocs": [
+        "EOC_BERSERK_UTILITY29_EARLY_STORE"
+      ]
+    },
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
     "id": "EOC_BERSERK_UTILITY29_EARLY_STORE",
     "effect": [
       {
@@ -131,51 +227,16 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_UTILITY29_EARLY_NOTIFY",
-    "effect": [
-      {
-        "assign_mission": "MISSION_BERSERK_EARLY_CARAVAN"
-      },
-      {
-        "reveal_map": {
-          "global_val": "berserk_early_caravan_location"
-        },
-        "radius": 1
-      },
-      {
-        "math": [
-          "u_berserk_early_caravan_notified = 1"
-        ]
-      },
-      {
-        "u_message": "An abandoned wagon stop is marked near the road. There may still be useful belongings there.",
-        "type": "info",
-        "popup": true
-      }
-    ],
-    "condition": {
-      "and": [
-        "u_is_avatar",
-        {
-          "math": [
-            "berserk_early_caravan_placed == 1"
-          ]
-        },
-        {
-          "not": {
-            "math": [
-              "u_berserk_early_caravan_notified == 1"
-            ]
-          }
-        },
-        {
-          "not": {
-            "math": [
-              "u_berserk_journal_knows_godo == 1"
-            ]
-          }
-        }
-      ]
-    }
+    "effect": [],
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_UTILITY29_EARLY_RETIRE_MISSION",
+    "effect": {
+      "remove_active_mission": "MISSION_BERSERK_EARLY_CARAVAN"
+    },
+    "condition": "u_is_avatar"
   },
   {
     "type": "effect_on_condition",
@@ -213,10 +274,10 @@
     "id": "EOC_BERSERK_UTILITY29_EARLY_TICK",
     "effect": [
       {
-        "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_REQUEST"
+        "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_LAND_MIGRATION"
       },
       {
-        "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_NOTIFY"
+        "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_REQUEST"
       },
       {
         "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_ARRIVAL"
@@ -238,9 +299,14 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_UTILITY29_EARLY_GAME_START",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_TICK"
-    },
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_RETIRE_MISSION"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_TICK"
+      }
+    ],
     "eoc_type": "EVENT",
     "required_event": "game_start",
     "condition": "u_is_avatar"
@@ -248,9 +314,14 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_UTILITY29_EARLY_GAME_LOAD",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_TICK"
-    },
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_RETIRE_MISSION"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_TICK"
+      }
+    ],
     "eoc_type": "EVENT",
     "required_event": "game_load",
     "condition": "u_is_avatar"

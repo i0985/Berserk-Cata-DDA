@@ -1,0 +1,51 @@
+{
+  "parent": "1ec4f0805a2db7de82aabb29bc9066b56d00518c",
+  "current_checks_passed": 386,
+  "series_33_checks": 374,
+  "utility_checks": 28,
+  "recipe_checks": 5,
+  "dynamic_dialogue_checks": 7,
+  "asset_validation": {
+    "packages": 2,
+    "json_files": 396,
+    "mod_tilesets": 28,
+    "sprite_sheets": 30,
+    "tile_ids": 92,
+    "translation_catalogs": 4
+  },
+  "rebuild": {
+    "checked_files": 570,
+    "drift": []
+  },
+  "historical_full_suite": {
+    "total": 703,
+    "failures": 130,
+    "errors": 89,
+    "before": 219,
+    "after": 219,
+    "new": [],
+    "resolved": [],
+    "isolated_copy": true
+  },
+  "native_game_test": false,
+  "native_ref": "CleverRaven/Cataclysm-DDA 0.I",
+  "authored_pngs_changed": false,
+  "story_selection_and_progression_changed": false,
+  "early_source": "One hidden unique roadside source. No start mission or reveal. Actual order reading required for forge route. Carrier/water/interior ship/underground/roof starts wait for suitable surface land; first range 48 OMT then 96, three attempts, 30-minute cooldown. Existing coordinates and local maps preserved.",
+  "body_mechanics": "13 permanent bodies. Count aquatic utilities replaced by posture accuracy and full-form unsplinted mending. Five gifts gain distinct native perception/healing/stealth/feeding/gliding mechanics, without extra strength.",
+  "native_sources_checked": [
+    "data/json/mutations/mutations.json",
+    "doc/JSON/JSON_FLAGS.md",
+    "src/melee.cpp: PSEUDOPOD_GRASP",
+    "src/character.cpp: limited CLAIRVOYANCE",
+    "src/game.cpp: CLIMB_NO_LADDER",
+    "src/npctalk.cpp: remove_active_mission registration",
+    "data/json/overmap/overmap_special/aircraft_carrier.json"
+  ],
+  "gameplay_still_required": [
+    "Actual hidden wagon generation at connected road and carrier landing",
+    "Cached trait effects and compatibility in target Windows build",
+    "Close clairvoyance, healing, scent, food/parasites",
+    "Femto gliding, climbing and safe descent with load/obstacles"
+  ]
+}

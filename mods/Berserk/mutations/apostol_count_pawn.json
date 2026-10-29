@@ -79,7 +79,7 @@
     "name": {
       "str": "Body: Servant of the Count"
     },
-    "description": "Heavy pliant flesh cushions blows: bash 4, cut 7, stab 4. Strength +2. Your slower movement and rigid torso armor restriction remain.\n\nBody abilities: Your slippery skin helps you escape grabs, especially where it is uncovered.",
+    "description": "Heavy pliant flesh cushions blows: bash 4, cut 7, stab 4. Strength +2. Your slower movement and rigid torso armor restriction remain.\n\nBody abilities: Pliable flesh steadies your close-range attacks while crouching or lying down, reducing the usual posture penalties.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -88,7 +88,8 @@
       "BERSERK_COUNT_PAWN"
     ],
     "flags": [
-      "BERSERK_COUNT_PAWN_FORM_ACTIVE"
+      "BERSERK_COUNT_PAWN_FORM_ACTIVE",
+      "PSEUDOPOD_GRASP"
     ],
     "enchantments": [
       {
@@ -103,9 +104,7 @@
             "add": -5
           }
         ],
-        "mutations": [
-          "SLIMY"
-        ]
+        "mutations": []
       }
     ],
     "restricts_gear": [

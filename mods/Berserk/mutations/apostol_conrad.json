@@ -67,7 +67,7 @@
     "name": {
       "str": "Body of cinder rot"
     },
-    "description": "Your flesh grows thick and heavy. Gain +3 strength and 3 points of natural protection. You remain slower, and gas can still hurt you. This body is permanent; returning to human shape is impossible.\n\nClothing: The thickened body cannot fit ordinary rigid torso and leg armor.",
+    "description": "Your flesh grows thick and heavy. Gain +3 strength and 3 points of natural protection. You remain slower, and gas can still hurt you. This body is permanent; returning to human shape is impossible.\n\nClothing: The thickened body cannot fit ordinary rigid torso and leg armor.\n\nBody abilities: You can eat rotten food, though it provides less nourishment. Internal parasites cannot infest your body. Poisonous gas and infected wounds remain dangerous.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -90,6 +90,10 @@
             "value": "ARMOR_ALL",
             "add": -3
           }
+        ],
+        "mutations": [
+          "SAPROVORE",
+          "PARAIMMUNE"
         ]
       }
     ],

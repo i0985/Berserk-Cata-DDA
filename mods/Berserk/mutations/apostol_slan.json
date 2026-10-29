@@ -67,7 +67,7 @@
     "name": {
       "str": "Body of the crimson flesh"
     },
-    "description": "Your permanently altered flesh grants +4 strength, +1 dexterity, +15% melee damage and 4 points of natural protection. This body is permanent; returning to human shape is impossible. Its growth does not heal wounds.\n\nClothing: Rigid sleeves and gauntlets cannot follow the reshaped flesh.",
+    "description": "Your permanently altered flesh grants +4 strength, +1 dexterity, +15% melee damage and 4 points of natural protection. This body is permanent; returning to human shape is impossible.\n\nClothing: Rigid sleeves and gauntlets cannot follow the reshaped flesh.\n\nBody abilities: Wounds heal faster over time, and broken limbs mend without splints. Pain can improve your mood, but its ordinary penalties remain. Lost organs do not regrow.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -98,6 +98,10 @@
             "value": "ARMOR_ALL",
             "add": -4
           }
+        ],
+        "mutations": [
+          "REGEN_LIZ",
+          "MASOCHIST"
         ]
       }
     ],

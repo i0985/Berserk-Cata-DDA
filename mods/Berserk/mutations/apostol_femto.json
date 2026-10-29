@@ -61,7 +61,7 @@
     "name": {
       "str": "Body of black wings"
     },
-    "description": "Dark wings lighten your movements. Gain +2 strength, +1 dexterity, +10 speed and 2 points of natural protection; falling damage is halved. The wings do not allow sustained flight. This body is permanent; returning to human shape is impossible.\n\nClothing: The wings need an open back; ordinary torso clothing gets in their way.",
+    "description": "Dark wings lighten your movements. Gain +2 strength, +1 dexterity, +10 speed and 2 points of natural protection. The wings do not allow sustained flight. This body is permanent; returning to human shape is impossible.\n\nClothing: The wings need an open back; ordinary torso clothing gets in their way.\n\nBody abilities: Examine a ledge to glide down through open air without falling damage. Native gliding needs usable arms and a load no heavier than half your carrying capacity. You can climb a single level without bracing against furniture or nearby walls, provided there is a free landing. The wings do not provide sustained flight.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -70,7 +70,11 @@
       "BERSERK_FEMTO"
     ],
     "flags": [
-      "BERSERK_FEMTO_FORM_ACTIVE"
+      "BERSERK_FEMTO_FORM_ACTIVE",
+      "WING_GLIDE",
+      "WINGS_2",
+      "FEATHER_FALL",
+      "CLIMB_NO_LADDER"
     ],
     "enchantments": [
       {
@@ -96,7 +100,8 @@
             "value": "FALL_DAMAGE",
             "multiply": -0.5
           }
-        ]
+        ],
+        "mutations": []
       }
     ],
     "restricts_gear": [

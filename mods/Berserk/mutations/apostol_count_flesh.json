@@ -61,7 +61,7 @@
     "name": {
       "str": "Body: pliant flesh"
     },
-    "description": "Thick pliant flesh protects you: bash 10, cut 14, stab 8. Strength +4; movement remains slower. Rigid torso and arm armor no longer fits. Use Draw flesh together to mend wounds.\n\nBody abilities: Slippery skin helps you escape grabs. Gills let you breathe underwater.",
+    "description": "Thick pliant flesh protects you: bash 10, cut 14, stab 8. Strength +4; movement remains slower. Rigid torso and arm armor no longer fits. Use Draw flesh together to mend wounds.\n\nBody abilities: Pliable flesh reduces melee attack penalties while crouching or lying down. Broken limbs can mend without splints; recovery still takes time.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -70,7 +70,9 @@
       "BERSERK_COUNT_FLESH"
     ],
     "flags": [
-      "BERSERK_COUNT_FLESH_FORM_ACTIVE"
+      "BERSERK_COUNT_FLESH_FORM_ACTIVE",
+      "PSEUDOPOD_GRASP",
+      "MEND_ALL"
     ],
     "enchantments": [
       {
@@ -81,10 +83,7 @@
             "add": 4
           }
         ],
-        "mutations": [
-          "SLIMY",
-          "GILLS"
-        ]
+        "mutations": []
       }
     ],
     "restricts_gear": [

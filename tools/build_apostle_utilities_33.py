@@ -33,12 +33,22 @@ def body_utilities():
         form['enchantments'][0]['mutations'] = details['traits']
         for flag in details.get('flags', []):
             if flag not in form.setdefault('flags', []): form['flags'].append(flag)
-        base = form['description'].split('\n\nBody abilities: ', 1)[0]
-        ru = russian.gettext(base)
+        base = details.get('base_en', form['description'].split('\n\nBody abilities: ', 1)[0])
+        ru = details.get('base_ru', russian.gettext(base))
         if ru == base: raise ValueError('Missing RU body description: ' + stem)
+        # The earlier clothing pass looks up the unsuffixed base on rebuild.
+        # Register it too so the second canonical build can translate it.
+        if 'base_en' in details:
+            tr(base.split('\n\nClothing: ', 1)[0], ru.split('\n\n', 1)[0])
         form['description'] = tr(base + '\n\nBody abilities: ' + details['en'],
                                  ru + '\n\nВозможности тела: ' + details['ru'])
         write(path, rows)
+    # The veil changes sight; the mature body now also suppresses scent.
+    rows = read('mutations/apostol_ubik.json')
+    index(rows)['BERSERK_UBIK_VEIL']['description'] = tr(
+        'Vanish from ordinary sight for 8 seconds. Sounds can still betray you. Costs 1500 stamina; recovers in 45 seconds.',
+        'Исчезните из обычного поля зрения на 8 секунд. Звуки всё ещё могут выдать вас. Требует 1500 выносливости; восстановление — 45 секунд.')
+    write('mutations/apostol_ubik.json', rows)
     manifest = json.loads((ROOT/'docs/apostol-native-sprite-sources-33.json').read_text())
     sheet = MOD/manifest['sheet']
     assert hashlib.sha256(sheet.read_bytes()).hexdigest() == manifest['sha256']
@@ -70,12 +80,20 @@ def early_caravan():
                           'from': [0, 0, 0], 'existing': True}],
          'locations': ['forest', 'field'], 'city_distance': [3, -1],
          'rotate': True, 'occurrences': [0, 0], 'flags': ['GLOBALLY_UNIQUE'],
-         '//': 'Once per world, requested at the first surface start/exit. Existing road required.'}
+         '//': 'One hidden source per world, requested on actual surface land. Existing road required.'}
     ])
     loc = {'global_val': 'berserk_early_caravan_location'}
-    eligible = both('u_is_avatar', math("u_val('pos_z') == 0"),
-                    either(neg('u_is_outside'), *[{'u_at_om_location': t}
-                           for t in ['field', 'forest', 'forest_thick', 'road']]),
+    land = both(math("u_val('pos_z') == 0"),
+                either(*[{'u_at_om_location': t} for t in ['field', 'forest', 'forest_thick', 'road']]))
+    # Carrier decks/interiors, water, roofs and underground starts do not spend
+    # attempts. Old failed interior searches get one bounded migration on land.
+    E.append(eoc(P+'EARLY_LAND_MIGRATION', [
+        math('u_berserk_early_caravan_attempts = 0'),
+        math('u_berserk_early_caravan_retry_at = 0'),
+        math('u_berserk_early_caravan_land_v2 = 1')],
+        both('u_is_avatar', land, neg(eq('berserk_early_caravan_placed')),
+             neg(eq('u_berserk_early_caravan_land_v2')))))
+    eligible = both('u_is_avatar', land,
                     neg(eq('u_berserk_eclipse_trial_active')), neg(eq('berserk_early_caravan_placed')),
                     math('u_berserk_early_caravan_attempts < 3'),
                     math("time('now') >= u_berserk_early_caravan_retry_at"))
@@ -84,12 +102,14 @@ def early_caravan():
          'then': {'u_location_variable': {'u_val': 'berserk_early_caravan_origin'}}},
         math('u_berserk_early_caravan_attempts = u_berserk_early_caravan_attempts + 1'),
         math("u_berserk_early_caravan_retry_at = time('now') + time('30 minutes')"),
-        run(P+'EARLY_FIND')], eligible))
-    E.append(eoc(P+'EARLY_FIND', {
+        {'if': math('u_berserk_early_caravan_attempts > 1'),
+         'then': run(P+'EARLY_FIND_WIDE'), 'else': run(P+'EARLY_FIND')}], eligible))
+    for name, radius in [('EARLY_FIND', 48), ('EARLY_FIND_WIDE', 96)]:
+        E.append(eoc(P+name, {
             'u_location_variable': {'context_val': 'early_caravan_candidate'},
             'target_params': {'om_terrain': 'berserk_early_caravan',
                               'om_special': 'berserk_early_caravan_special',
-                              'random': True, 'search_range': 48, 'z': 0},
+                              'random': True, 'search_range': radius, 'z': 0},
             # Native mission lookup returns the origin after placement failure;
             # f_location_variable still calls true_eocs. STORE checks the OMT.
             'true_eocs': [P+'EARLY_STORE']}, 'u_is_avatar'))
@@ -97,26 +117,22 @@ def early_caravan():
         {'copy_var': {'context_val': 'early_caravan_candidate'}, 'target_var': loc},
         math('berserk_early_caravan_placed = 1')],
         {'overmap_at_point': 'berserk_early_caravan', 'point': {'context_val': 'early_caravan_candidate'}}))
-    # A normal optional mission points to the wagon; it does not read the paper
-    # or introduce either smith. The existing physical source awards the forge.
-    E.append(eoc(P+'EARLY_NOTIFY', [
-        {'assign_mission': 'MISSION_BERSERK_EARLY_CARAVAN'},
-        {'reveal_map': loc, 'radius': 1},
-        math('u_berserk_early_caravan_notified = 1'),
-        message('An abandoned wagon stop is marked near the road. There may still be useful belongings there.',
-                'У дороги отмечена брошенная повозка. Возможно, там ещё остались полезные вещи.', True)],
-        both('u_is_avatar', eq('berserk_early_caravan_placed'),
-             neg(eq('u_berserk_early_caravan_notified')), neg(eq('u_berserk_journal_knows_godo')))))
+    # The source is a discovery, never a starting marker. Keep the former EOC
+    # and mission IDs for saved references; retire only its active old mission.
+    E.append(eoc(P+'EARLY_NOTIFY', [], 'u_is_avatar'))
+    E.append(eoc(P+'EARLY_RETIRE_MISSION', {
+        'remove_active_mission': 'MISSION_BERSERK_EARLY_CARAVAN'}, 'u_is_avatar'))
     E.append(eoc(P+'EARLY_ARRIVAL', [
         math('u_berserk_early_caravan_arrival = 1'),
         message('A dry sheet of paper shows beneath the wagon box lid. Examine the box to read it, or take the order with you.',
                 'Из-под крышки ящика на повозке выглядывает сухой лист. Осмотрите ящик, чтобы прочитать его, или возьмите заказ с собой.')],
         both('u_is_avatar', {'u_at_om_location': 'berserk_early_caravan'},
              neg(eq('u_berserk_early_caravan_arrival')))))
-    E.append(eoc(P+'EARLY_TICK', [run(P+'EARLY_REQUEST'), run(P+'EARLY_NOTIFY'), run(P+'EARLY_ARRIVAL')],
+    E.append(eoc(P+'EARLY_TICK', [run(P+'EARLY_LAND_MIGRATION'), run(P+'EARLY_REQUEST'), run(P+'EARLY_ARRIVAL')],
                  both('u_is_avatar', neg(eq('berserk_eclipse_era')))))
     for event in ['game_start', 'game_load', 'avatar_moves']:
-        E.append(eoc(P+'EARLY_'+event.upper(), run(P+'EARLY_TICK'), 'u_is_avatar',
+        effects = [run(P+'EARLY_RETIRE_MISSION'), run(P+'EARLY_TICK')] if event != 'avatar_moves' else run(P+'EARLY_TICK')
+        E.append(eoc(P+'EARLY_'+event.upper(), effects, 'u_is_avatar',
                      eoc_type='EVENT', required_event=event))
     write('missions/early_caravan.json', [{
         'type': 'mission_definition', 'id': 'MISSION_BERSERK_EARLY_CARAVAN',
@@ -136,6 +152,8 @@ def main():
     early_caravan()
     write('effects/apostol_utilities_33_eocs.json', E)
     localize()
+    for stem in json.loads((ROOT/'docs/apostol-native-utilities-33.json').read_text())['bodies']:
+        assert 'Body abilities: ' in index(read('mutations/apostol_'+stem.lower()+'.json'))['BERSERK_'+stem+'_FORM']['description'], stem
     print('Native body utilities, multi-level roof gliding and a unique early roadside source.')
 
 

@@ -8,21 +8,23 @@
   },
   "bodies": {
     "COUNT_PAWN": {
-      "traits": [
-        "SLIMY"
-      ],
-      "en": "Your slippery skin helps you escape grabs, especially where it is uncovered.",
-      "ru": "Скользкая кожа помогает вырываться из захватов, особенно на открытых участках тела.",
-      "sprite": "PATCHSKIN1"
+      "traits": [],
+      "en": "Pliable flesh steadies your close-range attacks while crouching or lying down, reducing the usual posture penalties.",
+      "ru": "Податливая плоть помогает наносить удары пригнувшись и лёжа, уменьшая обычные штрафы этих положений.",
+      "sprite": "PATCHSKIN1",
+      "flags": [
+        "PSEUDOPOD_GRASP"
+      ]
     },
     "COUNT_FLESH": {
-      "traits": [
-        "SLIMY",
-        "GILLS"
-      ],
-      "en": "Slippery skin helps you escape grabs. Gills let you breathe underwater.",
-      "ru": "Скользкая кожа помогает вырываться из захватов. Жабры позволяют дышать под водой.",
-      "sprite": "PATCHSKIN1"
+      "traits": [],
+      "en": "Pliable flesh reduces melee attack penalties while crouching or lying down. Broken limbs can mend without splints; recovery still takes time.",
+      "ru": "Податливая плоть уменьшает штрафы к ударам пригнувшись и лёжа. Переломы срастаются без шин; восстановление по-прежнему требует времени.",
+      "sprite": "PATCHSKIN1",
+      "flags": [
+        "PSEUDOPOD_GRASP",
+        "MEND_ALL"
+      ]
     },
     "WYALD_PAWN": {
       "traits": [
@@ -63,7 +65,9 @@
       "flags": [
         "WING_GLIDE",
         "FEATHER_FALL"
-      ]
+      ],
+      "base_en": "Wings grant dexterity +2 and speed +15. Chitin protects against bash 4, cut 8 and stab 5. Short flights require torso encumbrance no greater than 20. Your fragile tissues remain; rigid head, torso and hand armor does not fit.",
+      "base_ru": "Крылья дают +2 ловкости и +15 скорости. Хитин защищает от дробящего урона на 4, режущего на 8 и колющего на 5. Для коротких перелётов обременение торса должно быть не выше 20. Ткани остаются хрупкими; жёсткая броня головы, торса и кистей не подходит."
     },
     "GRUNBELD_PAWN": {
       "traits": [
@@ -81,43 +85,58 @@
       "en": "Hooked feet let you walk along the bottom underwater, but you still need air. Activate Roomy Shell in the mutation menu to shelter your head and limbs within the shell; leave that posture to move freely again. Your changed body remains.",
       "ru": "Цепкие стопы позволяют ходить по дну под водой, но воздух всё ещё нужен. Включите «Вместительный панцирь» в меню мутаций, чтобы укрыть голову и конечности; выйдите из этого положения, чтобы снова свободно двигаться. Изменённое тело остаётся.",
       "sprite": "SCALES"
+    },
+    "VOID": {
+      "traits": [],
+      "flags": [
+        "CLAIRVOYANCE"
+      ],
+      "en": "You perceive the immediate surroundings through walls and other obstacles. This close perception does not reveal distant rooms or grant passage through solid matter.",
+      "ru": "Вы различаете ближайшее пространство сквозь стены и другие преграды. Это восприятие не раскрывает дальние комнаты и не позволяет проходить сквозь твёрдую материю."
+    },
+    "SLAN": {
+      "traits": [
+        "REGEN_LIZ",
+        "MASOCHIST"
+      ],
+      "en": "Wounds heal faster over time, and broken limbs mend without splints. Pain can improve your mood, but its ordinary penalties remain. Lost organs do not regrow.",
+      "ru": "Раны заживают быстрее, а переломы срастаются без шин. Боль может улучшать настроение, но её обычные штрафы сохраняются. Утраченные органы не отрастают.",
+      "base_en": "Your permanently altered flesh grants +4 strength, +1 dexterity, +15% melee damage and 4 points of natural protection. This body is permanent; returning to human shape is impossible.\n\nClothing: Rigid sleeves and gauntlets cannot follow the reshaped flesh.",
+      "base_ru": "Живая плоть даёт +4 силы, +1 ловкости, увеличивает урон в ближнем бою на 15% и даёт 4 пункта естественной защиты. Тело изменено навсегда; вернуться к человеческому облику невозможно.\\n\\nОдежда: Изменённым рукам и кистям не подходят жёсткие доспехи."
+    },
+    "UBIK": {
+      "traits": [
+        "LIGHTSTEP"
+      ],
+      "flags": [
+        "NO_SCENT"
+      ],
+      "en": "Your body leaves no scent trail. Light steps make less noise and are less likely to trigger traps; you are not completely silent.",
+      "ru": "Ваше тело не оставляет запахового следа. Лёгкие шаги тише и реже приводят в действие ловушки; полная бесшумность вам не дана."
+    },
+    "CONRAD": {
+      "traits": [
+        "SAPROVORE",
+        "PARAIMMUNE"
+      ],
+      "en": "You can eat rotten food, though it provides less nourishment. Internal parasites cannot infest your body. Poisonous gas and infected wounds remain dangerous.",
+      "ru": "Вы можете есть испорченную пищу, хотя она даёт меньше питания. Внутренние паразиты не приживаются в вашем теле. Ядовитый газ и заражённые раны по-прежнему опасны."
+    },
+    "FEMTO": {
+      "traits": [],
+      "flags": [
+        "WING_GLIDE",
+        "WINGS_2",
+        "FEATHER_FALL",
+        "CLIMB_NO_LADDER"
+      ],
+      "en": "Examine a ledge to glide down through open air without falling damage. Native gliding needs usable arms and a load no heavier than half your carrying capacity. You can climb a single level without bracing against furniture or nearby walls, provided there is a free landing. The wings do not provide sustained flight.",
+      "ru": "Осмотрите уступ, чтобы спланировать через открытый воздух без урона от падения. Для штатного планирования нужны рабочие руки и груз не тяжелее половины грузоподъёмности. Можно подняться на один уровень без опоры на мебель или соседние стены, если наверху есть свободное место. Крылья не дают непрерывного полёта.",
+      "base_en": "Dark wings lighten your movements. Gain +2 strength, +1 dexterity, +10 speed and 2 points of natural protection. The wings do not allow sustained flight. This body is permanent; returning to human shape is impossible.\n\nClothing: The wings need an open back; ordinary torso clothing gets in their way.",
+      "base_ru": "Тёмные крылья делают движения легче. Вы получаете +2 силы, +1 ловкости, +10 скорости и 2 пункта естественной защиты. Крылья не дают непрерывного полёта. Тело изменено навсегда; вернуться к человеческому облику невозможно.\\n\\nОдежда: Крыльям нужна открытая спина; обычная одежда торса мешает им."
     }
   },
   "native_traits": [
-    {
-      "type": "mutation",
-      "id": "GILLS",
-      "name": {
-        "str": "Gills"
-      },
-      "points": 2,
-      "vitamin_cost": 160,
-      "visibility": 5,
-      "ugliness": 3,
-      "description": "You've grown a set of gills in your neck, allowing you to breathe underwater.  Slightly increases wet benefits.",
-      "category": [
-        "FISH",
-        "BATRACHIAN",
-        "CRUSTACEAN"
-      ],
-      "threshreq": [
-        "THRESH_FISH",
-        "THRESH_BATRACHIAN",
-        "THRESH_CRUSTACEAN"
-      ],
-      "types": [
-        "GILLS"
-      ],
-      "flags": [
-        "GILLS"
-      ],
-      "wet_protection": [
-        {
-          "part": "head",
-          "good": 1
-        }
-      ]
-    },
     {
       "type": "mutation",
       "id": "CLAWS",
@@ -287,90 +306,6 @@
     },
     {
       "type": "mutation",
-      "id": "SLIMY",
-      "name": {
-        "str": "Slimy"
-      },
-      "points": 2,
-      "vitamin_cost": 160,
-      "visibility": 7,
-      "ugliness": 6,
-      "description": "Your body is coated with a fine slime which makes uncovered skin harder to grab and protects from long-term effects of acid, though not short-term ones.  Greatly increases wet benefits.",
-      "types": [
-        "SECRETION"
-      ],
-      "leads_to": [
-        "SLIME_HANDS"
-      ],
-      "changes_to": [
-        "VISCOUS"
-      ],
-      "category": [
-        "FISH",
-        "SLIME",
-        "TROGLOBITE",
-        "CEPHALOPOD",
-        "GASTROPOD",
-        "BATRACHIAN"
-      ],
-      "flags": [
-        "IRRITANT_IMMUNE"
-      ],
-      "wet_protection": [
-        {
-          "part": "head",
-          "neutral": 3,
-          "good": 4
-        },
-        {
-          "part": "leg_l",
-          "neutral": 7,
-          "good": 14
-        },
-        {
-          "part": "leg_r",
-          "neutral": 7,
-          "good": 14
-        },
-        {
-          "part": "foot_l",
-          "neutral": 2,
-          "good": 4
-        },
-        {
-          "part": "foot_r",
-          "neutral": 2,
-          "good": 4
-        },
-        {
-          "part": "arm_l",
-          "neutral": 7,
-          "good": 12
-        },
-        {
-          "part": "arm_r",
-          "neutral": 7,
-          "good": 12
-        },
-        {
-          "part": "hand_l",
-          "neutral": 2,
-          "good": 3
-        },
-        {
-          "part": "hand_r",
-          "neutral": 2,
-          "good": 3
-        },
-        {
-          "part": "torso",
-          "neutral": 14,
-          "good": 26
-        }
-      ]
-    },
-    {
-      "type": "mutation",
       "id": "SHELL2",
       "name": {
         "str": "Roomy Shell"
@@ -503,6 +438,178 @@
       "integrated_armor": [
         "integrated_fangs"
       ]
+    },
+    {
+      "type": "mutation",
+      "id": "MASOCHIST",
+      "name": {
+        "str": "Masochist"
+      },
+      "points": 1,
+      "vitamin_cost": 60,
+      "description": "Although you still suffer the negative effects of pain, it also brings a unique pleasure to you.",
+      "types": [
+        "MASOCHISM"
+      ],
+      "starting_trait": true,
+      "changes_to": [
+        "MASOCHIST_MED",
+        "CENOBITE"
+      ],
+      "category": [
+        "MEDICAL"
+      ]
+    },
+    {
+      "type": "mutation",
+      "id": "LIGHTSTEP",
+      "name": {
+        "str": "Light Step"
+      },
+      "points": 1,
+      "vitamin_cost": 60,
+      "description": "You make less noise while walking.  You're also less likely to set off traps.",
+      "starting_trait": true,
+      "cancels": [
+        "CLUMSY"
+      ],
+      "category": [
+        "BIRD",
+        "ELFA",
+        "FELINE",
+        "CHIROPTERAN"
+      ],
+      "enchantments": [
+        {
+          "values": [
+            {
+              "value": "FOOTSTEP_NOISE",
+              "multiply": -0.6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "mutation",
+      "id": "REGEN_LIZ",
+      "name": {
+        "str": "Reptilian Healing"
+      },
+      "points": 5,
+      "vitamin_cost": 210,
+      "purifiable": false,
+      "description": "Your broken limbs mend themselves without significant difficulty in addition to your already-quick healing.  You do not require splints for broken limbs.",
+      "cancels": [
+        "ROT1",
+        "ROT2",
+        "ROT3"
+      ],
+      "prereqs": [
+        "FASTHEALER"
+      ],
+      "threshreq": [
+        "THRESH_LIZARD"
+      ],
+      "category": [
+        "LIZARD"
+      ],
+      "enchantments": [
+        {
+          "values": [
+            {
+              "value": "MENDING_MODIFIER",
+              "multiply": 19
+            },
+            {
+              "value": "REGEN_HP",
+              "multiply": 0.5
+            },
+            {
+              "value": "REGEN_HP_AWAKE",
+              "multiply": 0.2
+            }
+          ]
+        }
+      ],
+      "flags": [
+        "MEND_ALL"
+      ]
+    },
+    {
+      "type": "mutation",
+      "id": "PARAIMMUNE",
+      "name": {
+        "str": "Parasite Immune"
+      },
+      "points": 1,
+      "vitamin_cost": 60,
+      "description": "Your body is unusually inhospitable to parasitic lifeforms.  You will never become infested with internal parasites.",
+      "prereqs": [
+        "DISRESISTANT",
+        "DISIMMUNE"
+      ],
+      "prereqs2": [
+        "INFRESIST",
+        "INFIMMUNE"
+      ],
+      "flags": [
+        "PARAIMMUNE"
+      ],
+      "category": [
+        "CHIMERA",
+        "MEDICAL",
+        "SLIME"
+      ]
+    },
+    {
+      "type": "mutation",
+      "id": "SAPROVORE",
+      "name": {
+        "str": "Saprovore"
+      },
+      "points": 2,
+      "vitamin_cost": 160,
+      "description": "Your digestive system is specialized to allow you to consume decaying material.  You can eat rotten food, albeit for less nutrition than usual.",
+      "category": [
+        "TROGLOBITE",
+        "CHIMERA",
+        "GASTROPOD",
+        "MOUSE"
+      ],
+      "flags": [
+        "IMMUNE_SPOIL"
+      ]
     }
-  ]
+  ],
+  "native_flags": {
+    "PSEUDOPOD_GRASP": {
+      "source": "src/melee.cpp",
+      "meaning": "Reduces crouching/prone melee hit penalties; not squeezing through walls or escaping grabs."
+    },
+    "MEND_ALL": {
+      "source": "doc/JSON/JSON_FLAGS.md",
+      "meaning": "Broken limbs can mend without splints."
+    },
+    "CLAIRVOYANCE": {
+      "source": "src/character.cpp",
+      "meaning": "Native limited clairvoyance; range 3 with strict distance comparisons. No debug vision."
+    },
+    "NO_SCENT": {
+      "source": "doc/JSON/JSON_FLAGS.md",
+      "meaning": "No scent trail."
+    },
+    "CLIMB_NO_LADDER": {
+      "source": "src/game.cpp",
+      "meaning": "Unsupported one-level ascent subject to limb, load and landing checks."
+    },
+    "WING_GLIDE": {
+      "source": "src/game.cpp",
+      "meaning": "Native ledge gliding, not a free z teleport."
+    },
+    "FEATHER_FALL": {
+      "source": "doc/JSON/JSON_FLAGS.md",
+      "meaning": "No fall damage."
+    }
+  }
 }

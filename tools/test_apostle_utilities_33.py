@@ -64,8 +64,35 @@ class NativeBodies(unittest.TestCase):
 
     def test_underwater_walking_does_not_claim_underwater_breathing(self):
         self.assertNotIn('GILLS', form('GRUNBELD_FLESH')['enchantments'][0]['mutations'])
-        self.assertIn('GILLS', form('COUNT_FLESH')['enchantments'][0]['mutations'])
         self.assertIn('воздух всё ещё нужен', RUSSIAN.gettext(form('GRUNBELD_FLESH')['description']))
+
+    def test_count_uses_plastic_flesh_not_aquatic_traits(self):
+        for stem in ['COUNT_PAWN','COUNT_FLESH']:
+            self.assertFalse(set(form(stem)['enchantments'][0]['mutations']) & {'GILLS','SLIMY'})
+            self.assertIn('PSEUDOPOD_GRASP', form(stem)['flags'])
+        self.assertIn('MEND_ALL', form('COUNT_FLESH')['flags'])
+        self.assertNotIn('MEND_ALL', form('COUNT_PAWN')['flags'])
+
+    def test_five_gifts_have_distinct_native_mechanics_without_debug_teleport_block(self):
+        self.assertEqual(len(SPEC['bodies']), 13)
+        self.assertIn('CLAIRVOYANCE', form('VOID')['flags'])
+        self.assertFalse(set(form('VOID')['flags']) & {'SUPER_CLAIRVOYANCE','DIMENSIONAL_ANCHOR'})
+        self.assertEqual(form('SLAN')['enchantments'][0]['mutations'], ['REGEN_LIZ','MASOCHIST'])
+        self.assertIn('NO_SCENT', form('UBIK')['flags'])
+        self.assertIn('LIGHTSTEP', form('UBIK')['enchantments'][0]['mutations'])
+        self.assertEqual(form('CONRAD')['enchantments'][0]['mutations'], ['SAPROVORE','PARAIMMUNE'])
+        self.assertTrue({'WING_GLIDE','WINGS_2','FEATHER_FALL','CLIMB_NO_LADDER'} <= set(form('FEMTO')['flags']))
+
+    def test_native_healing_and_food_changes_keep_their_actual_limits(self):
+        native = {o['id']:o for o in SPEC['native_traits']}
+        self.assertIn('MEND_ALL', native['REGEN_LIZ']['flags'])
+        self.assertIn('IMMUNE_SPOIL', native['SAPROVORE']['flags'])
+        self.assertIn('PARAIMMUNE', native['PARAIMMUNE']['flags'])
+        self.assertIn('negative effects of pain', native['MASOCHIST']['description'])
+        self.assertNotIn('growth does not heal', form('SLAN')['description'])
+        for stem in ['FEMTO','ROSINE_FLESH']:
+            self.assertNotIn('halved', form(stem)['description'])
+            self.assertIn('without falling damage', form(stem)['description'])
 
     def test_all_new_body_instructions_have_a_russian_translation(self):
         for stem in SPEC['bodies']:
@@ -76,9 +103,9 @@ class NativeBodies(unittest.TestCase):
 class EarlyWorld(World):
     def __init__(self):
         super().__init__(); self.values['berserk_eclipse_era']=0
-        self.pos=(0,0,0); self.land={(10*24,0,0):'forest'}
+        self.pos=(0,0,0); self.om='field'; self.land={(10*24,0,0):'forest'}
         self.special_at={}; self.local_maps={}; self.roads={(10*24,24,0)}
-        self.city_distance={(10*24,0,0):5}; self.created=0
+        self.city_distance={(10*24,0,0):5}; self.created=0; self.revealed=[]
         self.intro=json.loads((MOD/'overmap/early_caravan.json').read_text())[1]
 
     def value(self, text):
@@ -86,6 +113,12 @@ class EarlyWorld(World):
         return super().value(text)
 
     def effect(self, effect):
+        if isinstance(effect,dict) and 'remove_active_mission' in effect:
+            self.missions.pop(effect['remove_active_mission'],None)
+            return
+        if isinstance(effect,dict) and 'reveal_map' in effect:
+            self.revealed.append(effect)
+            return
         if isinstance(effect,dict) and effect.get('target_params',{}).get('om_special')=='berserk_early_caravan_special':
             params=effect['target_params']; self.searches.append(copy.deepcopy(params))
             origin=(*self.pos[:2], params['z'])
@@ -113,7 +146,7 @@ class EarlySource(unittest.TestCase):
     def test_surface_start_places_one_source_and_not_the_forge_or_paper_inventory(self):
         f=EarlyWorld(); f.run(P+'EARLY_GAME_START')
         self.assertEqual(f.created,1); self.assertEqual(f.inventory['berserk_road_caravan_note'],0)
-        self.assertIn('MISSION_BERSERK_EARLY_CARAVAN',f.missions)
+        self.assertFalse(f.missions); self.assertFalse(f.revealed); self.assertFalse(f.messages)
         self.assertNotIn('u_berserk_journal_knows_godo',f.values)
         self.assertNotIn('u_berserk_godo_personally_met',f.values)
         self.assertEqual(f.values['berserk_early_caravan_location'],(240,0,0))
@@ -133,7 +166,53 @@ class EarlySource(unittest.TestCase):
         f=EarlyWorld(); f.run(P+'EARLY_GAME_START'); count=len(f.messages)
         for event in ['EARLY_GAME_LOAD','EARLY_AVATAR_MOVES']*3: f.run(P+event)
         self.assertEqual(f.created,1); self.assertEqual(len(f.messages),count)
-        self.assertEqual(len(f.missions),1)
+        self.assertFalse(f.missions); self.assertFalse(f.revealed)
+
+    def test_carrier_interior_deck_and_ocean_never_spend_attempts(self):
+        for terrain,z in [('aircraft_carrier_1a',0),('aircraft_carrier_1a_3',3),
+                          ('aircraft_carrier_4c_-1',-1),('lake_surface',0),('ocean',0)]:
+            for outside in [True,False]:
+                f=EarlyWorld(); f.om=terrain; f.pos=(0,0,z); f.outside=outside
+                for event in ['EARLY_GAME_START','EARLY_GAME_LOAD','EARLY_AVATAR_MOVES']:
+                    f.run(P+event)
+                self.assertFalse(f.searches,(terrain,outside))
+                self.assertNotIn('u_berserk_early_caravan_attempts',f.values)
+                f.om='road'; f.pos=(0,0,0); f.run(P+'EARLY_AVATAR_MOVES')
+                self.assertEqual(f.created,1)
+                self.assertFalse(f.missions); self.assertFalse(f.revealed)
+
+    def test_second_land_attempt_uses_larger_radius_without_marking_the_source(self):
+        f=EarlyWorld(); p=(70*24,0,0)
+        f.land={p:'forest'}; f.roads={(p[0],24,0)}; f.city_distance={p:5}
+        f.run(P+'EARLY_GAME_START'); self.assertFalse(f.created)
+        f.now+=1801; f.run(P+'EARLY_AVATAR_MOVES')
+        self.assertEqual([x['search_range'] for x in f.searches],[48,96])
+        self.assertEqual(f.created,1); self.assertFalse(f.revealed); self.assertFalse(f.missions)
+
+    def test_old_wagon_mission_is_retired_without_reading_note_or_moving_location(self):
+        f=EarlyWorld(); old=(240,0,0)
+        f.values.update(berserk_early_caravan_placed=1, berserk_early_caravan_location=old)
+        f.missions['MISSION_BERSERK_EARLY_CARAVAN']=old
+        f.missions['MISSION_BERSERK_GODO']=(24,24,0)
+        f.run(P+'EARLY_GAME_LOAD')
+        self.assertNotIn('MISSION_BERSERK_EARLY_CARAVAN',f.missions)
+        self.assertIn('MISSION_BERSERK_GODO',f.missions)
+        self.assertEqual(f.values['berserk_early_caravan_location'],old)
+        self.assertFalse(f.searches)
+        self.assertNotIn('u_berserk_journal_read_berserk_road_caravan_note',f.values)
+
+    def test_old_exhausted_water_search_gets_one_new_budget_only_after_landing(self):
+        f=EarlyWorld(); f.om='aircraft_carrier_1a'
+        f.values.update(u_berserk_early_caravan_attempts=3,u_berserk_early_caravan_retry_at=999999)
+        f.run(P+'EARLY_GAME_LOAD'); self.assertEqual(f.values['u_berserk_early_caravan_attempts'],3)
+        f.om='field'; f.roads=set(); f.run(P+'EARLY_AVATAR_MOVES')
+        self.assertEqual(f.values['u_berserk_early_caravan_attempts'],1)
+        for _ in range(5): f.now+=1801; f.run(P+'EARLY_GAME_LOAD')
+        self.assertEqual(f.values['u_berserk_early_caravan_attempts'],3)
+
+    def test_old_notification_id_cannot_reveal_or_assign_anything(self):
+        f=EarlyWorld(); f.values['berserk_early_caravan_placed']=1; f.run(P+'EARLY_NOTIFY')
+        self.assertFalse(f.missions); self.assertFalse(f.messages); self.assertFalse(f.revealed)
 
     def test_city_or_unconnected_forest_is_never_used(self):
         for why in ['city','road']:
