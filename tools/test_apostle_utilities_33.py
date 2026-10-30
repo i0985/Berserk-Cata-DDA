@@ -44,9 +44,10 @@ class NativeBodies(unittest.TestCase):
             self.assertNotIn('LOYALTY', json.dumps(ench))
             self.assertNotIn('favor_until', json.dumps(ench))
 
-    def test_utility_traits_add_no_strength_and_keep_original_body_values(self):
-        strength = {'COUNT_PAWN':2, 'COUNT_FLESH':4, 'WYALD_PAWN':3,
-                    'WYALD_FLESH':4, 'GRUNBELD_PAWN':2, 'GRUNBELD_FLESH':3}
+    def test_utility_traits_add_no_strength_and_keep_approved_body_values(self):
+        # Owner's 31 October correction separates binding contracts from flesh.
+        strength = {'COUNT_PAWN':0, 'COUNT_FLESH':4, 'WYALD_PAWN':1,
+                    'WYALD_FLESH':4, 'GRUNBELD_PAWN':1, 'GRUNBELD_FLESH':3}
         for stem, value in strength.items():
             stat = next(x for x in form(stem)['enchantments'][0]['values'] if x['value']=='STRENGTH')
             self.assertEqual(stat['add'], value)

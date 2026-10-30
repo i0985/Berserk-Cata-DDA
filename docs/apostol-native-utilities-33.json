@@ -14,7 +14,9 @@
       "sprite": "PATCHSKIN1",
       "flags": [
         "PSEUDOPOD_GRASP"
-      ]
+      ],
+      "base_en": "Loose, heavy flesh offers bash 2, cut 4 and stab 2 protection, but no extra strength. Dexterity -1; the 15-point speed loss and slower crafting remain. Rigid torso armor does not fit.",
+      "base_ru": "Рыхлая тяжёлая плоть защищает от дробящего урона на 2, режущего на 4 и колющего на 2, но не прибавляет силы. Ловкость -1; сохраняются потеря 15 скорости и замедленное изготовление вещей. Жёсткая броня торса не подходит."
     },
     "COUNT_FLESH": {
       "traits": [],
@@ -33,7 +35,11 @@
       ],
       "en": "Padded feet need no shoes and soften your footsteps. Uncovered claws serve as natural weapons.",
       "ru": "Мягкие стопы позволяют обходиться без обуви и приглушают шаги. Открытые когти служат естественным оружием.",
-      "sprite": "LUPINE_FUR"
+      "sprite": "LUPINE_FUR",
+      "base_en": "A hunched canine body grants strength +1 and dexterity -3. Sparse hide offers bash 1, cut 2 and stab 1 protection. Slow stamina recovery, clumsy crafting and increased hunger remain. Rigid masks, gloves and footwear do not fit.",
+      "base_ru": "Сутулое собачье тело даёт +1 силы и -3 ловкости. Редкая шкура защищает от дробящего урона на 1, режущего на 2 и колющего на 1. Сохраняются медленное восстановление выносливости, затруднённое изготовление вещей и повышенный голод. Жёсткие маски, перчатки и обувь не подходят.",
+      "face": "MUZZLE",
+      "ears": "CANINE_EARS"
     },
     "WYALD_FLESH": {
       "traits": [
@@ -44,7 +50,9 @@
       ],
       "en": "Padded feet soften your steps. Claws and fangs provide natural attacks. Activate Burrowing in the mutation menu to dig through suitable dirt and rubble.",
       "ru": "Мягкие стопы приглушают шаги. Когти и клыки дают естественные атаки. Способность «Рытьё» в меню мутаций позволяет копать подходящий грунт и завалы.",
-      "sprite": "LUPINE_FUR"
+      "sprite": "LUPINE_FUR",
+      "face": "MUZZLE_LONG",
+      "ears": "LUPINE_EARS"
     },
     "ROSINE_PAWN": {
       "traits": [
@@ -52,7 +60,9 @@
       ],
       "en": "Antennae sense nearby creatures even behind obstacles. Toggle them in the mutation menu.",
       "ru": "Усики чувствуют ближайших существ даже за препятствиями. Их можно включать и выключать в меню мутаций.",
-      "sprite": "CHITIN"
+      "sprite": "CHITIN",
+      "base_en": "Thin chitin offers bash 1, cut 3 and stab 1 protection. Dexterity +1, speed +4, strength -1. Fragile joints and difficulties with speech and crafting remain. Rigid helmets and gloves do not fit. This body has no wings for gliding.",
+      "base_ru": "Тонкий хитин защищает от дробящего урона на 1, режущего на 3 и колющего на 1. Ловкость +1, скорость +4, сила -1. Сохраняются хрупкость суставов, затруднённые речь и изготовление вещей. Жёсткие шлемы и перчатки не подходят. У этого тела нет крыльев для планирования."
     },
     "ROSINE_FLESH": {
       "traits": [
@@ -75,7 +85,9 @@
       ],
       "en": "Hooked feet help you cross obstacles and walk along the bottom underwater. You still need air.",
       "ru": "Цепкие стопы помогают преодолевать препятствия и ходить по дну под водой. Воздух вам по-прежнему необходим.",
-      "sprite": "CHITIN2"
+      "sprite": "CHITIN2",
+      "base_en": "An uneven shell offers bash 3, cut 5 and stab 3 protection; heat damage is reduced by 10%. Strength +1, dexterity -2. The 20-point speed loss, hunger and slow recovery remain. Rigid torso and arm armor does not fit.",
+      "base_ru": "Неровный панцирь защищает от дробящего урона на 3, режущего на 5 и колющего на 3; урон от жара снижен на 10%. Сила +1, ловкость -2. Сохраняются потеря 20 скорости, повышенный голод и медленное восстановление выносливости. Жёсткая броня торса и рук не подходит."
     },
     "GRUNBELD_FLESH": {
       "traits": [

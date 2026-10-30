@@ -6,7 +6,7 @@
   "source_sha256": "d7bbca32bec6783e94e5f3aaedbba93d3784468442e7d748579fe4a1058fbc4a",
   "license": "CC-BY-SA-3.0",
   "sheet": "tileset/apostol_native_overlays.png",
-  "sha256": "09c6bff2d0dae2edf519e65e9004160fb93aa1225dc50f20df7e4a73761fd8ec",
+  "sha256": "90d25dbaa823a097f584d7ff04ef5e0fb967d5b588fe1e960a4af25b9a24a9f3",
   "sprite_width": 32,
   "sprite_height": 36,
   "sprite_offset_x": 0,
@@ -290,6 +290,102 @@
       "rect": [
         64,
         1296,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "WYALD_PAWN",
+      "sex": "female",
+      "native_overlay": "overlay_female_mutation_MUZZLE",
+      "fg": 10099,
+      "rect": [
+        96,
+        1116,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "WYALD_PAWN",
+      "sex": "female",
+      "native_overlay": "overlay_female_mutation_CANINE_EARS",
+      "fg": 10070,
+      "rect": [
+        192,
+        1044,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "WYALD_PAWN",
+      "sex": "male",
+      "native_overlay": "overlay_male_mutation_MUZZLE",
+      "fg": 10100,
+      "rect": [
+        128,
+        1116,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "WYALD_PAWN",
+      "sex": "male",
+      "native_overlay": "overlay_male_mutation_CANINE_EARS",
+      "fg": 10071,
+      "rect": [
+        224,
+        1044,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "WYALD_FLESH",
+      "sex": "female",
+      "native_overlay": "overlay_female_mutation_MUZZLE_LONG",
+      "fg": 10101,
+      "rect": [
+        160,
+        1116,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "WYALD_FLESH",
+      "sex": "female",
+      "native_overlay": "overlay_female_mutation_LUPINE_EARS",
+      "fg": 10089,
+      "rect": [
+        288,
+        1080,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "WYALD_FLESH",
+      "sex": "male",
+      "native_overlay": "overlay_male_mutation_MUZZLE_LONG",
+      "fg": 10102,
+      "rect": [
+        192,
+        1116,
+        32,
+        36
+      ]
+    },
+    {
+      "target": "WYALD_FLESH",
+      "sex": "male",
+      "native_overlay": "overlay_male_mutation_LUPINE_EARS",
+      "fg": 10090,
+      "rect": [
+        320,
+        1080,
         32,
         36
       ]

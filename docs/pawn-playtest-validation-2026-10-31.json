@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-31",
+  "checks": {
+    "current_test_33": 409,
+    "item_loader_schema": 3,
+    "recipe_activity_level": 5,
+    "dialogue_dynamic_lines": 7,
+    "total": 424,
+    "all_passed": true
+  },
+  "repeat_build": {
+    "files": 449,
+    "drift": []
+  },
+  "sprites": {
+    "modified_native_frames": 4,
+    "unchanged_native_frames": 12,
+    "authored_png_changed": false,
+    "pinned_source_reproduction": true
+  },
+  "limitations": [
+    "No native Windows CDDA run",
+    "Canine silhouette, clothes layering and balance still need owner playtest",
+    "Actual Flora placement success must be checked in a new placement",
+    "Living-room request is incomplete; no room geometry edits",
+    "Historical CI suite not rerun or claimed green"
+  ]
+}

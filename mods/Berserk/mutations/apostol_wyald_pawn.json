@@ -5,7 +5,7 @@
     "name": {
       "str": "Beast of the Black Dogs"
     },
-    "description": "Your limbs ache with restless strength. Fine work becomes harder.",
+    "description": "Your breath comes raggedly. Stamina recovers 30% more slowly, crafting is 30% slower and you need 20% more calories. These changes remain without your master.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -23,7 +23,15 @@
         "values": [
           {
             "value": "STAMINA_REGEN_MOD",
-            "multiply": -0.15
+            "add": -0.3
+          },
+          {
+            "value": "CRAFTING_SPEED_MULTIPLIER",
+            "multiply": -0.3
+          },
+          {
+            "value": "METABOLISM",
+            "multiply": 0.2
           }
         ]
       }
@@ -79,7 +87,7 @@
     "name": {
       "str": "Body: Beast of the Black Dogs"
     },
-    "description": "Dense hide protects you: bash 2, cut 4, stab 2. Strength +3 and melee damage +15%. Dexterity -2; stamina still recovers slowly. Rigid gloves and footwear do not fit.\n\nBody abilities: Padded feet need no shoes and soften your footsteps. Uncovered claws serve as natural weapons.",
+    "description": "A hunched canine body grants strength +1 and dexterity -3. Sparse hide offers bash 1, cut 2 and stab 1 protection. Slow stamina recovery, clumsy crafting and increased hunger remain. Rigid masks, gloves and footwear do not fit.\n\nBody abilities: Padded feet need no shoes and soften your footsteps. Uncovered claws serve as natural weapons.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -96,15 +104,11 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 3
+            "add": 1
           },
           {
             "value": "DEXTERITY",
-            "add": -2
-          },
-          {
-            "value": "MELEE_DAMAGE",
-            "multiply": 0.15
+            "add": -3
           }
         ],
         "mutations": [
@@ -114,8 +118,11 @@
       }
     ],
     "restricts_gear": [
+      "mouth",
       "hand_l",
-      "hand_r"
+      "hand_r",
+      "foot_l",
+      "foot_r"
     ],
     "allow_soft_gear": true,
     "destroys_gear": false,
@@ -137,9 +144,9 @@
           "foot_l",
           "foot_r"
         ],
-        "bash": 2,
-        "cut": 4,
-        "stab": 2
+        "bash": 1,
+        "cut": 2,
+        "stab": 1
       }
     ]
   },

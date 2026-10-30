@@ -25,6 +25,7 @@ BUILDERS=[
     'build_apostle_utilities_33.py',
     'build_dialogue_review_33.py',
     'build_cave_rockfall_33.py',
+    'build_pawn_costs_33.py',
     'apply_english_source_33.py',
 ]
 

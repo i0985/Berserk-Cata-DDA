@@ -1,0 +1,192 @@
+{
+  "decision": "Owner playtest, 2026-10-31: contracts must feel binding and inferior to independent flesh forms. Permanent anatomy is retained; only the existing borrowed ability needs the master.",
+  "bodies": {
+    "COUNT": {
+      "seed_enchantment": {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "SPEED",
+            "add": -15
+          },
+          {
+            "value": "CRAFTING_SPEED_MULTIPLIER",
+            "multiply": -0.25
+          }
+        ]
+      },
+      "seed_en": "Your heavy flesh slows you by 15 speed and makes crafting 25% slower. These changes remain without your master.",
+      "seed_ru": "Тяжёлая плоть отнимает 15 скорости и замедляет изготовление вещей на 25%. Эти изменения остаются и без хозяина.",
+      "body_values": [
+        {
+          "value": "STRENGTH",
+          "add": 0
+        },
+        {
+          "value": "DEXTERITY",
+          "add": -1
+        }
+      ],
+      "armor": [
+        2,
+        4,
+        2
+      ],
+      "body_en": "Loose, heavy flesh offers bash 2, cut 4 and stab 2 protection, but no extra strength. Dexterity -1; the 15-point speed loss and slower crafting remain. Rigid torso armor does not fit.",
+      "body_ru": "Рыхлая тяжёлая плоть защищает от дробящего урона на 2, режущего на 4 и колющего на 2, но не прибавляет силы. Ловкость -1; сохраняются потеря 15 скорости и замедленное изготовление вещей. Жёсткая броня торса не подходит.",
+      "accept_en": "Your flesh swells and sags. The promised strength gives way to a leaden weight; even closing your fingers takes effort.",
+      "accept_ru": "Плоть вздувается и обвисает. Обещанная сила оборачивается свинцовой тяжестью; даже сжать пальцы теперь трудно."
+    },
+    "WYALD": {
+      "seed_enchantment": {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "STAMINA_REGEN_MOD",
+            "add": -0.3
+          },
+          {
+            "value": "CRAFTING_SPEED_MULTIPLIER",
+            "multiply": -0.3
+          },
+          {
+            "value": "METABOLISM",
+            "multiply": 0.2
+          }
+        ]
+      },
+      "seed_en": "Your breath comes raggedly. Stamina recovers 30% more slowly, crafting is 30% slower and you need 20% more calories. These changes remain without your master.",
+      "seed_ru": "Дыхание сбивается. Выносливость восстанавливается на 30% медленнее, изготовление вещей замедлено на 30%, потребность в пище выше на 20%. Эти изменения остаются и без хозяина.",
+      "body_values": [
+        {
+          "value": "STRENGTH",
+          "add": 1
+        },
+        {
+          "value": "DEXTERITY",
+          "add": -3
+        }
+      ],
+      "armor": [
+        1,
+        2,
+        1
+      ],
+      "restricts_gear": [
+        "mouth",
+        "hand_l",
+        "hand_r",
+        "foot_l",
+        "foot_r"
+      ],
+      "body_en": "A hunched canine body grants strength +1 and dexterity -3. Sparse hide offers bash 1, cut 2 and stab 1 protection. Slow stamina recovery, clumsy crafting and increased hunger remain. Rigid masks, gloves and footwear do not fit.",
+      "body_ru": "Сутулое собачье тело даёт +1 силы и -3 ловкости. Редкая шкура защищает от дробящего урона на 1, режущего на 2 и колющего на 1. Сохраняются медленное восстановление выносливости, затруднённое изготовление вещей и повышенный голод. Жёсткие маски, перчатки и обувь не подходят.",
+      "accept_en": "Your jaw stretches into a muzzle and your hands curl into clawed paws. The first surge of strength ebbs, leaving shaking limbs and a short, rasping breath.",
+      "accept_ru": "Челюсть вытягивается в морду, кисти скрючиваются в когтистые лапы. Первый прилив силы спадает, оставляя дрожь в конечностях и короткое хриплое дыхание."
+    },
+    "ROSINE": {
+      "seed_enchantment": {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "CRAFTING_SPEED_MULTIPLIER",
+            "multiply": -0.35
+          },
+          {
+            "value": "SOCIAL_PERSUADE",
+            "add": -4
+          },
+          {
+            "value": "SOCIAL_LIE",
+            "add": -4
+          }
+        ],
+        "incoming_damage_mod": [
+          {
+            "type": "bash",
+            "multiply": 0.3
+          },
+          {
+            "type": "cut",
+            "multiply": 0.3
+          },
+          {
+            "type": "stab",
+            "multiply": 0.3
+          }
+        ]
+      },
+      "seed_en": "Clicks interrupt your speech. Crafting is 35% slower and persuasion and lying are reduced by 4. Fragile joints make you take 30% more bash, cut and stab damage. These changes remain without your master.",
+      "seed_ru": "Речь перебивается щелчками. Изготовление вещей замедлено на 35%, убеждение и обман снижены на 4. Хрупкие суставы увеличивают получаемый дробящий, режущий и колющий урон на 30%. Эти изменения остаются и без хозяйки.",
+      "body_values": [
+        {
+          "value": "STRENGTH",
+          "add": -1
+        },
+        {
+          "value": "DEXTERITY",
+          "add": 1
+        },
+        {
+          "value": "SPEED",
+          "add": 4
+        }
+      ],
+      "armor": [
+        1,
+        3,
+        1
+      ],
+      "body_en": "Thin chitin offers bash 1, cut 3 and stab 1 protection. Dexterity +1, speed +4, strength -1. Fragile joints and difficulties with speech and crafting remain. Rigid helmets and gloves do not fit. This body has no wings for gliding.",
+      "body_ru": "Тонкий хитин защищает от дробящего урона на 1, режущего на 3 и колющего на 1. Ловкость +1, скорость +4, сила -1. Сохраняются хрупкость суставов, затруднённые речь и изготовление вещей. Жёсткие шлемы и перчатки не подходят. У этого тела нет крыльев для планирования.",
+      "accept_en": "Thin plates close over your skin. Your tongue catches against unfamiliar jaws, and the words you try to speak break into dry clicks.",
+      "accept_ru": "Кожу затягивают тонкие пластинки. Язык цепляется за чужие челюсти, и слова, которые вы пытаетесь произнести, рассыпаются сухими щелчками."
+    },
+    "GRUNBELD": {
+      "seed_enchantment": {
+        "condition": "ALWAYS",
+        "values": [
+          {
+            "value": "SPEED",
+            "add": -20
+          },
+          {
+            "value": "METABOLISM",
+            "multiply": 0.45
+          },
+          {
+            "value": "STAMINA_REGEN_MOD",
+            "add": -0.2
+          }
+        ]
+      },
+      "seed_en": "The shell bears down on you: speed -20, calorie needs +45% and stamina recovery -20%. These changes remain without your master.",
+      "seed_ru": "Панцирь давит на тело: скорость -20, потребность в пище +45%, восстановление выносливости -20%. Эти изменения остаются и без хозяина.",
+      "body_values": [
+        {
+          "value": "STRENGTH",
+          "add": 1
+        },
+        {
+          "value": "DEXTERITY",
+          "add": -2
+        }
+      ],
+      "armor": [
+        3,
+        5,
+        3
+      ],
+      "incoming_damage_mod": [
+        {
+          "type": "heat",
+          "multiply": -0.1
+        }
+      ],
+      "body_en": "An uneven shell offers bash 3, cut 5 and stab 3 protection; heat damage is reduced by 10%. Strength +1, dexterity -2. The 20-point speed loss, hunger and slow recovery remain. Rigid torso and arm armor does not fit.",
+      "body_ru": "Неровный панцирь защищает от дробящего урона на 3, режущего на 5 и колющего на 3; урон от жара снижен на 10%. Сила +1, ловкость -2. Сохраняются потеря 20 скорости, повышенный голод и медленное восстановление выносливости. Жёсткая броня торса и рук не подходит.",
+      "accept_en": "Hard plates lock across your back and shoulders. Their weight drags at every step; beneath them, your muscles burn with hunger.",
+      "accept_ru": "Спину и плечи стягивают твёрдые пластины. Их тяжесть мешает каждому шагу; под ними мышцы сводит голодным жжением."
+    }
+  }
+}

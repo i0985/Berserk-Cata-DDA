@@ -5,7 +5,7 @@
     "name": {
       "str": "Carapace vassal"
     },
-    "description": "The shell weighs upon your body. Every movement takes effort.",
+    "description": "The shell bears down on you: speed -20, calorie needs +45% and stamina recovery -20%. These changes remain without your master.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -23,11 +23,15 @@
         "values": [
           {
             "value": "SPEED",
-            "add": -8
+            "add": -20
           },
           {
             "value": "METABOLISM",
-            "multiply": 0.25
+            "multiply": 0.45
+          },
+          {
+            "value": "STAMINA_REGEN_MOD",
+            "add": -0.2
           }
         ]
       }
@@ -83,7 +87,7 @@
     "name": {
       "str": "Body: Carapace vassal"
     },
-    "description": "A heavy shell protects your body: bash 6, cut 10, stab 6; heat damage is reduced by 25%. Strength +2. Slow movement, increased hunger and rigid armor restrictions remain.\n\nBody abilities: Hooked feet help you cross obstacles and walk along the bottom underwater. You still need air.",
+    "description": "An uneven shell offers bash 3, cut 5 and stab 3 protection; heat damage is reduced by 10%. Strength +1, dexterity -2. The 20-point speed loss, hunger and slow recovery remain. Rigid torso and arm armor does not fit.\n\nBody abilities: Hooked feet help you cross obstacles and walk along the bottom underwater. You still need air.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -100,21 +104,21 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 2
+            "add": 1
           },
           {
-            "value": "SPEED",
-            "add": -8
-          }
-        ],
-        "incoming_damage_mod": [
-          {
-            "type": "heat",
-            "multiply": -0.25
+            "value": "DEXTERITY",
+            "add": -2
           }
         ],
         "mutations": [
           "SCUTTLE"
+        ],
+        "incoming_damage_mod": [
+          {
+            "type": "heat",
+            "multiply": -0.1
+          }
         ]
       }
     ],
@@ -143,9 +147,9 @@
           "foot_l",
           "foot_r"
         ],
-        "bash": 6,
-        "cut": 10,
-        "stab": 6
+        "bash": 3,
+        "cut": 5,
+        "stab": 3
       }
     ]
   },

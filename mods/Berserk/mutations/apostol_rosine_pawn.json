@@ -5,7 +5,7 @@
     "name": {
       "str": "Child of the false valley"
     },
-    "description": "Speech breaks into awkward clicks. Your delicate body makes patient work difficult.",
+    "description": "Clicks interrupt your speech. Crafting is 35% slower and persuasion and lying are reduced by 4. Fragile joints make you take 30% more bash, cut and stab damage. These changes remain without your master.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -23,29 +23,29 @@
         "values": [
           {
             "value": "CRAFTING_SPEED_MULTIPLIER",
-            "multiply": -0.25
+            "multiply": -0.35
           },
           {
             "value": "SOCIAL_PERSUADE",
-            "add": -3
+            "add": -4
           },
           {
             "value": "SOCIAL_LIE",
-            "add": -3
+            "add": -4
           }
         ],
         "incoming_damage_mod": [
           {
             "type": "bash",
-            "multiply": 0.2
+            "multiply": 0.3
           },
           {
             "type": "cut",
-            "multiply": 0.2
+            "multiply": 0.3
           },
           {
             "type": "stab",
-            "multiply": 0.2
+            "multiply": 0.3
           }
         ]
       }
@@ -101,7 +101,7 @@
     "name": {
       "str": "Body: Child of the false valley"
     },
-    "description": "Chitin protects your body: bash 3, cut 6, stab 4. Dexterity +2, speed +12. Fragile joints and difficulties with speech and crafting remain. Rigid helmets and gloves no longer fit.\n\nBody abilities: Antennae sense nearby creatures even behind obstacles. Toggle them in the mutation menu.",
+    "description": "Thin chitin offers bash 1, cut 3 and stab 1 protection. Dexterity +1, speed +4, strength -1. Fragile joints and difficulties with speech and crafting remain. Rigid helmets and gloves do not fit. This body has no wings for gliding.\n\nBody abilities: Antennae sense nearby creatures even behind obstacles. Toggle them in the mutation menu.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -117,12 +117,16 @@
         "condition": "ALWAYS",
         "values": [
           {
+            "value": "STRENGTH",
+            "add": -1
+          },
+          {
             "value": "DEXTERITY",
-            "add": 2
+            "add": 1
           },
           {
             "value": "SPEED",
-            "add": 12
+            "add": 4
           }
         ],
         "mutations": [
@@ -156,9 +160,9 @@
           "foot_l",
           "foot_r"
         ],
-        "bash": 3,
-        "cut": 6,
-        "stab": 4
+        "bash": 1,
+        "cut": 3,
+        "stab": 1
       }
     ]
   },

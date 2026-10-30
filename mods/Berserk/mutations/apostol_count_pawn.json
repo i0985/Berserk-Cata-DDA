@@ -5,7 +5,7 @@
     "name": {
       "str": "Servant of the Count"
     },
-    "description": "Heavy, pliant flesh weighs down your movements.",
+    "description": "Your heavy flesh slows you by 15 speed and makes crafting 25% slower. These changes remain without your master.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -23,7 +23,11 @@
         "values": [
           {
             "value": "SPEED",
-            "add": -5
+            "add": -15
+          },
+          {
+            "value": "CRAFTING_SPEED_MULTIPLIER",
+            "multiply": -0.25
           }
         ]
       }
@@ -79,7 +83,7 @@
     "name": {
       "str": "Body: Servant of the Count"
     },
-    "description": "Heavy pliant flesh cushions blows: bash 4, cut 7, stab 4. Strength +2. Your slower movement and rigid torso armor restriction remain.\n\nBody abilities: Pliable flesh steadies your close-range attacks while crouching or lying down, reducing the usual posture penalties.",
+    "description": "Loose, heavy flesh offers bash 2, cut 4 and stab 2 protection, but no extra strength. Dexterity -1; the 15-point speed loss and slower crafting remain. Rigid torso armor does not fit.\n\nBody abilities: Pliable flesh steadies your close-range attacks while crouching or lying down, reducing the usual posture penalties.",
     "points": 0,
     "valid": false,
     "starting_trait": false,
@@ -97,11 +101,11 @@
         "values": [
           {
             "value": "STRENGTH",
-            "add": 2
+            "add": 0
           },
           {
-            "value": "SPEED",
-            "add": -5
+            "value": "DEXTERITY",
+            "add": -1
           }
         ],
         "mutations": []
@@ -130,9 +134,9 @@
           "foot_l",
           "foot_r"
         ],
-        "bash": 4,
-        "cut": 7,
-        "stab": 4
+        "bash": 2,
+        "cut": 4,
+        "stab": 2
       }
     ]
   },
