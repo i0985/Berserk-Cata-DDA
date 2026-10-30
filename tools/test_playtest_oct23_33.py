@@ -13,7 +13,7 @@ from test_godo_dialogue_33 import Conversation
 
 ROOT=Path(__file__).resolve().parents[1]
 MOD=ROOT/'mods/Berserk'
-PROJECT=json.loads((ROOT/'docs/location_projects/flora-3.3-03.json').read_text())
+PROJECT=json.loads((ROOT/'docs/location_projects/flora-3.3-04.json').read_text())
 
 
 def load(p):return json.loads((MOD/p).read_text())
@@ -65,21 +65,21 @@ class Oct23PlaytestFix(unittest.TestCase):
 
     def test_new_marker_selects_v3_and_old_version_dispatch_remains(self):
         register=EOCS['EOC_BERSERK_FLORA_TREEHOUSE_REGISTER']['effect'][2]
-        self.assertEqual(register['if']['map_furniture_id'],'f_berserk_flora_treehouse_threshold_v3')
-        self.assertEqual(register['else']['if']['map_furniture_id'],'f_berserk_flora_treehouse_threshold_v2')
+        self.assertEqual(register['if']['map_furniture_id'],'f_berserk_flora_treehouse_threshold_v4')
+        self.assertEqual(register['else']['if']['map_furniture_id'],'f_berserk_flora_treehouse_threshold_v3')
         updates={x['update_mapgen_id'] for p in (MOD/'mapgen').glob('flora*updates.json') for x in json.loads(p.read_text())}
         count=0
         for obj in load('effects/flora_siege_eocs.json'):
             for step in obj.get('effect',[]) if isinstance(obj.get('effect'),list) else []:
-                if step.get('if')!={'math':['berserk_flora_treehouse_layout == 3']}:continue
+                if step.get('if')!={'math':['berserk_flora_treehouse_layout == 4']}:continue
                 count+=1
-                for version in [0,1,2,3]:
+                for version in [0,1,2,3,4]:
                     node=step
                     while 'if' in node:
                         required=int(node['if']['math'][0].rsplit(' ',1)[1])
                         node=node['then' if required==version else 'else']
                     key=node['mapgen_update'];self.assertIn(key,updates)
-                    prefix=('berserk_flora_treehouse_v3_' if version==3 else 'berserk_flora_treehouse_v2_' if version==2 else 'berserk_flora_treehouse_' if version==1 else 'berserk_flora_')
+                    prefix=('berserk_flora_treehouse_v4_' if version==4 else 'berserk_flora_treehouse_v3_' if version==3 else 'berserk_flora_treehouse_v2_' if version==2 else 'berserk_flora_treehouse_' if version==1 else 'berserk_flora_')
                     self.assertTrue(key.startswith(prefix),(version,key))
         self.assertEqual(count,16)
 

@@ -118,7 +118,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_FLORA_READ_GUEST_RECORD"
       ]
-    }
+    },
+    "looks_like": "f_table"
   },
   {
     "type": "furniture",
@@ -137,7 +138,8 @@
       "effect_on_conditions": [
         "EOC_BERSERK_FLORA_READ_HOUSE_RULES"
       ]
-    }
+    },
+    "looks_like": "f_table"
   },
   {
     "type": "furniture",
@@ -356,14 +358,15 @@
       "effect_on_conditions": [
         "EOC_BERSERK_FLORA_READ_GALLERY_RECORD"
       ]
-    }
+    },
+    "looks_like": "f_table"
   },
   {
     "type": "furniture",
     "id": "f_berserk_flora_garden_record",
     "name": "herb-garden marker",
     "description": "Names and seasons are written beside the herb beds.",
-    "looks_like": "f_sign",
+    "looks_like": "f_table",
     "symbol": "?",
     "color": "brown",
     "move_cost_mod": 0,
@@ -383,7 +386,7 @@
     "id": "f_berserk_flora_west_sign",
     "name": "western road marker",
     "description": "A simple arrow points away from the house.",
-    "looks_like": "f_sign",
+    "looks_like": "f_table",
     "symbol": "?",
     "color": "brown",
     "move_cost_mod": 0,
@@ -403,7 +406,7 @@
     "id": "f_berserk_flora_south_sign",
     "name": "southern garden marker",
     "description": "The doorway opens onto the root-framed garden walk.",
-    "looks_like": "f_sign",
+    "looks_like": "f_table",
     "symbol": "?",
     "color": "brown",
     "move_cost_mod": 0,
@@ -722,7 +725,7 @@
     "id": "f_berserk_flora_manuscript",
     "name": "Flora's unfinished manuscript",
     "description": "A sewn manuscript lies open on the library desk.",
-    "looks_like": "f_desk",
+    "looks_like": "f_table",
     "symbol": "?",
     "color": "brown",
     "move_cost_mod": 0,

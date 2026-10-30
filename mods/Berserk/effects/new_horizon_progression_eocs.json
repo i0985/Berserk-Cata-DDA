@@ -23,24 +23,20 @@
     "condition": {
       "and": [
         {
-          "and": [
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "or": [
             {
               "math": [
-                "berserk_eclipse_era == 1"
+                "u_berserk_eclipse_rescue_state == 2"
               ]
             },
             {
-              "or": [
-                {
-                  "math": [
-                    "u_berserk_eclipse_rescue_state == 2"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_apostol_return_state == 2"
-                  ]
-                }
+              "math": [
+                "u_berserk_apostol_return_state == 2"
               ]
             }
           ]
@@ -48,7 +44,16 @@
         {
           "or": [
             {
-              "test_eoc": "EOC_BERSERK_EARLY_HUNTS_CLOSED"
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_EARLY_HUNTS_CLOSED"
+                },
+                {
+                  "math": [
+                    "u_berserk_flora_referral_heard == 1"
+                  ]
+                }
+              ]
             },
             {
               "and": [
@@ -128,25 +133,57 @@
     },
     "effect": [
       {
-        "math": [
-          "u_berserk_flora_late_clue_given = 1"
+        "if": {
+          "not": {
+            "math": [
+              "has_var(berserk_godo_location)"
+            ]
+          }
+        },
+        "then": {
+          "run_eocs": "EOC_BERSERK_GODO_SEEK"
+        }
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "u_berserk_flora_referral_issued == 1"
+                ]
+              }
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_flora_referral_heard == 1"
+                ]
+              }
+            }
+          ]
+        },
+        "then": [
+          {
+            "assign_mission": "MISSION_BERSERK_FLORA_REFERRAL"
+          },
+          {
+            "if": {
+              "u_has_mission": "MISSION_BERSERK_FLORA_REFERRAL"
+            },
+            "then": [
+              {
+                "math": [
+                  "u_berserk_flora_referral_issued = 1"
+                ]
+              },
+              {
+                "u_message": "Return to the woodland forge. Godot or Rickert may know someone who can help with what you have seen.",
+                "type": "info"
+              }
+            ]
+          }
         ]
-      },
-      {
-        "math": [
-          "u_berserk_flora_directions_repaired = 1"
-        ]
-      },
-      {
-        "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
-      },
-      {
-        "math": [
-          "u_berserk_ref_flora_named_source = 1"
-        ]
-      },
-      {
-        "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
   },

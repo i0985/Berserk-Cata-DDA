@@ -1,0 +1,48 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_HOME31_HEAR",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_flora_referral_heard = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_flora_late_clue_given = 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_flora_directions_repaired = 1"
+        ]
+      },
+      {
+        "if": {
+          "u_has_mission": "MISSION_BERSERK_FLORA_REFERRAL"
+        },
+        "then": {
+          "finish_mission": "MISSION_BERSERK_FLORA_REFERRAL",
+          "success": true
+        }
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_DIRECTIONS"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "test_eoc": "EOC_BERSERK_EARLY_HUNTS_CLOSED"
+        },
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        }
+      ]
+    }
+  }
+]

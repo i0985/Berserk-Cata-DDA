@@ -80,24 +80,6 @@
       "reason": "Borrowed graphic depicts a different physical object or state."
     },
     {
-      "id": "f_berserk_flora_guest_record",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_desk",
-      "reason": "The note does not create a desk."
-    },
-    {
-      "id": "f_berserk_flora_house_rules",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_desk",
-      "reason": "The note does not create a desk."
-    },
-    {
-      "id": "f_berserk_flora_gallery_record",
-      "file": "00_flora_treehouse_details.json",
-      "previous": "f_desk",
-      "reason": "The note does not create a desk."
-    },
-    {
       "id": "f_berserk_flora_armor_stand",
       "file": "00_flora_treehouse_details.json",
       "previous": "f_rack_wood",
@@ -428,12 +410,6 @@
       "reason": "A scene inspection is not extra furniture."
     },
     {
-      "id": "f_berserk_flora_scene",
-      "file": "furniture/location_scenery.json",
-      "previous": "f_bookcase",
-      "reason": "A scene inspection is not extra furniture."
-    },
-    {
       "id": "f_berserk_grunbeld_scene",
       "file": "furniture/location_scenery.json",
       "previous": "f_rubble",
@@ -588,5 +564,15 @@
     "f_berserk_flora_aid_workshop_empty": "f_crate_o",
     "f_berserk_flora_aid_ward": "f_crate_c",
     "f_berserk_flora_aid_ward_empty": "f_crate_o"
+  },
+  "owner_amendment_20261031": {
+    "f_berserk_flora_garden_record": "f_table",
+    "f_berserk_flora_west_sign": "f_table",
+    "f_berserk_flora_scene": "f_table",
+    "f_berserk_flora_house_rules": "f_table",
+    "f_berserk_flora_guest_record": "f_table",
+    "f_berserk_flora_south_sign": "f_table",
+    "f_berserk_flora_gallery_record": "f_table",
+    "f_berserk_flora_manuscript": "f_table"
   }
 }

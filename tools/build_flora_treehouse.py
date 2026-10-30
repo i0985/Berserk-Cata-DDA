@@ -8,7 +8,7 @@ from pathlib import Path
 MOD=Path(__file__).resolve().parents[1]/'mods/Berserk'
 SECTIONS=[('berserk_flora_manor_west',0,0),('berserk_flora_manor_east',1,0),
           ('berserk_flora_garden_west',0,1),('berserk_flora_garden_east',1,1)]
-PROJECT=json.loads((MOD.parent.parent/'docs/location_projects/flora-3.3-03.json').read_text())
+PROJECT=json.loads((MOD.parent.parent/'docs/location_projects/flora-3.3-04.json').read_text())
 ANCHORS=PROJECT['anchors']
 LAYOUT=tuple(ANCHORS['layout_marker'])
 FLORA=tuple(ANCHORS['flora'])
@@ -158,6 +158,7 @@ def maps():
         obj={'fill_ter':'t_grass','rows':[''.join(row[x0:x0+24]) for row in a[y0:y0+24]],
              'palettes':['berserk_flora_treehouse_palette'],'place_monster':actors,
              'place_furniture':[dict(furn=k,x=x-x0,y=y-y0) for k,x,y in props if x0<=x<x0+24 and y0<=y<y0+24]}
+        obj['place_item']=[dict(item=p['item'],x=p['x']-x0,y=p['y']-y0,amount=p['amount']) for p in PROJECT.get('stock',[]) if x0<=p['x']<x0+24 and y0<=p['y']<y0+24]
         result.append({'type':'mapgen','om_terrain':[omt],'object':obj})
     return result
 
@@ -184,37 +185,17 @@ def updates():
                             for x,y in ANCHORS['assault_breach'] if inside(x,y)]
             if fields:obj['place_fields']=fields
             if changes:obj['set']=changes
-            result.append({'type':'mapgen','update_mapgen_id':f'berserk_flora_treehouse_v3_{stage}_{suffix}','object':obj})
+            result.append({'type':'mapgen','update_mapgen_id':f'berserk_flora_treehouse_v{LAYOUT_VERSION}_{stage}_{suffix}','object':obj})
     return result
 
 
 def main():
-    for name,data in [('mapgen/flora_manor.json',maps()),('mapgen/flora_treehouse_v3_updates.json',updates())]:
+    for name,data in [('mapgen/flora_manor.json',maps()),('mapgen/flora_treehouse_v4_updates.json',updates())]:
         (MOD/name).write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
-    marker=[{'type':'furniture','id':'f_berserk_flora_treehouse_threshold_v3',
+    marker=[{'type':'furniture','id':'f_berserk_flora_treehouse_threshold_v4',
              'copy-from':'f_berserk_flora_treehouse_threshold',
              'name':'woven threshold beside the roots'}]
-    (MOD/'furniture/flora_layout_markers.json').write_text(json.dumps(marker,indent=2)+'\n')
-    path=MOD/'effects/flora_treehouse_eocs.json';data=json.loads(path.read_text())
-    register=next(x for x in data if x['id']=='EOC_BERSERK_FLORA_TREEHOUSE_REGISTER')
-    old=register['effect'][2]
-    if old.get('if',{}).get('map_furniture_id')!='f_berserk_flora_treehouse_threshold_v3':
-        register['effect'][2]={'if':{'map_furniture_id':'f_berserk_flora_treehouse_threshold_v3',
-                                   'loc':{'context_val':'flora_layout'}},
-            'then':{'math':['berserk_flora_treehouse_layout = 3']},'else':old}
-    path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
-    path=MOD/'effects/flora_siege_eocs.json';data=json.loads(path.read_text())
-    for obj in data:
-        if 'berserk_flora_treehouse_v3_' in json.dumps(obj):continue
-        effects=obj.get('effect',[])
-        if not isinstance(effects,list):continue
-        for i,step in enumerate(effects):
-            if step.get('if')!={'math':['berserk_flora_treehouse_layout == 2']}:continue
-            update=step.get('then',{}).get('mapgen_update','')
-            if not update.startswith('berserk_flora_treehouse_v2_'):continue
-            new=copy.deepcopy(step['then']);new['mapgen_update']=update.replace('_v2_','_v3_')
-            effects[i]={'if':{'math':['berserk_flora_treehouse_layout == 3']},'then':new,'else':step}
-    path.write_text(json.dumps(data,ensure_ascii=False,indent=2)+'\n')
+    mp=MOD/'furniture/flora_layout_markers.json'; old_markers=json.loads(mp.read_text()); marker=old_markers+[m for m in marker if m['id'] not in {o['id'] for o in old_markers}]; mp.write_text(json.dumps(marker,indent=2)+'\n')
 
 
 if __name__=='__main__':main()

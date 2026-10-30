@@ -183,11 +183,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_warning_west",
+          "mapgen_update": "berserk_flora_treehouse_v4_warning_west",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -195,11 +195,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_warning_west",
+            "mapgen_update": "berserk_flora_treehouse_v3_warning_west",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -207,19 +207,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_warning_west",
+              "mapgen_update": "berserk_flora_treehouse_v2_warning_west",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_warning_west",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_warning_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_warning_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -244,11 +257,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_warning_east",
+          "mapgen_update": "berserk_flora_treehouse_v4_warning_east",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -256,11 +269,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_warning_east",
+            "mapgen_update": "berserk_flora_treehouse_v3_warning_east",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -268,19 +281,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_warning_east",
+              "mapgen_update": "berserk_flora_treehouse_v2_warning_east",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_warning_east",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_warning_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_warning_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -305,11 +331,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_warning_garden_west",
+          "mapgen_update": "berserk_flora_treehouse_v4_warning_garden_west",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -317,11 +343,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_warning_garden_west",
+            "mapgen_update": "berserk_flora_treehouse_v3_warning_garden_west",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -329,19 +355,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_warning_garden_west",
+              "mapgen_update": "berserk_flora_treehouse_v2_warning_garden_west",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_warning_garden_west",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_warning_garden_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_warning_garden_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -366,11 +405,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_warning_garden_east",
+          "mapgen_update": "berserk_flora_treehouse_v4_warning_garden_east",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -378,11 +417,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_warning_garden_east",
+            "mapgen_update": "berserk_flora_treehouse_v3_warning_garden_east",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -390,19 +429,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_warning_garden_east",
+              "mapgen_update": "berserk_flora_treehouse_v2_warning_garden_east",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_warning_garden_east",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_warning_garden_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_warning_garden_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -438,11 +490,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_collapse_west",
+          "mapgen_update": "berserk_flora_treehouse_v4_collapse_west",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -450,11 +502,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_collapse_west",
+            "mapgen_update": "berserk_flora_treehouse_v3_collapse_west",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -462,19 +514,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_collapse_west",
+              "mapgen_update": "berserk_flora_treehouse_v2_collapse_west",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_collapse_west",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_collapse_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_collapse_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -499,11 +564,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_collapse_east",
+          "mapgen_update": "berserk_flora_treehouse_v4_collapse_east",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -511,11 +576,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_collapse_east",
+            "mapgen_update": "berserk_flora_treehouse_v3_collapse_east",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -523,19 +588,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_collapse_east",
+              "mapgen_update": "berserk_flora_treehouse_v2_collapse_east",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_collapse_east",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_collapse_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_collapse_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -560,11 +638,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_collapse_garden_west",
+          "mapgen_update": "berserk_flora_treehouse_v4_collapse_garden_west",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -572,11 +650,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_collapse_garden_west",
+            "mapgen_update": "berserk_flora_treehouse_v3_collapse_garden_west",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -584,19 +662,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_collapse_garden_west",
+              "mapgen_update": "berserk_flora_treehouse_v2_collapse_garden_west",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_collapse_garden_west",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_collapse_garden_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_collapse_garden_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -621,11 +712,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_collapse_garden_east",
+          "mapgen_update": "berserk_flora_treehouse_v4_collapse_garden_east",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -633,11 +724,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_collapse_garden_east",
+            "mapgen_update": "berserk_flora_treehouse_v3_collapse_garden_east",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -645,19 +736,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_collapse_garden_east",
+              "mapgen_update": "berserk_flora_treehouse_v2_collapse_garden_east",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_collapse_garden_east",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_collapse_garden_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_collapse_garden_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -693,11 +797,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_ruins_west",
+          "mapgen_update": "berserk_flora_treehouse_v4_ruins_west",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -705,11 +809,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_ruins_west",
+            "mapgen_update": "berserk_flora_treehouse_v3_ruins_west",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -717,19 +821,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_ruins_west",
+              "mapgen_update": "berserk_flora_treehouse_v2_ruins_west",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_ruins_west",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_ruins_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_ruins_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -754,11 +871,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_ruins_east",
+          "mapgen_update": "berserk_flora_treehouse_v4_ruins_east",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -766,11 +883,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_ruins_east",
+            "mapgen_update": "berserk_flora_treehouse_v3_ruins_east",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -778,19 +895,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_ruins_east",
+              "mapgen_update": "berserk_flora_treehouse_v2_ruins_east",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_ruins_east",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_ruins_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_ruins_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -815,11 +945,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_ruins_garden_west",
+          "mapgen_update": "berserk_flora_treehouse_v4_ruins_garden_west",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -827,11 +957,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_ruins_garden_west",
+            "mapgen_update": "berserk_flora_treehouse_v3_ruins_garden_west",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -839,19 +969,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_ruins_garden_west",
+              "mapgen_update": "berserk_flora_treehouse_v2_ruins_garden_west",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_ruins_garden_west",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_ruins_garden_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_ruins_garden_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -876,11 +1019,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_ruins_garden_east",
+          "mapgen_update": "berserk_flora_treehouse_v4_ruins_garden_east",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -888,11 +1031,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_ruins_garden_east",
+            "mapgen_update": "berserk_flora_treehouse_v3_ruins_garden_east",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -900,19 +1043,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_ruins_garden_east",
+              "mapgen_update": "berserk_flora_treehouse_v2_ruins_garden_east",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_ruins_garden_east",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_ruins_garden_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_ruins_garden_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -1015,7 +1171,7 @@
             }
           },
           {
-            "u_message": "The outer defense is failing. Get away from the entrance. Now.",
+            "u_message": "A thunderous crash shakes the house, as though something has struck through the outer wall. Wood splinters beyond the ward. Flora turns toward the sound: \"Away from the entrance. Now!\"",
             "type": "warning",
             "popup": true
           }
@@ -2066,11 +2222,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_assault_west",
+          "mapgen_update": "berserk_flora_treehouse_v4_assault_west",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -2078,11 +2234,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_assault_west",
+            "mapgen_update": "berserk_flora_treehouse_v3_assault_west",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -2090,19 +2246,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_assault_west",
+              "mapgen_update": "berserk_flora_treehouse_v2_assault_west",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_assault_west",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_assault_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_assault_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -2127,11 +2296,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_assault_east",
+          "mapgen_update": "berserk_flora_treehouse_v4_assault_east",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -2139,11 +2308,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_assault_east",
+            "mapgen_update": "berserk_flora_treehouse_v3_assault_east",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -2151,19 +2320,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_assault_east",
+              "mapgen_update": "berserk_flora_treehouse_v2_assault_east",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_assault_east",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_assault_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_assault_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -2188,11 +2370,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_assault_garden_west",
+          "mapgen_update": "berserk_flora_treehouse_v4_assault_garden_west",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -2200,11 +2382,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_assault_garden_west",
+            "mapgen_update": "berserk_flora_treehouse_v3_assault_garden_west",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -2212,19 +2394,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_assault_garden_west",
+              "mapgen_update": "berserk_flora_treehouse_v2_assault_garden_west",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_assault_garden_west",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_assault_garden_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_assault_garden_west",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }
@@ -2249,11 +2444,11 @@
       {
         "if": {
           "math": [
-            "berserk_flora_treehouse_layout == 3"
+            "berserk_flora_treehouse_layout == 4"
           ]
         },
         "then": {
-          "mapgen_update": "berserk_flora_treehouse_v3_assault_garden_east",
+          "mapgen_update": "berserk_flora_treehouse_v4_assault_garden_east",
           "target_var": {
             "context_val": "flora_patch"
           }
@@ -2261,11 +2456,11 @@
         "else": {
           "if": {
             "math": [
-              "berserk_flora_treehouse_layout == 2"
+              "berserk_flora_treehouse_layout == 3"
             ]
           },
           "then": {
-            "mapgen_update": "berserk_flora_treehouse_v2_assault_garden_east",
+            "mapgen_update": "berserk_flora_treehouse_v3_assault_garden_east",
             "target_var": {
               "context_val": "flora_patch"
             }
@@ -2273,19 +2468,32 @@
           "else": {
             "if": {
               "math": [
-                "berserk_flora_treehouse_layout == 1"
+                "berserk_flora_treehouse_layout == 2"
               ]
             },
             "then": {
-              "mapgen_update": "berserk_flora_treehouse_assault_garden_east",
+              "mapgen_update": "berserk_flora_treehouse_v2_assault_garden_east",
               "target_var": {
                 "context_val": "flora_patch"
               }
             },
             "else": {
-              "mapgen_update": "berserk_flora_assault_garden_east",
-              "target_var": {
-                "context_val": "flora_patch"
+              "if": {
+                "math": [
+                  "berserk_flora_treehouse_layout == 1"
+                ]
+              },
+              "then": {
+                "mapgen_update": "berserk_flora_treehouse_assault_garden_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
+              },
+              "else": {
+                "mapgen_update": "berserk_flora_assault_garden_east",
+                "target_var": {
+                  "context_val": "flora_patch"
+                }
               }
             }
           }

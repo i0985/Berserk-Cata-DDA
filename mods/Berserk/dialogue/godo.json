@@ -687,6 +687,29 @@
         }
       },
       {
+        "text": "Do you know anyone who understands these creatures?",
+        "topic": "TALK_BERSERK_GODO_FLORA_REFERRAL",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_EARLY_HUNTS_CLOSED"
+            },
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_flora_met == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I will leave you to your work.",
         "topic": "TALK_BERSERK_GODO_FAREWELL"
       }
@@ -2764,6 +2787,29 @@
               "math": [
                 "u_berserk_godo_witness_gaston == 1"
               ]
+            }
+          ]
+        }
+      },
+      {
+        "text": "Do you know anyone who understands these creatures?",
+        "topic": "TALK_BERSERK_RICKERT_FLORA_REFERRAL",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_EARLY_HUNTS_CLOSED"
+            },
+            {
+              "math": [
+                "berserk_eclipse_era == 1"
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "u_berserk_flora_met == 1"
+                ]
+              }
             }
           ]
         }
@@ -11419,6 +11465,46 @@
             ]
           }
         ]
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_GODO_FLORA_REFERRAL",
+    "dynamic_line": "A woman lives beyond the deeper woods. Flora. People call her a witch; I have never heard of her turning away someone in need. She knows things I cannot hammer into shape. Rickert kept the turns in the road. Here, I will mark them.",
+    "responses": [
+      {
+        "text": "Show me the road.",
+        "topic": "TALK_BERSERK_GODO",
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_FLORA_HOME31_HEAR"
+          }
+        ]
+      },
+      {
+        "text": "Another question.",
+        "topic": "TALK_BERSERK_GODO"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_FLORA_REFERRAL",
+    "dynamic_line": "There is someone you could ask. Flora lives beside an old tree in the woods. Travellers say she treats them kindly, though they call her a witch. Godot has heard of her too. I can show you the road.",
+    "responses": [
+      {
+        "text": "Show me the road.",
+        "topic": "TALK_BERSERK_RICKERT",
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_FLORA_HOME31_HEAR"
+          }
+        ]
+      },
+      {
+        "text": "Another question.",
+        "topic": "TALK_BERSERK_RICKERT"
       }
     ]
   }

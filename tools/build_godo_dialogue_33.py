@@ -601,7 +601,7 @@ def main():
         topic(alias,tr('Ask what you came to ask.','Спрашивай, с чем пришёл.'),[back(target)])
     # Keep Rickert-owned prosthesis topics as-is. No rewrite of his script here.
     kept={'FITTING','SELF','ARM','PRAISE','ARM_STATUS',
-          'MEMORY_KEEP','MEMORY_SURVIVED'}  # Rebuilt by the October 24 playtest pass.
+          'MEMORY_KEEP','MEMORY_SURVIVED','FLORA_REFERRAL'}  # Rebuilt by the October 24 playtest pass.
     for obj in original:
         id=obj['id']
         if id.startswith('TALK_BERSERK_GODO') and id not in TOPICS and id.removeprefix('TALK_BERSERK_GODO_') not in kept:

@@ -716,39 +716,52 @@
       },
       {
         "if": {
-          "map_furniture_id": "f_berserk_flora_treehouse_threshold_v3",
+          "map_furniture_id": "f_berserk_flora_treehouse_threshold_v4",
           "loc": {
             "context_val": "flora_layout"
           }
         },
         "then": {
           "math": [
-            "berserk_flora_treehouse_layout = 3"
+            "berserk_flora_treehouse_layout = 4"
           ]
         },
         "else": {
           "if": {
-            "map_furniture_id": "f_berserk_flora_treehouse_threshold_v2",
+            "map_furniture_id": "f_berserk_flora_treehouse_threshold_v3",
             "loc": {
               "context_val": "flora_layout"
             }
           },
           "then": {
             "math": [
-              "berserk_flora_treehouse_layout = 2"
+              "berserk_flora_treehouse_layout = 3"
             ]
           },
           "else": {
             "if": {
-              "map_furniture_id": "f_berserk_flora_treehouse_threshold",
+              "map_furniture_id": "f_berserk_flora_treehouse_threshold_v2",
               "loc": {
                 "context_val": "flora_layout"
               }
             },
             "then": {
               "math": [
-                "berserk_flora_treehouse_layout = 1"
+                "berserk_flora_treehouse_layout = 2"
               ]
+            },
+            "else": {
+              "if": {
+                "map_furniture_id": "f_berserk_flora_treehouse_threshold",
+                "loc": {
+                  "context_val": "flora_layout"
+                }
+              },
+              "then": {
+                "math": [
+                  "berserk_flora_treehouse_layout = 1"
+                ]
+              }
             }
           }
         }

@@ -1,0 +1,28 @@
+[
+  {
+    "type": "mission_definition",
+    "id": "MISSION_BERSERK_FLORA_REFERRAL",
+    "name": "Ask at the woodland forge",
+    "description": "The three early trails are settled. Speak with Godot or Rickert about what you encountered. They may know someone who understands these beings.",
+    "goal": "MGOAL_CONDITION",
+    "goal_condition": {
+      "math": [
+        "u_berserk_flora_referral_heard == 1"
+      ]
+    },
+    "difficulty": 1,
+    "value": 0,
+    "origins": [
+      "ORIGIN_GAME_START"
+    ],
+    "start": {
+      "assign_mission_target": {
+        "om_terrain": "berserk_godo_workshop",
+        "var": {
+          "global_val": "berserk_godo_location"
+        },
+        "reveal_radius": 0
+      }
+    }
+  }
+]

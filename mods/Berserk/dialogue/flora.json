@@ -289,17 +289,8 @@
         "text": "I found a note with your name in it.",
         "topic": "TALK_BERSERK_FLORA_INTRO_RECORD",
         "condition": {
-          "or": [
-            {
-              "math": [
-                "u_berserk_flora_late_clue_given == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_ref_flora_named_source == 1"
-              ]
-            }
+          "math": [
+            "u_berserk_ref_flora_named_source == 1"
           ]
         }
       },
@@ -2749,47 +2740,19 @@
     "dynamic_line": "Tell me what help you need.",
     "responses": [
       {
-        "text": "Do you have anything that might help against apostles?",
-        "topic": "TALK_BERSERK_FLORA_ARMOR",
-        "condition": {
-          "and": [
-            {
-              "test_eoc": "EOC_BERSERK_FLORA33_LATE"
-            },
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_FLORA33_ARMOR_KNOWN"
-              }
-            }
-          ]
-        }
+        "text": "About supplies for the road.",
+        "topic": "TALK_BERSERK_FLORA_HELP"
       },
       {
-        "text": "May I take supplies for the road?",
-        "topic": "TALK_BERSERK_FLORA_HELP",
-        "condition": {
-          "not": {
-            "math": [
-              "berserk_flora_aid_authorized == 1"
-            ]
-          }
-        }
-      },
-      {
-        "text": "About the prepared supplies.",
-        "topic": "TALK_BERSERK_FLORA_HELP_TAKEN",
-        "condition": {
-          "math": [
-            "berserk_flora_aid_authorized == 1"
-          ]
-        }
+        "text": "Tell me about the armor.",
+        "topic": "TALK_BERSERK_FLORA_ARMOR"
       },
       {
         "text": "What should I do next?",
         "topic": "TALK_BERSERK_FLORA_NEXT"
       },
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Another question.",
         "topic": "TALK_BERSERK_FLORA"
       }
     ]
@@ -3188,6 +3151,14 @@
     "dynamic_line": "Tell me what you learned about his house. Fear can survive its master for a long time. Remember the people caught there, as well as the creature that held them.",
     "responses": [
       {
+        "text": "How can someone become like that?",
+        "topic": "TALK_BERSERK_FLORA_KNOWN_COUNT_MORE"
+      },
+      {
+        "text": "Does defeating one end the danger?",
+        "topic": "TALK_BERSERK_FLORA_AFTER_VICTORY"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
       }
@@ -3198,6 +3169,14 @@
     "id": "TALK_BERSERK_FLORA_KNOWN_WYALD",
     "dynamic_line": "What did you learn about the Black Dogs? Their commander is not the only danger. A cruel order can keep being obeyed long after the voice that gave it falls silent.",
     "responses": [
+      {
+        "text": "How can someone become like that?",
+        "topic": "TALK_BERSERK_FLORA_KNOWN_WYALD_MORE"
+      },
+      {
+        "text": "Does defeating one end the danger?",
+        "topic": "TALK_BERSERK_FLORA_AFTER_VICTORY"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
@@ -3210,6 +3189,14 @@
     "dynamic_line": "Tell me about the valley. Beauty makes people slow to notice suffering. Look for what does not belong among the flowers, and do not mistake a changed body for a life restored.",
     "responses": [
       {
+        "text": "How can someone become like that?",
+        "topic": "TALK_BERSERK_FLORA_KNOWN_ROSINE_MORE"
+      },
+      {
+        "text": "Does defeating one end the danger?",
+        "topic": "TALK_BERSERK_FLORA_AFTER_VICTORY"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
       }
@@ -3220,6 +3207,14 @@
     "id": "TALK_BERSERK_FLORA_KNOWN_GRUNBELD",
     "dynamic_line": "What have you learned of Grunbeld? Strength joined to obedience can do terrible harm. The one carrying out an order still chooses to raise his weapon.",
     "responses": [
+      {
+        "text": "How can someone become like that?",
+        "topic": "TALK_BERSERK_FLORA_KNOWN_GRUNBELD_MORE"
+      },
+      {
+        "text": "Does defeating one end the danger?",
+        "topic": "TALK_BERSERK_FLORA_AFTER_VICTORY"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
@@ -4037,6 +4032,61 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_KNOWN_COUNT_MORE",
+    "dynamic_line": "Fear makes a prison long before iron bars do. If you found people in his house, listen to them. They know more about the price of his protection than any promise could tell you.",
+    "responses": [
+      {
+        "text": "I understand.",
+        "topic": "TALK_BERSERK_FLORA_DANGERS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_KNOWN_WYALD_MORE",
+    "dynamic_line": "He gives his appetites the name of freedom. The people made to suffer for them have no freedom at all. Do not let his strength persuade you that cruelty is inevitable.",
+    "responses": [
+      {
+        "text": "I understand.",
+        "topic": "TALK_BERSERK_FLORA_DANGERS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_KNOWN_ROSINE_MORE",
+    "dynamic_line": "A refuge must allow someone to leave it. When every promise of safety demands that you surrender your voice, ask whose peace is really being protected.",
+    "responses": [
+      {
+        "text": "I understand.",
+        "topic": "TALK_BERSERK_FLORA_DANGERS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_KNOWN_GRUNBELD_MORE",
+    "dynamic_line": "A sworn duty does not take away the hand that carries it out. Armor may protect its bearer, but it cannot answer for what he chooses to crush beneath it.",
+    "responses": [
+      {
+        "text": "I understand.",
+        "topic": "TALK_BERSERK_FLORA_DANGERS"
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_FLORA_AFTER_VICTORY",
+    "dynamic_line": "A fallen creature cannot strike again. But the wound through which it reached us may remain. Examine what is left at the place; closing that wound is a separate task.",
+    "responses": [
+      {
+        "text": "Another question.",
+        "topic": "TALK_BERSERK_FLORA_DANGERS"
       }
     ]
   }
