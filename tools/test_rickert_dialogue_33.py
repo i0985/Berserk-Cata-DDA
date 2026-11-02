@@ -135,9 +135,9 @@ class RickertDialogue(unittest.TestCase):
     def test_late_absent_follower_does_not_claim_treatment(self):
         f=Conversation();f.normal_return();f.met();f.npc['following']=True
         self.assertNotIn(tid('WAKE_THANKS'),f.targets(''))
-        self.assertIn(tid('REUNION_LATER'),f.targets(''))
-        f.choose('','REUNION_LATER');self.assertIn('I was not there',f.line('REUNION_LATER'))
-        self.assertNotIn(tid('REUNION_LATER'),f.targets(''))
+        self.assertIn(tid('REUNION_LATER'),f.targets('TALK_BERSERK_NOV02B_RICKERT_PAST'))
+        f.choose('','TALK_BERSERK_NOV02B_RICKERT_PAST');f.choose('TALK_BERSERK_NOV02B_RICKERT_PAST','REUNION_LATER');self.assertIn('I was not there',f.line('REUNION_LATER'))
+        self.assertNotIn(tid('REUNION_LATER'),f.targets('TALK_BERSERK_NOV02B_RICKERT_PAST'))
 
     def test_knight_still_waiting_is_not_described_as_having_departed(self):
         f=Conversation();self.assertNotIn('went on his way',f.line('WAKE_RIDER'))
@@ -219,7 +219,7 @@ class RickertDialogue(unittest.TestCase):
         self.assertNotIn(tid('ECLIPSE'),f.targets(''))
         f.run('EOC_BERSERK_RICKERT_STORY_TRUTH');self.assertEqual(f.values.get('u_berserk_rickert_eclipse_story',0),0)
         f.values.update(u_berserk_eclipse_route=2,u_berserk_apostol_return_state=2,u_berserk_apostol_outcome=2)
-        self.assertIn(tid('CEREMONY_WITNESS'),f.targets(''));self.assertNotIn(tid('ECLIPSE'),f.targets(''))
+        self.assertIn(tid('CEREMONY_WITNESS'),f.targets('TALK_BERSERK_NOV02B_RICKERT_PAST'));self.assertNotIn(tid('ECLIPSE'),f.targets(''))
 
     def test_truth_does_not_repeat_first_shock_or_allow_rewriting_to_lie(self):
         f=Conversation();f.normal_return();f.met()
@@ -305,11 +305,11 @@ class RickertDialogue(unittest.TestCase):
 
     def test_visible_observations_are_once_and_need_the_actual_body(self):
         f=Conversation();f.met();f.demon()
-        self.assertNotIn(tid('VISIBLE_WINGS'),f.targets(''))
-        f.flags.add('WINGS_2');self.assertIn(tid('VISIBLE_WINGS'),f.targets(''))
-        f.choose('','VISIBLE_WINGS');self.assertNotIn(tid('VISIBLE_WINGS'),f.targets(''))
+        self.assertNotIn(tid('VISIBLE_WINGS'),f.targets('TALK_BERSERK_NOV02B_RICKERT_CHANGES'))
+        f.flags.add('WINGS_2');self.assertIn(tid('VISIBLE_WINGS'),f.targets('TALK_BERSERK_NOV02B_RICKERT_CHANGES'))
+        f.choose('','TALK_BERSERK_NOV02B_RICKERT_CHANGES');f.choose('TALK_BERSERK_NOV02B_RICKERT_CHANGES','VISIBLE_WINGS');self.assertNotIn(tid('VISIBLE_WINGS'),f.targets('TALK_BERSERK_NOV02B_RICKERT_CHANGES'))
         f.flags.add('BERSERK_GRUNBELD_FLESH_FORM_ACTIVE')
-        self.assertIn(tid('VISIBLE_SHELL'),f.targets(''));self.assertNotIn(tid('VISIBLE_HANDS'),f.targets(''))
+        self.assertIn(tid('VISIBLE_SHELL'),f.targets('TALK_BERSERK_NOV02B_RICKERT_CHANGES'));self.assertNotIn(tid('VISIBLE_HANDS'),f.targets('TALK_BERSERK_NOV02B_RICKERT_CHANGES'))
 
     def test_save_reload_preserves_refusal_lie_and_item_receipt(self):
         f=Conversation();f.met();f.values.update(n_berserk_rickert_recruit_refused=1,u_berserk_rickert_eclipse_story=1,u_berserk_rickert_lied_before=1,u_berserk_rickert_arm_delivered=1)

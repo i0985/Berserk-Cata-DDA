@@ -359,16 +359,9 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GODO_BOOTSTRAP",
-    "effect": [
-      {
-        "math": [
-          "berserk_godo_auto_attempts = berserk_godo_auto_attempts + 1"
-        ]
-      },
-      {
-        "run_eocs": "EOC_BERSERK_GODO_LOCATE"
-      }
-    ],
+    "effect": {
+      "run_eocs": "EOC_BERSERK_GODO_REGISTER"
+    },
     "condition": {
       "and": [
         {

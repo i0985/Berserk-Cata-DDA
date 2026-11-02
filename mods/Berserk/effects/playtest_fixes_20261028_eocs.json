@@ -237,34 +237,49 @@
       {
         "if": {
           "math": [
-            "u_berserk_forge_behelit_choice == 0"
+            "u_berserk_stone_route_issued == 1"
           ]
         },
         "then": {
-          "weighted_list_eocs": [
-            [
-              "EOC_BERSERK_FIX28_LEAD_OAK",
-              1
-            ],
-            [
-              "EOC_BERSERK_FIX28_LEAD_CAVE",
-              1
-            ]
-          ]
-        }
-      },
-      {
-        "if": {
-          "math": [
-            "u_berserk_forge_behelit_choice == 1"
-          ]
+          "reveal_map": {
+            "u_val": "berserk_forge_behelit_route"
+          },
+          "radius": 2
         },
-        "then": {
-          "run_eocs": "EOC_BERSERK_FIX28_FIND_OAK"
-        },
-        "else": {
-          "run_eocs": "EOC_BERSERK_FIX28_FIND_CAVE"
-        }
+        "else": [
+          {
+            "if": {
+              "math": [
+                "u_berserk_forge_behelit_choice == 0"
+              ]
+            },
+            "then": {
+              "weighted_list_eocs": [
+                [
+                  "EOC_BERSERK_FIX28_LEAD_OAK",
+                  1
+                ],
+                [
+                  "EOC_BERSERK_FIX28_LEAD_CAVE",
+                  1
+                ]
+              ]
+            }
+          },
+          {
+            "if": {
+              "math": [
+                "u_berserk_forge_behelit_choice == 1"
+              ]
+            },
+            "then": {
+              "run_eocs": "EOC_BERSERK_FIX28_FIND_OAK"
+            },
+            "else": {
+              "run_eocs": "EOC_BERSERK_FIX28_FIND_CAVE"
+            }
+          }
+        ]
       }
     ],
     "condition": {
@@ -297,11 +312,12 @@
       "target_params": {
         "om_terrain": "berserk_cursed_oak",
         "om_special": "berserk_cursed_oak_special",
-        "random": false,
-        "z": 0
+        "random": true,
+        "z": 0,
+        "search_range": 80
       },
       "true_eocs": [
-        "EOC_BERSERK_FIX28_LEAD_FOUND"
+        "EOC_BERSERK_NOV02B_WOODLAND_VERIFY"
       ],
       "false_eocs": [
         "EOC_BERSERK_FIX28_LEAD_FAILED"
@@ -328,11 +344,12 @@
       "target_params": {
         "om_terrain": "berserk_echo_cave_entrance",
         "om_special": "berserk_echo_cave_special",
-        "random": false,
-        "z": 0
+        "random": true,
+        "z": 0,
+        "search_range": 80
       },
       "true_eocs": [
-        "EOC_BERSERK_FIX28_LEAD_FOUND"
+        "EOC_BERSERK_NOV02B_WOODLAND_VERIFY"
       ],
       "false_eocs": [
         "EOC_BERSERK_FIX28_LEAD_FAILED"
@@ -370,7 +387,22 @@
         ]
       }
     ],
-    "condition": "u_is_avatar"
+    "condition": {
+      "or": [
+        {
+          "overmap_at_point": "berserk_cursed_oak",
+          "point": {
+            "u_val": "berserk_forge_behelit_route"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_echo_cave_entrance",
+          "point": {
+            "u_val": "berserk_forge_behelit_route"
+          }
+        }
+      ]
+    }
   },
   {
     "type": "effect_on_condition",

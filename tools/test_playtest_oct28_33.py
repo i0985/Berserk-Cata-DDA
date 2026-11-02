@@ -70,7 +70,7 @@ class Regression(unittest.TestCase):
    self.assertTrue(all(c in 'Tup' for c in rows[0]+rows[-1]))
    self.assertTrue(all(r[0] in 'Tu' and r[-1] in 'Tu' for r in rows))
  def test_forest_routes_have_one_saved_choice_and_one_mission(self):
-  read=EOCS[P+'BEHELIT_LEAD_READ'];choice=read['effect'][1]
+  read=EOCS[P+'BEHELIT_LEAD_READ'];choice=read['effect'][1]['else'][0]
   self.assertEqual(choice['if'],{'math':['u_berserk_forge_behelit_choice == 0']})
   self.assertEqual([w for _,w in choice['then']['weighted_list_eocs']],[1,1])
   found=EOCS[P+'LEAD_FOUND']['effect'][1]

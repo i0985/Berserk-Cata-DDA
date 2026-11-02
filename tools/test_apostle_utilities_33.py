@@ -104,7 +104,7 @@ class NativeBodies(unittest.TestCase):
 class EarlyWorld(World):
     def __init__(self):
         super().__init__(); self.values['berserk_eclipse_era']=0
-        self.pos=(0,0,0); self.om='field'; self.land={(10*24,0,0):'forest'}
+        self.pos=(0,0,0); self.om='field'; self.land={(240+dx*24,dy*24,0):'forest' for dx in [-1,0,1] for dy in [-1,0,1]}
         self.special_at={}; self.local_maps={}; self.roads={(10*24,24,0)}
         self.city_distance={(10*24,0,0):5}; self.created=0; self.revealed=[]
         self.intro=json.loads((MOD/'overmap/early_caravan.json').read_text())[1]
@@ -125,11 +125,11 @@ class EarlyWorld(World):
             origin=(*self.pos[:2], params['z'])
             for point, terrain in list(self.land.items()):
                 dist=max(abs(point[i]-origin[i])//24 for i in [0,1])
-                beside_road=any((point[0]+dx,point[1]+dy,0) in self.roads
-                                for dx,dy in [(24,0),(-24,0),(0,24),(0,-24)])
-                if (terrain not in ['forest','forest_thick','field'] or point in self.local_maps
-                    or self.city_distance.get(point,0)<3 or not beside_road
-                    or dist>params['search_range']): continue
+                valid=True
+                for part in self.intro['overmaps']:
+                    q=tuple(point[i]+part['point'][i]*24 for i in range(3))
+                    if self.land.get(q) not in ['forest','forest_thick','forest_trail'] or q in self.local_maps:valid=False
+                if not valid or dist>params['search_range']:continue
                 self.land[point]='berserk_early_caravan'; self.created+=1
                 self.values['_early_caravan_candidate']=point
                 self.local_maps[point]='berserk_early_caravan'
@@ -184,7 +184,7 @@ class EarlySource(unittest.TestCase):
 
     def test_second_land_attempt_uses_larger_radius_without_marking_the_source(self):
         f=EarlyWorld(); p=(70*24,0,0)
-        f.land={p:'forest'}; f.roads={(p[0],24,0)}; f.city_distance={p:5}
+        f.land={(p[0]+dx*24,dy*24,0):'forest' for dx in [-1,0,1] for dy in [-1,0,1]}; f.roads=set()
         f.run(P+'EARLY_GAME_START'); self.assertFalse(f.created)
         f.now+=1801; f.run(P+'EARLY_AVATAR_MOVES')
         self.assertEqual([x['search_range'] for x in f.searches],[48,96])
@@ -206,7 +206,7 @@ class EarlySource(unittest.TestCase):
         f=EarlyWorld(); f.om='aircraft_carrier_1a'
         f.values.update(u_berserk_early_caravan_attempts=3,u_berserk_early_caravan_retry_at=999999)
         f.run(P+'EARLY_GAME_LOAD'); self.assertEqual(f.values['u_berserk_early_caravan_attempts'],3)
-        f.om='field'; f.roads=set(); f.run(P+'EARLY_AVATAR_MOVES')
+        f.om='field'; f.land={}; f.run(P+'EARLY_AVATAR_MOVES')
         self.assertEqual(f.values['u_berserk_early_caravan_attempts'],1)
         for _ in range(5): f.now+=1801; f.run(P+'EARLY_GAME_LOAD')
         self.assertEqual(f.values['u_berserk_early_caravan_attempts'],3)
@@ -215,21 +215,21 @@ class EarlySource(unittest.TestCase):
         f=EarlyWorld(); f.values['berserk_early_caravan_placed']=1; f.run(P+'EARLY_NOTIFY')
         self.assertFalse(f.missions); self.assertFalse(f.messages); self.assertFalse(f.revealed)
 
-    def test_city_or_unconnected_forest_is_never_used(self):
-        for why in ['city','road']:
-            f=EarlyWorld()
-            if why=='city': f.city_distance[(240,0,0)]=0
-            else: f.roads=set()
-            f.run(P+'EARLY_GAME_START')
-            self.assertFalse(f.created); self.assertFalse(f.missions)
-            self.assertNotIn('berserk_early_caravan_placed',f.values)
+    def test_a_house_at_the_forest_edge_rejects_the_site(self):
+        f=EarlyWorld(); f.land[(264,0,0)]='house_01'; f.run(P+'EARLY_GAME_START')
+        self.assertFalse(f.created); self.assertFalse(f.missions)
+        self.assertNotIn('berserk_early_caravan_placed',f.values)
+
+    def test_unconnected_woodland_can_hold_the_hidden_wagon(self):
+        f=EarlyWorld(); f.roads=set(); f.run(P+'EARLY_GAME_START')
+        self.assertEqual(f.created,1); self.assertFalse(f.missions); self.assertFalse(f.revealed)
 
     def test_existing_local_player_map_is_not_replaced(self):
         f=EarlyWorld(); f.local_maps[(240,0,0)]='player_home'; f.run(P+'EARLY_GAME_START')
         self.assertEqual(f.local_maps[(240,0,0)],'player_home'); self.assertEqual(f.land[(240,0,0)],'forest')
 
     def test_failed_search_has_cooldown_and_finite_retries(self):
-        f=EarlyWorld(); f.roads=set(); f.run(P+'EARLY_GAME_START'); count=len(f.searches)
+        f=EarlyWorld(); f.land={}; f.run(P+'EARLY_GAME_START'); count=len(f.searches)
         f.run(P+'EARLY_AVATAR_MOVES'); self.assertEqual(len(f.searches),count)
         for _ in range(6): f.now+=1801; f.run(P+'EARLY_AVATAR_MOVES')
         self.assertEqual(f.values['u_berserk_early_caravan_attempts'],3)

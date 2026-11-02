@@ -122,9 +122,9 @@ class Dialogue(unittest.TestCase):
         self.assertTrue(any('my hand' in r['text'] for r in f.available('ENTER')))
 
     def test_current_orders_hidden_when_none_and_status_is_exact(self):
-        f=Conversation();self.assertNotIn(tid('ORDERS'),[r['topic'] for r in f.available('')])
+        f=Conversation();self.assertFalse({tid(x) for x in ['EARLY_SWORD','SWORD','REPAIR']} & {r['topic'] for r in f.available('')})
         f.values['u_berserk_godo_early_state']=1
-        self.assertIn(tid('ORDERS'),[r['topic'] for r in f.available('')])
+        self.assertIn(tid('EARLY_SWORD'),[r['topic'] for r in f.available('')])
         self.assertIn('200 charcoal',f.line('EARLY_STATUS'))
         f.values.update(u_berserk_godo_early_state=2,u_berserk_godo_early_ready_at=200)
         self.assertIn('does not like haste',f.line('EARLY_STATUS'))
@@ -163,7 +163,7 @@ class Dialogue(unittest.TestCase):
         self.assertNotIn('body',f.line(''))
         self.assertTrue(f.condition({'test_eoc':'EOC_BERSERK_COMMON33_GODO_PENDING'}))
         self.assertNotIn('no new blade',f.line('SWORD'))
-        f.choose('','TALK_BERSERK_APOSTOL_GODO')
+        f.choose('','TALK_BERSERK_NOV02B_GODO_PERSONAL');f.choose('TALK_BERSERK_NOV02B_GODO_PERSONAL','TALK_BERSERK_APOSTOL_GODO')
         self.assertEqual(f.values['u_berserk_apostol_godo_told'],1)
         self.assertIn('no new blade',f.line('SWORD'))
         f.choose('TALK_BERSERK_APOSTOL_GODO','CHANGED_SWORD')
@@ -180,7 +180,7 @@ class Dialogue(unittest.TestCase):
     def test_legacy_accepted_traits_can_be_disclosed_without_numeric_growth_fields(self):
         f=Conversation();f.traits.add('BERSERK_CONRAD_APOSTLE')
         f.values.update(u_berserk_godo_sword_state=1,u_berserk_godo_sword_iron_given=8)
-        f.choose('','TALK_BERSERK_APOSTOL_GODO')
+        f.choose('','TALK_BERSERK_NOV02B_GODO_PERSONAL');f.choose('TALK_BERSERK_NOV02B_GODO_PERSONAL','TALK_BERSERK_APOSTOL_GODO')
         self.assertTrue(f.condition({'test_eoc':'EOC_BERSERK_APOSTOL_GODO_KNOWS_GIFT'}))
         f.choose('TALK_BERSERK_APOSTOL_GODO','CHANGED_SWORD');f.choose('CHANGED_SWORD','REFUND_DONE')
         self.assertEqual(f.inventory['steel_lump'],8)

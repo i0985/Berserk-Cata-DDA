@@ -2,7 +2,7 @@
   {
     "type": "overmap_terrain",
     "id": "berserk_early_caravan",
-    "name": "abandoned roadside wagon",
+    "name": "abandoned woodland wagon",
     "sym": "?",
     "color": "brown",
     "see_cost": "high",
@@ -21,32 +21,105 @@
           0,
           0
         ],
-        "overmap": "berserk_early_caravan"
-      }
-    ],
-    "connections": [
+        "overmap": "berserk_early_caravan",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          -1,
+          -1,
+          0
+        ],
+        "overmap": "forest",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          0,
+          -1,
+          0
+        ],
+        "overmap": "forest",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          -1,
+          0
+        ],
+        "overmap": "forest",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          -1,
+          0,
+          0
+        ],
+        "overmap": "forest",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          0,
+          0
+        ],
+        "overmap": "forest",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          -1,
+          1,
+          0
+        ],
+        "overmap": "forest",
+        "locations": [
+          "forest"
+        ]
+      },
       {
         "point": [
           0,
           1,
           0
         ],
-        "terrain": "road",
-        "connection": "local_road",
-        "from": [
-          0,
-          0,
+        "overmap": "forest",
+        "locations": [
+          "forest"
+        ]
+      },
+      {
+        "point": [
+          1,
+          1,
           0
         ],
-        "existing": true
+        "overmap": "forest",
+        "locations": [
+          "forest"
+        ]
       }
     ],
     "locations": [
-      "forest",
-      "field"
+      "forest"
     ],
     "city_distance": [
-      3,
+      5,
       -1
     ],
     "rotate": true,
@@ -57,6 +130,6 @@
     "flags": [
       "GLOBALLY_UNIQUE"
     ],
-    "//": "One hidden source per world, requested on actual surface land. Existing road required."
+    "//": "One hidden woodland discovery. No mandatory road connection, marker or automatic reading."
   }
 ]

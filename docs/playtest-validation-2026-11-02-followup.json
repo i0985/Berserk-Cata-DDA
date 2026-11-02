@@ -1,0 +1,31 @@
+{
+  "current_33_tests": 447,
+  "item_loader_tests": 3,
+  "recipe_schema_tests": 5,
+  "dialogue_schema_tests": 7,
+  "total_passed": 462,
+  "assets": {
+    "packages": 2,
+    "json_files": 406,
+    "tileset_definitions": 29,
+    "sprite_sheets": 31,
+    "tile_ids": 99,
+    "translation_catalogs": 4
+  },
+  "repeat_build": {
+    "runtime_files": 459,
+    "drift": []
+  },
+  "native_game_run": false,
+  "actual_world_seed_tested": false,
+  "visited_maps_repainted": false,
+  "authored_png_changed": false,
+  "ordinary_start_forge_bootstrap": "registration only",
+  "native_target_origin_minimum_guaranteed": false,
+  "source_audit": [
+    "CDDA 0.I mission_util::parse_mission_om_target / find_or_create_om_terrain",
+    "CDDA 0.I overmapbuffer::place_special",
+    "CDDA 0.I jmapgen_spawn_item",
+    "CDDA 0.I data/json/overmap/special_locations.json"
+  ]
+}

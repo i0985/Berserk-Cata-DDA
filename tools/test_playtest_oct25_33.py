@@ -148,12 +148,12 @@ class Discovery(unittest.TestCase):
     def test_stranger_hears_band_name_before_asking_and_guts_already_knows(self):
         f=Rickert();f.met();band='TALK_BERSERK_RICKERT_BAND'
         self.assertNotIn(band,[r['topic'] for r in f.available('TALK_BERSERK_RICKERT')])
-        f.choose('TALK_BERSERK_RICKERT','RECENT_DAYS')
+        f.choose('TALK_BERSERK_RICKERT','TALK_BERSERK_NOV02B_RICKERT_SELF');f.choose('TALK_BERSERK_NOV02B_RICKERT_SELF','RECENT_DAYS')
         self.assertEqual(f.values['u_berserk_rickert_knows_band'],1)
         self.assertIn('Band of the Hawk',f.line('RECENT_DAYS'))
-        self.assertIn(band,[r['topic'] for r in f.available('TALK_BERSERK_RICKERT')])
+        self.assertIn(band,[r['topic'] for r in f.available('TALK_BERSERK_NOV02B_RICKERT_PAST')])
         f=Rickert();f.overrides['EOC_BERSERK_FORGE_GUTS']=True
-        self.assertIn(band,[r['topic'] for r in f.available('TALK_BERSERK_RICKERT')])
+        self.assertIn(band,[r['topic'] for r in f.available('TALK_BERSERK_NOV02B_RICKERT_PAST')])
 
 
 class GraphicsAndChapel(unittest.TestCase):
