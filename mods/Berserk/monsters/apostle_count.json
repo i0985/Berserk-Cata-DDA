@@ -48,8 +48,12 @@
       ]
     },
     "chat_topics": [
+      "TALK_BERSERK_NOV02_COUNT",
       "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
-    ]
+    ],
+    "aggression": 100,
+    "morale": 200,
+    "fear_triggers": []
   },
   {
     "type": "MONSTER",
@@ -82,7 +86,10 @@
       "species": [
         "BERSERK_COUNT_PAWN_HOUSEHOLD"
       ]
-    }
+    },
+    "aggression": 100,
+    "morale": 200,
+    "fear_triggers": []
   },
   {
     "type": "MONSTER",

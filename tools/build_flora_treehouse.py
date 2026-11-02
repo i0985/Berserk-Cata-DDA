@@ -8,7 +8,7 @@ from pathlib import Path
 MOD=Path(__file__).resolve().parents[1]/'mods/Berserk'
 SECTIONS=[('berserk_flora_manor_west',0,0),('berserk_flora_manor_east',1,0),
           ('berserk_flora_garden_west',0,1),('berserk_flora_garden_east',1,1)]
-PROJECT=json.loads((MOD.parent.parent/'docs/location_projects/flora-3.3-04.json').read_text())
+PROJECT=json.loads((MOD.parent.parent/'docs/location_projects/flora-3.3-05.json').read_text())
 ANCHORS=PROJECT['anchors']
 LAYOUT=tuple(ANCHORS['layout_marker'])
 FLORA=tuple(ANCHORS['flora'])

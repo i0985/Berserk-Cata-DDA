@@ -1,0 +1,542 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_GRUNBELD_MIGRATE",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_site_grunbeld_tries = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_grunbeld_locator02 = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "not": {
+            "math": [
+              "u_berserk_grunbeld_locator02 == 1"
+            ]
+          }
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_hunt_grunbeld_site_registered == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_GRUNBELD_RETRY",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_NOV02_GRUNBELD_NEW_AREA"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_NOV02_GRUNBELD_MIGRATE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_GRUNBELD_SEEK"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_flora_escaped == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_hunt_grunbeld_site_registered == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_grunbeld_retry_at"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_grunbeld_attempts02 < 3"
+          ]
+        }
+      ]
+    },
+    "global": true,
+    "recurrence": "1 minute"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_GRUNBELD_NEW_AREA",
+    "effect": [
+      {
+        "math": [
+          "u_berserk_grunbeld_attempts02 = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_grunbeld_retry_at = 0"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_site_grunbeld_tries = 0"
+        ]
+      },
+      {
+        "u_location_variable": {
+          "u_val": "berserk_grunbeld_area02"
+        }
+      }
+    ],
+    "global": true,
+    "recurrence": "1 minute",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "math": [
+            "u_berserk_flora_escaped == 1"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_hunt_grunbeld_site_registered == 1"
+            ]
+          }
+        },
+        {
+          "math": [
+            "u_val('pos_z') == 0"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "has_var(u_berserk_grunbeld_area02) == 0"
+              ]
+            },
+            {
+              "math": [
+                "distance('u', u_berserk_grunbeld_area02) >= 1152"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_COUNT_CHALLENGE",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_NOV02_COUNT_SEEN"
+      ],
+      "mtype_ids": [
+        "mon_berserk_apostle_count"
+      ],
+      "monster_range": 10,
+      "monster_must_see": true
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_at_om_location": "berserk_count_dungeon"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_path > 0"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_monsters_nearby('mon_berserk_apostle_count', 'radius': 10, 'attitude': 'both') > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_WYALD_CHALLENGE",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_NOV02_WYALD_SEEN"
+      ],
+      "mtype_ids": [
+        "mon_berserk_apostle_wyald"
+      ],
+      "monster_range": 10,
+      "monster_must_see": true
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_at_om_location": "berserk_wyald_ring"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_path > 0"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_monsters_nearby('mon_berserk_apostle_wyald', 'radius': 10, 'attitude': 'both') > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_ROSINE_CHALLENGE",
+    "effect": {
+      "u_run_monster_eocs": [
+        "EOC_BERSERK_NOV02_ROSINE_SEEN"
+      ],
+      "mtype_ids": [
+        "mon_berserk_apostle_rosine"
+      ],
+      "monster_range": 10,
+      "monster_must_see": true
+    },
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_at_om_location": "berserk_rosine_nest"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_path > 0"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 0"
+          ]
+        },
+        {
+          "math": [
+            "u_monsters_nearby('mon_berserk_apostle_rosine', 'radius': 10, 'attitude': 'both') > 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_COUNT_DEMON",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_apostol_path > 0"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_COUNT_SEEN",
+    "effect": {
+      "if": {
+        "math": [
+          "u_hp('torso') >= u_hp_max('torso')"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_NOV02_COUNT_OPEN",
+        "alpha_talker": "avatar",
+        "beta_talker": "u"
+      },
+      "else": [
+        {
+          "math": [
+            "berserk_apostol_count_pawn_encounter = 2"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_FIX28_COUNT_RELEASE",
+          "alpha_talker": "avatar",
+          "beta_talker": ""
+        }
+      ]
+    },
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_COUNT_OPEN",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_count_pawn_encounter = 2"
+        ]
+      },
+      "open_dialogue",
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_COUNT_RELEASE"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        "has_beta",
+        {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_WYALD_DEMON",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_apostol_path > 0"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_WYALD_SEEN",
+    "effect": {
+      "if": {
+        "math": [
+          "u_hp('torso') >= u_hp_max('torso')"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_NOV02_WYALD_OPEN",
+        "alpha_talker": "avatar",
+        "beta_talker": "u"
+      },
+      "else": [
+        {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter = 2"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_FIX28_WYALD_RELEASE",
+          "alpha_talker": "avatar",
+          "beta_talker": ""
+        }
+      ]
+    },
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_WYALD_OPEN",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_wyald_pawn_encounter = 2"
+        ]
+      },
+      "open_dialogue",
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_WYALD_RELEASE"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        "has_beta",
+        {
+          "math": [
+            "berserk_apostol_wyald_pawn_encounter == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_ROSINE_DEMON",
+    "effect": [],
+    "condition": {
+      "math": [
+        "u_berserk_apostol_path > 0"
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_ROSINE_SEEN",
+    "effect": {
+      "if": {
+        "math": [
+          "u_hp('torso') >= u_hp_max('torso')"
+        ]
+      },
+      "then": {
+        "run_eocs": "EOC_BERSERK_NOV02_ROSINE_OPEN",
+        "alpha_talker": "avatar",
+        "beta_talker": "u"
+      },
+      "else": [
+        {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter = 2"
+          ]
+        },
+        {
+          "run_eocs": "EOC_BERSERK_FIX28_ROSINE_RELEASE",
+          "alpha_talker": "avatar",
+          "beta_talker": ""
+        }
+      ]
+    },
+    "condition": "u_is_monster"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_ROSINE_OPEN",
+    "effect": [
+      {
+        "math": [
+          "berserk_apostol_rosine_pawn_encounter = 2"
+        ]
+      },
+      "open_dialogue",
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_ROSINE_RELEASE"
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        "has_beta",
+        {
+          "math": [
+            "berserk_apostol_rosine_pawn_encounter == 0"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_COUNT_COMBAT",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FIX28_COUNT_RELEASE"
+      },
+      {
+        "math": [
+          "u_berserk_count_combat02 = 1"
+        ]
+      }
+    ],
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_at_om_location": "berserk_count_dungeon"
+        },
+        {
+          "math": [
+            "u_berserk_apostol_path > 0"
+          ]
+        },
+        {
+          "math": [
+            "berserk_apostol_count_pawn_encounter == 2"
+          ]
+        },
+        {
+          "not": {
+            "math": [
+              "u_berserk_count_combat02 == 1"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_MOVE",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_NOV02_COUNT_CHALLENGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_NOV02_WYALD_CHALLENGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_NOV02_ROSINE_CHALLENGE"
+      },
+      {
+        "run_eocs": "EOC_BERSERK_NOV02_COUNT_COMBAT"
+      }
+    ],
+    "eoc_type": "EVENT",
+    "required_event": "avatar_moves",
+    "condition": "u_is_avatar"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_MANUSCRIPT_TAKEN",
+    "effect": {
+      "math": [
+        "berserk_flora_manuscript_rescued = 1"
+      ]
+    },
+    "global": true,
+    "recurrence": "10 seconds",
+    "condition": {
+      "and": [
+        "u_is_avatar",
+        {
+          "u_has_item": "berserk_flora_rescued_manuscript"
+        },
+        {
+          "not": {
+            "math": [
+              "berserk_flora_manuscript_rescued == 1"
+            ]
+          }
+        }
+      ]
+    }
+  }
+]

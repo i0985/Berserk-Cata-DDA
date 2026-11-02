@@ -1,0 +1,53 @@
+[
+  {
+    "type": "mod_tileset",
+    "compatibility": [
+      "UltimateCataclysm"
+    ],
+    "tiles-new": [
+      {
+        "file": "tileset/flora_native_furniture.png",
+        "sprite_width": 32,
+        "sprite_height": 64,
+        "sprite_offset_y": -32,
+        "tiles": [
+          {
+            "id": "f_berserk_flora_chair_south",
+            "fg": 0,
+            "rotates": false
+          },
+          {
+            "id": "f_berserk_flora_chair_west",
+            "fg": 1,
+            "rotates": false
+          },
+          {
+            "id": "f_berserk_flora_chair_north",
+            "fg": 2,
+            "rotates": false
+          },
+          {
+            "id": "f_berserk_flora_chair_east",
+            "fg": 3,
+            "rotates": false
+          },
+          {
+            "id": "f_berserk_flora_cupboard_south",
+            "fg": 4,
+            "rotates": false
+          },
+          {
+            "id": "f_berserk_flora_cupboard_west",
+            "fg": 5,
+            "rotates": false
+          },
+          {
+            "id": "f_berserk_flora_ward_shelf",
+            "fg": 8,
+            "rotates": false
+          }
+        ]
+      }
+    ]
+  }
+]

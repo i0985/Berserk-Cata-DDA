@@ -153,6 +153,21 @@
     "id": "EOC_BERSERK_GRUNBELD_FIND",
     "effect": [
       {
+        "math": [
+          "u_berserk_grunbeld_retry_at = time('now') + time('30 minutes')"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_grunbeld_attempts02 = u_berserk_grunbeld_attempts02 + 1"
+        ]
+      },
+      {
+        "math": [
+          "u_berserk_site_grunbeld_tries = 0"
+        ]
+      },
+      {
         "if": {
           "math": [
             "u_berserk_site_grunbeld_locator_schema != 2"
@@ -237,7 +252,7 @@
                 "min_distance": 0,
                 "z": 0,
                 "om_special": "berserk_grunbeld_stronghold_special",
-                "search_range": 208
+                "search_range": 128
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_GRUNBELD_VALIDATE"
@@ -256,7 +271,7 @@
                 "min_distance": 0,
                 "z": 0,
                 "om_special": "berserk_grunbeld_stronghold_special",
-                "search_range": 208
+                "search_range": 128
               },
               "true_eocs": [
                 "EOC_BERSERK_SITE_GRUNBELD_VALIDATE"
@@ -296,6 +311,16 @@
                 "berserk_hunt_grunbeld_site_registered == 1"
               ]
             }
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= u_berserk_grunbeld_retry_at"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_grunbeld_attempts02 < 3"
           ]
         }
       ]

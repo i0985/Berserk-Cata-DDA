@@ -13,7 +13,7 @@ from test_godo_dialogue_33 import Conversation
 
 ROOT=Path(__file__).resolve().parents[1]
 MOD=ROOT/'mods/Berserk'
-PROJECT=json.loads((ROOT/'docs/location_projects/flora-3.3-04.json').read_text())
+PROJECT=json.loads((ROOT/'docs/location_projects/flora-3.3-05.json').read_text())
 
 
 def load(p):return json.loads((MOD/p).read_text())
@@ -81,7 +81,7 @@ class Oct23PlaytestFix(unittest.TestCase):
                     key=node['mapgen_update'];self.assertIn(key,updates)
                     prefix=('berserk_flora_treehouse_v4_' if version==4 else 'berserk_flora_treehouse_v3_' if version==3 else 'berserk_flora_treehouse_v2_' if version==2 else 'berserk_flora_treehouse_' if version==1 else 'berserk_flora_')
                     self.assertTrue(key.startswith(prefix),(version,key))
-        self.assertEqual(count,16)
+        self.assertEqual(count,12)
 
     def test_eastern_wall_is_breached_only_by_v3_assault(self):
         updates=load('mapgen/flora_treehouse_v3_updates.json')

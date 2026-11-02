@@ -1,0 +1,784 @@
+[
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_NOV02_COUNT",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_NOV02_COUNT_DEMON",
+      "yes": "That power did not come from my hand. You already carry another will into my house. Tell me why I should let you leave it.",
+      "no": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL",
+        "yes": "You've returned. With results, I hope.",
+        "no": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING",
+          "yes": {
+            "math": [
+              "u_berserk_contract33_count_intro_seen == 1"
+            ],
+            "yes": "Beyond these walls lies chaos. People tear at one another for a handful of grain, a mouthful of water.\n\nHere, there is a master. Here, there is order. I need those capable of upholding it.",
+            "no": "&The Count raises his heavy body above the dungeon floor and bars your way.\n\n\"Enough. You stand before me instead of lying on the floor. So either you are worth something, or you have yet to understand where you are.\""
+          },
+          "no": {
+            "test_eoc": "EOC_BERSERK_CONTRACT33_LINE_FE7DEDA6608E",
+            "yes": "You raised your hand against what belongs to me.\n\nAnd came here again, as though you still had the right to ask for anything?",
+            "no": {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS",
+              "yes": {
+                "u_has_bionics": "bio_berserk_brand_of_sacrifice",
+                "yes": "Branded one. You came to my house yourself.",
+                "no": "Empty-handed or bearing steel, you have entered my domain all the same."
+              },
+              "no": "The time to ask for a place at court has passed."
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "I'm listening.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_OFFER",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_COUNT_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I don't need your permission.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DEFY",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_COUNT_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I've come to end your rule.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_REFUSAL",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_COUNT_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "What do you demand?",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SERVICE",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_COUNT_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_FAVOR"
+                  }
+                },
+                {
+                  "u_has_items": {
+                    "item": "leather",
+                    "count": 2
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_COUNT_DEMON"
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_PAY"
+          }
+        ]
+      },
+      {
+        "text": "I'm not finished yet.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_LATE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_FAVOR"
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_COUNT_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Your help has worn off.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SUPPORT_GONE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_FAVOR"
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_COUNT_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Your help is still with me.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SUPPORT_ACTIVE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_FAVOR"
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_COUNT_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Will my new nature remain?",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_BODY",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_COUNT_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "End the conversation.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_COUNT_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I came to end this.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_NOV02_COUNT_DEMON"
+        }
+      },
+      {
+        "text": "There is nothing to discuss.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_NOV02_COUNT_DEMON"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_NOV02_WYALD",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_NOV02_WYALD_DEMON",
+      "yes": "Ha! You already reek of them. Then spare me the begging. Let us see what that gift is worth when someone tears at your throat.",
+      "no": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL",
+        "yes": "Well? What brings you here?",
+        "no": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING",
+          "yes": {
+            "math": [
+              "u_berserk_contract33_wyald_intro_seen == 1"
+            ],
+            "yes": "Stay with the Dogs. Strength, plunder, fun. Not a life spent asking permission to pass.\n\nYou'll decide who gets past, and who gets buried.",
+            "no": "&Wyald bares his teeth, bracing his enormous limbs against the ground.\n\n\"Hey! Don't go soft on me yet. Got a question. Aren't you tired of shaking at every shadow on the road?\""
+          },
+          "no": {
+            "test_eoc": "EOC_BERSERK_CONTRACT33_LINE_C534203CD206",
+            "yes": "Baring your teeth at me?\n\nAbout time we found out what they're really worth!",
+            "no": {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS",
+              "yes": "Come on, swordsman. Show me why you're here.",
+              "no": "Come on! Show me what your words are worth!"
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Depends on what you're offering.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_OFFER",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_WYALD_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I'm not afraid of you.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DEFY",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_WYALD_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Get out of my way.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_REFUSAL",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_WYALD_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "What business?",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SERVICE",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_WYALD_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_FAVOR"
+                  }
+                },
+                {
+                  "u_has_items": {
+                    "item": "scrap",
+                    "count": 12
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_WYALD_DEMON"
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_PAY"
+          }
+        ]
+      },
+      {
+        "text": "Nothing yet.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_LATE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_FAVOR"
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_WYALD_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Your help has worn off.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SUPPORT_GONE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_FAVOR"
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_WYALD_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Your help is still with me.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SUPPORT_ACTIVE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_FAVOR"
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_WYALD_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Will my new nature remain?",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_BODY",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_WYALD_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "End the conversation.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_WYALD_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I came to end this.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_NOV02_WYALD_DEMON"
+        }
+      },
+      {
+        "text": "There is nothing to discuss.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_NOV02_WYALD_DEMON"
+        }
+      }
+    ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_NOV02_ROSINE",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON",
+      "yes": "You brought something strange into my valley. I cannot make you one of my children. Why did you come here?",
+      "no": {
+        "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL",
+        "yes": "You're back! What's out there, beyond the trees?",
+        "no": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING",
+          "yes": {
+            "math": [
+              "u_berserk_contract33_rosine_intro_seen == 1"
+            ],
+            "yes": "You can stay here. You don't have to go back to them.\n\nThey only frighten you. Order you around. Hurt you, and then wonder why you don't trust them.",
+            "no": "&Wings flicker between the trees. Rosine hovers over the path, studying you.\n\n\"Are you from there? From the places where the houses are full of the dead?\""
+          },
+          "no": {
+            "test_eoc": "EOC_BERSERK_CONTRACT33_LINE_B5FC4D555682",
+            "yes": "I let you in. You knew where we lived.\n\nAnd you still did this?",
+            "no": {
+              "test_eoc": "EOC_BERSERK_FORGE_GUTS",
+              "yes": "Have you come to destroy my home?",
+              "no": "Stay away from us!"
+            }
+          }
+        }
+      }
+    },
+    "responses": [
+      {
+        "text": "Yes.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I'm looking for whoever lives in this valley.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "What is happening here?",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "What do you need?",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SERVICE",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_FAVOR"
+                  }
+                },
+                {
+                  "u_has_items": {
+                    "item": "meat",
+                    "count": 4
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_PAY"
+          }
+        ]
+      },
+      {
+        "text": "I haven't found it yet.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_LATE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_FAVOR"
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Your help has worn off.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SUPPORT_GONE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_FAVOR"
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Your help is still with me.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SUPPORT_ACTIVE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_FAVOR"
+                }
+              ]
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Will my new nature remain?",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_BODY",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I need to be alone.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ALONE",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "End the conversation.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "and": [
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+              }
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "I came to end this.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
+        }
+      },
+      {
+        "text": "There is nothing to discuss.",
+        "topic": "TALK_DONE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,212 @@
+[
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_flora_gallery_record_paper",
+    "name": {
+      "str_sp": "root gallery inscription"
+    },
+    "description": "Handwritten pages, left on a table where they can be read. You can take them with you.",
+    "weight": "5 g",
+    "volume": "1 ml",
+    "material": [
+      "paper"
+    ],
+    "symbol": "?",
+    "color": "light_gray",
+    "looks_like": "paper",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "need_wielding": false,
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_GALLERY_RECORD"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_flora_west_sign_paper",
+    "name": {
+      "str_sp": "western road marker"
+    },
+    "description": "Handwritten pages, left on a table where they can be read. You can take them with you.",
+    "weight": "5 g",
+    "volume": "1 ml",
+    "material": [
+      "paper"
+    ],
+    "symbol": "?",
+    "color": "light_gray",
+    "looks_like": "paper",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "need_wielding": false,
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_WEST_SIGN"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_flora_house_rules_paper",
+    "name": {
+      "str_sp": "Flora's household note"
+    },
+    "description": "Handwritten pages, left on a table where they can be read. You can take them with you.",
+    "weight": "5 g",
+    "volume": "1 ml",
+    "material": [
+      "paper"
+    ],
+    "symbol": "?",
+    "color": "light_gray",
+    "looks_like": "paper",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "need_wielding": false,
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_HOUSE_RULES"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_flora_scene_paper",
+    "name": {
+      "str_sp": "Flora's work journal"
+    },
+    "description": "Handwritten pages, left on a table where they can be read. You can take them with you.",
+    "weight": "5 g",
+    "volume": "1 ml",
+    "material": [
+      "paper"
+    ],
+    "symbol": "?",
+    "color": "light_gray",
+    "looks_like": "paper",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "need_wielding": false,
+      "effect_on_conditions": [
+        "EOC_BERSERK_SCENERY_FLORA"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_flora_guest_record_paper",
+    "name": {
+      "str_sp": "guest-room welcome"
+    },
+    "description": "Handwritten pages, left on a table where they can be read. You can take them with you.",
+    "weight": "5 g",
+    "volume": "1 ml",
+    "material": [
+      "paper"
+    ],
+    "symbol": "?",
+    "color": "light_gray",
+    "looks_like": "paper",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "need_wielding": false,
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_GUEST_RECORD"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_flora_south_sign_paper",
+    "name": {
+      "str_sp": "southern garden marker"
+    },
+    "description": "Handwritten pages, left on a table where they can be read. You can take them with you.",
+    "weight": "5 g",
+    "volume": "1 ml",
+    "material": [
+      "paper"
+    ],
+    "symbol": "?",
+    "color": "light_gray",
+    "looks_like": "paper",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "need_wielding": false,
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_SOUTH_SIGN"
+      ]
+    }
+  },
+  {
+    "type": "ITEM",
+    "subtypes": [
+      "TOOL"
+    ],
+    "id": "berserk_flora_garden_record_paper",
+    "name": {
+      "str_sp": "herb-garden marker"
+    },
+    "description": "Handwritten pages, left on a table where they can be read. You can take them with you.",
+    "weight": "5 g",
+    "volume": "1 ml",
+    "material": [
+      "paper"
+    ],
+    "symbol": "?",
+    "color": "light_gray",
+    "looks_like": "paper",
+    "charges_per_use": 0,
+    "flags": [
+      "ALLOWS_REMOTE_USE"
+    ],
+    "use_action": {
+      "type": "effect_on_conditions",
+      "need_wielding": false,
+      "effect_on_conditions": [
+        "EOC_BERSERK_FLORA_READ_GARDEN_RECORD"
+      ]
+    }
+  }
+]

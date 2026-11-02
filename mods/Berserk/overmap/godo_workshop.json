@@ -40,7 +40,7 @@
     "id": "berserk_godo_workshop_special",
     "occurrences": [
       0,
-      1
+      0
     ],
     "flags": [
       "GLOBALLY_UNIQUE",
@@ -81,6 +81,17 @@
           "open_air"
         ]
       }
-    ]
+    ],
+    "spawns": {
+      "group": "GROUP_BERSERK_STORY_PLACEMENT_BUFFER",
+      "population": [
+        0,
+        0
+      ],
+      "radius": [
+        32,
+        32
+      ]
+    }
   }
 ]

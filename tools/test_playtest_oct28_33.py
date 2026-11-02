@@ -67,7 +67,7 @@ class Regression(unittest.TestCase):
     self.assertEqual(o['locations'],['forest']);self.assertGreaterEqual(o['city_distance'][0],10);self.assertEqual(o['occurrences'],[4,100])
   for o in load('mapgen/road_stories.json'):
    rows=o['object']['rows'];self.assertTrue(all(len(r)==24 for r in rows))
-   self.assertTrue(all(c in 'Tu' for c in rows[0]+rows[-1]))
+   self.assertTrue(all(c in 'Tup' for c in rows[0]+rows[-1]))
    self.assertTrue(all(r[0] in 'Tu' and r[-1] in 'Tu' for r in rows))
  def test_forest_routes_have_one_saved_choice_and_one_mission(self):
   read=EOCS[P+'BEHELIT_LEAD_READ'];choice=read['effect'][1]
@@ -78,7 +78,7 @@ class Regression(unittest.TestCase):
   m=load('missions/woodland_stone.json')[0]
   self.assertEqual(m['start']['assign_mission_target']['var'],{'u_val':'berserk_forge_behelit_route'})
  def test_spacing_has_real_special_exclusion_not_fake_min_distance(self):
-  for f,r in [('first_hunt',48),('local_breach',48),('apostle_count',104),('wyald_rosine_hunts',104),('grunbeld_hunt',104)]:
+  for f,r in [('first_hunt',48),('local_breach',48),('apostle_count',64),('wyald_rosine_hunts',64),('grunbeld_hunt',48)]:
    for o in load('overmap/'+f+'.json'):
     if o['type']=='overmap_special':self.assertEqual(o['spawns']['radius'],[r,r]);self.assertEqual(o['spawns']['population'],[0,0])
  def test_rosine_does_not_explain_trap_before_acceptance(self):

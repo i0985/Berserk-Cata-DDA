@@ -1,0 +1,25 @@
+{
+  "current_33_tests": 432,
+  "item_loader_tests": 3,
+  "recipe_schema_tests": 5,
+  "dialogue_schema_tests": 7,
+  "total_passed": 447,
+  "assets": {
+    "packages": 2,
+    "json_files": 405,
+    "tileset_definitions": 29,
+    "sprite_sheets": 31,
+    "tile_ids": 99,
+    "translation_catalogs": 4
+  },
+  "repeat_build": {
+    "runtime_files": 458,
+    "drift": []
+  },
+  "native_game_run": false,
+  "freeze_reproduced": false,
+  "log_findings": "Two consecutive failed berserk_grunbeld_crucible lookups within 208 tiles during the escape EOC chain. Native generation timing has not been measured.",
+  "old_saved_maps_repainted": false,
+  "authored_png_changed": false,
+  "native_furniture_source": "docs/flora-native-furniture-2026-11-02.json"
+}

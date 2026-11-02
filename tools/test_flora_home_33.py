@@ -3,12 +3,12 @@ import json,unittest,gettext
 from pathlib import Path
 from test_reference_journal_33 import MOD,EOCS,TOPICS,walk
 ROOT=MOD.parents[1]
-D=json.loads((ROOT/'docs/location_projects/flora-3.3-04.json').read_text())
+D=json.loads((ROOT/'docs/location_projects/flora-3.3-05.json').read_text())
 class Home(unittest.TestCase):
  def test_notes_and_rooms_match_owner_coordinates(self):
   f={(x,y):k for k,x,y in D['furniture']}
-  self.assertEqual(f[11,17],'f_berserk_flora_stone_hearth');self.assertEqual(f[19,17],'f_berserk_flora_house_rules')
-  self.assertEqual(f[11,19],'f_berserk_flora_scene');self.assertEqual(f[12,6],'f_berserk_flora_manuscript')
+  self.assertEqual(f[11,17],'f_berserk_flora_stone_hearth');self.assertEqual(f[19,17],'f_table')
+  self.assertEqual(f[11,19],'f_table');self.assertEqual(f[12,6],'f_table')
   self.assertEqual(f[11,28],'f_berserk_flora_linen_bed');self.assertEqual(f[16,29],'f_berserk_flora_linen_bed')
  def test_box_aisle_and_new_doors_are_open(self):
   f={(x,y):k for k,x,y in D['furniture']}
@@ -18,7 +18,7 @@ class Home(unittest.TestCase):
  def test_stock_is_real_and_no_modern_cans_or_powered_tools(self):
   f={(x,y):k for k,x,y in D['furniture']}
   for obj in D['stock']:self.assertIn((obj['x'],obj['y']),f);self.assertGreater(obj['amount'],0)
-  ids={x['item'] for x in D['stock']};self.assertIn('dry_meat',ids);self.assertFalse(any('can_' in x or 'electric' in x for x in ids))
+  ids={x['item'] for x in D['stock']};self.assertIn('dry_veggy',ids);self.assertFalse(any('can_' in x or 'electric' in x for x in ids))
  def test_aid_always_has_real_answers(self):
   rs=TOPICS['TALK_BERSERK_FLORA_AID']['responses']
   self.assertGreaterEqual(len([r for r in rs if r['topic']!='TALK_BERSERK_FLORA' and 'condition' not in r]),3)

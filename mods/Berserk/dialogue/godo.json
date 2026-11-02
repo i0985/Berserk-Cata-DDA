@@ -11438,11 +11438,20 @@
         "text": "Take the sketch with me.",
         "topic": "TALK_BERSERK_GODO",
         "condition": {
-          "not": {
-            "math": [
-              "u_berserk_forge_sketch_given == 1"
-            ]
-          }
+          "and": [
+            {
+              "not": {
+                "math": [
+                  "u_berserk_forge_sketch_given == 1"
+                ]
+              }
+            },
+            {
+              "not": {
+                "u_has_item": "berserk_forge_woodland_sketch"
+              }
+            }
+          ]
         },
         "effect": [
           {
