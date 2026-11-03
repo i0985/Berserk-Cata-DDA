@@ -157,49 +157,23 @@
             ]
           },
           {
-            "if": {
-              "math": [
-                "u_berserk_site_count_tries == 1"
-              ]
+            "u_location_variable": {
+              "context_val": "berserk_site_count_candidate"
             },
-            "then": {
-              "u_location_variable": {
-                "context_val": "berserk_site_count_candidate"
-              },
-              "target_params": {
-                "om_terrain": "berserk_count_hall",
-                "random": true,
-                "min_distance": 0,
-                "z": 0,
-                "om_special": "berserk_count_residence_special",
-                "search_range": 208
-              },
-              "true_eocs": [
-                "EOC_BERSERK_SITE_COUNT_VALIDATE"
-              ],
-              "false_eocs": [
-                "EOC_BERSERK_SITE_COUNT_FAILED"
-              ]
+            "target_params": {
+              "om_terrain": "berserk_count_hall",
+              "random": true,
+              "min_distance": 0,
+              "z": 0,
+              "om_special": "berserk_count_residence_special",
+              "search_range": 208
             },
-            "else": {
-              "u_location_variable": {
-                "context_val": "berserk_site_count_candidate"
-              },
-              "target_params": {
-                "om_terrain": "berserk_count_hall",
-                "random": true,
-                "min_distance": 0,
-                "z": 0,
-                "om_special": "berserk_count_residence_special",
-                "search_range": 208
-              },
-              "true_eocs": [
-                "EOC_BERSERK_SITE_COUNT_VALIDATE"
-              ],
-              "false_eocs": [
-                "EOC_BERSERK_SITE_COUNT_FAILED"
-              ]
-            }
+            "true_eocs": [
+              "EOC_BERSERK_SITE_COUNT_VALIDATE"
+            ],
+            "false_eocs": [
+              "EOC_BERSERK_SITE_COUNT_FAILED"
+            ]
           }
         ],
         "else": {
@@ -490,37 +464,5 @@
       "type": "info",
       "popup": true
     }
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_BERSERK_COUNT_TROPHY_READ",
-    "effect": {
-      "if": {
-        "math": [
-          "u_berserk_journal_read_berserk_count_iron_seal == 1"
-        ]
-      },
-      "then": {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_JOURNAL_RECORD_BERSERK_COUNT_IRON_SEAL"
-        }
-      },
-      "else": [
-        {
-          "u_message": "Wear the Seal of Severed Flesh to add 20% of each damaging hit against the listed demons, apostles and projections; the extra damage is rounded down after their defenses. Zombies and people receive no extra damage. Closing the Count's exposed breach quiets future incursions near his residence, but does not erase the Brand. Other apostles must be hunted separately.",
-          "type": "info",
-          "popup": true
-        },
-        {
-          "math": [
-            "u_berserk_journal_read_berserk_count_iron_seal = 1"
-          ]
-        },
-        {
-          "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
-        }
-      ]
-    },
-    "//": "Road journal archive: berserk_count_iron_seal"
   }
 ]

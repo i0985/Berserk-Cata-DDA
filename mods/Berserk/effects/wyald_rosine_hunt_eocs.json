@@ -170,49 +170,23 @@
             ]
           },
           {
-            "if": {
-              "math": [
-                "u_berserk_site_wyald_tries == 1"
-              ]
+            "u_location_variable": {
+              "context_val": "berserk_site_wyald_candidate"
             },
-            "then": {
-              "u_location_variable": {
-                "context_val": "berserk_site_wyald_candidate"
-              },
-              "target_params": {
-                "om_terrain": "berserk_wyald_ring",
-                "random": true,
-                "min_distance": 0,
-                "z": 0,
-                "om_special": "berserk_wyald_camp_special",
-                "search_range": 208
-              },
-              "true_eocs": [
-                "EOC_BERSERK_SITE_WYALD_VALIDATE"
-              ],
-              "false_eocs": [
-                "EOC_BERSERK_SITE_WYALD_FAILED"
-              ]
+            "target_params": {
+              "om_terrain": "berserk_wyald_ring",
+              "random": true,
+              "min_distance": 0,
+              "z": 0,
+              "om_special": "berserk_wyald_camp_special",
+              "search_range": 208
             },
-            "else": {
-              "u_location_variable": {
-                "context_val": "berserk_site_wyald_candidate"
-              },
-              "target_params": {
-                "om_terrain": "berserk_wyald_ring",
-                "random": true,
-                "min_distance": 0,
-                "z": 0,
-                "om_special": "berserk_wyald_camp_special",
-                "search_range": 208
-              },
-              "true_eocs": [
-                "EOC_BERSERK_SITE_WYALD_VALIDATE"
-              ],
-              "false_eocs": [
-                "EOC_BERSERK_SITE_WYALD_FAILED"
-              ]
-            }
+            "true_eocs": [
+              "EOC_BERSERK_SITE_WYALD_VALIDATE"
+            ],
+            "false_eocs": [
+              "EOC_BERSERK_SITE_WYALD_FAILED"
+            ]
           }
         ],
         "else": {
@@ -1185,49 +1159,23 @@
             ]
           },
           {
-            "if": {
-              "math": [
-                "u_berserk_site_rosine_tries == 1"
-              ]
+            "u_location_variable": {
+              "context_val": "berserk_site_rosine_candidate"
             },
-            "then": {
-              "u_location_variable": {
-                "context_val": "berserk_site_rosine_candidate"
-              },
-              "target_params": {
-                "om_terrain": "berserk_rosine_nest",
-                "random": true,
-                "min_distance": 0,
-                "z": 0,
-                "om_special": "berserk_rosine_valley_special",
-                "search_range": 208
-              },
-              "true_eocs": [
-                "EOC_BERSERK_SITE_ROSINE_VALIDATE"
-              ],
-              "false_eocs": [
-                "EOC_BERSERK_SITE_ROSINE_FAILED"
-              ]
+            "target_params": {
+              "om_terrain": "berserk_rosine_nest",
+              "random": true,
+              "min_distance": 0,
+              "z": 0,
+              "om_special": "berserk_rosine_valley_special",
+              "search_range": 208
             },
-            "else": {
-              "u_location_variable": {
-                "context_val": "berserk_site_rosine_candidate"
-              },
-              "target_params": {
-                "om_terrain": "berserk_rosine_nest",
-                "random": true,
-                "min_distance": 0,
-                "z": 0,
-                "om_special": "berserk_rosine_valley_special",
-                "search_range": 208
-              },
-              "true_eocs": [
-                "EOC_BERSERK_SITE_ROSINE_VALIDATE"
-              ],
-              "false_eocs": [
-                "EOC_BERSERK_SITE_ROSINE_FAILED"
-              ]
-            }
+            "true_eocs": [
+              "EOC_BERSERK_SITE_ROSINE_VALIDATE"
+            ],
+            "false_eocs": [
+              "EOC_BERSERK_SITE_ROSINE_FAILED"
+            ]
           }
         ],
         "else": {
@@ -2091,67 +2039,6 @@
         "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
     ]
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_BERSERK_HUNT_JOURNAL_USE",
-    "effect": [
-      {
-        "run_eocs": "EOC_BERSERK_REF_SYNC"
-      },
-      {
-        "open_dialogue": {
-          "topic": "TALK_BERSERK_REF_PLACES"
-        }
-      }
-    ],
-    "false_effect": {
-      "u_message": "These trails belong to the road after the Eclipse and the first hunt.",
-      "type": "info",
-      "popup": true
-    },
-    "condition": {
-      "and": [
-        {
-          "and": [
-            {
-              "math": [
-                "berserk_eclipse_era == 1"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_eclipse_trial_active != 1"
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "u_berserk_eclipse_rescue_state == 2"
-                  ]
-                },
-                {
-                  "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "or": [
-            {
-              "math": [
-                "u_berserk_first_hunt_done == 1"
-              ]
-            },
-            {
-              "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-            }
-          ]
-        }
-      ]
-    }
   },
   {
     "type": "effect_on_condition",

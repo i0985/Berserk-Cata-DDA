@@ -1,13 +1,6 @@
 [
   {
     "type": "effect_on_condition",
-    "id": "EOC_BERSERK_OAK_DISTRACTION_PULSE",
-    "eoc_type": "ACTIVATION",
-    "//": "Queued activation captures the examined furniture cell in context pos. Skip remote/unloaded-floor pulses; never move the source to the player.",
-    "effect": []
-  },
-  {
-    "type": "effect_on_condition",
     "id": "EOC_BERSERK_CAVE_DISTRACTION_PULSE",
     "eoc_type": "ACTIVATION",
     "//": "Queued activation captures the examined furniture cell in context pos. Skip remote/unloaded-floor pulses; never move the source to the player.",
@@ -53,20 +46,6 @@
         ]
       }
     }
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_BERSERK_CHAPEL_DISTRACTION_PULSE",
-    "eoc_type": "ACTIVATION",
-    "//": "Queued activation captures the examined furniture cell in context pos. Skip remote/unloaded-floor pulses; never move the source to the player.",
-    "effect": []
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_BERSERK_EXPEDITION_DISTRACTION_PULSE",
-    "eoc_type": "ACTIVATION",
-    "//": "Queued activation captures the examined furniture cell in context pos. Skip remote/unloaded-floor pulses; never move the source to the player.",
-    "effect": []
   },
   {
     "type": "effect_on_condition",

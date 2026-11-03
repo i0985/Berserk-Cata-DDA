@@ -325,30 +325,6 @@
   },
   {
     "type": "effect_on_condition",
-    "id": "EOC_BERSERK_GODO_LOCATE_80",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_GODO_LOCATE_60"
-    },
-    "condition": {
-      "not": {
-        "test_eoc": "EOC_BERSERK_GODO_KNOWN"
-      }
-    }
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_BERSERK_GODO_LOCATE_100",
-    "effect": {
-      "run_eocs": "EOC_BERSERK_GODO_LOCATE_60"
-    },
-    "condition": {
-      "not": {
-        "test_eoc": "EOC_BERSERK_GODO_KNOWN"
-      }
-    }
-  },
-  {
-    "type": "effect_on_condition",
     "id": "EOC_BERSERK_GODO_LOCATE",
     "effect": [
       {

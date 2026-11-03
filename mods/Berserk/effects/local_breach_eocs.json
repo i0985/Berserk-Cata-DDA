@@ -98,49 +98,23 @@
             ]
           },
           {
-            "if": {
-              "math": [
-                "u_berserk_site_breach_tries == 1"
-              ]
+            "u_location_variable": {
+              "context_val": "berserk_site_breach_candidate"
             },
-            "then": {
-              "u_location_variable": {
-                "context_val": "berserk_site_breach_candidate"
-              },
-              "target_params": {
-                "om_terrain": "berserk_local_breach",
-                "om_special": "berserk_local_breach_special",
-                "random": true,
-                "search_range": 96,
-                "min_distance": 0,
-                "z": 0
-              },
-              "true_eocs": [
-                "EOC_BERSERK_SITE_BREACH_VALIDATE"
-              ],
-              "false_eocs": [
-                "EOC_BERSERK_SITE_BREACH_FAILED"
-              ]
+            "target_params": {
+              "om_terrain": "berserk_local_breach",
+              "om_special": "berserk_local_breach_special",
+              "random": true,
+              "search_range": 96,
+              "min_distance": 0,
+              "z": 0
             },
-            "else": {
-              "u_location_variable": {
-                "context_val": "berserk_site_breach_candidate"
-              },
-              "target_params": {
-                "om_terrain": "berserk_local_breach",
-                "om_special": "berserk_local_breach_special",
-                "random": true,
-                "search_range": 96,
-                "min_distance": 0,
-                "z": 0
-              },
-              "true_eocs": [
-                "EOC_BERSERK_SITE_BREACH_VALIDATE"
-              ],
-              "false_eocs": [
-                "EOC_BERSERK_SITE_BREACH_FAILED"
-              ]
-            }
+            "true_eocs": [
+              "EOC_BERSERK_SITE_BREACH_VALIDATE"
+            ],
+            "false_eocs": [
+              "EOC_BERSERK_SITE_BREACH_FAILED"
+            ]
           }
         ],
         "else": {

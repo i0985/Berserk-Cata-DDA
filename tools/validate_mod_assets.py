@@ -705,15 +705,21 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
         expected = BASE_TILESET_IDS if mod_id == CONTENT_MOD_ID else expected_extra
         authored_policy = read_json(ROOT / 'docs/authored-common-sprites-2026-10-25.json')
         authored_defs = {x['definition'] for x in authored_policy['sheets']}
+        bound_images: set[Path] = set()
         for path, objects in objects_by_file.items():
             for entry in objects:
                 if entry.get("type") == "mod_tileset":
                     sheets, tiles = validate_tileset(
                         package, path, entry, (authored_policy['compatibility'] if mod_id == CONTENT_MOD_ID and path.name in authored_defs else expected), known_ids
                     )
+                    bound_images.update((package / sheet["file"]).resolve() for sheet in entry["tiles-new"])
                     tileset_count += 1
                     sheet_count += sheets
                     tile_count += tiles
+        unbound = sorted(p.relative_to(package).as_posix() for p in package.rglob("*.png")
+                         if p.resolve() not in bound_images)
+        if unbound:
+            raise ValidationError(f"{mod_id}: unbound PNG files: {', '.join(unbound)}")
 
     return {
         "packages": len(packages),

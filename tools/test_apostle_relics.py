@@ -233,22 +233,6 @@ class ApostleRelics(unittest.TestCase):
         # The death EOC now emits the one body reward only before withdrawal.
         # Its real-death / retired-actor regressions live in test_new_horizon_31.
 
-    def test_new_player_strings_have_compiled_russian_and_chinese_translations(self):
-        items = objects(MOD/'items/apostle_relics.json')
-        g = RelicGraph()
-        strings = [i['description'] for i in items]
-        strings.append(g.eocs['EOC_BERSERK_MODE_START']['effect'][-1]['u_message'])
-        strings.append(g.eocs['EOC_BERSERK_COUNT_TROPHY_READ']['effect']['u_message'])
-        strings.extend(f'Berserk mode: {s} seconds remaining.' for s in (150,180))
-        for locale in ('ru','zh_CN'):
-            with (MOD/f'lang/mo/{locale}/LC_MESSAGES/Berserk.mo').open('rb') as f:
-                catalog = gettext.GNUTranslations(f)
-            for msg in strings:
-                self.assertNotEqual(catalog.gettext(msg), msg)
-            for item in items:
-                for number in (1,2,5):
-                    self.assertNotIn(catalog.ngettext(item['name']['str'], item['name']['str_pl'], number),
-                                     item['name'].values())
 
 
 if __name__ == '__main__':

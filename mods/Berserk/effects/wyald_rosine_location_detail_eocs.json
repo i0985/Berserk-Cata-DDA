@@ -499,32 +499,6 @@
     ]
   },
   {
-    "type": "effect_on_condition",
-    "id": "EOC_BERSERK_WYALD_WAGON_BELL",
-    "condition": {
-      "and": [
-        {
-          "math": [
-            "distance('u', _pos) <= 1"
-          ]
-        },
-        {
-          "map_furniture_id": "f_berserk_wyald_wagon_chime",
-          "loc": {
-            "context_val": "pos"
-          }
-        }
-      ]
-    },
-    "effect": []
-  },
-  {
-    "type": "effect_on_condition",
-    "id": "EOC_BERSERK_WYALD_WAGON_PULSE",
-    "eoc_type": "ACTIVATION",
-    "effect": []
-  },
-  {
     "type": "ter_furn_transform",
     "id": "berserk_rosine_shell_searched",
     "furniture": [

@@ -4,7 +4,6 @@
 from __future__ import annotations
 
 import argparse
-import shutil
 import sys
 import zipfile
 from pathlib import Path
@@ -20,7 +19,9 @@ def files_for(package: Path):
     yield from sorted(
         path
         for path in package.rglob("*")
-        if path.is_file() and "__pycache__" not in path.parts and path.suffix != ".pyc"
+        if path.is_file() and path.suffix not in {".pyc", ".aseprite"}
+        and not any(part.startswith(".") or part == "__pycache__"
+                    for part in path.relative_to(package).parts)
     )
 
 
@@ -50,9 +51,7 @@ def main() -> int:
         return 1
 
     output = args.output.resolve()
-    if output.exists():
-        shutil.rmtree(output)
-    output.mkdir(parents=True)
+    output.mkdir(parents=True, exist_ok=True)
 
     archives = [
         ("Berserk.zip", ("Berserk",)),
@@ -62,7 +61,7 @@ def main() -> int:
     for filename, package_names in archives:
         path = output / filename
         write_archive(path, package_names)
-        print(f"Wrote {path.relative_to(ROOT)} ({path.stat().st_size} bytes)")
+        print(f"Wrote {path} ({path.stat().st_size} bytes)")
     print(f"Validated {counts['json_files']} JSON files before packaging")
     return 0
 

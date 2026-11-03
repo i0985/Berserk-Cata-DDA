@@ -1,24 +1,6 @@
 [
   {
     "type": "effect_on_condition",
-    "id": "EOC_SPAWN_NETHER",
-    "effect": [
-      {
-        "u_spawn_monster": "mon_void_apostle",
-        "real_count": 3,
-        "min_radius": 5,
-        "max_radius": 15,
-        "outdoor_only": true
-      },
-      {
-        "u_message": "An unnatural darkness surrounds you, and monsters emerge from the shadows!",
-        "type": "warning",
-        "popup": true
-      }
-    ]
-  },
-  {
-    "type": "effect_on_condition",
     "id": "EOC_BERSERK_SKULL_KNIGHT_ENCOUNTER",
     "effect": [
       {

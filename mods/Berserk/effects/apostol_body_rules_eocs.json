@@ -275,25 +275,6 @@
   },
   {
     "type": "effect_on_condition",
-    "id": "EOC_BERSERK_APOSTOL_UNUSED_ARM_ORDER",
-    "effect": [],
-    "condition": {
-      "and": [
-        {
-          "math": [
-            "u_berserk_godo_arm_state > 0"
-          ]
-        },
-        {
-          "math": [
-            "u_berserk_godo_arm_state < 4"
-          ]
-        }
-      ]
-    }
-  },
-  {
-    "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_BODY_MIGRATE",
     "effect": [
       {

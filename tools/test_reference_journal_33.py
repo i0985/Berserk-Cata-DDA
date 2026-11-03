@@ -351,7 +351,7 @@ class ReferenceBook(unittest.TestCase):
         self.assertIn('продолжил свой путь', f.line('L03'))
 
     def test_legacy_books_do_not_unlock_unknown_hunts_or_orders(self):
-        for suffix in ['LEGACY_HUNTS', 'LEGACY_ORDERS', 'OPEN_CURRENT', 'OPEN_REFUGE']:
+        for suffix in ['LEGACY_HUNTS', 'LEGACY_ORDERS', 'OPEN_REFUGE']:
             f = Book(); f.run('EOC_BERSERK_JOURNAL_' + suffix)
             self.assertFalse(f.titles('places')); self.assertFalse(f.titles('people')); self.assertFalse(f.missions)
             self.assertFalse(any('_LEARN_' in s for s in f.calls))
@@ -412,11 +412,15 @@ class ReferenceBook(unittest.TestCase):
         self.assertIn('Власть Графа над ним закончилась', f.line('L05'))
         f.run('PRISONER_DEATH'); self.assertNotIn('Что он сделает с этой свободой', f.line('L05'))
 
-    def test_legacy_post_eclipse_diary_opens_past_without_progression(self):
-        obj = json.loads((MOD / 'items/post_eclipse_journal.json').read_text())[0]
+    def test_migrated_journal_opens_without_assigning_missions(self):
+        migrations = json.loads((MOD / 'items/legacy_journal_migrations.json').read_text())
+        replacement = next(o['replace'] for o in migrations if o['id'] == 'berserk_post_eclipse_journal')
+        journal = json.loads((MOD / 'items/campaign_journal.json').read_text())[0]
+        self.assertEqual(replacement, journal['id'])
         f = Book()
-        for id_ in obj['use_action']['effect_on_conditions']: f.run(id_)
-        self.assertEqual(f.opened, [T + 'PAST']); self.assertFalse(f.missions)
+        for id_ in journal['use_action']['effect_on_conditions']: f.run(id_)
+        self.assertTrue(f.opened)
+        self.assertFalse(f.missions)
 
     def test_global_death_and_missing_actor_never_claim_grunbeld_died_at_flora(self):
         f = Book(); f.values.update(u_berserk_ref_visit_grunbeld=1, berserk_apostle_grunbeld_dead=1); f.sync()

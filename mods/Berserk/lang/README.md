@@ -1,6 +1,6 @@
 # Berserk translations
 
-Current development branch: **3.3-apostol-test** (24 October 2026).
+Current development branch: **3.4**.
 Every runtime JSON text has an English base. The approved Russian dialogue is
 preserved in the Russian catalog. Existing Chinese translations are retained;
 untranslated Chinese content falls back to English. Chinese coverage is partial.
@@ -30,12 +30,9 @@ Restart the game after adding or replacing translation catalogs.
 
 ## Updating a translation
 
-Run the canonical rebuild with `python tools/build_story_33.py` from the
-repository root. Its final English pass rejects untranslated Russian draft
-strings. Add their real English versions to `tools/translations/english_33.json`;
-do not publish intermediate manuscript-builder output. English source text
-belongs in JSON, and Russian text belongs in gettext. Documentation and the
-owner's source manuscripts may remain Russian.
+Edit the English base text directly in the runtime JSON. Update the template
+and the matching locale catalogs when a string changes. The old 3.3 story
+rebuild is not used on this branch.
 
 1. Open the locale's `.po` file in Poedit.
 2. Review or update the translations.

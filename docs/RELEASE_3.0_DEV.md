@@ -89,5 +89,5 @@ A–F 修复系列调整了路线、对话、四处贝黑莱特地点、蚀的�
 - English source plus Russian and Simplified Chinese compiled catalogs.
 - No new maps, bosses, stats, rewards or progression conditions in stage G.
 - No tests, validators, game runs, merges or publication in this iteration.
-- [Installation](INSTALL_3.0.md), [pending acceptance](P7_BUILD_AND_TRANSLATIONS.md),
+- [Installation](https://github.com/i0985/Berserk-Cata-DDA/blob/0950c57c2601e320a45eb048b9e6d2cd74b070d1/docs/INSTALL_3.0.md), [pending acceptance](https://github.com/i0985/Berserk-Cata-DDA/blob/0950c57c2601e320a45eb048b9e6d2cd74b070d1/docs/P7_BUILD_AND_TRANSLATIONS.md),
   [sprite tasks](NEW_HORIZON_SPRITE_TASKS.md).

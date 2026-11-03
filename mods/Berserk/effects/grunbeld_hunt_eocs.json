@@ -237,49 +237,23 @@
             ]
           },
           {
-            "if": {
-              "math": [
-                "u_berserk_site_grunbeld_tries == 1"
-              ]
+            "u_location_variable": {
+              "context_val": "berserk_site_grunbeld_candidate"
             },
-            "then": {
-              "u_location_variable": {
-                "context_val": "berserk_site_grunbeld_candidate"
-              },
-              "target_params": {
-                "om_terrain": "berserk_grunbeld_crucible",
-                "random": true,
-                "min_distance": 0,
-                "z": 0,
-                "om_special": "berserk_grunbeld_stronghold_special",
-                "search_range": 128
-              },
-              "true_eocs": [
-                "EOC_BERSERK_SITE_GRUNBELD_VALIDATE"
-              ],
-              "false_eocs": [
-                "EOC_BERSERK_SITE_GRUNBELD_FAILED"
-              ]
+            "target_params": {
+              "om_terrain": "berserk_grunbeld_crucible",
+              "random": true,
+              "min_distance": 0,
+              "z": 0,
+              "om_special": "berserk_grunbeld_stronghold_special",
+              "search_range": 128
             },
-            "else": {
-              "u_location_variable": {
-                "context_val": "berserk_site_grunbeld_candidate"
-              },
-              "target_params": {
-                "om_terrain": "berserk_grunbeld_crucible",
-                "random": true,
-                "min_distance": 0,
-                "z": 0,
-                "om_special": "berserk_grunbeld_stronghold_special",
-                "search_range": 128
-              },
-              "true_eocs": [
-                "EOC_BERSERK_SITE_GRUNBELD_VALIDATE"
-              ],
-              "false_eocs": [
-                "EOC_BERSERK_SITE_GRUNBELD_FAILED"
-              ]
-            }
+            "true_eocs": [
+              "EOC_BERSERK_SITE_GRUNBELD_VALIDATE"
+            ],
+            "false_eocs": [
+              "EOC_BERSERK_SITE_GRUNBELD_FAILED"
+            ]
           }
         ],
         "else": {
