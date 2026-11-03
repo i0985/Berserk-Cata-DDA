@@ -964,6 +964,72 @@
         }
       },
       {
+        "text": "I made it back from the hunt.",
+        "topic": "TALK_BERSERK_GODO",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_first_hunt_done == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+            },
+            {
+              "math": [
+                "u_berserk_godo_hunt_ack34 != 1"
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_hunt_ack34 = 1"
+            ]
+          },
+          {
+            "u_message": "Godot: Sit. You can tell me what happened after you catch your breath.",
+            "type": "info",
+            "popup": false
+          }
+        ]
+      },
+      {
+        "text": "Flora’s home burned. I escaped.",
+        "topic": "TALK_BERSERK_GODO",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_flora_escaped == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_GODO_AT_SMITH"
+            },
+            {
+              "math": [
+                "u_berserk_godo_flora_loss_ack34 != 1"
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_godo_flora_loss_ack34 = 1"
+            ]
+          },
+          {
+            "u_message": "Godot: A house like hers does not come back. Put your things by the hearth.",
+            "type": "info",
+            "popup": false
+          }
+        ]
+      },
+      {
         "text": "I will leave you to your work.",
         "topic": "TALK_BERSERK_GODO_FAREWELL"
       }
@@ -3180,6 +3246,39 @@
         "effect": {
           "run_eocs": "EOC_BERSERK_JOURNAL_REPLACE_MISSING"
         }
+      },
+      {
+        "text": "Flora’s home burned. I escaped.",
+        "topic": "TALK_BERSERK_RICKERT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_flora_escaped == 1"
+              ]
+            },
+            {
+              "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+            },
+            {
+              "math": [
+                "u_berserk_rickert_flora_loss_ack34 != 1"
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_rickert_flora_loss_ack34 = 1"
+            ]
+          },
+          {
+            "u_message": "Rickert: You made it out. Tell me about her when you’re ready. I can listen.",
+            "type": "info",
+            "popup": false
+          }
+        ]
       },
       {
         "text": "I need to go.",
@@ -10306,7 +10405,33 @@
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_RICKERT"
       }
-    ]
+    ],
+    "speaker_effect": {
+      "condition": {
+        "and": [
+          {
+            "u_has_bionics": "bio_berserk_arm_cannon"
+          },
+          {
+            "math": [
+              "u_berserk_rickert_arm_practice_ack34 != 1"
+            ]
+          }
+        ]
+      },
+      "effect": [
+        {
+          "math": [
+            "u_berserk_rickert_arm_practice_ack34 = 1"
+          ]
+        },
+        {
+          "u_message": "Rickert: Good. If the mounting no longer gets in your way, the arm is starting to feel like yours.",
+          "type": "info",
+          "popup": false
+        }
+      ]
+    }
   },
   {
     "type": "talk_topic",

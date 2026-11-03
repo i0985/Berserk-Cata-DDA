@@ -60,7 +60,7 @@ class Regression(unittest.TestCase):
    self.assertTrue(gains,k)
    for node in gains:
     t=node['then'][0]['u_add_trait'];self.assertEqual(node['if'],{'not':{'u_has_trait':t}})
-    self.assertTrue(node['then'][1]['u_message'].startswith('Your body changes:'))
+    self.assertTrue(node['then'][1]['u_message'].strip())
  def test_rare_sites_are_forested_and_outside_cities(self):
   for o in load('overmap/road_stories.json'):
    if o['type']=='overmap_special':

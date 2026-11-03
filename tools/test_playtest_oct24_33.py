@@ -185,12 +185,13 @@ class RecoveryAndMissions(unittest.TestCase):
             if installed:f.bionics.add('bio_berserk_arm_cannon')
             f.run(P+'HAND_GOAL');self.assertFalse(f.missions)
 
-    def test_mission_completion_explains_examination_and_collecting_relic(self):
+    def test_missions_point_to_examination_without_spoiling_the_find(self):
         missions={x['id']:x for p in (MOD/'missions').glob('*.json') for x in json.loads(p.read_text())}
         for name in ['BREACH','COUNT','WYALD','ROSINE','GRUNBELD']:
             d=missions['MISSION_BERSERK_'+name]['description'].lower()
-            self.assertIn('examine',d);self.assertIn('close',d)
-        self.assertIn('surviving trail',missions['MISSION_BERSERK_FIRST_HUNT']['description'])
+            self.assertIn('examine',d);self.assertNotIn('relic',d)
+            self.assertNotIn('collect what remains',d)
+        self.assertIn('revealed ashen trail',missions['MISSION_BERSERK_FIRST_HUNT']['description'])
 
 
 class WorldAndConversations(unittest.TestCase):

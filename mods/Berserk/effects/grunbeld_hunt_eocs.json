@@ -1094,17 +1094,24 @@
         "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
       },
       {
-        "u_message": "This breach is sealed. New demonic incursions are suppressed only within roughly two overmap tiles of this place. Existing demons, the Brand and armor shadows remain. Examine the closed mark to claim the unique relic.",
-        "type": "good",
-        "popup": true
-      },
-      {
         "run_eocs": "EOC_BERSERK_GRUNBELD_NEXT"
       },
       {
-        "u_message": "Something remains in the quieted scar. Examine it once more to recover it.",
-        "type": "info",
-        "popup": false
+        "if": {
+          "math": [
+            "berserk_hunt_grunbeld_reward_claimed != 1"
+          ]
+        },
+        "then": {
+          "u_message": "The breach is sealed. Something remains in the cooled scar; examine it again.",
+          "type": "good",
+          "popup": false
+        },
+        "else": {
+          "u_message": "The breach is sealed. Its mark holds no further find.",
+          "type": "good",
+          "popup": false
+        }
       }
     ],
     "false_effect": {
@@ -1501,7 +1508,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_GRUNBELD_TRANSFORM_MESSAGE",
     "effect": {
-      "u_message": "The plate armor disappears into the swelling body. Stone-heavy bulk gives way to a glowing carapace.",
+      "u_message": "Grunbeld’s armor disappears into a glowing shell. He no longer needs a hammer: leave room to dodge his fire.",
       "type": "warning",
       "popup": true
     }

@@ -222,9 +222,21 @@
         ]
       },
       {
-        "u_message": "The Count's breach hardens into cold stone. New incursions weaken within roughly two overmap tiles of this place. The Brand and the demons already here remain.",
-        "type": "good",
-        "popup": true
+        "if": {
+          "math": [
+            "berserk_apostol_count_flesh_issued != 1"
+          ]
+        },
+        "then": {
+          "u_message": "The breach is sealed. Something remains in its folds; examine the mark again.",
+          "type": "good",
+          "popup": false
+        },
+        "else": {
+          "u_message": "The breach is sealed. There is nothing else to recover from the mark.",
+          "type": "good",
+          "popup": false
+        }
       },
       {
         "run_eocs": "EOC_BERSERK_COUNT_REWARD_REGISTER"

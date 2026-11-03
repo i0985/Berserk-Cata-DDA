@@ -148,18 +148,21 @@
                 "u_has_trait": "BERSERK_SLAN_FORM"
               }
             },
-            "then": {
-              "u_add_trait": "BERSERK_SLAN_FORM"
-            }
+            "then": [
+              {
+                "u_add_trait": "BERSERK_SLAN_FORM"
+              },
+              {
+                "u_message": "Your wounds will heal faster, and broken limbs can mend without splints.",
+                "type": "info",
+                "popup": false
+              }
+            ]
           },
           {
             "math": [
               "u_berserk_apostol_growth_step = 2"
             ]
-          },
-          {
-            "u_message": "Your flesh settles into an unfamiliar shape.",
-            "type": "warning"
           }
         ]
       },

@@ -716,7 +716,7 @@
         "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
       },
       {
-        "u_message": "Wyald is dead. The local breach is exposed in the northern part of the final clearing. Examine it to close the wound, then examine the sealed mark to claim the relic and recall the next trail.",
+        "u_message": "Wyald has fallen. Examine the exposed breach at the north end of the clearing.",
         "type": "good",
         "popup": true
       }
@@ -833,11 +833,6 @@
         "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
       },
       {
-        "u_message": "This breach is sealed. New demonic incursions are suppressed only within roughly two overmap tiles of this place. Existing demons, the Brand and armor shadows remain. Examine the closed mark to claim the unique relic.",
-        "type": "good",
-        "popup": true
-      },
-      {
         "run_eocs": "EOC_BERSERK_WYALD_NEXT"
       },
       {
@@ -847,9 +842,21 @@
         "run_eocs": "EOC_BERSERK_LATE_FLORA_CHECK"
       },
       {
-        "u_message": "Something remains in the quieted scar. Examine it once more to recover it.",
-        "type": "info",
-        "popup": false
+        "if": {
+          "math": [
+            "berserk_hunt_wyald_reward_claimed != 1"
+          ]
+        },
+        "then": {
+          "u_message": "The breach is sealed. Something remains in the cooled scar; examine it again.",
+          "type": "good",
+          "popup": false
+        },
+        "else": {
+          "u_message": "The breach is sealed. Its mark holds no further find.",
+          "type": "good",
+          "popup": false
+        }
       }
     ],
     "false_effect": {
@@ -1705,7 +1712,7 @@
         "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
       },
       {
-        "u_message": "Rosine is dead. The local breach is exposed in the northern part of the final clearing. Examine it to close the wound, then examine the sealed mark to claim the relic and recall the next trail.",
+        "u_message": "Rosine has fallen. Examine the exposed wound north of her nest.",
         "type": "good",
         "popup": true
       }
@@ -1822,11 +1829,6 @@
         "run_eocs": "EOC_BERSERK_HUNT_GIVE_JOURNAL"
       },
       {
-        "u_message": "This breach is sealed. New demonic incursions are suppressed only within roughly two overmap tiles of this place. Existing demons, the Brand and armor shadows remain. Examine the closed mark to claim the unique relic.",
-        "type": "good",
-        "popup": true
-      },
-      {
         "run_eocs": "EOC_BERSERK_ROSINE_NEXT"
       },
       {
@@ -1836,9 +1838,21 @@
         "run_eocs": "EOC_BERSERK_LATE_FLORA_CHECK"
       },
       {
-        "u_message": "Something remains in the quieted scar. Examine it once more to recover it.",
-        "type": "info",
-        "popup": false
+        "if": {
+          "math": [
+            "berserk_hunt_rosine_reward_claimed != 1"
+          ]
+        },
+        "then": {
+          "u_message": "The breach is sealed. Something remains in the cooled scar; examine it again.",
+          "type": "good",
+          "popup": false
+        },
+        "else": {
+          "u_message": "The breach is sealed. Its mark holds no further find.",
+          "type": "good",
+          "popup": false
+        }
       }
     ],
     "false_effect": {

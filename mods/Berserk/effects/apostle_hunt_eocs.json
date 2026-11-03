@@ -360,7 +360,7 @@
         "radius": 1
       },
       {
-        "u_message": "The Count is dead. His broken iron seal remains among his spoils. Examine the exposed breach at the north end of the dungeon to close this local wound.",
+        "u_message": "Search the Count’s remains, then examine the exposed breach at the north end of the dungeon.",
         "type": "good",
         "popup": true
       }
@@ -448,11 +448,6 @@
     "effect": [
       {
         "run_eocs": "EOC_BERSERK_COUNT_REGISTER_SEAL"
-      },
-      {
-        "u_message": "Something remains in the quieted scar. Examine it once more to recover it.",
-        "type": "info",
-        "popup": false
       }
     ]
   },

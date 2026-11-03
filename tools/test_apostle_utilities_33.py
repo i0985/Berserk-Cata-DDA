@@ -65,7 +65,7 @@ class NativeBodies(unittest.TestCase):
 
     def test_underwater_walking_does_not_claim_underwater_breathing(self):
         self.assertNotIn('GILLS', form('GRUNBELD_FLESH')['enchantments'][0]['mutations'])
-        self.assertIn('воздух всё ещё нужен', RUSSIAN.gettext(form('GRUNBELD_FLESH')['description']))
+        self.assertIn('под водой по-прежнему нужен воздух', RUSSIAN.gettext(form('GRUNBELD_FLESH')['description']))
 
     def test_count_uses_plastic_flesh_not_aquatic_traits(self):
         for stem in ['COUNT_PAWN','COUNT_FLESH']:

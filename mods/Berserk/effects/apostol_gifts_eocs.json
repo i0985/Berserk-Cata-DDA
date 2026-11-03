@@ -261,18 +261,21 @@
                 "u_has_trait": "BERSERK_VOID_FORM"
               }
             },
-            "then": {
-              "u_add_trait": "BERSERK_VOID_FORM"
-            }
+            "then": [
+              {
+                "u_add_trait": "BERSERK_VOID_FORM"
+              },
+              {
+                "u_message": "You can sense the space immediately beyond nearby walls.",
+                "type": "info",
+                "popup": false
+              }
+            ]
           },
           {
             "math": [
               "u_berserk_apostol_growth_step = 2"
             ]
-          },
-          {
-            "u_message": "Your flesh settles into an unfamiliar shape.",
-            "type": "warning"
           }
         ]
       },
@@ -557,18 +560,21 @@
                 "u_has_trait": "BERSERK_UBIK_FORM"
               }
             },
-            "then": {
-              "u_add_trait": "BERSERK_UBIK_FORM"
-            }
+            "then": [
+              {
+                "u_add_trait": "BERSERK_UBIK_FORM"
+              },
+              {
+                "u_message": "Your steps grow quieter and no longer leave a scent trail.",
+                "type": "info",
+                "popup": false
+              }
+            ]
           },
           {
             "math": [
               "u_berserk_apostol_growth_step = 2"
             ]
-          },
-          {
-            "u_message": "Your flesh settles into an unfamiliar shape.",
-            "type": "warning"
           }
         ]
       },
@@ -863,18 +869,21 @@
                 "u_has_trait": "BERSERK_CONRAD_FORM"
               }
             },
-            "then": {
-              "u_add_trait": "BERSERK_CONRAD_FORM"
-            }
+            "then": [
+              {
+                "u_add_trait": "BERSERK_CONRAD_FORM"
+              },
+              {
+                "u_message": "You can eat spoiled food, and internal parasites cannot take hold.",
+                "type": "info",
+                "popup": false
+              }
+            ]
           },
           {
             "math": [
               "u_berserk_apostol_growth_step = 2"
             ]
-          },
-          {
-            "u_message": "Your flesh settles into an unfamiliar shape.",
-            "type": "warning"
           }
         ]
       },
@@ -1159,18 +1168,21 @@
                 "u_has_trait": "BERSERK_FEMTO_FORM"
               }
             },
-            "then": {
-              "u_add_trait": "BERSERK_FEMTO_FORM"
-            }
+            "then": [
+              {
+                "u_add_trait": "BERSERK_FEMTO_FORM"
+              },
+              {
+                "u_message": "Your wings can carry you down. Examine a ledge and choose to glide.",
+                "type": "info",
+                "popup": false
+              }
+            ]
           },
           {
             "math": [
               "u_berserk_apostol_growth_step = 2"
             ]
-          },
-          {
-            "u_message": "Your flesh settles into an unfamiliar shape.",
-            "type": "warning"
           }
         ]
       },

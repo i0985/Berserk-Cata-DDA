@@ -362,19 +362,9 @@
         "run_eocs": "EOC_BERSERK_CAMPAIGN_GIVE_JOURNAL"
       },
       {
-        "if": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY"
-        },
-        "then": {
-          "u_message": "The wound cools and its heartbeat stops. This place is quieter. The defenders' surviving marks reveal three trails: the Count's residence, the Black Dogs' camp and a misty valley.",
-          "type": "good",
-          "popup": true
-        },
-        "else": {
-          "u_message": "The wound cools and its heartbeat stops. This place is quieter. The defenders' surviving marks reveal three trails: the Count's residence, the Black Dogs' camp and a misty valley.",
-          "type": "good",
-          "popup": true
-        }
+        "u_message": "The ashen breach has closed. There is nothing else to examine here. Check your mission list for the next trails.",
+        "type": "good",
+        "popup": false
       },
       {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"

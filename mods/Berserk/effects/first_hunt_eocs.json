@@ -523,20 +523,15 @@
         "run_eocs": "EOC_BERSERK_FIRST_HUNT_FINISH_MISSION"
       },
       {
-        "u_message": "The apostle is dead. Search its remains: a burned scrap among them may explain where it came from.",
+        "u_message": "Search the apostle’s remains and read the scorched scrap. If it is missing, examine the revealed ashen trail in the hollow.",
         "type": "good",
-        "popup": true
+        "popup": false
       },
       {
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
       },
       {
         "run_eocs": "EOC_BERSERK_REF_SYNC"
-      },
-      {
-        "u_message": "A scorched scrap survived among the remains. Read it, or examine the trail in the lair, to learn where it leads.",
-        "type": "info",
-        "popup": false
       }
     ]
   },

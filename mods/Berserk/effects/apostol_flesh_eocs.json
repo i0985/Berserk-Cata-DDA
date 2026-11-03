@@ -253,8 +253,8 @@
                   "u_add_trait": "BERSERK_COUNT_FLESH_FORM"
                 },
                 {
-                  "u_message": "Your body changes: Body: pliant flesh.",
-                  "type": "warning",
+                  "u_message": "You strike more steadily while crouched, and broken limbs can now mend without splints.",
+                  "type": "info",
                   "popup": false
                 }
               ]
@@ -264,10 +264,6 @@
             "math": [
               "u_berserk_apostol_growth_step = 2"
             ]
-          },
-          {
-            "u_message": "Your flesh settles into an unfamiliar shape.",
-            "type": "warning"
           }
         ]
       },
@@ -633,8 +629,8 @@
                   "u_add_trait": "BERSERK_WYALD_FLESH_FORM"
                 },
                 {
-                  "u_message": "Your body changes: Body: hunting beast.",
-                  "type": "warning",
+                  "u_message": "Your claws can dig through dirt and rubble. Try Burrowing in the mutation menu.",
+                  "type": "info",
                   "popup": false
                 }
               ]
@@ -644,10 +640,6 @@
             "math": [
               "u_berserk_apostol_growth_step = 2"
             ]
-          },
-          {
-            "u_message": "Your flesh settles into an unfamiliar shape.",
-            "type": "warning"
           }
         ]
       },
@@ -1013,8 +1005,8 @@
                   "u_add_trait": "BERSERK_ROSINE_FLESH_FORM"
                 },
                 {
-                  "u_message": "Your body changes: Body: winged hunter.",
-                  "type": "warning",
+                  "u_message": "Your antennae sense creatures behind nearby obstacles. Examine a ledge to try gliding down.",
+                  "type": "info",
                   "popup": false
                 }
               ]
@@ -1024,10 +1016,6 @@
             "math": [
               "u_berserk_apostol_growth_step = 2"
             ]
-          },
-          {
-            "u_message": "Your flesh settles into an unfamiliar shape.",
-            "type": "warning"
           }
         ]
       },
@@ -1393,8 +1381,8 @@
                   "u_add_trait": "BERSERK_GRUNBELD_FLESH_FORM"
                 },
                 {
-                  "u_message": "Your body changes: Body: cinder carapace.",
-                  "type": "warning",
+                  "u_message": "You can retreat into your shell. Try Roomy Shell in the mutation menu.",
+                  "type": "info",
                   "popup": false
                 }
               ]
@@ -1404,10 +1392,6 @@
             "math": [
               "u_berserk_apostol_growth_step = 2"
             ]
-          },
-          {
-            "u_message": "Your flesh settles into an unfamiliar shape.",
-            "type": "warning"
           }
         ]
       },
