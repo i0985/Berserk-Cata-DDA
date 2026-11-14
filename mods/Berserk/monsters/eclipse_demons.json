@@ -285,5 +285,45 @@
         "miss_msg_npc": "The executioner raises its blade for a crushing strike!"
       }
     ]
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_eclipse_field_wretch",
+    "copy-from": "mon_berserk_eclipse_wretch",
+    "looks_like": "mon_berserk_eclipse_wretch",
+    "vision_day": 11,
+    "vision_night": 8
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_eclipse_field_halfbreed",
+    "copy-from": "mon_berserk_eclipse_halfbreed",
+    "looks_like": "mon_berserk_eclipse_halfbreed",
+    "vision_day": 13,
+    "vision_night": 10
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_eclipse_field_hunter",
+    "copy-from": "mon_berserk_eclipse_hunter",
+    "looks_like": "mon_berserk_eclipse_hunter",
+    "vision_day": 16,
+    "vision_night": 13
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_eclipse_field_butcher",
+    "copy-from": "mon_berserk_eclipse_butcher",
+    "looks_like": "mon_berserk_eclipse_butcher",
+    "vision_day": 10,
+    "vision_night": 8
+  },
+  {
+    "type": "MONSTER",
+    "id": "mon_berserk_eclipse_field_elite",
+    "copy-from": "mon_berserk_eclipse_elite",
+    "looks_like": "mon_berserk_eclipse_elite",
+    "vision_day": 12,
+    "vision_night": 9
   }
 ]
