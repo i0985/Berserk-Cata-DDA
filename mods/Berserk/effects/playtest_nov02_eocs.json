@@ -70,6 +70,11 @@
         },
         {
           "math": [
+            "time('now') >= u_berserk_grunbeld_search_after"
+          ]
+        },
+        {
+          "math": [
             "time('now') >= u_berserk_grunbeld_retry_at"
           ]
         },
@@ -82,6 +87,13 @@
     },
     "global": true,
     "recurrence": "1 minute"
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_NOV02_GRUNBELD_AFTER_ESCAPE",
+    "effect": {
+      "run_eocs": "EOC_BERSERK_NOV02_GRUNBELD_RETRY"
+    }
   },
   {
     "type": "effect_on_condition",

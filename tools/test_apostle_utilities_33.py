@@ -230,7 +230,9 @@ class EarlySource(unittest.TestCase):
 
     def test_failed_search_has_cooldown_and_finite_retries(self):
         f=EarlyWorld(); f.land={}; f.run(P+'EARLY_GAME_START'); count=len(f.searches)
-        f.run(P+'EARLY_AVATAR_MOVES'); self.assertEqual(len(f.searches),count)
+        for event in ('EOC_BERSERK_NOV02B_MOVE', P+'EARLY_AVATAR_MOVES'):
+            f.run(event)
+        self.assertEqual(len(f.searches),count)
         for _ in range(6): f.now+=1801; f.run(P+'EARLY_AVATAR_MOVES')
         self.assertEqual(f.values['u_berserk_early_caravan_attempts'],3)
 

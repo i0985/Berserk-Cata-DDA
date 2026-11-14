@@ -4,7 +4,7 @@ import unittest
 from test_godo_dialogue_33 import Conversation as Godot
 from test_rickert_dialogue_33 import Conversation as Rickert
 from test_recovery_33 import StateGraph, walk
-from test_reference_journal_33 import RUSSIAN
+from test_reference_journal_33 import Book, EOCS, RUSSIAN
 
 P = 'EOC_BERSERK_'
 G = 'TALK_BERSERK_GODO'
@@ -37,19 +37,35 @@ class PlayerGuidance(unittest.TestCase):
         self.assertEqual(len(traits), 13)
 
     def test_sealed_marks_distinguish_available_and_spent_finds(self):
-        world = StateGraph()
-        for boss in ('count', 'wyald', 'rosine', 'grunbeld'):
+        for boss, terrain in (
+            ('count', 'berserk_count_dungeon'), ('wyald', 'berserk_wyald_ring'),
+            ('rosine', 'berserk_rosine_nest'), ('grunbeld', 'berserk_grunbeld_crucible'),
+        ):
             id_ = 'COUNT_REGISTER_SEAL' if boss == 'count' else boss.upper() + '_SEAL_COMMIT'
-            flag = ('berserk_apostol_count_flesh_issued' if boss == 'count'
-                    else f'berserk_hunt_{boss}_reward_claimed')
-            hint = next(a for a in world.eocs[P + id_]['effect']
-                        if a.get('if') == {'math': [flag + ' != 1']})
-            for value, again in ((0, True), (1, False)):
-                world.messages.clear()
-                world.values[flag] = value
-                world.effect(hint)
-                self.assertEqual(len(world.messages), 1)
-                self.assertEqual('again' in world.messages[0], again)
+            hint = next(a for a in EOCS[P + id_]['effect']
+                        if isinstance(a.get('then'), dict)
+                        and a['then'].get('u_message', '').startswith('The breach is sealed.'))
+            for flesh_issued in (0, 1):
+                for relic_claimed in (0, 1):
+                    with self.subTest(boss=boss, flesh_issued=flesh_issued, relic_claimed=relic_claimed):
+                        world = Book()
+                        world.om = terrain
+                        world.values.update({
+                            '_pos': (1, 0, 0),
+                            'berserk_eclipse_era': 1,
+                            'u_berserk_eclipse_rescue_state': 2,
+                            f'berserk_hunt_{boss}_state': 4,
+                            f'berserk_apostle_{boss}_dead': 1,
+                            f'berserk_apostol_{boss}_flesh_issued': flesh_issued,
+                            f'berserk_hunt_{boss}_reward_claimed': relic_claimed,
+                        })
+                        world.furniture[(1, 0, 0)] = f'f_berserk_{boss}_breach_sealed'
+                        world.effect(hint)
+                        self.assertEqual(len(world.messages), 1)
+                        self.assertEqual(
+                            world.messages[0]['u_message'] == RUSSIAN.gettext(hint['then']['u_message']),
+                            not flesh_issued or (boss != 'count' and not relic_claimed),
+                        )
 
     def test_forge_acknowledgments_require_the_event_and_the_player_reporting_it(self):
         godot, rickert = Godot(), Rickert()

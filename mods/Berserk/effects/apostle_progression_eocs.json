@@ -223,9 +223,7 @@
       },
       {
         "if": {
-          "math": [
-            "berserk_apostol_count_flesh_issued != 1"
-          ]
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_FLESH_OLD_REMAIN_SEALED"
         },
         "then": {
           "u_message": "The breach is sealed. Something remains in its folds; examine the mark again.",

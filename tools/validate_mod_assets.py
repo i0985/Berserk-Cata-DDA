@@ -205,6 +205,44 @@ def validate_math_actor_scopes(path: Path, objects: list[dict[str, Any]]) -> Non
     visit(objects)
 
 
+def validate_delayed_eocs(objects_by_file: dict[Path, list[dict[str, Any]]]) -> None:
+    """The 0.I-1 run_eocs queue only accepts activation EOCs."""
+    eocs: dict[str, dict[str, Any]] = {}
+    queued: list[tuple[Path, Any]] = []
+
+    def visit(path: Path, value: Any) -> None:
+        if isinstance(value, list):
+            for child in value:
+                visit(path, child)
+        elif isinstance(value, dict):
+            raw_targets = value.get("run_eocs")
+            if raw_targets is not None:
+                targets = raw_targets if isinstance(raw_targets, list) else [raw_targets]
+                if "time_in_future" in value:
+                    queued.extend((path, target) for target in targets)
+                for target in targets:
+                    if isinstance(target, dict) and isinstance(target.get("id"), str):
+                        eocs[target["id"]] = target
+            for child in value.values():
+                visit(path, child)
+
+    for path, objects in objects_by_file.items():
+        for obj in objects:
+            if obj.get("type") == "effect_on_condition":
+                eocs[obj["id"]] = obj
+        visit(path, objects)
+
+    for path, target in queued:
+        eoc = eocs.get(target) if isinstance(target, str) else target
+        if not isinstance(eoc, dict) or "id" not in eoc:
+            continue  # Variable target, or a reference defined in a dependency.
+        kind = "RECURRING" if "recurrence" in eoc else eoc.get("eoc_type", "ACTIVATION")
+        if kind != "ACTIVATION":
+            raise ValidationError(
+                f"{path.relative_to(ROOT)}: time_in_future cannot queue {kind} EOC {eoc['id']!r}"
+            )
+
+
 def validate_dynamic_lines(path: Path, objects: list[dict[str, Any]]) -> None:
     """Reject unsupported conditional wrappers in 0.I-1 talk-topic lines.
 
@@ -639,6 +677,7 @@ def validate_repository(root: Path = ROOT) -> dict[str, int]:
             package_objects[path] = objects
             json_count += 1
         validate_early_map_ids(package_objects)
+        validate_delayed_eocs(package_objects)
         objects_by_package[package] = package_objects
 
     packages_by_id: dict[str, Path] = {}

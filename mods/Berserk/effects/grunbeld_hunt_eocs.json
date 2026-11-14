@@ -289,6 +289,11 @@
         },
         {
           "math": [
+            "time('now') >= u_berserk_grunbeld_search_after"
+          ]
+        },
+        {
+          "math": [
             "time('now') >= u_berserk_grunbeld_retry_at"
           ]
         },
@@ -1098,8 +1103,13 @@
       },
       {
         "if": {
-          "math": [
-            "berserk_hunt_grunbeld_reward_claimed != 1"
+          "or": [
+            {
+              "test_eoc": "EOC_BERSERK_GRUNBELD_CLAIM"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_FLESH_OLD_REMAIN_SEALED"
+            }
           ]
         },
         "then": {

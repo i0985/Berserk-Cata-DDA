@@ -75,17 +75,9 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_NOV02B_MOVE",
-    "effect": [
-      {
-        "run_eocs": "EOC_BERSERK_NOV02B_WAGON_NEW_AREA"
-      },
-      {
-        "run_eocs": "EOC_BERSERK_UTILITY29_EARLY_TICK"
-      },
-      {
-        "run_eocs": "EOC_BERSERK_NOV02B_SKETCH_NOTICE"
-      }
-    ],
+    "effect": {
+      "run_eocs": "EOC_BERSERK_NOV02B_SKETCH_NOTICE"
+    },
     "eoc_type": "EVENT",
     "required_event": "avatar_moves",
     "condition": "u_is_avatar"

@@ -4,8 +4,9 @@ Actual exported data and a small flood-fill; no native game/AI benchmark.
 """
 import json,unittest,hashlib
 from collections import deque
-from test_reference_journal_33 import MOD,EOCS,TOPICS,walk
+from test_reference_journal_33 import Book,MOD,EOCS,TOPICS,walk
 from test_named_apostle_dialogues_33 import Contract
+from validate_mod_assets import ValidationError,validate_delayed_eocs
 ROOT=MOD.parents[1];P='EOC_BERSERK_NOV02_'
 def load(f):return json.loads((MOD/f).read_text())
 class RoadAndForge(unittest.TestCase):
@@ -29,8 +30,27 @@ class NaturalFire(unittest.TestCase):
  def test_escape_does_not_synchronously_generate_a_fortress(self):
   actions=list(walk(EOCS['EOC_BERSERK_FLORA_ESCAPED']['effect']))
   self.assertFalse(any(a.get('run_eocs')=='EOC_BERSERK_GRUNBELD_SEEK' for a in actions))
-  queued=next(a for a in actions if a.get('run_eocs')==P+'GRUNBELD_RETRY')
+  queued=next(a for a in actions if a.get('run_eocs')==P+'GRUNBELD_AFTER_ESCAPE')
   self.assertEqual(queued['time_in_future'],'5 seconds')
+  self.assertEqual(EOCS[queued['run_eocs']]['effect'],{'run_eocs':P+'GRUNBELD_RETRY'})
+ def test_mission_sync_and_retry_cannot_spend_a_search_before_timer(self):
+  f=Book()
+  f.values.update(
+   berserk_eclipse_era=1,berserk_flora_stage=3,u_berserk_flora_escaped=1,
+   berserk_hunt_count_state=4,berserk_hunt_wyald_state=4,berserk_hunt_rosine_state=4,
+   u_berserk_grunbeld_search_after=f.now+5,
+  )
+  ids=['EOC_BERSERK_NEXT_STRONGHOLD_GUIDE','EOC_BERSERK_GRUNBELD_FIND',P+'GRUNBELD_RETRY']
+  for seconds in [0,4,5]:
+   f.now=1000+seconds
+   for id_ in ids:
+    self.assertEqual(f.condition(EOCS[id_]['condition']),seconds>=5,id_)
+ def test_validator_rejects_the_old_recurring_target_for_the_escape_timer(self):
+  escape=EOCS['EOC_BERSERK_FLORA_ESCAPED'].copy()
+  escape['effect']={'run_eocs':P+'GRUNBELD_RETRY','time_in_future':'5 seconds'}
+  path=MOD/'effects/flora_siege_eocs.json'
+  with self.assertRaisesRegex(ValidationError,'flora_siege_eocs.json.*RECURRING'):
+   validate_delayed_eocs({path:[escape],path.with_name('playtest_nov02_eocs.json'):[EOCS[P+'GRUNBELD_RETRY']]})
  def test_zodd_anchor_is_on_the_opposite_side_from_west_and_south_exits(self):
   anchors=[x for x in walk(load('effects/flora_siege_eocs.json')) if x.get('location_variable_adjust')=={'global_val':'berserk_flora_zodd_anchor'}]
   self.assertTrue(anchors);self.assertTrue(all(x['x_adjust']>=40 and x['y_adjust']<=5 for x in anchors))

@@ -843,8 +843,13 @@
       },
       {
         "if": {
-          "math": [
-            "berserk_hunt_wyald_reward_claimed != 1"
+          "or": [
+            {
+              "test_eoc": "EOC_BERSERK_WYALD_CLAIM"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_FLESH_OLD_REMAIN_SEALED"
+            }
           ]
         },
         "then": {
@@ -1839,8 +1844,13 @@
       },
       {
         "if": {
-          "math": [
-            "berserk_hunt_rosine_reward_claimed != 1"
+          "or": [
+            {
+              "test_eoc": "EOC_BERSERK_ROSINE_CLAIM"
+            },
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_FLESH_OLD_REMAIN_SEALED"
+            }
           ]
         },
         "then": {

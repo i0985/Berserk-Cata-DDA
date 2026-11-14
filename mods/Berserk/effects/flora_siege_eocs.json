@@ -1177,6 +1177,11 @@
         ]
       },
       {
+        "math": [
+          "u_berserk_grunbeld_search_after = time('now') + time('5 seconds')"
+        ]
+      },
+      {
         "run_eocs": "EOC_BERSERK_GRUNBELD_WITHDRAW_GROVE"
       },
       {
@@ -1186,18 +1191,8 @@
         "run_eocs": "EOC_BERSERK_MISSIONS_SYNC"
       },
       {
-        "math": [
-          "u_berserk_route_notice_quiet = 1"
-        ]
-      },
-      {
-        "run_eocs": "EOC_BERSERK_NOV02_GRUNBELD_RETRY",
+        "run_eocs": "EOC_BERSERK_NOV02_GRUNBELD_AFTER_ESCAPE",
         "time_in_future": "5 seconds"
-      },
-      {
-        "math": [
-          "u_berserk_route_notice_quiet = 0"
-        ]
       },
       {
         "run_eocs": "EOC_BERSERK_CAMPAIGN_POST_FIRE"

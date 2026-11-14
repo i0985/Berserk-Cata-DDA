@@ -670,6 +670,11 @@
       "and": [
         {
           "math": [
+            "time('now') >= u_berserk_grunbeld_search_after"
+          ]
+        },
+        {
+          "math": [
             "berserk_hunt_count_state >= 4"
           ]
         },
