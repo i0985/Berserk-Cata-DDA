@@ -26,8 +26,8 @@ REVISED = {
     ),
     ('TALK_BERSERK_ROAD_CARAVAN',
      '&The wagon box has been searched. The repair order is still tucked beneath its lid.'): (
-        '&Someone has already pried the iron off the caravan chest. The repair order is still caught between the boards.',
-        '&С обоза уже сняли железные крепления. Заказ на починку всё ещё зажат между досками.',
+        '&The box has been picked over. The repair order is still caught between the boards.',
+        '&Короб уже разобрали. Заказ на починку всё ещё зажат между досками.',
     ),
 }
 
