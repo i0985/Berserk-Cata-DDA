@@ -44,6 +44,7 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_APOSTOL_CONTINUATION_READY",
+    "//": "Refusal is a completed story outcome even if the survivor takes a different apostle path later.",
     "effect": [],
     "condition": {
       "and": [
@@ -80,28 +81,11 @@
               ]
             },
             {
-              "and": [
-                {
-                  "math": [
-                    "u_berserk_apostol_outcome == 2"
-                  ]
-                },
-                {
-                  "test_eoc": "EOC_BERSERK_APOSTOL_UNCOMMITTED"
-                }
+              "math": [
+                "u_berserk_apostol_outcome == 2"
               ]
             }
           ]
-        },
-        {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_FLESH_LINE"
-          }
-        },
-        {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_PAWN_LINE"
-          }
         }
       ]
     }

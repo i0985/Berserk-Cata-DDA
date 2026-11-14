@@ -1060,6 +1060,14 @@
         ]
       },
       {
+        "if": {
+          "u_has_mission": "MISSION_BERSERK_FLORA_REFERRAL"
+        },
+        "then": {
+          "remove_active_mission": "MISSION_BERSERK_FLORA_REFERRAL"
+        }
+      },
+      {
         "run_eocs": "EOC_BERSERK_FLORA_TREEHOUSE_REGISTER"
       },
       {

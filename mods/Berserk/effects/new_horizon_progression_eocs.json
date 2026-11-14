@@ -126,6 +126,11 @@
         },
         {
           "math": [
+            "u_berserk_flora_met != 1"
+          ]
+        },
+        {
+          "math": [
             "berserk_flora_stage < 2"
           ]
         }
@@ -134,14 +139,19 @@
     "effect": [
       {
         "if": {
-          "not": {
-            "math": [
-              "has_var(berserk_godo_location)"
-            ]
-          }
+          "and": [
+            {
+              "u_has_mission": "MISSION_BERSERK_FLORA_REFERRAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_GODO_KNOWN"
+              }
+            }
+          ]
         },
         "then": {
-          "run_eocs": "EOC_BERSERK_GODO_SEEK"
+          "remove_active_mission": "MISSION_BERSERK_FLORA_REFERRAL"
         }
       },
       {
@@ -149,10 +159,37 @@
           "and": [
             {
               "not": {
-                "math": [
-                  "u_berserk_flora_referral_issued == 1"
-                ]
+                "test_eoc": "EOC_BERSERK_GODO_KNOWN"
               }
+            },
+            {
+              "math": [
+                "time('now') >= u_berserk_flora_forge_retry_at"
+              ]
+            }
+          ]
+        },
+        "then": [
+          {
+            "math": [
+              "u_berserk_flora_forge_retry_at = time('now') + time('30 minutes')"
+            ]
+          },
+          {
+            "run_eocs": "EOC_BERSERK_GODO_SEEK"
+          }
+        ]
+      },
+      {
+        "if": {
+          "and": [
+            {
+              "not": {
+                "u_has_mission": "MISSION_BERSERK_FLORA_REFERRAL"
+              }
+            },
+            {
+              "test_eoc": "EOC_BERSERK_GODO_KNOWN"
             },
             {
               "not": {
