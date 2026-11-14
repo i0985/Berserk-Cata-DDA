@@ -81,7 +81,10 @@ class Knight(unittest.TestCase):
     def test_now_never_opens_the_book_or_calls_a_locator(self):
         f=Conversation();f.choose('AFTER','NOW')
         self.assertEqual(f.targets('NOW'),[tid('AFTER')]);self.assertFalse(f.calls)
-        self.assertIn('forest hollow',f.line('NOW'))
+        self.assertIn('Until you have a trail',f.line('NOW'))
+        f.missions.add('MISSION_BERSERK_FIRST_TRACE')
+        self.assertIn('hollow in the forest',f.line('NOW'))
+        self.assertIn('mark on your map',f.line('NOW'))
         f.health=20;self.assertIn('wounds close',f.line('NOW'))
 
     def test_completed_first_hunt_does_not_send_back_after_clue_is_read(self):

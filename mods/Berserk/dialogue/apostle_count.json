@@ -1140,6 +1140,130 @@
     "dynamic_line": "Then don't stand rooted in the passage. If they notice, I'll have to explain who I was whispering with.",
     "responses": [
       {
+        "text": "Who are you, then?",
+        "topic": "TALK_BERSERK_COUNT_WHO",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                  },
+                  {
+                    "math": [
+                      "n_berserk_count33_human_first == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "n_berserk_count33_change_seen == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Will you help me find a way around?",
+        "topic": "TALK_BERSERK_COUNT_ROUTE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "What will it take to get you out?",
+        "topic": "TALK_BERSERK_COUNT_ESCAPE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
@@ -1150,6 +1274,85 @@
     "id": "TALK_BERSERK_COUNT_SEEK_COUNT",
     "dynamic_line": "I won't ask why.\n\nJust understand: he's not human. Remember that. Not human.",
     "responses": [
+      {
+        "text": "Tell me about the Count.",
+        "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                  },
+                  {
+                    "math": [
+                      "n_berserk_count33_human_first == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "n_berserk_count33_change_seen == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Will you help me find a way around?",
+        "topic": "TALK_BERSERK_COUNT_ROUTE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
@@ -1178,8 +1381,110 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_QUESTIONS",
-    "dynamic_line": "Go ahead. Just quietly. Sound travels far here, and not always in the direction you want.",
+    "dynamic_line": "Quietly. The men who bring the food can hear the floorboards from the passage.",
     "responses": [
+      {
+        "text": "Who are you, then?",
+        "topic": "TALK_BERSERK_COUNT_WHO",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                  },
+                  {
+                    "math": [
+                      "n_berserk_count33_human_first == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "n_berserk_count33_change_seen == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "What do you know about the residence?",
+        "topic": "TALK_BERSERK_COUNT_HOUSE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                  },
+                  {
+                    "math": [
+                      "n_berserk_count33_human_first == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "n_berserk_count33_change_seen == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Tell me about the Count.",
+        "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                  },
+                  {
+                    "math": [
+                      "n_berserk_count33_human_first == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "n_berserk_count33_change_seen == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
@@ -1335,7 +1640,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_ABOUT_COUNT",
-    "dynamic_line": "What do you want to know?",
+    "dynamic_line": "I hauled grain here. I knew which doors to knock at. When he came downstairs, the men with keys went quieter than the ones behind bars.",
     "responses": [
       {
         "text": "Have you seen what he can do?",
@@ -1400,6 +1705,51 @@
     "dynamic_line": "I've seen enough not to mistake you for a savior just because you came here.\n\nThere was a man who broke some rule, I don't know which. The Count took him... so easily. Like tossing an empty sack off his shoulder.\n\nI stopped watching after that.",
     "responses": [
       {
+        "text": "Will you help me find a way around?",
+        "topic": "TALK_BERSERK_COUNT_ROUTE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT"
       }
@@ -1419,8 +1769,53 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_COUNT_WEAK",
-    "dynamic_line": "Even if I knew, I couldn't swear I'd have the nerve to use it.\n\nI won't lie just to get you to open my door. I don't know the weaknesses of things like him.",
+    "dynamic_line": "I never saw anyone hurt him. I saw him catch a man against a wall, though. If you go down there, leave yourself room to get past him.",
     "responses": [
+      {
+        "text": "Will you help me find a way around?",
+        "topic": "TALK_BERSERK_COUNT_ROUTE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ABOUT_COUNT"
@@ -1500,6 +1895,10 @@
     "dynamic_line": "They used to go through the west-wing records office and the narrow passage to the hall. I've learned by the footsteps when someone's coming this way.\n\nBut that's all I hear. Can't make out the whole house from here: who's standing where now, or when the guards change.",
     "responses": [
       {
+        "text": "Where should I look for the Count?",
+        "topic": "TALK_BERSERK_COUNT_WHERE_COUNT"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_SERVANTS"
       }
@@ -1564,8 +1963,57 @@
     "dynamic_line": "I don't have a key. The scribe hid the service key in his chest, in the northern room of the west wing. It opened this grille and the passage to the hall.\n\nI saw where he put it myself. Whether anyone's checked since, I have no idea.",
     "responses": [
       {
+        "text": "What will it take to get you out?",
+        "topic": "TALK_BERSERK_COUNT_ESCAPE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ROUTE"
+      },
+      {
+        "text": "I have what I need.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -1574,6 +2022,10 @@
     "id": "TALK_BERSERK_COUNT_ROUTE_SAFE",
     "dynamic_line": "Less open ground, yes. Safe now? Couldn't say. The last time I used it was before they dragged me here. A lot could have changed.",
     "responses": [
+      {
+        "text": "Where should I look for the Count?",
+        "topic": "TALK_BERSERK_COUNT_WHERE_COUNT"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ROUTE"
@@ -1586,6 +2038,10 @@
     "dynamic_line": "As you wish. I told you about the road I used myself. That's all I have to offer.",
     "responses": [
       {
+        "text": "Where should I look for the Count?",
+        "topic": "TALK_BERSERK_COUNT_WHERE_COUNT"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ROUTE"
       }
@@ -1596,6 +2052,51 @@
     "id": "TALK_BERSERK_COUNT_ROUTE_OPEN",
     "dynamic_line": "Good. One less obstacle. That's something.\n\nWhat's farther on? What's happening along the way?",
     "responses": [
+      {
+        "text": "What will it take to get you out?",
+        "topic": "TALK_BERSERK_COUNT_ESCAPE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_ROUTE"
@@ -1802,6 +2303,10 @@
     "dynamic_line": "Then I won't believe it's over yet either. Too early to celebrate.",
     "responses": [
       {
+        "text": "I should be going.",
+        "topic": "TALK_BERSERK_COUNT_GOODBYE"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
@@ -1823,6 +2328,10 @@
     "id": "TALK_BERSERK_COUNT_AFTER_JOY",
     "dynamic_line": "Maybe I haven't learned how yet.\n\nGive me a little time. I'm not used to the door behind me staying open.",
     "responses": [
+      {
+        "text": "I should be going.",
+        "topic": "TALK_BERSERK_COUNT_GOODBYE"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
@@ -1846,6 +2355,85 @@
     "dynamic_line": "Then stand where you are. I can hear you from there, perfectly well. You needn't come closer.",
     "responses": [
       {
+        "text": "What do you know about the residence?",
+        "topic": "TALK_BERSERK_COUNT_HOUSE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                  },
+                  {
+                    "math": [
+                      "n_berserk_count33_human_first == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "n_berserk_count33_change_seen == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "What will it take to get you out?",
+        "topic": "TALK_BERSERK_COUNT_ESCAPE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
@@ -1854,8 +2442,87 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_DEMON_INFO",
-    "dynamic_line": "I'll answer. Ask, just... just don't stand in the doorway, all right?",
+    "dynamic_line": "I used to unload sacks in the west wing. I can tell you where we kept the keys. Just stand where I can see both your hands.",
     "responses": [
+      {
+        "text": "What do you know about the residence?",
+        "topic": "TALK_BERSERK_COUNT_HOUSE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                  },
+                  {
+                    "math": [
+                      "n_berserk_count33_human_first == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "n_berserk_count33_change_seen == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Will you help me find a way around?",
+        "topic": "TALK_BERSERK_COUNT_ROUTE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
@@ -1868,6 +2535,51 @@
     "dynamic_line": "Open it. Open it, yes.\n\nJust don't ask me to follow you right away. Not now. Give me a little time to get used to who let me out.",
     "responses": [
       {
+        "text": "What will it take to get you out?",
+        "topic": "TALK_BERSERK_COUNT_ESCAPE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
@@ -1876,8 +2588,87 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COUNT_DEMON_THREAT",
-    "dynamic_line": "What is it you want?",
+    "dynamic_line": "Right. You know I'm not going anywhere. If you came for the keys, ask about the keys.",
     "responses": [
+      {
+        "text": "What do you know about the residence?",
+        "topic": "TALK_BERSERK_COUNT_HOUSE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                  },
+                  {
+                    "math": [
+                      "n_berserk_count33_human_first == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "n_berserk_count33_change_seen == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Will you help me find a way around?",
+        "topic": "TALK_BERSERK_COUNT_ROUTE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
@@ -1890,6 +2681,85 @@
     "dynamic_line": "All right. Not now, don't tell me.\n\nJust say why you came back.",
     "responses": [
       {
+        "text": "What do you know about the residence?",
+        "topic": "TALK_BERSERK_COUNT_HOUSE",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "n_berserk_count33_met == 1"
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                  },
+                  {
+                    "math": [
+                      "n_berserk_count33_human_first == 1"
+                    ]
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "n_berserk_count33_change_seen == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "What will it take to get you out?",
+        "topic": "TALK_BERSERK_COUNT_ESCAPE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
       }
@@ -1900,6 +2770,94 @@
     "id": "TALK_BERSERK_COUNT_CHANGE_REMEMBER",
     "dynamic_line": "I remember. I really do.\n\nJust give me a little time to get used to seeing you like this. It's... not easy.",
     "responses": [
+      {
+        "text": "What will it take to get you out?",
+        "topic": "TALK_BERSERK_COUNT_ESCAPE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "not": {
+                "math": [
+                  "n_berserk_count33_escaped == 1"
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "What will you do now?",
+        "topic": "TALK_BERSERK_COUNT_AFTER_PLANS",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "n_berserk_count33_met == 1"
+                  ]
+                },
+                {
+                  "not": {
+                    "and": [
+                      {
+                        "test_eoc": "EOC_BERSERK_COUNT33_VISIBLE_BODY"
+                      },
+                      {
+                        "math": [
+                          "n_berserk_count33_human_first == 1"
+                        ]
+                      },
+                      {
+                        "not": {
+                          "math": [
+                            "n_berserk_count33_change_seen == 1"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "math": [
+                "n_berserk_count33_escaped == 1"
+              ]
+            }
+          ]
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"
@@ -1922,6 +2880,10 @@
     "id": "TALK_BERSERK_COUNT_DEMON_AFTER",
     "dynamic_line": "Then thank you for that too.",
     "responses": [
+      {
+        "text": "I should be going.",
+        "topic": "TALK_BERSERK_COUNT_GOODBYE"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_COUNT_WITNESS"

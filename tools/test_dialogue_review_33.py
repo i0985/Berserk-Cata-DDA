@@ -17,6 +17,19 @@ from validate_mod_assets import validate_dynamic_lines
 
 ROOT = MOD.parents[1]
 SPEC = json.loads((ROOT/'docs/dialogue_sources/dialogue-review-2026-10-29.json').read_text())
+# These two lines were deliberately rewritten in the 3.4 editorial pass.
+REVISED = {
+    ('TALK_BERSERK_GODO_WEAPON_REASONABLE',
+     'That I can forge. Bring the steel and charcoal; I am too old to fetch them for you.'): (
+        "I can make that. You bring the steel and charcoal; I'll see to the blade.",
+        'Такой сделаю. Сталь и уголь с тебя, клинок с меня.',
+    ),
+    ('TALK_BERSERK_ROAD_CARAVAN',
+     '&The wagon box has been searched. The repair order is still tucked beneath its lid.'): (
+        '&Someone has already pried the iron off the caravan chest. The repair order is still caught between the boards.',
+        '&С обоза уже сняли железные крепления. Заказ на починку всё ещё зажат между досками.',
+    ),
+}
 
 
 def strings(n):
@@ -32,10 +45,11 @@ class Editorial(unittest.TestCase):
         self.assertEqual(len(SPEC['patches']),99)
         for p in SPEC['patches']:
             body='\n'.join(strings(TOPICS[p['topic']]))
+            en, ru = REVISED.get((p['topic'], p['after_en']), (p['after_en'], p['after_ru']))
             # The four master-death pairs are deliberately joined into prose.
-            self.assertIn(p['after_en'].strip(),body,p['topic'])
+            self.assertIn(en.strip(),body,p['topic'])
             if p['topic']!='TALK_BERSERK_REF_T01':
-                self.assertEqual(RUSSIAN.gettext(p['after_en']),p['after_ru'],p['topic'])
+                self.assertEqual(RUSSIAN.gettext(en),ru,p['topic'])
 
     def test_all_nine_dialogue_files_keep_their_topics_and_valid_references(self):
         files=list((MOD/'dialogue').glob('*.json'))

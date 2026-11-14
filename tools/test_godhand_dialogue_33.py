@@ -102,6 +102,17 @@ class GodHand(unittest.TestCase):
         self.assertEqual(f.values['u_berserk_apostol_outcome'],1)
         self.assertEqual(f.values['berserk_eclipse_era'],1)
         self.assertNotIn('EOC_BERSERK_ECLIPSE_RESCUE_RETURN',f.external)
+
+    def test_explanations_can_lead_to_confirmation_without_committing(self):
+        for k in KINDS:
+            with self.subTest(member=k):
+                f=Ceremony()
+                f.pick_hand(k,'FORM_CHOICE','GROWTH')
+                f.pick_hand(k,'GROWTH','END_GROWTH')
+                f.pick_hand(k,'END_GROWTH','CONFIRM')
+                self.assertFalse(f.values.get('u_berserk_apostol_gift_roll'))
+                f.pick_hand(k,'CONFIRM','TALK_DONE')
+                self.assertEqual(f.values['u_berserk_apostol_outcome'],1)
     def test_speaker_order_does_not_change_the_five_way_roll(self):
         results=[]
         for k in KINDS:

@@ -228,6 +228,19 @@ class RickertDialogue(unittest.TestCase):
         f.run('EOC_BERSERK_RICKERT_STORY_LIE');self.assertEqual(f.values['u_berserk_rickert_eclipse_story'],1)
         self.assertIn('thought I knew',f.line('COMMANDER'))
 
+    def test_first_account_is_direct_and_silence_can_be_resumed(self):
+        f=Conversation();f.normal_return();f.met()
+        past='TALK_BERSERK_NOV02B_RICKERT_PAST'
+        f.choose('','ECLIPSE')
+        f.choose('ECLIPSE','ECLIPSE_SILENCE')
+        self.assertNotIn(tid('ECLIPSE'),f.targets(''))
+        f.choose('',past)
+        f.choose(past,'ECLIPSE')
+        f.choose('ECLIPSE','ECLIPSE_TRUTH')
+        f.choose('ECLIPSE_TRUTH','TRUTH_SEEN')
+        self.assertIn(tid('ECLIPSE_MEMORIES'),f.targets('TRUTH_SEEN'))
+        self.assertNotIn(tid('CONFESSION'),f.targets('TRUTH_SEEN'))
+
     def test_lie_and_late_confession_remember_both_facts(self):
         f=Conversation();f.normal_return();f.met();f.choose('ECLIPSE','ECLIPSE_LIE')
         self.assertNotIn('thought I knew',f.line('COMMANDER'))

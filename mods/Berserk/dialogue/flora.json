@@ -165,8 +165,8 @@
         "topic": "TALK_BERSERK_FLORA_INTRO_TREE"
       },
       {
-        "text": "I need help.",
-        "topic": "TALK_BERSERK_FLORA_INTRO_HELP"
+        "text": "I could use supplies or advice.",
+        "topic": "TALK_BERSERK_FLORA_AID"
       },
       {
         "text": "Do you live here alone?",
@@ -200,6 +200,62 @@
     "dynamic_line": "Then rest first. Questions come more easily when you stop listening for every rustle behind you.",
     "responses": [
       {
+        "text": "I need provisions or advice.",
+        "topic": "TALK_BERSERK_FLORA_AID",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_stage <= 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
@@ -208,8 +264,64 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_INTRO_TREE",
-    "dynamic_line": "It draws the attention of those who look around them, rather than only at their own feet. I hope the road here treated you kindly.",
+    "dynamic_line": "I saw you looking up. Most people watch their feet all the way to my door; you saw the first thing I would have shown you.",
     "responses": [
+      {
+        "text": "Tell me about this house and the tree.",
+        "topic": "TALK_BERSERK_FLORA_HOME",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_stage <= 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
@@ -232,6 +344,10 @@
     "id": "TALK_BERSERK_FLORA_INTRO_ALONE",
     "dynamic_line": "This house is rarely entirely alone. But right now you're speaking to its mistress.",
     "responses": [
+      {
+        "text": "Why do you need so many books?",
+        "topic": "TALK_BERSERK_FLORA_BOOKS"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
@@ -274,6 +390,62 @@
     "id": "TALK_BERSERK_FLORA_INTRO_HABIT",
     "dynamic_line": "A useful one on the road. You can let it rest for a little while here.",
     "responses": [
+      {
+        "text": "I need provisions or advice.",
+        "topic": "TALK_BERSERK_FLORA_AID",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_stage <= 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
@@ -330,6 +502,62 @@
     "dynamic_line": "Show me, if you wish. Sometimes another person's words travel a long way before bringing someone to my door.",
     "responses": [
       {
+        "text": "I need provisions or advice.",
+        "topic": "TALK_BERSERK_FLORA_AID",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_stage <= 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
@@ -349,6 +577,62 @@
     "id": "TALK_BERSERK_FLORA_INTRO_RUMOR",
     "dynamic_line": "Then we'll see how kindly those rumors have treated us both.",
     "responses": [
+      {
+        "text": "I need provisions or advice.",
+        "topic": "TALK_BERSERK_FLORA_AID",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_stage <= 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
@@ -706,7 +990,7 @@
         }
       },
       {
-        "text": "I need help.",
+        "text": "I need provisions or advice.",
         "topic": "TALK_BERSERK_FLORA_AID",
         "condition": {
           "and": [
@@ -1466,6 +1750,62 @@
     "dynamic_line": "Thank you for answering honestly. Then we'll have to talk about what is changing now, both for you and for the help I am willing to offer.",
     "responses": [
       {
+        "text": "I need provisions or advice.",
+        "topic": "TALK_BERSERK_FLORA_AID",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_stage <= 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
@@ -1496,6 +1836,62 @@
     "dynamic_line": "I don't know everything you have been through. But it is you who must face the consequences. It isn't for me to judge whether the price justifies what was done.",
     "responses": [
       {
+        "text": "I need provisions or advice.",
+        "topic": "TALK_BERSERK_FLORA_AID",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_stage <= 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
@@ -1525,6 +1921,62 @@
     "id": "TALK_BERSERK_FLORA_APOSTOL_PRIVATE",
     "dynamic_line": "Your choice. But I am responsible for the help I give here, and I must decide what I am willing to offer and what I am not.",
     "responses": [
+      {
+        "text": "I need provisions or advice.",
+        "topic": "TALK_BERSERK_FLORA_AID",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_stage <= 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
@@ -1624,6 +2076,10 @@
     "dynamic_line": "Yes. Especially when night makes the boundary between your world and their presence less distinct.",
     "responses": [
       {
+        "text": "How can I prepare protection somewhere else?",
+        "topic": "TALK_BERSERK_FLORA_WARD_BUILD"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
@@ -1654,6 +2110,10 @@
     "dynamic_line": "I know no way to free you from it. That is the limit of my knowledge, not a reason to stop caring for your life.",
     "responses": [
       {
+        "text": "Why is it quieter here?",
+        "topic": "TALK_BERSERK_FLORA_WARD"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
@@ -1664,6 +2124,10 @@
     "id": "TALK_BERSERK_FLORA_BRAND_EASE",
     "dynamic_line": "Sometimes the danger causing it can be reduced. But don't silence every warning merely because it hurts. Pain is sometimes the only warning that reaches you in time.",
     "responses": [
+      {
+        "text": "Why is it quieter here?",
+        "topic": "TALK_BERSERK_FLORA_WARD"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
@@ -1750,6 +2214,10 @@
     "dynamic_line": "You can rest here. But I wouldn't call any house beyond the reach of every power. That would be presumptuous of me.",
     "responses": [
       {
+        "text": "How can I prepare protection somewhere else?",
+        "topic": "TALK_BERSERK_FLORA_WARD_BUILD"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
@@ -1760,6 +2228,10 @@
     "id": "TALK_BERSERK_FLORA_WARD_BUILD",
     "dynamic_line": "A sign of stone and bone hinders the beings the Brand calls. Keep it near your resting place. It won't drive away those already here, or replace a way out.",
     "responses": [
+      {
+        "text": "Is that enough?",
+        "topic": "TALK_BERSERK_FLORA_WARD_LIMITS"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
@@ -1796,6 +2268,10 @@
     "dynamic_line": "The sign is no substitute for walls, vigilance or a way out, especially once a creature is already close. Protection serves those who understand its limits better than those who rely on it blindly.",
     "responses": [
       {
+        "text": "How can I prepare protection somewhere else?",
+        "topic": "TALK_BERSERK_FLORA_WARD_BUILD"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
       }
@@ -1821,6 +2297,10 @@
     "id": "TALK_BERSERK_FLORA_BRAND_BREACH_SELF",
     "dynamic_line": "For you, the Brand remains. A closed wound in the world and the mark on your body are different things. One does not undo the other.",
     "responses": [
+      {
+        "text": "How can I prepare protection somewhere else?",
+        "topic": "TALK_BERSERK_FLORA_WARD_BUILD"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_BRAND"
@@ -1877,6 +2357,10 @@
     "dynamic_line": "That is one way to begin imagining it. Just don't think of it as a neighboring room always reached through the same door.",
     "responses": [
       {
+        "text": "Can all the rifts be closed?",
+        "topic": "TALK_BERSERK_FLORA_WORLD_WOUNDS"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_WORLD"
       }
@@ -1887,6 +2371,10 @@
     "id": "TALK_BERSERK_FLORA_WORLD_PEOPLE",
     "dynamic_line": "No. But unfamiliar kindness and unfamiliar danger can look equally puzzling at first. That is why curiosity should walk beside caution, not ahead of it.",
     "responses": [
+      {
+        "text": "Can all the rifts be closed?",
+        "topic": "TALK_BERSERK_FLORA_WORLD_WOUNDS"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_WORLD"
@@ -1928,8 +2416,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_WORLD_UNKNOWN",
-    "dynamic_line": "I don't. Knowledge begins with a willingness to admit where understanding ends, rather than with a confident voice.",
+    "dynamic_line": "I can show you where the boundary runs thin here. I cannot tell you who first wore it through. The two are easily mistaken for the same knowledge.",
     "responses": [
+      {
+        "text": "Can all the rifts be closed?",
+        "topic": "TALK_BERSERK_FLORA_WORLD_WOUNDS"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_WORLD"
@@ -1956,6 +2448,10 @@
     "id": "TALK_BERSERK_FLORA_WORLD_START",
     "dynamic_line": "With the place you already know about. Help where you can truly act, instead of only imagining the weight of all that lies ahead. Thinking about that weight alone won't lighten the world's burden.",
     "responses": [
+      {
+        "text": "Why is everything mixing together now?",
+        "topic": "TALK_BERSERK_FLORA_WORLD_COLLISION"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_WORLD"
@@ -2136,6 +2632,22 @@
     "dynamic_line": "Don't mistake being able to move for being healed. After the battle, the body must still endure what happened to it. A delay is no reprieve.",
     "responses": [
       {
+        "text": "Will you let me take it?",
+        "topic": "TALK_BERSERK_FLORA_OFFER",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FLORA33_ANY_ARMOR"
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
@@ -2195,6 +2707,10 @@
     "dynamic_line": "I know. That is why I want you to distinguish necessity from merely wanting to continue. They are not the same, though the heat of battle blurs the difference.",
     "responses": [
       {
+        "text": "Will I stop telling friends from enemies?",
+        "topic": "TALK_BERSERK_FLORA_COST_CONTROL"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
       }
@@ -2205,6 +2721,10 @@
     "id": "TALK_BERSERK_FLORA_COST_LAST",
     "dynamic_line": "Then decide what counts as a last resort beforehand. In the fight itself, that definition has a way of quietly changing.",
     "responses": [
+      {
+        "text": "Will I stop telling friends from enemies?",
+        "topic": "TALK_BERSERK_FLORA_COST_CONTROL"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
@@ -2243,6 +2763,22 @@
     "id": "TALK_BERSERK_FLORA_COST_ANCHOR",
     "dynamic_line": "Remember why you come back from a battle. Listen to those you trust. And notice the moment when you no longer want to stop, though the reason for fighting is long gone.",
     "responses": [
+      {
+        "text": "Will you let me take it?",
+        "topic": "TALK_BERSERK_FLORA_OFFER",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FLORA_CAN_RECEIVE"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FLORA33_ANY_ARMOR"
+              }
+            }
+          ]
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_ARMOR"
@@ -2737,19 +3273,54 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_AID",
-    "dynamic_line": "Tell me what help you need.",
+    "dynamic_line": "I keep bundles for travelers. If you need something for the road, ask. I may know what lies ahead of you as well.",
     "responses": [
       {
         "text": "About supplies for the road.",
-        "topic": "TALK_BERSERK_FLORA_HELP"
+        "topic": "TALK_BERSERK_FLORA_HELP",
+        "condition": {
+          "not": {
+            "math": [
+              "berserk_flora_aid_authorized == 1"
+            ]
+          }
+        }
+      },
+      {
+        "text": "Which provisions did you set aside?",
+        "topic": "TALK_BERSERK_FLORA_HELP_TAKEN",
+        "condition": {
+          "math": [
+            "berserk_flora_aid_authorized == 1"
+          ]
+        }
       },
       {
         "text": "Tell me about the armor.",
-        "topic": "TALK_BERSERK_FLORA_ARMOR"
+        "topic": "TALK_BERSERK_FLORA_ARMOR",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_FLORA33_ARMOR_KNOWN"
+        }
       },
       {
         "text": "What should I do next?",
         "topic": "TALK_BERSERK_FLORA_NEXT"
+      },
+      {
+        "text": "Do you have anything that might help against apostles?",
+        "topic": "TALK_BERSERK_FLORA_ARMOR",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_FLORA33_LATE"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_FLORA33_ARMOR_KNOWN"
+              }
+            }
+          ]
+        }
       },
       {
         "text": "Another question.",
@@ -2848,8 +3419,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_TREE_SPEAK",
-    "dynamic_line": "You can start by sitting quietly beside it. Not every conversation needs human words.",
+    "dynamic_line": "Sit by the roots for a while. When the wind drops and the branches still move, you'll understand why I don't call it a conversation.",
     "responses": [
+      {
+        "text": "Why do you need so many books?",
+        "topic": "TALK_BERSERK_FLORA_BOOKS"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_HOME"
@@ -2948,7 +3523,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_PERSONAL",
-    "dynamic_line": "Ask.",
+    "dynamic_line": "Pull the chair nearer. I have spent long enough listening to the trees today.",
     "responses": [
       {
         "text": "Aren't you afraid of me?",
@@ -3224,7 +3799,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_DANGERS",
-    "dynamic_line": "Tell me what you know.",
+    "dynamic_line": "Tell me what you saw. Start with the place. Some dangers won't follow you out of it; others will.",
     "responses": [
       {
         "text": "I know something about the Count.",
@@ -3273,7 +3848,7 @@
       },
       {
         "text": "I killed its reflection, or whatever it was.",
-        "topic": "TALK_BERSERK_FLORA_DANGER_PROJECTION",
+        "topic": "TALK_BERSERK_FLORA_PROJECTION_ANSWER",
         "condition": {
           "math": [
             "u_berserk_flora33_projection_defeated == 1"
@@ -3296,6 +3871,10 @@
     "dynamic_line": "You have done something difficult and worthwhile. But the creatures that crossed before it closed are still on this side. Take the quiet as a chance to recover, and remain careful.",
     "responses": [
       {
+        "text": "Where should I go next?",
+        "topic": "TALK_BERSERK_FLORA_NEXT"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
       }
@@ -3304,11 +3883,15 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_FLORA_DANGER_PROJECTION",
-    "dynamic_line": "It hurt you for real, didn't it?",
+    "dynamic_line": "That wound is real enough. It cannot tell us whether the one who cast the reflection still lives.",
     "responses": [
       {
         "text": "Yes.",
         "topic": "TALK_BERSERK_FLORA_PROJECTION_ANSWER"
+      },
+      {
+        "text": "Where should I go next?",
+        "topic": "TALK_BERSERK_FLORA_NEXT"
       },
       {
         "text": "I wanted to ask about something else.",
@@ -3322,8 +3905,16 @@
     "dynamic_line": "What you cut down was a reflection. It can wound you for real. But its death alone tells you nothing about the fate of the original.",
     "responses": [
       {
+        "text": "Where should I go next?",
+        "topic": "TALK_BERSERK_FLORA_NEXT"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
+      },
+      {
+        "text": "I have what I need.",
+        "topic": "TALK_DONE"
       }
     ],
     "speaker_effect": {
@@ -3377,8 +3968,68 @@
     "dynamic_line": "They've passed the first boundary. The guardians are holding, for now. Don't spend that time on questions.",
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Which way should I go?",
+        "topic": "TALK_BERSERK_FLORA_SIEGE_WAY",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_siege_state >= 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 4"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "What else can I do?",
         "topic": "TALK_BERSERK_FLORA"
+      },
+      {
+        "text": "Go.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -3388,8 +4039,12 @@
     "dynamic_line": "Through the garden to the west, or through the south exit. Watch where you can still get through. The fire won't wait.",
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "What else can I do?",
         "topic": "TALK_BERSERK_FLORA"
+      },
+      {
+        "text": "Go.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -3399,8 +4054,68 @@
     "dynamic_line": "Hold back the enemies if you can. But don't stay out of pride. Leaving doesn't mean losing.",
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Which way should I go?",
+        "topic": "TALK_BERSERK_FLORA_SIEGE_WAY",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_siege_state >= 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 4"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "What else can I do?",
         "topic": "TALK_BERSERK_FLORA"
+      },
+      {
+        "text": "Go.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -3410,8 +4125,68 @@
     "dynamic_line": "I'm staying. The house is my concern.\n\nYours, right now, is getting out.",
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Which way should I go?",
+        "topic": "TALK_BERSERK_FLORA_SIEGE_WAY",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_siege_state >= 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 4"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "What else can I do?",
         "topic": "TALK_BERSERK_FLORA"
+      },
+      {
+        "text": "Go.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -3421,12 +4196,72 @@
     "dynamic_line": "There's a manuscript on the library table. If the way is still clear, take it. If not, leave it and run.\n\nDon't go through fire for it. Do you hear me? Don't.",
     "responses": [
       {
-        "text": "I'll try.",
+        "text": "What else can I do?",
         "topic": "TALK_BERSERK_FLORA"
       },
       {
         "text": "There's no way through anymore.",
         "topic": "TALK_BERSERK_FLORA_SIEGE_SAVE_NO"
+      },
+      {
+        "text": "Which way should I go?",
+        "topic": "TALK_BERSERK_FLORA_SIEGE_WAY",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_siege_state >= 2"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 4"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "text": "Go.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -3529,7 +4364,7 @@
       },
       {
         "text": "I killed its reflection, or whatever it was.",
-        "topic": "TALK_BERSERK_FLORA_DANGER_PROJECTION",
+        "topic": "TALK_BERSERK_FLORA_PROJECTION_ANSWER",
         "condition": {
           "math": [
             "u_berserk_flora33_projection_defeated == 1"
@@ -4043,6 +4878,14 @@
       {
         "text": "I understand.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
+      },
+      {
+        "text": "Does defeating one end the danger?",
+        "topic": "TALK_BERSERK_FLORA_AFTER_VICTORY"
+      },
+      {
+        "text": "Where should I go next?",
+        "topic": "TALK_BERSERK_FLORA_NEXT"
       }
     ]
   },
@@ -4054,6 +4897,14 @@
       {
         "text": "I understand.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
+      },
+      {
+        "text": "Does defeating one end the danger?",
+        "topic": "TALK_BERSERK_FLORA_AFTER_VICTORY"
+      },
+      {
+        "text": "Where should I go next?",
+        "topic": "TALK_BERSERK_FLORA_NEXT"
       }
     ]
   },
@@ -4065,6 +4916,14 @@
       {
         "text": "I understand.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
+      },
+      {
+        "text": "Does defeating one end the danger?",
+        "topic": "TALK_BERSERK_FLORA_AFTER_VICTORY"
+      },
+      {
+        "text": "Where should I go next?",
+        "topic": "TALK_BERSERK_FLORA_NEXT"
       }
     ]
   },
@@ -4076,6 +4935,14 @@
       {
         "text": "I understand.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"
+      },
+      {
+        "text": "Does defeating one end the danger?",
+        "topic": "TALK_BERSERK_FLORA_AFTER_VICTORY"
+      },
+      {
+        "text": "Where should I go next?",
+        "topic": "TALK_BERSERK_FLORA_NEXT"
       }
     ]
   },
@@ -4084,6 +4951,10 @@
     "id": "TALK_BERSERK_FLORA_AFTER_VICTORY",
     "dynamic_line": "A fallen creature cannot strike again. But the wound through which it reached us may remain. Examine what is left at the place; closing that wound is a separate task.",
     "responses": [
+      {
+        "text": "Where should I go next?",
+        "topic": "TALK_BERSERK_FLORA_NEXT"
+      },
       {
         "text": "Another question.",
         "topic": "TALK_BERSERK_FLORA_DANGERS"

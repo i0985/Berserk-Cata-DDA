@@ -5,7 +5,7 @@
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_GODO_ROAD_CARAVAN_INTACT",
       "yes": "&Most of the wagon has been stripped. A repair order lies under the lid of the iron-bound box. One dry bundle remains beneath it. You could recover the provisions or break the box for its fittings.",
-      "no": "&The wagon box has been searched. The repair order is still tucked beneath its lid."
+      "no": "&Someone has already pried the iron off the caravan chest. The repair order is still caught between the boards."
     },
     "responses": [
       {
@@ -99,7 +99,7 @@
         }
       },
       {
-        "text": "Leave it for now.",
+        "text": "Leave the wagon.",
         "topic": "TALK_DONE"
       }
     ]
@@ -273,7 +273,7 @@
         }
       },
       {
-        "text": "Leave it for now.",
+        "text": "Leave the camp as it is.",
         "topic": "TALK_DONE"
       }
     ]

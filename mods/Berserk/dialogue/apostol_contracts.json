@@ -132,7 +132,7 @@
         }
       },
       {
-        "text": "Will my new nature remain?",
+        "text": "Can this change be undone?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
@@ -168,7 +168,7 @@
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_OFFER",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING",
-      "yes": "Beyond these walls lies chaos. People tear at one another for a handful of grain, a mouthful of water.\n\nHere, there is a master. Here, there is order. I need those capable of upholding it.",
+      "yes": "My household eats while the road starves. I decide who keeps their place at the table. You can earn one.",
       "no": "The time to ask for a place at court has passed."
     },
     "responses": [
@@ -325,8 +325,8 @@
     },
     "responses": [
       {
-        "text": "Let's discuss my duties.",
-        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT",
+        "text": "What do you need from me?",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SERVICE",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
         }
@@ -395,8 +395,39 @@
     "dynamic_line": "I need two pieces of leather for the household stores. Bring them here. Then you will be able to call on the tendril's strength again.",
     "responses": [
       {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_FAVOR"
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "leather",
+                "count": 2
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_PAY"
+          }
+        ]
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -424,8 +455,39 @@
     "dynamic_line": "Then why waste my time with empty words?",
     "responses": [
       {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_FAVOR"
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "leather",
+                "count": 2
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_PAY"
+          }
+        ]
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -437,6 +499,10 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -448,6 +514,10 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -456,6 +526,40 @@
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SUPPORT_GONE",
     "dynamic_line": "Strength demands loyalty. I never promised to feed you power forever for one fortunate decision in the past.",
     "responses": [
+      {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_FAVOR"
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "leather",
+                "count": 2
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_COUNT_PAWN_PAY"
+          }
+        ]
+      },
+      {
+        "text": "What do you need from me this time?",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_SERVICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_COUNT_PAWN_LOYAL"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
@@ -470,6 +574,10 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -602,7 +710,7 @@
         }
       },
       {
-        "text": "Will my new nature remain?",
+        "text": "Can this change be undone?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
@@ -638,7 +746,7 @@
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_OFFER",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING",
-      "yes": "Stay with the Dogs. Strength, plunder, fun. Not a life spent asking permission to pass.\n\nYou'll decide who gets past, and who gets buried.",
+      "yes": "Ride with the Dogs. Take what you want off the road. If anyone asks who gave you leave, bite out his tongue.",
       "no": "Come on! Show me what your words are worth!"
     },
     "responses": [
@@ -802,8 +910,8 @@
     },
     "responses": [
       {
-        "text": "Let's discuss my duties.",
-        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT",
+        "text": "What do you need from me?",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SERVICE",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
         }
@@ -872,8 +980,39 @@
     "dynamic_line": "Bring twelve pieces of scrap metal to equip the Dogs. Let's see if you can bring back spoils instead of just running your mouth. With my help, you can charge ahead and sweep aside anyone nearby.",
     "responses": [
       {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_FAVOR"
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "scrap",
+                "count": 12
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_PAY"
+          }
+        ]
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -901,8 +1040,39 @@
     "dynamic_line": "Then stop blocking my view.",
     "responses": [
       {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_FAVOR"
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "scrap",
+                "count": 12
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_PAY"
+          }
+        ]
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -914,6 +1084,10 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -925,6 +1099,10 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -933,6 +1111,40 @@
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SUPPORT_GONE",
     "dynamic_line": "Want my help, do you?\n\nBring something worthwhile. I don't feed anyone for their pretty eyes.",
     "responses": [
+      {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_FAVOR"
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "scrap",
+                "count": 12
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_WYALD_PAWN_PAY"
+          }
+        ]
+      },
+      {
+        "text": "What do you need from me this time?",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_SERVICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_WYALD_PAWN_LOYAL"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
@@ -947,6 +1159,10 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -978,21 +1194,7 @@
     },
     "responses": [
       {
-        "text": "Yes.",
-        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
-        }
-      },
-      {
-        "text": "I'm looking for whoever lives in this valley.",
-        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
-        }
-      },
-      {
-        "text": "What is happening here?",
+        "text": "Tell me what happens here.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
@@ -1079,7 +1281,7 @@
         }
       },
       {
-        "text": "Will my new nature remain?",
+        "text": "Can this change be undone?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
@@ -1122,7 +1324,7 @@
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING",
-      "yes": "You can stay here. You don't have to go back to them.\n\nThey only frighten you. Order you around. Hurt you, and then wonder why you don't trust them.",
+      "yes": "I can hear you breathing from up here. Take your time. No one in the valley will tell you to be brave. We have places to hide where grown-ups never think to look.",
       "no": "Stay away from us!"
     },
     "responses": [
@@ -1284,8 +1486,8 @@
     },
     "responses": [
       {
-        "text": "Let's discuss my duties.",
-        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT",
+        "text": "What do you need from me?",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SERVICE",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
         }
@@ -1354,8 +1556,39 @@
     "dynamic_line": "Bring four pieces of meat for the nest. Then I'll help you move more lightly, slipping away from others' blows for a little while.",
     "responses": [
       {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_FAVOR"
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "meat",
+                "count": 4
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_PAY"
+          }
+        ]
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -1383,19 +1616,54 @@
     "dynamic_line": "Then keep looking. You know where to find us. You won't forget the way.",
     "responses": [
       {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_FAVOR"
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "meat",
+                "count": 4
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_PAY"
+          }
+        ]
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_BODY",
-    "dynamic_line": "You're still one of us. That won't go away, whatever you're feeling now.",
+    "dynamic_line": "Why would you want that? You’re one of us. I won’t send you back to them.",
     "responses": [
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -1407,6 +1675,10 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -1415,6 +1687,40 @@
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SUPPORT_GONE",
     "dynamic_line": "I can't keep going without meat for the nest. Bring some, and I'll help again.",
     "responses": [
+      {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_FAVOR"
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "meat",
+                "count": 4
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_PAY"
+          }
+        ]
+      },
+      {
+        "text": "What do you need from me this time?",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SERVICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_ROSINE_PAWN_LOYAL"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
@@ -1429,6 +1735,10 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -1572,7 +1882,7 @@
         }
       },
       {
-        "text": "Will my new nature remain?",
+        "text": "Can this change be undone?",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_BODY",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
@@ -1608,7 +1918,7 @@
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_OFFER",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING",
-      "yes": "You have come far enough for me to consider you a warrior rather than a passing madman.\n\nI can offer you service. Strength to endure what breaks ordinary human limits.",
+      "yes": "A breastplate can turn an edge. It cannot stop the blow that caves it in. Serve under me and your bones will bear what steel cannot.",
       "no": "The conversation is over."
     },
     "responses": [
@@ -1784,8 +2094,8 @@
     },
     "responses": [
       {
-        "text": "Let's discuss my duties.",
-        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT",
+        "text": "What do you need from me?",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_SERVICE",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
         }
@@ -1854,8 +2164,39 @@
     "dynamic_line": "Deliver four lumps of steel. They are needed to repair armor. In return, I will help you harden your shell for a short time; moving under blows will become harder.",
     "responses": [
       {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_FAVOR"
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "steel_lump",
+                "count": 4
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_PAY"
+          }
+        ]
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -1883,8 +2224,39 @@
     "dynamic_line": "State the reason.\n\nSet right what is within your power. And do not report success before it is achieved. That is worse than delay.",
     "responses": [
       {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_FAVOR"
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "steel_lump",
+                "count": 4
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_PAY"
+          }
+        ]
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -1896,6 +2268,10 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -1907,6 +2283,10 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -1915,6 +2295,40 @@
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_SUPPORT_GONE",
     "dynamic_line": "The protection I lent you has faded. Bring the steel, and I will renew it.",
     "responses": [
+      {
+        "text": "I brought what you asked for.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_PAID",
+        "condition": {
+          "and": [
+            {
+              "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
+            },
+            {
+              "not": {
+                "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_FAVOR"
+              }
+            },
+            {
+              "u_has_items": {
+                "item": "steel_lump",
+                "count": 4
+              }
+            }
+          ]
+        },
+        "effect": [
+          {
+            "run_eocs": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_PAY"
+          }
+        ]
+      },
+      {
+        "text": "What do you need from me this time?",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_SERVICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_GRUNBELD_PAWN_LOYAL"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
@@ -1929,6 +2343,10 @@
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_ROOT"
+      },
+      {
+        "text": "Leave.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -1945,6 +2363,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
@@ -1955,6 +2380,13 @@
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DISOBEY",
     "dynamic_line": "Then you should have remained beyond the gates.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
@@ -1974,6 +2406,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
@@ -1984,6 +2423,13 @@
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_OLD_BODY",
     "dynamic_line": "You are asking to leave it behind yourself. Or did you expect to try on my gift like someone else's cloak, wear it for an evening, then return it?",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
@@ -2003,6 +2449,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
@@ -2013,6 +2466,13 @@
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_HAPPY",
     "dynamic_line": "The contentment of servants is no measure of the strength of rule.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
@@ -2050,6 +2510,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
@@ -2061,6 +2528,13 @@
     "dynamic_line": "They are under my authority. Do not confuse the standing of a companion with that of someone dragged here in chains.",
     "responses": [
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
       }
@@ -2071,6 +2545,13 @@
     "id": "TALK_BERSERK_APOSTOL_COUNT_PAWN_WHY",
     "dynamic_line": "Because you came here on your own feet. Most are escorted or dragged.\n\nLet us see if you have the sense to make use of that difference.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_COUNT_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_DETAILS"
@@ -2090,6 +2571,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
@@ -2100,6 +2588,13 @@
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_TAKE",
     "dynamic_line": "You're catching on fast. I like it.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
@@ -2119,6 +2614,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
@@ -2129,6 +2631,13 @@
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_LEADER",
     "dynamic_line": "And I'm the one in charge. Wouldn't even suggest testing that.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
@@ -2148,6 +2657,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
@@ -2158,6 +2674,13 @@
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_OLD_BODY",
     "dynamic_line": "Want to go back, and you'll howl. Just a different kind of howling.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
@@ -2177,6 +2700,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
@@ -2187,6 +2717,13 @@
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_ABANDON",
     "dynamic_line": "Keep up with the pack, and you won't have to find out.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
@@ -2199,6 +2736,13 @@
     "dynamic_line": "Plunder. Deeds. More noise from you in a fight than whining afterward.\n\nAnd when I call, you come. No arguing.",
     "responses": [
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
       }
@@ -2209,6 +2753,13 @@
     "id": "TALK_BERSERK_APOSTOL_WYALD_PAWN_WHY",
     "dynamic_line": "Plenty of time to finish you off. Nothing hard about that.\n\nBut what if you turn out to be amusing? A shame to throw that away for nothing.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_WYALD_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_DETAILS"
@@ -2228,6 +2779,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
@@ -2238,6 +2796,13 @@
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_WANTED",
     "dynamic_line": "They wanted things to be better. I helped them. What is so wrong with that?",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
@@ -2257,6 +2822,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
@@ -2270,6 +2842,13 @@
       {
         "text": "That isn't what I asked.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_SELF_MORE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+        }
+      },
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DECISION",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
         }
@@ -2304,6 +2883,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
@@ -2314,6 +2900,13 @@
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_LEAVE_MORE",
     "dynamic_line": "Beyond these trees there is only the same fear. Here you will always have a place.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
@@ -2333,6 +2926,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
@@ -2343,6 +2943,13 @@
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_FEAR",
     "dynamic_line": "Sometimes they're afraid. They still remember too much.\n\nThat will pass.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
@@ -2355,6 +2962,13 @@
     "dynamic_line": "Because you're still listening. Usually they come with fire. Or with iron.\n\nYou could simply stay. That's rare.",
     "responses": [
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
       }
@@ -2365,6 +2979,13 @@
     "id": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DISLIKE",
     "dynamic_line": "You haven't even tried yet. And you already sound like them.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_DETAILS"
@@ -2384,6 +3005,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
@@ -2394,6 +3022,13 @@
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DISOBEY",
     "dynamic_line": "Decide that before the oath, not afterward.\n\nI will hear an objection. But the decision remains mine. That is the order of things; otherwise service is meaningless.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
@@ -2413,6 +3048,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
@@ -2423,6 +3065,13 @@
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_OLD_BODY",
     "dynamic_line": "No.\n\nThink about that now, before asking for such strength.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
@@ -2442,6 +3091,13 @@
         }
       },
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
@@ -2452,6 +3108,13 @@
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_LEAVE",
     "dynamic_line": "Abandoning your duty does not become freedom merely because you call it that.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
@@ -2464,6 +3127,13 @@
     "dynamic_line": "A needless death proves no endurance.\n\nA warrior may retreat to fight again. But one who abandons an entrusted line and the companions beside him answers for that choice himself.",
     "responses": [
       {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
       }
@@ -2474,6 +3144,13 @@
     "id": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_WHY",
     "dynamic_line": "You stood before me with the chance to turn back, and did not.\n\nThat is enough for an offer. Respect will require more.",
     "responses": [
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DECISION",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DETAILS"
@@ -2488,6 +3165,13 @@
       {
         "text": "That was a peaceful home. People could have stayed and lived there.",
         "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_FLORA_PRICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
+        }
+      },
+      {
+        "text": "I've decided.",
+        "topic": "TALK_BERSERK_APOSTOL_GRUNBELD_PAWN_DECISION",
         "condition": {
           "test_eoc": "EOC_BERSERK_CONTRACT33_GRUNBELD_PENDING"
         }

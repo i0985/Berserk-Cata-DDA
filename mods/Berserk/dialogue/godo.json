@@ -527,7 +527,7 @@
     },
     "responses": [
       {
-        "text": "Weapons and work.",
+        "text": "I need a blade or a repair.",
         "topic": "TALK_BERSERK_GODO_WORK"
       },
       {
@@ -737,7 +737,7 @@
         }
       },
       {
-        "text": "How long have you lived at the forge?",
+        "text": "Mind if I sit by the forge?",
         "topic": "TALK_BERSERK_GODO_HEARTH"
       },
       {
@@ -1144,6 +1144,22 @@
         ]
       },
       {
+        "text": "Let me sit by your forge a while.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_INVITE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_CAN_SPARKS"
+        }
+      },
+      {
+        "text": "I remember what you told me at the forge.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_RECALL",
+        "condition": {
+          "math": [
+            "u_berserk_godo_sparks_completed == 1"
+          ]
+        }
+      },
+      {
         "text": "Back.",
         "topic": "TALK_BERSERK_GODO_HEARTH"
       },
@@ -1169,6 +1185,10 @@
       {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_GODO"
+      },
+      {
+        "text": "I have what I need.",
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -2812,6 +2832,60 @@
         }
       },
       {
+        "text": "I need to tell you what happened at the Eclipse.",
+        "topic": "TALK_BERSERK_RICKERT_ECLIPSE",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                      }
+                    },
+                    {
+                      "or": [
+                        {
+                          "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                        },
+                        {
+                          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                        },
+                        "npc_following"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "u_berserk_eclipse_rescue_state == 2"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "u_berserk_eclipse_route != 2"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_rickert_eclipse_story <= 0"
+              ]
+            }
+          ]
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_GODO_MEET_RICKERT"
+        }
+      },
+      {
         "text": "The Band and what happened.",
         "topic": "TALK_BERSERK_NOV02B_RICKERT_PAST",
         "condition": {
@@ -2862,35 +2936,44 @@
                 {
                   "and": [
                     {
-                      "not": {
-                        "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
-                      }
+                      "and": [
+                        {
+                          "not": {
+                            "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                          }
+                        },
+                        {
+                          "or": [
+                            {
+                              "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                            },
+                            {
+                              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                            },
+                            "npc_following"
+                          ]
+                        }
+                      ]
                     },
                     {
-                      "or": [
+                      "and": [
                         {
-                          "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                          "math": [
+                            "u_berserk_eclipse_rescue_state == 2"
+                          ]
                         },
                         {
-                          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
-                        },
-                        "npc_following"
+                          "math": [
+                            "u_berserk_eclipse_route != 2"
+                          ]
+                        }
                       ]
                     }
                   ]
                 },
                 {
-                  "and": [
-                    {
-                      "math": [
-                        "u_berserk_eclipse_rescue_state == 2"
-                      ]
-                    },
-                    {
-                      "math": [
-                        "u_berserk_eclipse_route != 2"
-                      ]
-                    }
+                  "math": [
+                    "u_berserk_rickert_eclipse_story > 0"
                   ]
                 }
               ]
@@ -4063,7 +4146,7 @@
         }
       },
       {
-        "text": "About our friends.",
+        "text": "Can we talk about the Hawks?",
         "topic": "TALK_BERSERK_RICKERT_ECLIPSE_MEMORIES",
         "condition": {
           "math": [
@@ -4135,7 +4218,7 @@
         "topic": "TALK_BERSERK_RICKERT"
       },
       {
-        "text": "How have you been holding up?",
+        "text": "What have you been doing since?",
         "topic": "TALK_BERSERK_RICKERT_RECENT_DAYS"
       },
       {
@@ -4237,8 +4320,26 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_ECLIPSE_LIVING",
-    "dynamic_line": "Today I can finish the work I started. My hands at least know what to do. Tomorrow I will try to understand the rest. One day at a time.",
+    "dynamic_line": "I finished a set of bolts this morning. Tied it in the bundles we used on the march. By the time I remembered there was no one coming for them, I'd tied the last knot.",
     "responses": [
+      {
+        "text": "About our friends.",
+        "topic": "TALK_BERSERK_RICKERT_ECLIPSE_MEMORIES",
+        "condition": {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 1"
+          ]
+        }
+      },
+      {
+        "text": "I have to correct what I told you.",
+        "topic": "TALK_BERSERK_RICKERT_CONFESSION",
+        "condition": {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 2"
+          ]
+        }
+      },
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_RICKERT_ECLIPSE"
@@ -4254,6 +4355,24 @@
     "id": "TALK_BERSERK_RICKERT_ECLIPSE_LOSSES",
     "dynamic_line": "I cannot give you a number. There was no roll call afterward. I still catch myself waiting to hear their voices.",
     "responses": [
+      {
+        "text": "About our friends.",
+        "topic": "TALK_BERSERK_RICKERT_ECLIPSE_MEMORIES",
+        "condition": {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 1"
+          ]
+        }
+      },
+      {
+        "text": "I have to correct what I told you.",
+        "topic": "TALK_BERSERK_RICKERT_CONFESSION",
+        "condition": {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 2"
+          ]
+        }
+      },
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_RICKERT_ECLIPSE"
@@ -4957,6 +5076,22 @@
         ]
       },
       {
+        "text": "Let me sit by your forge a while.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_INVITE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_CAN_SPARKS"
+        }
+      },
+      {
+        "text": "I remember what you told me at the forge.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_RECALL",
+        "condition": {
+          "math": [
+            "u_berserk_godo_sparks_completed == 1"
+          ]
+        }
+      },
+      {
         "text": "Back.",
         "topic": "TALK_BERSERK_GODO_HEARTH"
       },
@@ -5085,6 +5220,39 @@
     },
     "responses": [
       {
+        "text": "I need a sword for fighting those creatures.",
+        "topic": "TALK_BERSERK_GODO_SWORD_REQUEST",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+                  }
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state == 0"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state == 0"
+              ]
+            }
+          ]
+        }
+      },
+      {
         "text": "Back.",
         "topic": "TALK_BERSERK_GODO_WORK"
       },
@@ -5172,6 +5340,10 @@
     "dynamic_line": "Then I will be glad I chose cover before firing. Looking for it with a blade at your throat is a little late.",
     "responses": [
       {
+        "text": "I need bolts.",
+        "topic": "TALK_BERSERK_RICKERT_BOLTS"
+      },
+      {
         "text": "Back.",
         "topic": "TALK_BERSERK_RICKERT_MECHANISMS"
       },
@@ -5198,6 +5370,10 @@
     "id": "TALK_BERSERK_RICKERT_HAWKS",
     "dynamic_line": "Different people. Hearing us argue, laugh and share the last bread by the fire, you would never guess we would fight shoulder to shoulder the next morning.",
     "responses": [
+      {
+        "text": "Will you tell me about some of your comrades?",
+        "topic": "TALK_BERSERK_RICKERT_ECLIPSE_MEMORIES"
+      },
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_RICKERT_BAND"
@@ -5399,8 +5575,44 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_BOLT_LIMITS",
-    "dynamic_line": "Wooden shafts and pointed steel tips. The point helps, but the bow and the shot still matter.",
+    "dynamic_line": "I square the heads and match the shafts to the groove. Roll one across a table before you load it. If it wobbles there, it won't fly straight.",
     "responses": [
+      {
+        "text": "Make a batch.",
+        "topic": "TALK_BERSERK_RICKERT_BOLTS_ACCEPTED",
+        "condition": {
+          "not": {
+            "math": [
+              "u_berserk_rickert_bolts_pending == 1"
+            ]
+          }
+        },
+        "effect": {
+          "math": [
+            "u_berserk_rickert_bolts_requested = 1"
+          ]
+        }
+      },
+      {
+        "text": "Here is everything you need.",
+        "topic": "TALK_BERSERK_RICKERT_BOLTS_DELIVERED",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_RICKERT_ORDER_BOLTS"
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_RICKERT_ORDER_BOLTS"
+        }
+      },
+      {
+        "text": "Collect the finished bolts.",
+        "topic": "TALK_BERSERK_RICKERT_BOLTS_COLLECTED",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_RICKERT_COLLECT_BOLTS"
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_RICKERT_COLLECT_BOLTS"
+        }
+      },
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_RICKERT_BOLTS"
@@ -5431,7 +5643,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_WORK",
-    "dynamic_line": "Show me the iron and tell me what it must endure.",
+    "dynamic_line": "Let me see the edge. A blade tells me more after a fight than it does on the anvil.",
     "responses": [
       {
         "text": "My battle sword order.",
@@ -5576,70 +5788,6 @@
         }
       },
       {
-        "text": "The blade I left for repair.",
-        "topic": "TALK_BERSERK_GODO_REPAIR",
-        "condition": {
-          "and": [
-            {
-              "and": [
-                {
-                  "or": [
-                    {
-                      "and": [
-                        {
-                          "math": [
-                            "u_berserk_godo_early_state > 0"
-                          ]
-                        },
-                        {
-                          "math": [
-                            "u_berserk_godo_early_state < 3"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "and": [
-                        {
-                          "math": [
-                            "u_berserk_godo_sword_state > 0"
-                          ]
-                        },
-                        {
-                          "math": [
-                            "u_berserk_godo_sword_state < 4"
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "math": [
-                        "u_berserk_godo_repair_state == 1"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_godo_repair_state == 1"
-                  ]
-                }
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_godo_repair_state > 0"
-              ]
-            },
-            {
-              "math": [
-                "u_berserk_godo_repair_state < 2"
-              ]
-            }
-          ]
-        }
-      },
-      {
         "text": "I need a reliable heavy sword.",
         "topic": "TALK_BERSERK_GODO_WEAPON_REQUEST",
         "condition": {
@@ -5749,16 +5897,12 @@
         }
       },
       {
-        "text": "My blade needs inspection.",
+        "text": "Can you look at the blade I brought?",
         "topic": "TALK_BERSERK_GODO_REPAIR"
       },
       {
         "text": "They say you once made a sword to kill a dragon.",
         "topic": "TALK_BERSERK_GODO_DRAGON_STORY"
-      },
-      {
-        "text": "About an order.",
-        "topic": "TALK_BERSERK_GODO_ORDERS"
       },
       {
         "text": "Why use different steels in a sword?",
@@ -5894,7 +6038,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_HEARTH",
-    "dynamic_line": "The coals will keep. Ask.",
+    "dynamic_line": "Sit where the sparks won't reach you. I can hear you over the bellows.",
     "responses": [
       {
         "text": "Why live so far from other people?",
@@ -6241,7 +6385,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_PERSONAL",
-    "dynamic_line": "Go ahead. Just mind the cloth with the parts on it.",
+    "dynamic_line": "Give me a moment to put this spring down. It’s hard to listen with one eye on where it might fly.",
     "responses": [
       {
         "text": "Do you ever get frightened?",
@@ -6723,8 +6867,48 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_INTRO_WORK",
-    "dynamic_line": "Blades, iron, fittings. Show me the thing and I will tell you whether it is worth the work. Gears and little mechanisms are Rickert's business. His eyes are better than mine.",
+    "dynamic_line": "Then look at your blade, not at me. If there's a crack at the tang, show me before you swing it again.",
     "responses": [
+      {
+        "text": "Can you look at the blade I brought?",
+        "topic": "TALK_BERSERK_GODO_REPAIR"
+      },
+      {
+        "text": "I need a reliable heavy sword.",
+        "topic": "TALK_BERSERK_GODO_WEAPON_REQUEST",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_FORGE_BEFORE_ECLIPSE"
+                },
+                {
+                  "not": {
+                    "u_has_items": {
+                      "item": "true_guts_early_sword",
+                      "count": 1
+                    }
+                  }
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_early_state == 0"
+                  ]
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_early_state == 0"
+              ]
+            }
+          ]
+        }
+      },
       {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_GODO"
@@ -6865,8 +7049,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_WAKE_GUTS_REST",
-    "dynamic_line": "Easy. Rest first; we can talk when you have recovered. You can tell me what happened then.",
+    "dynamic_line": "Easy, Guts. The boy is here. Let him come to you. Whatever happened out there, it can wait until you can sit up.",
     "responses": [
+      {
+        "text": "May I rest here?",
+        "topic": "TALK_BERSERK_GODO_HOME"
+      },
       {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_GODO"
@@ -6879,6 +7067,10 @@
     "dynamic_line": "Long enough. I do not count the hours at the forge.",
     "responses": [
       {
+        "text": "May I rest here?",
+        "topic": "TALK_BERSERK_GODO_HOME"
+      },
+      {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_GODO"
       }
@@ -6889,6 +7081,10 @@
     "id": "TALK_BERSERK_GODO_WAKE_BELONGINGS",
     "dynamic_line": "First make sure you can stand. Then count your iron.",
     "responses": [
+      {
+        "text": "May I rest here?",
+        "topic": "TALK_BERSERK_GODO_HOME"
+      },
       {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_GODO"
@@ -6901,6 +7097,10 @@
     "dynamic_line": "You were lying in my arms, barely breathing. What else was I to do? Not the gift I would have chosen, but here we are.",
     "responses": [
       {
+        "text": "May I rest here?",
+        "topic": "TALK_BERSERK_GODO_HOME"
+      },
+      {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_GODO"
       }
@@ -6912,6 +7112,10 @@
     "dynamic_line": "Get back on your feet first. I do not bargain with a dying man over water and a place by the wall.",
     "responses": [
       {
+        "text": "May I rest here?",
+        "topic": "TALK_BERSERK_GODO_HOME"
+      },
+      {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_GODO"
       }
@@ -6922,6 +7126,10 @@
     "id": "TALK_BERSERK_GODO_WAKE_GUTS_DREAM",
     "dynamic_line": "I cannot tell you what you saw. I only know the wounds are real.",
     "responses": [
+      {
+        "text": "May I rest here?",
+        "topic": "TALK_BERSERK_GODO_HOME"
+      },
       {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_GODO"
@@ -6939,6 +7147,10 @@
       "no": "An armored knight brought you. Said you could recover here. He has gone on his way."
     },
     "responses": [
+      {
+        "text": "May I rest here?",
+        "topic": "TALK_BERSERK_GODO_HOME"
+      },
       {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_GODO"
@@ -7053,18 +7265,18 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_WEAPON_REQUEST",
-    "dynamic_line": "&Godot taps the anvil without turning. \"Another soldier full of stories. A sword is a tool. It must be balanced and quick. Too heavy, and you will die winding up for the first swing.\"",
+    "dynamic_line": "How heavy? If you have to drag the point off the dirt for every swing, the man in front of you will take your head before it comes up.",
     "responses": [
       {
-        "text": "All right, forget it.",
+        "text": "I need to think it over.",
         "topic": "TALK_BERSERK_GODO_WEAPON_LEAVE"
       },
       {
-        "text": "I need a powerful blade. It need not be that extreme.",
-        "topic": "TALK_BERSERK_GODO_WEAPON_REASONABLE"
+        "text": "Something solid that I can still swing.",
+        "topic": "TALK_BERSERK_GODO_EARLY_SWORD"
       },
       {
-        "text": "I can handle the weight. Ordinary swords break when I put all my strength into them.",
+        "text": "Weight isn't the problem. The blades I've used don't hold up.",
         "topic": "TALK_BERSERK_GODO_WEAPON_REFUSE"
       },
       {
@@ -7107,10 +7319,10 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_WEAPON_REASONABLE",
-    "dynamic_line": "That I can forge. Bring the steel and charcoal; I am too old to fetch them for you.",
+    "dynamic_line": "I can make that. You bring the steel and charcoal; I'll see to the blade.",
     "responses": [
       {
-        "text": "Will you take the work?",
+        "text": "What should I bring?",
         "topic": "TALK_BERSERK_GODO_EARLY_SWORD"
       },
       {
@@ -7122,11 +7334,11 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_GODO_WEAPON_REFUSE",
-    "dynamic_line": "Listen. A sword is forged for a person. It must be an extension of the hand. I have done this since I could hold tongs. I will not waste steel and heat on a useless monstrosity no one can fight with.",
+    "dynamic_line": "Then the steel was wrong for you. Or the shape was. Piling on iron won't mend either. I can forge you something that holds an edge and still comes up in time.",
     "responses": [
       {
-        "text": "Then make a blade I can use.",
-        "topic": "TALK_BERSERK_GODO_WEAPON_REASONABLE"
+        "text": "What do you need to make it?",
+        "topic": "TALK_BERSERK_GODO_EARLY_SWORD"
       },
       {
         "text": "I need to think.",
@@ -7332,6 +7544,39 @@
     "dynamic_line": "The puffed-up fool who sent the plans never thought about that. He wanted a toy everyone would talk about. Vanity brings plenty of foolish things into the world.",
     "responses": [
       {
+        "text": "I need a sword for fighting those creatures.",
+        "topic": "TALK_BERSERK_GODO_SWORD_REQUEST",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+                  }
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state == 0"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state == 0"
+              ]
+            }
+          ]
+        }
+      },
+      {
         "text": "Back.",
         "topic": "TALK_BERSERK_GODO_DRAGON_STORY"
       },
@@ -7359,6 +7604,39 @@
     "dynamic_line": "An order from above. They asked for a sword that could cut a dragon, so I forged one. I met the terms exactly. Nobody thought to ask whether an ordinary man could lift it.",
     "responses": [
       {
+        "text": "I need a sword for fighting those creatures.",
+        "topic": "TALK_BERSERK_GODO_SWORD_REQUEST",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+                  }
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state == 0"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state == 0"
+              ]
+            }
+          ]
+        }
+      },
+      {
         "text": "Back.",
         "topic": "TALK_BERSERK_GODO_DRAGON_STORY"
       },
@@ -7377,6 +7655,39 @@
       "no": "Nobody then. Certainly none of the pampered lords who ordered it. Not a knight in the kingdom could use it. It stayed there, dead weight."
     },
     "responses": [
+      {
+        "text": "I need a sword for fighting those creatures.",
+        "topic": "TALK_BERSERK_GODO_SWORD_REQUEST",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "test_eoc": "EOC_BERSERK_FORGE_AFTER_ECLIPSE"
+                },
+                {
+                  "not": {
+                    "test_eoc": "EOC_BERSERK_GODO_HAS_SWORD"
+                  }
+                },
+                {
+                  "math": [
+                    "u_berserk_godo_sword_state == 0"
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_COMMON33_GODO_WORK_OPEN"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_sword_state == 0"
+              ]
+            }
+          ]
+        }
+      },
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_GODO_DRAGON_STORY"
@@ -7767,6 +8078,22 @@
       {
         "text": "Then why keep going?",
         "topic": "TALK_BERSERK_GODO_KEEP_REASON"
+      },
+      {
+        "text": "Let me sit by your forge a while.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_INVITE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_GODO_CAN_SPARKS"
+        }
+      },
+      {
+        "text": "I remember what you told me at the forge.",
+        "topic": "TALK_BERSERK_GODO_SPARKS_RECALL",
+        "condition": {
+          "math": [
+            "u_berserk_godo_sparks_completed == 1"
+          ]
+        }
       },
       {
         "text": "Back.",
@@ -9673,8 +10000,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_INTRO_FAULT",
-    "dynamic_line": "Yes. At first I thought I had assembled it badly. Took it apart, put it back together: same problem. Now I am looking for the part wearing faster than the others.",
+    "dynamic_line": "The notch is already wearing on one side. See that bright edge? I took it apart twice before I thought to look there.",
     "responses": [
+      {
+        "text": "I need bolts.",
+        "topic": "TALK_BERSERK_RICKERT_BOLTS"
+      },
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_RICKERT_MECHANISMS"
@@ -9690,6 +10021,10 @@
     "id": "TALK_BERSERK_RICKERT_INTRO_STRONG",
     "dynamic_line": "For now, I would settle for it firing when I pull the trigger instead of when it feels like it. The rest can wait.",
     "responses": [
+      {
+        "text": "I need bolts.",
+        "topic": "TALK_BERSERK_RICKERT_BOLTS"
+      },
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_RICKERT_MECHANISMS"
@@ -9773,6 +10108,58 @@
     },
     "responses": [
       {
+        "text": "About the prosthesis.",
+        "topic": "TALK_BERSERK_GODO_ARM_STATUS",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "and": [
+                        {
+                          "not": {
+                            "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                          }
+                        },
+                        {
+                          "or": [
+                            {
+                              "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                            },
+                            {
+                              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                            },
+                            "npc_following"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "test_eoc": "EOC_BERSERK_RICKERT_HAS_ORDER"
+                    }
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state < 4"
+              ]
+            }
+          ]
+        }
+      },
+      {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_RICKERT"
       }
@@ -9783,6 +10170,58 @@
     "id": "TALK_BERSERK_RICKERT_WAKE_THANKS",
     "dynamic_line": "I am glad you woke up. Really glad.",
     "responses": [
+      {
+        "text": "About the prosthesis.",
+        "topic": "TALK_BERSERK_GODO_ARM_STATUS",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "and": [
+                        {
+                          "not": {
+                            "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                          }
+                        },
+                        {
+                          "or": [
+                            {
+                              "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                            },
+                            {
+                              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                            },
+                            "npc_following"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "test_eoc": "EOC_BERSERK_RICKERT_HAS_ORDER"
+                    }
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state < 4"
+              ]
+            }
+          ]
+        }
+      },
       {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_RICKERT"
@@ -9806,6 +10245,58 @@
     "dynamic_line": "Then you know the place. We only get to meet now. Not the best circumstances, but here we are.",
     "responses": [
       {
+        "text": "About the prosthesis.",
+        "topic": "TALK_BERSERK_GODO_ARM_STATUS",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "and": [
+                        {
+                          "not": {
+                            "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                          }
+                        },
+                        {
+                          "or": [
+                            {
+                              "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                            },
+                            {
+                              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                            },
+                            "npc_following"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "test_eoc": "EOC_BERSERK_RICKERT_HAS_ORDER"
+                    }
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state < 4"
+              ]
+            }
+          ]
+        }
+      },
+      {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_RICKERT"
       }
@@ -9816,6 +10307,58 @@
     "id": "TALK_BERSERK_RICKERT_WAKE_GODO",
     "dynamic_line": "He said he had seen you before. I mostly help with the work here. I will try to help you, too.",
     "responses": [
+      {
+        "text": "About the prosthesis.",
+        "topic": "TALK_BERSERK_GODO_ARM_STATUS",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "and": [
+                        {
+                          "not": {
+                            "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                          }
+                        },
+                        {
+                          "or": [
+                            {
+                              "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                            },
+                            {
+                              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                            },
+                            "npc_following"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "test_eoc": "EOC_BERSERK_RICKERT_HAS_ORDER"
+                    }
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state < 4"
+              ]
+            }
+          ]
+        }
+      },
       {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_RICKERT"
@@ -9828,6 +10371,58 @@
     "dynamic_line": "For now, yes. It is quiet outside. We are nearby. We can talk about the rest when you feel better.",
     "responses": [
       {
+        "text": "About the prosthesis.",
+        "topic": "TALK_BERSERK_GODO_ARM_STATUS",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "and": [
+                        {
+                          "not": {
+                            "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                          }
+                        },
+                        {
+                          "or": [
+                            {
+                              "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                            },
+                            {
+                              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                            },
+                            "npc_following"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "test_eoc": "EOC_BERSERK_RICKERT_HAS_ORDER"
+                    }
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state < 4"
+              ]
+            }
+          ]
+        }
+      },
+      {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_RICKERT"
       }
@@ -9838,6 +10433,58 @@
     "id": "TALK_BERSERK_RICKERT_WAKE_WHY",
     "dynamic_line": "You needed help. We could give it. Do we need a better reason?",
     "responses": [
+      {
+        "text": "About the prosthesis.",
+        "topic": "TALK_BERSERK_GODO_ARM_STATUS",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "and": [
+                        {
+                          "not": {
+                            "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                          }
+                        },
+                        {
+                          "or": [
+                            {
+                              "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                            },
+                            {
+                              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                            },
+                            "npc_following"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "test_eoc": "EOC_BERSERK_RICKERT_HAS_ORDER"
+                    }
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state < 4"
+              ]
+            }
+          ]
+        }
+      },
       {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_RICKERT"
@@ -9862,8 +10509,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_RELOAD",
-    "dynamic_line": "The mechanism can change. Convenience costs weight, complexity or reliability. Make it lighter, and rain may trouble it; faster, and it may jam. I have more testing to do.",
+    "dynamic_line": "I tried a shorter lever. Faster to swing, harder to pull. With wet hands it slips before the string catches. I put the old one back.",
     "responses": [
+      {
+        "text": "I need bolts.",
+        "topic": "TALK_BERSERK_RICKERT_BOLTS"
+      },
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_RICKERT_MECHANISMS"
@@ -10638,6 +11289,16 @@
     "dynamic_line": "Agreed. Bring the materials and I will get to it.",
     "responses": [
       {
+        "text": "Here is everything you need.",
+        "topic": "TALK_BERSERK_RICKERT_BOLTS_DELIVERED",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_RICKERT_ORDER_BOLTS"
+        },
+        "effect": {
+          "run_eocs": "EOC_BERSERK_RICKERT_ORDER_BOLTS"
+        }
+      },
+      {
         "text": "Back.",
         "topic": "TALK_BERSERK_RICKERT_BOLTS"
       },
@@ -10688,6 +11349,10 @@
       {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_RICKERT"
+      },
+      {
+        "text": "I have what I need.",
+        "topic": "TALK_DONE"
       }
     ],
     "speaker_effect": {
@@ -11001,6 +11666,24 @@
     "dynamic_line": "I try to picture him there, beside all that... and I cannot. He knew their names. Every one. They followed him through more than I could count.",
     "responses": [
       {
+        "text": "About our friends.",
+        "topic": "TALK_BERSERK_RICKERT_ECLIPSE_MEMORIES",
+        "condition": {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 1"
+          ]
+        }
+      },
+      {
+        "text": "I have to correct what I told you.",
+        "topic": "TALK_BERSERK_RICKERT_CONFESSION",
+        "condition": {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 2"
+          ]
+        }
+      },
+      {
         "text": "Back.",
         "topic": "TALK_BERSERK_RICKERT_TRUTH_AFTER"
       },
@@ -11013,8 +11696,26 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_TRUTH_SEEN",
-    "dynamic_line": "Then tell me what you saw. No more. I do not want guesses, even if they might be easier to live with.",
+    "dynamic_line": "Then we know where he stood. We don't know what he thought. I keep trying to fill that part in, and every time I catch myself making excuses for him.",
     "responses": [
+      {
+        "text": "About our friends.",
+        "topic": "TALK_BERSERK_RICKERT_ECLIPSE_MEMORIES",
+        "condition": {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 1"
+          ]
+        }
+      },
+      {
+        "text": "I have to correct what I told you.",
+        "topic": "TALK_BERSERK_RICKERT_CONFESSION",
+        "condition": {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 2"
+          ]
+        }
+      },
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_RICKERT_TRUTH_AFTER"
@@ -11055,8 +11756,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_TRUTH_THANKS",
-    "dynamic_line": "Thank you for telling me. I do not know what else to say.",
+    "dynamic_line": "I thought knowing would help. Right now I wish I could put the question back where it was. Thanks for telling me anyway.",
     "responses": [
+      {
+        "text": "Enough for today.",
+        "topic": "TALK_BERSERK_RICKERT_GOODBYE_HEAVY"
+      },
       {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_RICKERT"
@@ -11068,6 +11773,15 @@
     "id": "TALK_BERSERK_RICKERT_TRUTH_BELIEVE",
     "dynamic_line": "I am not saying you are lying. I am trying to understand how the person I knew, or thought I knew, could do that. It is not the same thing.",
     "responses": [
+      {
+        "text": "Can we talk about the Hawks?",
+        "topic": "TALK_BERSERK_RICKERT_ECLIPSE_MEMORIES",
+        "condition": {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 1"
+          ]
+        }
+      },
       {
         "text": "Back to the main topics.",
         "topic": "TALK_BERSERK_RICKERT"
@@ -11157,6 +11871,24 @@
     "id": "TALK_BERSERK_RICKERT_LIE_NOTHING",
     "dynamic_line": "Tell me as soon as you learn something. I need to know.",
     "responses": [
+      {
+        "text": "About our friends.",
+        "topic": "TALK_BERSERK_RICKERT_ECLIPSE_MEMORIES",
+        "condition": {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 1"
+          ]
+        }
+      },
+      {
+        "text": "I have to correct what I told you.",
+        "topic": "TALK_BERSERK_RICKERT_CONFESSION",
+        "condition": {
+          "math": [
+            "u_berserk_rickert_eclipse_story == 2"
+          ]
+        }
+      },
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_RICKERT_ECLIPSE"
@@ -12509,8 +13241,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_VISIBLE_HANDS",
-    "dynamic_line": "Can you still hold a tool comfortably with that hand?",
+    "dynamic_line": "I saw the way you held that tool. If it slips, wrap the handle in cloth. A file doesn’t need the same grip as a sword.",
     "responses": [
+      {
+        "text": "What is working with Godot like?",
+        "topic": "TALK_BERSERK_RICKERT_GODO"
+      },
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_NOV02B_RICKERT_CHANGES"
@@ -12531,8 +13267,12 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_RICKERT_VISIBLE_SHELL",
-    "dynamic_line": "Does that plate get in the way when you bend? You seem to move differently.",
+    "dynamic_line": "You turn your whole body now. I do that when I carry the big vise, so I don’t catch it on the doorframe. Might help to clear a little space here.",
     "responses": [
+      {
+        "text": "What is working with Godot like?",
+        "topic": "TALK_BERSERK_RICKERT_GODO"
+      },
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_NOV02B_RICKERT_CHANGES"
@@ -12733,6 +13473,10 @@
     "id": "TALK_BERSERK_RICKERT_GUTS_SWORD",
     "dynamic_line": "I can barely lift your sword off the table. I will keep my little parts. Safer that way.",
     "responses": [
+      {
+        "text": "I need bolts.",
+        "topic": "TALK_BERSERK_RICKERT_BOLTS"
+      },
       {
         "text": "Back.",
         "topic": "TALK_BERSERK_RICKERT_MECHANISMS"
@@ -13314,7 +14058,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_NOV02B_RICKERT_PAST",
-    "dynamic_line": "What did you want to talk about?",
+    "dynamic_line": "Some days I still sort the bolts into bundles for the march. Old habits. What did you want to talk about?",
     "responses": [
       {
         "text": "Tell me about the Band of the Hawk.",
@@ -13365,48 +14109,65 @@
         }
       },
       {
-        "text": "About what happened...",
         "topic": "TALK_BERSERK_RICKERT_ECLIPSE",
         "condition": {
           "and": [
             {
               "and": [
                 {
-                  "not": {
-                    "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
-                  }
+                  "and": [
+                    {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                      }
+                    },
+                    {
+                      "or": [
+                        {
+                          "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                        },
+                        {
+                          "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                        },
+                        "npc_following"
+                      ]
+                    }
+                  ]
                 },
                 {
-                  "or": [
+                  "and": [
                     {
-                      "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                      "math": [
+                        "u_berserk_eclipse_rescue_state == 2"
+                      ]
                     },
                     {
-                      "test_eoc": "EOC_BERSERK_FORGE_GUTS"
-                    },
-                    "npc_following"
+                      "math": [
+                        "u_berserk_eclipse_route != 2"
+                      ]
+                    }
                   ]
                 }
               ]
             },
             {
-              "and": [
-                {
-                  "math": [
-                    "u_berserk_eclipse_rescue_state == 2"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_eclipse_route != 2"
-                  ]
-                }
+              "math": [
+                "u_berserk_rickert_eclipse_story > 0"
               ]
             }
           ]
         },
         "effect": {
           "run_eocs": "EOC_BERSERK_GODO_MEET_RICKERT"
+        },
+        "truefalsetext": {
+          "condition": {
+            "math": [
+              "u_berserk_rickert_eclipse_story == 3"
+            ]
+          },
+          "true": "I am ready to talk about the Eclipse now.",
+          "false": "About what I told you before."
         }
       },
       {

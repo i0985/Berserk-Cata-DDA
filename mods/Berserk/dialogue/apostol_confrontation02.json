@@ -208,7 +208,7 @@
         }
       },
       {
-        "text": "Will my new nature remain?",
+        "text": "Can this change be undone?",
         "topic": "TALK_BERSERK_APOSTOL_COUNT_PAWN_BODY",
         "condition": {
           "and": [
@@ -462,7 +462,7 @@
         }
       },
       {
-        "text": "Will my new nature remain?",
+        "text": "Can this change be undone?",
         "topic": "TALK_BERSERK_APOSTOL_WYALD_PAWN_BODY",
         "condition": {
           "and": [
@@ -543,39 +543,7 @@
     },
     "responses": [
       {
-        "text": "Yes.",
-        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
-        "condition": {
-          "and": [
-            {
-              "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
-            },
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "text": "I'm looking for whoever lives in this valley.",
-        "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
-        "condition": {
-          "and": [
-            {
-              "test_eoc": "EOC_BERSERK_CONTRACT33_ROSINE_PENDING"
-            },
-            {
-              "not": {
-                "test_eoc": "EOC_BERSERK_NOV02_ROSINE_DEMON"
-              }
-            }
-          ]
-        }
-      },
-      {
-        "text": "What is happening here?",
+        "text": "Tell me what happens here.",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_OFFER",
         "condition": {
           "and": [
@@ -716,7 +684,7 @@
         }
       },
       {
-        "text": "Will my new nature remain?",
+        "text": "Can this change be undone?",
         "topic": "TALK_BERSERK_APOSTOL_ROSINE_PAWN_BODY",
         "condition": {
           "and": [

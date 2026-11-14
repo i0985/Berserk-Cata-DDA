@@ -58,6 +58,10 @@
     "dynamic_line": "All right. Back to work, then.",
     "responses": [
       {
+        "text": "Can you look at the blade I brought?",
+        "topic": "TALK_BERSERK_GODO_REPAIR"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
@@ -162,6 +166,58 @@
     "dynamic_line": "All right. Tell me if you need help.",
     "responses": [
       {
+        "text": "About the prosthesis.",
+        "topic": "TALK_BERSERK_GODO_ARM_STATUS",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "and": [
+                        {
+                          "not": {
+                            "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                          }
+                        },
+                        {
+                          "or": [
+                            {
+                              "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                            },
+                            {
+                              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                            },
+                            "npc_following"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "test_eoc": "EOC_BERSERK_RICKERT_HAS_ORDER"
+                    }
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state < 4"
+              ]
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
@@ -199,6 +255,58 @@
           "not": {
             "test_eoc": "EOC_BERSERK_APOSTOL_HUMAN_EQUIPMENT_ALLOWED"
           }
+        }
+      },
+      {
+        "text": "About the prosthesis.",
+        "topic": "TALK_BERSERK_GODO_ARM_STATUS",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "and": [
+                        {
+                          "not": {
+                            "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                          }
+                        },
+                        {
+                          "or": [
+                            {
+                              "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                            },
+                            {
+                              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                            },
+                            "npc_following"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "test_eoc": "EOC_BERSERK_RICKERT_HAS_ORDER"
+                    }
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state < 4"
+              ]
+            }
+          ]
         }
       },
       {
@@ -266,6 +374,62 @@
     "dynamic_line": "Very well. What did you want to discuss?",
     "responses": [
       {
+        "text": "I need provisions or advice.",
+        "topic": "TALK_BERSERK_FLORA_AID",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_stage <= 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
@@ -314,7 +478,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_GODO_MENU",
-    "dynamic_line": "What would you like to discuss?",
+    "dynamic_line": "Show me what concerns you. If it changes the work, I need to know.",
     "responses": [
       {
         "text": "Look at this stone.",
@@ -564,6 +728,10 @@
         "topic": "TALK_BERSERK_COMMON33_GODO_QUIET"
       },
       {
+        "text": "I need a blade or a repair.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
       }
@@ -664,9 +832,13 @@
         "u_berserk_common33_godo_read_body == 1"
       ],
       "yes": "I remember our conversation. What else?",
-      "no": "You move differently. Have you worked out what you can do now?"
+      "no": "You move differently. Try your old moves here, on solid ground, before you count on your footing in a fight."
     },
     "responses": [
+      {
+        "text": "I need a blade or a repair.",
+        "topic": "TALK_BERSERK_GODO_WORK"
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_GODO"
@@ -715,7 +887,7 @@
       "math": [
         "u_berserk_common33_godo_read_complete == 1"
       ],
-      "yes": "I remember. How are you managing now?",
+      "yes": "We’ve covered that. So long as you can still work, start there.",
       "no": "Then learn to live with it. The changing is over; there's still work to do."
     },
     "responses": [
@@ -828,7 +1000,7 @@
         "u_berserk_common33_godo_read_pact == 1"
       ],
       "yes": "I remember our conversation. What else?",
-      "no": "So this power has a master. Has he told you what he'll want from you?"
+      "no": "He gave you strength. Keep a tally of what he asks for it. A debt like that doesn’t stay the size it was when you took it on."
     },
     "responses": [
       {
@@ -880,7 +1052,7 @@
         "u_berserk_common33_godo_read_dead == 1"
       ],
       "yes": "I remember our conversation. What else?",
-      "no": "He won't demand anything of you now. What will you do without his voice in your ear?"
+      "no": "He won’t come to collect. The hands that did the work for him are still yours. See what you can do with them now."
     },
     "responses": [
       {
@@ -981,7 +1153,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_RICKERT_MENU",
-    "dynamic_line": "What would you like to discuss?",
+    "dynamic_line": "Is this about the stone, or has something happened since you last came?",
     "responses": [
       {
         "text": "Look at this stone.",
@@ -1293,6 +1465,58 @@
         "topic": "TALK_BERSERK_COMMON33_RICKERT_UNFAMILIAR"
       },
       {
+        "text": "About the prosthesis.",
+        "topic": "TALK_BERSERK_GODO_ARM_STATUS",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "and": [
+                        {
+                          "not": {
+                            "test_eoc": "EOC_BERSERK_RICKERT_DIALOGUE_WAKE"
+                          }
+                        },
+                        {
+                          "or": [
+                            {
+                              "test_eoc": "EOC_BERSERK_GODO_RICKERT_ACQUAINTED"
+                            },
+                            {
+                              "test_eoc": "EOC_BERSERK_FORGE_GUTS"
+                            },
+                            "npc_following"
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "test_eoc": "EOC_BERSERK_RICKERT_HAS_ORDER"
+                    }
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND"
+                }
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state > 0"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_godo_arm_state < 4"
+              ]
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_RICKERT"
       }
@@ -1392,7 +1616,7 @@
       "math": [
         "u_berserk_common33_rickert_read_complete == 1"
       ],
-      "yes": "I remember. How are you managing now?",
+      "yes": "I remember. I’m getting used to it. I suppose you are, too.",
       "no": "Are you sure? It's good that you at least know what to expect from your own body now. I still need a little time."
     },
     "responses": [
@@ -1548,7 +1772,7 @@
         "u_berserk_common33_rickert_read_broken == 1"
       ],
       "yes": "I remember. Has anything changed?",
-      "no": "Then let's at least make sure we understand what's changed."
+      "no": "If his help is gone, test what you can still do before the next fight. You can find out here, where no one is swinging at you."
     },
     "responses": [
       {
@@ -1597,7 +1821,7 @@
     "id": "TALK_BERSERK_COMMON33_RICKERT_REFUSED",
     "dynamic_line": {
       "u_has_trait": "BERSERK_ECLIPSE_SCAR_HEARING",
-      "yes": "Should I speak louder? Or stand where you can see my face?",
+      "yes": "I’ll speak from where you can see me. Let me finish with this hammer first.",
       "no": "Tell me exactly what's become harder. I don't want to guess every time you need help."
     },
     "responses": [
@@ -1675,7 +1899,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_FLORA_MENU",
-    "dynamic_line": "What would you like to discuss?",
+    "dynamic_line": "Tell me what you have seen. If it happened in your own flesh, start there.",
     "responses": [
       {
         "text": "Look at this stone.",
@@ -1918,9 +2142,65 @@
         "u_berserk_common33_flora_read_body == 1"
       ],
       "yes": "We have spoken about this. Is there anything else?",
-      "no": "Try describing what has changed before calling it an improvement or a loss. What do you feel? What has become harder?"
+      "no": "Begin with what changed. The same hand that can close on stone may no longer feel a needle. Give yourself time to learn both."
     },
     "responses": [
+      {
+        "text": "I need provisions or advice.",
+        "topic": "TALK_BERSERK_FLORA_AID",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "math": [
+                    "berserk_flora_stage <= 1"
+                  ]
+                },
+                {
+                  "math": [
+                    "berserk_flora_siege_state <= 1"
+                  ]
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
@@ -1999,7 +2279,7 @@
       "math": [
         "u_berserk_common33_flora_read_complete == 1"
       ],
-      "yes": "I remember. How are you managing now?",
+      "yes": "There is time yet to get used to your own shape. Even a body that no longer changes takes time to know.",
       "no": "The change has settled into a stable form. Now you must learn it in daily life: in fatigue, hunger, work, and alongside other people."
     },
     "responses": [
@@ -2030,6 +2310,69 @@
     },
     "responses": [
       {
+        "text": "I learned of a danger...",
+        "topic": "TALK_BERSERK_FLORA_DANGERS",
+        "condition": {
+          "and": [
+            {
+              "and": [
+                {
+                  "and": [
+                    {
+                      "math": [
+                        "berserk_flora_stage <= 1"
+                      ]
+                    },
+                    {
+                      "math": [
+                        "berserk_flora_siege_state <= 1"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "test_eoc": "EOC_BERSERK_FLORA33_KNOWN_DANGER"
+                }
+              ]
+            },
+            {
+              "not": {
+                "and": [
+                  {
+                    "and": [
+                      {
+                        "math": [
+                          "berserk_flora_stage <= 1"
+                        ]
+                      },
+                      {
+                        "math": [
+                          "berserk_flora_siege_state <= 1"
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "not": {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_COMMON33_FLORA_KNOWS"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "math": [
+                        "u_berserk_flora33_demon_noticed == 1"
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_FLORA"
       }
@@ -2052,7 +2395,7 @@
         "u_berserk_common33_flora_read_pact == 1"
       ],
       "yes": "We have spoken about this. Is there anything else?",
-      "no": "You accepted more than a bodily change. You took on an obligation to the one who gave it. What exactly did you promise?"
+      "no": "A bond can survive a long walk. Remember that when your patron asks for something you would have refused before you met."
     },
     "responses": [
       {
@@ -2205,7 +2548,7 @@
   {
     "type": "talk_topic",
     "id": "TALK_BERSERK_COMMON33_KNIGHT_MENU",
-    "dynamic_line": "What would you like to discuss?",
+    "dynamic_line": "What have you brought back?",
     "responses": [
       {
         "text": "Look at this stone.",
@@ -2431,6 +2774,35 @@
     },
     "responses": [
       {
+        "text": "Where should I look for this evil now?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NOW",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_route != 2"
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_greeted = 1"
+            ]
+          },
+          {
+            "u_add_var": "berserk_knight_spoken",
+            "value": "yes"
+          }
+        ]
+      },
+      {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"
       }
@@ -2478,7 +2850,7 @@
       "math": [
         "u_berserk_common33_knight_read_complete == 1"
       ],
-      "yes": "I remember. How are you managing now?",
+      "yes": "You know now what it is to live in that shape. That knowledge is worth more than another warning from me.",
       "no": {
         "math": [
           "u_berserk_apostol_path == 1"
@@ -2540,6 +2912,35 @@
       "no": "Service does not end the moment a reward is received."
     },
     "responses": [
+      {
+        "text": "Where should I look for this evil now?",
+        "topic": "TALK_BERSERK_SKULL_KNIGHT_NOW",
+        "condition": {
+          "and": [
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_eclipse_route != 2"
+              ]
+            }
+          ]
+        },
+        "effect": [
+          {
+            "math": [
+              "u_berserk_knight_greeted = 1"
+            ]
+          },
+          {
+            "u_add_var": "berserk_knight_spoken",
+            "value": "yes"
+          }
+        ]
+      },
       {
         "text": "I wanted to ask about something else.",
         "topic": "TALK_BERSERK_SKULL_KNIGHT_AFTER"

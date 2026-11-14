@@ -56,7 +56,7 @@
         }
       },
       {
-        "text": "I want to ask about the gift.",
+        "text": "What would accepting the gift do to me?",
         "topic": "TALK_BERSERK_APOSTOL_VOID_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -171,19 +171,7 @@
     "responses": [
       {
         "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-        }
-      },
-      {
-        "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-          }
-        }
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -231,7 +219,7 @@
         }
       },
       {
-        "text": "I want to ask about the gift.",
+        "text": "What would accepting the gift do to me?",
         "topic": "TALK_BERSERK_APOSTOL_SLAN_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -346,19 +334,7 @@
     "responses": [
       {
         "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-        }
-      },
-      {
-        "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-          }
-        }
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -412,7 +388,7 @@
         }
       },
       {
-        "text": "I want to ask about the gift.",
+        "text": "What would accepting the gift do to me?",
         "topic": "TALK_BERSERK_APOSTOL_UBIK_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -527,19 +503,7 @@
     "responses": [
       {
         "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-        }
-      },
-      {
-        "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-          }
-        }
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -601,7 +565,7 @@
         }
       },
       {
-        "text": "I want to ask about the gift.",
+        "text": "What would accepting the gift do to me?",
         "topic": "TALK_BERSERK_APOSTOL_CONRAD_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -716,19 +680,7 @@
     "responses": [
       {
         "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-        }
-      },
-      {
-        "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-          }
-        }
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -790,7 +742,7 @@
         }
       },
       {
-        "text": "I want to ask about the gift.",
+        "text": "What would accepting the gift do to me?",
         "topic": "TALK_BERSERK_APOSTOL_FEMTO_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -905,19 +857,7 @@
     "responses": [
       {
         "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-        }
-      },
-      {
-        "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-          }
-        }
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -2888,7 +2828,14 @@
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Will the changes continue on their own?",
+        "topic": "TALK_BERSERK_APOSTOL_VOID_GROWTH",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_VOID_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -2929,12 +2876,19 @@
     "id": "TALK_BERSERK_APOSTOL_VOID_GROWTH",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Yes. What you accept will grow within you after your return.\n\nYou will not be asked to agree anew to every change. Once accepted, it will run its course.",
+      "yes": "The change begins here. It continues after you leave, without any further act of will.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "When will they end?",
+        "topic": "TALK_BERSERK_APOSTOL_VOID_END_GROWTH",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_VOID_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -2942,12 +2896,7 @@
       },
       {
         "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-          }
-        }
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -2956,12 +2905,19 @@
     "id": "TALK_BERSERK_APOSTOL_VOID_END_GROWTH",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "When the new body has finished becoming.\n\nIt will not return to its former shape, after the first day or the hundredth.",
+      "yes": "Its course ends when the new body is complete. What it replaced does not return.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "I've decided to accept the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_VOID_CONFIRM",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_VOID_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -3033,13 +2989,20 @@
     "id": "TALK_BERSERK_APOSTOL_VOID_EXACT_PRICE",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Your senses may dull. Your hands may shake. Memories and anxiety may rob you of peace. There is no knowing beforehand which traces you will carry.",
+      "yes": "Your sight or hearing may dull. Your hands may tremble. You may carry fear or memories that will not leave you. Which of these follows you is not given to you to know.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
-        "topic": "TALK_BERSERK_APOSTOL_VOID_PRICE",
+        "text": "I want to leave as a human.",
+        "topic": "TALK_BERSERK_APOSTOL_VOID_REFUSE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_VOID_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
         }
@@ -3065,7 +3028,14 @@
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Will I be able to choose my form?",
+        "topic": "TALK_BERSERK_APOSTOL_VOID_FORM_CHOICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_VOID_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -3526,7 +3496,14 @@
         }
       },
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Will the changes continue on their own?",
+        "topic": "TALK_BERSERK_APOSTOL_SLAN_GROWTH",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_SLAN_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -3567,12 +3544,19 @@
     "id": "TALK_BERSERK_APOSTOL_SLAN_GROWTH",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Yes. What you accept will grow within you after your return.\n\nYou will not be asked to agree anew to every change. Once accepted, it will run its course.",
+      "yes": "Yes. Skin, teeth, bones. While you sleep, while you eat, while you pretend the first twinge was nothing at all.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "When will they end?",
+        "topic": "TALK_BERSERK_APOSTOL_SLAN_END_GROWTH",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_SLAN_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -3580,12 +3564,7 @@
       },
       {
         "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-          }
-        }
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -3594,12 +3573,19 @@
     "id": "TALK_BERSERK_APOSTOL_SLAN_END_GROWTH",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "When the new body has finished becoming.\n\nIt will not return to its former shape, after the first day or the hundredth.",
+      "yes": "When your flesh has taken its new shape. Lie still for a hundred years after that if you like; it will never put on the old one again.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "I've decided to accept the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_SLAN_CONFIRM",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_SLAN_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -3671,13 +3657,20 @@
     "id": "TALK_BERSERK_APOSTOL_SLAN_EXACT_PRICE",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Your senses may dull. Your hands may shake. Memories and anxiety may rob you of peace. There is no knowing beforehand which traces you will carry.",
+      "yes": "Perhaps your hand will shake when it reaches for the cup. Perhaps every dark window will remind you of this place. Your senses can dull and your rest can vanish. Would you still call that leaving untouched?",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
-        "topic": "TALK_BERSERK_APOSTOL_SLAN_PRICE",
+        "text": "I want to leave as a human.",
+        "topic": "TALK_BERSERK_APOSTOL_SLAN_REFUSE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_SLAN_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
         }
@@ -3703,7 +3696,14 @@
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Will I be able to choose my form?",
+        "topic": "TALK_BERSERK_APOSTOL_SLAN_FORM_CHOICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_SLAN_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -4157,7 +4157,14 @@
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Will the changes continue on their own?",
+        "topic": "TALK_BERSERK_APOSTOL_UBIK_GROWTH",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_UBIK_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -4198,12 +4205,19 @@
     "id": "TALK_BERSERK_APOSTOL_UBIK_GROWTH",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Yes. What you accept will grow within you after your return.\n\nYou will not be asked to agree anew to every change. Once accepted, it will run its course.",
+      "yes": "Of course. The first morning you may insist you feel exactly the same. I wonder what you will tell yourself the morning after.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "When will they end?",
+        "topic": "TALK_BERSERK_APOSTOL_UBIK_END_GROWTH",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_UBIK_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -4211,12 +4225,7 @@
       },
       {
         "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-          }
-        }
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -4225,12 +4234,19 @@
     "id": "TALK_BERSERK_APOSTOL_UBIK_END_GROWTH",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "When the new body has finished becoming.\n\nIt will not return to its former shape, after the first day or the hundredth.",
+      "yes": "It ends when the new shape is yours. You might remember the old face so well you could draw it. That will not make it your face again.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "I've decided to accept the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_UBIK_CONFIRM",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_UBIK_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -4302,13 +4318,20 @@
     "id": "TALK_BERSERK_APOSTOL_UBIK_EXACT_PRICE",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Your senses may dull. Your hands may shake. Memories and anxiety may rob you of peace. There is no knowing beforehand which traces you will carry.",
+      "yes": "You might miss words that you once would have heard. Or see them all too clearly when you close your eyes. Shaking hands, failing senses, a little dread that follows you home. Which would you miss least?",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
-        "topic": "TALK_BERSERK_APOSTOL_UBIK_PRICE",
+        "text": "I want to leave as a human.",
+        "topic": "TALK_BERSERK_APOSTOL_UBIK_REFUSE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_UBIK_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
         }
@@ -4334,7 +4357,14 @@
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Will I be able to choose my form?",
+        "topic": "TALK_BERSERK_APOSTOL_UBIK_FORM_CHOICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_UBIK_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -4788,7 +4818,14 @@
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Will the changes continue on their own?",
+        "topic": "TALK_BERSERK_APOSTOL_CONRAD_GROWTH",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_CONRAD_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -4829,12 +4866,19 @@
     "id": "TALK_BERSERK_APOSTOL_CONRAD_GROWTH",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Yes. What you accept will grow within you after your return.\n\nYou will not be asked to agree anew to every change. Once accepted, it will run its course.",
+      "yes": "Yes. What has taken root will feed long after you leave.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "When will they end?",
+        "topic": "TALK_BERSERK_APOSTOL_CONRAD_END_GROWTH",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_CONRAD_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -4842,12 +4886,7 @@
       },
       {
         "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-          }
-        }
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -4856,12 +4895,19 @@
     "id": "TALK_BERSERK_APOSTOL_CONRAD_END_GROWTH",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "When the new body has finished becoming.\n\nIt will not return to its former shape, after the first day or the hundredth.",
+      "yes": "When the new body is finished. Nothing grows back into what it was.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "I've decided to accept the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_CONRAD_CONFIRM",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_CONRAD_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -4933,13 +4979,20 @@
     "id": "TALK_BERSERK_APOSTOL_CONRAD_EXACT_PRICE",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Your senses may dull. Your hands may shake. Memories and anxiety may rob you of peace. There is no knowing beforehand which traces you will carry.",
+      "yes": "Mist over the eyes. A dull ear. A trembling hand. Or sleep that breaks at the same memory each night. You do not choose what fails.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
-        "topic": "TALK_BERSERK_APOSTOL_CONRAD_PRICE",
+        "text": "I want to leave as a human.",
+        "topic": "TALK_BERSERK_APOSTOL_CONRAD_REFUSE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_CONRAD_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
         }
@@ -4965,7 +5018,14 @@
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Will I be able to choose my form?",
+        "topic": "TALK_BERSERK_APOSTOL_CONRAD_FORM_CHOICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_CONRAD_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -5419,7 +5479,14 @@
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Will the changes continue on their own?",
+        "topic": "TALK_BERSERK_APOSTOL_FEMTO_GROWTH",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_FEMTO_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -5460,12 +5527,19 @@
     "id": "TALK_BERSERK_APOSTOL_FEMTO_GROWTH",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Yes. What you accept will grow within you after your return.\n\nYou will not be asked to agree anew to every change. Once accepted, it will run its course.",
+      "yes": "You need only assent once. What follows has no need of your permission.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "When will they end?",
+        "topic": "TALK_BERSERK_APOSTOL_FEMTO_END_GROWTH",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_FEMTO_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -5473,12 +5547,7 @@
       },
       {
         "text": "Step away.",
-        "topic": "TALK_DONE",
-        "condition": {
-          "not": {
-            "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
-          }
-        }
+        "topic": "TALK_DONE"
       }
     ]
   },
@@ -5487,12 +5556,19 @@
     "id": "TALK_BERSERK_APOSTOL_FEMTO_END_GROWTH",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "When the new body has finished becoming.\n\nIt will not return to its former shape, after the first day or the hundredth.",
+      "yes": "When the new shape is complete. The life you shed will not be waiting to take you back.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "I've decided to accept the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_FEMTO_CONFIRM",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_FEMTO_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
@@ -5564,13 +5640,20 @@
     "id": "TALK_BERSERK_APOSTOL_FEMTO_EXACT_PRICE",
     "dynamic_line": {
       "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN",
-      "yes": "Your senses may dull. Your hands may shake. Memories and anxiety may rob you of peace. There is no knowing beforehand which traces you will carry.",
+      "yes": "Sight, hearing, steady hands, peace of mind. Any of them may fail you. You will learn which, if you leave.",
       "no": "Only a heavy silence answers."
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
-        "topic": "TALK_BERSERK_APOSTOL_FEMTO_PRICE",
+        "text": "I want to leave as a human.",
+        "topic": "TALK_BERSERK_APOSTOL_FEMTO_REFUSE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
+        "topic": "TALK_BERSERK_APOSTOL_FEMTO_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
         }
@@ -5596,7 +5679,14 @@
     },
     "responses": [
       {
-        "text": "I wanted to ask about something else.",
+        "text": "Will I be able to choose my form?",
+        "topic": "TALK_BERSERK_APOSTOL_FEMTO_FORM_CHOICE",
+        "condition": {
+          "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"
+        }
+      },
+      {
+        "text": "I have another question about the gift.",
         "topic": "TALK_BERSERK_APOSTOL_FEMTO_QUESTION",
         "condition": {
           "test_eoc": "EOC_BERSERK_APOSTOL_CEREMONY_OPEN"

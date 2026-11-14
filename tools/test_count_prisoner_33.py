@@ -89,6 +89,15 @@ class Captive(Book):
 
 
 class CountPrisoner(unittest.TestCase):
+    def test_first_question_can_continue_from_introduction_to_service_key(self):
+        f=Captive();f.meet()
+        f.pick('QUESTIONS','HOUSE')
+        f.pick('HOUSE','ROUTE')
+        f.pick('ROUTE','KEY_PLACE')
+        self.assertEqual(f.inventory['berserk_count_service_key'],0)
+        self.assertEqual(f.terrain[(8,11,0)],CLOSED)
+        self.assertIn(P+'ESCAPE',f.targets('KEY_PLACE'))
+
     def test_native_map_places_one_prisoner_inside_cell(self):
         data=json.loads((MOD/'mapgen/apostle_count.json').read_text())
         prison=next(x['object'] for x in data if x.get('om_terrain')==['berserk_count_prison'])

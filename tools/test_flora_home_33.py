@@ -2,6 +2,7 @@
 import json,unittest,gettext
 from pathlib import Path
 from test_reference_journal_33 import MOD,EOCS,TOPICS,walk
+from test_flora_dialogue_33 import Flora,tid
 ROOT=MOD.parents[1]
 D=json.loads((ROOT/'docs/location_projects/flora-3.3-05.json').read_text())
 class Home(unittest.TestCase):
@@ -20,8 +21,19 @@ class Home(unittest.TestCase):
   for obj in D['stock']:self.assertIn((obj['x'],obj['y']),f);self.assertGreater(obj['amount'],0)
   ids={x['item'] for x in D['stock']};self.assertIn('dry_veggy',ids);self.assertFalse(any('can_' in x or 'electric' in x for x in ids))
  def test_aid_always_has_real_answers(self):
-  rs=TOPICS['TALK_BERSERK_FLORA_AID']['responses']
-  self.assertGreaterEqual(len([r for r in rs if r['topic']!='TALK_BERSERK_FLORA' and 'condition' not in r]),3)
+  for late in (False, True):
+   with self.subTest(late=late):
+    f=Flora(late=late)
+    f.pick('INTRO_STRANGER','AID')
+    self.assertIn(tid('NEXT'),f.targets('AID'))
+    self.assertEqual(f.targets('AID').count(tid('ARMOR')),int(late))
+    f.pick('AID','HELP')
+    f.pick('HELP','TALK_BERSERK_FLORA')
+    self.assertEqual(f.inventory['berserk_flora_travel_folio'],1)
+    self.assertNotIn(tid('HELP'),f.targets('AID'))
+    self.assertIn(tid('HELP_TAKEN'),f.targets('AID'))
+    f.pick('AID','HELP_TAKEN')
+    self.assertEqual(f.inventory['berserk_flora_travel_folio'],1)
  def test_four_dangers_have_substantive_followups(self):
   for k in ['COUNT','WYALD','ROSINE','GRUNBELD']:
    t=TOPICS['TALK_BERSERK_FLORA_KNOWN_'+k]

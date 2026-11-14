@@ -106,11 +106,13 @@ class FloraDialogue(unittest.TestCase):
         f.run('EOC_BERSERK_FLORA_GIVE_ARMOR');self.assertEqual(f.inventory['berserk_helmet'],1)
     def test_projection_requires_killed_projection_not_ownership_or_global_death(self):
         f=Flora();f.inventory['berserk_behelit']=1
-        self.assertNotIn(tid('DANGER_PROJECTION'),f.targets('DANGERS'))
+        self.assertNotIn(tid('PROJECTION_ANSWER'),f.targets('DANGERS'))
         f.values['_victim_type']='mon_zombie';f.run(E+'PROJECTION_KILL')
-        self.assertNotIn(tid('DANGER_PROJECTION'),f.targets('DANGERS'))
+        self.assertNotIn(tid('PROJECTION_ANSWER'),f.targets('DANGERS'))
         f.values['_victim_type']='mon_berserk_projection_count';f.run(E+'PROJECTION_KILL')
-        self.assertIn(tid('DANGER_PROJECTION'),f.targets('DANGERS'))
+        f.pick('DANGERS','PROJECTION_ANSWER')
+        self.assertEqual(f.values['u_berserk_flora33_heard_projections'],1)
+        self.assertIn(tid('NEXT'),f.targets('PROJECTION_ANSWER'))
         self.assertNotIn('послал',f.text('PROJECTION_ANSWER'))
     def test_no_mysterious_combat_experience_or_evacuation(self):
         f=Flora();self.assertNotIn(tid('ARMOR_USED'),f.targets('OWNED'))
