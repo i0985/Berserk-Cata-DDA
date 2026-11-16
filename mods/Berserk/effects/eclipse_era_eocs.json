@@ -591,9 +591,13 @@
         ],
         "mtype_ids": [
           "mon_berserk_eclipse_wretch",
+          "mon_berserk_world_wretch",
           "mon_berserk_eclipse_halfbreed",
+          "mon_berserk_world_halfbreed",
           "mon_berserk_eclipse_hunter",
+          "mon_berserk_world_hunter",
           "mon_berserk_eclipse_butcher",
+          "mon_berserk_world_butcher",
           "mon_berserk_eclipse_elite",
           "mon_berserk_eclipse_field_wretch",
           "mon_berserk_eclipse_field_halfbreed",
@@ -922,6 +926,11 @@
                       "not": {
                         "test_eoc": "EOC_BERSERK_APOSTLE_REGION_QUIET"
                       }
+                    },
+                    {
+                      "not": {
+                        "test_eoc": "EOC_BERSERK_ECLIPSE_ERA_SCRIPTED_TARGET"
+                      }
                     }
                   ]
                 },
@@ -943,5 +952,159 @@
         ]
       }
     }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_ECLIPSE_ERA_SCRIPTED_TARGET",
+    "//": "Only protects the target of world seeding. Existing monsters, the Brand and armor shadows remain independent.",
+    "condition": {
+      "or": [
+        {
+          "overmap_at_point": "berserk_first_hunt_lair",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_local_breach",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_godo_workshop",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_count_prison",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_count_hall",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_count_west_yard",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_count_east_yard",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_count_dungeon",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_wyald_approach",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_wyald_camp",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_wyald_quarry",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_wyald_ring",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_rosine_trail",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_rosine_cocoons",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_rosine_gully",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_rosine_nest",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_grunbeld_approach",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_grunbeld_ramparts",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_grunbeld_quarry",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_grunbeld_barracks",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_grunbeld_ruins",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_grunbeld_crucible",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_flora_manor",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        },
+        {
+          "overmap_at_point": "berserk_flora_garden",
+          "point": {
+            "context_val": "berserk_era_neighbor"
+          }
+        }
+      ]
+    },
+    "effect": []
   }
 ]

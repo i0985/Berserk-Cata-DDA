@@ -272,6 +272,7 @@
         }
       ],
       "place_monster": [
+        { "monster": "mon_berserk_black_dog_thrall", "x": 6, "y": 20, "chance": 100, "one_or_none": true },
         {
           "monster": "mon_berserk_black_dog_thrall",
           "x": 20,
@@ -365,22 +366,7 @@
           "y": 4
         }
       ],
-      "place_monster": [
-        {
-          "monster": "mon_berserk_black_dog_thrall",
-          "x": 8,
-          "y": 11,
-          "chance": 100,
-          "one_or_none": true
-        },
-        {
-          "monster": "mon_berserk_black_dog_thrall",
-          "x": 18,
-          "y": 15,
-          "chance": 100,
-          "one_or_none": true
-        }
-      ]
+      "place_monster": []
     }
   }
 ]
