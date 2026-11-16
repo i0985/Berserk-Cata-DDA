@@ -39,6 +39,12 @@ class CampaignBalanceTests(unittest.TestCase):
         self.assertFalse(forge.condition(response["condition"]))
         self.assertEqual(forge.drops, {"berserk_forge_recovery_supplies": 1, "machete": 1})
 
+        late_start = Forge()
+        late_start.values["u_berserk_eclipse_rescue_state"] = 2
+        late_start.bionics.update(("bio_berserk_hand_stump", "bio_berserk_arm_cannon"))
+        late_start.enter(topic)
+        self.assertEqual(late_start.drops, {"berserk_forge_recovery_supplies": 1})
+
     def test_forge_respite_ends_at_first_hunt_or_alternative_breach(self):
         condition = EOCS["EOC_BERSERK_FORGE_RECOVERY_SHELTER"]["condition"]
         for entry, milestone in (("ordinary", "u_berserk_first_hunt_done"),
