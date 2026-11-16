@@ -78,7 +78,7 @@
       { "map_spawn_item": "berserk_forge_recovery_supplies", "use_item_group": true },
       {
         "if": { "test_eoc": "EOC_BERSERK_FORGE_RECOVERY_NEEDS_BLADE" },
-        "then": { "map_spawn_item": "machete" }
+        "then": { "map_spawn_item": "mc_arming_sword" }
       },
       {
         "if": { "u_has_trait": "BERSERK_ECLIPSE_SCAR_SIGHT" },

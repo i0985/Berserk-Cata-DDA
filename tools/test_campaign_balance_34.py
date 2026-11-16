@@ -52,7 +52,7 @@ class CampaignBalanceTests(unittest.TestCase):
         forge.enter(topic)
         forge.enter(topic)
         self.assertFalse(forge.condition(response["condition"]))
-        self.assertEqual(forge.drops, {"berserk_forge_recovery_supplies": 1, "machete": 1})
+        self.assertEqual(forge.drops, {"berserk_forge_recovery_supplies": 1, "mc_arming_sword": 1})
 
         late_start = Forge()
         late_start.values["u_berserk_eclipse_rescue_state"] = 2
@@ -74,7 +74,7 @@ class CampaignBalanceTests(unittest.TestCase):
                     forge.traits.add("BERSERK_ECLIPSE_SCAR_SIGHT")
                     forge.enter("TALK_BERSERK_RICKERT_RECOVERY_SUPPLIES")
                     self.assertEqual(forge.drops["glasses_eye"], 1)
-                    self.assertNotIn("machete", forge.drops)
+                    self.assertNotIn("mc_arming_sword", forge.drops)
                 self.assertTrue(forge.condition(condition))
                 forge.outside = True
                 self.assertFalse(forge.condition(condition))
