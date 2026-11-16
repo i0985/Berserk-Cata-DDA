@@ -25,6 +25,21 @@ class Forge(Book):
             super().effect(action)
 
 
+class Siege(Book):
+    def __init__(self):
+        super().__init__()
+        self.values["berserk_flora_location"] = (0, 0, 0)
+        self.escorts = Counter()
+
+    def effect(self, action):
+        if isinstance(action, dict) and "u_spawn_monster" in action:
+            self.escorts[action["u_spawn_monster"]] += 1
+        elif isinstance(action, dict) and "location_variable_adjust" in action:
+            pass  # The authored spawn cells are static offsets from the manor.
+        else:
+            super().effect(action)
+
+
 class CampaignBalanceTests(unittest.TestCase):
     def test_recovery_menu_gives_supplies_once_after_rescue(self):
         forge = Forge()
@@ -78,6 +93,66 @@ class CampaignBalanceTests(unittest.TestCase):
         field.om = "berserk_first_hunt_lair"
         field.terrain[target] = "forest"
         self.assertFalse(field.condition(condition))
+
+    def test_siege_escort_does_not_catch_up_after_escape_or_reload(self):
+        initial = "EOC_BERSERK_FLORA_SPAWN_ESCORT"
+        next_wave = "EOC_BERSERK_FLORA_SPAWN_ESCORT_REINFORCEMENTS"
+        for escape in (False, True):
+            with self.subTest(escape=escape):
+                siege = Siege()
+                siege.values["berserk_flora_siege_state"] = 3
+                siege.run(initial)
+                siege.run(initial)
+                siege.now += 19
+                siege.run(next_wave)
+                self.assertEqual(siege.escorts.total(), 3)
+                siege.now += 1
+                if escape:
+                    siege.values["berserk_flora_siege_state"] = 5
+                siege.run(next_wave)
+                siege.run(next_wave)
+                self.assertEqual(siege.escorts.total(), 3 if escape else 6)
+        legacy = Siege()
+        legacy.values.update(berserk_flora_siege_state=3, berserk_flora_escort_started=1)
+        legacy.run(initial)
+        legacy.run(next_wave)
+        self.assertFalse(legacy.escorts)
+
+    def test_screen_can_physically_close_both_routes_to_cover(self):
+        for filename in ("eclipse_expanded", "apostol_eclipse"):
+            maps = {name.split("_")[-1]: o["object"] for o in load(f"mapgen/{filename}.json")
+                    for name in o.get("om_terrain", [])}
+            for sector, interior in (("traces", (19, 8)), ("threshold", (5, 8))):
+                with self.subTest(field=filename, sector=sector):
+                    rows = maps[sector]["rows"]
+                    for door_open in (False, True):
+                        blocked = "#%&@pB" if door_open else "#%&@pBD"
+                        reached, queue = {interior}, deque([interior])
+                        while queue:
+                            x, y = queue.popleft()
+                            for ny in range(max(0, y - 1), min(24, y + 2)):
+                                for nx in range(max(0, x - 1), min(24, x + 2)):
+                                    if (nx, ny) not in reached and rows[ny][nx] not in blocked:
+                                        reached.add((nx, ny))
+                                        queue.append((nx, ny))
+                        # Test diagonals too. A gap beside the screen lets hunters walk around it.
+                        reached_trail = any(rows[y][x] in "ar" for x, y in reached)
+                        self.assertEqual(reached_trail, door_open)
+
+    def test_committed_attacks_keep_their_preparation_effect_until_release(self):
+        states = {e["id"]: e for e in load("effects/wyald_rosine_combat_effects.json")}
+        warnings = {s["id"]: s for s in load("spells/apostle_committed_attacks.json")}
+        for enemy in ("wyald", "rosine"):
+            with self.subTest(enemy=enemy):
+                setup = EOCS[f"EOC_BERSERK_{enemy.upper()}_COMMITTED_BEGIN"]["effect"]
+                state = f"berserk_{enemy}_ready"
+                due = next(e["math"][0] for e in setup if e.get("math", [""])[0].startswith(
+                    f"n_berserk_committed_{enemy}_due ="))
+                delay = int(due.rsplit("+", 1)[1])
+                duration = int(next(e["duration"] for e in setup if e.get("npc_add_effect") == state).split()[0])
+                max_duration = int(states[state]["max_duration"].split()[0])
+                self.assertGreater(min(duration, max_duration), delay)
+                self.assertGreaterEqual(warnings[f"berserk_committed_{enemy}_warning"]["min_duration"], delay * 100)
 
     def test_eclipse_paths_and_placement_after_density_changes(self):
         for filename, expected in (("eclipse_expanded", 27), ("apostol_eclipse", 25)):

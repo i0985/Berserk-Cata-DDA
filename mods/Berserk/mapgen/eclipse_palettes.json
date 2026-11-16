@@ -130,10 +130,43 @@
     "color": "light_gray"
   },
   {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_cover_open",
+    "copy-from": "t_berserk_eclipse_ashen_flesh",
+    "name": "open shield screen",
+    "description": "The Band wedged a battered shield into a fold of flesh. Close it from either side to break sight while you tend a wound.",
+    "looks_like": "t_door_o",
+    "symbol": "'",
+    "color": "light_gray",
+    "move_cost": 2,
+    "close": "t_berserk_eclipse_cover_closed"
+  },
+  {
+    "type": "terrain",
+    "id": "t_berserk_eclipse_cover_closed",
+    "copy-from": "t_berserk_eclipse_ridge",
+    "name": "closed shield screen",
+    "description": "A shield sits tight across the entrance. It blocks sight, but noises can still draw something to the other side.",
+    "looks_like": "t_door_c",
+    "symbol": "+",
+    "color": "light_gray",
+    "move_cost": 0,
+    "open": "t_berserk_eclipse_cover_open",
+    "flags": [ "DOOR", "NOITEM", "BLOCK_WIND", "SUPPORTS_ROOF" ],
+    "bash": {
+      "str_min": 12,
+      "str_max": 34,
+      "sound": "clang!",
+      "sound_fail": "thud!",
+      "ter_set": "t_berserk_eclipse_ashen_flesh"
+    }
+  },
+  {
     "type": "palette",
     "id": "berserk_eclipse_flesh_palette",
     "terrain": {
       "#": "t_berserk_eclipse_ridge",
+      "D": "t_berserk_eclipse_cover_open",
       ".": "t_berserk_eclipse_open_flesh",
       "L": "t_berserk_eclipse_luminous_flesh",
       "a": "t_berserk_eclipse_ashen_flesh",

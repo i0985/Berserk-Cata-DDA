@@ -1280,6 +1280,9 @@
         }
       },
       {
+        "run_eocs": "EOC_BERSERK_FLORA_SPAWN_ESCORT_REINFORCEMENTS"
+      },
+      {
         "if": {
           "and": [
             {
@@ -2316,6 +2319,11 @@
         ]
       },
       {
+        "math": [
+          "berserk_flora_escort_reinforcements_at = time('now') + 20"
+        ]
+      },
+      {
         "copy_var": {
           "global_val": "berserk_flora_location"
         },
@@ -2328,54 +2336,6 @@
           "context_val": "flora_escort_point"
         },
         "x_adjust": 10,
-        "y_adjust": 1
-      },
-      {
-        "u_spawn_monster": "mon_berserk_flora_raider",
-        "real_count": 1,
-        "min_radius": 0,
-        "max_radius": 2,
-        "target_var": {
-          "context_val": "flora_escort_point"
-        }
-      },
-      {
-        "copy_var": {
-          "global_val": "berserk_flora_location"
-        },
-        "target_var": {
-          "context_val": "flora_escort_point"
-        }
-      },
-      {
-        "location_variable_adjust": {
-          "context_val": "flora_escort_point"
-        },
-        "x_adjust": 12,
-        "y_adjust": 2
-      },
-      {
-        "u_spawn_monster": "mon_berserk_flora_raider",
-        "real_count": 1,
-        "min_radius": 0,
-        "max_radius": 2,
-        "target_var": {
-          "context_val": "flora_escort_point"
-        }
-      },
-      {
-        "copy_var": {
-          "global_val": "berserk_flora_location"
-        },
-        "target_var": {
-          "context_val": "flora_escort_point"
-        }
-      },
-      {
-        "location_variable_adjust": {
-          "context_val": "flora_escort_point"
-        },
-        "x_adjust": 14,
         "y_adjust": 1
       },
       {
@@ -2423,30 +2383,6 @@
         "location_variable_adjust": {
           "context_val": "flora_escort_point"
         },
-        "x_adjust": 18,
-        "y_adjust": 1
-      },
-      {
-        "u_spawn_monster": "mon_berserk_flora_raider",
-        "real_count": 1,
-        "min_radius": 0,
-        "max_radius": 2,
-        "target_var": {
-          "context_val": "flora_escort_point"
-        }
-      },
-      {
-        "copy_var": {
-          "global_val": "berserk_flora_location"
-        },
-        "target_var": {
-          "context_val": "flora_escort_point"
-        }
-      },
-      {
-        "location_variable_adjust": {
-          "context_val": "flora_escort_point"
-        },
         "x_adjust": 46,
         "y_adjust": 9
       },
@@ -2458,6 +2394,46 @@
         "target_var": {
           "context_val": "flora_escort_point"
         }
+      }
+    ]
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_SPAWN_ESCORT_REINFORCEMENTS",
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_flora_siege_state >= 3"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_siege_state <= 4"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_escort_reinforcements_at > 0"
+          ]
+        },
+        {
+          "math": [
+            "time('now') >= berserk_flora_escort_reinforcements_at"
+          ]
+        },
+        {
+          "math": [
+            "has_var(berserk_flora_location)"
+          ]
+        }
+      ]
+    },
+    "effect": [
+      {
+        "math": [
+          "berserk_flora_escort_reinforcements_at = 0"
+        ]
       },
       {
         "copy_var": {
@@ -2471,8 +2447,8 @@
         "location_variable_adjust": {
           "context_val": "flora_escort_point"
         },
-        "x_adjust": 46,
-        "y_adjust": 12
+        "x_adjust": 18,
+        "y_adjust": 1
       },
       {
         "u_spawn_monster": "mon_berserk_flora_raider",
@@ -2524,30 +2500,6 @@
       },
       {
         "u_spawn_monster": "mon_berserk_flora_raider",
-        "real_count": 1,
-        "min_radius": 0,
-        "max_radius": 2,
-        "target_var": {
-          "context_val": "flora_escort_point"
-        }
-      },
-      {
-        "copy_var": {
-          "global_val": "berserk_flora_location"
-        },
-        "target_var": {
-          "context_val": "flora_escort_point"
-        }
-      },
-      {
-        "location_variable_adjust": {
-          "context_val": "flora_escort_point"
-        },
-        "x_adjust": 46,
-        "y_adjust": 21
-      },
-      {
-        "u_spawn_monster": "mon_berserk_flora_reaver",
         "real_count": 1,
         "min_radius": 0,
         "max_radius": 2,

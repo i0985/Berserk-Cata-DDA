@@ -386,12 +386,12 @@
       },
       {
         "math": [
-          "n_berserk_committed_wyald_due = time('now') + 2"
+          "n_berserk_committed_wyald_due = time('now') + 3"
         ]
       },
       {
         "npc_add_effect": "berserk_wyald_ready",
-        "duration": "3 seconds",
+        "duration": "4 seconds",
         "intensity": 1
       },
       {
@@ -641,7 +641,7 @@
       },
       {
         "u_add_effect": "berserk_apostle_attack_recovery",
-        "duration": "2 seconds",
+        "duration": "3 seconds",
         "intensity": 1
       },
       {
