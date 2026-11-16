@@ -3,9 +3,19 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FORGE_RECOVERY_PENDING",
     "condition": {
-      "and": [
-        { "math": [ "u_berserk_eclipse_rescue_state == 2" ] },
-        { "math": [ "u_berserk_first_hunt_done != 1" ] }
+      "or": [
+        {
+          "and": [
+            { "math": [ "u_berserk_eclipse_rescue_state == 2" ] },
+            { "math": [ "u_berserk_first_hunt_done != 1" ] }
+          ]
+        },
+        {
+          "and": [
+            { "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY" },
+            { "math": [ "u_berserk_breach_sealed != 1" ] }
+          ]
+        }
       ]
     },
     "effect": []
@@ -58,6 +68,13 @@
       {
         "if": { "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND" },
         "then": { "map_spawn_item": "machete" }
+      },
+      {
+        "if": { "u_has_trait": "BERSERK_ECLIPSE_SCAR_SIGHT" },
+        "then": [
+          { "map_spawn_item": "glasses_eye" },
+          { "u_message": "Rickert sets a pair of glasses beside the dressings. The outlines sharpen when you put them on." }
+        ]
       }
     ]
   }
