@@ -119,12 +119,19 @@ class CampaignBalanceTests(unittest.TestCase):
         self.assertFalse(legacy.escorts)
 
     def test_screen_can_physically_close_both_routes_to_cover(self):
+        palettes = {p["id"]: p["terrain"] for path in ("eclipse_palettes", "z_apostol_palette")
+                    for p in load(f"mapgen/{path}.json") if p["type"] == "palette"}
         for filename in ("eclipse_expanded", "apostol_eclipse"):
             maps = {name.split("_")[-1]: o["object"] for o in load(f"mapgen/{filename}.json")
                     for name in o.get("om_terrain", [])}
             for sector, interior in (("traces", (19, 8)), ("threshold", (5, 8))):
                 with self.subTest(field=filename, sector=sector):
-                    rows = maps[sector]["rows"]
+                    data = maps[sector]
+                    rows = data["rows"]
+                    glyphs = {glyph: terrain for palette in data["palettes"]
+                              for glyph, terrain in palettes[palette].items()}
+                    glyphs.update(data.get("terrain", {}))
+                    self.assertEqual(glyphs["D"], "t_berserk_eclipse_cover_open")
                     for door_open in (False, True):
                         blocked = "#%&@pB" if door_open else "#%&@pBD"
                         reached, queue = {interior}, deque([interior])
