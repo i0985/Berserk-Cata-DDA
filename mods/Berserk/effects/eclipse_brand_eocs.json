@@ -107,7 +107,10 @@
             },
             {
               "not": {
-                "test_eoc": "EOC_BERSERK_FLORA_NIGHT_QUIET"
+                "or": [
+                  { "test_eoc": "EOC_BERSERK_FLORA_NIGHT_QUIET" },
+                  { "test_eoc": "EOC_BERSERK_FORGE_RECOVERY_SHELTER" }
+                ]
               }
             },
             {
@@ -274,9 +277,14 @@
                     }
                   },
                   "else": {
-                    "set_string_var": "hour_cooldown",
-                    "target_var": {
-                      "u_val": "berserk_brand_night_status"
+                    "if": { "test_eoc": "EOC_BERSERK_FORGE_RECOVERY_SHELTER" },
+                    "then": {
+                      "set_string_var": "forge_recovery",
+                      "target_var": { "u_val": "berserk_brand_night_status" }
+                    },
+                    "else": {
+                      "set_string_var": "hour_cooldown",
+                      "target_var": { "u_val": "berserk_brand_night_status" }
                     }
                   }
                 }

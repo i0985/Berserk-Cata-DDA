@@ -2264,6 +2264,11 @@
     },
     "responses": [
       {
+        "text": "I need dressings and a place to recover.",
+        "topic": "TALK_BERSERK_RICKERT_RECOVERY_SUPPLIES",
+        "condition": { "test_eoc": "EOC_BERSERK_FORGE_RECOVERY_HELP_AVAILABLE" }
+      },
+      {
         "text": "About the prosthesis.",
         "topic": "TALK_BERSERK_GODO_ARM_STATUS",
         "condition": {
@@ -14591,5 +14596,16 @@
         "topic": "TALK_BERSERK_RICKERT"
       }
     ]
+  },
+  {
+    "type": "talk_topic",
+    "id": "TALK_BERSERK_RICKERT_RECOVERY_SUPPLIES",
+    "dynamic_line": {
+      "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND",
+      "yes": "The straw beds are upstairs. Take the water, dried meat and clean dressings by your feet. I left a short blade there too. Try that in your good hand while we work on the other one.",
+      "no": "The straw beds are upstairs. Take the water, dried meat and clean dressings by your feet. Rest here before you set out again."
+    },
+    "speaker_effect": { "effect": { "run_eocs": "EOC_BERSERK_FORGE_RECOVERY_GIVE_HELP" } },
+    "responses": [ { "text": "Back to the main topics.", "topic": "TALK_BERSERK_RICKERT" } ]
   }
 ]

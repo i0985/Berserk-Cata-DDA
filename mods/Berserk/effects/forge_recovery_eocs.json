@@ -1,0 +1,64 @@
+[
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FORGE_RECOVERY_PENDING",
+    "condition": {
+      "and": [
+        { "math": [ "u_berserk_eclipse_rescue_state == 2" ] },
+        { "math": [ "u_berserk_first_hunt_done != 1" ] }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FORGE_RECOVERY_SHELTER",
+    "condition": {
+      "and": [
+        { "test_eoc": "EOC_BERSERK_FORGE_RECOVERY_PENDING" },
+        { "u_at_om_location": "berserk_godo_workshop" },
+        { "not": "u_is_outside" }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FORGE_RECOVERY_HELP_AVAILABLE",
+    "condition": {
+      "and": [
+        { "test_eoc": "EOC_BERSERK_FORGE_RECOVERY_PENDING" },
+        {
+          "or": [
+            { "test_eoc": "EOC_BERSERK_GODO_AT_RICKERT_FORGE" },
+            {
+              "and": [
+                "has_beta",
+                "npc_is_npc",
+                { "npc_has_class": "NC_BERSERK_RICKERT" },
+                { "u_at_om_location": "berserk_godo_loft" },
+                { "npc_at_om_location": "berserk_godo_loft" }
+              ]
+            }
+          ]
+        },
+        { "math": [ "u_berserk_forge_recovery_help_taken != 1" ] }
+      ]
+    },
+    "effect": []
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FORGE_RECOVERY_GIVE_HELP",
+    "condition": { "test_eoc": "EOC_BERSERK_FORGE_RECOVERY_HELP_AVAILABLE" },
+    "effect": [
+      { "math": [ "u_berserk_forge_recovery_help_taken = 1" ] },
+      { "math": [ "u_berserk_forge_rest_allowed = 1" ] },
+      { "map_spawn_item": "berserk_forge_recovery_supplies", "use_item_group": true },
+      {
+        "if": { "test_eoc": "EOC_BERSERK_DIALOGUE_MISSING_LEFT_HAND" },
+        "then": { "map_spawn_item": "machete" }
+      }
+    ]
+  }
+]

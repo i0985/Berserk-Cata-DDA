@@ -1095,12 +1095,12 @@
       },
       {
         "math": [
-          "n_berserk_committed_rosine_due = time('now') + 1"
+          "n_berserk_committed_rosine_due = time('now') + 2"
         ]
       },
       {
         "npc_add_effect": "berserk_rosine_ready",
-        "duration": "2 seconds",
+        "duration": "3 seconds",
         "intensity": 1
       },
       {

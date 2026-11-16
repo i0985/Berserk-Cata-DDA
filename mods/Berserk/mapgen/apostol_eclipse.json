@@ -50,9 +50,9 @@
         "........,,,,,,,,,,,;;;##",
         "....rrr.,,,,,,,,,,;;;###",
         ".......rrr,,,,,,,;;;;###",
-        "........rJr,,,,;;;;;####",
-        "........rrr,,;;;;;;;####",
-        ".........rrr;;;;;;;;####",
+        "........rJr,,,,###;;####",
+        "........rrr,,;;;;#;;####",
+        ".........rrr;;;;;#######",
         "........;rrr;;r;;;;;####",
         "......a;;rrr;;r;rrrrrrrr",
         "aaaaaaaaaaaarrrrrrrrrrrr",
@@ -74,17 +74,17 @@
       "place_monster": [
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 14,
-          "y": 10
+          "x": 17,
+          "y": 14
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 6,
-          "y": 18
+          "x": 5,
+          "y": 20
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 4,
+          "x": 3,
           "y": 5
         }
       ],
@@ -602,18 +602,13 @@
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 9,
-          "y": 21
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
           "x": 5,
           "y": 20
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
-          "x": 6,
-          "y": 16
+          "x": 3,
+          "y": 18
         }
       ],
       "place_item": [
@@ -818,23 +813,18 @@
       ],
       "place_monster": [
         {
-          "group": "GROUP_BERSERK_ECLIPSE_HALF",
-          "x": 7,
-          "y": 13
+          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
+          "x": 17,
+          "y": 6
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 19,
-          "y": 4
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 19,
-          "y": 7
+          "x": 20,
+          "y": 9
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_HALF",
-          "x": 21,
+          "x": 20,
           "y": 21
         }
       ]
@@ -1605,11 +1595,11 @@
         "r.rrrrrrrraaa..##.....##",
         "rrrrrrrrrr.aaarrrr....##",
         "rrrrrr.r...aaa........##",
-        "rr.....r....aaa.#..lll##",
-        "#..llllr....aaaa#llppp##",
-        "..lppppr....aaaa#ppppp##",
-        "..lpppppl....aaa#pppppl#",
-        ".lpppppppl...aaa#rrrrrrr",
+        "rr.....r.#..aaa.#..lll##",
+        "#..llllr.###aaaa#llppp##",
+        "..lppppr...#aaaa#ppppp##",
+        "..lpppppl..#.aaa#pppppl#",
+        ".lpppppppl.#.aaa#rrrrrrr",
         ".lpppppppl...aaOBrrrrrrr",
         ".lpppppppl..aaa.#rrrrrrr",
         ".lpppppppl..aaa.#rrrrprr",
@@ -1634,12 +1624,7 @@
         {
           "group": "GROUP_BERSERK_ECLIPSE_BUTCHER",
           "x": 7,
-          "y": 10
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
-          "x": 17,
-          "y": 6
+          "y": 7
         }
       ],
       "place_furniture": [
@@ -1793,11 +1778,6 @@
       ],
       "place_monster": [
         {
-          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
-          "x": 9,
-          "y": 10
-        },
-        {
           "group": "GROUP_BERSERK_ECLIPSE_HALF",
           "x": 12,
           "y": 19
@@ -1805,17 +1785,12 @@
         {
           "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
           "x": 19,
-          "y": 11
+          "y": 19
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_HALF",
-          "x": 8,
-          "y": 13
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
-          "x": 7,
-          "y": 21
+          "x": 6,
+          "y": 6
         }
       ],
       "place_item": [
@@ -2125,14 +2100,9 @@
           "y": 10
         },
         {
-          "group": "GROUP_BERSERK_ECLIPSE_BUTCHER",
-          "x": 17,
-          "y": 14
-        },
-        {
           "group": "GROUP_BERSERK_ECLIPSE_WRETCH",
-          "x": 13,
-          "y": 17
+          "x": 17,
+          "y": 18
         },
         {
           "group": "GROUP_BERSERK_ECLIPSE_BUTCHER",
@@ -2437,9 +2407,9 @@
         "##########aaa,,,,,;;;;##",
         "######,,,aaaaa,,,,,;;;##",
         "###...,,,,aaa,,,,,,;;;##",
-        "###....,,,aaa,,,,,,;;;##",
-        "##.....;,rWaa,,,,,,;;;;#",
-        "#.....;;;aaa,,,,,,;;;;;;",
+        "###.#..#,,aaa,,,,,,;;;##",
+        "##..#..#,rWaa,,,,,,;;;;#",
+        "#...####;aaa,,,,,,;;;;;;",
         ".....;;;;aaa,,,,,,;;;;;;",
         "....;;;;aaaaa,,a,;;;;aaa",
         "...rrrrrraaaaaaaa;;;aaaa",
@@ -2463,11 +2433,6 @@
           "group": "GROUP_BERSERK_ECLIPSE_HALF",
           "x": 10,
           "y": 17
-        },
-        {
-          "group": "GROUP_BERSERK_ECLIPSE_HUNTER",
-          "x": 7,
-          "y": 12
         }
       ],
       "place_furniture": [
