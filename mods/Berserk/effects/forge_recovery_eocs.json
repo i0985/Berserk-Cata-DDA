@@ -3,17 +3,12 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FORGE_RECOVERY_PENDING",
     "condition": {
-      "or": [
+      "and": [
+        { "math": [ "u_berserk_breach_sealed != 1" ] },
         {
-          "and": [
+          "or": [
             { "math": [ "u_berserk_eclipse_rescue_state == 2" ] },
-            { "math": [ "u_berserk_first_hunt_done != 1" ] }
-          ]
-        },
-        {
-          "and": [
-            { "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY" },
-            { "math": [ "u_berserk_breach_sealed != 1" ] }
+            { "test_eoc": "EOC_BERSERK_APOSTOL_CONTINUATION_READY" }
           ]
         }
       ]

@@ -60,12 +60,12 @@ class CampaignBalanceTests(unittest.TestCase):
         late_start.enter(topic)
         self.assertEqual(late_start.drops, {"berserk_forge_recovery_supplies": 1})
 
-    def test_forge_respite_ends_at_first_hunt_or_alternative_breach(self):
-        condition = EOCS["EOC_BERSERK_FORGE_RECOVERY_SHELTER"]["condition"]
-        for entry, milestone in (("ordinary", "u_berserk_first_hunt_done"),
-                                 ("alternative", "u_berserk_breach_sealed")):
+    def test_forge_respite_ends_at_the_sealed_breach_on_either_route(self):
+        shelter = EOCS["EOC_BERSERK_FORGE_RECOVERY_SHELTER"]["condition"]
+        for entry in ("ordinary", "alternative"):
             with self.subTest(entry=entry):
                 forge = Forge()
+                self.assertFalse(forge.condition(shelter))
                 if entry == "ordinary":
                     forge.values["u_berserk_eclipse_rescue_state"] = 2
                 else:
@@ -75,12 +75,37 @@ class CampaignBalanceTests(unittest.TestCase):
                     forge.enter("TALK_BERSERK_RICKERT_RECOVERY_SUPPLIES")
                     self.assertEqual(forge.drops["glasses_eye"], 1)
                     self.assertNotIn("mc_arming_sword", forge.drops)
-                self.assertTrue(forge.condition(condition))
+
+                self.assertTrue(forge.condition(shelter))
+                forge.values["u_berserk_first_hunt_done"] = 1
+                self.assertTrue(forge.condition(shelter))
                 forge.outside = True
-                self.assertFalse(forge.condition(condition))
+                self.assertFalse(forge.condition(shelter))
                 forge.outside = False
-                forge.values[milestone] = 1
-                self.assertFalse(forge.condition(condition))
+                forge.values["u_berserk_breach_sealed"] = 1
+                self.assertFalse(forge.condition(shelter))
+                self.assertFalse(forge.condition(EOCS["EOC_BERSERK_FORGE_RECOVERY_HELP_AVAILABLE"]["condition"]))
+
+    def test_first_hunt_shelter_can_be_closed_off_the_western_retreat(self):
+        site = load("mapgen/first_hunt.json")[0]["object"]
+        rows = site["rows"]
+        bundle = next(obj for obj in site["place_furniture"] if obj["furn"] == "f_berserk_location_hunt_shelter")
+        stash = bundle["x"], bundle["y"]
+        entrance = stash[0] - 1, stash[1]
+        self.assertEqual(site["terrain"][rows[entrance[1]][entrance[0]]], "t_door_o")
+
+        interior = {stash}
+        pending = deque(interior)
+        while pending:
+            x, y = pending.popleft()
+            for nx, ny in ((x + dx, y + dy) for dx in (-1, 0, 1) for dy in (-1, 0, 1)):
+                if not (0 <= ny < len(rows) and 0 <= nx < len(rows[ny])):
+                    self.fail("the shelter can be reached without using its door")
+                if (nx, ny) not in interior and rows[ny][nx] not in "#D":
+                    interior.add((nx, ny))
+                    pending.append((nx, ny))
+        self.assertEqual(len(interior), 4)
+        self.assertTrue(all(rows[y][entrance[0] - 1] == "d" for y in range(11, 17)))
 
     def test_world_seeding_uses_target_not_the_entered_tile(self):
         condition = EOCS["EOC_BERSERK_ECLIPSE_ERA_SCRIPTED_TARGET"]["condition"]
