@@ -217,27 +217,7 @@
     "condition": {
       "and": [
         {
-          "and": [
-            {
-              "math": [
-                "berserk_eclipse_era == 1"
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "u_berserk_eclipse_rescue_state == 2"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_apostol_return_state == 2"
-                  ]
-                }
-              ]
-            }
-          ]
+          "test_eoc": "EOC_BERSERK_FLORA_ECLIPSE_SURVIVOR"
         },
         {
           "or": [

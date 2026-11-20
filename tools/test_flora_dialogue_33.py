@@ -141,6 +141,59 @@ class FloraDialogue(unittest.TestCase):
         obj=json.loads((MOD/'items/flora_escape_charm.json').read_text())[0]
         self.assertEqual(obj['use_action']['effect_on_conditions'],[E+'CHARM'])
         f=Flora();f.run(E+'CHARM');self.assertFalse(f.fires)
+
+    def test_siege_eligibility_and_refusals_match_on_both_routes(self):
+        prefix = 'EOC_BERSERK_FLORA_'
+        can_start = EOCS[prefix + 'CAN_START_SIEGE']['condition']
+        can_prepare = EOCS[prefix + 'CAN_PREPARE_SIEGE']['condition']
+        for return_flag in ('u_berserk_eclipse_rescue_state', 'u_berserk_apostol_return_state'):
+            with self.subTest(return_flag=return_flag):
+                f = Book()
+                manor = (0, 0, 0)
+                f.terrain[manor] = 'berserk_flora_manor'
+                f.om = 'berserk_flora_manor'
+                f.values.update(
+                    berserk_eclipse_era=1, berserk_flora_stage=1, berserk_flora_siege_state=0,
+                    berserk_flora_location=manor, berserk_flora_center=manor,
+                )
+                f.values[return_flag] = 2
+
+                def assert_refusals(launch, preparation):
+                    f.run(prefix + 'SIEGE_REFUSAL')
+                    f.run(prefix + 'PREPARATION_REFUSAL')
+                    self.assertTrue(f.messages[-2]['u_message'].startswith(launch), f.messages[-2])
+                    self.assertTrue(f.messages[-1]['u_message'].startswith(preparation), f.messages[-1])
+
+                self.assertFalse(f.condition(can_start))
+                self.assertFalse(f.condition(can_prepare))
+                assert_refusals('Оберег ещё не подготовлен.', 'Доспех ещё не готов.')
+
+                f.values['u_berserk_flora33_legacy_ready'] = 1
+                self.assertTrue(f.condition(can_prepare))
+                f.values['berserk_flora_siege_state'] = 1
+                self.assertTrue(f.condition(can_start))
+
+                f.om, f.pos = 'forest', (50, 0, 0)
+                self.assertFalse(f.condition(can_start))
+                self.assertFalse(f.condition(can_prepare))
+                assert_refusals('Ты находишься вне особняка', 'Вернитесь к Флоре в отмеченную рощу')
+
+                f.om, f.pos = 'berserk_flora_garden', (15, 15, 0)
+                self.assertTrue(f.condition(can_start))
+                f.values.update(berserk_flora_stage=3, berserk_flora_siege_state=5)
+                self.assertFalse(f.condition(can_start))
+                self.assertFalse(f.condition(can_prepare))
+                assert_refusals('Побег уже завершён.', 'Оберег уже исполнил своё назначение.')
+
+    def test_unfinished_eclipse_still_blocks_flora_siege(self):
+        f = Book()
+        f.values.update(berserk_eclipse_era=1, berserk_flora_stage=1, berserk_flora_siege_state=1,
+                        u_berserk_eclipse_rescue_state=1, u_berserk_apostol_return_state=1)
+        f.overrides['EOC_BERSERK_FLORA_AT_REGISTERED_MANOR'] = True
+        self.assertFalse(f.condition(EOCS['EOC_BERSERK_FLORA_CAN_START_SIEGE']['condition']))
+        f.run('EOC_BERSERK_FLORA_SIEGE_REFUSAL')
+        self.assertTrue(f.messages[-1]['u_message'].startswith('Этот оберег был приготовлен для пережившего Затмение.'))
+
     def test_all_targets_exist_and_no_author_metadata_is_spoken(self):
         for id_,obj in TOPICS.items():
             if not id_.startswith(P):continue

@@ -1760,33 +1760,41 @@
   },
   {
     "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_ECLIPSE_SURVIVOR",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_eclipse_era == 1"
+          ]
+        },
+        {
+          "or": [
+            {
+              "math": [
+                "u_berserk_eclipse_rescue_state == 2"
+              ]
+            },
+            {
+              "math": [
+                "u_berserk_apostol_return_state == 2"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_CAN_START_SIEGE",
     "effect": [],
     "condition": {
       "and": [
         "u_is_avatar",
         {
-          "and": [
-            {
-              "math": [
-                "berserk_eclipse_era == 1"
-              ]
-            },
-            {
-              "or": [
-                {
-                  "math": [
-                    "u_berserk_eclipse_rescue_state == 2"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_apostol_return_state == 2"
-                  ]
-                }
-              ]
-            }
-          ]
+          "test_eoc": "EOC_BERSERK_FLORA_ECLIPSE_SURVIVOR"
         },
         {
           "math": [
@@ -1850,18 +1858,7 @@
         "else": {
           "if": {
             "not": {
-              "and": [
-                {
-                  "math": [
-                    "berserk_eclipse_era == 1"
-                  ]
-                },
-                {
-                  "math": [
-                    "u_berserk_eclipse_rescue_state == 2"
-                  ]
-                }
-              ]
+              "test_eoc": "EOC_BERSERK_FLORA_ECLIPSE_SURVIVOR"
             }
           },
           "then": {
@@ -2258,18 +2255,7 @@
       "else": {
         "if": {
           "not": {
-            "and": [
-              {
-                "math": [
-                  "berserk_eclipse_era == 1"
-                ]
-              },
-              {
-                "math": [
-                  "u_berserk_eclipse_rescue_state == 2"
-                ]
-              }
-            ]
+            "test_eoc": "EOC_BERSERK_FLORA_ECLIPSE_SURVIVOR"
           }
         },
         "then": {
