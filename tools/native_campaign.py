@@ -204,8 +204,7 @@ class Terminal:
 
     def wait(self, label, timeout=20, width=None, dismiss=()):
         until = time.monotonic() + timeout
-        while label not in self.screen_text(width):
-            view = self.screen_text(width)
+        while label not in self.screen_text():
             full_view = self.screen_text()
             if time.monotonic() >= until:
                 raise RuntimeError(f"Timed out waiting for {label!r}:\n{full_view}")
@@ -215,9 +214,10 @@ class Terminal:
                 print(f"CDDA fixture: {fallback} not found; continuing through the native fallback", flush=True)
                 self.send(" ")
                 continue
-            if "DEBUG :" in full_view or "not found in mods folder" in view or "FAIL " in view:
+            if "DEBUG :" in full_view or "not found in mods folder" in full_view or "FAIL " in full_view:
                 raise RuntimeError(f"Missing {label!r}:\n{self.screen_text()}")
-            if any(note in view for note in dismiss):
+            # Keep narrative popups distinct from their copies in the sidebar log.
+            if any(note in self.screen_text(width) for note in dismiss):
                 self.send(" ")
             else:
                 self.drain(.10)
