@@ -3,6 +3,7 @@ name: Validate mod data
 on:
   push:
   pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -21,3 +22,45 @@ jobs:
         run: python tools/package_release.py
       - name: Run current mod regression suite
         run: python -m unittest discover -s tools -p 'test_*.py'
+
+  native:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install terminal harness dependencies
+        run: python -m pip install pexpect==4.9.0 pyte==0.8.2
+      - name: Download and verify CDDA 0.I-1
+        shell: bash
+        run: |
+          curl --fail --location --retry 3 \
+            https://github.com/CleverRaven/Cataclysm-DDA/releases/download/0.I-1/cdda-linux-terminal-only-x64-2026-09-19-2324.tar.gz \
+            --output "$RUNNER_TEMP/cdda.tar.gz"
+          echo "f8d77cc3132c9d5de7e5b9458228593acdbb8554b87cbcbdac841924dc522765  $RUNNER_TEMP/cdda.tar.gz" | sha256sum --check
+          mkdir "$RUNNER_TEMP/cdda"
+          tar -xzf "$RUNNER_TEMP/cdda.tar.gz" -C "$RUNNER_TEMP/cdda"
+          engine="$(find "$RUNNER_TEMP/cdda" -type f -name VERSION.txt -printf '%h\n')"
+          test -x "$engine/cataclysm"
+          echo "CDDA_ENGINE=$engine" >> "$GITHUB_ENV"
+      - name: Check both mods, early Guts, ordinary return, and Flora
+        shell: bash
+        run: python -u tools/native_campaign.py "$CDDA_ENGINE" 2>&1 | tee native-campaign.log
+      - name: Check alternate return in a fresh world
+        shell: bash
+        run: python -u tools/native_campaign.py "$CDDA_ENGINE" --mode alternate 2>&1 | tee native-alternate.log
+      - name: Sample 100 turns in each scene
+        if: github.event_name == 'workflow_dispatch'
+        shell: bash
+        run: |
+          for scene in normal eclipse siege; do
+            python -u tools/native_campaign.py "$CDDA_ENGINE" --mode "$scene" || exit
+          done 2>&1 | tee native-benchmark.log
+      - name: Save native test transcripts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-cdda-0.I-1
+          path: native-*.log
