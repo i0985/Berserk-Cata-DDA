@@ -1,5 +1,7 @@
 # Flora: first conversation and siege readiness (CDDA 0.I-1)
 
+> Historical dialogue test notes. See the [Berserk 3.4 siege walkthrough](early-guts-playtest-3.4.md#флора-осада-и-побег) for current readiness and escape checks.
+
 This changes dialogue initialization, readiness checks and refusal explanations.
 It retains the armor gift, attack timing, two exits, boss spawns and old state IDs.
 No CDDA executable was run; native UI, map updates and save loading await playtests.

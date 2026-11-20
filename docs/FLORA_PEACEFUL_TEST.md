@@ -1,5 +1,7 @@
 # Flora: peaceful manor and split starts — New Horizon 3.0
 
+> Historical 3.0 test notes. See the [Berserk 3.4 walkthrough](early-guts-playtest-3.4.md) for the current starts and route to Flora.
+
 Base revision: `c8765e81140fc28b28406ed495a3d40b2815dc14`.
 Target: **CDDA 0.I-1**. Development branch: `codex/3.0-new-horizon`.
 **No game binary was run.** This iteration implements the peaceful encounter;

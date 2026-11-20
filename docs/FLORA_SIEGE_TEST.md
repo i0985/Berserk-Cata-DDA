@@ -1,5 +1,7 @@
 # Flora's siege and escape — 3.0 test milestone
 
+> Historical 3.0 test notes. See the [Berserk 3.4 siege walkthrough](early-guts-playtest-3.4.md#флора-осада-и-побег) for current playtest steps.
+
 Target: **CDDA 0.I-1**. Branch: `codex/3.0-new-horizon`.
 Parent checkpoint: `a929dbabcf646aa380ecd36fcb17812ea4be9894` (peaceful Flora).
 
