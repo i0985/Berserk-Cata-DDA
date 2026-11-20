@@ -194,9 +194,7 @@
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_COUNT_REGISTER_SEAL",
     "condition": {
-      "math": [
-        "berserk_hunt_count_state == 3"
-      ]
+      "test_eoc": "EOC_BERSERK_COUNT_SEAL_COMMIT"
     },
     "effect": [
       {

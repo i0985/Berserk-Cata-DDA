@@ -247,59 +247,30 @@
   {
     "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA33_QUEUE",
-    "effect": [
-      {
-        "run_eocs": "EOC_BERSERK_FLORA_PREPARE_SIEGE"
+    "effect": {
+      "if": {
+        "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
       },
-      {
-        "if": {
+      "then": [
+        {
+          "run_eocs": "EOC_BERSERK_FLORA_PREPARE_SIEGE"
+        },
+        {
           "math": [
-            "berserk_flora_siege_state == 1"
+            "u_berserk_flora33_queued = 1"
           ]
         },
-        "then": [
-          {
-            "math": [
-              "u_berserk_flora33_queued = 1"
-            ]
-          },
-          {
-            "math": [
-              "u_berserk_flora33_due = time('now') + 3"
-            ]
-          }
-        ]
-      }
-    ],
-    "condition": {
-      "and": [
-        "u_is_avatar",
         {
-          "not": {
-            "math": [
-              "u_berserk_flora33_queued == 1"
-            ]
-          }
-        },
-        {
-          "test_eoc": "EOC_BERSERK_FLORA33_LATE"
-        },
-        {
-          "and": [
-            {
-              "math": [
-                "berserk_flora_stage <= 1"
-              ]
-            },
-            {
-              "math": [
-                "berserk_flora_siege_state <= 1"
-              ]
-            }
+          "math": [
+            "u_berserk_flora33_due = time('now') + 3"
           ]
         }
-      ]
-    }
+      ],
+      "else": {
+        "run_eocs": "EOC_BERSERK_FLORA_PREPARATION_REFUSAL"
+      }
+    },
+    "condition": "u_is_avatar"
   },
   {
     "type": "effect_on_condition",

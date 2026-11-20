@@ -1296,28 +1296,7 @@
         "condition": {
           "and": [
             {
-              "test_eoc": "EOC_BERSERK_FLORA33_LATE"
-            },
-            {
-              "and": [
-                {
-                  "math": [
-                    "berserk_flora_stage <= 1"
-                  ]
-                },
-                {
-                  "math": [
-                    "berserk_flora_siege_state <= 1"
-                  ]
-                }
-              ]
-            },
-            {
-              "not": {
-                "math": [
-                  "u_berserk_flora33_queued == 1"
-                ]
-              }
+              "test_eoc": "EOC_BERSERK_FLORA_CAN_PREPARE_SIEGE"
             },
             {
               "or": [

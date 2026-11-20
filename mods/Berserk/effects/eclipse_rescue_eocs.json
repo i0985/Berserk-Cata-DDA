@@ -7,6 +7,16 @@
     "condition": {
       "and": [
         {
+          "math": [
+            "u_berserk_eclipse_trial_active == 1"
+          ]
+        },
+        {
+          "math": [
+            "u_berserk_eclipse_rescue_state == 0"
+          ]
+        },
+        {
           "or": [
             {
               "u_at_om_location": "berserk_eclipse_dungeon_altar"
@@ -60,16 +70,6 @@
                 }
               ]
             }
-          ]
-        },
-        {
-          "math": [
-            "u_berserk_eclipse_trial_active == 1"
-          ]
-        },
-        {
-          "math": [
-            "u_berserk_eclipse_rescue_state == 0"
           ]
         },
         {

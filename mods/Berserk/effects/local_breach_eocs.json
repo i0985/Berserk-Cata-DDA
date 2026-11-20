@@ -398,7 +398,19 @@
       {
         "run_eocs": "EOC_BERSERK_REF_SYNC"
       }
-    ]
+    ],
+    "false_effect": {
+      "if": {
+        "math": [
+          "u_berserk_breach_sealed != 1"
+        ]
+      },
+      "then": {
+        "u_message": "The seal did not take hold. Step away from its center and examine it again; no completion or reward was recorded.",
+        "type": "warning",
+        "popup": true
+      }
+    }
   },
   {
     "type": "effect_on_condition",

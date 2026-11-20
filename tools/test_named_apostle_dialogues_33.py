@@ -116,6 +116,45 @@ class Contract(Book):
     def died(self):self.values['berserk_hunt_count_state' if self.k=='COUNT' else 'berserk_apostle_'+self.k.lower()+'_dead']=3 if self.k=='COUNT' else 1
 
 class NamedApostles(unittest.TestCase):
+    def test_grove_scan_starts_with_siege_and_can_record_a_survivor_after_escape(self):
+        for siege_stage in (0, 1, 2, 5):
+            with self.subTest(siege_stage=siege_stage):
+                f = Contract()
+                f.monsters = [monster('mon_berserk_flora_grunbeld')]
+                f.values['berserk_flora_siege_state'] = siege_stage
+                f.run(E + 'GROVE_LOOK')
+                self.assertEqual(f.values.get('u_berserk_contract33_siege_witness', 0),
+                                 int(siege_stage >= 2))
+
+    def test_action_text_and_contract_state_agree_when_accepting_or_cancelling(self):
+        for master in STEMS:
+            with self.subTest(master=master):
+                f = Contract(master)
+                f.begin()
+                decision, accepted = f.topic('DECISION'), f.topic('ACCEPTED')
+                action = next(r for r in TOPICS[decision]['responses'] if r['topic'] == accepted)
+                text = TOPICS[accepted]['dynamic_line']
+                self.assertIn(accepted, f.targets('DECISION'))
+                f.confirm = False
+                f.pick('DECISION', 'ACCEPTED')
+                self.assertEqual(f.line(accepted, 'en'), text['no'])
+                self.assertIn(accepted, f.targets('DECISION'))
+                self.assertNotIn('u_berserk_pact_resolved_' + master.lower(), f.values)
+                f.confirm = True
+                pending = EOCS[E + master + '_PENDING']['condition']['and']
+                preparing = next(c['not']['npc_has_effect'] for c in pending
+                                 if isinstance(c, dict) and 'npc_has_effect' in c.get('not', {}))
+                f.beta['effects'].add(preparing)
+                self.assertNotIn(accepted, f.targets('DECISION'))
+                f.effect(action['effect'])
+                self.assertEqual(f.line(accepted, 'en'), text['no'])
+                self.assertFalse(f.traits)
+                f.beta['effects'].remove(preparing)
+                f.pick('DECISION', 'ACCEPTED')
+                self.assertEqual(f.line(accepted, 'en'), text['yes'])
+                self.assertNotIn(accepted, f.targets('DECISION'))
+                self.assertEqual(f.values['u_berserk_pact_resolved_' + master.lower()], 1)
+
     def test_all_four_accept_immediately_only_once_and_keep_body_on_reload(self):
         for k in STEMS:
             f=Contract(k);f.accept()

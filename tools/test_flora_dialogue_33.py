@@ -91,6 +91,22 @@ class FloraDialogue(unittest.TestCase):
         actions=[r for r in f.available('TALK_BERSERK_FLORA') if r.get('effect')==[{'run_eocs':E+'QUEUE'}]]
         self.assertEqual(len(actions),1);f.effect(actions[0]['effect'])
         self.assertEqual(f.values['u_berserk_flora33_queued'],1)
+    def test_stale_ready_action_outside_the_grove_cannot_queue_an_attack(self):
+        f = Flora()
+        f.full_armor = True
+        f.values['berserk_flora_siege_state'] = 1
+        f.overrides['EOC_BERSERK_FLORA_KNOWN_MANOR_VALID'] = True
+        reply = {'run_eocs': E + 'QUEUE'}
+        f.overrides['EOC_BERSERK_FLORA_AT_REGISTERED_MANOR'] = False
+        self.assertFalse(any(r.get('effect') == [reply] for r in f.available('TALK_BERSERK_FLORA')))
+        f.effect(reply)
+        self.assertEqual(f.values.get('u_berserk_flora33_queued', 0), 0)
+        self.assertTrue(f.messages[-1]['u_message'].startswith('Вернитесь к Флоре в отмеченную рощу'))
+        f.overrides['EOC_BERSERK_FLORA_AT_REGISTERED_MANOR'] = True
+        self.assertTrue(any(r.get('effect') == [reply] for r in f.available('TALK_BERSERK_FLORA')))
+        f.effect(reply)
+        self.assertEqual(f.values['u_berserk_flora33_due'], f.now + 3)
+
     def test_demon_notice_has_three_answers_and_armor_is_forbidden(self):
         f=Flora();f.values.update(u_berserk_apostol_path=1,u_berserk_apostol_human_equipment_locked=1)
         f.traits.add('BERSERK_SLAN_FORM')  # Visible truth; hidden gifts now have a LIE trial.
