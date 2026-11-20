@@ -30,10 +30,27 @@ class Siege(Book):
         super().__init__()
         self.values["berserk_flora_location"] = (0, 0, 0)
         self.escorts = Counter()
+        self.map_updates = []
+
+    def value(self, expression):
+        return super().value(expression.replace("time('5 seconds')", "5"))
+
+    def run(self, id_):
+        if id_ in {
+            "EOC_BERSERK_GRUNBELD_WITHDRAW_GROVE",
+            "EOC_BERSERK_HUNT_GIVE_JOURNAL",
+            "EOC_BERSERK_MISSIONS_SYNC",
+            "EOC_BERSERK_NOV02_GRUNBELD_AFTER_ESCAPE",
+            "EOC_BERSERK_CAMPAIGN_POST_FIRE",
+        }:
+            return  # These campaign events do not drive the fire or the siege waves.
+        super().run(id_)
 
     def effect(self, action):
         if isinstance(action, dict) and "u_spawn_monster" in action:
             self.escorts[action["u_spawn_monster"]] += 1
+        elif isinstance(action, dict) and "mapgen_update" in action:
+            self.map_updates.append(action["mapgen_update"])
         elif isinstance(action, dict) and "location_variable_adjust" in action:
             pass  # The authored spawn cells are static offsets from the manor.
         else:
@@ -142,6 +159,54 @@ class CampaignBalanceTests(unittest.TestCase):
         legacy.run(initial)
         legacy.run(next_wave)
         self.assertFalse(legacy.escorts)
+
+    def test_siege_fire_continues_after_escape_without_new_enemies(self):
+        tick = "EOC_BERSERK_FLORA_SIEGE_TICK"
+        for escape_at in (29, 40):
+            for reload in (False, True):
+                with self.subTest(escape_at=escape_at, reload=reload):
+                    siege = Siege()
+                    started = siege.now
+                    siege.values.update(
+                        berserk_flora_siege_started=started,
+                        berserk_flora_siege_state=2,
+                        berserk_flora_siege_v2=1,
+                        berserk_flora_fire_phase=1,
+                        berserk_flora_center=(0, 0, 0),
+                        berserk_flora_treehouse_layout=4,
+                    )
+                    if escape_at == 40:
+                        siege.now = started + 30
+                        siege.run(tick)
+                        self.assertEqual(siege.values["berserk_flora_siege_state"], 3)
+                        self.assertEqual(siege.escorts.total(), 5)
+                    before_escape = siege.escorts.copy()
+                    siege.now = started + escape_at
+                    siege.pos = (33, 0, 0)
+                    siege.run(tick)
+                    self.assertEqual(siege.values["berserk_flora_siege_state"], 5)
+                    self.assertEqual(siege.values["u_berserk_flora_escaped"], 1)
+                    self.assertEqual(siege.escorts, before_escape)
+                    map_updates = siege.map_updates.copy()
+                    if reload:
+                        saved_values = siege.values.copy()
+                        siege = Siege()
+                        siege.values.update(saved_values)
+                    # A return to the manor must not restart the finished siege.
+                    siege.pos = (0, 0, 0)
+                    for elapsed, phase in ((41, 2), (50, 2), (90, 3), (600, 4)):
+                        siege.now = started + elapsed
+                        siege.run(tick)
+                        self.assertEqual(siege.values["berserk_flora_fire_phase"], phase)
+                        self.assertEqual(siege.values["berserk_flora_siege_state"], 5)
+                    if reload:
+                        self.assertFalse(siege.escorts)
+                        map_updates.extend(siege.map_updates)
+                    else:
+                        self.assertEqual(siege.escorts, before_escape)
+                        map_updates = siege.map_updates
+                    self.assertEqual(map_updates.count("berserk_flora_treehouse_v4_assault_west"), 1)
+                    self.assertEqual(map_updates.count("berserk_flora_treehouse_v4_collapse_east"), 1)
 
     def test_screen_can_physically_close_both_routes_to_cover(self):
         palettes = {p["id"]: p["terrain"] for path in ("eclipse_palettes", "z_apostol_palette")

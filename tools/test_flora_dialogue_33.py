@@ -37,7 +37,7 @@ class Flora(Book):
             if self.condition(EOCS['EOC_BERSERK_FLORA_CAN_START_SIEGE']['condition']):
                 self.values.update(berserk_flora_siege_state=2,berserk_flora_stage=2,u_berserk_ref_flora_attack=1)
             return
-        if id_=='EOC_BERSERK_FLORA_APOSTLES_ARRIVE':self.fires+=1;self.values['berserk_flora_fire_phase']=2;return
+        if id_=='EOC_BERSERK_FLORA_FIRE_SPREAD':self.fires+=1;self.values['berserk_flora_fire_phase']=2;return
         return super().run(id_)
     def text(self,s):return self.line(tid(s))
     def targets(self,s):return [r['topic'] for r in self.available(tid(s))]

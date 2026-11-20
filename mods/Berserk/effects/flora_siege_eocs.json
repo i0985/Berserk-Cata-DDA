@@ -952,6 +952,25 @@
   },
   {
     "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_SIEGE_ACTIVE",
+    "effect": [],
+    "condition": {
+      "and": [
+        {
+          "math": [
+            "berserk_flora_siege_state >= 2"
+          ]
+        },
+        {
+          "math": [
+            "berserk_flora_siege_state <= 4"
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
     "id": "EOC_BERSERK_FLORA_SPAWN_ZODD",
     "effect": {
       "if": {
@@ -994,6 +1013,9 @@
     },
     "condition": {
       "and": [
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_SIEGE_ACTIVE"
+        },
         {
           "math": [
             "berserk_apostle_zodd_dead != 1"
@@ -1045,6 +1067,9 @@
     "condition": {
       "and": [
         {
+          "test_eoc": "EOC_BERSERK_FLORA_SIEGE_ACTIVE"
+        },
+        {
           "math": [
             "berserk_apostle_grunbeld_dead != 1"
           ]
@@ -1084,11 +1109,6 @@
         }
       },
       {
-        "math": [
-          "berserk_flora_fire_phase = 2"
-        ]
-      },
-      {
         "run_eocs": "EOC_BERSERK_FLORA_SPAWN_ZODD"
       },
       {
@@ -1096,9 +1116,6 @@
       },
       {
         "run_eocs": "EOC_BERSERK_FLORA_SPAWN_ESCORT"
-      },
-      {
-        "run_eocs": "EOC_BERSERK_FLORA_TREEHOUSE_ASSAULT"
       },
       {
         "u_message": "Wood cracks outside. Demons move between the trunks through the smoke.",
@@ -1109,15 +1126,35 @@
     "condition": {
       "and": [
         {
-          "math": [
-            "berserk_flora_siege_state >= 2"
-          ]
+          "test_eoc": "EOC_BERSERK_FLORA_SIEGE_ACTIVE"
         },
         {
           "math": [
             "berserk_flora_fire_phase == 1"
           ]
         }
+      ]
+    }
+  },
+  {
+    "type": "effect_on_condition",
+    "id": "EOC_BERSERK_FLORA_FIRE_SPREAD",
+    "effect": [
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_APOSTLES_ARRIVE"
+      },
+      {
+        "math": [
+          "berserk_flora_fire_phase = 2"
+        ]
+      },
+      {
+        "run_eocs": "EOC_BERSERK_FLORA_TREEHOUSE_ASSAULT"
+      }
+    ],
+    "condition": {
+      "math": [
+        "berserk_flora_fire_phase == 1"
       ]
     }
   },
@@ -1276,7 +1313,7 @@
           ]
         },
         "then": {
-          "run_eocs": "EOC_BERSERK_FLORA_APOSTLES_ARRIVE"
+          "run_eocs": "EOC_BERSERK_FLORA_FIRE_SPREAD"
         }
       },
       {
@@ -1369,18 +1406,7 @@
     "condition": {
       "or": [
         {
-          "and": [
-            {
-              "math": [
-                "berserk_flora_siege_state >= 2"
-              ]
-            },
-            {
-              "math": [
-                "berserk_flora_siege_state <= 4"
-              ]
-            }
-          ]
+          "test_eoc": "EOC_BERSERK_FLORA_SIEGE_ACTIVE"
         },
         {
           "and": [
@@ -2300,6 +2326,9 @@
     "id": "EOC_BERSERK_FLORA_SPAWN_ESCORT",
     "condition": {
       "and": [
+        {
+          "test_eoc": "EOC_BERSERK_FLORA_SIEGE_ACTIVE"
+        },
         {
           "math": [
             "has_var(berserk_flora_location)"
